@@ -202,7 +202,7 @@ describe("UnsavedFormController", () => {
   });
 
   it("marks the form dirty when a control outside of it adds content", () => {
-    document.querySelector(".add-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    document.querySelector("#add-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
@@ -215,7 +215,7 @@ describe("UnsavedFormController", () => {
       event.stopPropagation();
     });
 
-    form.querySelector(".remove-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    form.querySelector("#remove-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
@@ -228,22 +228,34 @@ describe("UnsavedFormController", () => {
     expectUnloadPrompt(false);
   });
 
+  it("does not mark the form dirty for controls with a legacy structure class", () => {
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      '<button type="button" class="add-question">Add question</button>'
+    );
+
+    document.querySelector(".add-question").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
+  });
+
   it("does not mark the form dirty when a control of another form is clicked", () => {
-    document.querySelector("#other-form .add-response-option").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    document.querySelector("#other-form #add-response-option").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     expect(controller.dirty).toBe(false);
     expectUnloadPrompt(false);
   });
 
   it("marks the form dirty when a control outside of it is associated through a form attribute", () => {
-    document.querySelector(".add-display-condition").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    document.querySelector("#add-display-condition").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     expect(controller.dirty).toBe(true);
     expectUnloadPrompt(true);
   });
 
   it("does not mark the form dirty when a control outside of it is associated to another form", () => {
-    document.querySelector("[form=\"other-form\"].add-separator").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    document.querySelector("#add-separator").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 
     expect(controller.dirty).toBe(false);
     expectUnloadPrompt(false);
