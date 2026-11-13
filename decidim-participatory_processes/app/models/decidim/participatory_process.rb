@@ -50,12 +50,6 @@ module Decidim
             class_name: "Decidim::ParticipatoryProcessPhase",
             dependent: :destroy,
             inverse_of: :participatory_process
-    has_one :active_step,
-            -> { where(active: true) },
-            foreign_key: "decidim_participatory_process_id",
-            class_name: "Decidim::ParticipatoryProcessPhase",
-            dependent: :destroy,
-            inverse_of: :participatory_process
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",
@@ -231,7 +225,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(participatory_process_group taxonomies active_phase active_step)
+      %w(participatory_process_group taxonomies active_phase)
     end
   end
 end
