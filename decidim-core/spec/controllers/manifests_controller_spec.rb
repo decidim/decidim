@@ -55,7 +55,7 @@ module Decidim
           expect(response).to be_successful
 
           # this is already json, so we cannot use parsed_body
-          manifest = JSON.parse(response.body) # rubocop:disable Rails/ResponseParsedBody
+          manifest = JSON.parse(response.body)
           expect(manifest["name"]).to eq('Organization "with quotes"')
           expect(manifest["short_name"]).to eq('Org "quotes"')
           expect(manifest["description"]).to eq('A "quoted" description')
