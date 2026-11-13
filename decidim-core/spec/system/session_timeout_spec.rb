@@ -22,6 +22,29 @@ describe "Session timeout" do
       expect(page).to have_text("You were inactive for too long", wait: 4)
     end
 
+    it "timeouts if the user idles for too long with unsaved changes in a form" do
+      visit decidim.account_path
+      # Set the value with JavaScript to avoid the native beforeunload prompt,
+      # which cannot be handled reliably by the browser driver. The input event
+      # marks the form as dirty, as a user edit would.
+      page.execute_script(<<~JS)
+        const input = document.querySelector("#user_name");
+        input.value = "Unsaved changes";
+        input.dispatchEvent(new Event("input", { bubbles: true }));
+      JS
+
+      expect(page.evaluate_script(<<~JS)).to be(true)
+        (() => {
+          const event = new Event("beforeunload", { cancelable: true });
+          window.dispatchEvent(event);
+          return event.defaultPrevented;
+        })()
+      JS
+
+      travel 1.minute
+      expect(page).to have_css("#session_new_user")
+    end
+
     it "does not timeout when user is active in another window" do
       win1 = current_window
       visit decidim.root_path
