@@ -21,6 +21,12 @@ module Decidim
         expect(subject.question).to eq(question)
       end
 
+      it "uses the question's response_options association as the inverse" do
+        subject.save!
+
+        expect(question.response_options.first.question).to be(question)
+      end
+
       describe "#translated_body" do
         it "returns the translated body of the response option" do
           expect(subject.translated_body).to eq(subject.body["en"])

@@ -7,8 +7,8 @@ module Decidim
       include Decidim::DownloadYourData
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id", optional: true
-      belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id"
-      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
+      belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id", inverse_of: :responses
+      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id", inverse_of: :responses
 
       has_many :choices,
                class_name: "ResponseChoice",

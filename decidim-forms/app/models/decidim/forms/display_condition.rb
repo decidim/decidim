@@ -27,7 +27,7 @@ module Decidim
                  counter_cache: :display_conditions_for_other_questions_count
 
       # Response option provided to check for "equal" or "not_equal" (optional)
-      belongs_to :response_option, class_name: "ResponseOption", foreign_key: "decidim_response_option_id", optional: true
+      belongs_to :response_option, class_name: "ResponseOption", foreign_key: "decidim_response_option_id", optional: true, inverse_of: :display_conditions
 
       def fulfilled?(response_form)
         return response_form.present? if condition_type == "responded"

@@ -7,7 +7,7 @@ module Decidim
       include Decidim::TranslatableResource
 
       translatable_fields :title, :description
-      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
+      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting", inverse_of: :services
     end
   end
 end

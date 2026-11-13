@@ -25,6 +25,10 @@ module Decidim
         expect(comment_vote.comment).to be_a(Decidim::Comments::Comment)
       end
 
+      it "uses the comment_votes association as the inverse of the comment" do
+        expect(comment.comment_votes.first.comment).to be(comment)
+      end
+
       it "validates uniqueness for author and comment combination" do
         expect do
           create(:comment_vote, comment:, author:)

@@ -12,6 +12,12 @@ module Decidim::Meetings
 
     it { is_expected.to be_valid }
 
+    it "uses the meeting's registrations association as the inverse" do
+      registration.save!
+
+      expect(registration.meeting.registrations.first.meeting).to be(registration.meeting)
+    end
+
     context "when a registration already exists for the same user and meeting" do
       before do
         create(:registration, meeting:, user:)

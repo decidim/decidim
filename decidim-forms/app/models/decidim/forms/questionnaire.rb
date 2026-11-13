@@ -12,8 +12,8 @@ module Decidim
       translatable_fields :title, :description, :tos
       belongs_to :questionnaire_for, polymorphic: true
 
-      has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
-      has_many :responses, class_name: "Response", foreign_key: "decidim_questionnaire_id", dependent: :destroy
+      has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy, inverse_of: :questionnaire
+      has_many :responses, class_name: "Response", foreign_key: "decidim_questionnaire_id", dependent: :destroy, inverse_of: :questionnaire
 
       after_initialize :set_default_salt
 

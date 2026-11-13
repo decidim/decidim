@@ -33,6 +33,10 @@ module Decidim
         expect(Decidim::Meetings::AgendaItem.last.agenda).to be_a(Decidim::Meetings::Agenda)
       end
 
+      it "uses the agenda's agenda_items association as the inverse" do
+        expect(agenda_item.agenda.agenda_items.first.agenda).to be(agenda_item.agenda)
+      end
+
       describe ".first_class" do
         let(:parent) { create(:agenda_item) }
         let(:child) { create(:agenda_item, parent:) }

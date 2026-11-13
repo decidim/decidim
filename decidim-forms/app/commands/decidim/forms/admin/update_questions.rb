@@ -6,6 +6,10 @@ module Decidim
       # This command is executed when the user changes a Questionnaire questions from the admin
       # panel.
       class UpdateQuestions < Decidim::Command
+        # The message is shown through the flash, which renders its value as HTML,
+        # so the record name coming from user content has to be escaped.
+        include Decidim::SanitizeHelper
+
         # Initializes a UpdateQuestions Command.
         #
         # form - The form from which to get the data.
@@ -30,6 +34,11 @@ module Decidim
           end
 
           broadcast(:ok)
+        rescue ActiveRecord::RecordNotDestroyed => e
+          # Recorded answers are never deleted along with the option or the row, so the
+          # removal can be refused. Report the reason instead of letting the exception
+          # reach the controller, which would render a server error.
+          broadcast(:invalid, e.record ? removal_error_message(e.record) : e.message)
         end
 
         private
@@ -91,17 +100,30 @@ module Decidim
         def update_nested_model(form, attributes, parent_association)
           record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
 
+          # A persisted record that is being removed takes its children with it through the
+          # dependent associations: a question destroys its responses first, and with them
+          # the recorded choices. Processing the nested form entries for it would try to
+          # remove the children one by one, which is refused while the answers exist, so the
+          # removal is done here and the nested entries are skipped.
+          if record.persisted? && form.deleted?
+            record.destroy!
+            return
+          end
+
           yield record if block_given?
 
           if record.persisted?
-            if form.deleted?
-              record.destroy!
-            else
-              record.update!(attributes)
-            end
+            record.update!(attributes)
           else
             record.save!
           end
+        end
+
+        def removal_error_message(record)
+          I18n.t(
+            "decidim.forms.admin.questionnaires.errors.cannot_remove_with_answers",
+            name: decidim_html_escape(translated_attribute(record.try(:body)))
+          )
         end
       end
     end

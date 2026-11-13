@@ -35,11 +35,11 @@ module Decidim
 
       translatable_fields :title, :description, :location, :location_hints, :closing_report, :registration_terms
 
-      has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
-      has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy
-      has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy
-      has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy
-      has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy
+      has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy, inverse_of: :meeting
+      has_many :invites, class_name: "Decidim::Meetings::Invite", foreign_key: "decidim_meeting_id", dependent: :destroy, inverse_of: :meeting
+      has_many :services, class_name: "Decidim::Meetings::Service", foreign_key: "decidim_meeting_id", dependent: :destroy, inverse_of: :meeting
+      has_one :agenda, class_name: "Decidim::Meetings::Agenda", foreign_key: "decidim_meeting_id", dependent: :destroy, inverse_of: :meeting
+      has_one :poll, class_name: "Decidim::Meetings::Poll", foreign_key: "decidim_meeting_id", dependent: :destroy, inverse_of: :meeting
       has_many(
         :public_participants,
         -> { merge(Registration.public_participant) },
@@ -48,7 +48,7 @@ module Decidim
         foreign_key: :decidim_user_id,
         source: :user
       )
-      has_many :meeting_links, dependent: :destroy, class_name: "Decidim::Meetings::MeetingLink", foreign_key: "decidim_meeting_id"
+      has_many :meeting_links, dependent: :destroy, class_name: "Decidim::Meetings::MeetingLink", foreign_key: "decidim_meeting_id", inverse_of: :meeting
       has_many :components, through: :meeting_links, class_name: "Decidim::Component", foreign_key: "decidim_component_id"
 
       enum :iframe_access_level, [:all, :signed_in, :registered], prefix: true

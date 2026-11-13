@@ -24,6 +24,12 @@ module Decidim
       it "has an associated proposal" do
         expect(proposal_note.proposal).to be_a(Decidim::Proposals::Proposal)
       end
+
+      it "uses the proposal's notes association as the inverse" do
+        proposal_note.save!
+
+        expect(proposal.notes.first.proposal).to be(proposal)
+      end
     end
   end
 end

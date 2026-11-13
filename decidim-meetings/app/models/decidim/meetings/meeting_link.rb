@@ -5,7 +5,7 @@ module Decidim
     class MeetingLink < Meetings::ApplicationRecord
       include Decidim::HasComponent
 
-      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
+      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting", inverse_of: :meeting_links
       belongs_to :component, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
 
       # Finds all the meetings linked to the given component

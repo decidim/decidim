@@ -7,7 +7,7 @@ module Decidim
     class CommentVote < ApplicationRecord
       include Decidim::DownloadYourData
 
-      belongs_to :comment, foreign_key: "decidim_comment_id", class_name: "Comment"
+      belongs_to :comment, foreign_key: "decidim_comment_id", class_name: "Comment", inverse_of: :comment_votes
       belongs_to :author, foreign_key: "decidim_author_id", foreign_type: "decidim_author_type", polymorphic: true
 
       validates :comment, uniqueness: { scope: :author }
