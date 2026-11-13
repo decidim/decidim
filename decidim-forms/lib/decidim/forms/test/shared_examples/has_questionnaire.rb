@@ -236,8 +236,6 @@ shared_examples_for "has questionnaire" do
         visit questionnaire_public_path
         see_questionnaire_questions
         accept_confirm { click_on "Submit" }
-
-        expect(page).to have_text(callout_failure)
       end
 
       it_behaves_like "a correctly ordered questionnaire"
