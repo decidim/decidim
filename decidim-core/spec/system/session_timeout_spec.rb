@@ -42,6 +42,15 @@ describe "Session timeout" do
       JS
 
       travel 1.minute
+
+      # ChromeDriver can keep the timeout sign-out navigation pending until the
+      # next script command, so poll the URL to let the navigation settle.
+      20.times do
+        break if page.evaluate_script("window.location.pathname").to_s.include?("/users/sign_in")
+
+        sleep 0.5
+      end
+
       expect(page).to have_css("#session_new_user")
     end
 
