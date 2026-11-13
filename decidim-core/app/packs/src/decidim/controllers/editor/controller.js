@@ -36,12 +36,27 @@ export default class extends Controller {
   }
 
   reveal() {
-    this.initializeEditor();
+    return this.initializeEditor();
   }
 
   initializeEditor() {
-    if (this.editor || this.isDisabled()) {
-      return;
+    if (this.editor) {
+      return this.editor;
+    }
+
+    // The editor may have been initialized before this controller connected
+    // (for instance, when the element has been restored from a cache). Reuse
+    // the existing instance instead of creating a duplicate.
+    const existingEditor = this.element.querySelector(".ProseMirror")?.editor;
+    if (existingEditor) {
+      this.editor = existingEditor;
+      this.element.dataset.editorInitialized = "true";
+      this.toggleElements();
+      return this.editor;
+    }
+
+    if (this.isDisabled()) {
+      return null;
     }
 
     this.observer?.disconnect();
@@ -51,6 +66,8 @@ export default class extends Controller {
     this.element.dispatchEvent(
       new CustomEvent("editor:initialized", { bubbles: true, detail: { editor: this.editor } })
     );
+
+    return this.editor;
   }
 
   toggleElements() {

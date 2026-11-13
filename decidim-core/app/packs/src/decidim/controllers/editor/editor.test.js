@@ -75,4 +75,36 @@ describe("EditorController", () => {
 
     expect(document.querySelector(".ProseMirror")).not.toBeNull();
   });
+
+  it("reuses an editor initialized before the controller connected", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden>
+            <div class="ProseMirror">Existing content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const existingEditor = { commands: { setContent: jest.fn() } };
+    document.querySelector(".ProseMirror").editor = existingEditor;
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    expect(controller.reveal()).toBe(existingEditor);
+    expect(container.querySelectorAll(".ProseMirror")).toHaveLength(1);
+    expect(container.dataset.editorInitialized).toBe("true");
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+  });
 });
