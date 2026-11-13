@@ -27,7 +27,7 @@ describe "show" do
       end
     end
 
-    context "with the step's settings" do
+    context "with the phase's settings" do
       before do
         component.update!(
           phase_settings: {
