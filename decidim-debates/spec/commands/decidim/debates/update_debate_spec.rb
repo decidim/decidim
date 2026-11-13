@@ -210,6 +210,16 @@ describe Decidim::Debates::UpdateDebate do
       expect(debate.attachments.count).to eq(3)
       expect(debate.attachments.map(&:weight)).to eq([1, 2, 3])
     end
+
+    context "when updating an existing attachment title" do
+      let(:uploaded_files) { [{ id: attachment1.id, title: "Updated title" }] }
+
+      it "updates the title" do
+        subject.call
+
+        expect(attachment1.reload.title["en"]).to eq("Updated title")
+      end
+    end
   end
 
   describe "when ActiveRecord::RecordInvalid is raised" do

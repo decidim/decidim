@@ -12,6 +12,7 @@ module Decidim
 
       def call
         Decidim::Pages::Page.transaction do
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- old_component is provided by the scoped component duplication flow
           pages = Decidim::Pages::Page.where(component: @context[:old_component])
           pages.each do |page|
             new_page = Decidim::Pages::Page.create!(component: @context[:new_component], body: page.body)

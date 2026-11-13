@@ -10,6 +10,7 @@ module Decidim
       end
 
       def call
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- component is provided by the component lifecycle hook
         Page.where(component: @component).destroy_all
         broadcast(:ok)
       end
