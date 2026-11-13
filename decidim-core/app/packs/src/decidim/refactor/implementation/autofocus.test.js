@@ -110,6 +110,54 @@ describe("autofocus", () => {
     });
   });
 
+  describe("when the ProseMirror editor is loaded lazily", () => {
+    it("initializes the editor and focuses it once it is ready", () => {
+      const container = document.createElement("div");
+      const editor = document.createElement("div");
+      editor.className = "editor";
+      const editorContainer = document.createElement("div");
+      editorContainer.className = "editor-container";
+      let prosemirror = null;
+      let focusSpy = null;
+
+      editorContainer.addEventListener("editor:reveal", () => {
+        prosemirror = document.createElement("div");
+        prosemirror.className = "ProseMirror";
+        focusSpy = jest.spyOn(prosemirror, "focus");
+        editorContainer.dataset.editorInitialized = "true";
+        editorContainer.appendChild(prosemirror);
+        editorContainer.dispatchEvent(new CustomEvent("editor:initialized", { bubbles: true }));
+      });
+
+      editor.appendChild(editorContainer);
+      container.appendChild(editor);
+      document.body.appendChild(container);
+
+      autofocus(container);
+
+      expect(prosemirror).not.toBeNull();
+      expect(focusSpy).toHaveBeenCalled();
+      focusSpy.mockRestore();
+
+      container.remove();
+    });
+
+    it("does not throw when the lazy editor is never initialized", () => {
+      const container = document.createElement("div");
+      const editor = document.createElement("div");
+      editor.className = "editor";
+      const editorContainer = document.createElement("div");
+      editorContainer.className = "editor-container";
+      editor.appendChild(editorContainer);
+      container.appendChild(editor);
+      document.body.appendChild(container);
+
+      expect(() => autofocus(container)).not.toThrow();
+
+      container.remove();
+    });
+  });
+
   describe("when no focusable element is present", () => {
     it("does nothing and does not throw", () => {
       const container = document.createElement("div");
