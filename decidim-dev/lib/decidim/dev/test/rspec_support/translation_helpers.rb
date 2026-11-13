@@ -123,7 +123,7 @@ module TranslationHelpers
         );
       SCRIPT
 
-      raise Capybara::ExpectationNotMet, "Editor not initialized: #{selector}" unless page.has_css?(selector, wait: 0)
+      raise Capybara::ExpectationNotMet, "Editor not initialized: #{selector}" unless page.has_css?(selector, wait: 0, visible: :all)
     end
   end
 
