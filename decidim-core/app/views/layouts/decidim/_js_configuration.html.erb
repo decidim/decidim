@@ -73,7 +73,7 @@
         singularAn: "<%= I18n.t("decidim.local_time.singular_an") %>",
 
         // Format i18n key values to match local_time key structure
-        elapsed: "<%= I18n.t("datetime.relative.past").gsub("%{time}", "{time}") %>",
+        elapsed: "<%= I18n.t("decidim.activity.time_ago", time: "{time}") %>",
 
         second:  "<%= I18n.t("datetime.distance_in_words.x_seconds.one", count: 1).sub(/\A1\s*/u, "") %>",
         seconds: "<%= I18n.t("datetime.distance_in_words.x_seconds.other", count: "%{count}").gsub("%{count}", "").strip %>",
