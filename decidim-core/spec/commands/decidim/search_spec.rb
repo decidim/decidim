@@ -350,7 +350,6 @@ describe Decidim::Search do
     end
   end
 
-<<<<<<< HEAD
   describe "comments filtering" do
     let(:term) { "My Custom meeting" }
     let(:participatory_process) { create(:participatory_process, :active, organization: current_organization) }
@@ -568,7 +567,8 @@ describe Decidim::Search do
         end
       end
     end
-    # rubocop:enable RSpec/VariableNumber
+  end
+  # rubocop:enable RSpec/VariableNumber
 
   describe "when results include uncommentable resources" do
     let(:term) { "king nothing" }
@@ -580,11 +580,11 @@ describe Decidim::Search do
       # Comments can only be created while comments are enabled, so the component is
       # disabled afterwards. The uncommentable comment is the most recent one, so it
       # would fall on the first page.
-      create(:comment, commentable: create(:dummy_resource, component: uncommentable_component), body: term, created_at: 1.hour.ago)
+      create(:comment, commentable: create(:dummy_resource, :published, component: uncommentable_component), body: term, created_at: 1.hour.ago)
     end
 
     before do
-      4.times { |i| create(:comment, commentable: create(:dummy_resource, component:), body: term, created_at: (i + 2).hours.ago) }
+      4.times { |i| create(:comment, commentable: create(:dummy_resource, :published, component:), body: term, created_at: (i + 2).hours.ago) }
       uncommentable_component.update!(settings: { comments_enabled: false })
     end
 
