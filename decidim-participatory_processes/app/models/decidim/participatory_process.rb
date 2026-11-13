@@ -119,7 +119,7 @@ module Decidim
                       index_on_update: ->(process) { process.visible? })
 
     def self.searchable_arguments
-      [:organization, :active_step]
+      [:organization, :active_phase]
     end
 
     # Scope to return only the promoted processes.
