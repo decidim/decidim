@@ -19,7 +19,7 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
     assign_tokens_to_registered_participants
     report_ambiguous_groups
 
-    questionnaire_ids_to_backfill.each_slice(100) do |ids|
+    Questionnaire.order(:id).pluck(:id).each_slice(100) do |ids|
       say_with_time "Backfilling submissions for questionnaires #{ids.first}..#{ids.last}" do
         Submission.transaction do
           execute insert_submissions_sql(ids)
@@ -41,11 +41,6 @@ class BackfillDecidimFormsSubmissions < ActiveRecord::Migration[8.1]
   end
 
   private
-
-  def questionnaire_ids_to_backfill
-    Response.where(decidim_submission_id: nil, decidim_questionnaire_id: Questionnaire.select(:id))
-            .order(:decidim_questionnaire_id).distinct.pluck(:decidim_questionnaire_id)
-  end
 
   def assign_tokens_to_registered_participants
     user_ids = Response.where(decidim_submission_id: nil, session_token: "").where.not(decidim_user_id: nil).distinct.pluck(:decidim_user_id)
