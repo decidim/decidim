@@ -289,8 +289,8 @@ describe "Respond a survey" do
     context "with the step's settings" do
       before do
         component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => { announcement: }
+          phase_settings: {
+            component.participatory_space.active_phase.id => { announcement: }
           }
         )
         visit survey_path
