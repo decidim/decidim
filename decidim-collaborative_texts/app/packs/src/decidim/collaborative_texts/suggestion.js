@@ -48,8 +48,7 @@ export default class Suggestion {
     });
   }
 
-  // wrap affected nodes by the suggestion in a div to temporarily apply the changes
-  // this is used to highlight (or replace) the nodes when hovering the suggestion
+  // Wrap affected nodes in a div to temporarily highlight or replace them on hover
   highlight() {
     // If applied, just add the style to the changesWrapper
     if (this.applied) {
@@ -125,7 +124,6 @@ export default class Suggestion {
   }
 
   // Apply the changes to the wrapper passed as argument
-  // this does not manipulate the DOM, but only the wrapper
   _applyTo(wrapper) {
     this.replace.forEach((text) => wrapper.insertAdjacentHTML("beforeend", text));
     // wrap in <p> any text nodes
@@ -138,11 +136,19 @@ export default class Suggestion {
     });
   }
 
-  // Render a word diff between the original and the replacement text, so the
-  // removed text is marked and the added text is highlighted when hovering
+  // Highlight the removed text and the added text when hovering the suggestion
   _renderDiff(wrapper) {
     const before = this._text(this.original);
     const after = this._text(this.replace);
+    // A markup-only change has no words to diff, show both versions instead
+    if (before === after && this.original.join("") !== this.replace.join("")) {
+      [["del", this.original], ["ins", this.replace]].forEach(([tag, nodes]) => {
+        const version = window.document.createElement(tag);
+        nodes.forEach((node) => version.insertAdjacentHTML("beforeend", node));
+        wrapper.appendChild(version);
+      });
+      return;
+    }
     // Very long selections are not word-diffed, they are marked as fully removed and added
     const changes = before.length + after.length > 10000
       ? [{ removed: true, value: before }, { added: true, value: after }]

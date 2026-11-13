@@ -231,18 +231,20 @@ describe("SuggestionsList", () => {
     expect(suggestion.highlightWrapper.textContent).toBe("some content updated text");
     expect(suggestion.highlightWrapper.querySelector("del").textContent).toBe("content");
     expect(suggestion.highlightWrapper.querySelector("ins").textContent).toBe("updated text");
+    suggestion.blur();
+    suggestion.original = ["<p>First <b>paragraph</b></p>"];
+    suggestion.replace = ["<p>First paragraph</p>"];
+    suggestion.highlight();
+    expect(suggestion.highlightWrapper.querySelector("del b")).toBeInstanceOf(HTMLElement);
+    expect(suggestion.highlightWrapper.querySelector("ins b")).toBe(null);
   });
 
-  it("keeps literal angle brackets on mouseover", () => {
+  it("keeps literal markup and line breaks on mouseover", () => {
     suggestion.original = [""];
     suggestion.replace = ["&lt;b&gt;literal&lt;/b&gt;"];
     suggestion.highlight();
     expect(suggestion.highlightWrapper.textContent).toBe("<b>literal</b>");
-    expect(suggestion.highlightWrapper.querySelector("b")).toBe(null);
-  });
-
-  it("keeps list items and line breaks on separate lines on mouseover", () => {
-    suggestion.original = [""];
+    suggestion.blur();
     suggestion.replace = ["<ul><li>First</li><li>Second</li></ul>"];
     suggestion.highlight();
     expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second"]);
@@ -282,9 +284,6 @@ describe("SuggestionsList", () => {
     expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
     suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
     expect(suggestion.highlightWrapper).toBe(null);
-  });
-
-  it("toggles the highlight of an applied suggestion on touchstart", () => {
     suggestion.apply();
     suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
     expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(true);
