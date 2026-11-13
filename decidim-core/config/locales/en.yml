@@ -2275,6 +2275,7 @@ en:
       close: Close
       reset: Reset
       select: Select
+    clock_format: 12
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"

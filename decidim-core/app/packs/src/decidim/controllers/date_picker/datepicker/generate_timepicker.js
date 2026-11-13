@@ -96,7 +96,8 @@ export default function generateTimePicker(input, row, formats) {
     periodAm.setAttribute("name", `period_${input.id}`);
     periodAm.setAttribute("id", `period_am_${input.id}`);
     periodAm.setAttribute("class", "datepicker__period-am");
-    const periodAmLabel = document.createElement("span");
+    const periodAmLabel = document.createElement("label");
+    periodAmLabel.setAttribute("for", `period_am_${input.id}`);
     periodAmLabel.innerText = "AM"
 
     const periodPm = document.createElement("input");
@@ -104,7 +105,8 @@ export default function generateTimePicker(input, row, formats) {
     periodPm.setAttribute("name", `period_${input.id}`);
     periodPm.setAttribute("id", `period_pm_${input.id}`);
     periodPm.setAttribute("class", "datepicker__period-pm");
-    const periodPmLabel = document.createElement("span");
+    const periodPmLabel = document.createElement("label");
+    periodPmLabel.setAttribute("for", `period_pm_${input.id}`);
     periodPmLabel.innerText = "PM"
 
     periodColumn.appendChild(periodAm);

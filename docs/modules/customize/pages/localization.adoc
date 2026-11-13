@@ -53,6 +53,7 @@ The following keys are relevant for time format:
 
 ```yaml
   time:
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -87,10 +88,7 @@ By default, Decidim uses 24 hours format. If you want to switch to the 12-hour f
 ```yaml
 en:
   time:
-    buttons:
-      close: Close
-      reset: Reset
-      select: Select
+    clock_format: 12
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
