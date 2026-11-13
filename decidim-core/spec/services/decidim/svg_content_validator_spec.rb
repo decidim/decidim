@@ -60,6 +60,30 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet has a nested relative reference separated from the function by whitespace" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_image_set_nested_relative_url.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose reference is resolved from the root of the origin serving the document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_root_relative_reference.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose link references an inline document, which the browsers of the readers do not open as a top-level document" do
+      let(:content) { File.read(Decidim::Dev.asset("test_link_data_document.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose link uses a scheme which does not fetch a resource when the document is rendered" do
+      let(:content) { File.read(Decidim::Dev.asset("test_link_non_web_scheme.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose inline data reference declares its own encoding" do
       let(:content) { File.read(Decidim::Dev.asset("test_data_uri_declared_encoding.svg")) }
 
@@ -114,6 +138,32 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose image function and color profile are resolved against the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_relative_image_function.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose style sheet URL contains the quote which does not delimit it" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_url_opposite_quote.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
+
+      it "returns :valid without looping" do
+        expect(Timeout.timeout(5) { validation }).to eq(:valid)
+      end
+    end
+
+    context "with an SVG whose base is relative to the document itself" do
+      let(:content) { File.read(Decidim::Dev.asset("test_relative_base.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG document with active content" do
       %w(
         malicious_svg_script.svg
@@ -135,6 +185,21 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_backslash_url.svg
         malicious_svg_css_image_set.svg
         malicious_svg_css_image_set_nested_parentheses.svg
+        malicious_svg_css_image_set_quote_parentheses_external_reference.svg
+        malicious_svg_css_image_set_escaped_quote_external_reference.svg
+        malicious_svg_css_image_set_nested_url_external_reference.svg
+        malicious_svg_css_escaped_quote_unquoted_value_external_reference.svg
+        malicious_svg_css_escaped_quote_unquoted_value_single_quote_external_reference.svg
+        malicious_svg_css_empty_string_external_reference.svg
+        malicious_svg_css_empty_string_single_quote_external_reference.svg
+        malicious_svg_css_string_newline_external_reference.svg
+        malicious_svg_css_hex_escape_newline_external_reference.svg
+        malicious_svg_css_hex_escape_newline_single_quote_external_reference.svg
+        malicious_svg_css_hex_escape_crlf_external_reference.svg
+        malicious_svg_css_hex_escape_crlf_single_quote_external_reference.svg
+        malicious_svg_css_image_function.svg
+        malicious_svg_css_url_opposite_quote_nested_script.svg
+        malicious_svg_css_url_opposite_quote_nested_external_reference.svg
         malicious_svg_mask_attribute.svg
         malicious_svg_cursor_attribute.svg
         malicious_svg_fill_external_reference.svg
@@ -186,6 +251,149 @@ describe Decidim::SvgContentValidator do
       let(:content) { File.read(Decidim::Dev.asset("malformed_svg_unclosed_element.svg")) }
 
       it_behaves_like "an invalid SVG document"
+    end
+
+    context "with the SVG namespace declared as the default namespace of the root" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/2000/svg"><circle r="1"/></svg>) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with the SVG namespace bound to a prefix of the root" do
+      let(:content) { %(<p:svg xmlns:p="http://www.w3.org/2000/svg"><p:circle r="1"/></p:svg>) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with a root which does not declare a namespace" do
+      let(:content) { %(<svg><circle r="1"/></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with a root which declares another namespace" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/1999/xhtml"><script>alert(1)</script></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with descendants which declare another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/1999/xhtml"><p>text</p></g></svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an element named like an SVG element in another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><g xmlns="http://www.w3.org/1999/xhtml"><image href="https://evil.example.org/x"/></g></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference bound to the XLink namespace with another prefix" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://www.w3.org/1999/xlink"><image x:href="https://evil.example.org/x"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference bound to another namespace" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:x="http://example.com"><image x:href="https://evil.example.org/x"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with a reference using a prefix which is not bound to a namespace" do
+      let(:content) { %(<svg xmlns="http://www.w3.org/2000/svg"><image xlink:href="https://evil.example.org/x"/></svg>) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with the XML namespace bound to another prefix" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg" xmlns:b="http://www.w3.org/XML/1998/namespace" b:base="https://evil.example.org/"><circle r="1"/></svg>)
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with a nested document which declares another namespace" do
+      let(:content) do
+        payload = "%3Csvg%20xmlns%3D%22http%3A%2F%2Fexample.com%2Fsvg%22%3E%3Ccircle%20r%3D%221%22%2F%3E%3C%2Fsvg%3E"
+        %(<svg xmlns="http://www.w3.org/2000/svg"><image width="1" height="1" href="data:image/svg+xml,#{payload}"/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
+    end
+
+    context "with contents larger than the maximum size" do
+      let(:content) { "a" * (described_class::MAX_CONTENT_SIZE + 1) }
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an XML nesting depth beyond the limit the parser enforces" do
+      let(:content) do
+        depth = 257
+        content = %(<svg xmlns="http://www.w3.org/2000/svg">)
+        content += %(#{("<g>" * depth)}<circle r="1"/>#{("</g>" * depth)}</svg>)
+        content
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an element name longer than the limit the parser enforces" do
+      let(:content) do
+        name = "a" * 65_536
+        %(<svg xmlns="http://www.w3.org/2000/svg"><#{name} width="1"></#{name}></svg>)
+      end
+
+      it_behaves_like "an invalid SVG document"
+    end
+
+    context "with an SVG with many elements and references, which stays under the limits" do
+      let(:content) do
+        references = %(<use href="#dot"/><image href="logo.png"/>) * 5000
+        %(<svg xmlns="http://www.w3.org/2000/svg"><defs><circle id="dot" r="1"/></defs>#{references}</svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG with a long reference which is not an external one" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><image href="#{"a" * 100_000}" width="1" height="1"/></svg>)
+      end
+
+      it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG with a multi-megabyte quoted value which is not an external one" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><style>rect { mask-image: url("#{"a" * 5_000_000}"); }</style><rect/></svg>)
+      end
+
+      it "reads the value without growing the memory proportionally to its length" do
+        rss_before = `ps -o rss= -p #{Process.pid}`.to_i
+        expect(validation).to eq(:valid)
+        rss_after = `ps -o rss= -p #{Process.pid}`.to_i
+        expect(rss_after - rss_before).to be < 100_000
+      end
+    end
+
+    context "with an SVG with a multi-megabyte quoted value containing an external reference" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><style>rect { mask-image: url("https://tracker.example.org/track.gif#{"a" * 5_000_000}"); }</style><rect/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
     end
   end
 end
