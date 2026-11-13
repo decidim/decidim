@@ -34,8 +34,6 @@ describe "Respond a survey" do
   context "when the survey does not allow responses" do
     it "does not allow responding the survey" do
       visit_component
-      choose "All"
-      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -61,7 +59,6 @@ describe "Respond a survey" do
       allow(Decidim::Surveys::SurveyConfirmationMailer).to receive(:confirmation).and_return(mailer)
 
       visit_component
-      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -84,7 +81,7 @@ describe "Respond a survey" do
     end
 
     def questionnaire_public_path
-      main_component_path(component)
+      Decidim::EngineRouter.main_proxy(component).survey_path(survey)
     end
   end
 end

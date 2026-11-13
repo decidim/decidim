@@ -19,10 +19,24 @@ module Decidim
 
     scope :registered_component_manifests, -> { where(manifest_name: Decidim.component_registry.manifests.collect(&:name)) }
     scope :registered_space_manifests, -> { where(participatory_space_type: Decidim.participatory_space_registry.manifests.collect(&:model_class_name)) }
+    scope :for_organization, lambda { |organization:|
+      conditions = Decidim.participatory_space_registry.manifests.map do |manifest|
+        where(
+          participatory_space_type: manifest.model_class_name,
+          participatory_space_id: manifest.participatory_spaces.call(organization).reselect(:id)
+        )
+      end
+
+      conditions.reduce(:or) || none
+    }
 
     default_scope { registered_component_manifests.registered_space_manifests.order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 
     delegate :organization, to: :participatory_space
+
+    def self.searchable_arguments
+      [:participatory_space]
+    end
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::ComponentPresenter

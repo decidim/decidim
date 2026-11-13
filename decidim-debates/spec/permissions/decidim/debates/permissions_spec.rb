@@ -69,6 +69,29 @@ describe Decidim::Debates::Permissions do
     end
   end
 
+  context "when reading debates" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :debate }
+    end
+
+    it { is_expected.to be true }
+
+    context "when there is no debate" do
+      let(:debate) { nil }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the debate is hidden" do
+      before do
+        create(:moderation, :hidden, reportable: debate)
+        debate.reload
+      end
+
+      it { is_expected.to be false }
+    end
+  end
+
   context "when editing a debate" do
     let(:action) do
       { scope: :public, action: :edit, subject: :debate }

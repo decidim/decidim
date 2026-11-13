@@ -31,19 +31,15 @@ module Decidim
             it "enqueues a job with the provided format" do
               params[:format] = "csv"
 
-              expect(ExportJob).to receive(:perform_later)
+              expect { post(:create, params:) }.to have_enqueued_job(ExportJob)
                 .with(user, component, "dummies", "csv", nil, { id_in: [] })
-
-              post(:create, params:)
             end
           end
 
           context "when a format is not provided" do
             it "enqueues a job with the default format" do
-              expect(ExportJob).to receive(:perform_later)
+              expect { post(:create, params:) }.to have_enqueued_job(ExportJob)
                 .with(user, component, "dummies", "json", nil, { id_in: [] })
-
-              post(:create, params:)
             end
           end
         end

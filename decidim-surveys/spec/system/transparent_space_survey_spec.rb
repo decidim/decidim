@@ -45,7 +45,6 @@ describe "Transparent Space Respond a survey" do
   context "when the user is not logged in" do
     it "does not allow responding the survey" do
       visit_component
-      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -67,7 +66,6 @@ describe "Transparent Space Respond a survey" do
 
       it "allows responding the survey" do
         visit_component
-        click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
@@ -91,7 +89,6 @@ describe "Transparent Space Respond a survey" do
 
       it "not allows responding the survey" do
         visit_component
-        click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)

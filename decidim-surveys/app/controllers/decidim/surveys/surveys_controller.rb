@@ -21,11 +21,13 @@ module Decidim
 
       def index
         enforce_permission_to :read, :survey
+
+        redirect_to Decidim::EngineRouter.main_proxy(current_component).survey_path(single_survey, share_token: params[:share_token].presence) if single_survey?
       end
 
       def edit
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-        @form.add_responses!(questionnaire:, session_token:, ip_hash:)
+        @form.add_responses!(questionnaire:, session_token:)
         @form.allow_editing_responses = questionnaire.questionnaire_for&.allow_editing_responses?
 
         render template: "decidim/forms/questionnaires/edit"
@@ -65,13 +67,25 @@ module Decidim
       end
 
       def form_path
-        main_component_path(current_component)
+        survey_path(survey)
       end
 
       private
 
       def i18n_flashes_scope
         "decidim.surveys.surveys"
+      end
+
+      def single_survey?
+        request.format.html? && published_surveys.one?
+      end
+
+      def single_survey
+        published_surveys.first
+      end
+
+      def published_surveys
+        @published_surveys ||= search_collection.published
       end
 
       def surveys

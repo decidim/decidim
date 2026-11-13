@@ -13,7 +13,7 @@ module Decidim
         enforce_permission_to :read, :demographics
 
         @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
-        @form.add_responses!(questionnaire:, session_token:, ip_hash:)
+        @form.add_responses!(questionnaire:, session_token:)
         @form.allow_editing_responses = true
 
         render template:
@@ -66,6 +66,7 @@ module Decidim
       end
 
       def questionnaire
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- questionnaire_for is a demographic scoped to current_organization
         @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize
         Decidim::Demographics.create_default_questionnaire!(@questionnaire)
         @questionnaire
