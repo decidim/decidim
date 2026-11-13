@@ -16,13 +16,15 @@ module Decidim
       protected
 
       def per_page
+        return default_per_page unless OPTIONS.include?(default_per_page)
+
         if OPTIONS.include?(params[:per_page])
           params.expect(:per_page).to_i
         elsif params[:per_page]
           sorted = OPTIONS.sort
           params.expect(:per_page).to_i.clamp(sorted.first, sorted.last)
         else
-          OPTIONS.first
+          default_per_page
         end
       end
 
@@ -31,6 +33,10 @@ module Decidim
       end
 
       private
+
+      def default_per_page
+        OPTIONS.first
+      end
 
       def paginate(resources)
         resources.page(params[:page]).per(per_page)
