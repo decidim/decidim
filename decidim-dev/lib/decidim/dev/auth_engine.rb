@@ -9,6 +9,9 @@ module Decidim
       isolate_namespace Decidim::Dev
       engine_name "decidim_dev_auth"
 
+      paths["db/migrate"] = nil
+      paths["lib/tasks"] = nil
+
       routes do
         devise_scope :user do
           match(

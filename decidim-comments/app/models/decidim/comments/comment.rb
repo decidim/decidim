@@ -59,6 +59,14 @@ module Decidim
 
       scope :not_deleted, -> { where(deleted_at: nil) }
 
+      # Scopes comments to the participatory spaces owned by the organization.
+      # Comments on resources store their participatory space, while comments
+      # on participatory spaces use the space itself as the root commentable.
+      def self.for_organization(organization:)
+        spaces = organization.participatory_spaces
+        where(participatory_space: spaces).or(where(root_commentable: spaces))
+      end
+
       translatable_fields :body
       searchable_fields({
                           participatory_space: :itself,
@@ -67,6 +75,10 @@ module Decidim
                         },
                         index_on_create: true,
                         index_on_update: ->(comment) { comment.visible? })
+
+      def self.searchable_arguments
+        [:commentable, { root_commentable: { component: { participatory_space: :organization } } }, { author: [:avatar_attachment, :organization] }]
+      end
 
       def self.positive
         where(alignment: 1)

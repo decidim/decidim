@@ -7,6 +7,7 @@ describe "Elections Breadcrumb" do
   let(:manifest_name) { "elections" }
 
   let!(:election) { create(:election, :published, :finished, :with_internal_users_census, component:) }
+  let!(:another_election) { create(:election, :published, :finished, :with_internal_users_census, component:) }
 
   before do
     visit_component

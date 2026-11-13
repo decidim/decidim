@@ -25,7 +25,7 @@ module Decidim
 
         if @form.recipient.is_a? Enumerable
           participants = @form.recipient.to_a.prepend(current_user)
-          conversation = conversation_between_multiple(participants)
+          conversation = conversation_between(*participants)
         else
           conversation = conversation_between(current_user, @form.recipient)
         end
@@ -94,7 +94,7 @@ module Decidim
       def check_multiple
         @form = form(ConversationForm).from_params(params, sender: current_user)
 
-        conversation = conversation_between_multiple(@form.recipient.to_a.prepend(current_user))
+        conversation = conversation_between(*@form.recipient.to_a.prepend(current_user))
 
         if conversation
           enforce_permission_to :read, :conversation, conversation:
@@ -113,7 +113,7 @@ module Decidim
       end
 
       def conversation
-        @conversation ||= Conversation.find(params.expect(:id))
+        @conversation ||= Conversation.find(params.expect(:id)) # rubocop:disable Decidim/OrganizationScopedFinder -- conversation permissions require the current user to be a participant
       end
 
       def new_conversation(recipient)

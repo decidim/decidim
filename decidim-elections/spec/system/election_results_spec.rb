@@ -12,12 +12,11 @@ describe "Dashboard" do
   let(:option21) { question2.response_options.first }
   let(:option22) { question2.response_options.second }
   let(:organization) { election.organization }
-  let(:elections_path) { Decidim::EngineRouter.main_proxy(election.component).root_path }
+  let(:election_path) { Decidim::EngineRouter.main_proxy(election.component).election_path(election) }
 
   before do
     switch_to_host(organization.host)
-    visit elections_path
-    click_on translated_attribute(election.title)
+    visit election_path
   end
 
   it_behaves_like "shows questions in an election"
@@ -88,8 +87,7 @@ describe "Dashboard" do
 
     before do
       question1.update(published_results_at: Time.current)
-      visit elections_path
-      click_on translated_attribute(election.title)
+      visit election_path
     end
 
     context "when all questions are enabled" do

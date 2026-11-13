@@ -43,10 +43,7 @@ en:
 ```
 . Restart your application server.
 
-Note that in the case of the `order` value, currently it only supports two values:
-
-- `m-d-y`
-- `d-m-y`
+The date picker derives both the order and the separator from the `decidim_short` format: the order comes from the sequence of its `%d`, `%m` and `%Y` directives, and the separator from the first character between them. There is no separate `order` or `separator` setting to configure. Only the `d-m-y`, `m-d-y` and `y-m-d` orders are supported, and the same separator character must be used between all three directives. Formats with other directive sequences or mixed separators are not supported and may result in an invalid date. In the example above, `"%m/%d/%Y"` results in the `m-d-y` order with the `/` separator.
 
 == Currency unit
 
