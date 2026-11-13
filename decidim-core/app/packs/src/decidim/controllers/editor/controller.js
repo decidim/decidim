@@ -7,6 +7,10 @@ export default class extends Controller {
     this.element.addEventListener("editor:reveal", this.boundReveal);
 
     if (this.element.querySelector(".ProseMirror")) {
+      if (this.reuseEditor()) {
+        return;
+      }
+
       this.element.dataset.editorInitialized = "true";
       this.toggleElements();
       return;
@@ -47,11 +51,7 @@ export default class extends Controller {
     // The editor may have been initialized before this controller connected
     // (for instance, when the element has been restored from a cache). Reuse
     // the existing instance instead of creating a duplicate.
-    const existingEditor = this.element.querySelector(".ProseMirror")?.editor;
-    if (existingEditor) {
-      this.editor = existingEditor;
-      this.element.dataset.editorInitialized = "true";
-      this.toggleElements();
+    if (this.reuseEditor()) {
       return this.editor;
     }
 
@@ -63,11 +63,29 @@ export default class extends Controller {
     this.toggleElements();
     this.editor = createEditor(this.element);
     this.element.dataset.editorInitialized = "true";
+    this.dispatchInitialized();
+
+    return this.editor;
+  }
+
+  reuseEditor() {
+    const existingEditor = this.element.querySelector(".ProseMirror")?.editor;
+    if (!existingEditor) {
+      return false;
+    }
+
+    this.editor = existingEditor;
+    this.element.dataset.editorInitialized = "true";
+    this.toggleElements();
+    this.dispatchInitialized();
+
+    return true;
+  }
+
+  dispatchInitialized() {
     this.element.dispatchEvent(
       new CustomEvent("editor:initialized", { bubbles: true, detail: { editor: this.editor } })
     );
-
-    return this.editor;
   }
 
   toggleElements() {

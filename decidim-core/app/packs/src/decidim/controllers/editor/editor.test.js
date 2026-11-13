@@ -76,6 +76,52 @@ describe("EditorController", () => {
     expect(document.querySelector(".ProseMirror")).not.toBeNull();
   });
 
+  it("dispatches editor:initialized when reusing an editor initialized before the controller connected", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden>
+            <div class="ProseMirror">Existing content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const existingEditor = { commands: { setContent: jest.fn() } };
+    document.querySelector(".ProseMirror").editor = existingEditor;
+    container = document.querySelector(".editor-container");
+    const listener = jest.fn();
+    container.addEventListener("editor:initialized", listener);
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    expect(listener).toHaveBeenCalledTimes(1);
+    expect(listener.mock.calls[0][0].detail.editor).toBe(existingEditor);
+  });
+
+  it("dispatches editor:initialized when revealing an editor initialized before reveal", async () => {
+    const listener = jest.fn();
+    container.addEventListener("editor:initialized", listener);
+
+    const existingEditor = { commands: { setContent: jest.fn() } };
+    const proseMirror = document.createElement("div");
+    proseMirror.classList.add("ProseMirror");
+    proseMirror.editor = existingEditor;
+    container.querySelector(".editor-input").appendChild(proseMirror);
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    expect(controller.reveal()).toBe(existingEditor);
+    expect(listener).toHaveBeenCalledTimes(1);
+    expect(listener.mock.calls[0][0].detail.editor).toBe(existingEditor);
+  });
+
   it("reuses an editor initialized before the controller connected", async () => {
     application.stop();
 
