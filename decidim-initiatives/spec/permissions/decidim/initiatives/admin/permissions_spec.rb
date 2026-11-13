@@ -229,6 +229,27 @@ describe Decidim::Initiatives::Admin::Permissions do
         it { is_expected.to be true }
       end
 
+      context "when managing resource permissions" do
+        let(:action_subject) { :resource_permission }
+        let(:action_name) { :update }
+
+        context "when initiative is created" do
+          let(:initiative) { create(:initiative, :created, organization:) }
+
+          it { is_expected.to be true }
+        end
+
+        context "when initiative is not created" do
+          it_behaves_like "permission is not set"
+        end
+
+        context "when reading" do
+          let(:action_name) { :read }
+
+          it_behaves_like "permission is not set"
+        end
+      end
+
       context "when reading an initiatives settings" do
         let(:action_subject) { :initiatives_settings }
         let(:action_name) { :update }

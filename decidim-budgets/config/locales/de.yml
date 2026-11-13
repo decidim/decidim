@@ -311,7 +311,7 @@ de:
         show: Projekte ansehen
         vote: Abstimmen
         voted_budgets: Gewählte Budgets
-        voted_on: 'Sie haben über abgestimmt folgende Projekte abgestimmt: %{links}.'
+        voted_on: 'Sie haben über folgende Projekte abgestimmt: %{links}.'
       creation:
         text: Einbezug zum Budget
       last_activity:

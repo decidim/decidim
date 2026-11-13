@@ -18,9 +18,12 @@ module Decidim
 
         before_action :check_admin_session_filters, only: [:index]
 
-        def index; end
+        def index
+          enforce_permission_to :read, :proposal
+        end
 
         def show
+          enforce_permission_to(:read, :proposal, proposal:)
           @notes_form = form(ProposalNoteForm).instance
           @answer_form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
@@ -149,7 +152,10 @@ module Decidim
         end
 
         def collection
-          @collection ||= Proposal.where(component: current_component).not_hidden.published
+          @collection ||= Proposal.includes(:amended, :amendable, :component, :taxonomies, :proposal_state)
+                                  .where(component: current_component)
+                                  .not_hidden
+                                  .published
         end
 
         def proposals
@@ -157,7 +163,7 @@ module Decidim
         end
 
         def proposal
-          @proposal ||= collection.find(params.expect(:id))
+          @proposal ||= accessible_proposals_collection.preload(:coauthorships).find(params.expect(:id))
         end
 
         def proposal_ids

@@ -127,10 +127,10 @@ describe "Edit proposals" do
               expect(page).to have_text("Has to be an image or a document")
               expect(page).to have_text("If it is an image, it preferably be a landscape image that does not have any text. The platform crops the image.")
               within "[data-filename='city.jpeg']" do
-                find("input[type='text']").set(attachment_image_title)
+                find_field(type: "text").set(attachment_image_title)
               end
               within "[data-filename='Exampledocument.pdf']" do
-                find("input[type='text']").set(attachment_file_title)
+                find_field(type: "text").set(attachment_file_title)
               end
               click_on "Save"
             end
@@ -370,7 +370,7 @@ describe "Edit proposals" do
         it "does not add external link container inside the editor" do
           editor = page.find(".editor-container")
           expect(editor).to have_css("a[href='#{link}']")
-          expect(editor).to have_no_selector("a.external-link-container")
+          expect(editor).to have_no_css("a.external-link-container")
         end
       end
     end
@@ -444,7 +444,7 @@ describe "Edit proposals" do
         within "li[data-filename='#{document.file.blob.filename}']" do
           click_on("Remove")
         end
-        find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset("Exampledocument.pdf"))
+        find_field(type: "file", visible: :all).attach_file(Decidim::Dev.asset("Exampledocument.pdf"))
         within "li[data-filename='Exampledocument.pdf']:not([data-attachment-id])" do
           expect(page).to have_css("progress[value='100']")
         end

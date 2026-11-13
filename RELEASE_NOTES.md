@@ -84,7 +84,27 @@ We strongly recommend that implementers review any custom authorization handlers
 
 You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
 
-### 2.4. [[TITLE OF THE ACTION]]
+### 2.4. Bullet initializer defaults changed
+
+The generated Bullet initializer (`config/initializers/bullet.rb`, only created when the app is generated with the `--profiling` option) changed its defaults:
+
+- `Bullet.enable` is now set to `Rails.env.local?` instead of `true`, so Bullet only runs on development and test environments. Bullet errors no longer affect production or staging environments.
+- `Bullet.raise = true` was added, which means that detected queries raise errors instead of only logging warnings.
+- Three new settings can now be controlled with environment variables:
+
+| Environment variable           | Default  | Setting                             |
+|--------------------------------|----------|-------------------------------------|
+| `DECIDIM_BULLET_N_PLUS_ONE`    | enabled  | `Bullet.n_plus_one_query_enable`    |
+| `DECIDIM_BULLET_UNUSED_EAGER`  | disabled | `Bullet.unused_eager_loading_enable`|
+| `DECIDIM_BULLET_COUNTER_CACHE` | enabled  | `Bullet.counter_cache_enable`       |
+
+Any of these variables can be disabled by setting it to `0`, `false` or `no`. Note that `DECIDIM_BULLET_UNUSED_EAGER` is disabled by default, as it can trigger false positives on pages with a single result.
+
+This initializer is not overwritten automatically during the upgrade (`bin/rails decidim:upgrade` does not touch it). If your app was generated with the `--profiling` option and you have a custom `config/initializers/bullet.rb`, review it and update it manually to match the [new template](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/bullet_initializer.rb) if you want to keep the same behavior as newly generated applications.
+
+You can read more about this change on PR [#17160](https://github.com/decidim/decidim/pull/17160).
+
+### 2.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -108,7 +128,21 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove unattached blobs
+
+Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
+We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
+
+```bash
+# Delete unattached upload blobs
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
+```
+
+By default, the task deletes unattached blobs older than 60 minutes. This window is intentional, as we want to remove abandoned or potentially dangerous uploads as soon as possible. Note that files uploaded in a form that is still open (not yet submitted) are also unattached, so submissions done after the cleanup window may lose that file. Keep in mind that 60 minutes is only the earliest time a blob becomes eligible for deletion: the cron above runs hourly and the task queues deletions with `purge_later`, so files are usually removed some time after the window, not exactly at the 60-minute mark. If needed, the window can be configured with the `clean_up_unattached_blobs_after_in_minutes` argument, e.g. `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for at least 24 hours.
+
+You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK

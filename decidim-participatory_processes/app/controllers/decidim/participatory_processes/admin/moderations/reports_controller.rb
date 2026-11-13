@@ -8,6 +8,8 @@ module Decidim
         class ReportsController < Decidim::Admin::Moderations::ReportsController
           include Concerns::ParticipatoryProcessAdmin
 
+          protected
+
           def permissions_context
             super.merge(current_participatory_space:)
           end

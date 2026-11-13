@@ -60,6 +60,8 @@ module Decidim
               redirect_back_or_to(questionnaire_participant_responses_url(session_token))
             end
 
+            protected
+
             # Public: The only method to be implemented at the controller. You need to
             # return the object that will hold the questionnaire.
             def questionnaire_for

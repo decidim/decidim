@@ -7,6 +7,8 @@ module Decidim
       include Decidim::TranslatableAttributes
 
       def show
+        enforce_permission_to :read, :component
+
         @commentable = Dev::DummyResource.find(params.expect(:id))
       end
     end

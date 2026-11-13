@@ -9,7 +9,9 @@ module Decidim
 
         helper_method :surveys
 
-        def index; end
+        def index
+          enforce_permission_to :read, :questionnaire
+        end
 
         def new
           enforce_permission_to(:create, :questionnaire)
@@ -108,7 +110,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Decidim::Surveys::Survey.where(component: current_component)
+          @collection ||= Decidim::Surveys::Survey.where(component: current_component).includes(:component, :questionnaire)
         end
       end
     end

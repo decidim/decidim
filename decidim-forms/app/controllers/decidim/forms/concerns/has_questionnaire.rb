@@ -22,6 +22,8 @@ module Decidim
           invisible_captcha on_spam: :spam_detected
 
           def show
+            enforce_permission_to :read, :component
+
             @form = form(Decidim::Forms::QuestionnaireForm).from_model(questionnaire)
             render template:
           end
@@ -45,6 +47,8 @@ module Decidim
               end
             end
           end
+
+          private
 
           def template
             "decidim/forms/questionnaires/show"
@@ -116,7 +120,7 @@ module Decidim
           end
 
           def questionnaire
-            @questionnaire ||= Questionnaire.includes(questions: :response_options).find_by(questionnaire_for:)
+            @questionnaire ||= Questionnaire.includes(questions: [:display_conditions, :response_options]).find_by(questionnaire_for:)
           end
 
           def spam_detected

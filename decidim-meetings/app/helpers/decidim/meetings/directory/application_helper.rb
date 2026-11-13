@@ -29,7 +29,7 @@ module Decidim
         def available_taxonomy_filters
           @available_taxonomy_filters ||= begin
             participatory_spaces = current_organization.public_participatory_spaces
-            components = Decidim::Component.where(manifest_name: "meetings", participatory_space: participatory_spaces)
+            components = Decidim::Component.includes({ participatory_space: :organization }).where(manifest_name: "meetings", participatory_space: participatory_spaces)
             filter_ids = components.map(&:settings).pluck(:taxonomy_filters).flatten.compact
             Decidim::TaxonomyFilter.for(current_organization).where(id: filter_ids)
           end

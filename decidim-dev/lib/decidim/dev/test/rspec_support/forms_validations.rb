@@ -9,7 +9,7 @@ module FormsValidationsHelpers
   def expect_blank_field_validation_message(selector, opts = {})
     type = opts.fetch(:type, :text).to_sym
     expected_message = opts.fetch(:message, MESSAGES[type])
-    message = page.find(selector).native.attribute("validationMessage")
+    message = page.find(selector)["validationMessage"]
 
     expect(message).to eq expected_message
   end

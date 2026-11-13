@@ -43,10 +43,7 @@ module Decidim
 
         StartConversation.call(@form) do
           on(:ok) do |conversation|
-            render action: :create, locals: {
-              conversation:,
-              form: MessageForm.new
-            }
+            render action: :create, locals: { conversation: }
           end
 
           on(:invalid) do |messages|
@@ -96,6 +93,15 @@ module Decidim
 
       def check_multiple
         @form = form(ConversationForm).from_params(params, sender: current_user)
+
+        conversation = conversation_between_multiple(@form.recipient.to_a.prepend(current_user))
+
+        if conversation
+          enforce_permission_to :read, :conversation, conversation:
+        else
+          enforce_permission_to :create, :conversation, conversation: new_conversation(@form.recipient)
+        end
+
         redirect_link = current_or_new_conversation_path_with_multiple(@form.recipient, nickname: params[:nickname])
         redirect_to redirect_link
       end

@@ -21,11 +21,17 @@ module Decidim
 
       layout "layouts/decidim/authorizations", except: [:index, :onboarding_pending]
 
-      def new; end
+      def new
+        enforce_permission_to :read, :authorization
+      end
 
-      def index; end
+      def index
+        enforce_permission_to :read, :authorization
+      end
 
       def onboarding_pending
+        enforce_permission_to :read, :authorization
+
         return redirect_back_or_to(authorizations_path) unless onboarding_manager.valid?
 
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
@@ -56,6 +62,8 @@ module Decidim
       end
 
       def create
+        enforce_permission_to(:create, :authorization, authorization:)
+
         AuthorizeUser.call(handler, current_organization) do
           on(:ok) do
             flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications")
@@ -78,6 +86,7 @@ module Decidim
           end
 
           on(:transfer_user) do |authorized_user|
+            transfer_onboarding_action(current_user, authorized_user)
             authorized_user.update(last_sign_in_at: Time.current, deleted_at: nil)
             sign_out(current_user)
             sign_in(authorized_user)
@@ -93,12 +102,16 @@ module Decidim
       end
 
       def renew_onboarding_data
+        enforce_permission_to :read, :authorization
+
         store_onboarding_cookie_data!(current_user)
 
         redirect_to onboarding_pending_authorizations_path
       end
 
       def clear_onboarding_data
+        enforce_permission_to :read, :authorization
+
         clear_onboarding_data!(current_user)
       end
 
@@ -186,8 +199,21 @@ module Decidim
 
       private
 
+      # Preserves the pending onboarding action of the transferring session on
+      # the user that takes over it, so the onboarding flow resumes the action
+      # the visitor was trying to complete (e.g. voting a budget) instead of the
+      # transferred user's stale action (e.g. a survey already answered).
+      def transfer_onboarding_action(from_user, to_user)
+        pending_action = from_user.extended_data[Decidim::OnboardingManager::DATA_KEY]
+        return if pending_action.blank?
+
+        to_user.update(
+          extended_data: to_user.extended_data.merge(Decidim::OnboardingManager::DATA_KEY => pending_action)
+        )
+      end
+
       def authorization
-        @authorization ||= Decidim::Authorization.find_by(
+        @authorization ||= Decidim::Authorization.find_or_initialize_by(
           user: current_user,
           name: handler_name
         )

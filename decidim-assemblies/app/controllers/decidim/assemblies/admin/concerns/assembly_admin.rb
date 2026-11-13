@@ -20,18 +20,20 @@ module Decidim
           included do
             include Decidim::Admin::ParticipatorySpaceAdminContext
 
-            helper_method :current_assembly
+            helper_method :current_assembly, :current_participatory_space
             add_breadcrumb_item_from_menu :admin_assembly_menu
 
             participatory_space_admin_layout
+
+            def current_participatory_space = current_assembly
+
+            protected
 
             def current_assembly
               @current_assembly ||= organization_assemblies.find_by!(
                 slug: params[:assembly_slug] || params[:slug]
               )
             end
-
-            alias_method :current_participatory_space, :current_assembly
 
             def organization_assemblies
               @organization_assemblies ||= OrganizationAssemblies.new(current_organization).query

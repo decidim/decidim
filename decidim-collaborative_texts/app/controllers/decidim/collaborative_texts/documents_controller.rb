@@ -9,9 +9,13 @@ module Decidim
 
       helper_method :documents, :document, :paginate_documents
 
-      def index; end
+      def index
+        enforce_permission_to :read, :collaborative_text
+      end
 
       def show
+        enforce_permission_to(:read, :collaborative_text, document:)
+
         raise ActionController::RoutingError, "Not Found" unless document
       end
 
@@ -43,9 +47,9 @@ module Decidim
 
       def documents
         @documents ||= if current_user&.admin?
-                         Document.where(component: current_component)
+                         Document.includes(:component).where(component: current_component)
                        else
-                         Document.published.where(component: current_component)
+                         Document.includes(:component).published.where(component: current_component)
                        end
       end
 

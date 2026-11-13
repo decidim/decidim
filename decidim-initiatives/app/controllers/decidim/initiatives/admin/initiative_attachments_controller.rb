@@ -10,6 +10,8 @@ module Decidim
 
         add_breadcrumb_item_from_menu :admin_initiative_menu
 
+        protected
+
         def after_destroy_path
           initiative_attachments_path(current_initiative)
         end

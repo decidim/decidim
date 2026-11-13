@@ -17,6 +17,8 @@ module Decidim
         helper_method :meetings, :search
 
         def calendar
+          enforce_permission_to :read, :calendar
+
           render plain: CalendarRenderer.for(current_organization, filter_params), content_type: "type/calendar"
         end
 
@@ -31,9 +33,9 @@ module Decidim
           Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
             filter_params[:availability]
           ).includes(
-            :component,
+            :taxonomies,
             attachments: :file_attachment
-          )
+          ).preload(component: { participatory_space: :organization })
         end
 
         def default_filter_params

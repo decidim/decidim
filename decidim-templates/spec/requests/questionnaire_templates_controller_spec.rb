@@ -56,6 +56,66 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
         expect(response).to have_http_status(:found)
       end
     end
+
+    context "when the user is a process admin" do
+      let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process:) }
+
+      it "applies the template" do
+        expect { post(path, params:, headers:) }
+          .to(change { questionnaire.reload.title })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "with a protocol-relative url" do
+      let(:params) do
+        {
+          questionnaire_id: questionnaire.id,
+          questionnaire: { questionnaire_template_id: template.id },
+          url: "//evil.example.org/phishing"
+        }
+      end
+
+      it "does not redirect to the external host" do
+        post(path, params:, headers:)
+
+        expect(response.location).not_to include("evil.example.org")
+      end
+    end
+
+    context "with an absolute external url" do
+      let(:params) do
+        {
+          questionnaire_id: questionnaire.id,
+          questionnaire: { questionnaire_template_id: template.id },
+          url: "http://evil.example.org/phishing"
+        }
+      end
+
+      it "does not redirect to the external host" do
+        post(path, params:, headers:)
+
+        expect(response.location).not_to include("evil.example.org")
+      end
+    end
+
+    context "with an absolute same-origin url" do
+      let(:params) do
+        {
+          questionnaire_id: questionnaire.id,
+          questionnaire: { questionnaire_template_id: template.id },
+          url: "http://#{organization.host}/en/admin/dashboard"
+        }
+      end
+
+      it "redirects to the path" do
+        post(path, params:, headers:)
+
+        expect(response).to redirect_to("/en/admin/dashboard")
+      end
+    end
   end
 
   describe "POST /questionnaire_templates/skip" do
@@ -86,6 +146,48 @@ RSpec.describe "Questionnaire templates cross-organization protection" do
           .to(change { questionnaire.reload.updated_at })
 
         expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "when the user is a process admin" do
+      let(:user) { create(:user, :confirmed, :admin_terms_accepted, organization:) }
+      let!(:process_admin_role) { create(:participatory_process_user_role, role: :admin, user:, participatory_process:) }
+
+      it "touches the questionnaire" do
+        expect { post(path, params:, headers:) }
+          .to(change { questionnaire.reload.updated_at })
+
+        expect(response).to have_http_status(:found)
+      end
+    end
+
+    context "with a protocol-relative url" do
+      let(:params) { { questionnaire_id: questionnaire.id, url: "//evil.example.org/phishing" } }
+
+      it "does not redirect to the external host" do
+        post(path, params:, headers:)
+
+        expect(response.location).not_to include("evil.example.org")
+      end
+    end
+
+    context "with an absolute external url" do
+      let(:params) { { questionnaire_id: questionnaire.id, url: "http://evil.example.org/phishing" } }
+
+      it "does not redirect to the external host" do
+        post(path, params:, headers:)
+
+        expect(response.location).not_to include("evil.example.org")
+      end
+    end
+
+    context "with an absolute same-origin url" do
+      let(:params) { { questionnaire_id: questionnaire.id, url: "http://#{organization.host}/en/admin/dashboard" } }
+
+      it "redirects to the path" do
+        post(path, params:, headers:)
+
+        expect(response).to redirect_to("/en/admin/dashboard")
       end
     end
   end

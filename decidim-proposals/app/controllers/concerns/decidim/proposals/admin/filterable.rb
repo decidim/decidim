@@ -27,6 +27,9 @@ module Decidim
           end
 
           def accessible_proposals_collection
+            # Administrators can manage every proposal, even when they also
+            # hold an evaluator role, matching the admin permissions.
+            return collection if current_user.admin?
             return collection if current_participatory_space.user_roles(:evaluator).where(user: current_user).empty?
 
             collection.with_evaluation_assigned_to(current_user, current_participatory_space)

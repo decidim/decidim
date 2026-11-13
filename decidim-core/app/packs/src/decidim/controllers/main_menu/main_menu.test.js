@@ -188,6 +188,15 @@ describe("MainMenuController", () => {
 
       expect(menuContainer.getAttribute("aria-hidden")).toBe("true")
     })
+
+    it("returns the focus to the menu button", () => {
+      controller.openMenu()
+      closeButton.focus()
+
+      controller.handleCloseButtonClick()
+
+      expect(document.activeElement).toBe(menuButton)
+    })
   })
 
   describe("focusTrapHandler", () => {

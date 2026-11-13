@@ -47,8 +47,7 @@ describe "Admin manages meetings" do
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         find("button[data-controller='dropdown']").click
-        click_on "Unpublish"
-        expect(accept_confirm).to eq("Are you sure you want to unpublish this meeting?")
+        expect(accept_confirm { click_on "Unpublish" }).to eq("Are you sure you want to unpublish this meeting?")
       end
     end
 
@@ -805,10 +804,9 @@ describe "Admin manages meetings" do
 
       within "tr[data-id='#{attachment.id}']" do
         find("button[data-controller='dropdown']").click
-        click_on "Delete"
+        accept_confirm { click_on "Delete" }
       end
 
-      accept_confirm
       expect(page).to have_no_css("tr[data-id='#{attachment.id}']")
     end
 

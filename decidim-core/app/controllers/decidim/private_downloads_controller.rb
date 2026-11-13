@@ -5,6 +5,8 @@ module Decidim
     before_action :authenticate_user!
 
     def show
+      enforce_permission_to :read, :private_download
+
       return head :not_found unless private_download.attached?
       return head :not_found unless private_download.authorized_for?(current_user)
 

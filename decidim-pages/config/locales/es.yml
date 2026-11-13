@@ -35,7 +35,7 @@ es:
         pages:
           edit:
             add_attachments: Agregar archivo(s) adjunto(s)
-            edit_attachments: Editar los archivos adjuntos
+            edit_attachments: Editar archivo(s) adjunto(s)
             save: Actualizar
             title: Editar página
           update:
