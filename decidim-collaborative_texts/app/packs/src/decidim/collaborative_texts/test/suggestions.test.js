@@ -249,9 +249,9 @@ describe("SuggestionsList", () => {
     suggestion.highlight();
     expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second"]);
     suggestion.blur();
-    suggestion.replace = ["<p>First<br>Second</p>"];
+    suggestion.replace = ["<p>First<br>Second<br><br>Third</p>"];
     suggestion.highlight();
-    expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second"]);
+    expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second", "", "Third"]);
   });
 
   it("blurs a suggestion on mouseout", () => {
