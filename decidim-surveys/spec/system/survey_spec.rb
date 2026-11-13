@@ -175,9 +175,9 @@ describe "Respond a survey" do
     it "lets an unregistered user verify their identity without signing in" do
       expect do
         click_on "Authorize with \"Ephemeral example authorization\""
+        expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
       end.to change { Decidim::User.ephemeral.count }.by(1)
 
-      expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
       expect(page).to have_no_css("#loginModal", visible: :visible)
     end
   end
