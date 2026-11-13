@@ -178,11 +178,14 @@ export default class Suggestion {
     });
   }
 
-  // Plain text of the node list, keeping one line per original node
+  // Preserve block and <br> breaks, textContent does not add them
   _text(nodes) {
     const wrapper = window.document.createElement("div");
     wrapper.innerHTML = nodes.join("\n");
-    return wrapper.textContent;
+    wrapper.querySelectorAll("br, p, div, li, h1, h2, h3, h4, h5, h6, blockquote, pre").forEach((element) => {
+      element.after(window.document.createTextNode("\n"));
+    });
+    return wrapper.textContent.replace(/\n{2,}/g, "\n").trim();
   }
 
   _hideOriginalNodes(className = "collaborative-texts-hidden") {
