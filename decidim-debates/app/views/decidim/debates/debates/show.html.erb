@@ -21,6 +21,8 @@ edit_link(
 %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { reference: resource_reference(debate), back_path: debates_path, commentable: debate } do %>
+  <%= render partial: "decidim/shared/component_announcement" %>
+
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator">
       <%== present(debate).title(html_escape: true) %>

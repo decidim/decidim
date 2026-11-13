@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A style sheet whose URL values contain the quote which does not delimit the
+     string, so the whole string is read as the reference: the namespace of the
+     nested document is written with single quotes inside a double quoted URL, and
+     with double quotes inside a single quoted one. Cutting the value at the other
+     quote would validate an incomplete document instead of the one which is
+     rendered. The last value is a single reference which is resolved against the
+     document, as the quotes inside it are part of the path and not delimiters. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <style>.logo { background: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle%20r='8'/%3E%3C/svg%3E"); } .other { background: url('data:image/svg+xml,%3Csvg%20xmlns="http://www.w3.org/2000/svg"%3E%3Ccircle%20r="8"/%3E%3C/svg%3E'); } .text { background: url("x 'https://example.org/only-part-of-the-path'"); }</style>
+  <circle class="logo" cx="8" cy="8" r="8" fill="#000"/>
+</svg>

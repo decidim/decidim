@@ -9,7 +9,7 @@ class MoveCtaToHeroContentBlock < ActiveRecord::Migration[7.0]
     Decidim::ContentBlock.reset_column_information
     Organization.find_each do |organization|
       content_block = Decidim::ContentBlock.find_by(organization:, scope_name: :homepage, manifest_name: :hero)
-      settings = {}
+      settings = content_block[:settings] || {}
       cta_button_text = organization.cta_button_text || {}
       settings = cta_button_text.inject(settings) { |acc, (k, v)| acc.update("cta_button_text_#{k}" => v) }
 
