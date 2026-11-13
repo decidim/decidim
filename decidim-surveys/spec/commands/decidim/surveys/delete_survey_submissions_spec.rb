@@ -5,16 +5,12 @@ require "spec_helper"
 module Decidim
   module Surveys
     module Admin
-      describe DeleteSurveyResponses, type: :command do
+      describe DeleteSurveySubmissions, type: :command do
         let(:survey) { create(:survey, published_at: Time.current) }
         let(:current_user) { create(:user, :admin, :confirmed, organization: survey.component.organization) }
         let(:command) { described_class.new(survey, current_user) }
 
-        let!(:responses) do
-          survey.questionnaire.questions.map do |question|
-            create(:response, questionnaire: survey.questionnaire, question:, user: current_user)
-          end
-        end
+        let!(:submission) { create(:submission, :with_responses, questionnaire: survey.questionnaire, user: current_user) }
 
         describe "call" do
           context "when the survey is not valid" do
@@ -32,8 +28,13 @@ module Decidim
           end
 
           it "deletes all the survey responses" do
-            expect { command.call }.to change(Decidim::Forms::Response, :count).by(-responses.size)
+            expect { command.call }.to change(Decidim::Forms::Response, :count).by(-submission.responses.count)
             expect(survey.questionnaire.reload.responses).to be_empty
+          end
+
+          it "deletes all the survey submissions" do
+            expect { command.call }.to change(Decidim::Forms::Submission, :count).by(-1)
+            expect(survey.questionnaire.reload).not_to be_responded_by(current_user)
           end
 
           it "traces the action" do

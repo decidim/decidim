@@ -40,4 +40,20 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
       end
     end
   end
+
+  describe "surveys_count stat" do
+    subject { component.manifest.stats.resolve(:surveys_count, component) }
+
+    let(:survey) { create(:survey, component:) }
+    let(:submission) { create(:submission, questionnaire: survey.questionnaire) }
+
+    before do
+      create_list(:response, 2, questionnaire: survey.questionnaire, user: submission.user, submission:)
+      create(:submission, questionnaire: survey.questionnaire)
+    end
+
+    it "counts the surveys and their submissions" do
+      expect(subject).to eq([1, 2])
+    end
+  end
 end
