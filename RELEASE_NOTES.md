@@ -182,3 +182,5 @@ This affects the public API of the `decidim-participatory_processes` module and 
 - The scheduled rake task `decidim_participatory_processes:change_active_step` is renamed to `decidim_participatory_processes:change_active_phase`. The old name is kept as a deprecated alias, but you should update your scheduler configuration.
 
 You can read more about this change on PR [#17781](https://github.com/decidim/decidim/pull/17781).
+
+### 5.3. [[TITLE OF THE CHANGE]]
