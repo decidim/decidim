@@ -1,5 +1,5 @@
 /* eslint-disable jsdoc/require-jsdoc */
-/* eslint max-lines: ["error", 310] */
+/* eslint max-lines: ["error", 320] */
 
 import icon from "src/decidim/refactor/moved/icon"
 import { changeHourDisplay, changeMinuteDisplay, formatDate, hourDisplay, minuteDisplay, formatTime, setHour, setMinute, updateTimeValue, updateInputValue, adjustPickerPosition } from "src/decidim/controllers/date_picker/datepicker/datepicker_functions"
