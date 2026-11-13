@@ -9,7 +9,7 @@ jest.mock("src/decidim/refactor/moved/i18n", () => ({ getMessages: () => "Unsave
 
 const markup = (formAttributes = "") => `
   <div class="questionnaire-questions">
-    <button type="button" class="add-question">Add question</button>
+    <button type="button" id="add-question" data-unsaved-form-structure>Add question</button>
     <button type="button" class="collapse-all">Collapse all</button>
   </div>
   <form data-controller="unsaved-form" ${formAttributes} id="questionnaire">
@@ -17,15 +17,15 @@ const markup = (formAttributes = "") => `
     <button type="button" data-remote="true">Remote action</button>
     <div class="questionnaire-questions-list" data-draggable-table>
       <div class="card questionnaire-question">
-        <button type="button" class="remove-question">Remove</button>
+        <button type="button" id="remove-question" data-unsaved-form-structure>Remove</button>
       </div>
     </div>
   </form>
   <form id="other-form">
-    <button type="button" class="add-response-option">Add option</button>
+    <button type="button" id="add-response-option" data-unsaved-form-structure>Add option</button>
   </form>
-  <button type="button" class="add-separator" form="other-form">Add separator</button>
-  <button type="button" class="add-display-condition" form="questionnaire">Add condition</button>
+  <button type="button" id="add-separator" data-unsaved-form-structure form="other-form">Add separator</button>
+  <button type="button" id="add-display-condition" data-unsaved-form-structure form="questionnaire">Add condition</button>
   <a href="#">Back</a>
   <a href="/filters" data-remote="true">Filter</a>
   <a href="/local-filter" data-remote="false">Local filter</a>
