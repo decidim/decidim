@@ -242,6 +242,15 @@ Decidim::Core::Engine.routes.draw do
     skip_controllers :applications, :authorized_applications
   end
 
+  # Mount the OpenID Connect extension in the SAME route set as `use_doorkeeper`
+  # above. Its discovery controller resolves the doorkeeper URL helpers on
+  # itself, so mounting it at application level leaves half of them out of
+  # reach and `/.well-known/openid-configuration` raises
+  # `NoMethodError: undefined method 'oauth_authorization_url'`.
+  # Guarded: applications that do not bundle doorkeeper-openid_connect are
+  # unaffected.
+  use_doorkeeper_openid_connect if respond_to?(:use_doorkeeper_openid_connect)
+
   scope :oauth do
     get "/me" => "doorkeeper/credentials#me"
   end
