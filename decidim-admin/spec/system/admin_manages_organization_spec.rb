@@ -657,15 +657,10 @@ describe "Admin manages organization" do
             find("button[data-action='save']").click
           end
 
-          # The editor writes its content to the form input on the `update` event, so the form has to be
-          # submitted after the video node has been applied. Submitting it right after the dialog is closed
-          # can send an empty value and the organization is saved without the content.
           expect_editor_content(content)
 
           click_on "Update"
 
-          # Wait for the request to finish before reading the record back, otherwise the reload can happen
-          # while the update is still being processed.
           expect(page).to have_text("updated successfully")
 
           organization.reload
