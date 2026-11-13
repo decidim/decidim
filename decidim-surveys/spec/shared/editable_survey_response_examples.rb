@@ -49,7 +49,6 @@ shared_examples "editable survey responses" do
 
   before do
     visit_component
-    click_on translated_attribute(questionnaire.title)
 
     fill_in "questionnaire_responses_0", with: "My first response"
     fill_in "questionnaire_responses_1", with: "My long response"

@@ -13,6 +13,7 @@ module Decidim
       belongs_to :questionnaire_for, polymorphic: true
 
       has_many :questions, -> { order(:position) }, class_name: "Question", foreign_key: "decidim_questionnaire_id", dependent: :destroy
+      has_many :submissions, class_name: "Submission", foreign_key: "decidim_questionnaire_id", dependent: :destroy, inverse_of: :questionnaire
       has_many :responses, class_name: "Response", foreign_key: "decidim_questionnaire_id", dependent: :destroy
 
       after_initialize :set_default_salt
@@ -23,17 +24,25 @@ module Decidim
       # Public: returns whether the questionnaire questions can be modified or not.
       def questions_editable?
         has_component = questionnaire_for.respond_to? :component
-        (has_component && !questionnaire_for.component.published?) || override_edit.presence || responses.empty?
+        (has_component && !questionnaire_for.component.published?) || override_edit.presence || submissions.empty?
       end
 
       def override_edit!
         @override_edit = true
       end
 
-      # Public: returns whether the questionnaire is responded by the user or not.
+      # Public: returns whether the given user, or the anonymous participant with the given session token, has responded.
       def responded_by?(user)
         query = user.is_a?(String) ? { session_token: user } : { user: }
-        responses.where(query).any? if questions.present?
+        submissions.exists?(query) if questions.present?
+      end
+
+      # Public: the submission a visitor may edit: the latest one of a logged-in user,
+      # or the one created under the anonymous session token.
+      def submission_for(user:, session_token:)
+        return submissions.where(user:).order(:created_at, :id).last if user
+
+        submissions.find_by(session_token:)
       end
 
       def pristine?

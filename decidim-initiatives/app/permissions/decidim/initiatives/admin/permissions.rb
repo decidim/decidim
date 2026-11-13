@@ -96,11 +96,21 @@ module Decidim
 
           case permission_action.action
           when :destroy
-            scopes_are_empty = initiative_type && initiative_type.scopes.all? { |scope| scope.initiatives.empty? }
-            toggle_allow(scopes_are_empty)
+            toggle_allow(initiative_type_destroyable?(initiative_type))
           else
             allow!
           end
+        end
+
+        # When the caller has already resolved which types have initiatives, the
+        # check uses that instead of walking the scopes of each type.
+        def initiative_type_destroyable?(initiative_type)
+          return false unless initiative_type
+
+          types_with_initiatives = context.fetch(:initiative_types_with_initiatives, nil)
+          return types_with_initiatives.exclude?(initiative_type.id) if types_with_initiatives
+
+          initiative_type.scopes.all? { |scope| scope.initiatives.empty? }
         end
 
         def initiative_type_scope_action?
