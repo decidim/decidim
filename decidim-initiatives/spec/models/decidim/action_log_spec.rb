@@ -27,5 +27,31 @@ describe Decidim::ActionLog do
       expect(dummy_comment.association(:root_commentable).loaded?).to be(true)
       expect(dummy_comment.root_commentable.association(:component).loaded?).to be(true)
     end
+
+    it "eager loads the organization for the roots without a component association" do
+      comments = action_logs.map(&:resource_lazy)
+
+      initiative_comment = comments.find { |comment| comment.root_commentable.is_a?(Decidim::Initiative) }
+
+      expect(initiative_comment).to be_present
+      expect(initiative_comment.root_commentable.association(:organization).loaded?).to be(true)
+    end
+
+    it "eager loads the commentable ancestor chain for a reply to a root without a component association" do
+      initiative = resources.first
+      parent = create(:comment, commentable: initiative)
+      reply = create(:comment, commentable: parent)
+      log = create(:action_log, action: "create", visibility: "all", resource: reply, organization:, participatory_space: reply.participatory_space)
+
+      comment = log.resource_lazy
+
+      # The associations are checked before being read; reading `commentable` would
+      # lazily load it and the assertions would pass without the ancestor preload.
+      expect(comment.association(:commentable).loaded?).to be(true)
+      parent = comment.association(:commentable).target
+      expect(parent.association(:commentable).loaded?).to be(true)
+      root = parent.association(:commentable).target
+      expect(root.association(:organization).loaded?).to be(true)
+    end
   end
 end
