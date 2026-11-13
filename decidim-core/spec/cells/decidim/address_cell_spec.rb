@@ -94,23 +94,23 @@ describe Decidim::AddressCell, type: :cell do
 
     it "renders both times separated" do
       expect(subject).to have_css("li", count: 2)
-      expect(time_section.text.squish).to eq("03:04 PM - 06:30 PM UTC")
+      expect(time_section.text.squish).to eq("15:04 - 18:30 UTC")
     end
 
     it "renders the start time with the 12-hour clock and the meridiem" do
-      expect(start_time_text).to eq("03:04 PM")
+      expect(start_time_text).to eq("15:04")
       expect(start_time_text).not_to eq("15:04 PM")
     end
 
     it "renders the end time with the meridiem and the time zone" do
-      expect(end_time_text).to eq("06:30 PM UTC")
+      expect(end_time_text).to eq("18:30 UTC")
     end
 
     it "renders the full date and the time zone offset in the tooltips" do
       expect(tooltip_titles).to eq(
         [
-          "15-01-2026 03:04 PM UTC (GMT +00:00)",
-          "15-01-2026 06:30 PM UTC (GMT +00:00)"
+          "15-01-2026 15:04 UTC (GMT +00:00)",
+          "15-01-2026 18:30 UTC (GMT +00:00)"
         ]
       )
     end
@@ -125,22 +125,22 @@ describe Decidim::AddressCell, type: :cell do
       let(:end_time) { Time.parse("2026-01-15 12:00:00 UTC").in_time_zone }
 
       it "renders 12 AM and 12 PM instead of 00 AM and 00 PM" do
-        expect(start_time_text).to eq("12:00 AM")
-        expect(end_time_text).to eq("12:00 PM UTC")
+        expect(start_time_text).to eq("00:00")
+        expect(end_time_text).to eq("12:00 UTC")
       end
     end
 
     context "when the rendering time zone is the organization one", tz: "Madrid" do
       it "renders both times in that time zone" do
-        expect(start_time_text).to eq("04:04 PM")
-        expect(end_time_text).to eq("07:30 PM CET")
+        expect(start_time_text).to eq("16:04")
+        expect(end_time_text).to eq("19:30 CET")
       end
 
       it "renders the time zone abbreviation and offset in the tooltips" do
         expect(tooltip_titles).to eq(
           [
-            "15-01-2026 04:04 PM CET (GMT +01:00)",
-            "15-01-2026 07:30 PM CET (GMT +01:00)"
+            "15-01-2026 16:04 CET (GMT +01:00)",
+            "15-01-2026 19:30 CET (GMT +01:00)"
           ]
         )
       end
@@ -151,41 +151,41 @@ describe Decidim::AddressCell, type: :cell do
       let(:end_time) { Time.parse("2026-07-15 18:30:00 UTC").in_time_zone }
 
       it "renders the daylight saving time abbreviation" do
-        expect(start_time_text).to eq("05:04 PM")
-        expect(end_time_text).to eq("08:30 PM CEST")
-        expect(tooltip_titles.last).to eq("15-07-2026 08:30 PM CEST (GMT +02:00)")
+        expect(start_time_text).to eq("17:04")
+        expect(end_time_text).to eq("20:30 CEST")
+        expect(tooltip_titles.last).to eq("15-07-2026 20:30 CEST (GMT +02:00)")
       end
     end
 
     context "when the time zone moves the time to the next day", tz: "Tokyo" do
       it "renders the date as seen from that time zone" do
-        expect(start_time_text).to eq("12:04 AM")
-        expect(end_time_text).to eq("03:30 AM JST")
-        expect(tooltip_titles.first).to eq("16-01-2026 12:04 AM JST (GMT +09:00)")
+        expect(start_time_text).to eq("00:04")
+        expect(end_time_text).to eq("03:30 JST")
+        expect(tooltip_titles.first).to eq("16-01-2026 00:04 JST (GMT +09:00)")
       end
     end
 
     context "when the time zone has a half-hour offset", tz: "New Delhi" do
       it "renders the offset including the minutes" do
-        expect(start_time_text).to eq("08:34 PM")
-        expect(end_time_text).to eq("12:00 AM IST")
-        expect(tooltip_titles.last).to eq("16-01-2026 12:00 AM IST (GMT +05:30)")
+        expect(start_time_text).to eq("20:34")
+        expect(end_time_text).to eq("00:00 IST")
+        expect(tooltip_titles.last).to eq("16-01-2026 00:00 IST (GMT +05:30)")
       end
     end
 
     context "when the time zone is behind UTC", tz: "Hawaii" do
       it "renders the negative offset" do
-        expect(start_time_text).to eq("05:04 AM")
-        expect(end_time_text).to eq("08:30 AM HST")
-        expect(tooltip_titles.last).to eq("15-01-2026 08:30 AM HST (GMT -10:00)")
+        expect(start_time_text).to eq("05:04")
+        expect(end_time_text).to eq("08:30 HST")
+        expect(tooltip_titles.last).to eq("15-01-2026 08:30 HST (GMT -10:00)")
       end
     end
 
     context "when the locale does not define the time formats" do
       it "falls back to the English formats" do
         I18n.with_locale(:ca) do
-          expect(start_time_text).to eq("03:04 PM")
-          expect(end_time_text).to eq("06:30 PM UTC")
+          expect(start_time_text).to eq("15:04")
+          expect(end_time_text).to eq("18:30 UTC")
         end
       end
     end
