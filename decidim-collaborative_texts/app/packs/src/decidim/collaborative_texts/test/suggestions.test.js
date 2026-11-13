@@ -233,15 +233,20 @@ describe("SuggestionsList", () => {
     expect(suggestion.highlightWrapper.querySelector("ins").textContent).toBe("updated text");
   });
 
-  it("keeps list items on separate lines on mouseover", () => {
+  it("keeps literal angle brackets on mouseover", () => {
+    suggestion.original = [""];
+    suggestion.replace = ["&lt;b&gt;literal&lt;/b&gt;"];
+    suggestion.highlight();
+    expect(suggestion.highlightWrapper.textContent).toBe("<b>literal</b>");
+    expect(suggestion.highlightWrapper.querySelector("b")).toBe(null);
+  });
+
+  it("keeps list items and line breaks on separate lines on mouseover", () => {
     suggestion.original = [""];
     suggestion.replace = ["<ul><li>First</li><li>Second</li></ul>"];
     suggestion.highlight();
     expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second"]);
-  });
-
-  it("keeps line breaks on mouseover", () => {
-    suggestion.original = [""];
+    suggestion.blur();
     suggestion.replace = ["<p>First<br>Second</p>"];
     suggestion.highlight();
     expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second"]);
