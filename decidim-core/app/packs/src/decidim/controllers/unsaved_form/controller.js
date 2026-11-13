@@ -16,20 +16,7 @@ const isRemote = (element) => {
   return value !== null && value !== "false";
 }
 
-const structureControls = [
-  ".add-question",
-  ".add-separator",
-  ".add-title-and-description",
-  ".remove-question",
-  ".move-up-question",
-  ".move-down-question",
-  ".add-response-option",
-  ".remove-response-option",
-  ".add-matrix-row",
-  ".remove-matrix-row",
-  ".add-display-condition",
-  ".remove-display-condition"
-].join(", ")
+const structureControls = "[data-unsaved-form-structure]"
 
 let navigationApproved = false;
 
