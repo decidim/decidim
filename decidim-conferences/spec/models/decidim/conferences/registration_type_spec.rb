@@ -30,6 +30,22 @@ module Decidim
 
           expect(registration_type.conference_invites.first.registration_type).to be(registration_type)
         end
+
+        it "destroys all invites when the association cache is stale at destruction" do
+          registration_type.save!
+          create(:conference_invite, registration_type:, conference: registration_type.conference)
+          registration_type.conference_invites.to_a # load the association cache
+
+          # Create an invite through a different instance so the loaded collection above is stale
+          Decidim::Conferences::RegistrationType.find(registration_type.id).conference_invites.create!(
+            user: create(:user, organization: registration_type.conference.organization),
+            conference: registration_type.conference
+          )
+
+          registration_type.destroy
+
+          expect(Decidim::Conferences::ConferenceInvite.where(decidim_conference_registration_type_id: registration_type.id)).not_to exist
+        end
       end
 
       describe ".default_scope" do

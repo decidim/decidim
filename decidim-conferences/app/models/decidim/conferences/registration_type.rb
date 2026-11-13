@@ -26,6 +26,11 @@ module Decidim
                dependent: :destroy,
                inverse_of: :registration_type
 
+      # `dependent: :destroy` uses the loaded association target, which may be stale if an
+      # invite was created through another instance after the cache was loaded. Query the
+      # current invites so newly created ones are destroyed with the registration type.
+      before_destroy { conference_invites.reload.destroy_all }
+
       default_scope { order(weight: :asc) }
 
       alias participatory_space conference
