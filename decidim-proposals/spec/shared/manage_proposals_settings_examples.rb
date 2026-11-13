@@ -18,9 +18,12 @@ shared_examples "manage settings" do
   context "when rich text editor is enabled" do
     it "shows the rich text editor in the body template setting" do
       within ".new_proposal_body_template_container" do
-        editor = find(".editor-preview")
-        page.scroll_to(editor)
-        expect(page).to have_css(".editor-preview")
+        page.scroll_to(find(".editor-preview"))
+
+        # Scrolling makes the preview intersect the viewport, which triggers the
+        # lazy initialization of the editor and hides the preview. Wait for the
+        # editor to be mounted instead of asserting on the preview.
+        expect(page).to have_css(".ProseMirror")
       end
       expect(page).to have_text("New proposal body template")
     end
