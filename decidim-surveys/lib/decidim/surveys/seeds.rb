@@ -134,12 +134,10 @@ module Decidim
         end
 
         bulk_find_or_create_users(emails:).each do |user|
-          response_options = {
-            user:,
-            questionnaire:,
-            session_token: Digest::SHA256.hexdigest("#{user.id}-#{Rails.application.secret_key_base}"),
-            ip_hash: Faker::Internet.device_token.slice(0, 24)
-          }
+          session_token = Digest::SHA256.hexdigest("#{user.id}-#{Rails.application.secret_key_base}")
+          ip_hash = Faker::Internet.device_token.slice(0, 24)
+          submission = Decidim::Forms::Submission.create!(questionnaire:, user:, session_token:, ip_hash:)
+          response_options = { user:, questionnaire:, submission:, session_token:, ip_hash: }
 
           questionnaire.questions.each do |question|
             case question.question_type
