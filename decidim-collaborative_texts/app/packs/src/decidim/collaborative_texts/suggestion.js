@@ -70,8 +70,7 @@ export default class Suggestion {
     this._renderDiff(this.highlightWrapper);
   }
 
-  // Restores the highlighted nodes to their original state
-  // this is used to remove the highlight when leaving the suggestion
+  // Restore the highlighted nodes when leaving the suggestion
   blur() {
     // If applied, just remove the style from the changesWrapper
     if (this.applied && this.changesWrapper) {
@@ -188,10 +187,11 @@ export default class Suggestion {
   _text(nodes) {
     const wrapper = window.document.createElement("div");
     wrapper.innerHTML = nodes.join("\n");
-    wrapper.querySelectorAll("br, p, div, li, h1, h2, h3, h4, h5, h6, blockquote, pre").forEach((element) => {
+    wrapper.querySelectorAll("br").forEach((element) => element.replaceWith("\uE000"));
+    wrapper.querySelectorAll("p, div, li, h1, h2, h3, h4, h5, h6, blockquote, pre").forEach((element) => {
       element.after(window.document.createTextNode("\n"));
     });
-    return wrapper.textContent.replace(/\n{2,}/g, "\n").trim();
+    return wrapper.textContent.replace(/\n{2,}/g, "\n").trim().replace(/\uE000/g, "\n");
   }
 
   _hideOriginalNodes(className = "collaborative-texts-hidden") {
