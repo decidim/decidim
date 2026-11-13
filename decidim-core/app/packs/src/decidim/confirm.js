@@ -34,23 +34,44 @@ class ConfirmDialog {
     this.$buttonCancel.off("click");
 
     return new Promise((resolve) => {
+      const dialog = this.$modal[0];
+      let settled = false;
+      let onClose = null;
+      const settle = (answer) => {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        dialog?.removeEventListener("close.dialog", onClose);
+        resolve(answer);
+      };
+      // The escape key, the close button and the backdrop close the dialog
+      // without going through the buttons, so the callers must be released.
+      onClose = () => {
+        if (!this.closing) {
+          settle(false);
+        }
+      };
+      dialog?.addEventListener("close.dialog", onClose);
 
       this.$buttonConfirm.on("click", (ev) => {
         ev.preventDefault();
 
-        this.close(() => resolve(true));
+        this.close(() => settle(true));
       });
 
       this.$buttonCancel.on("click", (ev) => {
         ev.preventDefault();
 
-        this.close(() => resolve(false));
+        this.close(() => settle(false));
       });
     });
   }
 
   close(afterClose) {
+    this.closing = true;
     window.Decidim.currentDialogs["confirm-modal"].close()
+    this.closing = false;
     afterClose();
     if (this.$source) {
       this.$source.focus();
