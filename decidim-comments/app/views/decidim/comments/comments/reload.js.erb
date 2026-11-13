@@ -18,7 +18,9 @@
   component.mountComponent();
 
   // Update the comments count
-  $(".comments-count", $comments).text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
+  $(".comments-count", $comments)
+    .attr("data-comments-count", <%== @comments_count.to_json %>)
+    .text(<%== t("decidim.components.comments.title", count: @comments_count).to_json %>);
 
   // Restore focus to the previously focused element if it still exists
   if (activeElementId) {
