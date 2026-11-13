@@ -107,7 +107,7 @@ module Decidim
       return if dates_blank?
 
       {
-        text: I18n.l(start_date.in_time_zone, format: :time_of_day_12h_with_time_zone),
+        text: I18n.l(start_date.in_time_zone, format: :time_of_day_with_time_zone),
         icon: "time-line"
       }
     end

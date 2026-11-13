@@ -2298,8 +2298,7 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      time_of_day_12h: "%I:%M %p"
-      time_of_day_12h_with_time_zone: "%I:%M %p %Z"
+      time_of_day_with_time_zone: "%I:%M %Z"
       tooltip: "%d-%m-%Y %I:%M %p %Z (GMT %:z)"
   versions:
     directions:

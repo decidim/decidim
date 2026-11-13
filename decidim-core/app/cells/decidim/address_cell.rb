@@ -67,11 +67,11 @@ module Decidim
     private
 
     def start_time
-      l model.start_time, format: :time_of_day_12h
+      l model.start_time, format: :time_of_day
     end
 
     def end_time
-      l model.end_time, format: :time_of_day_12h_with_time_zone
+      l model.end_time, format: :time_of_day_with_time_zone
     end
   end
 end
