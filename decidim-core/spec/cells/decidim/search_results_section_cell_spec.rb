@@ -8,7 +8,7 @@ describe Decidim::SearchResultsSectionCell, type: :cell do
   controller Decidim::SearchesController
 
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+  let(:participatory_space) { create(:participatory_process, :published, :with_phases, organization:) }
   let(:component) { create(:proposal_component, participatory_space:) }
   let(:results) { Kaminari.paginate_array(create_list(:proposal, 26, component:)).page(1).per(25) }
   let(:model) { { "Decidim::Proposals::Proposal" => { count: 26, results: } } }
