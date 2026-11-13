@@ -20,10 +20,6 @@ module Decidim
         def index
           enforce_permission_to :index, :initiative_type
 
-          # The destroy permission checks whether each type has initiatives through
-          # its scopes. Resolving that in one batched query avoids both the N+1 and
-          # loading every initiative of the organization just to know if a type has
-          # any.
           @initiatives_types = InitiativeTypes.for(current_organization)
         end
 
@@ -94,10 +90,7 @@ module Decidim
 
         protected
 
-        # The batched check calculated in `index` is passed to the permissions so
-        # the destroy check does not query the associations for every listed type.
-        # When it is not available the permission falls back to the association
-        # check, which keeps the behaviour for the other actions.
+        # Used to prevent N+1 query problems
         def permissions_context
           super.merge(initiative_types_with_initiatives: @initiative_types_with_initiatives)
         end
@@ -105,7 +98,7 @@ module Decidim
         private
 
         def set_initiative_types_with_initiatives
-          @initiative_types_with_initiatives = InitiativeTypesWithInitiatives.for(current_organization)
+          @initiative_types_with_initiatives ||= InitiativeTypesWithInitiatives.for(current_organization)
         end
 
         def set_controller_breadcrumb
