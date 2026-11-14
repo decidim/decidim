@@ -217,6 +217,8 @@ en:
         highlight: Highlight
         highlight_description: Used by resources who allow to highlight
         html_tips: HTML tips
+        icon_description: The optional icon option shows an icon at the left of the announcement, next to the title and the body.
+        icon_title: With an icon
         icons: Icons
         image_and_description: Image and Description
         initiative_g: initiative_g
