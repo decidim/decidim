@@ -528,7 +528,8 @@ module Decidim
           # For more information go to
           # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
           default_scopes :profile
-          optional_scopes :user, :"api:read", :"api:write", :"admin:read", :"admin:write"
+          optional_scopes :user, :"api:read", :"api:write", :"admin:read", :"admin:write",
+                          :openid
 
           # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
           # by default in non-development environments). OAuth2 delegates security in
