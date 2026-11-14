@@ -23,6 +23,7 @@ import ScrollToLastController from "src/decidim/controllers/scroll_to_last/contr
 import StickyButtonsController from "src/decidim/controllers/sticky_buttons/controller";
 import ToggleController from "src/decidim/controllers/toggle/controller";
 import TooltipController from "src/decidim/controllers/tooltip/controller"
+import UnsavedFormController from "src/decidim/controllers/unsaved_form/controller"
 import UserRegistrationFormController from "src/decidim/controllers/user_registration_form/controller";
 import TabsController from "src/decidim/controllers/tabs/controller";
 import SelectiveDisplay from "src/decidim/controllers/selective_display/controller";
@@ -55,6 +56,7 @@ application.register("scroll-to-last", ScrollToLastController);
 application.register("sticky-buttons", StickyButtonsController);
 application.register("toggle", ToggleController);
 application.register("tooltip", TooltipController)
+application.register("unsaved-form", UnsavedFormController);
 application.register("user-registration-form", UserRegistrationFormController);
 application.register("tabs", TabsController);
 application.register("selective-display", SelectiveDisplay);

@@ -220,6 +220,38 @@ describe("Confirm dialog for button[type='button']", () => {
       expect(openSpy).not.toHaveBeenCalled();
     });
   });
+
+  describe("resolving the confirmation", () => {
+    it("resolves true when the confirm button is clicked", async () => {
+      const { default: confirmAction } = await import("src/decidim/confirm.js");
+
+      const answer = confirmAction("Unsaved changes");
+
+      document.querySelector("[data-confirm-ok]").click();
+
+      await expect(answer).resolves.toBe(true);
+    });
+
+    it("resolves false when the cancel button is clicked", async () => {
+      const { default: confirmAction } = await import("src/decidim/confirm.js");
+
+      const answer = confirmAction("Unsaved changes");
+
+      document.querySelector("[data-confirm-cancel]").click();
+
+      await expect(answer).resolves.toBe(false);
+    });
+
+    it("resolves false when the dialog is closed without an answer", async () => {
+      const { default: confirmAction } = await import("src/decidim/confirm.js");
+
+      const answer = confirmAction("Unsaved changes");
+
+      document.querySelector("#confirm-modal").dispatchEvent(new CustomEvent("close.dialog"));
+
+      await expect(answer).resolves.toBe(false);
+    });
+  });
 });
 
 /* dummy end */

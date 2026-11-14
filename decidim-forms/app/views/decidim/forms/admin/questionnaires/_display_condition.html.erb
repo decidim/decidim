@@ -5,7 +5,7 @@
     <h2 class="card-title">
     <span><%= t(".display_condition") %></span>
     <% if editable %>
-      <button class="button button__xs button__transparent-secondary small alert remove-display-condition button--title">
+      <button data-unsaved-form-structure class="button button__xs button__transparent-secondary small alert remove-display-condition button--title">
         <%= icon("delete-bin-line") %>
         <span class="hidden md:block"><%= t(".remove") %></span>
       </button>

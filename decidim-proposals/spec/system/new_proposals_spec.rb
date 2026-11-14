@@ -75,6 +75,14 @@ describe "Proposals" do
       end
     end
 
+    context "with unsaved changes" do
+      before do
+        click_on "New proposal"
+      end
+
+      it_behaves_like "a form with unsaved changes", ".new_proposal", "Title", "Back"
+    end
+
     context "and draft proposal exists for current users" do
       let!(:draft) { create(:proposal, :draft, component:, users: [user]) }
 

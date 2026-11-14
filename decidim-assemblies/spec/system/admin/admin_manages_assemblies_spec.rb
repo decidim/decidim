@@ -61,6 +61,7 @@ describe "Admin manages assemblies" do
 
     it_behaves_like "having a rich text editor for field", "#closing_date_reason_div", "content"
     it_behaves_like "having no taxonomy filters defined"
+    it_behaves_like "a form with unsaved changes", ".new_assembly", "assembly_title_en", "Assemblies"
 
     it "creates a new assembly", versioning: true do
       within ".new_assembly" do

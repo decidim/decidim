@@ -25,7 +25,7 @@
           </button>
 
           <% if editable %>
-            <button type="button" class="button button__xs button__transparent-secondary small alert remove-question button--title" data-confirm="<%= t("remove_question_confirm", scope: "decidim.elections.admin.questions.edit_questions") %>">
+            <button data-unsaved-form-structure type="button" class="button button__xs button__transparent-secondary small alert remove-question button--title" data-confirm="<%= t("remove_question_confirm", scope: "decidim.elections.admin.questions.edit_questions") %>">
               <%= icon "delete-bin-line" %>
               <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.question") %></span>
             </button>
@@ -86,7 +86,7 @@
         </div>
         <% if editable %>
           <div class="row column mb-2 mt-4">
-            <button type="button" class="button--title button button__sm button__transparent-secondary add-response-option">
+            <button data-unsaved-form-structure type="button" class="button--title button button__sm button__transparent-secondary add-response-option">
               <%= t("add_response_option", scope: "decidim.forms.admin.questionnaires.question") %>
             </button>
           </div>
