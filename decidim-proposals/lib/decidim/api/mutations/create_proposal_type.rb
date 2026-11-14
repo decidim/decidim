@@ -3,6 +3,8 @@
 module Decidim
   module Proposals
     class CreateProposalType < Decidim::Api::Types::BaseMutation
+      include Decidim::Proposals::ProposalAttachmentUpload
+
       graphql_name "CreateProposal"
 
       description "Creates a proposal"
@@ -18,6 +20,7 @@ module Decidim
         params = attributes.to_h.slice(:title, :body, :address, :latitude, :longitude, :taxonomies)
 
         params[:taxonomies] = Decidim::Taxonomy.where(organization: current_organization, id: params[:taxonomies]).pluck(:id) if params[:taxonomies]
+        params[:add_attachments] = attachment_params(attributes.attachments)
 
         form = form(Decidim::Proposals::ProposalForm).from_params(params)
 

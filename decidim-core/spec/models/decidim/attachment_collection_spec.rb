@@ -10,14 +10,39 @@ module Decidim
 
     it { is_expected.to be_valid }
 
-    context "without a collection holder" do
-      let(:attachment_collection) { build(:attachment_collection, collection_for: nil) }
+    context "with the key" do
+      # Uniqueness is enforced by the partial unique index added in
+      # decidim-core/db/migrate/20261112100239_add_unique_key_to_attachment_collection.rb
+      let(:collection_for) { create(:participatory_process) }
 
-      it { is_expected.not_to be_valid }
+      it "rejects a key already used by another collection for the same holder" do
+        create(:attachment_collection, collection_for:, key: "shared-key")
 
-      it "adds an error" do
-        subject.valid?
-        expect(subject.errors[:collection_for]).to eq ["must exist"]
+        expect do
+          create(:attachment_collection, collection_for:, key: "shared-key")
+        end.to raise_error(ActiveRecord::RecordNotUnique)
+      end
+
+      it "allows the same key for a different holder" do
+        expect do
+          create(:attachment_collection, collection_for: create(:participatory_process), key: "shared-key")
+        end.not_to raise_error
+      end
+
+      it "allows several collections without a key for the same holder" do
+        expect do
+          2.times { create(:attachment_collection, collection_for:, key: nil) }
+        end.not_to raise_error
+      end
+
+      it "creates the unique index for the key per holder" do
+        index = ActiveRecord::Base.connection.indexes(:decidim_attachment_collections).find do |current|
+          current.name == "index_attachment_collections_unique_key_per_parent"
+        end
+
+        expect(index).to be_present
+        expect(index.columns).to eq(%w(collection_for_type collection_for_id key))
+        expect(index.unique).to be(true)
       end
     end
   end

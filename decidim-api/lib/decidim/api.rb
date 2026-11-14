@@ -4,6 +4,10 @@ require "devise/jwt"
 require "warden/jwt_auth/decidim_overrides"
 require "decidim/env"
 require "decidim/api/engine"
+# The upload type and the middleware which maps the files of a multipart request
+# to the GraphQL operation variables. The Railtie of the gem adds the middleware
+# to the application, so the API controller receives the mapped parameters.
+require "apollo_upload_server"
 require "decidim/api/types"
 require "decidim/api/devise"
 

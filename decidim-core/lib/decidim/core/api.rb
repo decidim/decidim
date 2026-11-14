@@ -2,10 +2,12 @@
 
 module Decidim
   module Core
+    autoload :BlobOrganization, "decidim/api/functions/blob_organization"
     autoload :CategoryList, "decidim/api/functions/category_list"
     autoload :ComponentFinderBase, "decidim/api/functions/component_finder_base"
     autoload :ComponentList, "decidim/api/functions/component_list"
     autoload :ComponentListBase, "decidim/api/functions/component_list_base"
+    autoload :FileUpload, "decidim/api/functions/file_upload"
     autoload :NeedsApiFilterAndOrder, "decidim/api/functions/needs_api_filter_and_order"
     autoload :NeedsApiDefaultOrder, "decidim/api/functions/needs_api_default_order"
     autoload :ParticipatorySpaceFinderBase, "decidim/api/functions/participatory_space_finder_base"
@@ -18,12 +20,23 @@ module Decidim
     autoload :AreaTypeType, "decidim/api/types/area_type_type"
     autoload :AttachmentType, "decidim/api/types/attachment_type"
     autoload :AttachmentCollectionType, "decidim/api/types/attachment_collection_type"
+    autoload :BlobType, "decidim/api/types/blob_type"
+    autoload :DeleteBlobType, "decidim/api/mutations/delete_blob_type"
+    autoload :UploadFileType, "decidim/api/mutations/upload_file_type"
     autoload :BadgeScoreType, "decidim/api/types/badge_score_type"
     autoload :CategoryType, "decidim/api/types/category_type"
     autoload :TaxonomyType, "decidim/api/types/taxonomy_type"
     autoload :ComponentType, "decidim/api/types/component_type"
     autoload :CoordinatesType, "decidim/api/types/coordinates_type"
+    autoload :CreateAttachmentType, "decidim/api/mutations/create_attachment_type"
+    autoload :UpdateAttachmentType, "decidim/api/mutations/update_attachment_type"
+    autoload :DeleteAttachmentType, "decidim/api/mutations/delete_attachment_type"
+    autoload :DeleteAttachmentCollectionType, "decidim/api/mutations/delete_attachment_collection_type"
+    autoload :CreateAttachmentCollectionType, "decidim/api/mutations/create_attachment_collection_type"
+    autoload :UpdateAttachmentCollectionType, "decidim/api/mutations/update_attachment_collection_type"
     autoload :DecidimType, "decidim/api/types/decidim_type"
+    autoload :AttachableMutations, "decidim/api/mutations/shared/attachable_mutations"
+    autoload :AttachableCollectionMutations, "decidim/api/mutations/shared/attachable_collection_mutations"
     autoload :FingerprintType, "decidim/api/types/fingerprint_type"
     autoload :LocalizedStringType, "decidim/api/types/localized_string_type"
     autoload :OrganizationType, "decidim/api/types/organization_type"
@@ -87,5 +100,10 @@ module Decidim
 
     autoload :DateTimeType, "decidim/api/scalars/date_time_type"
     autoload :DateType, "decidim/api/scalars/date_type"
+
+    autoload :AttachmentAttributes, "decidim/api/attributes/attachment_attributes"
+    autoload :AttachmentCollectionAttributes, "decidim/api/attributes/attachment_collection_attributes"
+
+    autoload :AttachmentCollectionInputObject, "decidim/api/input_objects/attachment_collection_input_object"
   end
 end

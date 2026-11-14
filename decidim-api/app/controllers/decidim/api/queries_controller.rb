@@ -4,6 +4,11 @@ module Decidim
   module Api
     # This controller takes queries from an HTTP endpoint and sends them out to
     # the Schema to be executed, later returning the response as JSON.
+    #
+    # Multipart requests are not parsed here: `ApolloUploadServer::Middleware`
+    # maps the uploaded files to the operation variables before the request
+    # reaches this controller, so `query`, `variables` and `operationName` are
+    # already the values of the operation when the action runs.
     class QueriesController < Api::ApplicationController
       def create
         variables = prepare_variables(params[:variables])
@@ -33,10 +38,6 @@ module Decidim
           scopes: api_scopes,
           can_introspect: Decidim::Api.enable_anonymous_introspection || api_user&.admin?
         }
-      end
-
-      def api_user
-        @api_user ||= organization_user(current_api_user || current_user)
       end
 
       # Determines the scopes for the user for API requests.
@@ -83,13 +84,6 @@ module Decidim
         else
           raise ArgumentError, "Unexpected parameter: #{variables_param}"
         end
-      end
-
-      def organization_user(user)
-        return if user.blank? || current_organization.blank?
-        return unless user.decidim_organization_id == current_organization.id
-
-        user
       end
     end
   end

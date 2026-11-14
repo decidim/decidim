@@ -5,6 +5,9 @@ module Decidim
     # A command with all the business logic when updating an attachment collection.
     class UpdateAttachmentCollection < Decidim::Command
       delegate :current_user, to: :form
+
+      attr_reader :attachment_collection
+
       # Public: Initializes the command.
       #
       # attachment_collection - The AttachmentCollection to update
@@ -24,7 +27,10 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         update_attachment_collection
-        broadcast(:ok)
+        broadcast(:ok, attachment_collection)
+      rescue ActiveRecord::RecordNotUnique
+        form.errors.add(:key, :taken)
+        broadcast(:invalid)
       end
 
       private
@@ -43,7 +49,12 @@ module Decidim
         {
           name: form.name,
           weight: form.weight,
-          description: form.description
+          description: form.description,
+          # The admin edit form does not submit the key, so the saved one is
+          # preserved when the form does not provide a new value; otherwise editing
+          # a collection from the admin panel would erase the key used by the API
+          # to look the collection up.
+          key: form.key.presence || attachment_collection.key
         }
       end
     end

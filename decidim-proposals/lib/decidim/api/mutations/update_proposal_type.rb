@@ -3,6 +3,8 @@
 module Decidim
   module Proposals
     class UpdateProposalType < Decidim::Api::Types::BaseMutation
+      include Decidim::Proposals::ProposalAttachmentUpload
+
       graphql_name "UpdateProposal"
 
       description "Updates a proposal"
@@ -46,7 +48,13 @@ module Decidim
         latitude = attributes.to_h.fetch(:latitude, object.latitude)
         longitude = attributes.to_h.fetch(:longitude, object.longitude)
 
-        { title:, body:, address:, latitude:, longitude:, taxonomies: }
+        # The command removes the attachments which are not listed in the form, so
+        # the ones already attached to the proposal are kept when new files are
+        # uploaded with it.
+        attachments = object.attachments.map(&:id)
+        add_attachments = attachment_params(attributes.attachments)
+
+        { title:, body:, address:, latitude:, longitude:, taxonomies:, attachments:, add_attachments: }
       end
     end
   end
