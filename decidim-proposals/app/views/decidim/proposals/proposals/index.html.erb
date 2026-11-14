@@ -36,7 +36,7 @@
   <% end %>
 
   <%= render partial: "decidim/shared/component_announcement" %>
-  <%= render partial: "voting_rules" %>
+  <%= cell("decidim/proposals/voting_rules", current_component) %>
 
   <section id="proposals" class="layout-main__section layout-main__heading">
     <%= render partial: "proposals" %>
