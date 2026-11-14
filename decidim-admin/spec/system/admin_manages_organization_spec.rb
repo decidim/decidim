@@ -767,4 +767,10 @@ describe "Admin manages organization" do
       end
     end
   end
+
+  describe "removed appearance page" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { "/admin/organization/appearance/edit" }
+    end
+  end
 end
