@@ -108,12 +108,26 @@ module Decidim
     # do, and the vendor prefixed spelling is matched as well.
     CSS_URL_FUNCTIONS = %w(url image-set -webkit-image-set).freeze
 
-    # The URL references of a style sheet, captured after the comments and the
-    # strings which do not define a URL are removed, so that each of them can
-    # be validated as a reference. Only the strings of the functions which load
-    # their arguments survive the scrubbing, so the remaining strings are URL
-    # values, and the unquoted value of a "url()" function is matched as well.
-    SVG_CSS_URL_VALUE = /["']([^"')]+)["']?|(?:url|image-set)\(\s*([^"')]+)/im
+    # The escape sequences of CSS, which consist of a backslash followed by up
+    # to six hexadecimal digits, with an optional whitespace terminating the
+    # sequence, or by any other character. The groups are the codepoint and the
+    # escaped character, read by position in #decode_css_escapes, so they are
+    # kept unnamed.
+    CSS_ESCAPE = /\\(?:(\h{1,6})[ \t\n\r\f]?|(.))/m
+
+    # The call of a function which loads its arguments as a resource, which
+    # starts the value read as a reference (see #scan_css_reference_value). The
+    # value of a function is not taken as a reference when it is itself a function
+    # call, so that a function nested inside another one (e.g. "image(url(...))")
+    # is read on its own. The whitespace which can separate the nested call from
+    # the parenthesis is not part of the value, as the engines read the arguments
+    # as tokens, so it is skipped before the check (see #scan_css_reference_value).
+    #
+    # The expression has no quantified group, as the values are read token by
+    # token instead of with a quantified expression (see #scan_css_reference_value):
+    # the regexp engine keeps one entry per repetition in its match stack, which
+    # grows the memory proportionally to the length of a multi-megabyte value.
+    SVG_CSS_URL_FUNCTION_CALL = /(?:#{CSS_URL_FUNCTIONS.join("|")})\(/im
 
     # The maximum depth of the documents nested inside inline data references,
     # which are validated with the same rules as the document itself.
@@ -137,17 +151,12 @@ module Decidim
     # The CSS at-rules which load external resources when the style sheets of
     # an SVG document are rendered. Imports always fetch a resource, so
     # documents containing them are rejected. The URL references are validated
-    # separately as references (see SVG_CSS_URL_VALUE), as the same rules apply
+    # separately as references (see #scan_css_reference_value), as the same rules apply
     # to them: references with a scheme or an authority fetch a resource from
     # another host, fragment and relative references are resolved against the
     # document itself, and "data:" references are inline but can contain a
     # nested document which is parsed when rendered.
     SVG_CSS_IMPORT = /@import/i
-
-    # The escape sequences of CSS, which consist of a backslash followed by up
-    # to six hexadecimal digits, with an optional whitespace terminating the
-    # sequence, or by any other character.
-    CSS_ESCAPE = /\\(?:(?<hex>\h{1,6})[ \t\n\r\f]?|(?<char>.))/m
 
     # Validates the contents of an SVG document. Returns :valid when the
     # document can be stored, :invalid when the contents are not a well formed
@@ -420,11 +429,137 @@ module Decidim
     # before checking, as they can otherwise hide the references (e.g.
     # "u\rl(https://example.org)") or be mistaken for them (e.g. 'content:
     # "See @import instructions"').
+    #
+    # The input is normalized before the style sheet is tokenized, as the engines
+    # do (CSS Syntax Level 3, 5.1): CRLF, CR and FF are read as a single newline,
+    # so that a CRLF pair consumed by a hexadecimal escape does not cut the value
+    # short at the second character of the pair (see #normalize_css_newlines).
+    #
+    # The references are captured on the scrubbed style sheet, before the escape
+    # sequences are decoded, so that the boundaries of the string tokens are
+    # preserved: an escaped quote is part of the value and not the end of it, and
+    # an unescaped newline ends the value. The captured values are decoded
+    # afterwards, as the engines read them as URLs only after decoding. The names
+    # of the functions which load their arguments are decoded during the
+    # scrubbing, so that the escaped spellings are still recognized (see
+    # #scrub_css).
+    #
+    # The values are checked as they are found, so that a style sheet with many
+    # references does not keep all of them in memory before the first one is
+    # rejected.
     def forbidden_css_content?(css)
-      normalized = decode_css_escapes(scrub_css(css))
-      return true if SVG_CSS_IMPORT.match?(normalized)
+      scrubbed = scrub_css(normalize_css_newlines(css))
+      return true if SVG_CSS_IMPORT.match?(decode_css_escapes(scrubbed))
 
-      normalized.scan(SVG_CSS_URL_VALUE).any? { |groups| forbidden_reference_value?(groups.compact.first) }
+      scanner = StringScanner.new(scrubbed)
+      until scanner.eos?
+        value = scan_css_reference_value(scanner)
+        next if value.nil?
+
+        return true if forbidden_reference_value?(decode_css_escapes(value))
+      end
+
+      false
+    end
+
+    # Normalizes the newlines of a style sheet as the engines do before
+    # tokenizing it (CSS Syntax Level 3, 5.1): CRLF, CR and FF are read as a
+    # single newline. A hexadecimal escape consumes the newline which terminates
+    # it, so without normalizing the CRLF pair the escape consumes only the CR
+    # and the value is cut short at the LF, hiding the URL which continues after
+    # the newline (e.g. "url(\"\\68&#13;&#10;ttps://example.org\")", which the
+    # engines resolve to an external address).
+    def normalize_css_newlines(css)
+      css.gsub(/\r\n?|[\r\f]/, "\n")
+    end
+
+    # Reads the next reference value of the scrubbed style sheet: a string token
+    # or the unquoted value of a function which loads its arguments. The values
+    # are read token by token instead of with a quantified expression, as the
+    # regexp engine keeps one entry per repetition in its match stack, which
+    # grows the memory proportionally to the length of a multi-megabyte value.
+    #
+    # The content of a string is delimited by the quote which opens it, so the
+    # other quote is part of the value and cannot be used to cut it short (e.g.
+    # the namespace of an inline document written with single quotes inside a
+    # double quoted URL). Taking only the part before the other quote would
+    # validate an incomplete reference instead of the one which is rendered.
+    #
+    # The closing parenthesis of a function is not a delimiter of a quoted value
+    # either, as it is part of the string token when the style sheet is
+    # tokenized (see #scrub_css). Cutting the value at it would read the text
+    # after the parenthesis as part of another value, which can hide an external
+    # URL following it (e.g. "image-set(\"a)b\" c, url(https://example.org))").
+    #
+    # The value is read as the string token which defines it, so the escape
+    # sequences and the newlines are kept as they are written and decoded after
+    # the capture (see #forbidden_css_content?): an escaped quote does not close
+    # the token, and an unescaped newline ends it. Capturing across them would
+    # read the text after the token as part of the value, hiding an external URL
+    # which follows it.
+    #
+    # A hexadecimal escape consumes the whitespace or newline which terminates it,
+    # so the whole sequence is part of the token and the value must be read as
+    # the complete escape (see CSS_ESCAPE). Stopping at the first character after
+    # the backslash would validate only the decoded character, and the rest of the
+    # URL after the newline would never be checked (e.g. "url(\"\\68\n" followed
+    # by "ttps://example.org\")", which the engines resolve to an external address).
+    #
+    # An empty string is a complete value which must be consumed as such.
+    # Requiring at least one character would leave the scan to start at its
+    # closing quote, reading the rest of the style sheet as a single value which
+    # hides the external URLs declared after it.
+    #
+    # The whitespace between the parenthesis of a function and its argument is not
+    # part of the value, as the engines read the arguments as tokens. When the
+    # argument is a nested function call, it is read on its own, so the whitespace
+    # which can separate it from the enclosing function is skipped before checking
+    # it (e.g. "image-set( url(https://example.org))"). Reading it as a value would
+    # consume the name of the nested function and leave its address without a
+    # function name before it, which is never checked as a reference.
+    #
+    # The delimiters of an unquoted value are only the delimiters which the
+    # tokenization rules read as such: an escape sequence hides the character
+    # following it, so a quote or a parenthesis written as an escape is part of the
+    # value and does not end it (e.g. "url(local\"); mask-image:
+    # url(https://example.org))"). Stopping at the escaped character would read the
+    # rest of the style sheet as a string starting at that character, which hides the
+    # external URL declared after it.
+    def scan_css_reference_value(scanner)
+      if (quote = scanner.scan(/["']/))
+        token = scan_css_string(scanner, quote)
+        value = token[1..-1]
+        value = value[0..-2] if value.end_with?(quote)
+        value
+      elsif scanner.scan(SVG_CSS_URL_FUNCTION_CALL)
+        scanner.getch while scanner.match?(/\s/)
+        return nil if scanner.match?(SVG_CSS_URL_FUNCTION_CALL)
+
+        scan_css_unquoted_value(scanner)
+      else
+        scanner.getch
+        nil
+      end
+    end
+
+    # Consumes the unquoted value of a function which loads its arguments, and
+    # returns it as it is written. The value ends at a quote or a parenthesis, but
+    # only when the tokenization rules read it as a delimiter: an escape sequence
+    # hides the character following it, so the whole escape is consumed as part of
+    # the value (see #scan_css_reference_value).
+    def scan_css_unquoted_value(scanner)
+      value = +""
+      until scanner.eos?
+        escape = scanner.scan(CSS_ESCAPE)
+        if escape
+          value << escape
+        elsif scanner.match?(/["')(]/)
+          break
+        else
+          value << scanner.getch
+        end
+      end
+      value
     end
 
     # Removes the comments and the strings of a style sheet, which are not
@@ -452,9 +587,10 @@ module Decidim
           string = scan_css_string(scanner, quote)
           output << string if url_functions.any?
         elsif (ident = scan_css_ident(scanner))
-          output << ident
+          url_function = css_url_function?(ident)
+          output << decoded_css_name(ident, url_function)
           if scanner.match?(/\(/)
-            url_functions.push(css_url_function?(ident))
+            url_functions.push(url_function)
             output << scanner.getch
           end
         else
@@ -529,12 +665,22 @@ module Decidim
       CSS_URL_FUNCTIONS.any? { |name| decode_css_escapes(ident).casecmp?(name) }
     end
 
+    # The name of an identifier as it is written, or decoded when it is the name
+    # of a function which loads its arguments, so that the escaped spellings are
+    # recognized when the references are captured on the scrubbed style sheet
+    # (see #forbidden_css_content?). The other identifiers are kept as they are
+    # written, as decoding them could turn an escaped character into one which
+    # the tokenization rules do not accept inside an identifier.
+    def decoded_css_name(ident, url_function)
+      url_function ? decode_css_escapes(ident) : ident
+    end
+
     # Decodes the escape sequences of CSS. Invalid codepoints are replaced with
     # the replacement character.
     def decode_css_escapes(css)
       css.gsub(CSS_ESCAPE) do
-        digits = Regexp.last_match[:hex]
-        next Regexp.last_match[:char] if digits.nil?
+        digits = Regexp.last_match(1)
+        next Regexp.last_match(2) if digits.nil?
 
         codepoint = digits.to_i(16)
         if codepoint.zero? || codepoint > 0x10FFFF || codepoint.between?(0xD800, 0xDFFF)
