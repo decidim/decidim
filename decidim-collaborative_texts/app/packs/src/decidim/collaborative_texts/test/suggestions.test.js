@@ -86,6 +86,7 @@ describe("SuggestionsList", () => {
   let firstSuggestion = null;
   let fetchResult = [
     {
+      "id": 1,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is another replacement"],
@@ -96,6 +97,7 @@ describe("SuggestionsList", () => {
       "profileHtml": "<div>Profile</div>",
       "summary": "This is another summary"
     }, {
+      "id": 2,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is a replacement"],
@@ -218,9 +220,38 @@ describe("SuggestionsList", () => {
   it("highlights a suggestion on mouseover", () => {
     suggestion.highlight();
     expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
-    expect(suggestion.highlightWrapper.textContent).toBe("This is a replacement");
+    expect([...suggestion.highlightWrapper.querySelectorAll("del")].map((node) => node.textContent).join(" ")).toBe("some content");
+    expect([...suggestion.highlightWrapper.querySelectorAll("ins")].map((node) => node.textContent).join(" ")).toBe("This is a replacement");
     expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden").innerHTML).toContain("Some content");
-    expect(doc.doc.querySelector(".collaborative-texts-highlight").innerHTML).toContain("This is a replacement");
+  });
+
+  it("only marks the changed words on mouseover", () => {
+    suggestion.replace = ["some updated text"];
+    suggestion.highlight();
+    expect(suggestion.highlightWrapper.textContent).toBe("some content updated text");
+    expect(suggestion.highlightWrapper.querySelector("del").textContent).toBe("content");
+    expect(suggestion.highlightWrapper.querySelector("ins").textContent).toBe("updated text");
+    suggestion.blur();
+    suggestion.original = ["<p>First <b>paragraph</b></p>"];
+    suggestion.replace = ["<p>First paragraph</p>"];
+    suggestion.highlight();
+    expect(suggestion.highlightWrapper.querySelector("del b")).toBeInstanceOf(HTMLElement);
+    expect(suggestion.highlightWrapper.querySelector("ins b")).toBe(null);
+  });
+
+  it("keeps literal markup and line breaks on mouseover", () => {
+    suggestion.original = [""];
+    suggestion.replace = ["&lt;b&gt;literal&lt;/b&gt;"];
+    suggestion.highlight();
+    expect(suggestion.highlightWrapper.textContent).toBe("<b>literal</b>");
+    suggestion.blur();
+    suggestion.replace = ["<ul><li>First</li><li>Second</li></ul>"];
+    suggestion.highlight();
+    expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second"]);
+    suggestion.blur();
+    suggestion.replace = ["<p>First<br>Second<br><br>Third</p>"];
+    suggestion.highlight();
+    expect([...suggestion.highlightWrapper.querySelectorAll("p")].map((node) => node.textContent)).toEqual(["First", "Second", "", "Third"]);
   });
 
   it("blurs a suggestion on mouseout", () => {
@@ -229,5 +260,40 @@ describe("SuggestionsList", () => {
     expect(suggestion.highlightWrapper).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-hidden")).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-highlight")).toBe(null);
+  });
+
+  it("reveals applied changes when a sibling preview is blurred", () => {
+    suggestion.apply();
+    firstSuggestion.highlight();
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight-hidden")).toBe(true);
+    firstSuggestion.blur();
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight-hidden")).toBe(false);
+  });
+
+  it("does not duplicate the highlight when triggered twice", () => {
+    suggestion.highlight();
+    suggestion.highlight();
+    expect(doc.doc.querySelectorAll(".collaborative-texts-highlight").length).toBe(1);
+    suggestion.blur();
+    expect(doc.doc.querySelector(".collaborative-texts-highlight")).toBe(null);
+    expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden")).toBe(null);
+  });
+
+  it("toggles the highlight on touchstart", () => {
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBe(null);
+    suggestion.apply();
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(true);
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(false);
+  });
+
+  it("does not toggle the highlight when touching the suggestion actions", () => {
+    suggestion.item.querySelector(".button-apply").dispatchEvent(new Event("touchstart", { bubbles: true }));
+    suggestion.item.querySelector(".button-restore").dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBe(null);
   });
 });

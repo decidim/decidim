@@ -45,12 +45,25 @@ module Decidim
       def safe_json
         {
           id:,
-          changeset:,
+          changeset: sanitized_changeset,
           summary:,
           status:,
           type:,
           createdAt: created_at
         }
+      end
+
+      private
+
+      # The changeset contains the HTML nodes as participants submitted them.
+      # They are parsed & rendered into the document by the browser, so they
+      # need to be sanitized before leaving the server.
+      def sanitized_changeset
+        changeset.merge(
+          changeset.slice("original", "replace").transform_values do |nodes|
+            Array(nodes).map { |node| decidim_sanitize(node, scrubber: Decidim::AdminInputScrubber.new) }
+          end
+        )
       end
     end
   end
