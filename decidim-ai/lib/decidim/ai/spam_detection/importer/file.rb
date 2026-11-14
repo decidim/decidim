@@ -8,6 +8,7 @@ module Decidim
           def self.call(file, service)
             ext = ::File.extname(file)[1..-1]
             reader_class = Decidim::Admin::Import::Readers.search_by_file_extension(ext)
+            raise NotImplementedError, "No reader implemented for file extension: #{ext}" if reader_class.nil?
 
             reader_class.new(file).read_rows do |row|
               next unless [:spam, :ham].include?(row[0].to_sym)

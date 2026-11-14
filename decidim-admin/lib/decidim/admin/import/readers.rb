@@ -34,10 +34,13 @@ module Decidim
           nil
         end
 
+        # File extensions are matched case-insensitively, as the same file can be
+        # named with any casing (e.g. "training.csv" or "TRAINING.CSV").
         def self.search_by_file_extension(extension)
-          return unless ACCEPTED_MIME_TYPES.has_key?(extension.to_sym)
+          key = extension.to_s.downcase.to_sym
+          return unless ACCEPTED_MIME_TYPES.has_key?(key)
 
-          search_by_mime_type(ACCEPTED_MIME_TYPES[extension.to_sym])
+          search_by_mime_type(ACCEPTED_MIME_TYPES[key])
         end
       end
     end
