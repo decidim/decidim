@@ -84,10 +84,28 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
       let!(:another_closed_meeting) { create(:meeting, :published, :closed, attendees_count: 15, component:) }
       let!(:hidden_meeting) { create(:meeting, :published, :closed, attendees_count: 25, component:) }
       let!(:closing_hidden) { create(:meeting, :published, :closed, closing_visible: false, attendees_count: 25, component:) }
+      let!(:private_meeting) { create(:meeting, :published, :closed, private_meeting: true, transparent: false, attendees_count: 30, component:) }
+      let!(:private_transparent_meeting) { create(:meeting, :published, :closed, private_meeting: true, transparent: true, attendees_count: 7, component:) }
 
       it "counts the attendees count from visible meetings" do
-        expect(Decidim::Meetings::Meeting.sum(:attendees_count)).to eq 70
-        expect(subject).to eq 20
+        expect(Decidim::Meetings::Meeting.sum(:attendees_count)).to eq 107
+        expect(subject).to eq 27
+      end
+
+      it "is registered for the participatory space statistics but not for the admin dashboard" do
+        stat = Decidim.find_component_manifest(:meetings).stats.stats.find { |definition| definition[:name] == stats_name }
+
+        expect(stat[:priority]).to eq(Decidim::StatsRegistry::MEDIUM_PRIORITY)
+        expect(stat[:admin]).to be(false)
+        expect(stat[:icon_name]).to eq("group-line")
+        expect(stat[:tooltip_key]).to eq("attendees_count_tooltip")
+      end
+
+      it "is included in the participatory space statistics" do
+        presenter = Decidim::ParticipatoryProcesses::ParticipatoryProcessStatsPresenter.new(participatory_process: component.participatory_space)
+        stat = presenter.collection.find { |item| item[:name] == stats_name }
+
+        expect(stat).to include(data: [27], icon_name: "group-line", tooltip_key: "attendees_count_tooltip")
       end
     end
   end
