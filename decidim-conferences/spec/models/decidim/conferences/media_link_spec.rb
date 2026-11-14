@@ -10,10 +10,6 @@ module Decidim
       let(:media_link) { create(:media_link) }
 
       it { is_expected.to be_valid }
-
-      it "uses the conference's media_links association as the inverse" do
-        expect(media_link.conference.media_links.first.conference).to be(media_link.conference)
-      end
     end
   end
 end

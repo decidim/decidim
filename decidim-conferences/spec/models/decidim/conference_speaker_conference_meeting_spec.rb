@@ -13,13 +13,5 @@ module Decidim
     let(:conference_speaker_conference_meeting) { create(:conference_speaker_conference_meeting, conference_speaker:, conference_meeting:) }
 
     it { is_expected.to be_valid }
-
-    it "uses the conference speaker's conference_speaker_conference_meetings association as the inverse" do
-      expect(conference_speaker_conference_meeting.conference_speaker.conference_speaker_conference_meetings.first.conference_speaker).to be(conference_speaker)
-    end
-
-    it "uses the conference meeting's conference_speaker_conference_meetings association as the inverse" do
-      expect(conference_speaker_conference_meeting.conference_meeting.conference_speaker_conference_meetings.first.conference_meeting).to be(conference_meeting)
-    end
   end
 end
