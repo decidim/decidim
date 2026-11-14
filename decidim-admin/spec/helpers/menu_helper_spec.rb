@@ -38,9 +38,9 @@ module Decidim
             have_link("Initiatives", href: helper.decidim_admin_initiatives.initiatives_path)
         end
 
-        it "selects the correct default active option in Appearance" do
+        it "selects the correct default active option in Homepage" do
           allow(view).to \
-            receive(:params).and_return(controller: "decidim/admin/organization_appearance", action: "show")
+            receive(:params).and_return(controller: "decidim/admin/organization_homepage", action: "edit")
 
           expect(default_main_menu).to have_css(".is-active", text: "Settings")
         end
