@@ -201,6 +201,34 @@ describe "Respond a survey" do
       end
 
       it_behaves_like "has questionnaire"
+
+      context "when a mandatory file question is left blank" do
+        let!(:question) do
+          create(
+            :questionnaire_question,
+            questionnaire:,
+            position: 0,
+            question_type: "files",
+            mandatory: true
+          )
+        end
+
+        before do
+          login_as user, scope: :user
+          visit Decidim::EngineRouter.main_proxy(component).survey_path(survey)
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_on "Submit" }
+        end
+
+        it "renders the validation error only once" do
+          expect(page).to have_callout(callout_failure)
+
+          within ".response-questionnaire__question" do
+            expect(page).to have_css(".form-error", count: 1)
+            expect(page).to have_text(/blank/i)
+          end
+        end
+      end
     end
 
     context "when displaying questionnaire rich content" do

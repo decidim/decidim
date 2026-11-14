@@ -85,6 +85,30 @@ describe "user submits demographic data" do
         expect(page).to have_text("There was a problem responding the form.")
       end
     end
+
+    context "when a mandatory file question is left blank" do
+      let!(:question) do
+        create(
+          :questionnaire_question,
+          questionnaire:,
+          position: 0,
+          question_type: "files",
+          mandatory: true
+        )
+      end
+
+      it "renders the validation error only once" do
+        check "questionnaire_tos_agreement"
+        click_on "Save data"
+
+        expect(page).to have_callout("There was a problem responding the form.")
+
+        within ".response-questionnaire__question" do
+          expect(page).to have_css(".form-error", count: 1)
+          expect(page).to have_text(/blank/i)
+        end
+      end
+    end
   end
 
   context "when data collection is disabled" do
