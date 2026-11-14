@@ -134,14 +134,18 @@ module Decidim
 
       def set_commentable
         @commentable ||= if commentable_gid
-                           GlobalID::Locator.locate_signed(commentable_gid)
+                           resource = GlobalID::Locator.locate_signed(commentable_gid)
+                           ensure_in_organization!(resource)
+                           resource
                          elsif comment
                            comment.root_commentable
                          end
       end
 
       def set_comment
-        @comment = Decidim::Comments::Comment.find_by(id: params[:id])
+        @comment = Decidim::Comments::Comment
+                   .for_organization(organization: current_organization)
+                   .find(params.require(:id))
       end
 
       def ensure_commentable!
