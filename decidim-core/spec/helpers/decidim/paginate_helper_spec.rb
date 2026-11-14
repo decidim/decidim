@@ -13,6 +13,7 @@ describe Decidim::PaginateHelper do
       create_list(:static_page, item_amount, organization:)
 
       allow(helper).to receive(:render).and_return("")
+      allow(helper).to receive(:paginate).and_return("")
     end
 
     context "when per page is supported" do
