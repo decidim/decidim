@@ -229,7 +229,6 @@ describe "Amend Proposal", versioning: true do
 
           context "when the form is filled correctly" do
             before do
-              login_as user, scope: :user
               visit proposal_path
               expect(page).to have_text(proposal_title)
               find("#dropdown-trigger-resource-#{proposal.id}").click
@@ -248,7 +247,6 @@ describe "Amend Proposal", versioning: true do
 
           context "when the form is filled incorrectly" do
             before do
-              login_as user, scope: :user
               visit proposal_path
               expect(page).to have_text(proposal_title)
               find("#dropdown-trigger-resource-#{proposal.id}").click
@@ -382,7 +380,6 @@ describe "Amend Proposal", versioning: true do
         before do
           amendment.update(state: "rejected")
           login_as user, scope: :user
-          visit emendation_path
           visit emendation_path
         end
 

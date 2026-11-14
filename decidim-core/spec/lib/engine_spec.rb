@@ -70,9 +70,14 @@ module Decidim::Core
             let(:decidim_force_ssl) { true }
 
             it "configures the session cookie store with the secure flag" do
+              expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
               expect(Rails.application.config.session_options).to eq(
                 secure: true,
-                expire_after: 30.minutes
+                httponly: true,
+                key: "_decidim_session_id",
+                same_site: :lax,
+                expire_after: 30.minutes,
+                secure_session_only: true
               )
             end
           end
@@ -81,9 +86,14 @@ module Decidim::Core
             let(:decidim_force_ssl) { false }
 
             it "configures the session cookie store without the secure flag" do
+              expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
-                expire_after: 30.minutes
+                httponly: true,
+                key: "_decidim_session_id",
+                same_site: :lax,
+                expire_after: 30.minutes,
+                secure_session_only: true
               )
             end
           end
@@ -92,9 +102,14 @@ module Decidim::Core
             let(:decidim_expire_session_after) { 1.hour }
 
             it "configures the session cookie store with the correct expire after value" do
+              expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::ActiveRecordStore)
               expect(Rails.application.config.session_options).to eq(
                 secure: false,
-                expire_after: 1.hour
+                httponly: true,
+                key: "_decidim_session_id",
+                same_site: :lax,
+                expire_after: 1.hour,
+                secure_session_only: true
               )
             end
           end
@@ -106,11 +121,62 @@ module Decidim::Core
           end
 
           it "does not reconfigure it" do
+            deprecator = instance_double(ActiveSupport::Deprecation, warn: nil)
+            allow(Decidim).to receive(:deprecator).and_return(deprecator)
+
             initializer.run(app)
 
             expect(Rails.application.config.session_store).to eq(ActionDispatch::Session::CacheStore)
             expect(Rails.application.config.session_options).to eq(expire_after: 36.minutes)
           end
+        end
+      end
+
+      context "when running the 'decidim_core.session_store_override' initializer" do
+        let(:initializer_name) { "decidim_core.session_store_override" }
+        let(:session_record) { ActiveRecord::SessionStore::Session.create!(session_id: "session-store-override-spec", data: { "foo" => "bar" }) }
+
+        before { initializer.run }
+
+        it "marks the data as changed when different data is assigned" do
+          session_record.data = { "foo" => "baz" }
+
+          expect(session_record).to be_changed
+        end
+
+        it "marks the data as changed when the data structure changes" do
+          session_record.data = { "foo" => { "bar" => "baz" } }
+
+          expect(session_record).to be_changed
+        end
+
+        context "with nested session data" do
+          let(:session_record) { ActiveRecord::SessionStore::Session.create!(session_id: "session-store-override-spec", data: { "foo" => { "bar" => "baz" } }) }
+
+          it "marks the data as changed when a nested value changes" do
+            session_record.data = { "foo" => { "bar" => "qux" } }
+
+            expect(session_record).to be_changed
+          end
+
+          it "does not mark the data as changed when the nested data is identical" do
+            session_record.data = { "foo" => { "bar" => "baz" } }
+
+            expect(session_record).not_to be_changed
+          end
+        end
+
+        it "saves the changed data" do
+          session_record.data = { "foo" => "baz" }
+          session_record.save!
+
+          expect(session_record.reload.data).to eq({ "foo" => "baz" })
+        end
+
+        it "does not mark the data as changed when the assigned data is identical" do
+          session_record.data = { "foo" => "bar" }
+
+          expect(session_record).not_to be_changed
         end
       end
     end

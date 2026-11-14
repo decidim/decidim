@@ -22,6 +22,10 @@ module Decidim
         render plain: "Hello World"
       end
 
+      def token
+        render plain: store_share_token.to_s
+      end
+
       def permission_class_chain
         ::Decidim.permissions_registry.chain_for("test")
       end
@@ -79,6 +83,67 @@ module Decidim
           get :show
 
           expect(response).to redirect_to("/you-need-permissions")
+        end
+      end
+    end
+
+    describe "#store_share_token" do
+      before do
+        routes.draw { get "token" => "anonymous#token" }
+      end
+
+      it "stores a string share_token param in the session" do
+        get :token, params: { share_token: "Faketoken" }
+
+        expect(session[:share_token]).to eq("Faketoken")
+        expect(response.body).to eq("Faketoken")
+      end
+
+      it "does not store an array share_token param in the session" do
+        get :token, params: { share_token: %w(a b) }
+
+        expect(session).not_to have_key(:share_token)
+        expect(response.body).to be_empty
+      end
+
+      it "does not store a hash share_token param in the session" do
+        get :token, params: { share_token: { "foo" => "bar" } }
+
+        expect(session).not_to have_key(:share_token)
+        expect(response.body).to be_empty
+      end
+
+      context "when a token is already stored in the session" do
+        before do
+          session[:share_token] = "StoredToken"
+        end
+
+        it "keeps the stored token when the param is missing" do
+          get :token
+
+          expect(session[:share_token]).to eq("StoredToken")
+          expect(response.body).to eq("StoredToken")
+        end
+
+        it "keeps the stored token when the param is an array" do
+          get :token, params: { share_token: %w(a b) }
+
+          expect(session[:share_token]).to eq("StoredToken")
+          expect(response.body).to eq("StoredToken")
+        end
+
+        it "keeps the stored token when the param is a hash" do
+          get :token, params: { share_token: { "foo" => "bar" } }
+
+          expect(session[:share_token]).to eq("StoredToken")
+          expect(response.body).to eq("StoredToken")
+        end
+
+        it "replaces the stored token when the param is a string" do
+          get :token, params: { share_token: "NewToken" }
+
+          expect(session[:share_token]).to eq("NewToken")
+          expect(response.body).to eq("NewToken")
         end
       end
     end
