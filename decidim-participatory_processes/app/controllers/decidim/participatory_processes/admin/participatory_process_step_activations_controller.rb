@@ -17,7 +17,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("participatory_process_step_activations.create.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_process_step_activations.create.error", scope: "decidim.admin")
             end
 
             redirect_to participatory_process_steps_path(current_participatory_process)

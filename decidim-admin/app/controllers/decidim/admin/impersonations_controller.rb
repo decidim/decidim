@@ -60,7 +60,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("impersonations.close_session.error", scope: "decidim.admin")
+            flash[:alert] = I18n.t("impersonations.close_session.error", scope: "decidim.admin")
             redirect_to decidim.root_path
           end
         end
