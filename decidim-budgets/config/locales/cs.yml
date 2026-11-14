@@ -119,6 +119,8 @@ cs:
                 label: Okresy (%{field})
               max_length:
                 label: Maximální délka (%{field})
+              max_points:
+                help: 'Maximální počet bodů přiřazených k vybraným projektům (výchozí: %{default_value}).'
               min_length:
                 label: Minimální délka (%{field})
               min_points:
@@ -136,6 +138,7 @@ cs:
               vote_type:
                 help: Jak se hodnotí výsledky hlasování (viz dokumentace pro více informací).
                 label: Typ hlasování (%{field})
+            title: Exportovat výsledky hlasování pro %{budget} do Pabulib formátu
         projects:
           create:
             invalid: Při vytváření tohoto projektu došlo k chybě.

@@ -48,7 +48,6 @@ gl:
         old_password: Contrasinal actual
         password: Contrasinal
         password_confirmation: Confirma o teu contrasinal
-        personal_url: URL persoal
         remove_avatar: Eliminar avatar
         tos_agreement: Aceptación dos termos de servizo
     errors:
@@ -114,7 +113,6 @@ gl:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: d-m-a
   datetime:
     distance_in_words:
       about_x_hours:
@@ -821,7 +819,6 @@ gl:
           officialized_at: A data e hora na que se oficializou esta persoa participante
           organization: A organización á que pertence esta persoa participante
           password_updated_at: A data na que se cambiou por última vez o seu contrasinal
-          personal_url: O URL persoal desta persoa participante
           remember_created_at: A data e hora na que se seleccionou lembrar esta persoa participante
           reset_password_sent_at: A data e hora na que se enviou o restablecemento do contrasinal
           roles: O rol desta persoa participante, se ten algún

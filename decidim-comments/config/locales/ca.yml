@@ -193,7 +193,7 @@ ca:
           email_intro: Has estat esmentada
           email_outro: Has rebut aquesta notificació perquè t'han esmentat al comentari "%{resource_title}".
           email_subject: Has estat esmentada a %{resource_title}
-          notification_title: T'han esmentat per <a href="%{author_path}">%{author_name}</a> a <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name}</a> t'ha esmentat a <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: no es poden fer comentaris

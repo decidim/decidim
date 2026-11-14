@@ -26,7 +26,6 @@ lb:
         nickname: Spëtznumm
         password: Passwuert
         password_confirmation: Bestäteg däi Passwuert
-        personal_url: Perséinlech URL
         remove_avatar: Avatar läschen
     models:
       decidim/attachment_created_event: Unhang

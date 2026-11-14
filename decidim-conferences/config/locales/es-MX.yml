@@ -281,6 +281,7 @@ es-MX:
           error: Se produjo un error al agregar un tipo de registro para esta conferencia.
           success: Tipo de registro agregado con éxtio a esta conferencia.
         destroy:
+          error: Hubo un problema al eliminar este tipo de registro. Los tipos de registro con registros no se pueden eliminar.
           success: Tipo de registro eliminado con éxito de esta conferencia.
         edit:
           update: Actualizar

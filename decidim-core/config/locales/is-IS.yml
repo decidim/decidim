@@ -9,7 +9,6 @@ is-IS:
         about: Um
         email: Netfangið þitt
         name: Nafn þitt
-        personal_url: Persónuleg vefslóð
         remove_avatar: Fjarlægja mynd
   activerecord:
     attributes:
