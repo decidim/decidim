@@ -52,6 +52,11 @@ module Decidim::Meetings
           post :create, params: params
           expect(response).to redirect_to("/users/sign_in")
         end
+
+        it "displays a message asking the user to sign in" do
+          post(:create, params:)
+          expect(flash[:alert]).to eq(I18n.t("registrations.create.unauthorized", scope: "decidim.meetings"))
+        end
       end
     end
 
@@ -156,6 +161,36 @@ module Decidim::Meetings
 
         expect(flash[:notice]).to match(/successfully/)
         expect(response).to redirect_to(my_meeting_path)
+      end
+    end
+
+    describe "decline_invitation" do
+      let!(:invite) { create(:invite, meeting:, user:) }
+      let(:params) { { meeting_id: meeting.id } }
+
+      before { sign_in user }
+
+      it "declines invitation" do
+        expect do
+          get :decline_invitation, params:
+        end.to change { invite.reload.rejected_at }.from(nil)
+
+        expect(flash[:notice]).to include("successfully")
+        expect(response).to redirect_to(my_meeting_path)
+      end
+
+      context "when user not authenticated" do
+        before { sign_out user }
+
+        it "redirects to login" do
+          get(:decline_invitation, params:)
+          expect(response).to redirect_to(new_user_session_path)
+        end
+
+        it "displays a message asking the user to sign in" do
+          get(:decline_invitation, params:)
+          expect(flash[:alert]).to eq(I18n.t("registrations.decline_invitation.unauthorized", scope: "decidim.meetings"))
+        end
       end
     end
   end
