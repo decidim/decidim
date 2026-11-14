@@ -30,7 +30,6 @@ describe "Admin manages budgets" do
       fill_in_i18n(:budget_title, "#budget-title-tabs", **attributes[:title].except("machine_translations"))
       fill_in_i18n_editor(:budget_description, "#budget-description-tabs", **attributes[:description].except("machine_translations"))
 
-      fill_in :budget_weight, with: 1
       fill_in :budget_total_budget, with: 100_000_00
     end
 
