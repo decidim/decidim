@@ -117,15 +117,23 @@ module Decidim
           }
         end
 
-        def self.filter_item_for_component(component, space) # rubocop:disable Metrics/CyclomaticComplexity
+        def self.filter_item_for_component(component, space)
           return unless component.settings.respond_to?(:taxonomy_filters)
 
           scopes_enabled = component.attributes.dig("settings", "global", "scopes_enabled")
           scope_id = component.attributes.dig("settings", "global", "scope_id")
           return unless scopes_enabled
-          return unless space.respond_to?(:scopes_enabled) && space.respond_to?(:decidim_scope_id) && space.scopes_enabled?
 
-          scope = find_by(id: scope_id) || (space.scopes_enabled? && find_by(id: space.decidim_scope_id))
+          # A component can have its own scope enabled and defined independently from the
+          # participatory space settings, so the component scope is used as it is.
+          scope = find_by(id: scope_id)
+          if scope.nil?
+            # Only when the component does not define its own scope we fall back to the space scope,
+            # which requires the space to have scopes enabled.
+            return unless space.respond_to?(:scopes_enabled) && space.respond_to?(:decidim_scope_id) && space.scopes_enabled?
+
+            scope = find_by(id: space.decidim_scope_id)
+          end
           list = scope ? [scope] + scope.all_children : all
 
           {
