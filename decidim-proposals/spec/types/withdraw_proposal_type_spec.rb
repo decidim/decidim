@@ -9,7 +9,7 @@ module Decidim
 
       let(:root_klass) { ProposalMutationType }
       let(:current_organization) { create(:organization, available_locales: [:en]) }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization: current_organization) }
+      let(:participatory_process) { create(:participatory_process, :with_phases, organization: current_organization) }
       let(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:author) { create(:user, :confirmed, organization: current_organization) }
       let!(:model) { create(:proposal, component: proposal_component, users: [author]) }

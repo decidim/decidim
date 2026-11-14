@@ -216,11 +216,11 @@ describe "Filter Proposals", :slow do
         component.update!(settings: { proposal_answering_enabled: true })
       end
 
-      context "when proposal_answering step setting is enabled" do
+      context "when proposal_answering phase setting is enabled" do
         before do
           component.update!(
-            step_settings: {
-              component.participatory_space.active_step.id => {
+            phase_settings: {
+              component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: true
               }
             }
@@ -309,11 +309,11 @@ describe "Filter Proposals", :slow do
         end
       end
 
-      context "when proposal_answering step setting is disabled" do
+      context "when proposal_answering phase setting is disabled" do
         before do
           component.update!(
-            step_settings: {
-              component.participatory_space.active_step.id => {
+            phase_settings: {
+              component.participatory_space.active_phase.id => {
                 proposal_answering_enabled: false
               }
             }
@@ -346,7 +346,7 @@ describe "Filter Proposals", :slow do
   end
 
   context "when filtering proposals by ACTIVITY" do
-    let(:active_step_id) { component.participatory_space.active_step.id }
+    let(:active_phase_id) { component.participatory_space.active_phase.id }
     let!(:voted_proposal) { create(:proposal, component:) }
     let!(:vote) { create(:proposal_vote, proposal: voted_proposal, author: user) }
     let!(:proposal_list) { create_list(:proposal, 3, component:) }
@@ -379,7 +379,7 @@ describe "Filter Proposals", :slow do
 
       context "when votes are enabled" do
         before do
-          component.update!(step_settings: { active_step_id => { votes_enabled: true } })
+          component.update!(phase_settings: { active_phase_id => { votes_enabled: true } })
           visit_component
         end
 
@@ -400,7 +400,7 @@ describe "Filter Proposals", :slow do
 
       context "when votes are not enabled" do
         before do
-          component.update!(step_settings: { active_step_id => { votes_enabled: false } })
+          component.update!(phase_settings: { active_phase_id => { votes_enabled: false } })
           visit_component
         end
 
@@ -464,15 +464,15 @@ describe "Filter Proposals", :slow do
       end
 
       context "when amendments_enabled component setting is enabled" do
-        context "and amendments_visibility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component phase_setting is set to 'participants'" do
           context "when the user is logged in" do
             before do
               visit decidim.root_path
 
               component.update!(settings: { amendments_enabled: true })
               component.update!(
-                step_settings: {
-                  component.participatory_space.active_step.id => {
+                phase_settings: {
+                  component.participatory_space.active_phase.id => {
                     amendments_visibility: "participants"
                   }
                 }
@@ -518,8 +518,8 @@ describe "Filter Proposals", :slow do
               visit decidim.root_path
               component.update!(settings: { amendments_enabled: true })
               component.update!(
-                step_settings: {
-                  component.participatory_space.active_step.id => {
+                phase_settings: {
+                  component.participatory_space.active_phase.id => {
                     amendments_visibility: "participants"
                   }
                 }
@@ -541,11 +541,11 @@ describe "Filter Proposals", :slow do
           component.update!(settings: { amendments_enabled: false })
         end
 
-        context "and amendments_visibility component step_setting is set to 'participants'" do
+        context "and amendments_visibility component phase_setting is set to 'participants'" do
           before do
             component.update!(
-              step_settings: {
-                component.participatory_space.active_step.id => {
+              phase_settings: {
+                component.participatory_space.active_phase.id => {
                   amendments_visibility: "participants"
                 }
               }

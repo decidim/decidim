@@ -122,7 +122,7 @@ module Decidim
         end
 
         def editor_attributes_for(manifest)
-          editor_attributes = { global: [], step: [] }
+          editor_attributes = { global: [], phase: [] }
           editor_attributes.keys.each do |type|
             manifest.settings(type).attributes.each do |key, attribute|
               editor_attributes[type] << key.to_s if attribute.editor
@@ -137,15 +137,15 @@ module Decidim
             editor_attributes = editor_attributes_for(manifest)
             next if editor_attributes.blank?
 
-            # The step settings are stored in the DB with the key name in plural
+            # The phase settings are stored in the DB with the key name in plural
             # format which is why we change it here. The `editor_attributes_for`
             # returns that key in singular format because this is how it it is
             # known by the manifest. Also, we need to define the type of the
-            # settings values as step settings are stored in multi-dimensional
-            # hash where each value contains settings for the defined step.
+            # settings values as phase settings are stored in multi-dimensional
+            # hash where each value contains settings for the defined phase.
             keys = {}
             keys[:global] = { type: :single, keys: editor_attributes[:global] } if editor_attributes[:global].present?
-            keys[:steps] = { type: :multi, keys: editor_attributes[:step] } if editor_attributes[:step].present?
+            keys[:phases] = { type: :multi, keys: editor_attributes[:phase] } if editor_attributes[:phase].present?
 
             update_settings(
               Decidim::Component.where(manifest_name: manifest.name),

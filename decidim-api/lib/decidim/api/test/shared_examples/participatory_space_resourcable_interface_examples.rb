@@ -8,20 +8,20 @@ shared_examples_for "participatory space resourcable interface" do
   let!(:process3) { create(:participatory_process, organization: model.organization) }
   let!(:model) { create(:assembly) }
 
-  context "when checks is has steps" do
-    describe "hasSteps" do
-      let(:query) { "{hasSteps}" }
+  context "when checking if it has phases" do
+    describe "hasPhases" do
+      let(:query) { "{hasPhases}" }
 
       it "has the field" do
-        expect(response["hasSteps"]).to be(false)
+        expect(response["hasPhases"]).to be(false)
       end
     end
 
-    describe "allows_steps" do
-      let(:query) { "{allowsSteps}" }
+    describe "allowsPhases" do
+      let(:query) { "{allowsPhases}" }
 
       it "has the field" do
-        expect(response["allowsSteps"]).to be(false)
+        expect(response["allowsPhases"]).to be(false)
       end
     end
   end

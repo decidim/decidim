@@ -8,12 +8,12 @@ module Decidim
       graphql_name "ParticipatorySpaceInterface"
       description "The interface that all participatory spaces should implement."
 
-      field :allows_steps, Boolean, description: "The participatory space allows steps", null: false, method: :allows_steps?
+      field :allows_phases, Boolean, description: "The participatory space allows phases", null: false, method: :allows_phases?
       field :components, [ComponentInterface, { null: true }], null: true, description: "Lists the components this space contains." do
         argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
         argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
       end
-      field :has_steps, Boolean, description: "The participatory space allows steps", null: false, method: :has_steps?
+      field :has_phases, Boolean, description: "The participatory space has phases", null: false, method: :has_phases?
       field :id, GraphQL::Types::ID, "The participatory space's unique ID", null: false
       field :manifest, Decidim::Core::ParticipatorySpaceManifestType, description: "The manifest information for the participatory space.", null: false
       field :stats, [Decidim::Core::StatisticType, { null: true }], "The statistics collection of this participatory space", null: true

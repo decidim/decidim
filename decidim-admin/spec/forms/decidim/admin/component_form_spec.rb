@@ -20,11 +20,11 @@ module Decidim
         }
       end
 
-      let(:dummy_step_translatable_text) do
+      let(:dummy_phase_translatable_text) do
         {
-          "dummy_step_translatable_text_ca" => "",
-          "dummy_step_translatable_text_en" => "Dummy text en",
-          "dummy_step_translatable_text_es" => ""
+          "dummy_phase_translatable_text_ca" => "",
+          "dummy_phase_translatable_text_en" => "Dummy text en",
+          "dummy_phase_translatable_text_es" => ""
         }
       end
 
@@ -34,10 +34,10 @@ module Decidim
         manifest.settings(:global).schema.new(dummy_global_translatable_text, "en")
       end
 
-      let(:default_step_settings) do
+      let(:default_phase_settings) do
         return {} unless manifest
 
-        manifest.settings(:step).schema.new(dummy_step_translatable_text, "en")
+        manifest.settings(:phase).schema.new(dummy_phase_translatable_text, "en")
       end
 
       let(:params) do
@@ -46,7 +46,7 @@ module Decidim
           "manifest" => manifest,
           "participatory_space" => participatory_space,
           "settings" => settings,
-          "default_step_settings" => default_step_settings
+          "default_phase_settings" => default_phase_settings
         }
       end
 
@@ -88,31 +88,31 @@ module Decidim
         it { is_expected.not_to be_valid }
       end
 
-      context "when a default_step_settings required attribute is missing" do
-        let(:dummy_step_translatable_text) do
+      context "when a default_phase_settings required attribute is missing" do
+        let(:dummy_phase_translatable_text) do
           {
-            "dummy_step_translatable_text_ca" => "Dummy text ca",
-            "dummy_step_translatable_text_en" => "",
-            "dummy_step_translatable_text_es" => "Dummy text es"
+            "dummy_phase_translatable_text_ca" => "Dummy text ca",
+            "dummy_phase_translatable_text_en" => "",
+            "dummy_phase_translatable_text_es" => "Dummy text es"
           }
         end
 
         it { is_expected.not_to be_valid }
       end
 
-      context "when the form has step_settings" do
+      context "when the form has phase_settings" do
         before do
-          params.except("default_step_settings").merge(
-            "step_settings" => { "1" => default_step_settings }
+          params.except("default_phase_settings").merge(
+            "phase_settings" => { "1" => default_phase_settings }
           )
         end
 
-        context "and a step_settings required attribute is missing" do
-          let(:dummy_step_translatable_text) do
+        context "and a phase_settings required attribute is missing" do
+          let(:dummy_phase_translatable_text) do
             {
-              "dummy_step_translatable_text_ca" => "Dummy text ca",
-              "dummy_step_translatable_text_en" => "",
-              "dummy_step_translatable_text_es" => "Dummy text es"
+              "dummy_phase_translatable_text_ca" => "Dummy text ca",
+              "dummy_phase_translatable_text_en" => "",
+              "dummy_phase_translatable_text_es" => "Dummy text es"
             }
           end
 

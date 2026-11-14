@@ -24,7 +24,7 @@ describe "Admin manages meetings" do
   let!(:follow) { create(:follow, followable: meeting, user:) }
 
   include_context "when managing a component as an admin" do
-    let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+    let(:participatory_process) { create(:participatory_process, :published, :with_phases, organization:) }
     let!(:component) { create(:component, :published, manifest:, participatory_space:) }
   end
 

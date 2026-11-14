@@ -38,7 +38,7 @@ en:
           announcement: Announcement
           global:
             announcement: Announcement
-          step:
+          phase:
             announcement: Announcement
     events:
       surveys:

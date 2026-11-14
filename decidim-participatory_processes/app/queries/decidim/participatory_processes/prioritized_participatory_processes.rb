@@ -6,7 +6,7 @@ module Decidim
     # first, and closest to finalization date second.
     class PrioritizedParticipatoryProcesses < Decidim::Query
       def query
-        Decidim::ParticipatoryProcess.order(promoted: :desc).includes(:active_step).order("decidim_participatory_process_steps.end_date ASC")
+        Decidim::ParticipatoryProcess.order(promoted: :desc).includes(:active_phase).order("decidim_participatory_process_phases.end_date ASC")
       end
     end
   end

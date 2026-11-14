@@ -5,7 +5,7 @@ module Decidim
     autoload :ParticipatoryProcessInputFilter, "decidim/api/participatory_process_input_filter"
     autoload :ParticipatoryProcessInputSort, "decidim/api/participatory_process_input_sort"
     autoload :ParticipatoryProcessGroupType, "decidim/api/participatory_process_group_type"
-    autoload :ParticipatoryProcessStepType, "decidim/api/participatory_process_step_type"
+    autoload :ParticipatoryProcessPhaseType, "decidim/api/participatory_process_phase_type"
     autoload :ParticipatoryProcessType, "decidim/api/participatory_process_type"
   end
 end

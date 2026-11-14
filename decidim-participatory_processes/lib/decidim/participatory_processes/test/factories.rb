@@ -66,17 +66,17 @@ FactoryBot.define do
       access_mode { :restricted }
     end
 
-    trait :with_steps do
-      transient { current_step_ends { 1.month.from_now } }
+    trait :with_phases do
+      transient { current_phase_ends { 1.month.from_now } }
 
       after(:create) do |participatory_process, evaluator|
-        create(:participatory_process_step,
+        create(:participatory_process_phase,
                active: true,
-               end_date: evaluator.current_step_ends,
+               end_date: evaluator.current_phase_ends,
                skip_injection: evaluator.skip_injection,
                participatory_process:)
         participatory_process.reload
-        participatory_process.steps.reload
+        participatory_process.phases.reload
       end
     end
 
@@ -141,20 +141,20 @@ FactoryBot.define do
     end
   end
 
-  factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
+  factory :participatory_process_phase, class: "Decidim::ParticipatoryProcessPhase" do
     transient do
       skip_injection { false }
     end
-    title { generate_localized_title(:participatory_process_step_title, skip_injection:) }
-    description { generate_localized_description(:participatory_process_step_description, skip_injection:) }
+    title { generate_localized_title(:participatory_process_phase_title, skip_injection:) }
+    description { generate_localized_description(:participatory_process_phase_description, skip_injection:) }
     start_date { 1.month.ago }
     end_date { 2.months.from_now }
     position { nil }
     participatory_process
 
-    after(:create) do |step, _evaluator|
-      step.participatory_process.reload
-      step.participatory_process.steps.reload
+    after(:create) do |phase, _evaluator|
+      phase.participatory_process.reload
+      phase.participatory_process.phases.reload
     end
 
     trait :active do

@@ -32,16 +32,16 @@ describe "Search participatory processes" do
     expect(page).to have_css("#search-count h2", text: /#{searchables.size} results for the search: "#{term}"/)
   end
 
-  context "when the process has an active step" do
+  context "when the process has an active phase" do
     let!(:process) { create(:participatory_process, organization:, title: { en: "A doggo process with a phase" }) }
-    let!(:step) { create(:participatory_process_step, participatory_process: process, active: true, title: { en: "An active phase" }) }
+    let!(:phase) { create(:participatory_process_phase, participatory_process: process, active: true, title: { en: "An active phase" }) }
 
     before do
       process.publish!
       visit search_path
     end
 
-    it "renders the active step in the metadata" do
+    it "renders the active phase in the metadata" do
       within "div.card__search#participatory_process_#{process.id}" do
         expect(page).to have_css(".card__search-metadata", text: "An active phase")
       end

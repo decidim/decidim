@@ -8,7 +8,7 @@ module Decidim
       private
 
       def items
-        [progress_item, active_step_item].compact
+        [progress_item, active_phase_item].compact
       end
     end
   end

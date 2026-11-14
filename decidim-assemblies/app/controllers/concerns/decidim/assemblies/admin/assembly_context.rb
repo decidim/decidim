@@ -10,7 +10,7 @@ module Decidim
           base.class_eval do
             include Concerns::AssemblyAdmin
 
-            delegate :active_step, to: :current_assembly, prefix: false
+            delegate :active_phase, to: :current_assembly, prefix: false
 
             alias_method :current_assembly, :current_participatory_space
           end

@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Paginate specs" do
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
+  let(:participatory_space) { create(:participatory_process, :published, :with_phases, organization:) }
   let!(:proposal_component) { create(:proposal_component, participatory_space:) }
 
   before do
