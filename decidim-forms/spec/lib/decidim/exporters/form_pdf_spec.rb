@@ -16,6 +16,16 @@ module Decidim
         export_data = subject.export
         expect(export_data.read).to match("%PDF-1.5")
       end
+
+      context "when the collection is empty" do
+        let(:participants) { [] }
+
+        it "exports an empty pdf" do
+          export_data = subject.export
+          expect(export_data.read).to match("%PDF-1.5")
+          expect(export_data.extension).to eq("pdf")
+        end
+      end
     end
   end
 end

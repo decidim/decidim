@@ -52,6 +52,11 @@ module Decidim
       protected
 
       def add_data!
+        if collection.blank?
+          composer.text(I18n.t("title", scope: "decidim.forms.admin.questionnaires.responses.index", total: 0), style: :section_title)
+          return
+        end
+
         composer.text(decidim_sanitize(translated_attribute(questionnaire.title), strip_tags: true), style: :h1)
         composer.text(decidim_sanitize(translated_attribute(questionnaire.description), strip_tags: true), style: :description)
         composer.text(I18n.t("title", scope: "decidim.forms.admin.questionnaires.responses.index", total: collection.count), style: :section_title)
