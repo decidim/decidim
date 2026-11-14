@@ -9,7 +9,7 @@ module Decidim
 
     translatable_fields :name, :description
     belongs_to :collection_for, polymorphic: true
-    has_many :attachments, class_name: "Decidim::Attachment", dependent: :nullify
+    has_many :attachments, class_name: "Decidim::Attachment", inverse_of: :attachment_collection, dependent: :nullify
 
     delegate :organization, to: :collection_for
 

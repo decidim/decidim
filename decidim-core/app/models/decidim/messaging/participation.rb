@@ -13,6 +13,10 @@ module Decidim
                  class_name: "Decidim::Messaging::Conversation",
                  inverse_of: :participations
 
+      # `inverse_of` is deliberately not declared here, for the same reason as in `Message#sender`: it
+      # would propagate participations built through a conversation into the participant's `participations`
+      # collection and change the autosave order. The reciprocal `has_many :participations` on
+      # `Decidim::UserBaseEntity` is the side that declares `inverse_of`.
       belongs_to :participant,
                  foreign_key: :decidim_participant_id,
                  class_name: "Decidim::UserBaseEntity"

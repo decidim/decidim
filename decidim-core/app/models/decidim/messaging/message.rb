@@ -12,6 +12,11 @@ module Decidim
 
       include Decidim::FriendlyDates
 
+      # `inverse_of` is deliberately not declared here. Declaring it would let Rails add a message built
+      # through a conversation to the sender's `messages` collection, which changes the autosave order:
+      # the message would be saved through the sender before its conversation, leaving
+      # `decidim_conversation_id` null. The reciprocal `has_many :messages` on `Decidim::UserBaseEntity`
+      # is the side that declares `inverse_of`.
       belongs_to :sender,
                  foreign_key: :decidim_sender_id,
                  class_name: "Decidim::UserBaseEntity"
@@ -19,6 +24,7 @@ module Decidim
       belongs_to :conversation,
                  foreign_key: :decidim_conversation_id,
                  touch: true,
+                 inverse_of: :messages,
                  class_name: "Decidim::Messaging::Conversation"
 
       has_many :receipts,

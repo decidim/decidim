@@ -12,7 +12,7 @@ module Decidim
     before_validation :set_link_content_type_and_size, if: :editable_link?
 
     translatable_fields :title, :description
-    belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
+    belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true, inverse_of: :attachments
     belongs_to :attached_to, polymorphic: true
 
     has_one_attached :file
