@@ -23,6 +23,14 @@ module Decidim
           end
         end
 
+        context "with a youtube URL without www" do
+          let(:url) { "https://youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is transformed" do
+            expect(subject.embed_transformed_url(request_host)).to eq("https://www.youtube-nocookie.com/embed/aiyHi9MzW30")
+          end
+        end
+
         context "with an invalid youtube URL" do
           let(:url) { "https://www.youtube.com/watch/foo/bar" }
 
@@ -33,6 +41,14 @@ module Decidim
 
         context "with a valid Twitch URL" do
           let(:url) { "https://www.twitch.tv/videos/920134652?collection=YQZOzRslZRZ0TQ" }
+
+          it "is transformed" do
+            expect(subject.embed_transformed_url(request_host)).to eq("https://player.twitch.tv/?video=920134652&parent=decidim.org")
+          end
+        end
+
+        context "with a Twitch URL without www" do
+          let(:url) { "https://twitch.tv/videos/920134652" }
 
           it "is transformed" do
             expect(subject.embed_transformed_url(request_host)).to eq("https://player.twitch.tv/?video=920134652&parent=decidim.org")
@@ -70,6 +86,65 @@ module Decidim
 
           it "is embeddable" do
             expect(subject).to be_embeddable
+          end
+        end
+
+        context "with a youtube URL without www" do
+          let(:url) { "https://youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
+        context "with a Twitch URL without www" do
+          let(:url) { "https://twitch.tv/videos/920134652" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
+        context "with an uppercase host" do
+          let(:url) { "https://WWW.YouTube.com/watch?v=aiyHi9MzW30" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
+        context "when the embeddable services are configured without www" do
+          let(:services) { %w(youtube.com twitch.tv) }
+          let(:url) { "https://youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
+        context "when the embeddable services are configured without www and the URL has it" do
+          let(:services) { %w(youtube.com twitch.tv) }
+          let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
+        context "when the embeddable services are configured in uppercase" do
+          let(:services) { %w(WWW.YOUTUBE.COM) }
+          let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
+
+          it "is embeddable" do
+            expect(subject).to be_embeddable
+          end
+        end
+
+        context "with a lookalike domain" do
+          let(:url) { "https://notyoutube.com/watch?v=aiyHi9MzW30" }
+
+          it "is not embeddable" do
+            expect(subject).not_to be_embeddable
           end
         end
 
