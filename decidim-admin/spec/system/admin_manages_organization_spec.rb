@@ -770,7 +770,7 @@ describe "Admin manages organization" do
 
   describe "removed appearance page" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { "/admin/organization/appearance/edit" }
+      let(:target_path) { "/#{I18n.locale}/admin/organization/appearance/edit" }
     end
   end
 end
