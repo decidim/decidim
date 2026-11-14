@@ -55,7 +55,10 @@ module Decidim
     def assembly_user_role?(user, assembly = nil, broad_check: false)
       return false unless Decidim.module_installed?(:assemblies)
       return false unless assembly.nil? || assembly.is_a?(Decidim::Assembly)
-      return Decidim::AssemblyUserRole.exists?(user:) if broad_check
+      # Roles retained on trashed assemblies exist only for restoration; they must not
+      # grant access through the broad check. Pass a relation so the check stays a single
+      # query against the role table with a subquery on non-deleted assemblies.
+      return Decidim::AssemblyUserRole.exists?(user:, assembly: Decidim::Assembly.where(deleted_at: nil)) if broad_check
 
       Decidim::AssemblyUserRole.exists?(user:, assembly:)
     end
