@@ -25,7 +25,7 @@ module Decidim
           method: :with_any_state,
           name: "[with_any_state]",
           collection: filter_surveys_date_values,
-          label: t("decidim.proposals.proposals.filters.state"),
+          label: t("decidim.proposals.proposals.filters.status"),
           id: "state",
           type: :radio_buttons
         }]

@@ -5,29 +5,29 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ApplicationHelper do
-      describe "#humanize_proposal_state" do
-        subject { helper.humanize_proposal_state(state) }
+      describe "#humanize_proposal_status" do
+        subject { helper.humanize_proposal_status(status) }
 
         context "when it is accepted" do
-          let(:state) { "accepted" }
+          let(:status) { "accepted" }
 
           it { is_expected.to eq("Accepted") }
         end
 
         context "when it is rejected" do
-          let(:state) { "rejected" }
+          let(:status) { "rejected" }
 
           it { is_expected.to eq("Rejected") }
         end
 
         context "when it is nil" do
-          let(:state) { nil }
+          let(:status) { nil }
 
           it { is_expected.to eq("Not answered") }
         end
 
         context "when it is withdrawn" do
-          let(:state) { "withdrawn" }
+          let(:status) { "withdrawn" }
 
           it { is_expected.to eq("Withdrawn") }
         end

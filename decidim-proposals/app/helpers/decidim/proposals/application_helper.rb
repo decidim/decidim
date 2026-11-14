@@ -16,32 +16,32 @@ module Decidim
       include Decidim::RichTextEditorHelper
       include Decidim::CheckBoxesTreeHelper
 
-      # Public: The state of a proposal in a way a human can understand.
+      # Public: The status of a proposal in a way a human can understand.
       #
-      # state - The String state of the proposal.
+      # status - The String status of the proposal.
       #
       # Returns a String.
-      def humanize_proposal_state(state)
-        I18n.t(state, scope: "decidim.proposals.answers", default: :not_answered)
+      def humanize_proposal_status(status)
+        I18n.t(status, scope: "decidim.proposals.answers", default: :not_answered)
       end
 
-      def proposal_state_css_style(proposal)
+      def proposal_status_css_style(proposal)
         return "" if proposal.emendation?
         return "" if proposal.withdrawn?
 
-        proposal.proposal_state&.css_style
+        proposal.proposal_status&.css_style
       end
 
-      # Public: The css class applied based on the proposal state.
+      # Public: The css class applied based on the proposal status.
       #
       # proposal - The proposal to evaluate.
       #
       # Returns a String.
-      def proposal_state_css_class(proposal)
+      def proposal_status_css_class(proposal)
         return "alert" if proposal.withdrawn?
-        return if proposal.state.blank?
+        return if proposal.status.blank?
 
-        case proposal.state
+        case proposal.status
         when "accepted"
           "success"
         when "rejected", "withdrawn"
@@ -159,14 +159,14 @@ module Decidim
         )
       end
 
-      def filter_proposals_state_values
+      def filter_proposals_status_values
         Decidim::CheckBoxesTreeHelper::TreeNode.new(
-          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_state_values.all")),
+          Decidim::CheckBoxesTreeHelper::TreePoint.new("", t("decidim.proposals.application_helper.filter_status_values.all")),
           [
-            Decidim::CheckBoxesTreeHelper::TreePoint.new("state_not_published", t("decidim.proposals.application_helper.filter_state_values.not_answered"))
+            Decidim::CheckBoxesTreeHelper::TreePoint.new("status_not_published", t("decidim.proposals.application_helper.filter_status_values.not_answered"))
           ] +
-            Decidim::Proposals::ProposalState.where(component: current_component).where.not(token: "not_answered").map do |state|
-              Decidim::CheckBoxesTreeHelper::TreePoint.new(state.token, translated_attribute(state.title))
+            Decidim::Proposals::ProposalStatus.where(component: current_component).where.not(token: "not_answered").map do |status|
+              Decidim::CheckBoxesTreeHelper::TreePoint.new(status.token, translated_attribute(status.title))
             end
         )
       end
@@ -176,8 +176,8 @@ module Decidim
         @filter_sections ||= begin
           items = []
           if component_settings.proposal_answering_enabled && current_settings.proposal_answering_enabled
-            items.append(method: :with_any_state, name: "[with_any_state]", collection: filter_proposals_state_values, label: t("decidim.proposals.proposals.filters.state"),
-                         id: "state")
+            items.append(method: :with_any_status, name: "[with_any_status]", collection: filter_proposals_status_values, label: t("decidim.proposals.proposals.filters.status"),
+                         id: "status")
           end
           current_component.available_taxonomy_filters.each do |taxonomy_filter|
             items.append(method: :with_any_taxonomies,

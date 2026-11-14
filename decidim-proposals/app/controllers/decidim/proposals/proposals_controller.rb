@@ -188,12 +188,12 @@ module Decidim
       private
 
       def search_collection
-        chosen_state = params.fetch(:filter, {}).fetch(:with_availability, {})
+        chosen_status = params.fetch(:filter, {}).fetch(:with_availability, {})
         Proposal.includes(:taxonomies, :amended, :amendable)
                 .where(component: current_component)
                 .published
                 .not_hidden
-                .with_availability(chosen_state)
+                .with_availability(chosen_status)
       end
 
       def default_filter_params
@@ -202,16 +202,16 @@ module Decidim
           with_any_origin: nil,
           activity: "all",
           with_any_taxonomies: nil,
-          with_any_state: default_states,
+          with_any_status: default_statuses,
           related_to: "",
           type: "all"
         }
       end
 
-      def default_states
+      def default_statuses
         [
-          Decidim::Proposals::ProposalState.where(component: current_component).pluck(:token).map(&:to_s),
-          %w(state_not_published)
+          Decidim::Proposals::ProposalStatus.where(component: current_component).pluck(:token).map(&:to_s),
+          %w(status_not_published)
         ].flatten - ["rejected"]
       end
 

@@ -12,7 +12,7 @@ module Decidim
       let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
       let(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
       let!(:model) { create(:proposal, component: current_component) }
-      let(:state) { %w(accepted evaluating rejected).sample }
+      let(:status) { %w(accepted evaluating rejected).sample }
       let(:answer_content) { Decidim::Faker::Localized.sentence(word_count: 3) }
       let(:proposal_answering_enabled) { false }
       let(:proposal_answers_with_costs?) { false }
@@ -24,7 +24,7 @@ module Decidim
         {
           input: {
             attributes: {
-              state:,
+              status:,
               answerContent: answer_content,
               cost:,
               costReport: cost_report,
@@ -39,7 +39,7 @@ module Decidim
             answer(input: $input) {
               id
               answer { translation(locale: "en") }
-              state
+              status
               cost
               costReport { translation(locale: "en") }
               executionPeriod { translation(locale: "en") }
@@ -77,7 +77,7 @@ module Decidim
             expect(answer).to include(
               {
                 "id" => model.id.to_s,
-                "state" => state,
+                "status" => status,
                 "answer" => {
                   "translation" => answer_content[:en]
                 },
@@ -99,7 +99,7 @@ module Decidim
               expect(answer).to include(
                 {
                   "id" => model.id.to_s,
-                  "state" => state,
+                  "status" => status,
                   "answer" => {
                     "translation" => answer_content[:en]
                   },
