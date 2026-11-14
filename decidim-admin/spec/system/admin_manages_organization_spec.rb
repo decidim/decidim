@@ -410,8 +410,9 @@ describe "Admin manages organization" do
           click_on "Update"
           expect(page).to have_text("Organization updated successfully")
           expect(find(
-            "#organization-admin_terms_of_service_body-tabs-admin_terms_of_service_body-panel-0 .editor .ProseMirror"
-          )["innerHTML"]).to eq("<p>bar baz</p>")
+            "#organization_admin_terms_of_service_body_en input[type=hidden]",
+            visible: :hidden
+          ).value).to eq("<p>bar baz</p>")
         end
       end
 

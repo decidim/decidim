@@ -91,8 +91,18 @@ export default class extends Controller {
       // In WYSIWYG editors (TipTap) we need to find the active editor from the
       // DOM node.
       if (this.element.parentElement.classList.contains("editor")) {
+        this.element.parentElement.addEventListener("editor:initialized", (event) => {
+          this.editor = event.detail.editor;
+          this.userInput = this.editor.view.dom;
+          this.initializeCounter();
+        });
+
         // Wait until the next javascript loop so WYSIWYG editors are created
         setTimeout(() => {
+          if (this.editor) {
+            return;
+          }
+
           const editorContainer = this.element.parentElement.querySelector(".editor-container");
           if (editorContainer) {
             const proseMirror = editorContainer.querySelector(".ProseMirror");

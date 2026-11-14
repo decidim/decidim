@@ -21,12 +21,27 @@ document.addEventListener("turbo:load", () => {
         then((data) => {
           document.getElementById(`proposal_answer_internal_state_${data.state}`).click();
 
-          let editorContainer = null;
           for (const [key, value] of Object.entries(data.template)) {
-            editorContainer = document.querySelector(`[name="proposal_answer[answer_${key}]"]`).nextElementSibling;
-            let editor = editorContainer.querySelector(".ProseMirror").editor;
+            const editorContainer = document.querySelector(`[name="proposal_answer[answer_${key}]"]`)?.nextElementSibling;
 
-            editor.commands.setContent(value, true);
+            if (editorContainer) {
+              // Editors are initialized lazily, so the ones in hidden language
+              // tabs may not exist yet. Reveal the editor before accessing it.
+              editorContainer.dispatchEvent(new CustomEvent("editor:reveal", { bubbles: true }));
+
+              const editor = editorContainer.querySelector(".ProseMirror")?.editor;
+              if (editor) {
+                editor.commands.setContent(value, true);
+              } else {
+                // If the editor has not been initialized synchronously, wait
+                // for its initialization before inserting the content.
+                editorContainer.addEventListener(
+                  "editor:initialized",
+                  (event) => event.detail.editor.commands.setContent(value, true),
+                  { once: true }
+                );
+              }
+            }
           }
         }).
         catch((response) => {

@@ -903,7 +903,7 @@ describe "Admin manages demographic questions" do
         expect do
           click_on "Add question"
           expand_all_questions
-        end.to change { page.all(".editor-toolbar").size }.by(1)
+        end.to change { page.all(".editor-preview").size }.by(1)
       end
 
       it "properly decides which button to show after adding/removing response options" do
