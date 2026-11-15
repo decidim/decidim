@@ -9,8 +9,7 @@ describe "rake decidim:open_data:export", type: :task do
 
   context "when there are no organizations" do
     it "does not enqueue any jobs" do
-      expect(Decidim::OpenDataJob).not_to receive(:perform_later)
-      task.execute
+      expect { task.execute }.not_to have_enqueued_job(Decidim::OpenDataJob)
     end
   end
 
@@ -26,29 +25,27 @@ describe "rake decidim:open_data:export", type: :task do
       ).uniq
     end
 
-    before { allow(Decidim::OpenDataJob).to receive(:perform_later) }
-
     it "enqueues the global ZIP export job for each organization" do
-      task.execute
-
-      expect(Decidim::OpenDataJob).to have_received(:perform_later).with(organization1)
-      expect(Decidim::OpenDataJob).to have_received(:perform_later).with(organization2)
+      expect { task.execute }
+        .to have_enqueued_job(Decidim::OpenDataJob).with(organization1)
+        .and have_enqueued_job(Decidim::OpenDataJob).with(organization2)
     end
 
     it "enqueues a per-resource export job for each resource manifest and each organization" do
+      enqueued_args = []
+      allow(Decidim::OpenDataJob).to receive(:perform_later) { |*args| enqueued_args << args }
+
       task.execute
 
       resource_names.each do |resource|
-        expect(Decidim::OpenDataJob).to have_received(:perform_later).with(organization1, resource)
-        expect(Decidim::OpenDataJob).to have_received(:perform_later).with(organization2, resource)
+        expect(enqueued_args).to include([organization1, resource], [organization2, resource])
       end
     end
 
     it "enqueues the correct total number of jobs" do
-      task.execute
-
       expected_count = (1 + resource_names.count) * 2
-      expect(Decidim::OpenDataJob).to have_received(:perform_later).exactly(expected_count).times
+
+      expect { task.execute }.to have_enqueued_job(Decidim::OpenDataJob).exactly(expected_count).times
     end
   end
 end
