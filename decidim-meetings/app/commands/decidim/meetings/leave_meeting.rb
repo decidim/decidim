@@ -22,7 +22,7 @@ module Decidim
 
         @meeting.with_lock do
           destroy_registration
-          destroy_questionnaire_responses
+          destroy_questionnaire_submissions
           decrement_score
           promote_from_waitlist!
         end
@@ -39,13 +39,10 @@ module Decidim
         registration.destroy!
       end
 
-      def questionnaire_responses
-        questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
-        questionnaire.responses.where(user: @user) if questionnaire.present?
-      end
+      def destroy_questionnaire_submissions
+        return unless @meeting.questionnaire
 
-      def destroy_questionnaire_responses
-        questionnaire_responses.try(:destroy_all)
+        @meeting.questionnaire.submissions.where(user: @user).destroy_all
       end
 
       def decrement_score

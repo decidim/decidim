@@ -30,9 +30,7 @@ describe "User edits a debate" do
 
     context "and empties the form" do
       it "allows submission and show errors" do
-        visit_component
-
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
@@ -56,9 +54,7 @@ describe "User edits a debate" do
     end
 
     it "allows editing my debate", :slow do
-      visit_component
-
-      click_on debate.title.values.first
+      visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
       find("#dropdown-trigger-resource-#{debate.id}").click
       click_on "Edit"
 
@@ -79,9 +75,7 @@ describe "User edits a debate" do
 
     context "when attachments are disallowed" do
       it "does not show the attachments form" do
-        visit_component
-
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
@@ -97,8 +91,7 @@ describe "User edits a debate" do
       let(:document_path) { Decidim::Dev.asset(document_filename) }
 
       before do
-        visit_component
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
       end
@@ -144,8 +137,7 @@ describe "User edits a debate" do
       let!(:image_attachment) { create(:attachment, :with_image, attached_to: debate) }
 
       it "can remove an attachment" do
-        visit_component
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
@@ -159,8 +151,7 @@ describe "User edits a debate" do
       end
 
       it "can attach a file" do
-        visit_component
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
 
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
@@ -178,9 +169,7 @@ describe "User edits a debate" do
       end
 
       it "can edit a debate with an attachment" do
-        visit_component
-
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
