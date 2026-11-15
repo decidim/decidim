@@ -20,17 +20,9 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @proposal.maximum_votes_reached? && !@proposal.can_accumulate_votes_beyond_threshold
-
         build_proposal_vote
         return broadcast(:invalid) unless vote.valid?
-
-        ActiveRecord::Base.transaction do
-          @proposal.with_lock do
-            vote.save!
-            update_temporary_votes
-          end
-        end
+        return broadcast(:invalid) unless save_vote
 
         Decidim::Gamification.increment_score(@current_user, :proposal_votes)
 
@@ -40,6 +32,26 @@ module Decidim
       attr_reader :vote
 
       private
+
+      def save_vote
+        saved = false
+
+        ActiveRecord::Base.transaction do
+          @proposal.with_lock do
+            next if vote_limit_reached?
+
+            vote.save!
+            update_temporary_votes
+            saved = true
+          end
+        end
+
+        saved
+      end
+
+      def vote_limit_reached?
+        @proposal.maximum_votes_reached? && !@proposal.can_accumulate_votes_beyond_threshold
+      end
 
       def component
         @component ||= @proposal.component
