@@ -1536,7 +1536,7 @@ eu:
           Adeitasunez,<br>
           %{organization_name}
         hello_html: <strong>%{username}</strong> agurgarria,
-        log_in: hasi saioa
+        log_in: saioa hasi
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
     participatory_space:
@@ -1939,7 +1939,7 @@ eu:
     sessions:
       already_signed_out: Saioa behar bezala amaitu da.
       new:
-        log_in: Hasi saioa
+        log_in: Saioa hasi
       signed_in: Saioa behar bezala hasi da.
       signed_out: Saioa behar bezala amaitu da.
     shared:
@@ -1948,7 +1948,7 @@ eu:
         didn_t_receive_confirmation_instructions: Ez duzu baieztatzeko jarraibiderik jaso?
         didn_t_receive_unlock_instructions: Ez duzu desblokeatzeko jarraibiderik jaso?
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        log_in: Hasi saioa
+        log_in: Saioa hasi
         log_in_with_provider: 'Hasi honekin: %{provider}'
         sign_up: Kontu bat sortu
       minimum_password_length:
@@ -2158,7 +2158,7 @@ eu:
         close: Itxi
         confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
         confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
-        log_in: Hasi saioa
+        log_in: Saioa hasi
         main_menu: Menu nagusia
         mobile_account_greeting: Kaixo, %{user_name}
         user_menu: Parte-hartzailearen menua
