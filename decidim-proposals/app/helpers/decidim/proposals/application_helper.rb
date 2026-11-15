@@ -146,12 +146,14 @@ module Decidim
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
-      def filter_origin_values
+      def filter_origin_values(component = current_component)
         scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("participants", t("participants", scope:))
-        origin_values << TreePoint.new("meeting", t("meetings", scope:))
+        origin_values << TreePoint.new("official", t("official", scope:)) if Decidim::Proposals::Proposal.with_official_origin_available?(component)
+        origin_values << TreePoint.new("participants", t("participants", scope:)) if Decidim::Proposals::Proposal.with_participants_origin_available?(component)
+        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if Decidim::Proposals::Proposal.with_meeting_origin_available?(component)
+
+        return if origin_values.empty?
 
         TreeNode.new(
           TreePoint.new("", t("all", scope:)),
@@ -186,10 +188,11 @@ module Decidim
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
-          if component_settings.official_proposals_enabled
+          origin_filter_values = filter_origin_values
+          if origin_filter_values
             items.append(method: :with_any_origin,
                          name: "[with_any_origin]",
-                         collection: filter_origin_values,
+                         collection: origin_filter_values,
                          label: t("decidim.proposals.proposals.filters.origin"),
                          id: "origin")
           end

@@ -185,6 +185,100 @@ module Decidim
           expect(translated_values).to contain_exactly("All", "Proposals", "Amendments")
         end
       end
+
+      describe "#filter_origin_values" do
+        subject(:origin_values) { helper.filter_origin_values }
+
+        let(:component) { create(:proposal_component) }
+        let(:origin_keys) { origin_values.node.map(&:value) }
+
+        before do
+          allow(helper).to receive(:current_component).and_return(component)
+        end
+
+        context "when there are no proposals" do
+          it "returns nil" do
+            expect(subject).to be_nil
+          end
+        end
+
+        context "when there are proposals of every origin" do
+          before do
+            create(:proposal, :official, component:)
+            create(:proposal, component:)
+            create(:proposal, :official_meeting, component:)
+          end
+
+          it "returns all the origin options" do
+            expect(origin_keys).to contain_exactly("official", "participants", "meeting")
+          end
+
+          it "includes the all option" do
+            expect(subject.leaf.value).to eq("")
+            expect(subject.leaf.label).to eq("All")
+          end
+        end
+
+        context "when there are only participant proposals" do
+          before do
+            create(:proposal, component:)
+          end
+
+          it "returns only the participants origin option" do
+            expect(origin_keys).to contain_exactly("participants")
+          end
+        end
+
+        context "when there are only official proposals" do
+          before do
+            create(:proposal, :official, component:)
+          end
+
+          it "returns only the official origin option" do
+            expect(origin_keys).to contain_exactly("official")
+          end
+
+          context "when official proposals are disabled" do
+            before do
+              component.update!(settings: { official_proposals_enabled: false })
+            end
+
+            it "returns nil" do
+              expect(subject).to be_nil
+            end
+          end
+        end
+
+        context "when there are only meeting proposals" do
+          before do
+            create(:proposal, :official_meeting, component:)
+          end
+
+          it "returns only the meetings origin option" do
+            expect(origin_keys).to contain_exactly("meeting")
+          end
+        end
+
+        context "when there are only hidden proposals" do
+          before do
+            create(:proposal, :official, :hidden, component:)
+          end
+
+          it "returns nil" do
+            expect(subject).to be_nil
+          end
+        end
+
+        context "when there are only withdrawn proposals" do
+          before do
+            create(:proposal, :official, :withdrawn, component:)
+          end
+
+          it "returns nil" do
+            expect(subject).to be_nil
+          end
+        end
+      end
     end
   end
 end

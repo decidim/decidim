@@ -54,12 +54,93 @@ describe "Filter Proposals", :slow do
   end
 
   context "when filtering proposals by ORIGIN" do
+    context "when there are no proposals" do
+      it "does not show the origin filter" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_no_text(/Origin/i)
+        end
+      end
+    end
+
+    context "when there are proposals of every origin" do
+      before do
+        create(:proposal, :official, component:)
+        create(:proposal, component:)
+        create(:proposal, :official_meeting, component:)
+      end
+
+      it "shows all the origin options" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_text(/Participants/i)
+          expect(page).to have_text(/Meetings/i)
+        end
+      end
+    end
+
+    context "when there are only participant proposals" do
+      before do
+        create(:proposal, component:)
+      end
+
+      it "shows only the participants origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
+          expect(page).to have_no_text(/Official/i)
+          expect(page).to have_no_text(/Meetings/i)
+        end
+      end
+    end
+
+    context "when there are only official proposals" do
+      before do
+        create(:proposal, :official, component:)
+      end
+
+      it "shows only the official origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+          expect(page).to have_no_text(/Meetings/i)
+        end
+      end
+    end
+
+    context "when there are only meeting proposals" do
+      before do
+        create(:proposal, :official_meeting, component:)
+      end
+
+      it "shows only the meetings origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Meetings/i)
+          expect(page).to have_no_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+      end
+    end
+
     context "when official_proposals setting is enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: true })
       end
 
       it "can be filtered by origin" do
+        create(:proposal, :official, component:)
         visit_component
 
         within "form.new_filter" do
@@ -101,12 +182,16 @@ describe "Filter Proposals", :slow do
     context "when official_proposals setting is not enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: false })
+        create(:proposal, :official, component:)
+        create(:proposal, component:)
       end
 
-      it "cannot be filtered by origin" do
+      it "does not show the official origin option" do
         visit_component
 
         within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
           expect(page).to have_no_text(/Official/i)
         end
       end
@@ -114,6 +199,7 @@ describe "Filter Proposals", :slow do
   end
 
   it "collapses the accordions on click" do
+    create(:proposal, :official, component:)
     visit_component
 
     within ".layout-2col__aside" do

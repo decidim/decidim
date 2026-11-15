@@ -194,6 +194,35 @@ module Decidim
           .exists?
       end
 
+      def self.with_official_origin_available?(component)
+        return false unless component.settings.official_proposals_enabled?
+
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .with_official_origin
+          .exists?
+      end
+
+      def self.with_participants_origin_available?(component)
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .with_participants_origin
+          .exists?
+      end
+
+      def self.with_meeting_origin_available?(component)
+        where(component:)
+          .published
+          .not_hidden
+          .not_withdrawn
+          .with_meeting_origin
+          .exists?
+      end
+
       acts_as_list scope: :decidim_component_id
 
       searchable_fields({

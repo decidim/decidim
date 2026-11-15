@@ -224,6 +224,171 @@ module Decidim
         end
       end
 
+      describe ".with_official_origin_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with official origin" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with official origin" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          it "returns true" do
+            expect(described_class.with_official_origin_available?(component)).to be true
+          end
+
+          context "when the proposals belong to another component" do
+            let(:other_component) { create(:proposal_component) }
+            let!(:proposal) { create(:proposal, :official, component: other_component) }
+
+            it "returns false" do
+              expect(described_class.with_official_origin_available?(component)).to be false
+            end
+          end
+        end
+
+        context "when official proposals are disabled" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          before do
+            component.update!(settings: { official_proposals_enabled: false })
+          end
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal) { create(:proposal, :official, :unpublished, component:) }
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          before do
+            create(:moderation, reportable: proposal, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are withdrawn" do
+          let!(:proposal) { create(:proposal, :official, :withdrawn, component:) }
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+      end
+
+      describe ".with_participants_origin_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with participants origin" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with participants origin" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "returns true" do
+            expect(described_class.with_participants_origin_available?(component)).to be true
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal) { create(:proposal, :unpublished, component:) }
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          before do
+            create(:moderation, reportable: proposal, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are withdrawn" do
+          let!(:proposal) { create(:proposal, :withdrawn, component:) }
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+      end
+
+      describe ".with_meeting_origin_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with meeting origin" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with meeting origin" do
+          let!(:proposal) { create(:proposal, :official_meeting, component:) }
+
+          it "returns true" do
+            expect(described_class.with_meeting_origin_available?(component)).to be true
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal) { create(:proposal, :official_meeting, :unpublished, component:) }
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal) { create(:proposal, :official_meeting, component:) }
+
+          before do
+            create(:moderation, reportable: proposal, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are withdrawn" do
+          let!(:proposal) { create(:proposal, :official_meeting, :withdrawn, component:) }
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+      end
+
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
       end
