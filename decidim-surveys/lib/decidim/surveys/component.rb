@@ -46,12 +46,12 @@ Decidim.register_component(:surveys) do |component|
     surveys = surveys.where(created_at: ..end_at) if end_at.present?
     first = surveys.count
     participatory_space_surveys = Decidim::Surveys::Survey.includes(:questionnaire).where(component: components)
-    responses = Decidim::Forms::Response.where(questionnaire: participatory_space_surveys.map(&:questionnaire))
-    responses = responses.where(created_at: start_at..) if start_at.present?
-    responses = responses.where(created_at: ..end_at) if end_at.present?
+    submissions = Decidim::Forms::Submission.where(questionnaire: participatory_space_surveys.map(&:questionnaire))
+    submissions = submissions.where(created_at: start_at..) if start_at.present?
+    submissions = submissions.where(created_at: ..end_at) if end_at.present?
     [
       first,
-      responses.group(:session_token).count.size
+      submissions.count
     ]
   end
 
