@@ -18,10 +18,10 @@ describe Rack::Attack do
   end
 
   # The rules only use these request methods, so a Struct is enough to call them.
-  # media_type, body and content_length are only read by the JSON body fallback,
-  # query_string only by the query precedence.
+  # media_type and body are only read by the JSON body fallback, query_string only by
+  # the query precedence.
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string, :content_length) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string) do
       def put?
         request_method == :put
       end
@@ -30,6 +30,14 @@ describe Rack::Attack do
         request_method == :post
       end
     end
+  end
+
+  # Rack::Attack#call normalizes PATH_INFO with Rack::Attack::PathNormalizer before the
+  # check blocks run, and in a Rails app that is ActionDispatch::Journey::Router::Utils:
+  # it collapses repeated slashes and strips the trailing one, so the blocks see the same
+  # path Rails routes. The specs feed the Struct the path as the middleware would pass it.
+  def normalized_path(path)
+    Rack::Attack::PathNormalizer.normalize_path(path)
   end
 
   describe "system blocklist" do
@@ -70,6 +78,13 @@ describe Rack::Attack do
       it "blocks /system sub-paths from an IP outside the allow-list" do
         requests = %w(/system/admin /system/users).map { |path| request_class.new(path, "10.0.0.1", :get, {}) }
         expect(requests.map { |request| blocklist.block.call(request) }).to all(be_truthy)
+      end
+
+      it "blocks the repeated-slash form of a /system path, which Rails routes to the same action" do
+        # Rack::Attack normalizes PATH_INFO before the block runs, so "//system/admins/sign_in"
+        # reaches it as "/system/admins/sign_in" and the allow-list still applies
+        request = request_class.new(normalized_path("//system/admins/sign_in"), "10.0.0.1", :get, {})
+        expect(blocklist.block.call(request)).to be_truthy
       end
     end
 
@@ -222,6 +237,18 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
+    it "counts the trailing-slash form Rails routes with the same counter" do
+      # Rack::Attack normalizes PATH_INFO before the block runs, so "/en/users/sign_in/"
+      # reaches it as "/en/users/sign_in"
+      request = request_class.new(normalized_path("/en/users/sign_in/"), "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "counts the repeated-slash form Rails routes with the same counter" do
+      request = request_class.new(normalized_path("//en/users/sign_in"), "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
     it "reads the email from a JSON body, which Rack does not parse into params" do
       request = request_class.new(
         "/en/users/sign_in.json",
@@ -318,6 +345,24 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
+    it "reads the email from the JSON media types Rails parses, not only application/json" do
+      # Mime::JSON aliases (actionpack/lib/action_dispatch/http/mime_types.rb). Rack parses
+      # none of them into params, so all of them need the body fallback
+      media_types = ["text/x-json", "application/jsonrequest", "application/problem+json"]
+      discriminators = media_types.map do |media_type|
+        request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, media_type, StringIO.new('{"user":{"email":"a@b.c"}}'))
+        throttle.block.call(request)
+      end
+      expect(discriminators).to all(eq("a@b.c"))
+    end
+
+    it "counts the trailing-slash form Rails routes with the same counter" do
+      # Rack::Attack normalizes PATH_INFO before the block runs, so "/en/users/password/"
+      # reaches it as "/en/users/password"
+      request = request_class.new(normalized_path("/en/users/password/"), "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
     it "rewinds the JSON body so Rails can still parse it" do
       body = StringIO.new('{"user":{"email":"a@b.c"}}')
       request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body)
@@ -340,11 +385,26 @@ describe Rack::Attack do
     it "counts a JSON body larger than the read cap by IP instead of leaving it uncounted" do
       # The bounded read truncates the JSON, so no email can be extracted while Rails still
       # parses the whole body. A padded body would otherwise reach the action uncounted.
+      # The overflow is detected from the read itself rather than from Content-Length, which
+      # Rack does not guarantee: a chunked request has no CONTENT_LENGTH at all.
       padding = "x" * Decidim::RackAttackRules::MAX_JSON_BODY_BYTES
       body = StringIO.new("{\"user\":{\"email\":\"a@b.c\"},\"padding\":\"#{padding}\"}")
-      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body, nil, body.string.bytesize)
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body)
       expect(throttle.block.call(request)).to eq("1.2.3.4")
       expect(body.pos).to eq(0)
+    end
+
+    it "counts an oversized body per address, which is the limit of a throttle block" do
+      # A throttle block cannot reject a request and must not buffer an unbounded body, so
+      # for an oversized body the counter key is the address instead of the email. The same
+      # email attacked from different addresses therefore has one counter per address, and
+      # those requests are only limited by the "requests by ip" throttle.
+      padding = "x" * Decidim::RackAttackRules::MAX_JSON_BODY_BYTES
+      body = StringIO.new("{\"user\":{\"email\":\"a@b.c\"},\"padding\":\"#{padding}\"}")
+      first = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body)
+      second = request_class.new("/en/users/password.json", "5.6.7.8", :post, {}, "application/json", body)
+      expect(throttle.block.call(first)).to eq("1.2.3.4")
+      expect(throttle.block.call(second)).to eq("5.6.7.8")
     end
 
     it "returns nil for a JSON body without the resource key" do
