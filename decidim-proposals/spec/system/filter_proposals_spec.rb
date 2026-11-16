@@ -185,6 +185,44 @@ describe "Filter Proposals", :slow do
       end
     end
 
+    context "when the only participant proposal is rejected" do
+      let!(:proposal) { create(:proposal, :rejected, component:) }
+
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { proposal_answering_enabled: true }
+          }
+        )
+      end
+
+      it "does not show the participants origin option with the default state selection" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_no_text(/Origin/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+      end
+
+      it "shows the participants origin option when the rejected state is selected" do
+        query = { filter: { with_any_state: ["rejected"] } }.to_query
+        page.visit "#{main_component_path(component, locale: I18n.locale)}?#{query}"
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          uncheck "All"
+          check "Participants"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      end
+    end
+
     context "when official_proposals setting is enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: true })

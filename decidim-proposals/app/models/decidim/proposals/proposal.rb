@@ -194,33 +194,43 @@ module Decidim
           .exists?
       end
 
-      def self.with_official_origin_available?(component, user = nil, availability = nil)
+      def self.default_filter_states(component)
+        [
+          Decidim::Proposals::ProposalState.where(component:).pluck(:token).map(&:to_s),
+          %w(state_not_published)
+        ].flatten - ["rejected"]
+      end
+
+      def self.with_official_origin_available?(component, user = nil, availability = nil, states = default_filter_states(component))
         return false unless component.settings.official_proposals_enabled?
 
         where(component:)
           .published
           .not_hidden
           .with_availability(availability)
+          .with_any_state(*Array(states))
           .amendables_and_visible_emendations_for(user, component)
           .with_official_origin
           .exists?
       end
 
-      def self.with_participants_origin_available?(component, user = nil, availability = nil)
+      def self.with_participants_origin_available?(component, user = nil, availability = nil, states = default_filter_states(component))
         where(component:)
           .published
           .not_hidden
           .with_availability(availability)
+          .with_any_state(*Array(states))
           .amendables_and_visible_emendations_for(user, component)
           .with_participants_origin
           .exists?
       end
 
-      def self.with_meeting_origin_available?(component, user = nil, availability = nil)
+      def self.with_meeting_origin_available?(component, user = nil, availability = nil, states = default_filter_states(component))
         where(component:)
           .published
           .not_hidden
           .with_availability(availability)
+          .with_any_state(*Array(states))
           .amendables_and_visible_emendations_for(user, component)
           .with_meeting_origin
           .exists?

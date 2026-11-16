@@ -297,6 +297,18 @@ module Decidim
             end
           end
         end
+
+        context "when proposals are rejected" do
+          let!(:proposal) { create(:proposal, :official, :rejected, component:) }
+
+          it "returns false with the default state selection" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+
+          it "returns true when the rejected state is selected" do
+            expect(described_class.with_official_origin_available?(component, nil, nil, %w(rejected))).to be true
+          end
+        end
       end
 
       describe ".with_participants_origin_available?" do
@@ -374,6 +386,18 @@ module Decidim
             end
           end
         end
+
+        context "when proposals are rejected" do
+          let!(:proposal) { create(:proposal, :rejected, component:) }
+
+          it "returns false with the default state selection" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+
+          it "returns true when the rejected state is selected" do
+            expect(described_class.with_participants_origin_available?(component, nil, nil, %w(rejected))).to be true
+          end
+        end
       end
 
       describe ".with_meeting_origin_available?" do
@@ -426,6 +450,18 @@ module Decidim
             it "returns true" do
               expect(described_class.with_meeting_origin_available?(component, nil, "withdrawn")).to be true
             end
+          end
+        end
+
+        context "when proposals are rejected" do
+          let!(:proposal) { create(:proposal, :official_meeting, :rejected, component:) }
+
+          it "returns false with the default state selection" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+
+          it "returns true when the rejected state is selected" do
+            expect(described_class.with_meeting_origin_available?(component, nil, nil, %w(rejected))).to be true
           end
         end
       end

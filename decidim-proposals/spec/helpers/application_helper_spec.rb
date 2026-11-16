@@ -187,12 +187,13 @@ module Decidim
       end
 
       describe "#filter_origin_values" do
-        subject(:origin_values) { helper.filter_origin_values(component, user, availability) }
+        subject(:origin_values) { helper.filter_origin_values(component, user, availability:, states:) }
 
         let(:component) { create(:proposal_component) }
         let(:origin_keys) { origin_values.node.map(&:value) }
         let(:user) { nil }
         let(:availability) { nil }
+        let(:states) { Decidim::Proposals::Proposal.default_filter_states(component) }
 
         before do
           allow(helper).to receive(:current_component).and_return(component)
@@ -310,6 +311,24 @@ module Decidim
 
           context "when the withdrawn availability is selected" do
             let(:availability) { "withdrawn" }
+
+            it "returns the official origin option" do
+              expect(origin_keys).to contain_exactly("official")
+            end
+          end
+        end
+
+        context "when there are only rejected proposals" do
+          before do
+            create(:proposal, :official, :rejected, component:)
+          end
+
+          it "returns nil with the default state selection" do
+            expect(subject).to be_nil
+          end
+
+          context "when the rejected state is selected" do
+            let(:states) { %w(rejected) }
 
             it "returns the official origin option" do
               expect(origin_keys).to contain_exactly("official")
