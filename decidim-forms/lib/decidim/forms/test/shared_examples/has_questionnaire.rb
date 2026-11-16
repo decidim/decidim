@@ -172,7 +172,13 @@ shared_examples_for "has questionnaire" do
 
       fill_in question.body["en"], with: "My first response"
 
-      accept_confirm { click_on translated_attribute(component.name) }
+      accept_confirm { click_on translated_attribute(component.participatory_space.title), match: :first }
+
+      20.times do
+        break if page.evaluate_script("!document.querySelector('.form.response-questionnaire')")
+
+        sleep 0.5
+      end
 
       expect(page).to have_no_field(question.body["en"])
     end
