@@ -66,10 +66,7 @@ module Decidim
     end
 
     def create_or_find_user
-      @user = User.find_or_initialize_by(
-        email: verified_email,
-        organization:
-      )
+      @user = organization.users.find_or_initialize_by(email: verified_email)
 
       if @user.persisted?
         # If user has left the account unconfirmed and later on decides to sign
@@ -120,6 +117,7 @@ module Decidim
     end
 
     def existing_identity
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user: organization.users scopes the lookup to the current organization
       @existing_identity ||= Identity.find_by(
         user: organization.users,
         provider: form.provider,
