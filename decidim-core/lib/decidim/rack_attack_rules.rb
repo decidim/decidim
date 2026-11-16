@@ -29,14 +29,25 @@ module Decidim
 
       # Throttle login attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/sign_in requests
+      # The path is matched with a pattern: Decidim routes are locale-prefixed
+      # (decidim-core/config/routes.rb) and the format is optional, so an exact
+      # string never matches the requests the app actually receives.
       configuration.throttle("limit logins per email", limit: 5, period: 60.seconds) do |request|
-        email_discriminator(request, "/users/sign_in")
+        email_discriminator(request, %r{^(/[^/]+)*/users/sign_in(\.[^/]+)?$}, "user")
       end
 
       # Throttle password recovery attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/password requests
       configuration.throttle("limit password recovery attempts per email", limit: 5, period: 60.seconds) do |request|
-        email_discriminator(request, "/users/password")
+        email_discriminator(request, %r{^(/[^/]+)*/users/password(\.[^/]+)?$}, "user")
+      end
+
+      # Throttle system admin login attempts for a given email parameter to 5 reqs/minute
+      # The system engine is mounted outside the locale scope, so the path has no locale
+      # segment; the optional prefix only covers apps mounted at a subpath. System admins
+      # have no Devise lockable module, so this is the only limit on brute force there.
+      configuration.throttle("limit system admin logins per email", limit: 5, period: 60.seconds) do |request|
+        email_discriminator(request, %r{^(/[^/]+)*/system/admins/sign_in(\.[^/]+)?$}, "admin")
       end
 
       # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute
@@ -50,14 +61,14 @@ module Decidim
       end
     end
 
-    # The user param can be missing or a scalar (e.g. POST /users/sign_in?user=foo).
+    # The resource param can be missing or a scalar (e.g. POST /users/sign_in?user=foo).
     # Rack::Attack does not rescue exceptions raised by a throttle block, so the
     # discriminator must return nil instead of raising inside the middleware.
-    def self.email_discriminator(request, path)
-      return unless request.path == path && request.post?
+    def self.email_discriminator(request, path_pattern, param_key)
+      return unless request.post? && request.path.match?(path_pattern)
 
-      user = request.params["user"]
-      user["email"] if user.is_a?(Hash)
+      resource = request.params[param_key]
+      resource["email"] if resource.is_a?(Hash)
     end
 
     private_class_method :email_discriminator

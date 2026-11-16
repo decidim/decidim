@@ -133,9 +133,28 @@ describe Rack::Attack do
       expect(throttle.period).to eq(60.seconds.to_i)
     end
 
-    it "returns the email on POST /users/sign_in" do
+    it "returns the email on POST /users/sign_in without a locale segment" do
+      # Not routable in Decidim (only a GET redirect exists), but the locale segment is
+      # optional in the pattern, so the rule still matches
       request = request_class.new("/users/sign_in", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
       expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "returns the email on POST /en/users/sign_in" do
+      # Decidim routes are locale-prefixed, so this is the path the sign-in form posts to
+      request = request_class.new("/en/users/sign_in", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "returns the email when the engine is mounted at a subpath" do
+      # The pattern allows any prefix before the path, not only a locale segment
+      request = request_class.new("/decidim/en/users/sign_in", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "returns nil on POST /en/users/sign_in/edit" do
+      request = request_class.new("/en/users/sign_in/edit", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to be_nil
     end
 
     it "returns nil on POST /users/sign_in without the user param" do
@@ -156,10 +175,10 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to be_nil
     end
 
-    it "returns nil on POST /users/sign_in.json" do
-      # JSON sign-ins are not throttled because of the exact path match
-      request = request_class.new("/users/sign_in.json", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
-      expect(throttle.block.call(request)).to be_nil
+    it "returns the email on POST /en/users/sign_in.json" do
+      # The format is optional in the routes, so JSON sign-ins are throttled too
+      request = request_class.new("/en/users/sign_in.json", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
     it "returns nil on POST to other paths" do
@@ -182,8 +201,16 @@ describe Rack::Attack do
       expect(throttle.period).to eq(60.seconds.to_i)
     end
 
-    it "returns the email on POST /users/password" do
+    it "returns the email on POST /users/password without a locale segment" do
+      # Not routable in Decidim (only a GET redirect exists), but the locale segment is
+      # optional in the pattern, so the rule still matches
       request = request_class.new("/users/password", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "returns the email on POST /en/users/password" do
+      # Decidim routes are locale-prefixed, so this is the path the recovery form posts to
+      request = request_class.new("/en/users/password", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
@@ -205,9 +232,10 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to be_nil
     end
 
-    it "returns nil on POST /users/password.json" do
-      request = request_class.new("/users/password.json", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
-      expect(throttle.block.call(request)).to be_nil
+    it "returns the email on POST /en/users/password.json" do
+      # The format is optional in the routes, so JSON recovery requests are throttled too
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
     it "returns nil on POST to other paths" do
@@ -219,6 +247,51 @@ describe Rack::Attack do
       first = request_class.new("/users/password", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
       second = request_class.new("/users/password", "1.2.3.4", :post, { "user" => { "email" => "x@y.z" } })
       expect(throttle.block.call(first)).not_to eq(throttle.block.call(second))
+    end
+  end
+
+  describe "limit system admin logins per email throttle" do
+    let(:throttle) { rules.throttles.fetch("limit system admin logins per email") }
+
+    it "has a limit of 5 requests per minute" do
+      expect(throttle.limit).to eq(5)
+      expect(throttle.period).to eq(60.seconds.to_i)
+    end
+
+    it "returns the email on POST /system/admins/sign_in" do
+      # The system engine is mounted outside the locale scope, so this is the real path
+      request = request_class.new("/system/admins/sign_in", "1.2.3.4", :post, { "admin" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "returns the email on POST /system/admins/sign_in.json" do
+      request = request_class.new("/system/admins/sign_in.json", "1.2.3.4", :post, { "admin" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "returns nil on GET /system/admins/sign_in" do
+      request = request_class.new("/system/admins/sign_in", "1.2.3.4", :get, { "admin" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "returns nil on POST /system/admins/sign_in without the admin param" do
+      request = request_class.new("/system/admins/sign_in", "1.2.3.4", :post, {})
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "returns nil on POST /system/admins/sign_in with a scalar admin param" do
+      request = request_class.new("/system/admins/sign_in", "1.2.3.4", :post, { "admin" => "foo" })
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "does not use the user param" do
+      request = request_class.new("/system/admins/sign_in", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "returns nil on POST to other paths" do
+      request = request_class.new("/system/admins", "1.2.3.4", :post, { "admin" => { "email" => "a@b.c" } })
+      expect(throttle.block.call(request)).to be_nil
     end
   end
 
