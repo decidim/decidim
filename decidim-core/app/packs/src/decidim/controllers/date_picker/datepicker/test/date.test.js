@@ -66,6 +66,14 @@ describe("formatDate", () => {
 
     expect(result).toEqual("2023-02-01");
   });
+
+  it("should keep a blank date empty instead of defaulting to today", () => {
+    const formats = { separator: "/", order: "d-m-y" };
+
+    const result = formatDate("", formats);
+
+    expect(result).toEqual("");
+  });
 });
 
 describe("formatInputDate", () => {

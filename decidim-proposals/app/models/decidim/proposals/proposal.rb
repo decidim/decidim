@@ -206,6 +206,17 @@ module Decidim
                         index_on_create: ->(proposal) { proposal.visible? && proposal.component&.published? },
                         index_on_update: ->(proposal) { proposal.visible? && proposal.component&.published? })
 
+      def self.searchable_arguments
+        # Coauthor authors are polymorphic, so the avatar is only eager loaded for the
+        # types that have it (users); organizations and meetings are skipped by Rails.
+        [
+          :taxonomies, :amended, :amendable, :proposal_state,
+          { component: { participatory_space: :organization } },
+          { coauthorships: :author },
+          { coauthorships: { author: :avatar_attachment } }
+        ]
+      end
+
       def self.log_presenter_class_for(_log)
         Decidim::Proposals::AdminLog::ProposalPresenter
       end
@@ -243,6 +254,23 @@ module Decidim
         commentators_ids = Decidim::Comments::Comment.user_commentators_ids_in(proposals)
 
         (likes_participants_ids + participants_has_voted_ids + coauthors_recipients_ids + commentators_ids).flatten.compact.uniq
+      end
+
+      # Public: Preloads the database count of final votes for a collection of
+      # proposals without loading every vote. This avoids both a query per
+      # proposal and the counter cache, which can be stale.
+      #
+      # Returns the given collection with the `final_votes_count` set.
+      def self.preload_final_votes_counts(proposals)
+        proposals = proposals.load
+        votes_counts = Decidim::Proposals::ProposalVote
+                       .final
+                       .where(decidim_proposal_id: proposals.map(&:id))
+                       .group(:decidim_proposal_id)
+                       .count
+
+        proposals.each { |proposal| proposal.final_votes_count = votes_counts.fetch(proposal.id, 0) }
+        proposals
       end
 
       # Public: Updates the vote count of this proposal.
@@ -358,13 +386,23 @@ module Decidim
         maximum_votes
       end
 
+      attr_writer :final_votes_count
+
+      # A preloaded final votes count can become stale after the record is
+      # reloaded, for example when a vote guard acquires a row lock.
+      def reload(...)
+        @final_votes_count = nil
+        super
+      end
+
       # Public: The maximum amount of votes allowed for this proposal. 0 means infinite.
       #
       # Returns true if reached, false otherwise.
       def maximum_votes_reached?
         return false unless maximum_votes
 
-        votes.count >= maximum_votes
+        votes_count = @final_votes_count || votes.count
+        votes_count >= maximum_votes
       end
 
       # Public: Can accumulate more votes than maximum for this proposal.

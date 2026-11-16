@@ -118,6 +118,10 @@ module Decidim
                       index_on_create: ->(_process) { false },
                       index_on_update: ->(process) { process.visible? })
 
+    def self.searchable_arguments
+      [:organization, :active_step]
+    end
+
     # Scope to return only the promoted processes.
     #
     # Returns an ActiveRecord::Relation.
