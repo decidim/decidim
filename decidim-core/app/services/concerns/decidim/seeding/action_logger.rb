@@ -14,6 +14,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        private
+
         def log!
           resource_id, resource_type =
             if resource.is_a?(Struct)
@@ -39,8 +41,6 @@ module Decidim
             visibility:
           )
         end
-
-        private
 
         def organization
           Cache.organization(user.decidim_organization_id)

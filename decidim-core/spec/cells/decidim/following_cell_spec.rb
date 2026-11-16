@@ -11,7 +11,9 @@ describe Decidim::FollowingCell, type: :cell do
   let!(:model) { create(:user, :confirmed, organization:) }
   let(:followed) { create_list(:user, 30, :confirmed, organization:) }
   let!(:follows) { followed.map { |user| create(:follow, followable: user, user: model) } }
-  let(:my_cell) { cell("decidim/following", model) }
+  # A real view_context is needed for Kaminari to find its `decidim` theme partials: without one
+  # the cell uses `ActionController::Base.helpers`, whose lookup_context has no view paths.
+  let(:my_cell) { cell("decidim/following", model, context: { view_context: controller.view_context }) }
   let(:cell_html) { my_cell.call }
 
   before do

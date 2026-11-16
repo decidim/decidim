@@ -264,10 +264,7 @@ module Decidim::Conferences
           end
 
           it "does not schedule the upcoming conference notification job" do
-            expect(UpcomingConferenceNotificationJob)
-              .not_to receive(:perform_later)
-
-            command.call
+            expect { command.call }.not_to have_enqueued_job(UpcomingConferenceNotificationJob)
           end
         end
 

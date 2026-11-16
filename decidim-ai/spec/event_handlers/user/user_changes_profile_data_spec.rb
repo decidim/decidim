@@ -37,7 +37,6 @@ describe "User changes own data", type: :system do
       password_confirmation: nil,
       avatar: nil,
       remove_avatar: nil,
-      personal_url: "https://example.org",
       about:,
       locale: "es"
     }

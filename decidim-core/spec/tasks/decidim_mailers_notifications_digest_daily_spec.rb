@@ -12,7 +12,6 @@ describe "rake decidim:mailers:notifications_digest_daily", type: :task do
 
   before do
     allow(Time).to receive(:now).and_return(current_time)
-    allow(Decidim::EmailNotificationsDigestGeneratorJob).to receive(:perform_later)
 
     create(:notification, user: target_user, resource:, created_at: current_time - 1.day)
     create(:notification, user: target_user, resource:, created_at: current_time - 1.day + 2.hours)
@@ -21,17 +20,9 @@ describe "rake decidim:mailers:notifications_digest_daily", type: :task do
   end
 
   it "enqueues one daily digest job for each matching user" do
-    task.execute
-
-    expect(Decidim::EmailNotificationsDigestGeneratorJob)
-      .to have_received(:perform_later)
-      .with(target_user.id, :daily, time: current_time)
-      .once
-    expect(Decidim::EmailNotificationsDigestGeneratorJob)
-      .not_to have_received(:perform_later)
-      .with(user_with_wrong_frequency.id, :daily, time: current_time)
-    expect(Decidim::EmailNotificationsDigestGeneratorJob)
-      .not_to have_received(:perform_later)
-      .with(user_without_notifications.id, :daily, time: current_time)
+    expect { task.execute }
+      .to have_enqueued_job(Decidim::EmailNotificationsDigestGeneratorJob).with(target_user.id, :daily, time: current_time)
+      .and have_enqueued_job(Decidim::EmailNotificationsDigestGeneratorJob).with(user_with_wrong_frequency.id, :daily, time: current_time).exactly(0).times
+      .and have_enqueued_job(Decidim::EmailNotificationsDigestGeneratorJob).with(user_without_notifications.id, :daily, time: current_time).exactly(0).times
   end
 end
