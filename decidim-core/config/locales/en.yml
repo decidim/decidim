@@ -2275,6 +2275,7 @@ en:
       close: Close
       reset: Reset
       select: Select
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2283,6 +2284,8 @@ en:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2296,7 +2299,8 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%H:%M %Z"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Deletions

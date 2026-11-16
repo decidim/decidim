@@ -49,6 +49,10 @@ module Decidim
                         index_on_create: ->(result) { result.visible? },
                         index_on_update: ->(result) { result.visible? })
 
+      def self.searchable_arguments
+        [:status, :taxonomies, { component: { participatory_space: :organization } }]
+      end
+
       geocoded_by :address
 
       def self.log_presenter_class_for(_log)

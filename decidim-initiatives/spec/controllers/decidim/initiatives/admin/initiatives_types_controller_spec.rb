@@ -28,6 +28,23 @@ module Decidim
         end
 
         context "when index" do
+          render_views
+
+          def count_queries
+            queries = []
+            subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, payload|
+              next if payload[:cached] || payload[:name] == "SCHEMA"
+
+              queries << payload[:sql]
+            end
+
+            yield
+
+            queries
+          ensure
+            ActiveSupport::Notifications.unsubscribe(subscriber)
+          end
+
           context "and admin user" do
             before do
               sign_in admin_user, scope: :user
@@ -37,6 +54,31 @@ module Decidim
               get :index
               expect(flash[:alert]).to be_nil
               expect(response).to have_http_status(:ok)
+            end
+
+            it "does not query the scopes or their initiatives for each initiative type" do
+              association_queries = lambda do |queries|
+                queries.select do |sql|
+                  sql.match?(/decidim_initiatives_type_scopes/i) || sql.match?(/decidim_initiatives\b/i)
+                end
+              end
+
+              create_list(:initiatives_type, 2, organization:).each do |initiative_type|
+                create(:initiative, organization:, scoped_type: create(:initiatives_type_scope, type: initiative_type))
+              end
+
+              few_queries = association_queries.call(count_queries { get :index })
+              expect(response).to have_http_status(:ok)
+
+              create_list(:initiatives_type, 4, organization:).each do |initiative_type|
+                create(:initiative, organization:, scoped_type: create(:initiatives_type_scope, type: initiative_type))
+              end
+
+              many_queries = association_queries.call(count_queries { get :index })
+              expect(response).to have_http_status(:ok)
+
+              expect(many_queries.size).to eq(few_queries.size)
+              expect(many_queries.size).to be <= 2
             end
           end
 

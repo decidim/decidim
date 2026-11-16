@@ -31,6 +31,7 @@ module Decidim
       ActionLog
         .where(organization:, visibility:)
         .order(created_at: :desc)
+        .includes(:user)
     end
 
     def visibility

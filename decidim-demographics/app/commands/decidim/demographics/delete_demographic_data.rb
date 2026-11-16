@@ -13,7 +13,7 @@ module Decidim
       end
 
       def call
-        @questionnaire.responses.where(user: @user).destroy_all
+        @questionnaire.submissions.where(user: @user).destroy_all
 
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid

@@ -9,6 +9,7 @@ module Decidim
         include Decidim::TranslatableAttributes
 
         before_action :set_controller_breadcrumb, except: [:index, :new, :create]
+        before_action :set_initiative_types_with_initiatives, only: [:index]
 
         add_breadcrumb_item_from_menu :admin_initiatives_menu
 
@@ -87,7 +88,18 @@ module Decidim
           }
         end
 
+        protected
+
+        # Used to prevent N+1 query problems
+        def permissions_context
+          super.merge(initiative_types_with_initiatives: @initiative_types_with_initiatives)
+        end
+
         private
+
+        def set_initiative_types_with_initiatives
+          @initiative_types_with_initiatives ||= InitiativeTypesWithInitiatives.for(current_organization)
+        end
 
         def set_controller_breadcrumb
           controller_breadcrumb_items <<
