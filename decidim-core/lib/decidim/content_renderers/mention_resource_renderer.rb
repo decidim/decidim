@@ -69,7 +69,7 @@ module Decidim
       end
 
       def mention_title(resource)
-        title = presenter_for(resource).title
+        title = CGI.escapeHTML(presenter_for(resource).title.to_s)
 
         "<span class='editor-mention'>
           #{mention_avatar(resource)}
