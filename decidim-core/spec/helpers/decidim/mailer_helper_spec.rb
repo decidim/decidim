@@ -6,6 +6,7 @@ module Decidim
   describe MailerHelper do
     describe "#decidim_transform_image_urls" do
       let(:host) { "example.org" }
+      let(:origin) { "http://#{host}:#{Capybara.server_port}" }
 
       let(:user_input) do
         %{(<p>Hello, %{name}</p>
@@ -18,10 +19,13 @@ module Decidim
       context "when decidim_transform_image_urls is invoked" do
         subject { helper.send(:decidim_transform_image_urls, user_input, host) }
 
-        it "transforms image URLs with the host" do
-          root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
-          expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
-          expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
+        it "transforms image URLs with the host origin" do
+          expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/12345.JPG"))
+          expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/56789.JPG"))
+        end
+
+        it "does not insert the locale in image URLs" do
+          expect(subject).not_to match(%r{/[a-z]{2}/rails/active_storage})
         end
 
         context "when a relative src matches the suffix of an absolute URL" do
@@ -30,9 +34,7 @@ module Decidim
           end
 
           it "transforms only the relative URL" do
-            root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
-
-            expect(subject).to include(%(<img src="#{root_url}/image.jpg" alt="relative" />))
+            expect(subject).to include(%(<img src="#{origin}/image.jpg" alt="relative" />))
             expect(subject).to include(%(<img src="https://example.com/image.jpg" alt="absolute" />))
           end
         end
@@ -55,8 +57,7 @@ module Decidim
           let(:user_input) { "<img src='/image.jpg' alt='relative' />" }
 
           it "transforms the URL preserving single quotes" do
-            root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host:).chomp("/")
-            expect(subject).to include(%(<img src='#{root_url}/image.jpg' alt='relative' />))
+            expect(subject).to include(%(<img src='#{origin}/image.jpg' alt='relative' />))
           end
         end
 
