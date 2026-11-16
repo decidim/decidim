@@ -1062,7 +1062,6 @@ tr:
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)\n%Gün-%Ay-%Yıl %Saat:%Dakika %p %Zone (GMT %:z)"
   versions:
     directions:
       left: Silme
