@@ -44,8 +44,11 @@ module Decidim
       end
 
       def contributors_count_item
+        count = model.contributor_count
+        return if count.zero?
+
         {
-          text: t("decidim.collaborative_texts.document.contributors_count", count: model.coauthorships_count),
+          text: t("decidim.collaborative_texts.document.contributors_count", count:),
           icon: "group-line",
           data_attributes: { contributors_count: "" }
         }
