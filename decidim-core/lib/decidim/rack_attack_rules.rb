@@ -2,6 +2,7 @@
 
 require "ipaddr"
 require "json"
+require "stringio"
 
 module Decidim
   # The Rack::Attack rules registered by the decidim-core initializer. They live
@@ -28,9 +29,8 @@ module Decidim
     SYSTEM_ADMIN_SIGN_IN_PATH = %r{^(/[^/]+)*/system/admins/sign_in(\.[^/]+)?$}
     BODY_READ_PATHS = [SIGN_IN_PATH, PASSWORD_PATH, SYSTEM_ADMIN_SIGN_IN_PATH].freeze
 
-    # Returned by json_resource when the email cannot be identified from the body:
-    # the body is larger than the read cap, or the input stream cannot be put back
-    # for Rails. Those requests are counted by IP.
+    # Returned by json_resource when the email cannot be identified from the body because
+    # it is larger than the read cap. Those requests are counted by IP.
     UNIDENTIFIED_BODY = :unidentified_body
 
     def self.register_blocklists!(configuration = Rack::Attack.configuration)
@@ -143,13 +143,6 @@ module Decidim
     def self.json_resource(request, param_key)
       return nil unless json_media_type?(request) && request.body
 
-      # Rack's SPEC does not require rack.input to be rewindable (Rack::Lint checks gets,
-      # each and read), and ActionDispatch handles a non-rewindable input without rewinding
-      # (actionpack/lib/action_dispatch/http/request.rb, reset_stream). Reading a stream that
-      # cannot be put back would leave Rails without a body, so the email cannot be read for
-      # those requests.
-      return UNIDENTIFIED_BODY unless request.body.respond_to?(:rewind)
-
       json = read_json_body(request)
       return if json.nil?
       return UNIDENTIFIED_BODY if json.bytesize > MAX_JSON_BODY_BYTES
@@ -161,13 +154,11 @@ module Decidim
     end
 
     def self.oversized_json_body?(request)
-      # Content-Length is not guaranteed: Rack's SPEC does not require it and a chunked
-      # request has no CONTENT_LENGTH at all, so the size is taken from the bounded read
-      # itself when the header is missing. The stream is put back so the app can still read
-      # the body when the request is not rejected, which is only possible for an input that
-      # can be rewound; a stream that cannot be put back is left untouched.
+      # Rack 3.2 permits rack.input to be absent, and Content-Length is not guaranteed: Rack's
+      # SPEC does not require it and a chunked request has no CONTENT_LENGTH at all, so the size
+      # is taken from the bounded read itself when the header is missing.
       return request.content_length.to_i > MAX_JSON_BODY_BYTES if request.content_length
-      return false unless request.body.respond_to?(:rewind)
+      return false unless request.body
 
       json = read_json_body(request)
       !json.nil? && json.bytesize > MAX_JSON_BODY_BYTES
@@ -177,10 +168,20 @@ module Decidim
       JSON_MEDIA_TYPES.include?(request.media_type.to_s.downcase)
     end
 
-    # Reads at most the cap plus one byte and puts the stream back for Rails.
+    # Reads at most the cap plus one byte and leaves the body readable for Rails.
+    # Rack's SPEC does not require rack.input to be rewindable (Rack::Lint checks gets, each
+    # and read), so an input that cannot be put back is replaced with an equivalent rewindable
+    # copy of the bytes read, bounded by the cap. Reading such a stream consumes the body Rails
+    # needs, and without reading it the cap could not be enforced for it at all: an oversized
+    # chunked body would be allocated in full downstream. The copy keeps the binary encoding the
+    # input stream contract requires.
     def self.read_json_body(request)
       content = request.body.read(MAX_JSON_BODY_BYTES + 1)
-      request.body.rewind
+      if request.body.respond_to?(:rewind)
+        request.body.rewind
+      else
+        request.env["rack.input"] = StringIO.new(content.to_s.dup.force_encoding(Encoding::ASCII_8BIT))
+      end
       content
     end
 

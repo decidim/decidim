@@ -18,11 +18,21 @@ describe Rack::Attack do
   end
 
   # The rules only use these request methods, so a Struct is enough to call them.
-  # media_type, body and content_length are only read by the JSON body rules, query_string
+  # media_type, rack_input and content_length are only read by the JSON body rules, query_string
   # only by the query precedence, and script_name only by the system blocklist, which reads
   # the path inside the mounted application (Rack::Request#path_info).
+  # body is read through env as Rack::Request does, so the rewindable copy the rules install for
+  # an input that cannot be rewound is what the specs see afterwards.
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string, :content_length, :script_name) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :rack_input, :query_string, :content_length, :script_name) do
+      def env
+        @env ||= { "rack.input" => rack_input }
+      end
+
+      def body
+        env["rack.input"]
+      end
+
       def path_info
         script_name.to_s.empty? ? path : path[script_name.length..-1]
       end
@@ -47,6 +57,20 @@ describe Rack::Attack do
   # path Rails routes. The specs feed the Struct the path as the middleware would pass it.
   def normalized_path(path)
     Rack::Attack::PathNormalizer.normalize_path(path)
+  end
+
+  # Rack's SPEC only requires rack.input to respond to gets, each and read, so an input
+  # without #rewind is a valid one.
+  def non_rewindable_body(content)
+    Class.new do
+      def initialize(content)
+        @content = content
+      end
+
+      def read(maxlen = nil)
+        maxlen ? @content[0, maxlen] : @content
+      end
+    end.new(content)
   end
 
   describe "system blocklist" do
@@ -222,18 +246,32 @@ describe Rack::Attack do
       expect(blocklist.block.call(request)).to be_falsy
     end
 
-    it "does not read a body from a stream that cannot be put back" do
-      # Rack's SPEC only requires rack.input to respond to gets, each and read. Reading it
-      # here would consume the body Rails needs, and the rewind would raise inside the
-      # middleware, which has no rescue.
-      non_rewindable_body = Class.new do
-        def read(maxlen = nil)
-          "x" * maxlen.to_i
-        end
-      end.new
-      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", non_rewindable_body)
+    it "does not reject a request without a body" do
+      # Rack 3.2 permits rack.input to be absent, and Rack::Attack does not rescue an exception
+      # raised by a check block, so a JSON POST with neither Content-Length nor an input stream
+      # must not reach the bounded read
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", nil)
       expect { blocklist.block.call(request) }.not_to raise_error
       expect(blocklist.block.call(request)).to be_falsy
+    end
+
+    it "rejects an oversized body read from a stream that cannot be rewound" do
+      # Rack's SPEC only requires rack.input to respond to gets, each and read. The cap has to
+      # be enforced from the bounded read for those inputs too, otherwise an oversized chunked
+      # body reaches the action with no byte limit at all.
+      oversized = non_rewindable_body("x" * (Decidim::RackAttackRules::MAX_JSON_BODY_BYTES + 1))
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", oversized)
+      expect { blocklist.block.call(request) }.not_to raise_error
+      expect(blocklist.block.call(request)).to be_truthy
+    end
+
+    it "leaves a rewindable copy of the body for Rails when the input cannot be rewound" do
+      # Reading a stream that cannot be put back consumes the body Rails needs, so the rule
+      # replaces it with an equivalent copy bounded by the cap
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", non_rewindable_body('{"user":{"email":"a@b.c"}}'))
+      expect(blocklist.block.call(request)).to be_falsy
+      expect(request.body).to respond_to(:rewind)
+      expect(request.body.read).to eq('{"user":{"email":"a@b.c"}}')
     end
   end
 
@@ -501,17 +539,21 @@ describe Rack::Attack do
       expect(throttle.block.call(second)).to eq("5.6.7.8")
     end
 
-    it "counts a body read from a stream that cannot be rewound by IP instead of raising" do
-      # Rack's SPEC only requires rack.input to respond to gets, each and read, and
-      # Rack::Attack does not rescue exceptions raised by a check block. The stream is left
-      # unread so Rails can still parse it.
-      non_rewindable_body = Class.new do
-        def read(maxlen = nil)
-          '{"user":{"email":"a@b.c"}}'[0, maxlen]
-        end
-      end.new
-      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", non_rewindable_body)
+    it "reads the email from a stream that cannot be rewound and leaves a rewindable copy for Rails" do
+      # Rack's SPEC only requires rack.input to respond to gets, each and read, and Rack::Attack
+      # does not rescue exceptions raised by a check block. The bounded read consumes such a
+      # stream, so the rule installs an equivalent copy and the counter still gets the account
+      # the request targets instead of falling back to the address.
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", non_rewindable_body('{"user":{"email":"a@b.c"}}'))
       expect { throttle.block.call(request) }.not_to raise_error
+      expect(throttle.block.call(request)).to eq("a@b.c")
+      expect(request.body).to respond_to(:rewind)
+    end
+
+    it "counts an oversized body read from a stream that cannot be rewound by IP" do
+      padding = "x" * Decidim::RackAttackRules::MAX_JSON_BODY_BYTES
+      oversized = non_rewindable_body("{\"user\":{\"email\":\"a@b.c\"},\"padding\":\"#{padding}\"}")
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", oversized)
       expect(throttle.block.call(request)).to eq("1.2.3.4")
     end
 
