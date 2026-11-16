@@ -29,6 +29,10 @@ describe Rack::Attack do
       def post?
         request_method == :post
       end
+
+      def patch?
+        request_method == :patch
+      end
     end
   end
 
@@ -84,6 +88,13 @@ describe Rack::Attack do
         # Rack::Attack normalizes PATH_INFO before the block runs, so "//system/admins/sign_in"
         # reaches it as "/system/admins/sign_in" and the allow-list still applies
         request = request_class.new(normalized_path("//system/admins/sign_in"), "10.0.0.1", :get, {})
+        expect(blocklist.block.call(request)).to be_truthy
+      end
+
+      it "blocks a /system request when the app is deployed under a subpath" do
+        # Rack::Request#path keeps the mount prefix (SCRIPT_NAME) in front of the engine path,
+        # so a request reaching the system engine through "/decidim" is a system request too
+        request = request_class.new("/decidim/system/admins/sign_in", "10.0.0.1", :get, {})
         expect(blocklist.block.call(request)).to be_truthy
       end
     end
@@ -493,6 +504,18 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("1.2.3.4")
     end
 
+    it "returns the IP on PATCH requests to the SMS authorization path" do
+      # The confirmation is the update action, which Rails routes for both PUT and PATCH, so
+      # the PATCH form must reach the limit too
+      request = request_class.new("/en/sms/authorizations", "1.2.3.4", :patch, {})
+      expect(throttle.block.call(request)).to eq("1.2.3.4")
+    end
+
+    it "matches the SMS authorization path when the app is deployed under a subpath" do
+      request = request_class.new("/decidim/en/sms/authorizations", "1.2.3.4", :put, {})
+      expect(throttle.block.call(request)).to eq("1.2.3.4")
+    end
+
     it "matches the SMS authorization path with different locales" do
       requests = %w(en es ca fr de).map { |locale| request_class.new("/#{locale}/sms/authorizations", "1.2.3.4", :put, {}) }
       expect(requests.map { |request| throttle.block.call(request) }).to all(eq("1.2.3.4"))
@@ -545,6 +568,12 @@ describe Rack::Attack do
 
     it "returns the IP on PUT requests to the postal letter authorization path" do
       request = request_class.new("/en/postal_letter/authorizations", "1.2.3.4", :put, {})
+      expect(throttle.block.call(request)).to eq("1.2.3.4")
+    end
+
+    it "returns the IP on PATCH requests to the postal letter authorization path" do
+      # Same as the SMS throttle: Rails routes the confirmation for both PUT and PATCH
+      request = request_class.new("/en/postal_letter/authorizations", "1.2.3.4", :patch, {})
       expect(throttle.block.call(request)).to eq("1.2.3.4")
     end
 

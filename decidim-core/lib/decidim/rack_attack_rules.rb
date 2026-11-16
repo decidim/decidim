@@ -26,12 +26,14 @@ module Decidim
     def self.register_blocklists!(configuration = Rack::Attack.configuration)
       configuration.blocklist("block all access to system") do |request|
         # Requests are blocked if the return value is truthy.
-        # request.path is already the path Rails routes: Rack::Attack#call replaces
-        # PATH_INFO with Rack::Attack::PathNormalizer.normalize_path before the check
-        # blocks run, and in a Rails app that is ActionDispatch::Journey::Router::Utils,
-        # which collapses repeated slashes and strips the trailing one ("//system/admin"
-        # reaches the block as "/system/admin").
-        next unless request.path.start_with?("/system")
+        # The path is the one Rails routes: Rack::Attack#call replaces PATH_INFO with
+        # Rack::Attack::PathNormalizer.normalize_path before the check blocks run, and in a
+        # Rails app that is ActionDispatch::Journey::Router::Utils, which collapses repeated
+        # slashes and strips the trailing one ("//system/admin" reaches the block as
+        # "/system/admin"). Rack::Request#path keeps the mount prefix (SCRIPT_NAME) in front
+        # of it, so the same optional prefix as the throttles below is allowed here; without
+        # it a subpath deployment reached the system through "/prefix/system".
+        next unless request.path.match?(%r{^(/[^/]+)*/system})
 
         # DECIDIM_SYSTEM_ACCESSLIST_IPS is an allow-list: when it is configured,
         # only the listed IPs can access the system. An empty list means no
@@ -76,13 +78,16 @@ module Decidim
       end
 
       # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute
+      # The confirmation is the update action of the mounted workflow engine, which Rails
+      # routes for both PUT and PATCH (actionpack/lib/action_dispatch/routing/mapper.rb),
+      # so matching only PUT left the PATCH form unthrottled.
       configuration.throttle("limit sms verification attempts per ip", limit: 10, period: 60.seconds) do |request|
-        request.ip if request.path.match?(%r{^/[^/]+/sms/authorizations(?:\.[^/]+)?$}) && request.put?
+        request.ip if request.path.match?(%r{^(/[^/]+)*/sms/authorizations(?:\.[^/]+)?$}) && (request.put? || request.patch?)
       end
 
       # Throttle postal letter verification confirmation attempts per IP to 10 reqs/minute
       configuration.throttle("limit postal letter verification attempts per ip", limit: 10, period: 60.seconds) do |request|
-        request.ip if request.path.match?(%r{^/[^/]+/postal_letter/authorizations(?:\.[^/]+)?$}) && request.put?
+        request.ip if request.path.match?(%r{^(/[^/]+)*/postal_letter/authorizations(?:\.[^/]+)?$}) && (request.put? || request.patch?)
       end
     end
 
