@@ -17,7 +17,7 @@ describe "User adds suggestions" do
     it "shows an empty page with a message" do
       visit_component
 
-      expect(page).to have_text("There are no collaborative texts yet")
+      expect(page).to have_text("No collaborative texts match your search criteria.")
     end
   end
 
