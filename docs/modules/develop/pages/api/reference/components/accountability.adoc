@@ -4,6 +4,7 @@ In the accountability module we are providing a few mutations that we find usefu
 
 == For admin roles
 
+* xref:develop:api/reference/components/accountability/result.adoc[Result mutations)]
 * xref:develop:api/reference/components/accountability/create.adoc[Create Result]
 * xref:develop:api/reference/components/accountability/delete.adoc[Delete Result]
 * xref:develop:api/reference/components/accountability/update.adoc[Update Result]

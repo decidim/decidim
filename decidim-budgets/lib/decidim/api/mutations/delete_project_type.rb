@@ -9,7 +9,12 @@ module Decidim
 
       required_scopes "api:read", "admin:read", "admin:write"
 
-      def authorized?(id:)
+      # The id is resolved from the parent `project(id:)` field when the
+      # mutation is nested, so it is only required when the mutation is
+      # reached with a budget as parent object.
+      argument :id, GraphQL::Types::ID, "The ID of the resource", required: false
+
+      def authorized?(id: nil)
         project = find_resource(id)
 
         context[:project] = project
@@ -29,6 +34,8 @@ module Decidim
       private
 
       def find_resource(id)
+        return object if object.is_a?(Decidim::Budgets::Project)
+
         object.projects.find(id)
       end
 

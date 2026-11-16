@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     end
   end
 
+  s.add_dependency "apollo_upload_server", "~> 2.1"
   s.add_dependency "decidim-core", version
   s.add_dependency "devise-jwt", ">= 0.12.1", "< 0.14.0"
   s.add_dependency "graphql", ">= 2.4.17", "< 2.7"

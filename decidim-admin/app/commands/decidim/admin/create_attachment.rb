@@ -30,30 +30,34 @@ module Decidim
           Decidim.traceability.perform_action!(:create, Decidim::Attachment, current_user) do
             @attachment.save!
             notify_followers
-            broadcast(:ok)
             @attachment
           end
+          broadcast(:ok, @attachment)
         else
           @form.errors.add :file, @attachment.errors[:file] if @attachment.errors.has_key? :file
           broadcast(:invalid)
         end
       end
 
+      attr_reader :attachment
+
       private
 
       attr_reader :form
 
       def build_attachment
-        @attachment = Attachment.new(
+        attrs = {
           title: form.title,
           description: form.description,
           attached_to: @attached_to,
           weight: form.weight,
-          attachment_collection: form.attachment_collection,
           file: form.file, # Define attached_to before this
           content_type: form.file && blob(form.file).content_type,
           link: form.file ? nil : form.link
-        )
+        }
+        # Do not add attachment_collection if not supported(i.e in proposals)
+        attrs.merge!(attachment_collection: form.attachment_collection) if @attached_to.respond_to?(:attachment_collections)
+        @attachment = Attachment.new(**attrs)
       end
 
       def notify_followers

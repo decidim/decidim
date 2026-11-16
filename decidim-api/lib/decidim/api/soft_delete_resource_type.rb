@@ -11,7 +11,7 @@ module Decidim
 
       argument :id, GraphQL::Types::ID, "The ID of the resource", required: true
 
-      def resolve(id:)
+      def resolve(id: nil)
         resource = find_resource(id)
         raise Decidim::Api::Errors::NotFoundError, "Resource not found" unless resource
 

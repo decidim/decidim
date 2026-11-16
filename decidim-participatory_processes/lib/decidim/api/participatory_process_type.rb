@@ -9,6 +9,7 @@ module Decidim
       implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Core::AttachableInterface
+      implements Decidim::Core::AttachableCollectionInterface
       implements Decidim::Core::CategoriesContainerInterface
       implements Decidim::Core::FollowableInterface
       implements Decidim::Core::ReferableInterface

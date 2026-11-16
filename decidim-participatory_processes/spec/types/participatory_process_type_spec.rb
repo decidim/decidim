@@ -12,6 +12,7 @@ module Decidim
       let(:organization) { model.organization }
 
       include_examples "attachable interface"
+      include_examples "attachable collection interface with attachment"
       include_examples "taxonomizable interface"
       include_examples "timestamps interface"
       include_examples "followable interface"
