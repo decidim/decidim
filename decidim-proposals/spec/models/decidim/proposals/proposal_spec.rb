@@ -290,6 +290,12 @@ module Decidim
           it "returns false" do
             expect(described_class.with_official_origin_available?(component)).to be false
           end
+
+          context "when the withdrawn availability is selected" do
+            it "returns true" do
+              expect(described_class.with_official_origin_available?(component, nil, "withdrawn")).to be true
+            end
+          end
         end
       end
 
@@ -361,6 +367,12 @@ module Decidim
           it "returns false" do
             expect(described_class.with_participants_origin_available?(component)).to be false
           end
+
+          context "when the withdrawn availability is selected" do
+            it "returns true" do
+              expect(described_class.with_participants_origin_available?(component, nil, "withdrawn")).to be true
+            end
+          end
         end
       end
 
@@ -408,6 +420,12 @@ module Decidim
 
           it "returns false" do
             expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+
+          context "when the withdrawn availability is selected" do
+            it "returns true" do
+              expect(described_class.with_meeting_origin_available?(component, nil, "withdrawn")).to be true
+            end
           end
         end
       end

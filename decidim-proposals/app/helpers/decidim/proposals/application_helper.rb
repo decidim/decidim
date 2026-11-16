@@ -146,12 +146,12 @@ module Decidim
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
-      def filter_origin_values(component = current_component, user = current_user)
+      def filter_origin_values(component = current_component, user = current_user, availability = nil)
         scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", t("official", scope:)) if Decidim::Proposals::Proposal.with_official_origin_available?(component, user)
-        origin_values << TreePoint.new("participants", t("participants", scope:)) if Decidim::Proposals::Proposal.with_participants_origin_available?(component, user)
-        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if Decidim::Proposals::Proposal.with_meeting_origin_available?(component, user)
+        origin_values << TreePoint.new("official", t("official", scope:)) if Decidim::Proposals::Proposal.with_official_origin_available?(component, user, availability)
+        origin_values << TreePoint.new("participants", t("participants", scope:)) if Decidim::Proposals::Proposal.with_participants_origin_available?(component, user, availability)
+        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if Decidim::Proposals::Proposal.with_meeting_origin_available?(component, user, availability)
 
         return if origin_values.empty?
 
@@ -188,7 +188,7 @@ module Decidim
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
-          origin_filter_values = filter_origin_values
+          origin_filter_values = filter_origin_values(current_component, current_user, params.dig(:filter, :with_availability))
           if origin_filter_values
             items.append(method: :with_any_origin,
                          name: "[with_any_origin]",

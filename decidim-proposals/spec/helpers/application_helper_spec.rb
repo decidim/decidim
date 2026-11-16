@@ -187,11 +187,12 @@ module Decidim
       end
 
       describe "#filter_origin_values" do
-        subject(:origin_values) { helper.filter_origin_values }
+        subject(:origin_values) { helper.filter_origin_values(component, user, availability) }
 
         let(:component) { create(:proposal_component) }
         let(:origin_keys) { origin_values.node.map(&:value) }
         let(:user) { nil }
+        let(:availability) { nil }
 
         before do
           allow(helper).to receive(:current_component).and_return(component)
@@ -305,6 +306,14 @@ module Decidim
 
           it "returns nil" do
             expect(subject).to be_nil
+          end
+
+          context "when the withdrawn availability is selected" do
+            let(:availability) { "withdrawn" }
+
+            it "returns the official origin option" do
+              expect(origin_keys).to contain_exactly("official")
+            end
           end
         end
       end

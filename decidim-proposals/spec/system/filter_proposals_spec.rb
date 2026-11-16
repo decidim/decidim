@@ -159,6 +159,32 @@ describe "Filter Proposals", :slow do
       end
     end
 
+    context "when all proposals are withdrawn" do
+      let!(:proposal) { create(:proposal, :withdrawn, component:) }
+
+      it "shows the origin filter on the withdrawn proposals page" do
+        visit_component
+        click_on "See all withdrawn proposals"
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
+        end
+      end
+
+      it "lists the withdrawn proposals when filtering by participants origin" do
+        visit_component
+        click_on "See all withdrawn proposals"
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          uncheck "All"
+          check "Participants"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      end
+    end
+
     context "when official_proposals setting is enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: true })

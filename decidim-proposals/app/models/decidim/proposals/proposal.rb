@@ -194,33 +194,33 @@ module Decidim
           .exists?
       end
 
-      def self.with_official_origin_available?(component, user = nil)
+      def self.with_official_origin_available?(component, user = nil, availability = nil)
         return false unless component.settings.official_proposals_enabled?
 
         where(component:)
           .published
           .not_hidden
-          .not_withdrawn
+          .with_availability(availability)
           .amendables_and_visible_emendations_for(user, component)
           .with_official_origin
           .exists?
       end
 
-      def self.with_participants_origin_available?(component, user = nil)
+      def self.with_participants_origin_available?(component, user = nil, availability = nil)
         where(component:)
           .published
           .not_hidden
-          .not_withdrawn
+          .with_availability(availability)
           .amendables_and_visible_emendations_for(user, component)
           .with_participants_origin
           .exists?
       end
 
-      def self.with_meeting_origin_available?(component, user = nil)
+      def self.with_meeting_origin_available?(component, user = nil, availability = nil)
         where(component:)
           .published
           .not_hidden
-          .not_withdrawn
+          .with_availability(availability)
           .amendables_and_visible_emendations_for(user, component)
           .with_meeting_origin
           .exists?
