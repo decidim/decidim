@@ -573,6 +573,8 @@ module Decidim
         end
       end
 
+      # We need to do this monkey patching as in some cases the ActiveRecord Session Store does not detect that the session data has changed
+      # See more: https://github.com/rails/activerecord-session_store/issues/236
       initializer "decidim_core.session_store_override" do
         ActiveRecord::SessionStore::Session.class_eval do
           def data=(local_data)
