@@ -222,6 +222,22 @@ describe("UnsavedFormController", () => {
     expectUnloadPrompt(true);
   });
 
+  it("marks the form dirty only after a confirmed structure change", () => {
+    const control = form.querySelector("#remove-question");
+    control.setAttribute("data-confirm", "Are you sure?");
+
+    control.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+    expect(controller.dirty).toBe(false);
+    expectUnloadPrompt(false);
+
+    // Rails confirm removes `data-confirm` before re-dispatching the click.
+    control.removeAttribute("data-confirm");
+    control.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
+
+    expect(controller.dirty).toBe(true);
+    expectUnloadPrompt(true);
+  });
+
   it("does not mark the form dirty when other controls are clicked", () => {
     document.querySelector(".collapse-all").dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
 

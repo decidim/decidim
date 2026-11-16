@@ -57,9 +57,17 @@ export default class extends Controller {
     this.markStructureChanged = (event) => {
       const control = event.target?.closest?.(structureControls);
 
-      if (control && this.belongsToForm(control)) {
-        this.markDirty();
+      if (!control || !this.belongsToForm(control)) {
+        return;
       }
+
+      // Rails confirm re-dispatches the click after removing `data-confirm`,
+      // so only a confirmed change marks the form as dirty.
+      if (control.hasAttribute("data-confirm")) {
+        return;
+      }
+
+      this.markDirty();
     };
 
     this.markSubmitting = (event) => {
