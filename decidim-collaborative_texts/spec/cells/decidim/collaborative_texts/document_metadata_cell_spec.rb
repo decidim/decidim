@@ -20,7 +20,7 @@ module Decidim::CollaborativeTexts
 
     it "renders as draft" do
       expect(subject).to have_css("[data-status='draft']", text: "In review")
-      expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
+      expect(subject).to have_no_css("[data-contributors-count]")
     end
 
     it "computes the status once per card" do
@@ -33,7 +33,7 @@ module Decidim::CollaborativeTexts
 
       it "renders as accepting suggestions" do
         expect(subject).to have_css("[data-status='accepting_suggestions']", text: "Accepting suggestions")
-        expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
+        expect(subject).to have_no_css("[data-contributors-count]")
       end
     end
 
@@ -42,7 +42,7 @@ module Decidim::CollaborativeTexts
 
       it "renders as not accepting suggestions" do
         expect(subject).to have_css("[data-status='not_accepting_suggestions']", text: "Not accepting suggestions")
-        expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
+        expect(subject).to have_no_css("[data-contributors-count]")
       end
     end
 
@@ -61,6 +61,21 @@ module Decidim::CollaborativeTexts
       end
 
       it "renders the contributors count" do
+        expect(subject).to have_css("[data-contributors-count]", text: "1 contributor")
+      end
+    end
+
+    context "when the document has multiple contributors" do
+      let(:document) { create(:collaborative_text_document, :published, :accepting_suggestions) }
+      let(:other_user) { create(:user, :confirmed, organization: component.organization) }
+
+      before do
+        document.add_coauthor(user)
+        document.add_coauthor(other_user)
+        document.reload
+      end
+
+      it "renders the contributors count without the original author" do
         expect(subject).to have_css("[data-contributors-count]", text: "2 contributors")
       end
     end

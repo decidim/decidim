@@ -42,6 +42,30 @@ module Decidim
         end
       end
 
+      describe "#contributor_count" do
+        let(:component) { create(:collaborative_text_component) }
+        let(:document) { create(:collaborative_text_document, component:) }
+        let(:contributor) { create(:user, :confirmed, organization: component.organization) }
+
+        it "does not count the organization as a contributor" do
+          expect(document.coauthorships_count).to eq(1)
+          expect(document.contributor_count).to eq(0)
+        end
+
+        it "counts coauthors other than the organization" do
+          document.add_coauthor(contributor)
+
+          expect(document.contributor_count).to eq(1)
+        end
+
+        it "counts multiple contributors" do
+          document.add_coauthor(contributor)
+          document.add_coauthor(create(:user, :confirmed, organization: component.organization))
+
+          expect(document.contributor_count).to eq(2)
+        end
+      end
+
       include_examples "resourceable"
       include_examples "has reference"
 
