@@ -85,7 +85,7 @@ en:
             save: Save
             title: Questions
           errors:
-            cannot_remove_with_answers: "%{name} cannot be removed because it has recorded answers."
+            cannot_remove_with_responses: "%{name} cannot be removed because it has responses."
           form:
             add_question: Add question
             collapse: Collapse all questions

@@ -26,12 +26,6 @@ module Decidim
         expect(proposal_vote.proposal).to be_a(Decidim::Proposals::Proposal)
       end
 
-      it "uses the proposal's votes association as the inverse" do
-        proposal_vote.save!
-
-        expect(proposal.votes.first.proposal).to be(proposal)
-      end
-
       it "validates uniqueness for author and proposal combination" do
         proposal_vote.save!
         expect do

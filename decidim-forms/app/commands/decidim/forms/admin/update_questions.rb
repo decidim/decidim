@@ -121,7 +121,7 @@ module Decidim
 
         def removal_error_message(record)
           I18n.t(
-            "decidim.forms.admin.questionnaires.errors.cannot_remove_with_answers",
+            "decidim.forms.admin.questionnaires.errors.cannot_remove_with_responses",
             name: decidim_html_escape(translated_attribute(record.try(:body)))
           )
         end

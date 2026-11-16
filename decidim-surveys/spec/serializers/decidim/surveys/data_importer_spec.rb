@@ -76,6 +76,14 @@ module Decidim::Surveys
         end
       end
 
+      context "when the original questionnaire has submissions" do
+        before { create(:submission, questionnaire: original_questionnaire) }
+
+        it "imports the questionnaire without them" do
+          expect(subject.first.questionnaire.submissions_count).to eq(0)
+        end
+      end
+
       describe "#import" do
         let!(:imported) { subject }
 

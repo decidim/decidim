@@ -349,6 +349,28 @@ describe Decidim::Initiatives::Admin::Permissions do
         end
       end
 
+      context "when destroying and the types with initiatives are already resolved" do
+        let(:action_name) { :destroy }
+        let(:initiative_type) { create(:initiatives_type) }
+        let(:organization) { initiative_type.organization }
+
+        context "and the type has initiatives" do
+          let(:context) { { initiative_type:, initiative_types_with_initiatives: [initiative_type.id] } }
+
+          it { is_expected.to be false }
+        end
+
+        context "and the type has no initiatives" do
+          let(:context) { { initiative_type:, initiative_types_with_initiatives: [] } }
+
+          it "is allowed without checking the scopes" do
+            expect(initiative_type).not_to receive(:scopes)
+
+            expect(subject).to be true
+          end
+        end
+      end
+
       context "when any random action" do
         let(:action_name) { :foo }
 

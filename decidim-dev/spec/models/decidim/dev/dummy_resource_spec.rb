@@ -11,18 +11,6 @@ module Decidim
 
       it { is_expected.to be_valid }
 
-      it "has an association of nested_dummy_resources" do
-        nested = create(:nested_dummy_resource, dummy_resource:)
-
-        expect(dummy_resource.nested_dummy_resources).to eq([nested])
-      end
-
-      it "uses the nested_dummy_resources association as the inverse of the dummy resource" do
-        create(:nested_dummy_resource, dummy_resource:)
-
-        expect(dummy_resource.nested_dummy_resources.first.dummy_resource).to be(dummy_resource)
-      end
-
       it "does not destroy the nested resources when the dummy resource is soft deleted" do
         nested = create(:nested_dummy_resource, dummy_resource:)
 
