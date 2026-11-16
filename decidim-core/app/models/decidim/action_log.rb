@@ -16,6 +16,7 @@ module Decidim
     # we need to allow user to be optional.
     belongs_to :user,
                class_name: "Decidim::UserBaseEntity",
+               inverse_of: :action_logs,
                optional: true
 
     belongs_to :component,
