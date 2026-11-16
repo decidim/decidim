@@ -135,6 +135,8 @@ module Decidim::Core
       context "when running the 'decidim_core.session_store_override' initializer" do
         let(:initializer_name) { "decidim_core.session_store_override" }
         let(:session_record) { ActiveRecord::SessionStore::Session.create!(session_id: "session-store-override-spec", data: { "foo" => "bar" }) }
+        # `data` is memoized in the instance, so a new instance is needed to check what was stored
+        let(:persisted_record) { ActiveRecord::SessionStore::Session.find_by(session_id: session_record.session_id) }
 
         before { initializer.run }
 
@@ -170,13 +172,35 @@ module Decidim::Core
           session_record.data = { "foo" => "baz" }
           session_record.save!
 
-          expect(session_record.reload.data).to eq({ "foo" => "baz" })
+          expect(persisted_record.data).to eq({ "foo" => "baz" })
         end
 
         it "does not mark the data as changed when the assigned data is identical" do
           session_record.data = { "foo" => "bar" }
 
           expect(session_record).not_to be_changed
+        end
+
+        context "when the same data object is modified in place" do
+          # This is the case the override is needed for: the session store reassigns the hash
+          # it read from the record, so the implementation shipped by activerecord-session_store
+          # compares it with itself and never marks the record as changed, which means the
+          # session is never saved. See https://github.com/rails/activerecord-session_store/issues/236
+
+          it "marks the data as changed" do
+            session_record.data["foo"] = "baz"
+            session_record.data = session_record.data
+
+            expect(session_record).to be_changed
+          end
+
+          it "saves the modified data" do
+            session_record.data["foo"] = "baz"
+            session_record.data = session_record.data
+            session_record.save!
+
+            expect(persisted_record.data).to eq({ "foo" => "baz" })
+          end
         end
       end
     end
