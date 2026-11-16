@@ -180,6 +180,7 @@ This affects the public API of the `decidim-participatory_processes` module and 
 - The component settings JSON keys `steps` and `default_step` are now `phases` and `default_phase`. This is handled automatically by the data migration when running `bin/rails data:migrate`.
 - The `decidim_participatory_process_steps` database table is renamed to `decidim_participatory_process_phases`, handled by `bin/rails db:migrate`.
 - The scheduled rake task `decidim_participatory_processes:change_active_step` is renamed to `decidim_participatory_processes:change_active_phase`. The old name is kept as a deprecated alias, but you should update your scheduler configuration.
+- Jobs queued before the upgrade still reference the old class names. Drain the `events` and `mailers` queues before stopping Sidekiq for the upgrade, and restart Sidekiq only after running `bin/rails db:migrate` and `bin/rails data:migrate`.
 
 You can read more about this change on PR [#17781](https://github.com/decidim/decidim/pull/17781).
 
