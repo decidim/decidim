@@ -97,12 +97,12 @@ describe Decidim::AddressCell, type: :cell do
       expect(time_section.text.squish).to eq("15:04 - 18:30 UTC")
     end
 
-    it "renders the start time with the 12-hour clock and the meridiem" do
+    it "renders the start time in 24-hour format without meridiem" do
       expect(start_time_text).to eq("15:04")
       expect(start_time_text).not_to eq("15:04 PM")
     end
 
-    it "renders the end time with the meridiem and the time zone" do
+    it "renders the end time with time zone" do
       expect(end_time_text).to eq("18:30 UTC")
     end
 
@@ -124,7 +124,7 @@ describe Decidim::AddressCell, type: :cell do
       let(:start_time) { Time.parse("2026-01-15 00:00:00 UTC").in_time_zone }
       let(:end_time) { Time.parse("2026-01-15 12:00:00 UTC").in_time_zone }
 
-      it "renders 12 AM and 12 PM instead of 00 AM and 00 PM" do
+      it "renders 00:00 and 12:00 in 24-hour format" do
         expect(start_time_text).to eq("00:00")
         expect(end_time_text).to eq("12:00 UTC")
       end
