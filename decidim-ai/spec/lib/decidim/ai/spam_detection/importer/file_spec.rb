@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "tempfile"
 require "spec_helper"
 
 describe Decidim::Ai::SpamDetection::Importer::File do
@@ -9,10 +10,12 @@ describe Decidim::Ai::SpamDetection::Importer::File do
     allow(Decidim::Ai::SpamDetection).to receive(:resource_classifier).and_return(service)
   end
 
-  def write_dataset(filename, content)
-    path = Rails.application.root.join("tmp", filename)
-    File.write(path, content)
-    path
+  def with_dataset(filename, content)
+    Tempfile.create(["spam_dataset", File.extname(filename)]) do |file|
+      file.write(content)
+      file.flush
+      yield file.path
+    end
   end
 
   it "successfully loads the dataset" do
@@ -25,20 +28,19 @@ describe Decidim::Ai::SpamDetection::Importer::File do
     it "successfully loads the dataset" do
       expect(service).to receive(:train).twice
 
-      described_class.call(
-        write_dataset("uppercase_dataset.CSV", "spam;Hello world\nham;Nice to meet you\n"),
-        service
-      )
+      with_dataset("uppercase_dataset.CSV", "spam;Hello world\nham;Nice to meet you\n") do |path|
+        described_class.call(path, service)
+      end
     end
   end
 
   context "when the dataset extension has no reader" do
     it "raises a clear error instead of failing with a NoMethodError" do
-      file = write_dataset("unsupported_dataset.txt", "spam;Hello world\n")
-
-      expect do
-        described_class.call(file, service)
-      end.to raise_error(NotImplementedError, "No reader implemented for file extension: txt")
+      with_dataset("unsupported_dataset.txt", "spam;Hello world\n") do |path|
+        expect do
+          described_class.call(path, service)
+        end.to raise_error(NotImplementedError, "No reader implemented for file extension: txt")
+      end
     end
   end
 end

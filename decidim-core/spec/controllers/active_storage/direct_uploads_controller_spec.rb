@@ -164,6 +164,25 @@ module ActiveStorage
           end
         end
 
+        context "when an uppercase extension is not allowed" do
+          let(:extensions) { %w(txt) }
+
+          let(:blob) do
+            {
+              filename: "malware.EXE",
+              byte_size: 6,
+              checksum:,
+              content_type: "text/plain"
+            }
+          end
+
+          it "returns renders unprocessable entity" do
+            post(:create, params:)
+
+            expect(response).to have_http_status(:unprocessable_content)
+          end
+        end
+
         context "when size is not allowed" do
           let(:file_size) { { "default" => 0, "avatar" => 0 } }
 
