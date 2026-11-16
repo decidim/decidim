@@ -18,10 +18,10 @@ describe Rack::Attack do
   end
 
   # The rules only use these request methods, so a Struct is enough to call them.
-  # media_type and body are only read by the JSON body fallback, query_string only by
-  # the query precedence.
+  # media_type, body and content_length are only read by the JSON body rules, query_string
+  # only by the query precedence.
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string, :content_length) do
       def put?
         request_method == :put
       end
@@ -150,6 +150,61 @@ describe Rack::Attack do
         expect { blocklist.block.call(request) }.not_to raise_error
         expect(blocklist.block.call(request)).to be_truthy
       end
+    end
+  end
+
+  describe "oversized JSON body blocklist" do
+    let(:blocklist) { rules.blocklists.fetch("reject oversized JSON bodies on authentication paths") }
+
+    def oversized_body
+      padding = "x" * Decidim::RackAttackRules::MAX_JSON_BODY_BYTES
+      StringIO.new("{\"user\":{\"email\":\"a@b.c\"},\"padding\":\"#{padding}\"}")
+    end
+
+    it "rejects a JSON body larger than the read cap on the authentication paths" do
+      body = oversized_body
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body)
+      expect(blocklist.block.call(request)).to be_truthy
+      # The stream is put back so the app can still read the body when the request is not
+      # rejected
+      expect(body.pos).to eq(0)
+    end
+
+    it "rejects an oversized body when Content-Length is not available" do
+      # Rack does not guarantee CONTENT_LENGTH (a chunked request has none), so the overflow
+      # has to be detected from the bounded read itself
+      request = request_class.new("/en/users/sign_in", "1.2.3.4", :post, {}, "application/json", oversized_body)
+      expect(blocklist.block.call(request)).to be_truthy
+    end
+
+    it "rejects the same email from several addresses instead of counting it per address" do
+      # The per-email throttle cannot key an oversized body, so these requests are rejected
+      # before the action instead of getting one counter per address
+      body = oversized_body
+      requests = ["1.2.3.4", "5.6.7.8", "9.1.1.1"].map { |ip| request_class.new("/en/users/password.json", ip, :post, {}, "application/json", body) }
+      expect(requests.map { |request| blocklist.block.call(request) }).to all(be_truthy)
+    end
+
+    it "does not reject a JSON body within the cap" do
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", StringIO.new('{"user":{"email":"a@b.c"}}'))
+      expect(blocklist.block.call(request)).to be_falsy
+    end
+
+    it "does not reject requests to paths the email throttles do not read" do
+      # The rule is scoped to the authentication paths, so a large JSON body sent to the API
+      # is not rejected by it
+      request = request_class.new("/api/graphql", "1.2.3.4", :post, {}, "application/json", oversized_body)
+      expect(blocklist.block.call(request)).to be_falsy
+    end
+
+    it "does not reject a large body that is not JSON" do
+      request = request_class.new("/en/users/sign_in", "1.2.3.4", :post, {}, "application/x-www-form-urlencoded", oversized_body)
+      expect(blocklist.block.call(request)).to be_falsy
+    end
+
+    it "does not reject a GET request" do
+      request = request_class.new("/en/users/password", "1.2.3.4", :get, {}, "application/json", oversized_body)
+      expect(blocklist.block.call(request)).to be_falsy
     end
   end
 
@@ -405,17 +460,30 @@ describe Rack::Attack do
       expect(body.pos).to eq(0)
     end
 
-    it "counts an oversized body per address, which is the limit of a throttle block" do
-      # A throttle block cannot reject a request and must not buffer an unbounded body, so
-      # for an oversized body the counter key is the address instead of the email. The same
-      # email attacked from different addresses therefore has one counter per address, and
-      # those requests are only limited by the "requests by ip" throttle.
+    it "counts an oversized body by IP as the fail-closed fallback of the throttle" do
+      # The blocklist rejects these requests before they reach the action. When the throttle is
+      # evaluated on its own, the counter key is the address because the email cannot be read
+      # from a bounded body, so the request is still counted instead of being skipped.
       padding = "x" * Decidim::RackAttackRules::MAX_JSON_BODY_BYTES
       body = StringIO.new("{\"user\":{\"email\":\"a@b.c\"},\"padding\":\"#{padding}\"}")
       first = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body)
       second = request_class.new("/en/users/password.json", "5.6.7.8", :post, {}, "application/json", body)
       expect(throttle.block.call(first)).to eq("1.2.3.4")
       expect(throttle.block.call(second)).to eq("5.6.7.8")
+    end
+
+    it "counts a body read from a stream that cannot be rewound by IP instead of raising" do
+      # Rack's SPEC only requires rack.input to respond to gets, each and read, and
+      # Rack::Attack does not rescue exceptions raised by a check block. The stream is left
+      # unread so Rails can still parse it.
+      non_rewindable_body = Class.new do
+        def read(maxlen = nil)
+          '{"user":{"email":"a@b.c"}}'[0, maxlen]
+        end
+      end.new
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", non_rewindable_body)
+      expect { throttle.block.call(request) }.not_to raise_error
+      expect(throttle.block.call(request)).to eq("1.2.3.4")
     end
 
     it "returns nil for a JSON body without the resource key" do

@@ -9,19 +9,29 @@ module Decidim
   # in isolation: the initializer only registers the throttles outside the test
   # environment.
   module RackAttackRules
-    # Rack caps the query it parses at 4 MiB; cap the JSON body read by the
-    # throttle block the same way so a large body is not buffered there.
+    # Rack caps the query it parses at 4 MiB; cap the JSON body read by the rules
+    # the same way so a large body is not buffered there.
     MAX_JSON_BODY_BYTES = 4 * 1024 * 1024
 
     # Media types Rails parses as JSON (Mime::JSON and its aliases, see
     # actionpack/lib/action_dispatch/http/mime_types.rb). Rack only parses form and
-    # multipart bodies into request.params, so these bodies are read by the throttle
-    # itself; matching only "application/json" leaves the aliases uncounted.
+    # multipart bodies into request.params, so these bodies are read by the rules
+    # themselves; matching only "application/json" leaves the aliases uncounted.
     JSON_MEDIA_TYPES = ["application/json", "text/x-json", "application/jsonrequest", "application/problem+json"].freeze
 
-    # Returned by json_resource when the body is larger than the read cap: the JSON
-    # is truncated by the bounded read, so no email can be extracted from it here.
-    OVERSIZED_BODY = :oversized_body
+    # Paths whose email throttle reads the request body. Decidim routes are
+    # locale-prefixed and the format is optional, so an exact string never matches
+    # the requests the app receives; the optional prefix also covers an app deployed
+    # under a subpath.
+    SIGN_IN_PATH = %r{^(/[^/]+)*/users/sign_in(\.[^/]+)?$}
+    PASSWORD_PATH = %r{^(/[^/]+)*/users/password(\.[^/]+)?$}
+    SYSTEM_ADMIN_SIGN_IN_PATH = %r{^(/[^/]+)*/system/admins/sign_in(\.[^/]+)?$}
+    BODY_READ_PATHS = [SIGN_IN_PATH, PASSWORD_PATH, SYSTEM_ADMIN_SIGN_IN_PATH].freeze
+
+    # Returned by json_resource when the email cannot be identified from the body:
+    # the body is larger than the read cap, or the input stream cannot be put back
+    # for Rails. Those requests are counted by IP.
+    UNIDENTIFIED_BODY = :unidentified_body
 
     def self.register_blocklists!(configuration = Rack::Attack.configuration)
       configuration.blocklist("block all access to system") do |request|
@@ -31,8 +41,8 @@ module Decidim
         # Rails app that is ActionDispatch::Journey::Router::Utils, which collapses repeated
         # slashes and strips the trailing one ("//system/admin" reaches the block as
         # "/system/admin"). Rack::Request#path keeps the mount prefix (SCRIPT_NAME) in front
-        # of it, so the same optional prefix as the throttles below is allowed here; without
-        # it a subpath deployment reached the system through "/prefix/system".
+        # of it, so the same optional prefix as the throttle patterns is allowed here;
+        # without it a subpath deployment reached the system through "/prefix/system".
         next unless request.path.match?(%r{^(/[^/]+)*/system})
 
         # DECIDIM_SYSTEM_ACCESSLIST_IPS is an allow-list: when it is configured,
@@ -40,6 +50,18 @@ module Decidim
         # restriction. The rule used to block the listed IPs instead of allowing
         # them, which denied exactly the operators the feature is meant to permit.
         Decidim.system_accesslist_ips.any? && !allowed_ip?(request.ip, Decidim.system_accesslist_ips)
+      end
+
+      configuration.blocklist("reject oversized JSON bodies on authentication paths") do |request|
+        # A body larger than the read cap cannot be parsed here, so the account it targets
+        # cannot be identified and the request would reach the action with only the per-IP
+        # counter: the same email attacked from several addresses then has one counter per
+        # address. A throttle block cannot reject a request and must not buffer an unbounded
+        # body, so oversized bodies on these paths are rejected before Rails parses them.
+        next unless request.post? && BODY_READ_PATHS.any? { |pattern| request.path.match?(pattern) }
+        next unless json_media_type?(request) && oversized_json_body?(request)
+
+        true
       end
     end
 
@@ -53,20 +75,14 @@ module Decidim
 
       # Throttle login attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/sign_in requests
-      # The path is matched with a pattern: Decidim routes are locale-prefixed
-      # (decidim-core/config/routes.rb) and the format is optional, so an exact
-      # string never matches the requests the app actually receives. The path is the
-      # one Rails routes, because Rack::Attack normalizes PATH_INFO before the block
-      # runs (see the blocklist above), so the trailing and repeated slash variants
-      # are matched too.
       configuration.throttle("limit logins per email", limit: 5, period: 60.seconds) do |request|
-        email_discriminator(request, %r{^(/[^/]+)*/users/sign_in(\.[^/]+)?$}, "user")
+        email_discriminator(request, SIGN_IN_PATH, "user")
       end
 
       # Throttle password recovery attempts for a given email parameter to 5 reqs/minute
       # Return the email as a discriminator on POST /users/password requests
       configuration.throttle("limit password recovery attempts per email", limit: 5, period: 60.seconds) do |request|
-        email_discriminator(request, %r{^(/[^/]+)*/users/password(\.[^/]+)?$}, "user")
+        email_discriminator(request, PASSWORD_PATH, "user")
       end
 
       # Throttle system admin login attempts for a given email parameter to 5 reqs/minute
@@ -74,7 +90,7 @@ module Decidim
       # segment; the optional prefix only covers apps mounted at a subpath. System admins
       # have no Devise lockable module, so this is the only limit on brute force there.
       configuration.throttle("limit system admin logins per email", limit: 5, period: 60.seconds) do |request|
-        email_discriminator(request, %r{^(/[^/]+)*/system/admins/sign_in(\.[^/]+)?$}, "admin")
+        email_discriminator(request, SYSTEM_ADMIN_SIGN_IN_PATH, "admin")
       end
 
       # Throttle SMS verification confirmation attempts per IP to 10 reqs/minute
@@ -102,17 +118,16 @@ module Decidim
       # query over the body. Use Rails' precedence so the counter key is the email the
       # authentication actually reads; otherwise the target account can be attacked with a
       # different counter per request by keeping it in the query string and varying the body.
+      # The parsers agree on the supported combination: decidim-core.gemspec requires
+      # rack >= 3.2.4, where a query string is parsed the same way by Rack and by
+      # ActionDispatch (Rack 3.1 kept a leading separator space as part of the key).
       resource = query_resource(request, param_key) || body_resource(request, param_key)
       return resource["email"] if resource.is_a?(Hash)
 
-      # A body larger than the cap cannot be read in full here, so no email can be
-      # extracted while Rails still parses the whole body downstream. A padded body
-      # would otherwise reach the action uncounted, so those requests are counted by IP.
-      # This is the most a throttle block can do: it cannot reject a request, and reading
-      # the whole body to get the email back would buffer an unbounded one. The IP counter
-      # is therefore per address, not per email, and the requests stay limited by the
-      # "requests by ip" throttle.
-      request.ip if resource == OVERSIZED_BODY
+      # Fallback for a body whose email cannot be identified. The blocklist above rejects
+      # those requests before they reach the action; this keeps the rule fail closed when the
+      # throttle is evaluated on its own. The counter key is then the address, not the email.
+      request.ip if resource == UNIDENTIFIED_BODY
     end
 
     def self.query_resource(request, param_key)
@@ -127,17 +142,18 @@ module Decidim
     end
 
     def self.json_resource(request, param_key)
-      return unless json_media_type?(request) && request.body
+      return nil unless json_media_type?(request) && request.body
 
-      # One byte more than the cap, so an oversized body is recognised from the read
-      # itself: Rack does not guarantee CONTENT_LENGTH (a chunked request has none), so
-      # the header alone cannot tell an oversized body from a normal one.
-      json = request.body.read(MAX_JSON_BODY_BYTES + 1)
-      # Rewind so Rails can still parse the body after the throttle block read it.
-      request.body.rewind
-      # An empty or already consumed stream reads as nil, which JSON.parse would not accept.
+      # Rack's SPEC does not require rack.input to be rewindable (Rack::Lint checks gets,
+      # each and read), and ActionDispatch handles a non-rewindable input without rewinding
+      # (actionpack/lib/action_dispatch/http/request.rb, reset_stream). Reading a stream that
+      # cannot be put back would leave Rails without a body, so the email cannot be read for
+      # those requests.
+      return UNIDENTIFIED_BODY unless request.body.respond_to?(:rewind)
+
+      json = read_json_body(request)
       return if json.nil?
-      return OVERSIZED_BODY if json.bytesize > MAX_JSON_BODY_BYTES
+      return UNIDENTIFIED_BODY if json.bytesize > MAX_JSON_BODY_BYTES
 
       parsed = JSON.parse(json)
       parsed[param_key] if parsed.is_a?(Hash)
@@ -145,8 +161,26 @@ module Decidim
       nil
     end
 
+    def self.oversized_json_body?(request)
+      # Content-Length is not guaranteed: Rack's SPEC does not require it and a chunked
+      # request has no CONTENT_LENGTH at all, so the size is taken from the bounded read
+      # itself when the header is missing. The stream is put back so the app can still read
+      # the body when the request is not rejected.
+      return request.content_length.to_i > MAX_JSON_BODY_BYTES if request.content_length
+
+      json = read_json_body(request)
+      !json.nil? && json.bytesize > MAX_JSON_BODY_BYTES
+    end
+
     def self.json_media_type?(request)
       JSON_MEDIA_TYPES.include?(request.media_type.to_s.downcase)
+    end
+
+    # Reads at most the cap plus one byte and puts the stream back for Rails.
+    def self.read_json_body(request)
+      content = request.body.read(MAX_JSON_BODY_BYTES + 1)
+      request.body.rewind
+      content
     end
 
     def self.allowed_ip?(ip, allowed_ips)
@@ -160,6 +194,7 @@ module Decidim
       end
     end
 
-    private_class_method :email_discriminator, :query_resource, :body_resource, :json_resource, :json_media_type?, :allowed_ip?
+    private_class_method :email_discriminator, :query_resource, :body_resource, :json_resource,
+                         :oversized_json_body?, :json_media_type?, :read_json_body, :allowed_ip?
   end
 end
