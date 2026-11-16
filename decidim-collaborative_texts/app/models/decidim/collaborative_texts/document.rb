@@ -89,6 +89,10 @@ module Decidim
         super(recursive: true)
       end
 
+      def contributor_count
+        coauthorships.where.not(decidim_author_type: "Decidim::Organization").count
+      end
+
       def has_suggestions?
         current_version.suggestions.any?
       end
