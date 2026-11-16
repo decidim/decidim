@@ -7,17 +7,23 @@ class BackfillDecidimFormsResponseValues < ActiveRecord::Migration[8.1]
     self.table_name = "decidim_forms_responses"
   end
 
+  class Questionnaire < ApplicationRecord
+    self.table_name = "decidim_forms_questionnaires"
+  end
+
   def up
     return if Response.where(value: nil).none?
 
-    questionnaire_ids_to_backfill.each_slice(100) do |ids|
+    Questionnaire.order(:id).pluck(:id).each_slice(100) do |ids|
       say_with_time "Backfilling response values for questionnaires #{ids.first}..#{ids.last}" do
-        execute text_values_sql(ids)
-        execute single_option_values_sql(ids)
-        execute list_values_sql(ids)
-        execute matrix_single_values_sql(ids)
-        execute matrix_multiple_values_sql(ids)
-        execute files_values_sql(ids)
+        Response.transaction do
+          execute text_values_sql(ids)
+          execute single_option_values_sql(ids)
+          execute list_values_sql(ids)
+          execute matrix_single_values_sql(ids)
+          execute matrix_multiple_values_sql(ids)
+          execute files_values_sql(ids)
+        end
       end
     end
 
@@ -29,10 +35,6 @@ class BackfillDecidimFormsResponseValues < ActiveRecord::Migration[8.1]
   end
 
   private
-
-  def questionnaire_ids_to_backfill
-    Response.where(value: nil).where.not(decidim_questionnaire_id: nil).order(:decidim_questionnaire_id).distinct.pluck(:decidim_questionnaire_id)
-  end
 
   def responses_with_data
     Response.from("decidim_forms_responses AS responses")
@@ -131,8 +133,7 @@ class BackfillDecidimFormsResponseValues < ActiveRecord::Migration[8.1]
     "#{column} !~ '^[[:space:]]*$'"
   end
 
-  # Attachments keep the "Answer" type until the data migration renaming answers to responses has run
   def attachments_sql
-    "decidim_attachments AS attachments WHERE attachments.attached_to_type IN ('Decidim::Forms::Response', 'Decidim::Forms::Answer') AND attachments.attached_to_id = responses.id"
+    "decidim_attachments AS attachments WHERE attachments.attached_to_type = 'Decidim::Forms::Response' AND attachments.attached_to_id = responses.id"
   end
 end

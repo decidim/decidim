@@ -44,8 +44,10 @@ module Decidim
       def map_model(model)
         self.question_id = model.decidim_question_id
         self.question = model.question
-        self.body = model.text_value
         self.attachments = model.attachments
+        return map_legacy_columns(model) if model.value.nil?
+
+        self.body = model.text_value
         self.choices = model.selections.map { |selection| choice_form_for(selection) }
       end
 
@@ -154,6 +156,12 @@ module Decidim
 
       def attachments_present
         errors.add(:add_attachments, :blank) if add_attachments.empty? && errors[:add_attachments].empty?
+      end
+
+      # Maps a response that has no value yet from the legacy columns, to be removed with them.
+      def map_legacy_columns(model)
+        self.body = model.body
+        self.choices = model.choices.map { |choice| ResponseChoiceForm.from_model(choice) }
       end
 
       def choice_value_for(choice)

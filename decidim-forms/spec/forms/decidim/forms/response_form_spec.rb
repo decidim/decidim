@@ -408,6 +408,25 @@ module Decidim
 
           it { expect(form.choices).to be_empty }
         end
+
+        context "with a legacy text response that has no value yet" do
+          let(:question_type) { "short_response" }
+          let(:response) { create(:response, questionnaire:, question:, body: "legacy", value: nil) }
+
+          it { expect(form.body).to eq("legacy") }
+        end
+
+        context "with legacy choices that have no value yet" do
+          let(:question_type) { "matrix_multiple" }
+          let(:row) { create(:question_matrix_row, question:) }
+          let(:value) { nil }
+
+          before { create(:response_choice, response:, response_option: options[1], matrix_row: row, body: "Legacy", custom_body: "mine") }
+
+          it "restores the row, the option and the free text from the legacy choices" do
+            expect(form.selected_choices.map { |choice| [choice.matrix_row_id, choice.response_option_id, choice.custom_body] }).to eq([[row.id, options[1].id, "mine"]])
+          end
+        end
       end
     end
   end

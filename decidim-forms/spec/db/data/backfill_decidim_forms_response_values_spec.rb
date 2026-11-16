@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-require "./db/migrate/20261013100100_backfill_decidim_forms_response_values"
+require "./db/data/20261013100100_backfill_decidim_forms_response_values"
 
 describe BackfillDecidimFormsResponseValues do
   let(:migrator) { described_class.new.tap { |migration| migration.verbose = false } }
@@ -111,16 +111,6 @@ describe BackfillDecidimFormsResponseValues do
       migrator.migrate(:up)
 
       expect(value_of(id)).to eq([first.id, second.id])
-    end
-
-    it "finds attachments still typed as Decidim::Forms::Answer" do
-      id = legacy_response(files_question)
-      attachment = create(:attachment, :with_pdf, attached_to: Decidim::Forms::Response.find(id))
-      Decidim::Attachment.where(id: attachment.id).update_all(attached_to_type: "Decidim::Forms::Answer") # rubocop:disable Rails/SkipsModelValidations
-
-      migrator.migrate(:up)
-
-      expect(value_of(id)).to eq([attachment.id])
     end
 
     it "keeps the label of a deleted option" do
