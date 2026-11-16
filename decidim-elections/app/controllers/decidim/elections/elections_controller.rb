@@ -13,6 +13,8 @@ module Decidim
 
       def index
         enforce_permission_to :read, :election
+
+        redirect_to Decidim::EngineRouter.main_proxy(current_component).election_path(single_election, share_token: params[:share_token].presence) if single_election?
       end
 
       def show
@@ -41,6 +43,18 @@ module Decidim
 
       def questions
         @questions ||= election.questions.includes(:response_options)
+      end
+
+      def single_election?
+        request.format.html? && published_elections.one?
+      end
+
+      def single_election
+        published_elections.first
+      end
+
+      def published_elections
+        @published_elections ||= available_elections.published
       end
 
       def search_collection

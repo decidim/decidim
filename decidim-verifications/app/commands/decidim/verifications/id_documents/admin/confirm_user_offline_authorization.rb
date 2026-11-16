@@ -63,7 +63,6 @@ module Decidim
           end
 
           def authorization_user
-            # rubocop:disable-next Decidim/OrganizationScopedFinder -- scoped to the current organization
             @authorization_user ||= Decidim::User
                                     .where(organization: form.current_organization)
                                     .find_by(email: form.email)

@@ -25,10 +25,26 @@ module Decidim
     has_many :scope_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ScopeType", inverse_of: :organization, dependent: :destroy
     has_many :areas, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Area", inverse_of: :organization, dependent: :destroy
     has_many :area_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::AreaType", inverse_of: :organization, dependent: :destroy
+
+    # `Decidim::ActionLog` records are not cascaded: they are the audit trail and `Decidim::ActionLog` raises
+    # `ActiveRecord::ReadOnlyRecord` on destroy, so a `dependent:` here would only bypass that guard.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs, foreign_key: "decidim_organization_id", class_name: "Decidim::ActionLog", inverse_of: :organization
+
+    # Declared before the users associations so that these records are destroyed before the users they reference.
+    has_many :content_blocks, foreign_key: "decidim_organization_id", class_name: "Decidim::ContentBlock", inverse_of: :organization, dependent: :destroy
+    has_many :contextual_help_sections, class_name: "Decidim::ContextualHelpSection", inverse_of: :organization, dependent: :destroy
+    has_many :editor_images, foreign_key: "decidim_organization_id", class_name: "Decidim::EditorImage", inverse_of: :organization, dependent: :destroy
+    has_many :identities, foreign_key: "decidim_organization_id", class_name: "Decidim::Identity", inverse_of: :organization, dependent: :destroy
+    has_many :newsletters, class_name: "Decidim::Newsletter", inverse_of: :organization, dependent: :destroy
+    has_many :searchable_resources, foreign_key: "decidim_organization_id", class_name: "Decidim::SearchableResource", inverse_of: :organization, dependent: :destroy
+    has_many :share_tokens, foreign_key: "decidim_organization_id", class_name: "Decidim::ShareToken", inverse_of: :organization, dependent: :destroy
+    has_many :short_links, foreign_key: "decidim_organization_id", class_name: "Decidim::ShortLink", inverse_of: :organization, dependent: :destroy
+
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
-    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
-    has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", dependent: :destroy
+    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", inverse_of: :organization, dependent: :destroy
+    has_many :user_entities, foreign_key: "decidim_organization_id", class_name: "Decidim::UserBaseEntity", inverse_of: :organization, dependent: :destroy
     has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates

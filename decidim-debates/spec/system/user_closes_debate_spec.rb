@@ -17,8 +17,7 @@ describe "User closes a debate" do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit_component
-    click_on debate.title.values.first
+    visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
   end
 
   context "when closing my debate" do
