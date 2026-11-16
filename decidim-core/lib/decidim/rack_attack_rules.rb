@@ -74,11 +74,24 @@ module Decidim
     def self.email_discriminator(request, path_pattern, param_key)
       return unless request.post? && request.path.match?(path_pattern)
 
+      # ActionDispatch gives the query string precedence over the body
+      # (ActionDispatch::Http::Parameters#parameters), while Rack::Request#params merges the
+      # query over the body. Use Rails' precedence so the counter key is the email the
+      # authentication actually reads; otherwise the target account can be attacked with a
+      # different counter per request by keeping it in the query string and varying the body.
+      resource = query_resource(request, param_key) || body_resource(request, param_key)
+      resource["email"] if resource.is_a?(Hash)
+    end
+
+    def self.query_resource(request, param_key)
+      Rack::Utils.parse_nested_query(request.query_string.to_s)[param_key]
+    end
+
+    def self.body_resource(request, param_key)
       # Rack does not parse application/json bodies, so request.params only holds
       # the query string for those requests. Without the body fallback, a JSON
       # sign-in or recovery request is never counted against the per-email limit.
-      resource = request.params[param_key] || json_resource(request, param_key)
-      resource["email"] if resource.is_a?(Hash)
+      request.params[param_key] || json_resource(request, param_key)
     end
 
     def self.json_resource(request, param_key)
@@ -87,6 +100,9 @@ module Decidim
       json = request.body.read(MAX_JSON_BODY_BYTES)
       # Rewind so Rails can still parse the body after the throttle block read it.
       request.body.rewind
+      # An empty or already consumed stream reads as nil, which JSON.parse would not accept.
+      return if json.nil?
+
       parsed = JSON.parse(json)
       parsed[param_key] if parsed.is_a?(Hash)
     rescue JSON::ParserError
@@ -104,6 +120,6 @@ module Decidim
       end
     end
 
-    private_class_method :email_discriminator, :json_resource, :allowed_ip?
+    private_class_method :email_discriminator, :query_resource, :body_resource, :json_resource, :allowed_ip?
   end
 end

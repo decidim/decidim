@@ -18,9 +18,10 @@ describe Rack::Attack do
   end
 
   # The rules only use these request methods, so a Struct is enough to call them.
-  # media_type and body are only read by the JSON body fallback.
+  # media_type and body are only read by the JSON body fallback, query_string only by
+  # the query precedence.
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params, :media_type, :body) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string) do
       def put?
         request_method == :put
       end
@@ -233,6 +234,22 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
+    it "counts the query string email, which Rails reads with precedence over the body" do
+      # ActionDispatch merges the body parameters over the query string, so a request that
+      # authenticates one account while the counter key comes from the body leaves the
+      # attacked account unthrottled
+      request = request_class.new(
+        "/en/users/sign_in",
+        "1.2.3.4",
+        :post,
+        { "user" => { "email" => "attacker@b.c" } },
+        nil,
+        nil,
+        "user[email]=victim@b.c"
+      )
+      expect(throttle.block.call(request)).to eq("victim@b.c")
+    end
+
     # Rack::Attack normalises discriminators with to_s.strip.downcase before
     # building the cache key, so equivalent spellings share one counter.
     it "shares the counter between equivalent spellings through the discriminator normalizer" do
@@ -310,6 +327,12 @@ describe Rack::Attack do
 
     it "returns nil for a JSON body that cannot be parsed" do
       request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", StringIO.new("{not-json"))
+      expect { throttle.block.call(request) }.not_to raise_error
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "returns nil for an empty JSON body, which reads as nil rather than an empty string" do
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", StringIO.new(""))
       expect { throttle.block.call(request) }.not_to raise_error
       expect(throttle.block.call(request)).to be_nil
     end
