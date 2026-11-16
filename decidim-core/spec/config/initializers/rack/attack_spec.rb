@@ -18,10 +18,10 @@ describe Rack::Attack do
   end
 
   # The rules only use these request methods, so a Struct is enough to call them.
-  # media_type and body are only read by the JSON body fallback, query_string only by
-  # the query precedence.
+  # media_type, body and content_length are only read by the JSON body fallback,
+  # query_string only by the query precedence.
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string, :content_length) do
       def put?
         request_method == :put
       end
@@ -335,6 +335,16 @@ describe Rack::Attack do
       request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", StringIO.new(""))
       expect { throttle.block.call(request) }.not_to raise_error
       expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "counts a JSON body larger than the read cap by IP instead of leaving it uncounted" do
+      # The bounded read truncates the JSON, so no email can be extracted while Rails still
+      # parses the whole body. A padded body would otherwise reach the action uncounted.
+      padding = "x" * Decidim::RackAttackRules::MAX_JSON_BODY_BYTES
+      body = StringIO.new("{\"user\":{\"email\":\"a@b.c\"},\"padding\":\"#{padding}\"}")
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body, nil, body.string.bytesize)
+      expect(throttle.block.call(request)).to eq("1.2.3.4")
+      expect(body.pos).to eq(0)
     end
 
     it "returns nil for a JSON body without the resource key" do

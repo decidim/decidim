@@ -80,7 +80,12 @@ module Decidim
       # authentication actually reads; otherwise the target account can be attacked with a
       # different counter per request by keeping it in the query string and varying the body.
       resource = query_resource(request, param_key) || body_resource(request, param_key)
-      resource["email"] if resource.is_a?(Hash)
+      return resource["email"] if resource.is_a?(Hash)
+
+      # A body larger than the cap is truncated by the bounded read, so no email can be
+      # extracted here while Rails still parses the whole body downstream. A padded body
+      # would otherwise reach the action uncounted, so those requests are counted by IP.
+      request.ip if oversized_json_body?(request)
     end
 
     def self.query_resource(request, param_key)
@@ -107,6 +112,10 @@ module Decidim
       parsed[param_key] if parsed.is_a?(Hash)
     rescue JSON::ParserError
       nil
+    end
+
+    def self.oversized_json_body?(request)
+      request.media_type == "application/json" && request.content_length.to_i > MAX_JSON_BODY_BYTES
     end
 
     def self.allowed_ip?(ip, allowed_ips)
