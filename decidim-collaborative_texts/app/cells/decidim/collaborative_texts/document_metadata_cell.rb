@@ -36,6 +36,8 @@ module Decidim
       end
 
       def suggestions_count_item
+        return if model.suggestions_count.zero?
+
         {
           text: t("decidim.collaborative_texts.document.suggestions_count", count: model.suggestions_count),
           icon: "award-line",
