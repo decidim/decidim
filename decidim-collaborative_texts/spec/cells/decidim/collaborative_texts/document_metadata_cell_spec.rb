@@ -20,6 +20,7 @@ module Decidim::CollaborativeTexts
 
     it "renders as draft" do
       expect(subject).to have_css("[data-status='draft']", text: "In review")
+      expect(subject).to have_no_css("[data-suggestions-count]")
       expect(subject).to have_no_css("[data-contributors-count]")
     end
 
@@ -33,6 +34,7 @@ module Decidim::CollaborativeTexts
 
       it "renders as accepting suggestions" do
         expect(subject).to have_css("[data-status='accepting_suggestions']", text: "Accepting suggestions")
+        expect(subject).to have_no_css("[data-suggestions-count]")
         expect(subject).to have_no_css("[data-contributors-count]")
       end
     end
@@ -42,6 +44,7 @@ module Decidim::CollaborativeTexts
 
       it "renders as not accepting suggestions" do
         expect(subject).to have_css("[data-status='not_accepting_suggestions']", text: "Not accepting suggestions")
+        expect(subject).to have_no_css("[data-suggestions-count]")
         expect(subject).to have_no_css("[data-contributors-count]")
       end
     end
