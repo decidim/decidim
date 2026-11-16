@@ -19,9 +19,14 @@ describe Rack::Attack do
 
   # The rules only use these request methods, so a Struct is enough to call them.
   # media_type, body and content_length are only read by the JSON body rules, query_string
-  # only by the query precedence.
+  # only by the query precedence, and script_name only by the system blocklist, which reads
+  # the path inside the mounted application (Rack::Request#path_info).
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string, :content_length) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :body, :query_string, :content_length, :script_name) do
+      def path_info
+        script_name.to_s.empty? ? path : path[script_name.length..-1]
+      end
+
       def put?
         request_method == :put
       end
@@ -92,10 +97,20 @@ describe Rack::Attack do
       end
 
       it "blocks a /system request when the app is deployed under a subpath" do
-        # Rack::Request#path keeps the mount prefix (SCRIPT_NAME) in front of the engine path,
-        # so a request reaching the system engine through "/decidim" is a system request too
-        request = request_class.new("/decidim/system/admins/sign_in", "10.0.0.1", :get, {})
+        # Rack::Request#path keeps the mount prefix (SCRIPT_NAME) in front of PATH_INFO; the
+        # rule reads PATH_INFO, which is the path inside the mounted application
+        request = request_class.new("/decidim/system/admins/sign_in", "10.0.0.1", :get, {}, nil, nil, nil, nil, "/decidim")
         expect(blocklist.block.call(request)).to be_truthy
+      end
+
+      it "does not block a public route that only contains a system segment" do
+        # The rule matches the system mount, not any preceding segment, so a participatory
+        # process with a slug such as "system-change" is still reachable from an address
+        # outside the access list
+        requests = ["/en/processes/system-change", "/en/processes/system"].map do |path|
+          request_class.new(path, "10.0.0.1", :get, {})
+        end
+        expect(requests.map { |request| blocklist.block.call(request) }).to all(be_falsy)
       end
     end
 
@@ -204,6 +219,20 @@ describe Rack::Attack do
 
     it "does not reject a GET request" do
       request = request_class.new("/en/users/password", "1.2.3.4", :get, {}, "application/json", oversized_body)
+      expect(blocklist.block.call(request)).to be_falsy
+    end
+
+    it "does not read a body from a stream that cannot be put back" do
+      # Rack's SPEC only requires rack.input to respond to gets, each and read. Reading it
+      # here would consume the body Rails needs, and the rewind would raise inside the
+      # middleware, which has no rescue.
+      non_rewindable_body = Class.new do
+        def read(maxlen = nil)
+          "x" * maxlen.to_i
+        end
+      end.new
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", non_rewindable_body)
+      expect { blocklist.block.call(request) }.not_to raise_error
       expect(blocklist.block.call(request)).to be_falsy
     end
   end

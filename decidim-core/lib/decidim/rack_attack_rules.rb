@@ -36,14 +36,13 @@ module Decidim
     def self.register_blocklists!(configuration = Rack::Attack.configuration)
       configuration.blocklist("block all access to system") do |request|
         # Requests are blocked if the return value is truthy.
-        # The path is the one Rails routes: Rack::Attack#call replaces PATH_INFO with
-        # Rack::Attack::PathNormalizer.normalize_path before the check blocks run, and in a
-        # Rails app that is ActionDispatch::Journey::Router::Utils, which collapses repeated
-        # slashes and strips the trailing one ("//system/admin" reaches the block as
-        # "/system/admin"). Rack::Request#path keeps the mount prefix (SCRIPT_NAME) in front
-        # of it, so the same optional prefix as the throttle patterns is allowed here;
-        # without it a subpath deployment reached the system through "/prefix/system".
-        next unless request.path.match?(%r{^(/[^/]+)*/system})
+        # PATH_INFO is the path inside the mounted application, without the deployment
+        # prefix (SCRIPT_NAME), so a subpath deployment still matches here while a process
+        # slug such as "/en/processes/system-change" does not. Rack::Attack#call normalizes
+        # PATH_INFO with ActionDispatch::Journey::Router::Utils before the check blocks run,
+        # which collapses repeated slashes and strips the trailing one, so "//system/admin"
+        # reaches the rule as the path Rails routes ("/system/admin").
+        next unless request.path_info.to_s.match?(%r{^/system(/|\z)})
 
         # DECIDIM_SYSTEM_ACCESSLIST_IPS is an allow-list: when it is configured,
         # only the listed IPs can access the system. An empty list means no
@@ -165,8 +164,10 @@ module Decidim
       # Content-Length is not guaranteed: Rack's SPEC does not require it and a chunked
       # request has no CONTENT_LENGTH at all, so the size is taken from the bounded read
       # itself when the header is missing. The stream is put back so the app can still read
-      # the body when the request is not rejected.
+      # the body when the request is not rejected, which is only possible for an input that
+      # can be rewound; a stream that cannot be put back is left untouched.
       return request.content_length.to_i > MAX_JSON_BODY_BYTES if request.content_length
+      return false unless request.body.respond_to?(:rewind)
 
       json = read_json_body(request)
       !json.nil? && json.bytesize > MAX_JSON_BODY_BYTES
