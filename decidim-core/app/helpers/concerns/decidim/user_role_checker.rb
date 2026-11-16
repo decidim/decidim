@@ -66,7 +66,8 @@ module Decidim
     def conference_user_role?(user, conference = nil, broad_check: false)
       return false unless Decidim.module_installed?(:conferences)
       return false unless conference.nil? || conference.is_a?(Decidim::Conference)
-      return Decidim::ConferenceUserRole.exists?(user:) if broad_check
+
+      return Decidim::ConferenceUserRole.exists?(user:, conference: Decidim::Conference.where(deleted_at: nil)) if broad_check
 
       Decidim::ConferenceUserRole.exists?(user:, conference:)
     end

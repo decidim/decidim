@@ -15,6 +15,41 @@ module Decidim
     include_examples "publicable"
     include_examples "resourceable"
 
+    context "when the conference is trashed" do
+      let(:user) { create(:user, organization: conference.organization) }
+      let!(:user_role) { create(:conference_user_role, conference:, user:, role: "admin") }
+
+      it "keeps the user roles, as they are not soft deletable" do
+        subject.destroy!
+
+        expect(Decidim::ConferenceUserRole.where(id: user_role.id)).to exist
+      end
+
+      it "restores the user roles with the assembly" do
+        subject.destroy!
+        subject.restore
+
+        expect(subject.reload.conference_user_roles).to contain_exactly(user_role)
+      end
+
+      it "removes the user roles when the assembly is permanently deleted" do
+        subject.really_destroy!
+
+        expect(Decidim::ConferenceUserRole.where(id: user_role.id)).not_to exist
+      end
+
+      it "removes all user roles when the association cache is stale at permanent deletion" do
+        subject.conference_user_roles.to_a # load the association cache
+
+        # Create a role through a different instance so the loaded collection above is stale
+        Decidim::Conference.find(subject.id).conference_user_roles.create!(user:, role: "collaborator")
+
+        subject.really_destroy!
+
+        expect(Decidim::ConferenceUserRole.where(conference: subject.id)).not_to exist
+      end
+    end
+
     context "when there is a conference with the same slug in the same organization" do
       let!(:external_conference) { create(:conference, organization: conference.organization, slug: "my-slug") }
 
