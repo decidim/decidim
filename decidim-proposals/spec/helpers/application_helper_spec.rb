@@ -191,9 +191,11 @@ module Decidim
 
         let(:component) { create(:proposal_component) }
         let(:origin_keys) { origin_values.node.map(&:value) }
+        let(:user) { nil }
 
         before do
           allow(helper).to receive(:current_component).and_return(component)
+          allow(helper).to receive(:current_user).and_return(user)
         end
 
         context "when there are no proposals" do
@@ -226,6 +228,33 @@ module Decidim
 
           it "returns only the participants origin option" do
             expect(origin_keys).to contain_exactly("participants")
+          end
+        end
+
+        context "when the only participant origin belongs to an invisible amendment" do
+          let!(:amendable) { create(:proposal, :official, component:) }
+          let!(:emendation) { create(:proposal, component:) }
+          let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
+
+          before do
+            component.update!(settings: { amendments_enabled: true })
+            component.update!(
+              step_settings: {
+                component.participatory_space.active_step.id => { amendments_visibility: "participants" }
+              }
+            )
+          end
+
+          it "does not show the participants origin option to anonymous visitors" do
+            expect(origin_keys).to contain_exactly("official")
+          end
+
+          context "when the visitor created the amendment" do
+            let(:user) { amendment.amender }
+
+            it "shows the participants origin option" do
+              expect(origin_keys).to contain_exactly("official", "participants")
+            end
           end
         end
 

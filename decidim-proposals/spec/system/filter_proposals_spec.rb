@@ -100,6 +100,31 @@ describe "Filter Proposals", :slow do
       end
     end
 
+    context "when the only participant origin belongs to an invisible amendment" do
+      let!(:amendable) { create(:proposal, :official, component:) }
+      let!(:emendation) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
+
+      before do
+        component.update!(settings: { amendments_enabled: true })
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { amendments_visibility: "participants" }
+          }
+        )
+      end
+
+      it "does not show the participants origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+      end
+    end
+
     context "when there are only official proposals" do
       before do
         create(:proposal, :official, component:)

@@ -146,12 +146,12 @@ module Decidim
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
-      def filter_origin_values(component = current_component)
+      def filter_origin_values(component = current_component, user = current_user)
         scope = "decidim.proposals.application_helper.filter_origin_values"
         origin_values = []
-        origin_values << TreePoint.new("official", t("official", scope:)) if Decidim::Proposals::Proposal.with_official_origin_available?(component)
-        origin_values << TreePoint.new("participants", t("participants", scope:)) if Decidim::Proposals::Proposal.with_participants_origin_available?(component)
-        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if Decidim::Proposals::Proposal.with_meeting_origin_available?(component)
+        origin_values << TreePoint.new("official", t("official", scope:)) if Decidim::Proposals::Proposal.with_official_origin_available?(component, user)
+        origin_values << TreePoint.new("participants", t("participants", scope:)) if Decidim::Proposals::Proposal.with_participants_origin_available?(component, user)
+        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if Decidim::Proposals::Proposal.with_meeting_origin_available?(component, user)
 
         return if origin_values.empty?
 

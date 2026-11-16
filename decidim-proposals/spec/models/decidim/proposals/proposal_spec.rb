@@ -312,6 +312,29 @@ module Decidim
           end
         end
 
+        context "when the only participant origin belongs to an invisible amendment" do
+          let!(:amendable) { create(:proposal, :official, component:) }
+          let!(:emendation) { create(:proposal, component:) }
+          let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
+
+          before do
+            component.update!(settings: { amendments_enabled: true })
+            component.update!(
+              step_settings: {
+                component.participatory_space.active_step.id => { amendments_visibility: "participants" }
+              }
+            )
+          end
+
+          it "returns false for anonymous visitors" do
+            expect(described_class.with_participants_origin_available?(component, nil)).to be false
+          end
+
+          it "returns true for the participant who created the amendment" do
+            expect(described_class.with_participants_origin_available?(component, amendment.amender)).to be true
+          end
+        end
+
         context "when proposals are not published" do
           let!(:proposal) { create(:proposal, :unpublished, component:) }
 
