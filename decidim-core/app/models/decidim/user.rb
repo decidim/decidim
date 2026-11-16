@@ -27,12 +27,29 @@ module Decidim
                           confirmation_keys: [:decidim_organization_id, :email]
     devise :rememberable if Decidim.enable_remember_me
 
-    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
+    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", inverse_of: :user, dependent: :destroy
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
-    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
+    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", inverse_of: :user, dependent: :destroy
     has_many :private_exports, class_name: "Decidim::PrivateExport", dependent: :destroy, inverse_of: :attached_to, as: :attached_to
-    has_many :impersonation_logs, foreign_key: "decidim_user_id", class_name: "Decidim::ImpersonationLog", dependent: :destroy
+    has_many :impersonation_logs, foreign_key: "decidim_user_id", class_name: "Decidim::ImpersonationLog", inverse_of: :user, dependent: :destroy
+
+    # Reciprocals of the models that reference `Decidim::User` specifically. The `inverse_of` is
+    # explicit where the association name does not match the name used on the other side. For the
+    # messaging models it is declared only on this side, see the comment in `Decidim::Messaging::Receipt`.
+    has_many :amendments, foreign_key: "decidim_user_id", class_name: "Decidim::Amendment", inverse_of: :amender, dependent: :destroy
+    has_many :authorization_transfers, class_name: "Decidim::AuthorizationTransfer", inverse_of: :user, dependent: :destroy
+    has_many :authorizations, foreign_key: "decidim_user_id", class_name: "Decidim::Authorization", inverse_of: :user, dependent: :destroy
+    has_many :editor_images, foreign_key: :decidim_author_id, class_name: "Decidim::EditorImage", inverse_of: :author, dependent: :destroy
+    has_many :members, foreign_key: "decidim_user_id", class_name: "Decidim::ParticipatorySpace::Member", inverse_of: :user, dependent: :destroy
+    has_many :newsletters, foreign_key: :author_id, class_name: "Decidim::Newsletter", inverse_of: :author, dependent: :destroy
+    has_many :receipts, foreign_key: "decidim_recipient_id", class_name: "Decidim::Messaging::Receipt", inverse_of: :recipient, dependent: :destroy
+    has_many :reports, foreign_key: "decidim_user_id", class_name: "Decidim::Report", inverse_of: :user, dependent: :destroy
+    has_many :share_tokens, foreign_key: "decidim_user_id", class_name: "Decidim::ShareToken", inverse_of: :user, dependent: :destroy
+    has_many :source_transfers, foreign_key: :source_user_id, class_name: "Decidim::AuthorizationTransfer", inverse_of: :source_user, dependent: :destroy
+    # Reports made by this user. `has_many :user_reports` (from `Decidim::UserReportable`) is the
+    # other direction: the reports about this user.
+    has_many :user_reports_made, class_name: "Decidim::UserReport", inverse_of: :user, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname,

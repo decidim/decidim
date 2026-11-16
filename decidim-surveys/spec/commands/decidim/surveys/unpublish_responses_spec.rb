@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim::Surveys
   describe UnpublishResponses do
     describe "call" do
-      let(:command) { described_class.new(question.id, current_user) }
+      let(:command) { described_class.new(question.questionnaire, question.id, current_user) }
       let(:question) { create(:questionnaire_question, survey_responses_published_at: Time.current) }
       let(:current_user) { create(:user, :confirmed, :admin) }
 
@@ -34,6 +34,16 @@ module Decidim::Surveys
           )
 
         expect { command.call }.to change(Decidim::ActionLog, :count)
+      end
+
+      context "when the question belongs to another questionnaire" do
+        let(:other_question) { create(:questionnaire_question, survey_responses_published_at: Time.current) }
+        let(:command) { described_class.new(question.questionnaire, other_question.id, current_user) }
+
+        it "does not unpublish the foreign question" do
+          expect { command.call }.to broadcast(:invalid)
+          expect(other_question.reload.survey_responses_published_at).to be_present
+        end
       end
     end
   end

@@ -17,6 +17,13 @@ module Decidim
 
     belongs_to :participatory_space, polymorphic: true
 
+    # Reciprocals of the models that point to a component. `Decidim::ActionLog` records are not cascaded: they
+    # are the audit trail and `Decidim::ActionLog` raises `ActiveRecord::ReadOnlyRecord` on destroy, so a
+    # `dependent:` here would only bypass that guard.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs, foreign_key: "decidim_component_id", class_name: "Decidim::ActionLog", inverse_of: :component
+    has_many :reminders, foreign_key: "decidim_component_id", class_name: "Decidim::Reminder", inverse_of: :component, dependent: :destroy
+
     scope :registered_component_manifests, -> { where(manifest_name: Decidim.component_registry.manifests.collect(&:name)) }
     scope :registered_space_manifests, -> { where(participatory_space_type: Decidim.participatory_space_registry.manifests.collect(&:model_class_name)) }
     scope :for_organization, lambda { |organization:|
