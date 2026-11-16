@@ -36,7 +36,7 @@ module Decidim
       return Decidim.storage_cdn_host.chomp("/") if Decidim.storage_cdn_host.present?
 
       uri = URI.parse(Decidim::EngineRouter.new("decidim", {}).root_url(host:))
-      port = uri.port.present? && [80, 443].exclude?(uri.port) ? ":#{uri.port}" : ""
+      port = uri.port == uri.default_port ? "" : ":#{uri.port}"
       "#{uri.scheme}://#{uri.host}#{port}"
     end
   end

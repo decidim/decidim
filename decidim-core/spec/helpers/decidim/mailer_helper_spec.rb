@@ -28,6 +28,32 @@ module Decidim
           expect(subject).not_to match(%r{/[a-z]{2}/rails/active_storage})
         end
 
+        context "when the site uses HTTP on port 443" do
+          let(:origin) { "http://#{host}:443" }
+
+          before do
+            allow(ActionMailer::Base).to receive(:default_url_options).and_return(protocol: "http", port: 443)
+          end
+
+          it "keeps the port in image URLs" do
+            expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/12345.JPG"))
+            expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/56789.JPG"))
+          end
+        end
+
+        context "when the site uses HTTPS on port 80" do
+          let(:origin) { "https://#{host}:80" }
+
+          before do
+            allow(ActionMailer::Base).to receive(:default_url_options).and_return(protocol: "https", port: 80)
+          end
+
+          it "keeps the port in image URLs" do
+            expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/12345.JPG"))
+            expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/56789.JPG"))
+          end
+        end
+
         context "when a relative src matches the suffix of an absolute URL" do
           let(:user_input) do
             %(<img src="/image.jpg" alt="relative" /><img src="https://example.com/image.jpg" alt="absolute" />)
