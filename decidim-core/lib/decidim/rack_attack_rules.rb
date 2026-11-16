@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "ipaddr"
+require "json"
 
 module Decidim
   # The Rack::Attack rules registered by the decidim-core initializer. They live
@@ -8,14 +9,20 @@ module Decidim
   # in isolation: the initializer only registers the throttles outside the test
   # environment.
   module RackAttackRules
+    # Rack caps the query it parses at 4 MiB; cap the JSON body read by the
+    # throttle block the same way so a large body is not buffered there.
+    MAX_JSON_BODY_BYTES = 4 * 1024 * 1024
+
     def self.register_blocklists!(configuration = Rack::Attack.configuration)
       configuration.blocklist("block all access to system") do |request|
         # Requests are blocked if the return value is truthy
         next unless request.path.start_with?("/system")
 
-        Decidim.system_accesslist_ips.any? do |ip_address|
-          IPAddr.new(ip_address).include?(IPAddr.new(request.ip))
-        end
+        # DECIDIM_SYSTEM_ACCESSLIST_IPS is an allow-list: when it is configured,
+        # only the listed IPs can access the system. An empty list means no
+        # restriction. The rule used to block the listed IPs instead of allowing
+        # them, which denied exactly the operators the feature is meant to permit.
+        Decidim.system_accesslist_ips.any? && !allowed_ip?(request.ip, Decidim.system_accesslist_ips)
       end
     end
 
@@ -67,10 +74,36 @@ module Decidim
     def self.email_discriminator(request, path_pattern, param_key)
       return unless request.post? && request.path.match?(path_pattern)
 
-      resource = request.params[param_key]
+      # Rack does not parse application/json bodies, so request.params only holds
+      # the query string for those requests. Without the body fallback, a JSON
+      # sign-in or recovery request is never counted against the per-email limit.
+      resource = request.params[param_key] || json_resource(request, param_key)
       resource["email"] if resource.is_a?(Hash)
     end
 
-    private_class_method :email_discriminator
+    def self.json_resource(request, param_key)
+      return unless request.media_type == "application/json" && request.body
+
+      json = request.body.read(MAX_JSON_BODY_BYTES)
+      # Rewind so Rails can still parse the body after the throttle block read it.
+      request.body.rewind
+      parsed = JSON.parse(json)
+      parsed[param_key] if parsed.is_a?(Hash)
+    rescue JSON::ParserError
+      nil
+    end
+
+    def self.allowed_ip?(ip, allowed_ips)
+      return false if ip.blank?
+
+      allowed_ips.any? do |ip_address|
+        IPAddr.new(ip_address).include?(IPAddr.new(ip))
+      rescue IPAddr::InvalidAddressError, IPAddr::AddressFamilyError
+        # Fail closed: an address we cannot read is not an allowed one.
+        false
+      end
+    end
+
+    private_class_method :email_discriminator, :json_resource, :allowed_ip?
   end
 end

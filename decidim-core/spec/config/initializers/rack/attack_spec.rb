@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "stringio"
 require "decidim/rack_attack_rules"
 
 describe Rack::Attack do
@@ -17,8 +18,9 @@ describe Rack::Attack do
   end
 
   # The rules only use these request methods, so a Struct is enough to call them.
+  # media_type and body are only read by the JSON body fallback.
   let(:request_class) do
-    Struct.new(:path, :ip, :request_method, :params) do
+    Struct.new(:path, :ip, :request_method, :params, :media_type, :body) do
       def put?
         request_method == :put
       end
@@ -49,23 +51,23 @@ describe Rack::Attack do
     context "when the access list contains an exact IP" do
       before { allow(Decidim).to receive(:system_accesslist_ips).and_return(["192.168.1.10"]) }
 
-      it "blocks /system requests from the listed IP" do
+      it "does not block /system requests from an allowed IP" do
         request = request_class.new("/system", "192.168.1.10", :get, {})
+        expect(blocklist.block.call(request)).to be_falsy
+      end
+
+      it "blocks /system requests from an IP outside the allow-list" do
+        request = request_class.new("/system", "10.0.0.1", :get, {})
         expect(blocklist.block.call(request)).to be_truthy
       end
 
-      it "does not block /system requests from an unlisted IP" do
-        request = request_class.new("/system", "10.0.0.1", :get, {})
+      it "does not block non-system requests even from an IP outside the allow-list" do
+        request = request_class.new("/users", "10.0.0.1", :get, {})
         expect(blocklist.block.call(request)).to be_falsy
       end
 
-      it "does not block non-system requests even from a listed IP" do
-        request = request_class.new("/users", "192.168.1.10", :get, {})
-        expect(blocklist.block.call(request)).to be_falsy
-      end
-
-      it "blocks /system sub-paths from the listed IP" do
-        requests = %w(/system/admin /system/users).map { |path| request_class.new(path, "192.168.1.10", :get, {}) }
+      it "blocks /system sub-paths from an IP outside the allow-list" do
+        requests = %w(/system/admin /system/users).map { |path| request_class.new(path, "10.0.0.1", :get, {}) }
         expect(requests.map { |request| blocklist.block.call(request) }).to all(be_truthy)
       end
     end
@@ -73,22 +75,52 @@ describe Rack::Attack do
     context "when the access list contains a CIDR range" do
       before { allow(Decidim).to receive(:system_accesslist_ips).and_return(["192.168.1.0/24"]) }
 
-      it "blocks /system requests from an IP inside the range" do
+      it "does not block /system requests from an IP inside the range" do
         request = request_class.new("/system", "192.168.1.50", :get, {})
-        expect(blocklist.block.call(request)).to be_truthy
+        expect(blocklist.block.call(request)).to be_falsy
       end
 
-      it "does not block /system requests from an IP outside the range" do
+      it "blocks /system requests from an IP outside the range" do
         request = request_class.new("/system", "10.0.0.1", :get, {})
-        expect(blocklist.block.call(request)).to be_falsy
+        expect(blocklist.block.call(request)).to be_truthy
       end
     end
 
     context "when the access list has multiple entries" do
       before { allow(Decidim).to receive(:system_accesslist_ips).and_return(["10.0.0.0/8", "192.168.1.10"]) }
 
-      it "blocks /system requests matching the second entry" do
+      it "does not block a /system request matching the second entry" do
         request = request_class.new("/system", "192.168.1.10", :get, {})
+        expect(blocklist.block.call(request)).to be_falsy
+      end
+
+      it "blocks a /system request matching none of the entries" do
+        request = request_class.new("/system", "172.16.0.1", :get, {})
+        expect(blocklist.block.call(request)).to be_truthy
+      end
+    end
+
+    # Rack::Attack does not rescue exceptions raised by a check block, so an
+    # unreadable address must fail closed instead of raising inside the middleware.
+    context "when the request address cannot be read" do
+      before { allow(Decidim).to receive(:system_accesslist_ips).and_return(["192.168.1.10"]) }
+
+      it "blocks a request without an address" do
+        request = request_class.new("/system", nil, :get, {})
+        expect { blocklist.block.call(request) }.not_to raise_error
+        expect(blocklist.block.call(request)).to be_truthy
+      end
+
+      it "blocks a request with a non-address value, such as a spoofed X-Forwarded-For" do
+        request = request_class.new("/system", "<script>evil", :get, {})
+        expect { blocklist.block.call(request) }.not_to raise_error
+        expect(blocklist.block.call(request)).to be_truthy
+      end
+
+      it "blocks when a configured entry is not a valid address" do
+        allow(Decidim).to receive(:system_accesslist_ips).and_return(["not-an-ip"])
+        request = request_class.new("/system", "192.168.1.10", :get, {})
+        expect { blocklist.block.call(request) }.not_to raise_error
         expect(blocklist.block.call(request)).to be_truthy
       end
     end
@@ -96,6 +128,14 @@ describe Rack::Attack do
 
   describe "requests by ip throttle" do
     let(:throttle) { rules.throttles.fetch("requests by ip") }
+
+    # The limit and the period come from environment variables, so stub them to
+    # the documented defaults to keep these assertions independent of the
+    # environment the suite runs in.
+    before do
+      allow(Decidim).to receive(:throttling_max_requests).and_return(100)
+      allow(Decidim).to receive(:throttling_period).and_return(1.minute)
+    end
 
     it "has a limit of 100 requests per period" do
       expect(throttle.limit).to eq(100)
@@ -181,6 +221,26 @@ describe Rack::Attack do
       expect(throttle.block.call(request)).to eq("a@b.c")
     end
 
+    it "reads the email from a JSON body, which Rack does not parse into params" do
+      request = request_class.new(
+        "/en/users/sign_in.json",
+        "1.2.3.4",
+        :post,
+        {},
+        "application/json",
+        StringIO.new('{"user":{"email":"a@b.c"}}')
+      )
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    # Rack::Attack normalises discriminators with to_s.strip.downcase before
+    # building the cache key, so equivalent spellings share one counter.
+    it "shares the counter between equivalent spellings through the discriminator normalizer" do
+      first = throttle.block.call(request_class.new("/users/sign_in", "1.2.3.4", :post, { "user" => { "email" => "A@B.C" } }))
+      second = throttle.block.call(request_class.new("/users/sign_in", "1.2.3.4", :post, { "user" => { "email" => " a@b.c " } }))
+      expect(Rack::Attack.throttle_discriminator_normalizer.call(first)).to eq(Rack::Attack.throttle_discriminator_normalizer.call(second))
+    end
+
     it "returns nil on POST to other paths" do
       request = request_class.new("/users/password", "1.2.3.4", :post, { "user" => { "email" => "a@b.c" } })
       expect(throttle.block.call(request)).to be_nil
@@ -224,6 +284,38 @@ describe Rack::Attack do
     it "returns nil on POST /users/password with a scalar user param" do
       # e.g. POST /users/password?user=foo, which would raise TypeError inside the middleware
       request = request_class.new("/users/password", "1.2.3.4", :post, { "user" => "foo" })
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "reads the email from a JSON body, which Rack does not parse into params" do
+      # Without the body fallback a JSON recovery request is never counted against
+      # the per-email limit, because request.params only holds the query string
+      request = request_class.new(
+        "/en/users/password.json",
+        "1.2.3.4",
+        :post,
+        {},
+        "application/json",
+        StringIO.new('{"user":{"email":"a@b.c"}}')
+      )
+      expect(throttle.block.call(request)).to eq("a@b.c")
+    end
+
+    it "rewinds the JSON body so Rails can still parse it" do
+      body = StringIO.new('{"user":{"email":"a@b.c"}}')
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", body)
+      throttle.block.call(request)
+      expect(body.pos).to eq(0)
+    end
+
+    it "returns nil for a JSON body that cannot be parsed" do
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", StringIO.new("{not-json"))
+      expect { throttle.block.call(request) }.not_to raise_error
+      expect(throttle.block.call(request)).to be_nil
+    end
+
+    it "returns nil for a JSON body without the resource key" do
+      request = request_class.new("/en/users/password.json", "1.2.3.4", :post, {}, "application/json", StringIO.new('{"email":"a@b.c"}'))
       expect(throttle.block.call(request)).to be_nil
     end
 
