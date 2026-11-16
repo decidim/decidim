@@ -2,6 +2,6 @@
 
 module Decidim
   class ReminderDelivery < ApplicationRecord
-    belongs_to :reminder, foreign_key: "decidim_reminder_id", class_name: "Decidim::Reminder"
+    belongs_to :reminder, foreign_key: "decidim_reminder_id", class_name: "Decidim::Reminder", inverse_of: :deliveries
   end
 end

@@ -143,6 +143,23 @@ module Decidim
       end
     end
 
+    describe "the reciprocal association with the user" do
+      let(:user) { create(:user) }
+
+      it "declares `inverse_of` on the user side only" do
+        expect(described_class.reflect_on_association(:user).inverse_of).to be_nil
+        expect(Decidim::User.reflect_on_association(:authorizations).options[:inverse_of]).to eq(:user)
+      end
+
+      it "does not persist an authorization initialized for the user when the user is saved" do
+        pending_authorization = described_class.find_or_initialize_by(user:, name: "dummy_authorization_handler")
+
+        expect { user.update!(newsletter_token: SecureRandom.hex(8)) }.not_to change(described_class, :count)
+
+        expect(pending_authorization).to be_new_record
+      end
+    end
+
     describe "#metadata" do
       let!(:authorization) { create(:authorization, :granted, metadata: authorization_metadata) }
       let(:authorization_metadata) do

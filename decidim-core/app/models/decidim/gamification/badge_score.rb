@@ -5,7 +5,7 @@ module Decidim
     class BadgeScore < ApplicationRecord
       self.table_name = "decidim_gamification_badge_scores"
 
-      belongs_to :user, class_name: "Decidim::UserBaseEntity"
+      belongs_to :user, class_name: "Decidim::UserBaseEntity", inverse_of: :badge_scores
       validates :value, numericality: { greater_than_or_equal_to: 0 }
     end
   end
