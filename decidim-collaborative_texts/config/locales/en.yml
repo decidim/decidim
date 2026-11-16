@@ -139,7 +139,7 @@ en:
           count:
             one: "%{count} collaborative text"
             other: "%{count} collaborative texts"
-          empty: There are no collaborative texts yet.
+          empty: No collaborative texts match your search criteria.
         show:
           contributors: Contributors
       models:
