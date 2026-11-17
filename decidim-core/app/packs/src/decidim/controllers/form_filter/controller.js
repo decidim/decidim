@@ -22,6 +22,7 @@ export default class extends Controller {
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
     this._onPopState = this._onPopState.bind(this);
+    this._onFilterRefresh = this._onFilterRefresh.bind(this);
 
     if (window.Decidim.PopStateHandler) {
       this.popStateSubmitter = false;
@@ -39,9 +40,8 @@ export default class extends Controller {
    * @returns {Void} - Returns nothing
    */
   disconnect() {
-    this.element.querySelectorAll("input, select").forEach((element) => {
-      element.removeEventListener("change", this._onFormChange);
-    });
+    this.element.removeEventListener("change", this._onFormChange);
+    this.element.removeEventListener("form-filter:refresh", this._onFilterRefresh);
 
     unregisterCallback(`filters-${this.id}`)
   }
@@ -61,9 +61,8 @@ export default class extends Controller {
         contentContainer = this.element.dataset.remoteFill;
       }
 
-      this.element.querySelectorAll("input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])").forEach((element) => {
-        element.addEventListener("change", this._onFormChange);
-      })
+      this.element.addEventListener("change", this._onFormChange);
+      this.element.addEventListener("form-filter:refresh", this._onFilterRefresh);
 
       this.currentFormRequest = null;
 
@@ -263,12 +262,31 @@ export default class extends Controller {
   }
 
   /**
-   * Handles the logic to update the current location after a form change event.
+   * Handles the logic to refresh the widgets of the form when part of it is
+   * replaced dynamically, like the origin options when the selected states
+   * change.
    * @private
+   * @param {CustomEvent} event - The event with the refreshed element in its detail
    * @returns {Void} - Returns nothing.
    */
-  _onFormChange() {
+  _onFilterRefresh(event) {
+    if (event.detail && event.detail.element) {
+      this.theCheckBoxesTree.refresh(event.detail.element);
+    }
+  }
+
+  /**
+   * Handles the logic to update the current location after a form change event.
+   * @private
+   * @param {Event} event - The change event
+   * @returns {Void} - Returns nothing.
+   */
+  _onFormChange(event) {
     if (!this.changeEvents) {
+      return;
+    }
+
+    if (event && (!event.target.matches("input, select") || event.target.matches("[data-disable-dynamic-change]"))) {
       return;
     }
 
