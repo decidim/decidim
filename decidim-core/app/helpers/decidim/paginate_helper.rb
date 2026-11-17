@@ -37,9 +37,11 @@ module Decidim
       request_params["q"] = request_params["q"].except("locale", :locale) if request_params["q"].is_a?(Hash)
       request_params[:locale] = nil if admin_controller_with_locale_prefix?
 
-      # Kaminari merges these parameters with the raw request parameters, so
-      # override the internal URL options it does not filter out itself.
-      request_params.merge(paginate_params).merge(_recall: {}, use_route: nil)
+      # Sanitize again after merging because Kaminari also merges these
+      # parameters with the raw request parameters.
+      sanitized_params = decidim_url_params(request_params.merge(paginate_params))
+
+      sanitized_params.merge(_recall: {}, use_route: nil)
     end
 
     def admin_controller_with_locale_prefix?

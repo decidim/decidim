@@ -45,4 +45,20 @@ describe "URL generation with untrusted parameters" do
     expect(response).to have_http_status(:ok)
     expect(response.body).to include("/en/last_activities?per_page=25")
   end
+
+  it "keeps the intended page and ignores a nested params[page] option" do
+    get(
+      "/en/last_activities?params[page]=99&page=2",
+      headers:
+    )
+
+    expect(response).to have_http_status(:ok)
+
+    pagination = response.parsed_body.at("[data-pagination]")
+    expect(pagination.css('li[aria-current="page"]').text.strip).to eq("2")
+
+    hrefs = pagination.css("a").map { |link| link["href"] }
+    expect(hrefs).not_to include(a_string_matching(/params(%5B|\[)page/i))
+    expect(hrefs).not_to include(a_string_including("page=99"))
+  end
 end
