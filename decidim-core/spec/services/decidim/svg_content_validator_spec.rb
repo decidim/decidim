@@ -60,6 +60,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet has a nested relative reference separated from the function by whitespace" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_image_set_nested_relative_url.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose reference is resolved from the root of the origin serving the document" do
       let(:content) { File.read(Decidim::Dev.asset("test_root_relative_reference.svg")) }
 
@@ -186,6 +192,12 @@ describe Decidim::SvgContentValidator do
       it_behaves_like "a valid SVG document"
     end
 
+    context "with an SVG whose style sheet URL contains the quote which does not delimit it" do
+      let(:content) { File.read(Decidim::Dev.asset("test_css_url_opposite_quote.svg")) }
+
+      it_behaves_like "a valid SVG document"
+    end
+
     context "with an SVG whose style sheet ends with an unterminated comment with multibyte characters" do
       let(:content) { File.read(Decidim::Dev.asset("test_css_unclosed_comment.svg")) }
 
@@ -226,7 +238,21 @@ describe Decidim::SvgContentValidator do
         malicious_svg_css_backslash_url.svg
         malicious_svg_css_image_set.svg
         malicious_svg_css_image_set_nested_parentheses.svg
+        malicious_svg_css_image_set_quote_parentheses_external_reference.svg
+        malicious_svg_css_image_set_escaped_quote_external_reference.svg
+        malicious_svg_css_image_set_nested_url_external_reference.svg
+        malicious_svg_css_escaped_quote_unquoted_value_external_reference.svg
+        malicious_svg_css_escaped_quote_unquoted_value_single_quote_external_reference.svg
+        malicious_svg_css_empty_string_external_reference.svg
+        malicious_svg_css_empty_string_single_quote_external_reference.svg
+        malicious_svg_css_string_newline_external_reference.svg
+        malicious_svg_css_hex_escape_newline_external_reference.svg
+        malicious_svg_css_hex_escape_newline_single_quote_external_reference.svg
+        malicious_svg_css_hex_escape_crlf_external_reference.svg
+        malicious_svg_css_hex_escape_crlf_single_quote_external_reference.svg
         malicious_svg_css_image_function.svg
+        malicious_svg_css_url_opposite_quote_nested_script.svg
+        malicious_svg_css_url_opposite_quote_nested_external_reference.svg
         malicious_svg_mask_attribute.svg
         malicious_svg_cursor_attribute.svg
         malicious_svg_fill_external_reference.svg
@@ -427,6 +453,27 @@ describe Decidim::SvgContentValidator do
       end
 
       it_behaves_like "a valid SVG document"
+    end
+
+    context "with an SVG with a multi-megabyte quoted value which is not an external one" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><style>rect { mask-image: url("#{"a" * 5_000_000}"); }</style><rect/></svg>)
+      end
+
+      it "reads the value without growing the memory proportionally to its length" do
+        rss_before = `ps -o rss= -p #{Process.pid}`.to_i
+        expect(validation).to eq(:valid)
+        rss_after = `ps -o rss= -p #{Process.pid}`.to_i
+        expect(rss_after - rss_before).to be < 100_000
+      end
+    end
+
+    context "with an SVG with a multi-megabyte quoted value containing an external reference" do
+      let(:content) do
+        %(<svg xmlns="http://www.w3.org/2000/svg"><style>rect { mask-image: url("https://tracker.example.org/track.gif#{"a" * 5_000_000}"); }</style><rect/></svg>)
+      end
+
+      it_behaves_like "an unsafe SVG document"
     end
   end
 end
