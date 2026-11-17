@@ -20,7 +20,7 @@ module Decidim
         .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
-    context "when the participatory_process is trashed" do
+    context "when the participatory process is trashed" do
       let(:user) { create(:user, organization: subject.organization) }
       let!(:user_role) { create(:participatory_process_user_role, participatory_process:, user:, role: "admin") }
 

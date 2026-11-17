@@ -50,7 +50,7 @@ module Decidim
         trashed_conference.destroy
       end
 
-      it "returns false with a broad check, as trashed conferenceassembly roles do not grant access" do
+      it "returns false with a broad check, as trashed conference roles do not grant access" do
         expect(checker.send(:user_has_any_role?, user, conference, broad_check: true)).to be(false)
       end
     end
