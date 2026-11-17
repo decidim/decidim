@@ -523,7 +523,7 @@ en:
               The import document should contain the following column names in case of CSV or Excel files, or key names in case of JSON files (other columns will be ignored):
               <ul>
               <li><b>id:</b> ID of the proposal to answer</li>
-              <li><b>status:</b> One of "accepted", "evaluating", or "rejected"</li>
+              <li><b>status:</b> One of "accepted", "evaluating", or "rejected". The legacy column name "state" is also accepted.</li>
               <li><b>answer/en:</b> Answer on English language. This will depend on your platform language configuration.</li>
               </ul>
             proposals: |

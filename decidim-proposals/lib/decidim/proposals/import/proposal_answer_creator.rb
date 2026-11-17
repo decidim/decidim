@@ -74,7 +74,7 @@ module Decidim
         end
 
         def status
-          data[:status]
+          data[:status] || data[:state]
         end
 
         def answer

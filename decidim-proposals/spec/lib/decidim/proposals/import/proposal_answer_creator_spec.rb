@@ -55,6 +55,22 @@ describe Decidim::Proposals::Import::ProposalAnswerCreator do
       expect(record.answered_at).to be >= (moment)
     end
 
+    context "with the legacy state key" do
+      let(:data) do
+        {
+          id: proposal.id,
+          state: status,
+          "answer/en": Faker::Lorem.paragraph
+        }
+      end
+
+      it "adds answer to proposal" do
+        record = subject.produce
+
+        expect(record.status).to eq(status)
+      end
+    end
+
     context "with an emendation" do
       let!(:amendable) { create(:proposal, component:) }
       let!(:amendment) { create(:amendment, amendable:, emendation: proposal, state: "evaluating") }
