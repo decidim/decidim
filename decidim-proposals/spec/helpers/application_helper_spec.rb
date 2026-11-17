@@ -318,6 +318,42 @@ module Decidim
           end
         end
 
+        context "when there are only withdrawn participant proposals" do
+          before do
+            create(:proposal, :withdrawn, component:)
+          end
+
+          it "returns nil with the default availability" do
+            expect(subject).to be_nil
+          end
+
+          context "when the withdrawn availability is selected" do
+            let(:availability) { "withdrawn" }
+
+            it "returns the participants origin option" do
+              expect(origin_keys).to contain_exactly("participants")
+            end
+          end
+        end
+
+        context "when there are only withdrawn meeting proposals" do
+          before do
+            create(:proposal, :official_meeting, :withdrawn, component:)
+          end
+
+          it "returns nil with the default availability" do
+            expect(subject).to be_nil
+          end
+
+          context "when the withdrawn availability is selected" do
+            let(:availability) { "withdrawn" }
+
+            it "returns the meeting origin option" do
+              expect(origin_keys).to contain_exactly("meeting")
+            end
+          end
+        end
+
         context "when there are only rejected proposals" do
           before do
             create(:proposal, :official, :rejected, component:)
