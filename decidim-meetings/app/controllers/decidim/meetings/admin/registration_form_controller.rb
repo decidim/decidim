@@ -30,7 +30,7 @@ module Decidim
         end
 
         def response_options_url(params)
-          url_for(params.merge(controller: "registration_form", action: "response_options", format: :json, meeting_id: meeting.id))
+          url_for(Decidim::UrlHelper.sanitize_params(params).merge(controller: "registration_form", action: "response_options", format: :json, meeting_id: meeting.id))
         end
 
         private

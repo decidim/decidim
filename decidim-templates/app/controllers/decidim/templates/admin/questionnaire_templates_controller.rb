@@ -155,7 +155,14 @@ module Decidim
         end
 
         def response_options_url(params)
-          url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
+          url_for(
+            Decidim::UrlHelper.sanitize_params(params).merge(
+              controller: "decidim/templates/admin/questionnaire_templates/questionnaires",
+              action: "response_options",
+              format: :json,
+              template_id: template.id
+            )
+          )
         end
 
         def after_update_url

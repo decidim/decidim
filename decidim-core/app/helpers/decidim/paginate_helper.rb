@@ -3,6 +3,8 @@
 module Decidim
   # Helper to paginate collections.
   module PaginateHelper
+    include Decidim::UrlHelper
+
     # Displays pagination links for the given collection, setting the correct
     # theme. This mostly acts as a proxy for the underlying pagination engine.
     #
@@ -31,7 +33,7 @@ module Decidim
     private
 
     def pagination_params(paginate_params)
-      request_params = params.to_unsafe_h.except("locale", :locale)
+      request_params = decidim_url_params(params).except("locale", :locale)
       request_params["q"] = request_params["q"].except("locale", :locale) if request_params["q"].is_a?(Hash)
       request_params[:locale] = nil if admin_controller_with_locale_prefix?
       request_params.merge(paginate_params)

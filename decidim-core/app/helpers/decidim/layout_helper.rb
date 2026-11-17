@@ -3,6 +3,7 @@
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper
+    include Decidim::UrlHelper
     include Decidim::OrganizationHelper
     include Decidim::ModalHelper
     include Decidim::TooltipHelper
@@ -133,6 +134,7 @@ module Decidim
     end
 
     def current_url(params = request.parameters)
+      params = decidim_url_params(params)
       return url_for(params) if respond_to?(:current_participatory_space) || respond_to?(:current_component)
 
       each_decidim_engine do |helpers|

@@ -8,6 +8,7 @@ module Decidim
     include Decidim::ContextualHelpHelper
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
+    include Decidim::UrlHelper
 
     def layout_item_classes
       "layout-item"

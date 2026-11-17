@@ -5,13 +5,15 @@ module Decidim
     # Overrides some methods from Ransack::Helpers::FormHelper to fix the search
     # user interfaces within Decidim.
     module SearchFormHelper
+      include Decidim::UrlHelper
+
       # Provide the correct builder option for the admin search forms. Otherwise
       # they would be generated using Ransack::Helpers::FormHelper which does
       # not provide all the same features that the Decidim form builders, such
       # as datetime pickers.
       def search_form_for(record, options = {}, &)
         options[:builder] ||= SearchFormBuilder
-        options[:url] = url_for(params.to_unsafe_h.except("locale", :locale).merge(locale: nil)) if options[:url].blank?
+        options[:url] = url_for(decidim_url_params(params).except("locale", :locale).merge(locale: nil)) if options[:url].blank?
 
         super
       end
@@ -27,7 +29,7 @@ module Decidim
       private
 
       def sort_link_params
-        request_params = params.to_unsafe_h.except("locale", :locale).merge(locale: nil)
+        request_params = decidim_url_params(params).except("locale", :locale).merge(locale: nil)
         request_params["q"] = request_params["q"].except("s", :s) if request_params["q"].is_a?(Hash)
         request_params
       end
