@@ -25,14 +25,14 @@ module Decidim
         expect(Decidim::ConferenceUserRole.where(id: user_role.id)).to exist
       end
 
-      it "restores the user roles with the assembly" do
+      it "restores the user roles with the conference" do
         subject.destroy!
         subject.restore
 
         expect(subject.reload.conference_user_roles).to contain_exactly(user_role)
       end
 
-      it "removes the user roles when the assembly is permanently deleted" do
+      it "removes the user roles when the conference is permanently deleted" do
         subject.really_destroy!
 
         expect(Decidim::ConferenceUserRole.where(id: user_role.id)).not_to exist
