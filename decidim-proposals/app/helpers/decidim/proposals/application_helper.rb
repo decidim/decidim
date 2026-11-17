@@ -225,9 +225,10 @@ module Decidim
               type: :radio_buttons
             )
           end
+
+          items.reject { |item| item[:collection].blank? }
         end
         # rubocop:enable Metrics/CyclomaticComplexity
-        items.reject { |item| item[:collection].blank? }
       end
 
       def component_name

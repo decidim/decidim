@@ -1,8 +1,58 @@
+<%
+  sections = filter_sections
+  origin_filter_index = sections.index { |section| section[:id] == "origin" }
+  origin_filter = sections[origin_filter_index] if origin_filter_index
+  next_filter_ids = origin_filter_index ? sections.drop(origin_filter_index + 1).map { |section| section[:id] } : []
+%>
+<% origin_filter_html = capture do %>
+  <% if origin_filter %>
+    <%= filter_form_for(filter, url_for, class: "new_filter self-stretch") do |form| %>
+      <%= form.collection_filter(**origin_filter) %>
+    <% end %>
+  <% end %>
+<% end %>
+
 var $proposals = $('#proposals');
 var $orderFilterInput = $('.order_filter');
 
 $proposals.html('<%= j(render partial: "proposals").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
+
+// Refresh the origin filter options, as they depend on the selected states.
+var $newOriginFilterTemplate = $('<div>').html('<%= j(origin_filter_html) %>').find(".filter-container");
+var nextFilterIds = <%= raw next_filter_ids.to_json %>;
+
+$("form.new_filter").each(function() {
+  var $form = $(this);
+  var $originFilter = $form.find("#trigger-menu-origin").closest(".filter-container");
+
+  if ($newOriginFilterTemplate.length) {
+    var $newOriginFilter = $newOriginFilterTemplate.clone();
+
+    if ($originFilter.length) {
+      $originFilter.replaceWith($newOriginFilter);
+    } else {
+      var $nextFilter = $();
+      nextFilterIds.some(function(filterId) {
+        $nextFilter = $form.find("#trigger-menu-" + filterId).closest(".filter-container");
+        return $nextFilter.length > 0;
+      });
+
+      if ($nextFilter.length) {
+        $nextFilter.before($newOriginFilter);
+      } else {
+        $form.find("#dropdown-menu-filters").append($newOriginFilter);
+      }
+    }
+
+    $newOriginFilter[0].dispatchEvent(new CustomEvent("form-filter:refresh", {
+      bubbles: true,
+      detail: { element: $newOriginFilter[0] }
+    }));
+  } else if ($originFilter.length) {
+    $originFilter.remove();
+  }
+});
 
 <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
   var $map = $("#map");
