@@ -22,9 +22,44 @@ $orderFilterInput.val('<%= order %>');
 var $newOriginFilterTemplate = $('<div>').html('<%= j(origin_filter_html) %>').find(".filter-container");
 var nextFilterIds = <%= raw next_filter_ids.to_json %>;
 
+var selectedOriginValues = function($form) {
+  var values = [];
+
+  $form.find('input[name="filter[with_any_origin][]"]').each(function() {
+    var $input = $(this);
+    var isSelected = $input.is("[data-retained-origin]") || ($input.is(":checked") && !$input.hasClass("ignore-filter"));
+
+    if (isSelected && this.value !== "") {
+      values.push(this.value);
+    }
+  });
+
+  return values;
+};
+
+var retainOriginValues = function($form, values) {
+  $form.find("input[data-retained-origin]").remove();
+
+  values.forEach(function(value) {
+    var hasCheckbox = $form.find('input[type="checkbox"][name="filter[with_any_origin][]"]').filter(function() {
+      return this.value === value && !$(this).hasClass("ignore-filter");
+    }).length > 0;
+
+    if (!hasCheckbox) {
+      $("<input>", {
+        type: "hidden",
+        name: "filter[with_any_origin][]",
+        value: value,
+        "data-retained-origin": "true"
+      }).appendTo($form);
+    }
+  });
+};
+
 $("form.new_filter").each(function() {
   var $form = $(this);
   var $originFilter = $form.find("#trigger-menu-origin").closest(".filter-container");
+  var selectedOrigins = selectedOriginValues($form);
 
   if ($newOriginFilterTemplate.length) {
     var $newOriginFilter = $newOriginFilterTemplate.clone();
@@ -45,12 +80,15 @@ $("form.new_filter").each(function() {
       }
     }
 
+    retainOriginValues($form, selectedOrigins);
+
     $newOriginFilter[0].dispatchEvent(new CustomEvent("form-filter:refresh", {
       bubbles: true,
       detail: { element: $newOriginFilter[0] }
     }));
   } else if ($originFilter.length) {
     $originFilter.remove();
+    retainOriginValues($form, selectedOrigins);
   }
 });
 

@@ -218,6 +218,11 @@ export default class extends Controller {
       return;
     }
 
+    // Remove the origin values retained for a previous history entry. They are
+    // added again below when the restored URL still selects them and the
+    // corresponding option is not available in the form.
+    this.element.querySelectorAll("input[type='hidden'][data-retained-origin]").forEach((input) => input.remove());
+
     const filterParams = this._parseLocationFilterValues();
     const currentOrder = this._parseLocationOrderValue();
 
@@ -236,6 +241,10 @@ export default class extends Controller {
         if (Array.isArray(value)) {
           let checkboxes = this.element.querySelectorAll(`input[type=checkbox][name="filter[${fieldName}][]"]`);
           this.theCheckBoxesTree.updateChecked(checkboxes, value);
+
+          if (fieldName === "with_any_origin") {
+            this._updateRetainedOrigins(value);
+          }
         } else {
           this.element.querySelectorAll(`*[name="filter[${fieldName}]"]`).forEach((element) => {
             switch (element.type) {
@@ -259,6 +268,33 @@ export default class extends Controller {
     }
 
     this.changeEvents = true;
+  }
+
+  /**
+   * Keeps hidden inputs for the origin values that do not have a matching
+   * checkbox in the form, so that the selection is still submitted when the
+   * available origin options change (for example, when filtering by state).
+   * @private
+   * @param {Array} values - The origin values to keep selected
+   * @returns {Void} - Returns nothing.
+   */
+  _updateRetainedOrigins(values) {
+    this.element.querySelectorAll("input[type='hidden'][data-retained-origin]").forEach((input) => input.remove());
+
+    const checkboxValues = Array.from(this.element.querySelectorAll("input[type='checkbox'][name='filter[with_any_origin][]']:not(.ignore-filter)")).map((checkbox) => checkbox.value);
+
+    values.forEach((value) => {
+      if (value === "" || checkboxValues.includes(value)) {
+        return;
+      }
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "filter[with_any_origin][]";
+      input.value = value;
+      input.dataset.retainedOrigin = "true";
+      this.element.appendChild(input);
+    });
   }
 
   /**

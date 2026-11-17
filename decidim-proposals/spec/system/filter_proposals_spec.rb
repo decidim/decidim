@@ -792,6 +792,59 @@ describe "Filter Proposals", :slow do
     end
   end
 
+  context "when the selected origin is not available after changing the state", :slow do
+    let!(:participant_proposal) { create(:proposal, :accepted, component:) }
+    let!(:official_proposal) { create(:proposal, :official, component:) }
+
+    before do
+      component.update!(
+        settings: { official_proposals_enabled: true },
+        step_settings: {
+          component.participatory_space.active_step.id => { proposal_answering_enabled: true }
+        }
+      )
+
+      visit_component
+    end
+
+    it "restores the participants origin when going back" do
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        uncheck "All"
+        check "Participants"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_no_text(translated(official_proposal.title))
+
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
+        uncheck "Accepted"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 0)
+
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        expect(page).to have_no_text(/Participants/i)
+      end
+
+      page.go_back
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_no_text(translated(official_proposal.title))
+
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        expect(page).to have_checked_field("Participants")
+      end
+
+      page.go_back
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_text(translated(official_proposal.title))
+    end
+  end
+
   context "when using the browser history", :slow do
     before do
       create_list(:proposal, 2, component:)
