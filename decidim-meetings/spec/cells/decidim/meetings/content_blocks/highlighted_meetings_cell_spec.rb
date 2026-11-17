@@ -164,7 +164,7 @@ module Decidim
             end
 
             context "when the linked meeting belongs to a restricted space" do
-              let(:other_component) { create(:meeting_component, participatory_space: create(:assembly, :restricted, organization:)) }
+              let(:other_component) { create(:meeting_component, participatory_space: create(:assembly, :private, :opaque, organization:)) }
 
               it "does not render the linked meeting" do
                 expect(meetings_ids).to eq([item_id(meeting)])
