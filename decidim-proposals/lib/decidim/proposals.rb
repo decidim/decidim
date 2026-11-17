@@ -122,11 +122,6 @@ module Decidim
       end
       default_statuses
     end
-
-    # Kept for migrations written before the ProposalState -> ProposalStatus rename.
-    def self.create_default_states!(component, admin_user, with_traceability: true)
-      create_default_statuses!(component, admin_user, with_traceability:, model: Decidim::Proposals::ProposalState)
-    end
   end
 
   module ContentParsers

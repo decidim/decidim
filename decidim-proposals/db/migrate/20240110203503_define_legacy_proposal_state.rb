@@ -1,9 +1,15 @@
 # frozen_string_literal: true
 
+# The ProposalState model was renamed to ProposalStatus but the
+# CreateDefaultProposalStates migration (20240110203504) still references it.
+# This migration is ordered before it so the legacy class and the method it
+# calls are defined when that migration runs.
+class DefineLegacyProposalState < ActiveRecord::Migration[6.1]
+  def change; end
+end
+
 module Decidim
   module Proposals
-    # Compatibility model which for migrations points to the pre-named
-    # ProposalState table, now renamed to ProposalStatus.
     class ProposalState < ApplicationRecord
       include Decidim::Traceable
 
@@ -19,6 +25,10 @@ module Decidim
                foreign_key: "decidim_proposals_proposal_state_id",
                inverse_of: false,
                dependent: :restrict_with_error
+    end
+
+    def self.create_default_states!(component, admin_user, with_traceability: true)
+      create_default_statuses!(component, admin_user, with_traceability:, model: ProposalState)
     end
   end
 end
