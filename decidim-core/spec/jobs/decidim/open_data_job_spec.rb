@@ -41,6 +41,36 @@ describe Decidim::OpenDataJob do
         expect(content).to include(first_user.name)
         expect(content).to include(second_user.name)
       end
+
+      context "when another job publishes the same resource while this job is exporting" do
+        it "removes the duplicate created by the other job" do
+          # Simulate the other job attaching its file after this job loaded the attachments,
+          # so the preloaded collection is stale when the cleanup runs.
+          # rubocop:disable-next RSpec/AnyInstance
+          allow_any_instance_of(Decidim::OpenDataExporter).to receive(:export).and_wrap_original do |original, *args|
+            Decidim::Organization.find(organization.id).open_data_files.attach(
+              io: StringIO.new("concurrent export"), filename:
+            )
+            original.call(*args)
+          end
+
+          subject.perform_now(organization, resource)
+
+          expect(resource_files.size).to eq(1)
+          expect(resource_files.first.blob.download).to include(first_user.name)
+        end
+      end
+
+      context "when two jobs export the same resource concurrently" do
+        it "leaves a single file for the resource" do
+          threads = 2.times.map do
+            Thread.new { described_class.perform_now(organization, resource) }
+          end
+          threads.each(&:join)
+
+          expect(resource_files.size).to eq(1)
+        end
+      end
     end
   end
 

@@ -19,11 +19,21 @@ module Decidim
 
       raise "Export produced no data (0 bytes) for resource=#{resource.inspect}" unless exported_bytes.is_a?(Integer) && exported_bytes.positive?
 
+      # The export is generated outside the lock, but publishing it is serialized per
+      # organization: concurrent jobs would otherwise work on the attachment snapshot
+      # preloaded before the export, creating duplicate attachments for the same blob
+      # and leaving the controller serving an older file. The lock stays inside the
+      # `File.open` block because ActiveStorage uploads in an `after_commit` callback,
+      # which runs while the transaction commits.
       File.open(path, "rb") do |file|
-        organization.open_data_files.attach(io: file, filename:)
-      end
+        organization.with_lock do
+          organization.open_data_files.reload
 
-      organization.open_data_files.select { |f| f.blob.filename.to_s == filename }.sort_by(&:created_at)[0...-1].each(&:purge)
+          organization.open_data_files.attach(io: file, filename:)
+
+          organization.open_data_files.select { |f| f.blob.filename.to_s == filename }.sort_by(&:created_at)[0...-1].each(&:purge)
+        end
+      end
     rescue StandardError => e
       Rails.logger.error "[OpenDataJob] Export failed for organization=#{organization&.id} resource=#{resource.inspect}: #{e.message}"
       raise
