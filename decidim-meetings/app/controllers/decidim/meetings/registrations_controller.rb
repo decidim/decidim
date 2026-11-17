@@ -6,6 +6,8 @@ module Decidim
     class RegistrationsController < Decidim::Meetings::ApplicationController
       include Decidim::Forms::Concerns::HasQuestionnaire
 
+      before_action :ensure_signed_in, only: [:create, :decline_invitation]
+
       def respond
         enforce_permission_to(:join, :meeting, meeting:)
 
@@ -134,6 +136,19 @@ module Decidim
 
       def redirect_after_path
         redirect_to meeting_path(meeting)
+      end
+
+      def ensure_signed_in
+        return if user_signed_in?
+
+        case action_name
+        when "create"
+          flash[:alert] = t("registrations.create.unauthorized", scope: "decidim.meetings")
+        when "decline_invitation"
+          flash[:alert] = t("registrations.decline_invitation.unauthorized", scope: "decidim.meetings")
+        end
+
+        redirect_to decidim.new_user_session_path
       end
 
       def user_has_no_permission_path
