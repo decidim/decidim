@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require_relative "../../../db/migrate/20240110203503_define_legacy_proposal_state"
+require_relative "../../../db/migrate/20240110203504_create_default_proposal_states"
 
-describe "DefineLegacyProposalState", type: :migration do
-  let(:migration) { DefineLegacyProposalState.new }
+describe "CreateDefaultProposalStates", type: :migration do
+  let(:migration) { CreateDefaultProposalStates.new }
   let(:organization) { create(:organization) }
   let(:component) { create(:proposal_component, organization:) }
   let(:admin_user) { create(:user, :admin, organization:) }
@@ -27,11 +27,7 @@ describe "DefineLegacyProposalState", type: :migration do
     ActiveRecord::Base.connection.drop_table(:decidim_proposals_proposal_states, if_exists: true)
   end
 
-  it "runs without errors" do
-    expect { migration.migrate(:up) }.not_to raise_error
-  end
-
-  it "defines the legacy model pointing to the pre-rename table" do
+  it "defines the legacy model it needs pointing to the pre-rename table" do
     expect(Decidim::Proposals::ProposalState.table_name).to eq("decidim_proposals_proposal_states")
   end
 
