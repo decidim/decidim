@@ -16,6 +16,8 @@ describe Decidim::UrlHelper do
           "anchor" => "evil",
           "params" => { "foo" => "bar" },
           "path_params" => { "id" => "1" },
+          "_recall" => { "id" => "1" },
+          "use_route" => "evil_route",
           "trailing_slash" => "true",
           "subdomain" => "evil",
           "domain" => "evil.example.org",
@@ -29,6 +31,18 @@ describe Decidim::UrlHelper do
 
     it "removes the Rails reserved URL options" do
       expect(params.keys).to contain_exactly("locale", "page", "filter")
+    end
+
+    it "removes the _recall URL option" do
+      result = helper.decidim_url_params(
+        ActionController::Parameters.new(
+          "_recall" => "malformed",
+          "page" => "2"
+        )
+      )
+
+      expect(result).not_to have_key("_recall")
+      expect(result["page"]).to eq("2")
     end
 
     it "keeps the application parameters" do

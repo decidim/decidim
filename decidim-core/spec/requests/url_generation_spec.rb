@@ -35,4 +35,14 @@ describe "URL generation with untrusted parameters" do
     expect(response.body).to include("/en/last_activities?per_page=25")
     expect(response.body).to include("/en/last_activities?page=2")
   end
+
+  it "ignores malformed _recall parameters when generating links" do
+    get(
+      "/en/last_activities?_recall=malformed",
+      headers:
+    )
+
+    expect(response).to have_http_status(:ok)
+    expect(response.body).to include("/en/last_activities?per_page=25")
+  end
 end

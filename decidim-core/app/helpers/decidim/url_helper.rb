@@ -4,8 +4,12 @@ module Decidim
   # Helper that sanitizes the parameters used to generate URLs.
   module UrlHelper
     # Rails uses these options to build URLs. Allowing user-controlled values
-    # for them can change the generated URL's scheme, host, or path.
-    RESERVED_URL_OPTIONS = (ActionDispatch::Routing::RouteSet::RESERVED_OPTIONS + [:path_params]).freeze
+    # for them can change the generated URL's scheme, host, or path. The
+    # `_recall` and `use_route` options are handled before the route set
+    # resolves the URL, so they are not part of RESERVED_OPTIONS.
+    RESERVED_URL_OPTIONS = (
+      ActionDispatch::Routing::RouteSet::RESERVED_OPTIONS + [:path_params, :_recall, :use_route]
+    ).freeze
 
     # Removes the Rails URL generation options from the given parameters.
     #
