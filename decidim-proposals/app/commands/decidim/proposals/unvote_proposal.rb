@@ -21,8 +21,7 @@ module Decidim
       # Returns nothing.
       def call
         ActiveRecord::Base.transaction do
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- proposal is already scoped to its component
-          ProposalVote.where(
+          ProposalVote.where( # rubocop:disable Decidim/OrganizationScopedFinder -- proposal is already scoped to its component
             author: @current_user,
             proposal: @proposal
           ).destroy_all
@@ -56,12 +55,12 @@ module Decidim
       end
 
       def user_votes
-        # rubocop:disable-next Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
+        # rubocop:disable Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
         @user_votes ||= ProposalVote.where(
           author: @current_user,
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
           proposal: Proposal.where(component:)
         )
+        # rubocop:enable Decidim/OrganizationScopedFinder
       end
     end
   end
