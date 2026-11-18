@@ -35,5 +35,6 @@ describe "Admin URL generation with untrusted parameters" do
     page_two_url = URI.parse(page_two_link["href"])
     expect(page_two_url.path).to eq("/en/admin/users")
     expect(CGI.parse(page_two_url.query)).to include("page" => ["2"])
+    expect(CGI.parse(page_two_url.query)).not_to have_key("script_name")
   end
 end
