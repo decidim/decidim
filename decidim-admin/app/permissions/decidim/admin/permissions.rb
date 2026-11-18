@@ -34,6 +34,8 @@ module Decidim
 
         can_use_image_editor?
 
+        apply_trash_permissions! if space_admin_trash_action?
+
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
           allow! if read_user_statistics_action?
@@ -62,15 +64,7 @@ module Decidim
           allow! if permission_action.subject == :share_token
           allow! if permission_action.subject == :reminder
 
-          if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
-            if permission_action.action == :soft_delete
-              toggle_allow(trashable_deleted_resource.respond_to?(:deleted?) && !trashable_deleted_resource.deleted?)
-            elsif permission_action.action == :restore
-              toggle_allow(trashable_deleted_resource&.deleted?)
-            else
-              allow!
-            end
-          end
+          apply_trash_permissions! if trash_action?
 
           if permission_action.subject == :taxonomy
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
@@ -86,6 +80,41 @@ module Decidim
 
       def trashable_deleted_resource
         context.fetch(:trashable_deleted_resource, nil)
+      end
+
+      def trash_action?
+        permission_action.action.in?([:manage_trash, :restore, :soft_delete])
+      end
+
+      def apply_trash_permissions!
+        case permission_action.action
+        when :soft_delete
+          toggle_allow(trashable_deleted_resource.respond_to?(:deleted?) && !trashable_deleted_resource.deleted?)
+        when :restore
+          toggle_allow(trashable_deleted_resource&.deleted?)
+        else
+          allow!
+        end
+      end
+
+      def space_admin_trash_action?
+        return false unless trash_action?
+        return false if user.admin?
+        return false unless admin_terms_accepted?
+        return false unless current_component && current_participatory_space
+        return false unless current_component.participatory_space == current_participatory_space
+        return false if trashable_deleted_resource && trashable_deleted_resource.try(:participatory_space) != current_participatory_space
+
+        current_participatory_space.respond_to?(:user_roles) &&
+          current_participatory_space.user_roles(:admin).exists?(user:)
+      end
+
+      def current_component
+        context.fetch(:current_component, nil)
+      end
+
+      def current_participatory_space
+        context.fetch(:current_participatory_space, nil)
       end
 
       def user_manager?
