@@ -7,7 +7,9 @@ module Decidim
 
       routes do
         resources :documents do
-          resources :suggestions
+          resources :suggestions do
+            resources :votes, only: [:create], controller: "suggestion_votes"
+          end
         end
         scope "/documents" do
           root to: "documents#index"
@@ -17,6 +19,14 @@ module Decidim
 
       initializer "decidim_collaborative_texts.register_icons" do
         Decidim.icons.register(name: "Decidim::CollaborativeTexts::Document", icon: "draft-line", description: "Collaborative texts", category: "activity",
+                               engine: :collaborative_texts)
+        Decidim.icons.register(name: "suggestion-upvote-line", icon: "thumb-up-line", description: "Upvote suggestion", category: "action",
+                               engine: :collaborative_texts)
+        Decidim.icons.register(name: "suggestion-upvote-fill", icon: "thumb-up-fill", description: "Upvoted suggestion", category: "action",
+                               engine: :collaborative_texts)
+        Decidim.icons.register(name: "suggestion-downvote-line", icon: "thumb-down-line", description: "Downvote suggestion", category: "action",
+                               engine: :collaborative_texts)
+        Decidim.icons.register(name: "suggestion-downvote-fill", icon: "thumb-down-fill", description: "Downvoted suggestion", category: "action",
                                engine: :collaborative_texts)
       end
 

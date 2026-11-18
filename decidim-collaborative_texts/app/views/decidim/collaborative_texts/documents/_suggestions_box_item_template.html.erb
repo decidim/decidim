@@ -31,3 +31,25 @@
 </div>
 
 <div class="collaborative-texts-suggestions-box-item-text"></div>
+
+<div class="collaborative-texts-suggestions-box-item-votes">
+  <button type="button"
+          class="button button__sm button__text-secondary js-collaborative-texts-vote-up"
+          aria-pressed="false"
+          title="<%= t("decidim.collaborative_texts.suggestion_votes.upvote") %>"
+          aria-label="<%= t("decidim.collaborative_texts.suggestion_votes.upvote") %>">
+    <%= icon "suggestion-upvote-line" %>
+    <%= icon "suggestion-upvote-fill" %>
+    <span class="js-collaborative-texts-vote-up-count">0</span>
+  </button>
+
+  <button type="button"
+          class="button button__sm button__text-secondary js-collaborative-texts-vote-down"
+          aria-pressed="false"
+          title="<%= t("decidim.collaborative_texts.suggestion_votes.downvote") %>"
+          aria-label="<%= t("decidim.collaborative_texts.suggestion_votes.downvote") %>">
+    <%= icon "suggestion-downvote-line" %>
+    <%= icon "suggestion-downvote-fill" %>
+    <span class="js-collaborative-texts-vote-down-count">0</span>
+  </button>
+</div>
