@@ -206,6 +206,10 @@
         @apply flex items-center gap-1 p-0 text-secondary;
       }
 
+      &-count {
+        @apply text-gray-2;
+      }
+
       svg {
         @apply w-4 h-4 fill-secondary;
       }
