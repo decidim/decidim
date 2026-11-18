@@ -90,8 +90,7 @@ module Decidim
     def attachments_for(parent)
       return parent.attachments if parent.respond_to?(:attachments)
 
-      # rubocop:disable-next Decidim/OrganizationScopedFinder -- parent is the current organization or an already scoped record
-      Decidim::Attachment.where(attached_to: parent)
+      Decidim::Attachment.where(attached_to: parent) # rubocop:disable Decidim/OrganizationScopedFinder -- parent is the current organization or an already scoped record
     end
 
     def signed_id_for(attachment)

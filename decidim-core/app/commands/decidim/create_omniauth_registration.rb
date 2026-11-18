@@ -117,8 +117,7 @@ module Decidim
     end
 
     def existing_identity
-      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user: organization.users scopes the lookup to the current organization
-      @existing_identity ||= Identity.find_by(
+      @existing_identity ||= Identity.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- user: organization.users scopes the lookup to the current organization
         user: organization.users,
         provider: form.provider,
         uid: form.uid
