@@ -73,6 +73,17 @@ module Decidim
           expect(blob_response).to eq({ "id" => blob.id.to_s })
         end
 
+        it "logs the deletion, as the command is used to perform it" do
+          blob
+
+          expect { response }.to change(Decidim::ActionLog, :count).by(1)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.action).to eq("delete")
+          expect(action_log.user).to eq(current_user)
+          expect(action_log.resource).to eq(blob)
+        end
+
         context "when the blob is attached to an attachment in a restricted space" do
           let(:attachment) do
             create(:attachment, :with_pdf, attached_to: create(:participatory_process, :restricted, :published, organization: current_organization))

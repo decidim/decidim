@@ -145,6 +145,7 @@ module Decidim
     autoload :CreateResource, "decidim/commands/create_resource"
     autoload :UpdateResource, "decidim/commands/update_resource"
     autoload :DestroyResource, "decidim/commands/destroy_resource"
+    autoload :DeleteBlob, "decidim/commands/delete_blob"
     autoload :ResourceHandler, "decidim/commands/resource_handler"
     autoload :HookError, "decidim/commands/hook_error"
     autoload :SoftDeleteResource, "decidim/commands/soft_delete_resource"
