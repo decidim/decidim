@@ -154,6 +154,10 @@ module Decidim
                         index_on_create: ->(meeting) { meeting.visible? && meeting.published? },
                         index_on_update: ->(meeting) { meeting.visible? && meeting.published? })
 
+      def self.searchable_arguments
+        [:taxonomies, { component: { participatory_space: :organization } }]
+      end
+
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt
 

@@ -21,12 +21,17 @@ module Decidim
 
     private
 
+    # Values are normalized to the rendering time zone so the date checks below
+    # and the rendered values agree. Plain `Time` and `Date` values (e.g. from
+    # `Time.parse` or a database read outside the organization time zone) can
+    # fall on a different day once converted, and the checks must use the same
+    # zone as the display.
     def start_time
-      model[:start]
+      model[:start]&.in_time_zone
     end
 
     def end_time
-      model[:end]
+      model[:end]&.in_time_zone
     end
 
     def same_day?

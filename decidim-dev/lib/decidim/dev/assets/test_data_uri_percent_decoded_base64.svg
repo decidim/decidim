@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- An inline data reference whose Base64 payload has its padding written as
+     percent-encoded characters. The browsers decode the percent-encoded characters
+     before reading the payload as Base64, so the payload is decoded as the document
+     it declares and is validated as a nested document. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><image width="16" height="16" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxjaXJjbGUgcj0iMSIvPjwvc3ZnPg%3D%3D"/></svg>

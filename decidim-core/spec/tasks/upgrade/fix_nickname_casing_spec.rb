@@ -33,8 +33,13 @@ describe "rake decidim:upgrade:fix_nickname_casing", type: :task do
   end
 
   context "when there are 2 users with same nicknames across multiple organizations" do
+    # The organization has to be created, not just built by the factory: `save(validate: false)` skips the
+    # nickname format validation of the user, but the organization is still saved with its own validation,
+    # which validates `user_entities` through the `inverse_of` and fails on this invalid nickname.
+    let(:other_organization) { create(:organization) }
+
     let!(:user) do
-      user = build(:user, nickname: "SomeCapitalGuy")
+      user = build(:user, nickname: "SomeCapitalGuy", organization: other_organization)
       user.save(validate: false)
       user
     end
