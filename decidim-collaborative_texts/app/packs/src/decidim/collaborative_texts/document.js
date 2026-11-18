@@ -25,6 +25,7 @@ export default class Document {
     } catch {
       console.error("Error parsing collaborativeTextsI18n", this.doc.dataset.collaborativeTextsI18n);
     }
+    this.signedIn = this.doc.dataset.collaborativeTextsSignedIn === "true";
     this.csrfToken = document.querySelector("meta[name=csrf-token]") && document.querySelector('meta[name="csrf-token"]').getAttribute("content");
     this.alertWrapper = window.document.querySelector(".collaborative-texts-alert");
     this.alertDiv = this.alertWrapper.querySelector("div");
