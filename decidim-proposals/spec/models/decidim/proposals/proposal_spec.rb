@@ -595,6 +595,15 @@ module Decidim
         end
       end
 
+      describe ".searchable_arguments" do
+        it "only eager loads associations that exist" do
+          described_class.searchable_arguments.each do |argument|
+            association = argument.is_a?(Hash) ? argument.keys.first : argument
+            expect(described_class.reflect_on_association(association)).to be_present
+          end
+        end
+      end
+
       describe ".ransackable_attributes" do
         it "allows sorting by status_published" do
           expect(described_class.ransackable_attributes).to include("status_published")
