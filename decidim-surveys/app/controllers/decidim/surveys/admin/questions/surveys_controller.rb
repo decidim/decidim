@@ -22,7 +22,7 @@ module Decidim
           end
 
           def response_options_url(params)
-            url_for(params.merge(controller: "questions/surveys", action: "response_options", format: :json, survey_id: survey.id))
+            url_for(decidim_url_params(params, controller: "questions/surveys", action: "response_options", format: :json, survey_id: survey.id))
           end
 
           def after_update_url
