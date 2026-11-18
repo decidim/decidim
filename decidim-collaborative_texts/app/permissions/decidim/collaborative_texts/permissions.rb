@@ -13,7 +13,7 @@ module Decidim
         case permission_action.action
         when :read
           allow!
-        when :suggest
+        when :suggest, :vote
           allow! if user
         when :rollout
           allow! if user && (user.admin? || space_allows_admin_access?)
