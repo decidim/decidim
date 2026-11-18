@@ -8,7 +8,10 @@ describe Decidim::UserActivityCell, type: :cell do
 
   subject { my_cell.call }
 
-  let(:view_context) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+  # Kaminari renders its theme partials through the view_context instance itself, so it must be a real
+  # view_context: an anonymous ActionView::Base subclass has neither the app helpers the partials use
+  # (e.g. `icon`) nor a shared compiled method container.
+  let(:view_context) { Decidim::ProfilesController.new.view_context }
 
   let(:my_cell) do
     cell(
