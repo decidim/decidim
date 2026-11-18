@@ -140,7 +140,7 @@ module Decidim
             # Returns the url to get the response options json (for the display conditions form)
             # for the question with id = params[:id]
             def response_options_url(params)
-              url_for([questionnaire.questionnaire_for, { action: :response_options, format: :json, **Decidim::UrlHelper.sanitize_params(params) }])
+              url_for([questionnaire.questionnaire_for, decidim_url_params(params, action: :response_options, format: :json)])
             end
 
             # Implement this method in your controller to set the title

@@ -34,7 +34,8 @@ module Decidim
 
           def response_options_url(params)
             url_for(
-              Decidim::UrlHelper.sanitize_params(params).merge(
+              decidim_url_params(
+                params,
                 controller: "decidim/templates/admin/questionnaire_templates/questionnaires",
                 action: "response_options",
                 format: :json,
