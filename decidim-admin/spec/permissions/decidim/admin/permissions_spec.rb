@@ -433,6 +433,7 @@ describe Decidim::Admin::Permissions do
     let(:resource) { create(:dummy_resource, component: current_component).tap { |resource| resource.destroy! if trashed } }
     let(:role) { nil }
     let(:trashed) { false }
+    let(:other_space_organization) { organization }
     let(:action_subject) { :dummy_resource }
     let(:context) do
       {
@@ -525,12 +526,17 @@ describe Decidim::Admin::Permissions do
         context "when the user is a space #{non_admin_role}" do
           let(:role) { non_admin_role }
 
-          [:soft_delete, :manage_trash].each do |trash_action|
-            context "when the action is #{trash_action}" do
-              let(:action_name) { trash_action }
+          context "when the action is soft_delete" do
+            let(:action_name) { :soft_delete }
 
-              it_behaves_like "permission is not set"
-            end
+            it_behaves_like "permission is not set"
+          end
+
+          context "when the action is manage_trash" do
+            let(:action_name) { :manage_trash }
+            let(:resource) { nil }
+
+            it_behaves_like "permission is not set"
           end
 
           context "when the action is restore" do
@@ -551,6 +557,37 @@ describe Decidim::Admin::Permissions do
 
         it_behaves_like "permission is not set"
       end
+
+      context "when the user is an admin of a participatory space in another organization" do
+        let(:other_space_organization) { create(:organization) }
+        let(:user) { create(:user, :confirmed, admin_terms_accepted_at: Time.current, organization: other_space_organization) }
+
+        before do
+          other_space_role
+        end
+
+        [:soft_delete, :restore, :manage_trash].each do |trash_action|
+          context "when the action is #{trash_action}" do
+            let(:action_name) { trash_action }
+            let(:trashed) { trash_action == :restore }
+
+            it_behaves_like "permission is not set"
+          end
+        end
+      end
+
+      context "when there is no user" do
+        let(:user) { nil }
+
+        [:soft_delete, :restore, :manage_trash].each do |trash_action|
+          context "when the action is #{trash_action}" do
+            let(:action_name) { trash_action }
+            let(:trashed) { trash_action == :restore }
+
+            it { is_expected.to be false }
+          end
+        end
+      end
     end
 
     context "when the space is a participatory process" do
@@ -558,7 +595,7 @@ describe Decidim::Admin::Permissions do
       let(:space_subject) { :participatory_process }
       let(:other_space_role) do
         create(:participatory_process_user_role, user:, role: :admin,
-                                                 participatory_process: create(:participatory_process, organization:))
+                                                 participatory_process: create(:participatory_process, organization: other_space_organization))
       end
 
       before do
@@ -572,7 +609,7 @@ describe Decidim::Admin::Permissions do
       let(:participatory_space) { create(:assembly, organization:) }
       let(:space_subject) { :assembly }
       let(:other_space_role) do
-        create(:assembly_user_role, user:, role: :admin, assembly: create(:assembly, organization:))
+        create(:assembly_user_role, user:, role: :admin, assembly: create(:assembly, organization: other_space_organization))
       end
 
       before do
@@ -598,7 +635,7 @@ describe Decidim::Admin::Permissions do
       let(:participatory_space) { create(:conference, organization:) }
       let(:space_subject) { :conference }
       let(:other_space_role) do
-        create(:conference_user_role, user:, role: :admin, conference: create(:conference, organization:))
+        create(:conference_user_role, user:, role: :admin, conference: create(:conference, organization: other_space_organization))
       end
 
       before do
