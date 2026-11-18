@@ -28,6 +28,18 @@ module Decidim
           end
         end
 
+        context "when a storage CDN host is configured" do
+          let(:attachment) do
+            create(:attachment, :with_pdf, attached_to: create(:participatory_process, organization: current_organization))
+          end
+
+          before { allow(Decidim).to receive(:storage_cdn_host).and_return("https://cdn.example.org") }
+
+          it "returns the url of the storage service" do
+            expect(response["src"]).to start_with("https://cdn.example.org/rails/active_storage/")
+          end
+        end
+
         context "when the blob is attached to an attachment in a restricted space" do
           let(:attachment) do
             create(:attachment, :with_pdf, attached_to: create(:participatory_process, :restricted, :published, organization: current_organization))

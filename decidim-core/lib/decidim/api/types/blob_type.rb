@@ -94,10 +94,11 @@ module Decidim
         @url_option_resolver ||= UrlOptionResolver.new
       end
 
+      # The CDN host is read from the Decidim configuration (`STORAGE_CDN_HOST`),
+      # as in Decidim::AssetRouter::Storage, rather than from the Rails credentials
+      # API, which Decidim does not use.
       def remote_storage_options
-        @remote_storage_options ||= {
-          host: Rails.application.credentials.dig(:storage, :cdn_host)
-        }.compact
+        @remote_storage_options ||= { host: Decidim.storage_cdn_host }.compact_blank
       end
     end
   end
