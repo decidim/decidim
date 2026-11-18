@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/conferences/test/factories"
 
 describe Decidim::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
@@ -422,6 +423,207 @@ describe Decidim::Admin::Permissions do
       let(:resource) { instance_double(Decidim::Dev::DummyResource) }
 
       it { is_expected.to be true }
+    end
+  end
+
+  describe "trash actions for participatory space roles" do
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, :confirmed, admin_terms_accepted_at: Time.current, organization:) }
+    let(:current_component) { create(:dummy_component, participatory_space:) }
+    let(:resource) { create(:dummy_resource, component: current_component).tap { |resource| resource.destroy! if trashed } }
+    let(:role) { nil }
+    let(:trashed) { false }
+    let(:action_subject) { :dummy_resource }
+    let(:context) do
+      {
+        current_organization: organization,
+        current_component:,
+        current_participatory_space: participatory_space,
+        participatory_space:,
+        trashable_deleted_resource: resource
+      }
+    end
+
+    shared_examples "space admin trash permissions" do
+      context "when the user is a space admin" do
+        let(:role) { :admin }
+
+        context "when soft deleting a resource that is not trashed" do
+          let(:action_name) { :soft_delete }
+
+          it { is_expected.to be true }
+        end
+
+        context "when soft deleting a resource that is already trashed" do
+          let(:action_name) { :soft_delete }
+          let(:trashed) { true }
+
+          it { is_expected.to be false }
+        end
+
+        context "when restoring a trashed resource" do
+          let(:action_name) { :restore }
+          let(:trashed) { true }
+
+          it { is_expected.to be true }
+        end
+
+        context "when restoring a resource that is not trashed" do
+          let(:action_name) { :restore }
+
+          it { is_expected.to be false }
+        end
+
+        context "when managing the trash" do
+          let(:action_name) { :manage_trash }
+          let(:resource) { nil }
+
+          it { is_expected.to be true }
+        end
+
+        context "when the admin has not accepted the admin Terms of Service" do
+          let(:user) { create(:user, :confirmed, admin_terms_accepted_at: nil, organization:) }
+          let(:action_name) { :soft_delete }
+
+          it_behaves_like "permission is not set"
+        end
+
+        context "when the resource belongs to another participatory space" do
+          let(:other_component) { create(:dummy_component, organization:) }
+          let(:resource) { create(:dummy_resource, component: other_component) }
+          let(:action_name) { :soft_delete }
+
+          it_behaves_like "permission is not set"
+        end
+
+        context "when the current component belongs to another participatory space" do
+          let(:current_component) { create(:dummy_component, organization:) }
+          let(:action_name) { :manage_trash }
+          let(:resource) { nil }
+
+          it_behaves_like "permission is not set"
+        end
+
+        context "when there is no current component" do
+          let(:current_component) { nil }
+
+          [:soft_delete, :restore, :manage_trash].each do |trash_action|
+            context "when the action is #{trash_action}" do
+              let(:action_name) { trash_action }
+              let(:action_subject) { space_subject }
+              let(:resource) { participatory_space }
+
+              before { participatory_space.destroy! if trash_action == :restore }
+
+              it_behaves_like "permission is not set"
+            end
+          end
+        end
+      end
+
+      [:collaborator, :evaluator, :moderator].each do |non_admin_role|
+        context "when the user is a space #{non_admin_role}" do
+          let(:role) { non_admin_role }
+
+          [:soft_delete, :manage_trash].each do |trash_action|
+            context "when the action is #{trash_action}" do
+              let(:action_name) { trash_action }
+
+              it_behaves_like "permission is not set"
+            end
+          end
+
+          context "when the action is restore" do
+            let(:action_name) { :restore }
+            let(:trashed) { true }
+
+            it_behaves_like "permission is not set"
+          end
+        end
+      end
+
+      context "when the user is an admin of another participatory space" do
+        let(:action_name) { :soft_delete }
+
+        before do
+          other_space_role
+        end
+
+        it_behaves_like "permission is not set"
+      end
+    end
+
+    context "when the space is a participatory process" do
+      let(:participatory_space) { create(:participatory_process, organization:) }
+      let(:space_subject) { :participatory_process }
+      let(:other_space_role) do
+        create(:participatory_process_user_role, user:, role: :admin,
+                                                 participatory_process: create(:participatory_process, organization:))
+      end
+
+      before do
+        create(:participatory_process_user_role, user:, participatory_process: participatory_space, role:) if role
+      end
+
+      it_behaves_like "space admin trash permissions"
+    end
+
+    context "when the space is an assembly" do
+      let(:participatory_space) { create(:assembly, organization:) }
+      let(:space_subject) { :assembly }
+      let(:other_space_role) do
+        create(:assembly_user_role, user:, role: :admin, assembly: create(:assembly, organization:))
+      end
+
+      before do
+        create(:assembly_user_role, user:, assembly: participatory_space, role:) if role
+      end
+
+      it_behaves_like "space admin trash permissions"
+
+      context "when the user is an admin of the parent assembly" do
+        let(:parent_assembly) { create(:assembly, organization:) }
+        let(:participatory_space) { create(:assembly, parent: parent_assembly, organization:) }
+        let(:action_name) { :soft_delete }
+
+        before do
+          create(:assembly_user_role, user:, assembly: parent_assembly, role: :admin)
+        end
+
+        it { is_expected.to be true }
+      end
+    end
+
+    context "when the space is a conference" do
+      let(:participatory_space) { create(:conference, organization:) }
+      let(:space_subject) { :conference }
+      let(:other_space_role) do
+        create(:conference_user_role, user:, role: :admin, conference: create(:conference, organization:))
+      end
+
+      before do
+        create(:conference_user_role, user:, conference: participatory_space, role:) if role
+      end
+
+      it_behaves_like "space admin trash permissions"
+    end
+
+    context "when the user is an organization admin" do
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
+      let(:participatory_space) { create(:participatory_process, organization:) }
+
+      context "when soft deleting a resource that is not trashed" do
+        let(:action_name) { :soft_delete }
+
+        it { is_expected.to be true }
+      end
+
+      context "when restoring a trashed resource" do
+        let(:action_name) { :restore }
+        let(:trashed) { true }
+
+        it { is_expected.to be true }
+      end
     end
   end
 
