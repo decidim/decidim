@@ -49,5 +49,21 @@ describe Decidim::UrlHelper do
       expect(params["page"]).to eq("2")
       expect(params["filter"]["with_resource_type"]).to eq("all")
     end
+
+    it "merges the extra parameters, overriding the request parameters" do
+      result = helper.decidim_url_params(
+        ActionController::Parameters.new(
+          "action" => "index",
+          "page" => "2",
+          "script_name" => "javascript:alert(1)//"
+        ),
+        action: "response_options",
+        page: "3"
+      )
+
+      expect(result["action"]).to eq("response_options")
+      expect(result["page"]).to eq("3")
+      expect(result).not_to have_key("script_name")
+    end
   end
 end

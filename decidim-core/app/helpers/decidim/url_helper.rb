@@ -11,13 +11,20 @@ module Decidim
       ActionDispatch::Routing::RouteSet::RESERVED_OPTIONS + [:path_params, :_recall, :use_route]
     ).freeze
 
-    # Removes the Rails URL generation options from the given parameters.
+    # Removes the Rails URL generation options from the given parameters and
+    # merges the extra parameters.
+    #
+    # The extra parameters are trusted values defined by the application, so
+    # they take precedence over the request parameters. This allows forcing
+    # routing options (such as the controller, the action or the format)
+    # without letting a request parameter override them.
     #
     # params - An ActionController::Parameters or a Hash.
+    # extra_params - A Hash with extra URL generation options.
     #
     # Returns a HashWithIndifferentAccess without the reserved URL options.
-    def decidim_url_params(params)
-      Decidim::UrlHelper.sanitize_params(params)
+    def decidim_url_params(params, **extra_params)
+      Decidim::UrlHelper.sanitize_params(params).merge(extra_params)
     end
 
     def self.sanitize_params(params)
