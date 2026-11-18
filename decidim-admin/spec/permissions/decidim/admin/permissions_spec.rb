@@ -497,6 +497,20 @@ describe Decidim::Admin::Permissions do
           it_behaves_like "permission is not set"
         end
 
+        context "when the resource belongs to another component of the same participatory space" do
+          let(:other_component) { create(:dummy_component, participatory_space:) }
+          let(:resource) { create(:dummy_resource, component: other_component).tap { |resource| resource.destroy! if trashed } }
+
+          [:soft_delete, :restore].each do |trash_action|
+            context "when the action is #{trash_action}" do
+              let(:action_name) { trash_action }
+              let(:trashed) { trash_action == :restore }
+
+              it_behaves_like "permission is not set"
+            end
+          end
+        end
+
         context "when the current component belongs to another participatory space" do
           let(:current_component) { create(:dummy_component, organization:) }
           let(:action_name) { :manage_trash }
@@ -566,13 +580,20 @@ describe Decidim::Admin::Permissions do
           other_space_role
         end
 
-        [:soft_delete, :restore, :manage_trash].each do |trash_action|
+        [:soft_delete, :restore].each do |trash_action|
           context "when the action is #{trash_action}" do
             let(:action_name) { trash_action }
             let(:trashed) { trash_action == :restore }
 
             it_behaves_like "permission is not set"
           end
+        end
+
+        context "when the action is manage_trash" do
+          let(:action_name) { :manage_trash }
+          let(:resource) { nil }
+
+          it_behaves_like "permission is not set"
         end
       end
 
@@ -628,6 +649,20 @@ describe Decidim::Admin::Permissions do
         end
 
         it { is_expected.to be true }
+      end
+
+      context "when the user is an admin of the grandparent assembly" do
+        let(:grandparent_assembly) { create(:assembly, organization:) }
+        let(:parent_assembly) { create(:assembly, parent: grandparent_assembly, organization:) }
+        let(:participatory_space) { create(:assembly, parent: parent_assembly, organization:) }
+        let(:action_name) { :soft_delete }
+
+        before do
+          create(:assembly_user_role, user:, assembly: grandparent_assembly, role: :admin)
+          create(:assembly_user_role, user:, assembly: participatory_space, role: :collaborator)
+        end
+
+        it_behaves_like "permission is not set"
       end
     end
 

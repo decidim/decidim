@@ -103,10 +103,17 @@ module Decidim
         return false unless admin_terms_accepted?
         return false unless current_component && current_participatory_space
         return false unless current_component.participatory_space == current_participatory_space
-        return false if trashable_deleted_resource && trashable_deleted_resource.try(:participatory_space) != current_participatory_space
+        return false if trashable_deleted_resource && trashable_deleted_resource.try(:component) != current_component
 
-        current_participatory_space.respond_to?(:user_roles) &&
-          current_participatory_space.user_roles(:admin).exists?(user:)
+        user_can_manage_current_component?
+      end
+
+      def user_can_manage_current_component?
+        manage_component_action = Decidim::PermissionAction.new(scope: :admin, action: :manage, subject: :component)
+
+        current_participatory_space.manifest.permissions_class.new(user, manage_component_action, context).permissions.allowed?
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
       end
 
       def current_component
