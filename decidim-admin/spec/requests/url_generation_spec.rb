@@ -8,6 +8,10 @@ describe "Admin URL generation with untrusted parameters" do
   let(:headers) { { "HOST" => organization.host } }
 
   before do
+    # The pagination and the results per page selector are only rendered when
+    # there is more than one page, and they are built from the request
+    # parameters. Make sure they are present so this spec exercises them.
+    create_list(:user, 30, :admin, :confirmed, organization:)
     login_as admin, scope: :user
   end
 
@@ -19,5 +23,9 @@ describe "Admin URL generation with untrusted parameters" do
 
     expect(response).to have_http_status(:ok)
     expect(response.body).not_to match(/href="\s*javascript:/i)
+
+    pagination = response.parsed_body.at("[data-pagination]")
+    expect(pagination).to be_present
+    expect(pagination.css("a[href*='page=2']")).to be_present
   end
 end
