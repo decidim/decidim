@@ -34,9 +34,12 @@ module Decidim
       private
 
       def suggestions_for(version)
-        version.suggestions.map do |suggestion|
-          suggestion.presenter.safe_json.merge(
-            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip
+        router = Decidim::EngineRouter.main_proxy(current_component)
+
+        version.suggestions.includes(:votes).map do |suggestion|
+          suggestion.presenter.safe_json(current_user).merge(
+            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip,
+            votesUrl: router.document_suggestion_votes_path(document, suggestion)
           )
         end
       end
