@@ -14,6 +14,7 @@ describe Decidim::PaginateHelper do
 
       helper.extend(Decidim::UrlHelper)
       allow(helper).to receive(:render).and_return("")
+      allow(helper).to receive(:paginate).and_return("")
     end
 
     context "when per page is supported" do
