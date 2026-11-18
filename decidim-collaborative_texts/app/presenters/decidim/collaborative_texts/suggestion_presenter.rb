@@ -42,15 +42,30 @@ module Decidim
         :replace
       end
 
-      def safe_json
+      def safe_json(current_user = nil)
+        votes = suggestion.votes.to_a
+
         {
           id:,
           changeset:,
           summary:,
           status:,
           type:,
-          createdAt: created_at
+          createdAt: created_at,
+          upVotesCount: votes.count { |vote| vote.weight == 1 },
+          downVotesCount: votes.count { |vote| vote.weight == -1 },
+          voteWeight: vote_weight(votes, current_user)
         }
+      end
+
+      private
+
+      def vote_weight(votes, user)
+        return 0 unless user
+
+        votes.find do |vote|
+          vote.decidim_author_id == user.id && vote.decidim_author_type == user.class.base_class.name
+        end&.weight || 0
       end
     end
   end
