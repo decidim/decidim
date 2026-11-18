@@ -62,12 +62,42 @@ describe Decidim::OpenDataJob do
       end
 
       context "when two jobs export the same resource concurrently" do
+        include_context "with concurrency"
+
         it "leaves a single file for the resource" do
+          # Force both jobs to load their attachment snapshot before either publishes,
+          # so the example exercises overlapping publication rather than a sequential schedule.
+          gate = Queue.new
+          mutex = Mutex.new
+          arrivals = 0
+
+          # rubocop:disable-next RSpec/AnyInstance
+          allow_any_instance_of(Decidim::OpenDataExporter).to receive(:export).and_wrap_original do |original, *args|
+            last = mutex.synchronize { arrivals += 1 } == 2
+            gate << true if last
+            Timeout.timeout(10) { gate.pop } unless last
+            original.call(*args)
+          end
+
+          errors = []
           threads = 2.times.map do
-            Thread.new { described_class.perform_now(organization, resource) }
+            Thread.new do
+              ActiveRecord::Base.connection_pool.with_connection do
+                described_class.perform_now(organization, resource)
+              rescue StandardError => e
+                errors << e
+                # Release the other worker if this one never reached the barrier.
+                gate << true
+              end
+            end
           end
           threads.each(&:join)
 
+          expect(errors).to be_empty
+          # `retry_on ActiveRecord::Deadlocked` reschedules a retry instead of raising
+          # in the thread, so assert that no worker needed one.
+          open_data_retries = ActiveJob::Base.queue_adapter.enqueued_jobs.select { |job| job["job_class"] == "Decidim::OpenDataJob" }
+          expect(open_data_retries).to be_empty
           expect(resource_files.size).to eq(1)
         end
       end
