@@ -53,6 +53,20 @@ describe Decidim::Proposals::Admin::ProposalAnswerJob do
       expect(proposal.proposal_status).to eq(new_status)
     end
 
+    context "with the legacy internal_state attribute" do
+      let(:attributes) do
+        {
+          "answer" => { "en" => "Test answer" },
+          "internal_state" => new_status.token
+        }
+      end
+
+      it "updates the proposal answer" do
+        expect(proposal.answer).to eq({ "en" => "Test answer" })
+        expect(proposal.proposal_status).to eq(new_status)
+      end
+    end
+
     context "when the answer is invalid" do
       let(:attributes) do
         {

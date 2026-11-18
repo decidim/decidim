@@ -7,6 +7,10 @@ module Decidim
         queue_as :default
 
         def perform(proposal, attributes, context)
+          attributes = attributes.with_indifferent_access
+          # Jobs queued before the state/status rename carry this field under "internal_state".
+          attributes[:internal_status] ||= attributes.delete(:internal_state)
+
           answer_form = ProposalAnswerForm.from_params(attributes).with_context(**context)
 
           Admin::AnswerProposal.call(answer_form, proposal) do
