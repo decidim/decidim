@@ -27,7 +27,10 @@ module Decidim
             summary: presenter.summary,
             status: suggestion.status,
             type: presenter.type,
-            createdAt: suggestion.created_at
+            createdAt: suggestion.created_at,
+            upVotesCount: 0,
+            downVotesCount: 0,
+            voteWeight: 0
           )
         end
 
@@ -89,6 +92,29 @@ module Decidim
               expect(suggestion.presenter.text).not_to include("<script>")
             end
           end
+        end
+      end
+
+      describe "#safe_json" do
+        let(:suggestion) { create(:collaborative_text_suggestion) }
+        let(:user) { create(:user, :confirmed, organization: suggestion.organization) }
+
+        before do
+          create(:collaborative_text_suggestion_vote, suggestion:, author: user, weight: 1)
+          create(:collaborative_text_suggestion_vote, suggestion:, weight: 1)
+          create(:collaborative_text_suggestion_vote, suggestion:, weight: -1)
+        end
+
+        it "returns the vote counts and the current user vote" do
+          json = presenter.safe_json(user)
+
+          expect(json[:upVotesCount]).to eq(2)
+          expect(json[:downVotesCount]).to eq(1)
+          expect(json[:voteWeight]).to eq(1)
+        end
+
+        it "returns a neutral vote when the user has not voted" do
+          expect(presenter.safe_json(create(:user, organization: suggestion.organization))[:voteWeight]).to eq(0)
         end
       end
     end
