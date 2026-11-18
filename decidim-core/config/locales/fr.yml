@@ -2118,7 +2118,6 @@ fr:
       long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Suppressions
