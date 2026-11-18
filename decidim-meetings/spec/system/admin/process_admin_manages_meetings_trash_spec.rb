@@ -43,7 +43,18 @@ describe "Process admin manages meetings trash" do
 
     it "does not blame a participant for an official meeting" do
       within resource_row do
-        expect(page).to have_no_css("[data-tooltip-tooltip-value*='created by a participant']", visible: :all)
+        expect(page).to have_no_css("[data-tooltip-tooltip-value*='Cannot delete this meeting']", visible: :all)
+      end
+    end
+
+    context "when the meeting is created by a participant" do
+      let!(:resource) { create(:meeting, :not_official, component: current_component, title:) }
+
+      it "does not blame the participant for the missing permission" do
+        within resource_row do
+          expect(page).to have_css(".dropdown__button-disabled", text: "Move to trash", visible: :all)
+          expect(page).to have_no_css("[data-tooltip-tooltip-value*='Cannot delete this meeting']", visible: :all)
+        end
       end
     end
 

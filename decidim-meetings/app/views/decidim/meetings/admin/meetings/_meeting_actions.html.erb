@@ -189,15 +189,8 @@
           <% end %>
         <% else %>
           <div class="dropdown__button-disabled">
-            <% if meeting.official? %>
-              <%= icon "delete-bin-line", class: "text-gray" %>
-              <span><%= t("actions.soft_delete", scope: "decidim.admin") %></span>
-            <% else %>
-              <%= with_tooltip t("tooltips.deleted_meetings_info", scope: "decidim.admin"), class: :left do %>
-                <%= icon "delete-bin-line", class: "text-gray" %>
-                <span><%= t("actions.soft_delete", scope: "decidim.admin") %></span>
-              <% end %>
-            <% end %>
+            <%= icon "delete-bin-line", class: "text-gray" %>
+            <span><%= t("actions.soft_delete", scope: "decidim.admin") %></span>
           </div>
         <% end %>
       </li>
