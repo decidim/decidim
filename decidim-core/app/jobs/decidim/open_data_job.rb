@@ -41,6 +41,17 @@ module Decidim
         # Blobs are purged after the transaction commits, so a rollback cannot leave
         # attachment rows pointing to deleted files.
         stale_blobs.each(&:purge)
+      rescue StandardError => e
+        # Best-effort cleanup: if publication did not commit, the uploaded replacement
+        # is orphaned; clean it up so a retry does not leave an unreferenced blob
+        # behind. A committed replacement must be preserved, and the original error
+        # must not be masked by the cleanup.
+        begin
+          blob.purge if blob && !blob.attachments.exists?
+        rescue StandardError
+          nil
+        end
+        raise e
       end
     end
 
@@ -48,6 +59,8 @@ module Decidim
       # Publishing is serialized per organization: concurrent jobs would otherwise work
       # on the attachment snapshot preloaded before the export, creating duplicate
       # attachments for the same blob and leaving the controller serving an older file.
+      # The winner is decided by publication order, not by the order in which the data
+      # snapshots were generated: the last published attachment is the one kept.
       organization.with_lock do
         organization.open_data_files.reload
 

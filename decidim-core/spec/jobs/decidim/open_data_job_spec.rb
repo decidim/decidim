@@ -42,6 +42,18 @@ describe Decidim::OpenDataJob do
         expect(content).to include(second_user.name)
       end
 
+      it "purges the uploaded replacement blob when publication rolls back" do
+        # rubocop:disable-next RSpec/AnyInstance
+        allow_any_instance_of(Decidim::Organization).to receive(:with_lock).and_raise(ActiveRecord::Deadlocked)
+
+        subject.perform_now(organization, resource)
+
+        # `retry_on ActiveRecord::Deadlocked` reschedules the job, so the exception does
+        # not reach `perform_now`; the replacement blob must still be cleaned up.
+        expect(resource_files).to be_empty
+        expect(ActiveStorage::Blob.where(filename:)).to be_empty
+      end
+
       context "when another job publishes the same resource while this job is exporting" do
         it "removes the duplicate created by the other job" do
           # Simulate the other job attaching its file after this job loaded the attachments,
