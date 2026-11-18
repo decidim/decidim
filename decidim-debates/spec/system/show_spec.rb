@@ -12,8 +12,7 @@ describe "show" do
   let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:) }
 
   before do
-    visit_component
-    click_on debate.title[I18n.locale.to_s], class: "card__list"
+    visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
   end
 
   context "when is created from the admin panel" do
@@ -72,6 +71,37 @@ describe "show" do
     it "shows the debate reference" do
       within ".layout-container__reference" do
         expect(page).to have_text(debate.reference)
+      end
+    end
+  end
+
+  context "when there is a component announcement" do
+    let(:announcement) { { en: "Important announcement" } }
+    let(:debate_path) { Decidim::EngineRouter.main_proxy(component).debate_path(debate) }
+
+    context "with the component's settings" do
+      before do
+        component.update!(settings: { announcement: })
+        visit debate_path
+      end
+
+      it "shows the announcement" do
+        expect(page).to have_text("Important announcement")
+      end
+    end
+
+    context "with the step's settings" do
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { announcement: }
+          }
+        )
+        visit debate_path
+      end
+
+      it "shows the announcement" do
+        expect(page).to have_text("Important announcement")
       end
     end
   end

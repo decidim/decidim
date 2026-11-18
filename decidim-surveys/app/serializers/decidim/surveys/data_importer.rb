@@ -50,7 +50,7 @@ module Decidim
 
       # Builds a Decidim::Forms::Questionnaire with all its questions and response_options.
       def build_questionnaire(survey, serialized_questionnaire)
-        survey.build_questionnaire(serialized_questionnaire.except(:id, :published_at))
+        survey.build_questionnaire(serialized_questionnaire.except(:id, :published_at, :submissions_count))
       end
 
       def import_questions(questionnaire, serialized_questions)

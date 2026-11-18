@@ -52,8 +52,12 @@ class UploaderImageContentValidator < ActiveModel::Validations::FileContentTypeV
   }.freeze
 
   # The leading markup of an SVG document, which is XML-based and therefore has
-  # no fixed binary signature.
-  SVG_SIGNATURES = ["<svg".b, "<?xml".b, "<!DOCTYPE svg".b].freeze
+  # no fixed binary signature. The XML declaration is optional, and the document
+  # type declaration, comments and processing instructions are legal before the
+  # root element, so a document can start with any of them. Files detected as SVG
+  # are then checked by Decidim::SvgContentValidator, which requires an "svg"
+  # root element, so an XML document which is not an SVG is still rejected.
+  SVG_SIGNATURES = ["<svg".b, "<?".b, "<!--".b, "<!DOCTYPE".b].freeze
 
   def validate_each(record, attribute, value)
     begin
