@@ -3,7 +3,8 @@
 class CreateCollaborativeTextsSuggestionVotes < ActiveRecord::Migration[7.0]
   def change
     create_table :decidim_collaborative_texts_suggestion_votes do |t|
-      t.references :suggestion, null: false, index: { name: "idx_ct_suggestion_votes_on_suggestion" }
+      t.references :suggestion, null: false, foreign_key: { to_table: :decidim_collaborative_texts_suggestions, on_delete: :cascade },
+                                index: { name: "idx_ct_suggestion_votes_on_suggestion" }
       t.references :decidim_author, polymorphic: true, null: false, index: { name: "idx_ct_suggestion_votes_on_author" }
       t.integer :weight, null: false
       t.timestamps
