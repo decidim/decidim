@@ -21,6 +21,7 @@ describe("SuggestionsList", () => {
          data-collaborative-texts-suggestions-box-template="#collaborative-texts-suggestions-box-template"
          data-collaborative-texts-suggestions-box-item-template="#collaborative-texts-suggestions-box-item-template"
          data-collaborative-texts-i18n='${JSON.stringify(i18n)}'
+         data-collaborative-texts-signed-in="true"
          data-collaborative-texts-suggestions-url="${suggestionsUrl}"
          data-collaborative-texts-rollout-url="${rolloutUrl}">
         <h2>This is a collaborative text</h2>
@@ -76,6 +77,14 @@ describe("SuggestionsList", () => {
           </div>
         </div>
         <div class="collaborative-texts-suggestions-box-item-text"></div>
+        <div class="collaborative-texts-suggestions-box-item-votes">
+          <button class="js-collaborative-texts-vote-up">
+            <span class="js-collaborative-texts-vote-up-count">0</span>
+          </button>
+          <button class="js-collaborative-texts-vote-down">
+            <span class="js-collaborative-texts-vote-down-count">0</span>
+          </button>
+        </div>
       </script>
     </body>
   `;
@@ -94,7 +103,11 @@ describe("SuggestionsList", () => {
       },
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
-      "summary": "This is another summary"
+      "summary": "This is another summary",
+      "upVotesCount": 0,
+      "downVotesCount": 0,
+      "voteWeight": 0,
+      "votesUrl": "http://example.com/suggestions/1/votes"
     }, {
       "changeset": {
         "original": ["some content"],
@@ -104,7 +117,11 @@ describe("SuggestionsList", () => {
       },
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
-      "summary": "This is a summary"
+      "summary": "This is a summary",
+      "upVotesCount": 0,
+      "downVotesCount": 0,
+      "voteWeight": 0,
+      "votesUrl": "http://example.com/suggestions/2/votes"
     }
 
   ];
@@ -229,5 +246,21 @@ describe("SuggestionsList", () => {
     expect(suggestion.highlightWrapper).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-hidden")).toBe(null);
     expect(doc.doc.querySelector(".collaborative-texts-highlight")).toBe(null);
+  });
+
+  it("votes a suggestion", async () => {
+    global.fetch.mockImplementationOnce(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({ upVotesCount: 1, downVotesCount: 0, voteWeight: 1 })
+    }));
+
+    const button = suggestion.item.querySelector(".js-collaborative-texts-vote-up");
+    button.click();
+    await new Promise(process.nextTick);
+
+    expect(button.querySelector(".js-collaborative-texts-vote-up-count").textContent).toBe("1");
+    expect(button.classList.contains("is-vote-selected")).toBe(true);
+    expect(button.getAttribute("aria-pressed")).toBe("true");
+    expect(global.fetch).toHaveBeenCalledWith(suggestion.votesUrl, expect.objectContaining({ method: "POST" }));
   });
 });
