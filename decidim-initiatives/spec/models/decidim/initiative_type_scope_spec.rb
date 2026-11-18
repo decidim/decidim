@@ -38,6 +38,22 @@ module Decidim
           expect(name).to eq("Unavailable scope")
         end
       end
+
+      context "with a scope from another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_scope) { create(:scope, organization: other_organization) }
+
+        before do
+          initiatives_type_scope.scope = other_scope
+        end
+
+        it "returns unavailable scope without loading the organization association" do
+          expect(initiatives_type_scope.scope).not_to receive(:organization)
+          expect(initiatives_type_scope.type).not_to receive(:organization)
+
+          expect(name).to eq("Unavailable scope")
+        end
+      end
     end
 
     describe "taxonomy_name" do

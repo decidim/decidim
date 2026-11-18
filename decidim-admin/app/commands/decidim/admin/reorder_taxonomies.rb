@@ -64,11 +64,11 @@ module Decidim
       end
 
       def collection
-        @collection ||= Decidim::Taxonomy.where(organization:, parent_id: first_item.parent_id)
+        @collection ||= organization.taxonomies.where(parent_id: first_item.parent_id)
       end
 
       def first_item
-        @first_item ||= Decidim::Taxonomy.where(organization:).find(order.first)
+        @first_item ||= organization.taxonomies.find(order.first)
       end
     end
   end

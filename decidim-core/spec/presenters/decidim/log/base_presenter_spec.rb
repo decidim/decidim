@@ -105,6 +105,39 @@ describe Decidim::Log::BasePresenter, type: :helper do
       subject
     end
 
+    context "when the user has been deleted" do
+      before do
+        user.destroy!
+        action_log.reload
+      end
+
+      it "renders the saved user name" do
+        expect(action_log.user).to be_nil
+        expect(subject).to include(user_name)
+      end
+
+      it "does not link to their profile" do
+        expect(subject).not_to include("href=\"/en/profiles/")
+      end
+    end
+
+    context "when the action log has no user" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          organization: resource.component.participatory_space.organization,
+          action:,
+          resource:,
+          created_at: Date.new(2018, 1, 2).at_midnight
+        )
+      end
+
+      it "does not render the user" do
+        expect(subject).not_to include("logs__log__author")
+      end
+    end
+
     it "renders the space" do
       allow(Decidim::Log::SpacePresenter)
         .to receive(:new).and_return(presenter_double)

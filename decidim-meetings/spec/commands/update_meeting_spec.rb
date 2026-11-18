@@ -201,10 +201,7 @@ module Decidim::Meetings
           end
 
           it "does not schedule the upcoming meeting notification job" do
-            expect(UpcomingMeetingNotificationJob)
-              .not_to receive(:perform_later)
-
-            subject.call
+            expect { subject.call }.not_to have_enqueued_job(UpcomingMeetingNotificationJob)
           end
         end
 

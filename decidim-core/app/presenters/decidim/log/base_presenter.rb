@@ -205,10 +205,19 @@ module Decidim
       # Returns a Hash.
       def i18n_params
         {
-          user_name: user_presenter.present,
+          user_name: system_action? ? nil : user_presenter.present,
           resource_name: resource_presenter.try(:present),
           space_name: space_presenter.present
         }
+      end
+
+      # Private: Whether the action was performed by the system rather than a
+      # user. A deleted user still leaves its reference in the log, so this
+      # cannot be based on the loaded `user` association.
+      #
+      # Returns a Boolean.
+      def system_action?
+        action_log.user_id.blank? && action_log.user_type.blank?
       end
 
       # Private: Calculates if the diff has to be shown or not.

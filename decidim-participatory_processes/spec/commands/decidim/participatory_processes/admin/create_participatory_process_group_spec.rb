@@ -9,6 +9,7 @@ module Decidim::ParticipatoryProcesses
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :admin, organization:) }
     let(:errors) { double.as_null_object }
+    let(:participatory_process_ids) { [] }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessGroupForm,
@@ -20,7 +21,7 @@ module Decidim::ParticipatoryProcesses
         current_organization: organization,
         organization:,
         current_user:,
-        participatory_process_ids: [],
+        participatory_process_ids:,
         developer_group: { en: "developer group" },
         local_area: { en: "local area" },
         meta_scope: { en: "meta scope" },
@@ -58,6 +59,19 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to change(Decidim::ActionLog, :count)
         action_log = Decidim::ActionLog.last
         expect(action_log.version).to be_present
+      end
+    end
+
+    context "when the participatory processes belong to another organization" do
+      let(:other_organization) { create(:organization) }
+      let!(:local_process) { create(:participatory_process, organization:) }
+      let!(:foreign_process) { create(:participatory_process, organization: other_organization) }
+      let(:participatory_process_ids) { [local_process.id, foreign_process.id] }
+
+      it "only associates the processes from the current organization" do
+        expect { subject.call }.to broadcast(:ok)
+
+        expect(Decidim::ParticipatoryProcessGroup.last.participatory_processes).to contain_exactly(local_process)
       end
     end
   end

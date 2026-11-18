@@ -164,11 +164,11 @@ describe Decidim::Proposals::Admin::UpdateProposal do
         let(:current_files) { [file] }
 
         it "creates an attachment for the proposal" do
-          command.call
-          expect(Decidim::Attachment.count).to eq(Decidim::Attachment.count(+1))
+          expect { command.call }.to change(Decidim::Attachment, :count).by(1)
+
           last_proposal = Decidim::Proposals::Proposal.last
-          last_attachment = Decidim::Attachment.last
-          expect(last_attachment.attached_to).to eq(last_proposal)
+          expect(last_proposal.attachments.count).to eq(1)
+          expect(last_proposal.attachments.first.file).to be_attached
         end
 
         context "when attachment is left blank" do
@@ -191,6 +191,25 @@ describe Decidim::Proposals::Admin::UpdateProposal do
           let(:command) { described_class.new(form, resource) }
           let(:resource_class) { Decidim::Proposals::Proposal }
           let(:attachment_params) { { title: "" } }
+        end
+      end
+
+      context "when deleting an attachment" do
+        let(:attachment_params) { { id: file.id, delete_file: true } }
+
+        it "deletes the attachment" do
+          expect { command.call }.to change(Decidim::Attachment, :count).by(-1)
+        end
+      end
+
+      context "when deleting an attachment from another organization" do
+        let(:other_component) { create(:proposal_component) }
+        let!(:other_proposal) { create(:proposal, component: other_component) }
+        let!(:other_file) { create(:attachment, :with_pdf, attached_to: other_proposal) }
+        let(:attachment_params) { { id: other_file.id, delete_file: true } }
+
+        it "does not delete the other attachment" do
+          expect { command.call }.not_to(change(Decidim::Attachment, :count))
         end
       end
     end

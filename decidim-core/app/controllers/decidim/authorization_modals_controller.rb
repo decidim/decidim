@@ -25,6 +25,7 @@ module Decidim
     end
 
     def current_component
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- participatory_spaces is scoped to current_organization
       @current_component ||= Decidim::Component.where(participatory_space: current_organization.participatory_spaces).find(params.expect(:component_id))
     end
 
