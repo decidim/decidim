@@ -17,7 +17,7 @@ describe "Admin URL generation with untrusted parameters" do
 
   it "does not use the script_name parameter to generate links" do
     get(
-      "/en/admin/users?script_name=javascript:alert(1)//",
+      "/admin/users?script_name=javascript:alert(1)//",
       headers:
     )
 
@@ -33,7 +33,7 @@ describe "Admin URL generation with untrusted parameters" do
     expect(page_two_link).to be_present
 
     page_two_url = URI.parse(page_two_link["href"])
-    expect(page_two_url.path).to eq("/en/admin/users")
+    expect(page_two_url.path).to eq("/admin/users")
     expect(CGI.parse(page_two_url.query)).to include("page" => ["2"])
     expect(CGI.parse(page_two_url.query)).not_to have_key("script_name")
   end

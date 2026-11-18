@@ -26,29 +26,29 @@ describe "URL generation with untrusted parameters" do
 
   it "does not use the script_name parameter to generate links" do
     get(
-      "/en/last_activities?script_name=javascript:alert(1)//",
+      "/last_activities?script_name=javascript:alert(1)//",
       headers:
     )
 
     expect(response).to have_http_status(:ok)
     expect(response.body).not_to match(/href="\s*javascript:/i)
-    expect(response.body).to include("/en/last_activities?per_page=25")
-    expect(response.body).to include("/en/last_activities?page=2")
+    expect(response.body).to include("/last_activities?per_page=25")
+    expect(response.body).to include("/last_activities?page=2")
   end
 
   it "ignores malformed _recall parameters when generating links" do
     get(
-      "/en/last_activities?_recall=malformed",
+      "/last_activities?_recall=malformed",
       headers:
     )
 
     expect(response).to have_http_status(:ok)
-    expect(response.body).to include("/en/last_activities?per_page=25")
+    expect(response.body).to include("/last_activities?per_page=25")
   end
 
   it "keeps the intended page and ignores a nested params[page] option" do
     get(
-      "/en/last_activities?params[page]=99&page=2",
+      "/last_activities?params[page]=99&page=2",
       headers:
     )
 
