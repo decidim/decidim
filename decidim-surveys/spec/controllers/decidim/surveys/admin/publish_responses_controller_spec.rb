@@ -37,7 +37,7 @@ module Decidim
           it "does not publish a question from another questionnaire" do
             put(:update, params:)
 
-            expect(response).to have_http_status(:unprocessable_content)
+            expect(response).to have_http_status(:unprocessable_entity)
             expect(foreign_question.reload.survey_responses_published_at).to be_nil
           end
         end
@@ -59,7 +59,7 @@ module Decidim
           it "does not unpublish a question from another questionnaire" do
             delete(:destroy, params:)
 
-            expect(response).to have_http_status(:unprocessable_content)
+            expect(response).to have_http_status(:unprocessable_entity)
             expect(foreign_question.reload.survey_responses_published_at).to be_present
           end
         end
