@@ -3,8 +3,6 @@
 module Decidim
   module Admin
     class ResultsPerPageCell < Decidim::ViewModel
-      include Decidim::UrlHelper
-
       property :per_page, :per_page_range
       def path_for_num_per_page(num_per_page = per_page_range.first)
         controller.url_for(decidim_url_params(params).merge(per_page: num_per_page))

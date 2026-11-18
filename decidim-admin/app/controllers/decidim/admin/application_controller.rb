@@ -19,6 +19,7 @@ module Decidim
       include DisableRedirectionToExternalHost
       include Decidim::Admin::Concerns::HasBreadcrumbItems
       include ActiveStorage::SetCurrent
+      include Decidim::UrlHelper
 
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
@@ -34,6 +35,7 @@ module Decidim
       helper Decidim::ComponentPathHelper
       helper Decidim::SanitizeHelper
       helper Decidim::BreadcrumbHelper
+      helper Decidim::UrlHelper
 
       helper Decidim::Templates::Admin::ApplicationHelper if Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Admin::ApplicationHelper)
 

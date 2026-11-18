@@ -14,7 +14,6 @@ module Decidim
       include Decidim::Admin::LogRenderHelper
       include Decidim::Admin::UserRolesHelper
       include Decidim::Admin::SearchFormHelper
-      include Decidim::UrlHelper
 
       # Public: Overwrites the `cell` helper method to automatically set some
       # common context.

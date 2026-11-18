@@ -3,8 +3,6 @@
 module Decidim
   # Helper that provides methods to render order selector and links
   module OrdersHelper
-    include Decidim::UrlHelper
-
     # Public: It renders the order selector for the provided orders
     # (Note) This method requires the javascript 'decidim/orders' to be
     # present in the page.

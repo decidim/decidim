@@ -3,8 +3,6 @@
 module Decidim
   # Helper to paginate collections.
   module PaginateHelper
-    include Decidim::UrlHelper
-
     # Displays pagination links for the given collection, setting the correct
     # theme. This mostly acts as a proxy for the underlying pagination engine.
     #

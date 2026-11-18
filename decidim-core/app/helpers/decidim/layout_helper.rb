@@ -3,7 +3,6 @@
 module Decidim
   # View helpers related to the layout.
   module LayoutHelper
-    include Decidim::UrlHelper
     include Decidim::OrganizationHelper
     include Decidim::ModalHelper
     include Decidim::TooltipHelper
