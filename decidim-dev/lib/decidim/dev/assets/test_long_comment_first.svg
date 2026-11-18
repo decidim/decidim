@@ -1,0 +1,2 @@
+<!-- A comment longer than the leading bytes read to detect the file signature, so that the document is detected from the comment itself and then checked by the XML parser. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><circle cx="8" cy="8" r="8" fill="#000"/></svg>
