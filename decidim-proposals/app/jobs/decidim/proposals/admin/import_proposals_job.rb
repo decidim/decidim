@@ -31,13 +31,15 @@ module Decidim
 
         def proposals
           proposals = Decidim::Proposals::Proposal.includes(:component, :taxonomies, :coauthorships, :attachments).not_hidden.not_withdrawn.where(component: origin_component)
+          # Jobs queued before the state/status rename carry their filter under "states".
+          statuses = @form["statuses"].presence || @form["states"]
 
-          if @form["statuses"].blank?
+          if statuses.blank?
             proposals
-          elsif @form["statuses"].include?("not_answered")
-            proposals.not_answered.or(proposals.where(id: proposals.only_status(@form["statuses"]).pluck(:id)))
+          elsif statuses.include?("not_answered")
+            proposals.not_answered.or(proposals.where(id: proposals.only_status(statuses).pluck(:id)))
           else
-            proposals.only_status(@form["statuses"])
+            proposals.only_status(statuses)
           end
         end
 
