@@ -116,6 +116,12 @@ module Decidim
         it "returns a neutral vote when the user has not voted" do
           expect(presenter.safe_json(create(:user, organization: suggestion.organization))[:voteWeight]).to eq(0)
         end
+
+        it "uses the given vote data without querying the votes" do
+          json = presenter.safe_json(user, vote_counts: { 1 => 3, -1 => 2 }, user_vote_weight: -1)
+
+          expect(json).to include(upVotesCount: 3, downVotesCount: 2, voteWeight: -1)
+        end
       end
     end
   end

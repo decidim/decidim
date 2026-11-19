@@ -48,6 +48,21 @@ module Decidim
           expect(suggestion1_json["votesUrl"]).to include("/suggestions/#{suggestion1.id}/votes")
         end
 
+        it "loads the votes in a fixed number of queries" do
+          create(:collaborative_text_suggestion_vote, suggestion: suggestion1, author: user, weight: 1)
+          sign_in user
+          queries = []
+          subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |*, payload|
+            queries << payload[:sql] if payload[:sql].include?("decidim_collaborative_texts_suggestion_votes")
+          end
+
+          get(:index, params:)
+
+          expect(queries.size).to eq(2)
+        ensure
+          ActiveSupport::Notifications.unsubscribe(subscriber)
+        end
+
         context "when the document is not published" do
           let(:document) { build(:collaborative_text_document, component:) }
           let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }

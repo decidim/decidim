@@ -42,8 +42,9 @@ module Decidim
         :replace
       end
 
-      def safe_json(current_user = nil)
-        vote_counts = suggestion.votes.group(:weight).count
+      def safe_json(current_user = nil, vote_counts: nil, user_vote_weight: nil)
+        vote_counts ||= suggestion.votes.group(:weight).count
+        user_vote_weight = vote_weight(current_user) if user_vote_weight.nil?
 
         {
           id:,
@@ -54,7 +55,7 @@ module Decidim
           createdAt: created_at,
           upVotesCount: vote_counts[1] || 0,
           downVotesCount: vote_counts[-1] || 0,
-          voteWeight: vote_weight(current_user)
+          voteWeight: user_vote_weight
         }
       end
 
