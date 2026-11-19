@@ -465,6 +465,13 @@ take over user accounts.
 |10
 |No
 
+|DECIDIM_CACHE_KEY_SEPARATOR
+|The separator used to build the cache keys for the cached cells (the pieces of html where Decidim applies cache). It is exposed as `Decidim.cache_key_separator`.
+
+*This is particularly useful when using the Redis cache store*, as it allows to create namespaces within the cached data. For that case, a common value is `:`.
+|/
+|No
+
 |DECIDIM_MAXIMUM_ATTACHMENT_SIZE
 |The maximum file size of an attachment (in Megabytes).
 
@@ -814,19 +821,6 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |true
 |No
 
-|INITIATIVES_SIMILARITY_THRESHOLD
-|Acts as the proposals similarity threshold, use a number between 0 and 1 to establish how similar have to be 2 initiatives to be listed the alternate list.
-
-0 will require no similarity at all
-1 will require for two initiatives to contain exactly the same text
-|0.25
-|No
-
-|INITIATIVES_SIMILARITY_LIMIT
-|Number of similar initiatives presented to the user before publishing a new one.
-|5
-|No
-
 |INITIATIVES_MINIMUM_COMMITTEE_MEMBERS
 |Minimum number of committee members required to pass the initiative to technical validation phase. Only applies to initiatives created by individuals.
 |2
@@ -914,7 +908,7 @@ After this time the initiative will be moved to discarded state.
 | redis
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL*
 | The redis connection url used by the resource classifier
 | redis://localhost:6379/2
 | No
@@ -978,6 +972,15 @@ Note that this only applies to production environments.
 |PORT
 |Specifies the `port` that Puma will listen on to receive requests. This does not apply to alternative application servers such as Passenger.
 |3000
+|No
+
+|DECIDIM_HOST
+|Specifies the host that Decidim will use when generating absolute URLs (for instance, assets or push notifications), through the `Decidim::UrlOptionResolver`. It is also used when seeding data to set the organization host (and as the SMTP address fallback).
+
+*This is NOT the same as the `RAILS_ASSET_HOST` variable.* `RAILS_ASSET_HOST` is used for static, compiled assets, while `DECIDIM_HOST` defines the public host used to build the URLs exposed to the outside world, such as the links included in emails or push notifications.
+
+If unset, it defaults to `localhost` in local environments (development and test). Outside them there is no default, and Decidim uses the organization host (or the host of the current request) instead.
+|Environment-dependent (see description): `localhost` (development and test), otherwise unset
 |No
 
 |HTTP_PORT

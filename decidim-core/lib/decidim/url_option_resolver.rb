@@ -22,7 +22,7 @@ module Decidim
         default_host = nil
         default_host = "localhost" if Rails.env.local?
 
-        ENV.fetch("HOSTNAME", default_host)
+        ENV.fetch("DECIDIM_HOST", default_host)
       end
     end
 

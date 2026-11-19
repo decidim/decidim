@@ -157,7 +157,7 @@ module Decidim
             user_name: ENV.fetch("SMTP_USERNAME", ::Faker::X.unique.screen_name),
             encrypted_password: Decidim::AttributeEncryptor.encrypt(ENV.fetch("SMTP_PASSWORD", ::Faker::Internet.password(min_length: 8))),
             address: ENV.fetch("SMTP_ADDRESS", nil) || ENV.fetch("DECIDIM_HOST", "localhost"),
-            port: ENV.fetch("SMTP_PORT", nil) || ENV.fetch("DECIDIM_SMTP_PORT", "25")
+            port: ENV.fetch("SMTP_PORT", "25")
           },
           host: ENV.fetch("DECIDIM_HOST", "localhost"),
           secondary_hosts: ENV.fetch("DECIDIM_HOST", "localhost") == "localhost" ? ["0.0.0.0", "127.0.0.1"] : nil,
