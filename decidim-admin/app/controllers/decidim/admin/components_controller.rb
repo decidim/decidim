@@ -48,6 +48,12 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("components.create.error", scope: "decidim.admin")
+            @component = Component.new(
+              name: @form.name,
+              manifest: @form.manifest,
+              participatory_space: @form.participatory_space,
+              settings: @form.settings
+            )
             render action: "new", status: :unprocessable_content
           end
         end

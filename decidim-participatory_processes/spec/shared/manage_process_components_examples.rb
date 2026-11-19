@@ -164,6 +164,50 @@ shared_examples "manage process components" do
         end
       end
     end
+
+    context "when there is an error on the form" do
+      it "displays the error page" do
+        find("button[data-target=add-component-dropdown]").click
+
+        within "#add-component-dropdown" do
+          click_on "Dummy Component"
+        end
+
+        within ".item__edit-form .new_component" do
+          fill_in_i18n(
+            :component_name,
+            "#component-name-tabs",
+            **attributes[:name].except("machine_translations")
+          )
+
+          within ".global-settings" do
+            fill_in_i18n_editor(
+              :component_settings_dummy_global_translatable_text,
+              "#global-settings-dummy_global_translatable_text-tabs",
+              en: "Dummy Text"
+            )
+            all("input[type=checkbox]").last.click
+          end
+
+          within "#panel-step_settings" do
+            fill_in_i18n_editor(
+              "component_step_settings_#{step_id}_dummy_step_translatable_text",
+              "#step-#{step_id}-settings-dummy_step_translatable_text-tabs",
+              en: "Dummy Text for Step"
+            )
+            all("input[type=checkbox]").first.click
+          end
+
+          # This should cause an error
+          fill_in :component_settings_error_honeypot_number, with: 1
+
+          click_on "Add component"
+        end
+
+        expect(page).to have_callout("There was a problem creating this component.")
+        expect(page).to have_field(:component_settings_error_honeypot_number, with: 1)
+      end
+    end
   end
 
   describe "edit a component" do
