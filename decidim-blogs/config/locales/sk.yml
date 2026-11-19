@@ -119,6 +119,7 @@ sk:
             announcement: Oznámenie
             attachments_allowed: Povoliť prílohy
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálny počet znakov na komentár (ponechajte 0 pre predvolenú hodnotu)
             creation_enabled_for_participants: Účastníci môžu vytvárať príspevky
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
