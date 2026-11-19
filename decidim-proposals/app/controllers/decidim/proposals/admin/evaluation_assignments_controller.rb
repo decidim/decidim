@@ -18,7 +18,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("evaluation_assignments.create.invalid", scope: "decidim.proposals.admin")
+              flash[:alert] = I18n.t("evaluation_assignments.create.invalid", scope: "decidim.proposals.admin")
               redirect_to EngineRouter.admin_proxy(current_component).root_path
             end
           end
