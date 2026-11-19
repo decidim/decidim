@@ -27,6 +27,23 @@ module Decidim
       context "when the user is signed in" do
         before { sign_in user }
 
+        context "with request forgery protection" do
+          around do |example|
+            described_class.allow_forgery_protection = true
+            example.run
+          ensure
+            described_class.allow_forgery_protection = false
+          end
+
+          it "rejects the request without a valid authenticity token" do
+            expect do
+              post(:create, params:)
+            end.to raise_error(ActionController::InvalidAuthenticityToken)
+
+            expect(suggestion.reload).not_to be_up_voted_by(user)
+          end
+        end
+
         it "creates an upvote" do
           post(:create, params:)
 
