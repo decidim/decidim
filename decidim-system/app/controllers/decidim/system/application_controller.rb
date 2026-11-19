@@ -7,6 +7,7 @@ module Decidim
       include FormFactory
       include PayloadInfo
       include Headers::HttpCachingDisabler
+      include Headers::SessionUpdater
       include DisableRedirectionToExternalHost
       include ActiveStorage::SetCurrent
       include NeedsRtlDirection

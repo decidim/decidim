@@ -1004,6 +1004,15 @@ If unset, it defaults to `3000` in development, `Capybara.server_port` in test, 
 |false
 |No
 
+|SESSION_DAYS_TRIM_THRESHOLD
+|In days, how long an expired session can remain in the system before it is purged.
+
+The `rake db:sessions:trim` task uses 30 days when this variable is not set, so the cron example in the installation guide sets it to 3.
+
+Notice that logging out removes the session immediately, regardless of this setting.
+|30
+|No
+
 |===
 
 Please take care that all these configurations would be the defaults but *some of these could also be changed on a Multitenant's System configuration* (for instance SMTP or OAUTH providers).

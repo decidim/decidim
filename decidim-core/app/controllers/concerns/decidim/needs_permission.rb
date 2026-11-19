@@ -90,7 +90,7 @@ module Decidim
       private
 
       def store_share_token
-        session[:share_token] = params[:share_token] if params.has_key?(:share_token)
+        session[:share_token] = params[:share_token] if params.has_key?(:share_token) && params[:share_token].is_a?(String)
 
         session[:share_token].presence
       end

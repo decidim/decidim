@@ -15,8 +15,6 @@ end
 shared_examples "access component permissions form" do
   let(:participatory_space_engine) { Decidim::EngineRouter.admin_proxy(participatory_space) }
   before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
     visit participatory_space_engine.components_path(participatory_space)
   end
 
