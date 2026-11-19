@@ -8,6 +8,10 @@ module Decidim
     # in the live event. For some services it is required to transform a bit
     # the structure of the URL.
     class MeetingIframeEmbedder
+      # Hosts for which a single leading "www." or "m." prefix is stripped when
+      # normalizing hostnames.
+      PREFIX_STRIPPABLE_HOSTS = %w(youtube.com twitch.tv).freeze
+
       # Public: Initializes the service.
       # online_meeting_service_url - A String containing the url of the online meeting
       def initialize(online_meeting_service_url)
@@ -63,11 +67,14 @@ module Decidim
         @normalized_hostname ||= normalize_hostname(parsed_online_meeting_uri.host)
       end
 
-      # Strips a single leading "www." or "m." so that equivalent hosts are
-      # treated the same. Only one prefix is removed so that multi-prefix hosts
-      # (e.g. "www.m.youtube.com") are not considered equivalent.
+      # Strips a single leading "www." or "m." only when the remaining host is
+      # youtube.com or twitch.tv. Any other host is returned unchanged so that
+      # it is matched exactly. Only one prefix is removed so that multi-prefix
+      # hosts (e.g. "www.m.youtube.com") are not considered equivalent.
       def normalize_hostname(hostname)
-        hostname.to_s.sub(/\A(?:www|m)\./, "")
+        stripped_hostname = hostname.to_s.sub(/\A(?:www|m)\./, "")
+
+        PREFIX_STRIPPABLE_HOSTS.include?(stripped_hostname) ? stripped_hostname : hostname.to_s
       end
 
       # YouTube transformation consists on:

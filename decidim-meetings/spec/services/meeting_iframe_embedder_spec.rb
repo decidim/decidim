@@ -139,6 +139,26 @@ module Decidim
             end
           end
         end
+
+        %w(www.example.org m.example.org).each do |host|
+          context "with the non-YouTube/Twitch host #{host} when example.org is embeddable" do
+            let(:services) { %w(example.org) }
+            let(:url) { "https://#{host}/decidim-meeting" }
+
+            it "is not embeddable without an exact host match" do
+              expect(subject).not_to be_embeddable
+            end
+          end
+
+          context "with #{host} as the configured embeddable service" do
+            let(:services) { [host] }
+            let(:url) { "https://example.org/decidim-meeting" }
+
+            it "is not embeddable without an exact host match" do
+              expect(subject).not_to be_embeddable
+            end
+          end
+        end
       end
 
       describe "#embed_code" do
