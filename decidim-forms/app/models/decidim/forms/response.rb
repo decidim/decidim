@@ -44,6 +44,21 @@ module Decidim
         responses.pluck(:decidim_user_id).flatten.compact.uniq
       end
 
+      # Public: the text of a short or long response, nil for the other question types.
+      def text_value
+        value if value.is_a?(String) && question.question_type.in?(%w(short_response long_response))
+      end
+
+      # Public: the chosen options as Hashes with "option", "text" (free text), "label" (only for a deleted option) and,
+      # for matrix questions, "row". A sorting keeps its rank order.
+      def selections
+        return [] unless question.multiple_choice?
+        return Array.wrap(value).grep(Hash) unless question.matrix?
+        return [] unless value.is_a?(Hash)
+
+        value.flat_map { |row_id, choices| Array.wrap(choices).grep(Hash).map { |choice| choice.merge("row" => row_id.to_i) } }
+      end
+
       def organization
         user.presence&.organization
         questionnaire&.questionnaire_for.try(:organization)

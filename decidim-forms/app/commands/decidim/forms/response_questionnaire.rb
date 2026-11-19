@@ -110,6 +110,7 @@ module Decidim
 
             create_attachments if process_attachments?
             attachment_cleanup!
+            response.update!(value: response.attachments.ids.presence)
           end
 
           submission.responses.where.not(id: saved_response_ids).destroy_all
@@ -125,6 +126,7 @@ module Decidim
           user: current_user,
           questionnaire:,
           body: form_response.body,
+          value: form_response.value,
           session_token: submission.session_token,
           ip_hash: form.context.ip_hash
         )

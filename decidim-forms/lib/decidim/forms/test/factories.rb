@@ -169,6 +169,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     body { "hola" }
+    value { body.presence if question.question_type.in?(%w(short_response long_response)) }
     questionnaire
     question { create(:questionnaire_question, questionnaire:, skip_injection:) }
     user { create(:user, organization: questionnaire.questionnaire_for.organization, skip_injection:) }
