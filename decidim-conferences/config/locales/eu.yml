@@ -492,7 +492,7 @@ eu:
           already_have_an_account?: Ba al duzu kontu bat?
           are_you_new?: Beste parte-hartzaile bat?
           login_as: '%{name} <%{email}> gisa erregistratuta zaude'
-          make_conference_registration: Jardunaldianizena eman
+          make_conference_registration: Jardunaldian izena eman
           manage_registration: Kudeatu erregistroa
           register: Izena eman
           sign_in_description: Hasi saioa hitzaldian erregistratzeko
