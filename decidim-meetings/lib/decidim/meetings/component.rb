@@ -83,7 +83,7 @@ Decidim.register_component(:meetings) do |component|
                           admin: false,
                           icon_name: "group-line",
                           tooltip_key: "attendees_count_tooltip" do |components, start_at, end_at|
-    meetings = Decidim::Meetings::Meeting.closed.not_hidden.published.visible.where(component: components, closing_visible: true)
+    meetings = Decidim::Meetings::Meeting.with_public_attendees_count.where(component: components)
     meetings = meetings.where(closed_at: start_at..) if start_at.present?
     meetings = meetings.where(closed_at: ..end_at) if end_at.present?
     meetings.sum(:attendees_count)
