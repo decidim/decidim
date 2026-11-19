@@ -744,7 +744,7 @@ eu:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu. Bilera honetarako izena eman duzulako, jakinarazi egingo dizute eguneraketak badaude.
-          unauthorized: Saioa hasi aurretik izena eman behar da.
+          unauthorized: Saioa hasi behar duzu topaketan izena eman aurretik.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapenari uko egitean.
           success: Zuzen uko egin diozu gonbidapenari.
