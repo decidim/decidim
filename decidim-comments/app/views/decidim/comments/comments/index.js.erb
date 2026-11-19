@@ -52,6 +52,7 @@
   // Update comments count
   var countElement = commentsContainer.querySelector(".comments-count");
   if (countElement) {
+    countElement.dataset.commentsCount = <%== @comments_count.to_json %>;
     countElement.textContent = <%== t("decidim.components.comments.title", count: @comments_count).to_json %>;
   }
 
