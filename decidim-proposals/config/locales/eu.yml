@@ -92,13 +92,13 @@ eu:
       decidim:
         proposals:
           proposal:
-            budget_text: <span class="resource-link">%{link} proposamena sortu zen</span>
+            budget_text: Proposamen hau <span class="resource-link">%{link} </span> sortu zen
             import_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
             import_to_proposal_text: <span class="resource-link">%{link} proposamen hau sortu zen</span>
             merge_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            merge_to_proposal_text: '%{link} proposamena sortu da'
+            merge_to_proposal_text: 'Proposamena hemen sortu da %{link}'
             split_from_proposal_text: 'Proposamen hau eratorri da: %{link}'
-            split_to_proposal_text: '%{link} proposamena sortu da'
+            split_to_proposal_text: 'Proposamena hemen sortu da %{link}'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
         other: Zirriborro kolaboratiboak
@@ -815,7 +815,7 @@ eu:
           final_proposal: Azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
-            one: eta pertsona %{count} gehiago
+            one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
           info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
@@ -982,7 +982,7 @@ eu:
           edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
           hidden_likes_count:
-            one: eta pertsona %{count} gehiago
+            one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi zirriborro kolaboratiboaren testua
