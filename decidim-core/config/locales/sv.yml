@@ -118,8 +118,6 @@ sv:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/åååå'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2267,7 +2265,6 @@ sv:
       long_with_particles: "%B %d, %Y kl. %H:%M"
       short: "%d/%m/%Y kl.%H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Raderingar
