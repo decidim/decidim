@@ -15,7 +15,7 @@ es-PY:
           label: Método de Equal Shares (reparto equitativo), add1 (%{rule})
         equalshares/add1_comparison:
           help: Utiliza equalshares/add1 y después aplica el mismo paso de comparación que se ha descrito anteriormente.
-          label: Método de Equal Shares (reparto equitativo), comparación add1 (%{rules})
+          label: Método de Equal Shares (reparto equitativo), comparación add1 (%{rule})
         equalshares_comparison:
           help: 'Utiliza equalshares (reparto equitativo) como base y, luego, añade un paso extra: compara su resultado con un enfoque de maximización inmediata y cambia solo si más votantes prefieren el resultado de este enfoque.'
           label: Métode de Equals Shares (reparto equitativo), comparación (%{rule})
@@ -162,7 +162,7 @@ es-PY:
                 label: Puntuación máxima (%{field})
               max_sum_cost:
                 help: 'Importe máximo del coste de un proyecto (por defecto: %{default_value}).'
-                label: Coste total máximo (%{filed})
+                label: Coste total máximo (%{field})
               max_sum_points:
                 help: Suma máxima de los puntos asignados a cada proyecto.
                 label: Suma máxima de puntos (%{field})
