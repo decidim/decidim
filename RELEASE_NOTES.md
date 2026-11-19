@@ -104,7 +104,17 @@ This initializer is not overwritten automatically during the upgrade (`bin/rails
 
 You can read more about this change on PR [#17160](https://github.com/decidim/decidim/pull/17160).
 
-### 2.5. Personal URL field removed from participant profiles
+### 2.5. Data consent cookie is now host-bound
+
+The default data consent cookie has changed from `decidim-consent` to `__Host-decidim-consent`. On HTTPS, Decidim now sets this cookie with the `__Host-` prefix, the `Secure` attribute and `Path=/`, and without a `Domain` attribute. This makes the cookie host-bound, so it is not shared between the main site and its subdomains (for example, production and staging).
+
+When Decidim runs over HTTP (such as `http://localhost:3000` during local development), it automatically uses the unprefixed name `decidim-consent`, because browsers reject `__Host-` cookies without the `Secure` attribute. On HTTPS the cookie name changes to `__Host-decidim-consent`. Existing visitors will need to give their consent again after the upgrade: HTTPS visitors because the cookie name has changed, and HTTP visitors because Decidim no longer reuses legacy unversioned consent values, even though the unprefixed cookie name remains the same.
+
+Implementers must update their instance documentation, including the Data/Cookie Consent and Privacy Policy pages and any other place where they have documented their cookies, to use the new cookie name. If you have customized `DECIDIM_CONSENT_COOKIE_NAME` or `consent_cookie_name`, note that Decidim adds the `__Host-` prefix on HTTPS (unless the configured name already includes it) and removes it on HTTP.
+
+You can read more about this change on PR [#17801](https://github.com/decidim/decidim/pull/17801).
+
+### 2.6. Personal URL field removed from participant profiles
 
 The personal URL field has been removed from participant profiles and the account settings form. This field was being widely used to publish spam links on the platform, so participants can no longer add or edit it, and it is no longer displayed on public profiles. The field has also been removed from the API.
 
@@ -112,7 +122,7 @@ Existing values stored in the database are no longer displayed. This field will 
 
 This change is part of the work to reduce profile spam tracked in issue [#17955](https://github.com/decidim/decidim/issues/17955).
 
-### 2.6. [[TITLE OF THE ACTION]]
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

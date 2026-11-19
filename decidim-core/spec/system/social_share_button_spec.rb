@@ -65,9 +65,10 @@ describe "Social share button" do
       page.driver.browser.execute_cdp(
         "Network.setCookie",
         domain: resource.organization.host,
-        name: Decidim.consent_cookie_name,
-        value: { essential: true }.to_json,
-        path: "/"
+        name: data_consent_cookie_name,
+        value: { essential: true, _version: 1 }.to_json,
+        path: "/",
+        secure: protocol == "https"
       )
     end
 

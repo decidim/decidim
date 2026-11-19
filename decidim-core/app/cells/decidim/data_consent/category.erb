@@ -43,7 +43,7 @@
         <% category[:items].each do |item| %>
           <tr>
             <td><%= t("layouts.decidim.data_consent.details.types.#{item[:type]}") %></td>
-            <td><%= item[:name] %></td>
+            <td><%= item_name(item) %></td>
             <td><%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.service") %></td>
             <td><%= t("layouts.decidim.data_consent.details.items.#{item[:name]}.description") %></td>
           </tr>

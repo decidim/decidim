@@ -579,8 +579,19 @@ module Decidim
   mattr_accessor :maximum_conversation_message_length, default: Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", 1000).to_i
 
   # Defines the name of the cookie used to check if the user has given consent
-  # to store local data in their browser.
-  mattr_accessor :consent_cookie_name, default: Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_s
+  # to store local data in their browser. On HTTPS the cookie is stored with the
+  # `__Host-` prefix (unless the name already includes it) so that it is bound
+  # to the current host. On HTTP the prefix is removed for local development.
+  mattr_accessor :consent_cookie_name, default: Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "__Host-decidim-consent").to_s
+
+  # Returns the name of the consent cookie as it is stored by the browser for
+  # the given protocol. Browsers only accept the `__Host-` prefix on HTTPS, so
+  # it is added there and removed on HTTP.
+  def self.consent_cookie_name_for(protocol)
+    name = consent_cookie_name.delete_prefix("__Host-")
+
+    protocol.to_s.start_with?("https") ? "__Host-#{name}" : name
+  end
 
   # Defines data consent categories. Note that when adding an item you need to
   # add following i18n entries also (change 'foo' with the name of the data
