@@ -13,10 +13,10 @@ module Decidim
         let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed) }
         let!(:emendation) { create(:proposal, component:) }
         let!(:amendment) { create(:amendment, amendable: proposal2, emendation:) }
-        let(:proposal1) { create(:proposal, cost: nil, component:, proposal_state: nil) }
-        let(:proposal2) { create(:proposal, cost: nil, component:, proposal_state: nil) }
-        let(:proposal_state) { create(:proposal_state, component:) }
-        let(:template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: component, organization: component.organization, field_values: { "proposal_state_id" => proposal_state.id }) }
+        let(:proposal1) { create(:proposal, cost: nil, component:, proposal_status: nil) }
+        let(:proposal2) { create(:proposal, cost: nil, component:, proposal_status: nil) }
+        let(:proposal_status) { create(:proposal_status, component:) }
+        let(:template) { create(:template, skip_injection: true, target: :proposal_answer, templatable: component, organization: component.organization, field_values: { "proposal_status_id" => proposal_status.id }) }
         let(:proposal_ids) { [proposal1.id, proposal2.id] }
         let(:params) do
           {
@@ -44,7 +44,7 @@ module Decidim
           let(:params) do
             {
               id: proposal1.id,
-              internal_state: "accepted",
+              internal_status: "accepted",
               component_id: component.id,
               participatory_process_slug: component.participatory_space.slug
             }
@@ -181,7 +181,7 @@ module Decidim
             let(:other_component) { create(:proposal_component, organization: other_org) }
             let(:other_template) do
               create(:template, skip_injection: true, target: :proposal_answer, templatable: other_component, organization: other_org,
-                                field_values: { "proposal_state_id" => proposal_state.id })
+                                field_values: { "proposal_status_id" => proposal_status.id })
             end
             let(:params) do
               {

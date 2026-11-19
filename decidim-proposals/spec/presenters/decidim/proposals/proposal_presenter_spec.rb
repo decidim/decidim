@@ -140,7 +140,7 @@ module Decidim
 
         context "when proposal has an answer that was not published yet" do
           before do
-            proposal.assign_state("accepted")
+            proposal.assign_status("accepted")
             proposal.update!(answer: "an answer", answered_at: Time.current)
           end
 
@@ -148,8 +148,8 @@ module Decidim
             expect(subject.count).to eq(1)
           end
 
-          it "does not include state on the version" do
-            expect(subject.first.changeset.keys).not_to include("state")
+          it "does not include status on the version" do
+            expect(subject.first.changeset.keys).not_to include("status")
           end
         end
 
@@ -157,21 +157,21 @@ module Decidim
           let(:proposal) { create(:proposal) }
 
           before do
-            proposal.assign_state("accepted")
+            proposal.assign_status("accepted")
             proposal.update!(answer: "an answer", answered_at: Time.current)
-            proposal.update!(state_published_at: Time.current)
+            proposal.update!(status_published_at: Time.current)
           end
 
           it "only consider two versions" do
             expect(subject.count).to eq(2)
           end
 
-          it "does not include state on the first version" do
-            expect(subject.first.changeset.keys).not_to include("decidim_proposals_proposal_state_id")
+          it "does not include status on the first version" do
+            expect(subject.first.changeset.keys).not_to include("decidim_proposals_proposal_status_id")
           end
 
-          it "includes the state and the state_published_at fields in the last version" do
-            expect(subject.last.changeset.keys).to include("decidim_proposals_proposal_state_id", "state_published_at")
+          it "includes the status and the status_published_at fields in the last version" do
+            expect(subject.last.changeset.keys).to include("decidim_proposals_proposal_status_id", "status_published_at")
           end
         end
       end

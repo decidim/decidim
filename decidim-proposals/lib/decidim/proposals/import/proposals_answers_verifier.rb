@@ -9,7 +9,15 @@ module Decidim
         protected
 
         def required_headers
-          %w(id state) + required_localized_headers("answer")
+          %w(id) + required_localized_headers("answer")
+        end
+
+        # The status column was called "state" before the state/status rename,
+        # accept both so files exported before the rename can still be imported.
+        def missing_headers
+          return super if headers.intersect?(%w(status state))
+
+          super + ["status"]
         end
 
         # Check if prepared resource is valid

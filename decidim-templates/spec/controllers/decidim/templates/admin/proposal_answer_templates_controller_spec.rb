@@ -20,18 +20,18 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
     sign_in user, scope: :user
   end
 
-  describe "helper available_states" do
-    let!(:state) { create(:proposal_state, component:) }
-    let!(:other_state) { create(:proposal_state, component: other_component) }
+  describe "helper available_statuses" do
+    let!(:status) { create(:proposal_status, component:) }
+    let!(:other_status) { create(:proposal_status, component: other_component) }
 
-    it "returns states for the given component" do
-      states = controller.helpers.available_states(component.id)
-      expect(states).to include(state)
+    it "returns statuses for the given component" do
+      statuses = controller.helpers.available_statuses(component.id)
+      expect(statuses).to include(status)
     end
 
-    it "returns states for a cross-org component (inline-disable: caller is responsible for scoping)" do
-      states = controller.helpers.available_states(other_component.id)
-      expect(states).to include(other_state)
+    it "returns statuses for a cross-org component (inline-disable: caller is responsible for scoping)" do
+      statuses = controller.helpers.available_statuses(other_component.id)
+      expect(statuses).to include(other_status)
     end
   end
 
@@ -45,15 +45,15 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
     end
   end
 
-  describe "helper proposal_state" do
+  describe "helper proposal_status" do
     let(:template) do
       create(:template, organization:, target: :proposal_answer, templatable: component,
-                        field_values: { "proposal_state_id" => state.id })
+                        field_values: { "proposal_status_id" => status.id })
     end
-    let!(:state) { create(:proposal_state, component:) }
+    let!(:status) { create(:proposal_status, component:) }
 
-    it "returns the state title" do
-      expect(controller.helpers.proposal_state(template)).to eq(translated_attribute(state.title))
+    it "returns the status title" do
+      expect(controller.helpers.proposal_status(template)).to eq(translated_attribute(status.title))
     end
   end
 
@@ -90,9 +90,9 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
   describe "GET fetch" do
     let(:template) do
       create(:template, organization:, target: :proposal_answer, templatable: component,
-                        field_values: { "proposal_state_id" => state.id })
+                        field_values: { "proposal_status_id" => status.id })
     end
-    let!(:state) { create(:proposal_state, component:) }
+    let!(:status) { create(:proposal_status, component:) }
     let!(:proposal) { create(:proposal, component:) }
 
     context "without proposalId" do

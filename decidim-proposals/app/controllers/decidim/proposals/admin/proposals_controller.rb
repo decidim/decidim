@@ -152,7 +152,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Proposal.includes(:amended, :amendable, :component, :taxonomies, :proposal_state)
+          @collection ||= Proposal.includes(:amended, :amendable, :component, :taxonomies, :proposal_status)
                                   .where(component: current_component)
                                   .not_hidden
                                   .published

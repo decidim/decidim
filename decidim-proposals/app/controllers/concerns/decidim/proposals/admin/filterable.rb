@@ -39,14 +39,14 @@ module Decidim
             @filter_config ||= Decidim::AdminFilter.new(:proposals).build_for(self)
           end
 
-          def translated_state_eq(state)
-            return t("decidim.admin.filters.proposals.state_eq.values.withdrawn") if state == "withdrawn"
+          def translated_status_eq(status)
+            return t("decidim.admin.filters.proposals.status_eq.values.withdrawn") if status == "withdrawn"
 
-            translated_attribute(ProposalState.where(component: current_component, token: state).first&.title)
+            translated_attribute(ProposalStatus.where(component: current_component, token: status).first&.title)
           end
 
-          def state_eq_values
-            ProposalState.where(component: current_component).pluck(:token) + ["withdrawn"]
+          def status_eq_values
+            ProposalStatus.where(component: current_component).pluck(:token) + ["withdrawn"]
           end
 
           def evaluator_role_ids

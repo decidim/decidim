@@ -210,7 +210,7 @@ en:
             actions: Actions
             cancel: Cancel
             change_budget: Change budget
-            change_selected: Change selected state
+            change_selected: Change selected status
             change_taxonomies: Change taxonomies
             deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
@@ -240,7 +240,7 @@ en:
               selected: 'These projects were already selected for implementation: %{errored}.'
               unselected: 'These projects were already unselected from implementation: %{errored}.'
             select_a_project: Please select a project.
-            select_a_selection: Please select an implementation state.
+            select_a_selection: Please select an implementation status.
             success:
               selected: 'These projects were successfully selected for implementation: %{successful}.'
               unselected: 'These projects were successfully unselected from implementation: %{successful}.'
@@ -258,8 +258,8 @@ en:
             default_budget: Default budget
             no_components: There are no other proposal components in this participatory space to import the proposals into projects.
             origin_component_id: Origin component
-            proposal_states: Proposal States
-            proposal_states_help: Select one or more proposal states to import into projects. By selecting none, you will import all published proposals that have not already been imported in other budgets from this component.
+            proposal_statuses: Proposal Statuses
+            proposal_statuses_help: Select one or more proposal statuses to import into projects. By selecting none, you will import all published proposals that have not already been imported in other budgets from this component.
             select_component: Please select a component
             title: Import proposals to projects
         reminders:

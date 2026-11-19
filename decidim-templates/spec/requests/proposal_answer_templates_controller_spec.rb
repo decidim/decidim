@@ -27,17 +27,17 @@ RSpec.describe "Proposal answer templates fetch" do
 
   context "with own template and proposal" do
     let!(:proposal) { create(:proposal, component:) }
-    let!(:state) { create(:proposal_state, component:) }
+    let!(:status) { create(:proposal_status, component:) }
     let(:template) do
       create(:template, organization:, target: :proposal_answer, templatable: component,
-                        field_values: { "proposal_state_id" => state.id })
+                        field_values: { "proposal_status_id" => status.id })
     end
 
-    it "returns the proposal state and interpolated template" do
+    it "returns the proposal status and interpolated template" do
       get path, params: { id: template.id, proposalId: proposal.id, format: :json }, headers: request_headers
 
       expect(response).to have_http_status(:ok)
-      expect(response.parsed_body["state"]).to eq(state.token)
+      expect(response.parsed_body["status"]).to eq(status.token)
     end
   end
 end

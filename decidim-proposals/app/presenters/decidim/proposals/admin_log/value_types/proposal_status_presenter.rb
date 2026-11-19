@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module AdminLog
       module ValueTypes
-        class ProposalStatePresenter < Decidim::Log::ValueTypes::DefaultPresenter
+        class ProposalStatusPresenter < Decidim::Log::ValueTypes::DefaultPresenter
           def present
             return unless value
 

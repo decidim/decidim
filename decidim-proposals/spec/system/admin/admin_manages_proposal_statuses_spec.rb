@@ -2,23 +2,23 @@
 
 require "spec_helper"
 
-describe "Admin manages proposals states" do
+describe "Admin manages proposals statuses" do
   include_context "when managing a component as an admin" do
     let!(:component) { create(:proposal_component, participatory_space:) }
   end
 
   describe "visiting the component admin page" do
-    it "lists the proposal states button" do
+    it "lists the proposal statuses button" do
       expect(page).to have_text("Statuses")
     end
   end
 
-  describe "listing proposal states page" do
+  describe "listing proposal statuses page" do
     before do
       click_on "Statuses"
     end
 
-    it "lists the default proposal states" do
+    it "lists the default proposal statuses" do
       expect(page).to have_text("Status")
       expect(page).to have_link("New status")
 
@@ -31,22 +31,22 @@ describe "Admin manages proposals states" do
     end
   end
 
-  describe "creating a proposal state" do
-    let(:attributes) { attributes_for(:proposal_state) }
+  describe "creating a proposal status" do
+    let(:attributes) { attributes_for(:proposal_status) }
 
     before do
       click_on "Statuses"
       click_on "New status"
     end
 
-    it "creates a new proposal state" do
-      expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
-      within ".new_proposal_state" do
-        fill_in_i18n(:proposal_state_title, "#proposal_state-title-tabs", **attributes[:title].except("machine_translations"))
-        fill_in_i18n(:proposal_state_announcement_title, "#proposal_state-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
+    it "creates a new proposal status" do
+      expect(Decidim::Proposals::ProposalStatus.find_by(token: "custom")).to be_nil
+      within ".new_proposal_status" do
+        fill_in_i18n(:proposal_status_title, "#proposal_status-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:proposal_status_announcement_title, "#proposal_status-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
 
         within ".proposal-status__color" do
-          find_by_id("proposal_state_text_color_9a6700").click
+          find_by_id("proposal_status_text_color_9a6700").click
         end
 
         find("*[type=submit]").click
@@ -59,37 +59,37 @@ describe "Admin manages proposals states" do
         expect(page).to have_text(translated(attributes[:title]))
       end
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "script_alert_proposal_state_title_script_not_answered")
-      expect(state).to be_present
-      expect(translated(state.title)).to eq(translated(attributes[:title]))
-      expect(translated(state.announcement_title)).to eq(translated(attributes[:announcement_title]))
-      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
+      status = Decidim::Proposals::ProposalStatus.find_by(token: "script_alert_proposal_status_title_script_not_answered")
+      expect(status).to be_present
+      expect(translated(status.title)).to eq(translated(attributes[:title]))
+      expect(translated(status.announcement_title)).to eq(translated(attributes[:announcement_title]))
+      expect(status.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
 
       visit decidim_admin.root_path
       expect(page).to have_text("created #{translated(attributes[:title])} in")
     end
 
     it "updates the label and announcement previews" do
-      expect(Decidim::Proposals::ProposalState.find_by(token: "custom")).to be_nil
-      within ".new_proposal_state" do
+      expect(Decidim::Proposals::ProposalStatus.find_by(token: "custom")).to be_nil
+      within ".new_proposal_status" do
         fill_in_i18n(
-          :proposal_state_title,
-          "#proposal_state-title-tabs",
-          en: "Custom state",
+          :proposal_status_title,
+          "#proposal_status-title-tabs",
+          en: "Custom status",
           es: "Estado personalizado",
           ca: "Estat personalitzat"
         )
 
         fill_in_i18n(
-          :proposal_state_announcement_title,
-          "#proposal_state-announcement_title-tabs",
+          :proposal_status_announcement_title,
+          "#proposal_status-announcement_title-tabs",
           en: "A longer announcement",
           es: "Anuncio más largo",
           ca: "Anunci més llarg"
         )
 
         within ".proposal-status__color" do
-          find_by_id("proposal_state_text_color_9a6700").click
+          find_by_id("proposal_status_text_color_9a6700").click
         end
 
         expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
@@ -105,39 +105,39 @@ describe "Admin manages proposals states" do
     end
   end
 
-  describe "editing a proposal state" do
-    let(:state_params) do
+  describe "editing a proposal status" do
+    let(:status_params) do
       {
-        title: { "en" => "Editable state" },
+        title: { "en" => "Editable status" },
         announcement_title: { "en" => "Editable announcement title" },
-        token: "editable_state",
+        token: "editable_status",
         bg_color: "#EBF9FF",
         text_color: "#0851A6"
       }
     end
-    let!(:proposal_state) { create(:proposal_state, component: current_component, **state_params) }
-    let(:attributes) { attributes_for(:proposal_state) }
+    let!(:proposal_status) { create(:proposal_status, component: current_component, **status_params) }
+    let(:attributes) { attributes_for(:proposal_status) }
 
     before do
       click_on "Statuses"
     end
 
-    it "displays the proposal state" do
-      expect(page).to have_text("Editable state")
+    it "displays the proposal status" do
+      expect(page).to have_text("Editable status")
     end
 
-    it "updates a proposal state" do
-      within "tr", text: translated(proposal_state.title) do
+    it "updates a proposal status" do
+      within "tr", text: translated(proposal_status.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
-      within ".edit_proposal_state" do
-        fill_in_i18n(:proposal_state_title, "#proposal_state-title-tabs", **attributes[:title].except("machine_translations"))
-        fill_in_i18n(:proposal_state_announcement_title, "#proposal_state-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
+      within ".edit_proposal_status" do
+        fill_in_i18n(:proposal_status_title, "#proposal_status-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:proposal_status_announcement_title, "#proposal_status-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
 
         within ".proposal-status__color" do
-          find_by_id("proposal_state_text_color_9a6700").click
+          find_by_id("proposal_status_text_color_9a6700").click
         end
 
         find("*[type=submit]").click
@@ -149,28 +149,28 @@ describe "Admin manages proposals states" do
         expect(page).to have_text(translated(attributes[:title]))
       end
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "editable_state")
+      status = Decidim::Proposals::ProposalStatus.find_by(token: "editable_status")
 
-      expect(translated(state.title)).to eq(translated(attributes[:title]))
-      expect(translated(state.announcement_title)).to eq(translated(attributes[:announcement_title]))
-      expect(state.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
+      expect(translated(status.title)).to eq(translated(attributes[:title]))
+      expect(translated(status.announcement_title)).to eq(translated(attributes[:announcement_title]))
+      expect(status.css_style).to eq("background-color: #FFFCE5; color: #9A6700; border-color: #9A6700;")
 
       visit decidim_admin.root_path
       expect(page).to have_text("updated #{translated(attributes[:title])} in")
     end
 
     it "updates the label and announcement previews" do
-      within "tr", text: translated(proposal_state.title) do
+      within "tr", text: translated(proposal_status.title) do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
       end
 
-      within ".edit_proposal_state" do
-        fill_in_i18n(:proposal_state_title, "#proposal_state-title-tabs", **attributes[:title].except("machine_translations"))
-        fill_in_i18n(:proposal_state_announcement_title, "#proposal_state-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
+      within ".edit_proposal_status" do
+        fill_in_i18n(:proposal_status_title, "#proposal_status-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:proposal_status_announcement_title, "#proposal_status-announcement_title-tabs", **attributes[:announcement_title].except("machine_translations"))
 
         within ".proposal-status__color" do
-          find_by_id("proposal_state_text_color_9a6700").click
+          find_by_id("proposal_status_text_color_9a6700").click
         end
 
         expect(page).to have_css("[data-label-preview]", style: "background-color: rgb(255, 252, 229); color: rgb(154, 103, 0);")
@@ -192,44 +192,44 @@ describe "Admin manages proposals states" do
     end
   end
 
-  describe "deleting a proposal state" do
-    let(:state_params) do
+  describe "deleting a proposal status" do
+    let(:status_params) do
       {
-        title: { "en" => "Editable state" },
+        title: { "en" => "Editable status" },
         announcement_title: { "en" => "Editable announcement title" },
         token: "editable",
         bg_color: "#EBF9FF",
         text_color: "#0851A6"
       }
     end
-    let!(:state) { create(:proposal_state, component: current_component, **state_params) }
+    let!(:status) { create(:proposal_status, component: current_component, **status_params) }
 
     before do
       click_on "Statuses"
     end
 
-    it "deletes the proposal state" do
-      within "tr", text: translated(state.title) do
+    it "deletes the proposal status" do
+      within "tr", text: translated(status.title) do
         find("button[data-controller='dropdown']").click
         accept_confirm { click_on "Delete" }
       end
       expect(page).to have_callout("Status deleted successfully")
 
-      state = Decidim::Proposals::ProposalState.find_by(token: "editable")
+      status = Decidim::Proposals::ProposalStatus.find_by(token: "editable")
 
-      expect(state).to be_nil
+      expect(status).to be_nil
     end
 
-    it "does not delete the proposal state if there are proposals attached" do
-      proposal = create(:proposal, component: current_component, state: state.token)
+    it "does not delete the proposal status if there are proposals attached" do
+      proposal = create(:proposal, component: current_component, status: status.token)
 
       visit current_path
-      expect(state.reload.proposals).to include(proposal)
-      expect(state.proposals_count).to eq(1)
-      within "tr", text: translated(state.title) do
+      expect(status.reload.proposals).to include(proposal)
+      expect(status.proposals_count).to eq(1)
+      within "tr", text: translated(status.title) do
         find("button[data-controller='dropdown']").click
         expect(page).to have_no_link("Delete")
-        expect(page).to have_css(".dropdown__button-disabled span", text: "Delete state")
+        expect(page).to have_css(".dropdown__button-disabled span", text: "Delete status")
         expect(page).to have_css(".dropdown__button-disabled svg")
       end
     end

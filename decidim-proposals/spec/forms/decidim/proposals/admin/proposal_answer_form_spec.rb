@@ -9,7 +9,7 @@ module Decidim
         subject { form }
 
         let(:organization) { proposals_component.participatory_space.organization }
-        let(:state) { "accepted" }
+        let(:status) { "accepted" }
         let(:answer) { Decidim::Faker::Localized.sentence(word_count: 3) }
         let(:proposals_component) { create(:proposal_component) }
         let(:cost) { nil }
@@ -17,7 +17,7 @@ module Decidim
         let(:execution_period) { nil }
         let(:params) do
           {
-            internal_state: state,
+            internal_status: status,
             answer:,
             cost:,
             cost_report:,
@@ -36,20 +36,20 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when the state is not valid" do
-          let(:state) { "foo" }
+        context "when the status is not valid" do
+          let(:status) { "foo" }
 
           it { is_expected.to be_invalid }
         end
 
-        context "when there is no state" do
-          let(:state) { nil }
+        context "when there is no status" do
+          let(:status) { nil }
 
           it { is_expected.to be_invalid }
         end
 
         context "when rejecting a proposal" do
-          let(:state) { "rejected" }
+          let(:status) { "rejected" }
 
           context "and there is no answer" do
             let(:answer) { nil }
@@ -59,7 +59,7 @@ module Decidim
         end
 
         context "when accepting the proposal" do
-          let(:state) { "accepted" }
+          let(:status) { "accepted" }
 
           context "and costs are enabled" do
             before do

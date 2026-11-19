@@ -9,13 +9,13 @@ module Decidim
       module ProposalsHelper
         include Decidim::TranslatableAttributes
 
-        def available_states
+        def available_statuses
           [
-            Decidim::Proposals::ProposalState.where(component: current_component).new(
+            Decidim::Proposals::ProposalStatus.where(component: current_component).new(
               token: "not_answered",
               title: t("decidim.proposals.answers.not_answered")
             )
-          ] + Decidim::Proposals::ProposalState.where(component: current_component).all
+          ] + Decidim::Proposals::ProposalStatus.where(component: current_component).all
         end
 
         # Public: A formatted collection of Meetings to be used
@@ -40,11 +40,11 @@ module Decidim
           proposal.likes.includes(author: [:organization]).for_listing.map { |identity| present(identity.author) }
         end
 
-        def proposal_complete_state(proposal)
-          return humanize_proposal_state(:withdrawn).html_safe if proposal.withdrawn?
-          return humanize_proposal_state("not_answered").html_safe if proposal.proposal_state.nil?
+        def proposal_complete_status(proposal)
+          return humanize_proposal_status(:withdrawn).html_safe if proposal.withdrawn?
+          return humanize_proposal_status("not_answered").html_safe if proposal.proposal_status.nil?
 
-          translated_attribute(proposal&.proposal_state&.title)
+          translated_attribute(proposal&.proposal_status&.title)
         end
       end
     end

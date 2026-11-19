@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Admin
-      class DestroyProposalState < Decidim::Commands::DestroyResource
+      class DestroyProposalStatus < Decidim::Commands::DestroyResource
       end
     end
   end

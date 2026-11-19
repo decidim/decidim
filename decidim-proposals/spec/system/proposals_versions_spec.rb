@@ -112,9 +112,9 @@ describe "Explore versions", versioning: true do
       end
     end
 
-    it "show the correct state" do
+    it "show the correct status" do
       form_params = {
-        internal_state: "evaluating",
+        internal_status: "evaluating",
         answer: { en: "Foo" },
         cost: 2000,
         cost_report: { en: "Cost report" },
@@ -130,8 +130,8 @@ describe "Explore versions", versioning: true do
       visit current_path
       click_on("Version 3 of 3")
 
-      within "#diff-for-state" do
-        expect(page).to have_text("State")
+      within "#diff-for-status" do
+        expect(page).to have_text("Status")
         within ".diff > ul > .ins" do
           expect(page).to have_text("Evaluating")
         end

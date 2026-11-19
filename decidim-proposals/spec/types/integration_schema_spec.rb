@@ -82,7 +82,7 @@ describe "Decidim::Api::QueryType" do
           official
           participatoryTextLevel
           position
-          proposalState {
+          proposalStatus {
             announcementTitle { translation(locale: "#{locale}") }
             bgColor
             id
@@ -92,7 +92,7 @@ describe "Decidim::Api::QueryType" do
           }
           publishedAt
           reference
-          state
+          status
           title {
             translation(locale:"#{locale}")
           }
@@ -134,14 +134,14 @@ describe "Decidim::Api::QueryType" do
   let(:execution_period) do
     { "translation" => translated(proposal.execution_period) } if active_step
   end
-  let(:proposal_state) do
+  let(:proposal_status) do
     {
-      "announcementTitle" => { "translation" => translated(proposal.proposal_state.announcement_title) },
-      "bgColor" => proposal.proposal_state.bg_color,
-      "id" => proposal.proposal_state.id.to_s,
-      "proposalsCount" => proposal.proposal_state.proposals_count,
-      "textColor" => proposal.proposal_state.text_color,
-      "title" => { "translation" => translated(proposal.proposal_state.title) }
+      "announcementTitle" => { "translation" => translated(proposal.proposal_status.announcement_title) },
+      "bgColor" => proposal.proposal_status.bg_color,
+      "id" => proposal.proposal_status.id.to_s,
+      "proposalsCount" => proposal.proposal_status.proposals_count,
+      "textColor" => proposal.proposal_status.text_color,
+      "title" => { "translation" => translated(proposal.proposal_status.title) }
     }
   end
 
@@ -194,10 +194,10 @@ describe "Decidim::Api::QueryType" do
       "official" => proposal.official?,
       "participatoryTextLevel" => proposal.participatory_text_level,
       "position" => proposal.position,
-      "proposalState" => proposal_state,
+      "proposalStatus" => proposal_status,
       "publishedAt" => proposal.published_at.to_time.iso8601,
       "reference" => proposal.reference,
-      "state" => proposal.state,
+      "status" => proposal.status,
       "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
       "type" => "Decidim::Proposals::Proposal",
@@ -331,7 +331,7 @@ describe "Decidim::Api::QueryType" do
               official
               participatoryTextLevel
               position
-              proposalState {
+              proposalStatus {
                 announcementTitle { translation(locale: "#{locale}") }
                 bgColor
                 id
@@ -341,7 +341,7 @@ describe "Decidim::Api::QueryType" do
               }
               publishedAt
               reference
-              state
+              status
               title {
                 translation(locale:"#{locale}")
               }

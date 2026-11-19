@@ -19,7 +19,7 @@ module Decidim
           mutation() {
             withdraw(input: {}) {
               id
-              state
+              status
               withdrawnAt
             }
           }

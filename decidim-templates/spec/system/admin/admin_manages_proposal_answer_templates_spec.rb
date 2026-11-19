@@ -4,13 +4,13 @@ require "spec_helper"
 
 describe "Admin manages proposal answer templates" do
   let(:description) { "A component" }
-  let(:field_values) { { proposal_state_id: } }
+  let(:field_values) { { proposal_status_id: } }
   let(:token) { "rejected" }
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:participatory_space) { create(:participatory_process, title: { en: "A participatory process" }, organization:) }
   let!(:templatable) { create(:proposal_component, name: { en: description }, participatory_space:) }
-  let(:proposal_state_id) { Decidim::Proposals::ProposalState.find_by(component: templatable, token:).id }
+  let(:proposal_status_id) { Decidim::Proposals::ProposalStatus.find_by(component: templatable, token:).id }
   let!(:template) { create(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
   let(:attributes) { attributes_for(:template, target: :proposal_answer, organization:, templatable:, field_values:) }
 
@@ -167,7 +167,7 @@ describe "Admin manages proposal answer templates" do
     end
 
     it "uses the template" do
-      expect(proposal.reload.internal_state).to eq("not_answered")
+      expect(proposal.reload.internal_status).to eq("not_answered")
       within ".edit_proposal_answer" do
         select template.name["en"], from: :proposal_answer_template_chooser
         expect(page).to have_text(description)
@@ -179,7 +179,7 @@ describe "Admin manages proposal answer templates" do
       within "tr", text: proposal.title["en"] do
         expect(page).to have_text("Rejected")
       end
-      expect(proposal.reload.internal_state).to eq("rejected")
+      expect(proposal.reload.internal_status).to eq("rejected")
     end
 
     context "when there are no templates" do
@@ -214,7 +214,7 @@ describe "Admin manages proposal answer templates" do
       end
 
       it "hides templates scoped for other components" do
-        expect(proposal.reload.internal_state).to eq("not_answered")
+        expect(proposal.reload.internal_status).to eq("not_answered")
         expect(page).to have_no_select(:proposal_answer_template_chooser, with_options: [translated(other_component_template.name)])
       end
     end
