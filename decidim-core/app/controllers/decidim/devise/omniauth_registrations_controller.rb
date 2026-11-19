@@ -14,13 +14,15 @@ module Decidim
       end
 
       def create
-        form_params = user_params_from_oauth_hash || params[:user]
+        return handle_missing_oauth_data! if pending_oauth_data.blank?
+
+        form_params = form_params_from_pending_oauth
 
         @form = form(OmniauthRegistrationForm).from_params(form_params)
-        @form.email ||= verified_email
-
         CreateOmniauthRegistration.call(@form, verified_email) do
           on(:ok) do |user|
+            clear_pending_oauth_data!
+
             if user.active_for_authentication?
               sign_in_and_redirect user, event: :authentication
               set_flash_message :notice, :success, kind: @form.provider.capitalize
@@ -39,7 +41,6 @@ module Decidim
 
           on(:add_tos_errors) do
             set_flash_message :alert, :add_tos_errors if @form.valid_tos?
-            session[:verified_email] = verified_email
             render :new_tos_fields
           end
 
@@ -61,28 +62,106 @@ module Decidim
 
       private
 
+      def form_params_from_pending_oauth
+        submitted_params = params.fetch(:user, {}).permit(:name, :nickname, :email, :tos_agreement, :newsletter).to_h.symbolize_keys
+        oauth_params = pending_oauth_form_params
+
+        oauth_params.merge(
+          submitted_params
+        )
+      end
+
       def oauth_data
         @oauth_data ||= oauth_hash.slice(:provider, :uid, :info)
       end
 
-      # Private: Create form params from omniauth hash
-      # Since we are using trusted omniauth data we are generating a valid signature.
-      def user_params_from_oauth_hash
-        return nil if oauth_data.empty?
+      # Private: Create trusted form params from oauth data stored server-side.
+      # Since we are using trusted oauth data we are generating a valid signature.
+      # Note: raw_data is stored in Rails.cache (not session) to avoid cookie size issues.
+      # If cache is not shared across nodes, raw_data may not be available on retry —
+      # the registration flow will still succeed but raw_data will be empty.
+      def pending_oauth_form_params
+        return {} if pending_oauth_data.blank?
 
         {
-          provider: oauth_data[:provider],
-          uid: oauth_data[:uid],
-          name: oauth_data[:info][:name],
-          nickname: oauth_data[:info][:nickname],
-          oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid]),
-          avatar_url: oauth_data[:info][:image],
-          raw_data: oauth_hash
+          provider: pending_oauth_data[:provider],
+          uid: pending_oauth_data[:uid],
+          email: pending_oauth_data[:verified_email],
+          name: pending_oauth_data[:name],
+          nickname: pending_oauth_data[:nickname],
+          oauth_signature: OmniauthRegistrationForm.create_signature(pending_oauth_data[:provider], pending_oauth_data[:uid]),
+          avatar_url: pending_oauth_data[:avatar_url],
+          raw_data: restore_raw_data_from_cache,
+          pending_oauth_token:
         }
       end
 
       def verified_email
-        @verified_email ||= oauth_data.dig(:info, :email).presence || session[:verified_email]
+        @verified_email ||= pending_oauth_data&.dig(:verified_email)
+      end
+
+      def pending_oauth_data
+        @pending_oauth_data ||= if oauth_hash.present?
+                                  store_pending_oauth_data!
+                                else
+                                  restore_pending_oauth_data
+                                end
+      end
+
+      def pending_oauth_token
+        @pending_oauth_token ||= params.dig(:user, :pending_oauth_token).presence || session.dig(:omniauth_registration, :token)
+      end
+
+      def store_pending_oauth_data!
+        data = {
+          provider: oauth_data[:provider],
+          uid: oauth_data[:uid],
+          name: oauth_data.dig(:info, :name),
+          nickname: oauth_data.dig(:info, :nickname),
+          avatar_url: oauth_data.dig(:info, :image),
+          verified_email: oauth_data.dig(:info, :email).presence
+        }
+
+        token = SecureRandom.hex(16)
+        session[:omniauth_registration] = { token:, data: }
+        Rails.cache.write(raw_data_cache_key(token), oauth_hash, expires_in: 30.minutes)
+
+        @pending_oauth_token = token
+        data
+      end
+
+      def raw_data_cache_key(token)
+        "decidim/omniauth_registration/raw_data/#{token}"
+      end
+
+      def restore_raw_data_from_cache
+        return {} if pending_oauth_token.blank?
+
+        raw_data = Rails.cache.read(raw_data_cache_key(pending_oauth_token))
+        return raw_data if raw_data.present?
+
+        Rails.logger.warn("[Decidim::OmniauthRegistrationsController] Missing raw_data in cache for pending_oauth_token=#{pending_oauth_token}")
+        {}
+      end
+
+      def restore_pending_oauth_data
+        token = params.dig(:user, :pending_oauth_token)
+        return {} if token.blank?
+
+        state = session[:omniauth_registration]&.with_indifferent_access
+        return {} if state.blank?
+
+        stored_token = state[:token].to_s
+        return {} unless stored_token.bytesize == token.to_s.bytesize
+        return {} unless ActiveSupport::SecurityUtils.secure_compare(stored_token, token.to_s)
+
+        @pending_oauth_token = stored_token
+        state[:data] || {}
+      end
+
+      def clear_pending_oauth_data!
+        Rails.cache.delete(raw_data_cache_key(pending_oauth_token)) if pending_oauth_token.present?
+        session.delete(:omniauth_registration)
       end
 
       def oauth_hash
@@ -90,6 +169,11 @@ module Decidim
         return {} unless raw_hash
 
         raw_hash.deep_symbolize_keys
+      end
+
+      def handle_missing_oauth_data!
+        flash[:alert] = t("devise.failure.timeout")
+        redirect_back_or_to(decidim.root_path)
       end
     end
   end
