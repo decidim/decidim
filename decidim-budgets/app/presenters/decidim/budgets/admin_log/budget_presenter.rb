@@ -27,7 +27,6 @@ module Decidim
         def diff_fields_mapping
           {
             title: :i18n,
-            weight: :integer,
             description: :i18n,
             total_budget: :currency
           }

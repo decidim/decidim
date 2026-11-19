@@ -52,7 +52,6 @@ describe "Decidim::Api::QueryType" do
             id
           }
           versionsCount
-          weight
         }
       }
     )
@@ -101,8 +100,7 @@ describe "Decidim::Api::QueryType" do
       "updatedAt" => budget.updated_at.to_time.iso8601,
       "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
       "versions" => [],
-      "versionsCount" => 0,
-      "weight" => budget.weight
+      "versionsCount" => 0
     }
   end
 
@@ -161,8 +159,7 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => budget.updated_at.to_time.iso8601,
         "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
         "versions" => [],
-        "versionsCount" => 0,
-        "weight" => budget.weight
+        "versionsCount" => 0
       }
     end
 
@@ -190,7 +187,6 @@ describe "Decidim::Api::QueryType" do
                 id
               }
               versionsCount
-              weight
             }
           }
         }
@@ -258,8 +254,7 @@ describe "Decidim::Api::QueryType" do
         "updatedAt" => budget.updated_at.to_time.iso8601,
         "url" => Decidim::EngineRouter.main_proxy(budget.component).budget_url(budget),
         "versions" => [],
-        "versionsCount" => 0,
-        "weight" => budget.weight
+        "versionsCount" => 0
       }
     end
     let(:process_space_factory) { :participatory_process }
@@ -300,7 +295,6 @@ describe "Decidim::Api::QueryType" do
             id
           }
           versionsCount
-          weight
         }
       }
     )
@@ -460,7 +454,6 @@ describe "Decidim::Api::QueryType" do
             id
           }
           versionsCount
-          weight
         }
       }
     )

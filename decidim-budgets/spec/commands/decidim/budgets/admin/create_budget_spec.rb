@@ -13,7 +13,6 @@ describe Decidim::Budgets::Admin::CreateBudget do
   let(:form) do
     double(
       invalid?: invalid,
-      weight: 0,
       title: { en: "title" },
       description: { en: "description" },
       total_budget: 100_000_000,
@@ -35,7 +34,6 @@ describe Decidim::Budgets::Admin::CreateBudget do
     subject.call
     expect(translated(budget.title)).to eq "title"
     expect(translated(budget.description)).to eq "description"
-    expect(budget.weight).to eq 0
     expect(budget.total_budget).to eq 100_000_000
   end
 
@@ -50,7 +48,7 @@ describe Decidim::Budgets::Admin::CreateBudget do
       .with(
         Decidim::Budgets::Budget,
         user,
-        hash_including(:title, :description, :component, :weight, :total_budget),
+        hash_including(:title, :description, :component, :total_budget),
         visibility: "all"
       )
       .and_call_original

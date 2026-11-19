@@ -10,12 +10,10 @@ module Decidim
         mimic :budget
 
         translatable_attribute :title, String
-        attribute :weight, Integer, default: 0
         translatable_attribute :description, Decidim::Attributes::RichText
         attribute :total_budget, Integer, default: 0
 
         validates :title, translatable_presence: true
-        validates :weight, numericality: { greater_than_or_equal_to: 0 }
         validates :total_budget, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 9_223_372_036_854_775_807 }
       end
     end
