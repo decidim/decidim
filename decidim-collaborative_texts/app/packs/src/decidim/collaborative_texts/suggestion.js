@@ -265,9 +265,12 @@ export default class Suggestion {
 
   // Add, change or remove the current user's vote
   vote(weight) {
-    if (!this.votesUrl) {
+    if (!this.votesUrl || this.votePending) {
       return;
     }
+    this.votePending = true;
+    this.voteUpButton.disabled = true;
+    this.voteDownButton.disabled = true;
 
     fetch(this.votesUrl, {
       method: "POST",
@@ -291,6 +294,11 @@ export default class Suggestion {
       catch((error) => {
         console.error("Error voting suggestion:", error);
         this.suggestionsList.document.alert(error.message);
+      }).
+      finally(() => {
+        this.votePending = false;
+        this.voteUpButton.disabled = false;
+        this.voteDownButton.disabled = false;
       });
   }
 
