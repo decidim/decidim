@@ -7,7 +7,11 @@ require "decidim/core/test/shared_examples/form_builder_examples"
 
 module Decidim
   describe FormBuilder do
-    let(:helper) { Class.new(ActionView::Base).new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, []) }
+    let(:helper) do
+      Class.new(ActionView::Base) do
+        include Decidim::SanitizeHelper
+      end.new(ActionView::LookupContext.new(ActionController::Base.view_paths), {}, [])
+    end
     let(:available_locales) { %w(ca en de-CH) }
     let(:uploader) { Decidim::ApplicationUploader }
     let(:organization) { create(:organization) }
@@ -90,10 +94,26 @@ module Decidim
           builder.editor :slug
         end
 
-        it "renders a hidden field and a container for the editor" do
+        it "renders a hidden field, a preview and a container for the editor" do
           expect(parsed.css(".editor input[type='hidden'][name='resource[slug]']")).not_to be_empty
           expect(parsed.css(".editor label")).not_to be_empty
+          expect(parsed.css(".editor .editor-preview")).not_to be_empty
           expect(parsed.css(".editor .editor-container[data-toolbar='basic']")).not_to be_empty
+        end
+      end
+
+      context "when the field has content" do
+        let(:output) do
+          resource.slug = "<p>Hello</p><script>alert('xss')</script>"
+          builder.editor :slug
+        end
+
+        it "renders a sanitized preview" do
+          preview = parsed.css(".editor .editor-preview").first
+
+          expect(preview.text).to include("Hello")
+          expect(preview.to_html).not_to include("<script")
+          expect(parsed.css(".editor input[type='hidden']").first["value"]).to include("Hello")
         end
       end
 

@@ -68,6 +68,8 @@ describe "Admin edits documents" do
     let!(:suggestion) { create(:collaborative_text_suggestion, document_version: document.current_version) }
 
     it "does not allow to edit the document the body" do
+      original_body = document.body
+
       within("tr", text: "This is my document new title") do
         find("button[data-controller='dropdown']").click
         click_on "Edit"
@@ -76,7 +78,16 @@ describe "Admin edits documents" do
 
       fill_in "Title", with: "This is an edited title test"
       expect(page).to have_text("This document has suggestions and cannot be edited directly")
-      fill_in_editor :document_body, with: "body edited"
+
+      # The editor stays inactive and only a read-only preview of the body is
+      # rendered, so there is no ProseMirror instance to edit.
+      within("#document_body") do
+        expect(page).to have_css(".editor-container[data-disabled='true']")
+        expect(page).to have_css(".editor-preview")
+        expect(page).to have_no_css(".editor-input:not([hidden])", visible: :all)
+        expect(page).to have_no_css(".ProseMirror", visible: :all)
+      end
+
       uncheck "Enable suggestions"
       click_on "Update"
 
@@ -85,7 +96,7 @@ describe "Admin edits documents" do
       expect(document.reload.title).to eq("This is an edited title test")
       expect(document.accepting_suggestions?).to be false
       expect(document.draft?).to be false
-      expect(document.body).not_to eq("<p>body edited</p>")
+      expect(document.body).to eq(original_body)
     end
 
     it "shows the export dropdown button" do

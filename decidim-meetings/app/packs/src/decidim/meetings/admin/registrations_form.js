@@ -16,16 +16,31 @@ document.addEventListener("turbo:load", () => {
       }
     })
 
+    const toggleEditors = (enabled, editor = null) => {
+      const editors = new Set(
+        Array.from($form[0].querySelectorAll(".editor-container .ProseMirror")).
+          map((node) => node.editor)
+      );
+
+      if (editor) {
+        editors.add(editor);
+      }
+
+      editors.forEach((instance) => instance?.setOptions({ editable: enabled }));
+    };
+
     const toggleDisabledFields = () => {
       const enabled = $registrationsEnabled.prop("checked");
       $availableSlots.attr("disabled", !enabled);
       $reservedSlots.attr("disabled", !enabled);
       $customizeRegistrationEmail.attr("disabled", !enabled);
 
-      $form[0].querySelectorAll(".editor-container .ProseMirror").forEach((node) => {
-        node.editor.setOptions({ editable: enabled });
-      });
+      toggleEditors(enabled);
     };
+
+    $form[0].addEventListener("editor:initialized", (event) => {
+      toggleEditors($registrationsEnabled.prop("checked"), event.detail?.editor);
+    });
 
     $registrationsEnabled.on("change", toggleDisabledFields);
     toggleDisabledFields();
