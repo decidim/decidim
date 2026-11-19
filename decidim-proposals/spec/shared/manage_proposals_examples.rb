@@ -28,6 +28,28 @@ shared_examples "manage proposals" do
   end
 
   describe "listing" do
+    it "names the proposal selection checkboxes and allows selecting or clearing all proposals" do
+      select_all = find_by_id("proposals_bulk")
+      expect(select_all["aria-label"]).to eq("Select all proposals")
+
+      within "tr[data-id='#{proposal.id}']" do
+        expect(find(".js-proposal-list-check")["aria-label"]).to eq("Select proposal: #{proposal_title}")
+      end
+
+      select_all.set(true)
+      expect(page).to have_css(".js-proposal-list-check:checked", count: reportables.size + 1)
+
+      select_all.set(false)
+      expect(page).to have_no_css(".js-proposal-list-check:checked")
+
+      within "tr[data-id='#{proposal.id}']" do
+        find(".js-proposal-list-check").set(true)
+      end
+
+      expect(page).to have_css(".js-proposal-list-check:checked", count: 1)
+      expect(select_all).not_to be_checked
+    end
+
     context "with enriched content" do
       before do
         proposal.update!(title: { en: "Proposal <strong>title</strong>" })
@@ -36,6 +58,12 @@ shared_examples "manage proposals" do
 
       it "displays the correct title" do
         expect(page.html).to include("Proposal &lt;strong&gt;title&lt;/strong&gt;")
+      end
+
+      it "renders the checkbox name as plain text" do
+        within "tr[data-id='#{proposal.id}']" do
+          expect(find(".js-proposal-list-check")["aria-label"]).to eq("Select proposal: Proposal <strong>title</strong>")
+        end
       end
     end
   end

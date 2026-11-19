@@ -1,7 +1,7 @@
 <thead>
 <tr>
   <th>
-    <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
+    <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all", aria: { label: t("decidim.proposals.admin.proposals.index.select_all_proposals") } %>
   </th>
   <th class="!text-left">
     <%= sort_link(query, :translated_title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
