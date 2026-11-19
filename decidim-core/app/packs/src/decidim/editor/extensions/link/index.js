@@ -98,13 +98,18 @@ export default Link.extend({
 
           ({ href, target } = this.editor.getAttributes(nodeType));
 
+          if (allowTargetControl && !target) {
+            target = "_self";
+          }
+
           const inputs = { href: { type: "text", label: i18n.hrefLabel } };
           if (allowTargetControl) {
             inputs.target = {
               type: "select",
               label: i18n.targetLabel,
               options: [
-                { value: "", label: i18n["targets.default"] },
+                // Use explicit targets so the selected behavior is preserved when rendering links.
+                { value: "_self", label: i18n["targets.default"] },
                 { value: "_blank", label: i18n["targets.blank"] }
               ]
             }
@@ -117,7 +122,7 @@ export default Link.extend({
           if (!allowTargetControl) {
             target = "_blank";
           } else if (!target || target.length < 1) {
-            target = null;
+            target = "_self";
           }
 
           const buildChain = () => this.editor.chain().focus(null, { scrollIntoView: false });
