@@ -24,6 +24,22 @@ module Decidim
           expect(controller.helpers.documents).to include(published_document)
           expect(controller.helpers.documents).not_to include(unpublished_document)
         end
+
+        it "preloads the document versions used by the cards" do
+          get :index
+          expect(controller.helpers.documents.first.association(:document_versions)).to be_loaded
+        end
+
+        context "when filtering by state" do
+          let!(:accepting_document) { create(:collaborative_text_document, :published, :accepting_suggestions, component:) }
+          let!(:unpublished_accepting_document) { create(:collaborative_text_document, :accepting_suggestions, component:) }
+
+          it "only returns published documents matching the filter" do
+            get :index, params: { filter: { with_any_state: "accepting_suggestions" } }
+
+            expect(controller.helpers.documents).to contain_exactly(accepting_document)
+          end
+        end
       end
 
       describe "GET #show" do
