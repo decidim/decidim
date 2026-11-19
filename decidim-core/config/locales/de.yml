@@ -118,8 +118,6 @@ de:
       decidim_with_month_name_short: "%d. %b"
       help:
         date_format: 'Format: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2268,7 +2266,6 @@ de:
       long_with_particles: "%d. %B %Y %H:%M"
       short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Löschungen
