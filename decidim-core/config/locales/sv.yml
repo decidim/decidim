@@ -118,8 +118,6 @@ sv:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/åååå'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -860,6 +858,8 @@ sv:
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
+        file_contains_unsafe_content: Filen innehåller osäkert innehåll
+        file_is_not_a_valid_image: Filen är inte en giltig bild
         file_resolution_too_large: Filupplösningen är för stor
         not_inside_organization: Filen är inte kopplad till någon organisation.
       internal_server_error:
@@ -2265,7 +2265,7 @@ sv:
       long_with_particles: "%B %d, %Y kl. %H:%M"
       short: "%d/%m/%Y kl.%H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Raderingar

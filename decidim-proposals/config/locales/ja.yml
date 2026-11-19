@@ -806,7 +806,7 @@ ja:
           final_proposal: 最終的な提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
-            other: '%{count} 人以上'
+            other: 他 %{count} 人
           info-message: これは提案のための <strong>共同草案</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、この草案を変更できるようになります。
           publish: 公開
           publish_info: このバージョンの草案を公開するか、
@@ -970,7 +970,7 @@ ja:
           edit_proposal: 編集
           estimated_cost: 推定コスト
           hidden_likes_count:
-            other: '%{count} 人以上'
+            other: 他 %{count} 人
           link_to_collaborative_draft_help_text: この提案は共同草案の結果です。履歴を確認してください
           link_to_collaborative_draft_text: 共同草案を見る
           link_to_promoted_emendation_help_text: この提案は奨励された提案です

@@ -86,8 +86,6 @@ pl:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/rrrr'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1697,7 +1695,7 @@ pl:
       long_with_particles: "%B %d, %Y o %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Elementy usunięte

@@ -448,8 +448,11 @@ cs:
           email_intro: "%{author_name} přijal vaši žádost, abyste se stal součástí propagačního výboru pro iniciativu %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}'
         create_initiative_event:
+          email_intro: "%{author_name}, kterého sledujete, vytvořil novou iniciativu, omrkněte ji a přispějte:"
+          email_outro: Toto oznámení jste obdrželi, protože sledujete %{author_name}. Můžete přestat přijímat oznámení na předchozím odkazu.
           email_subject: Nová iniciativa od %{author_name}
         revoke_membership_request:
+          email_intro: "%{author_name} odmítl vaši žádost o členství v propagačním výboru v iniciativě %{resource_title}."
           email_outro: 'Obdrželi jste toto oznámení, protože jste podali žádost o tuto iniciativu: %{resource_title}.'
         spawn_committee_request_event:
           email_outro: 'Obdrželi jste toto oznámení, protože jste autorem této iniciativy: %{resource_title}'

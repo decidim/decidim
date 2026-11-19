@@ -118,8 +118,6 @@ eu:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formatua: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1526,7 +1524,7 @@ eu:
           Adeitasunez,<br>
           %{organization_name}
         hello_html: <strong>%{username}</strong> agurgarria,
-        log_in: hasi saioa
+        log_in: saioa hasi
         never_logged_in: inoiz ez konektatua
         subject: Kontu inaktiboaren abisua
     participatory_space:
@@ -1659,7 +1657,7 @@ eu:
         hide_content: Ezkutatu edukia
         offensive: Bertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
         reason: Arrazoia
-        report: Txostena
+        report: Salatu
         spam: Clickbait, publizitatea, iruzurrak edo script bot-ak ditu.
         title: Salatu eduki desegokia
       flag_user_modal:
@@ -1914,7 +1912,7 @@ eu:
     sessions:
       already_signed_out: Saioa behar bezala amaitu da.
       new:
-        log_in: Hasi saioa
+        log_in: Saioa hasi
       signed_in: Saioa behar bezala hasi da.
       signed_out: Saioa behar bezala amaitu da.
     shared:
@@ -1923,7 +1921,7 @@ eu:
         didn_t_receive_confirmation_instructions: Ez duzu baieztatzeko jarraibiderik jaso?
         didn_t_receive_unlock_instructions: Ez duzu desblokeatzeko jarraibiderik jaso?
         forgot_your_password: Zure pasahitza ahaztu duzu?
-        log_in: Hasi saioa
+        log_in: Saioa hasi
         log_in_with_provider: 'Hasi honekin: %{provider}'
         sign_up: Kontu bat sortu
       minimum_password_length:
@@ -2133,7 +2131,7 @@ eu:
         close: Itxi
         confirm_close_ephemeral_session: Nabigatzeari uzten badiozu, zure behin-behineko saioa itxita egongo da. Hala ere, zure aurrerapen eta jarduera guztiak salbatuko dira. Jarduera amaitu baduzu, egin klik Ok botoian.
         confirm_title_close_ephemeral_session: Orri honetatik irten baino lehen…
-        log_in: Hasi saioa
+        log_in: Saioa hasi
         main_menu: Menu nagusia
         mobile_account_greeting: Kaixo, %{user_name}
         user_menu: Parte-hartzailearen menua
@@ -2237,6 +2235,7 @@ eu:
       close: Itxi
       reset: Berrabiarazi
       select: Hautatu
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2245,6 +2244,8 @@ eu:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2258,7 +2259,8 @@ eu:
       long_with_particles: "%B%d, %Y% H:%M etan"
       short: "%d/%m/%Y, %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%H:%M %Z"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Ezabapenak
