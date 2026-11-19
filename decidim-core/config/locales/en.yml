@@ -117,6 +117,12 @@ en:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/yyyy'
+      order: d-m-y
+      separator: "/"
+    on_date: on {date}
+    today: today
+    tomorrow: tomorrow
+    yesterday: yesterday
   datetime:
     distance_in_words:
       about_x_hours:
@@ -1170,6 +1176,10 @@ en:
         cancel: Cancel
         proceed: Proceed
         title: Open external link
+    local_time:
+      at: "{date} at {time}"
+      singular: a {time}
+      singular_an: an {time}
     log:
       base_presenter:
         create: "%{user_name} created %{resource_name}"
