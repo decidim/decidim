@@ -37,10 +37,11 @@ module Decidim
         router = Decidim::EngineRouter.main_proxy(current_component)
 
         version.suggestions.includes(:votes).map do |suggestion|
-          suggestion.presenter.safe_json(current_user).merge(
-            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip,
-            votesUrl: router.document_suggestion_votes_path(document, suggestion)
+          suggestion_json = suggestion.presenter.safe_json(current_user).merge(
+            profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip
           )
+          suggestion_json[:votesUrl] = router.document_suggestion_votes_path(document, suggestion) if document.published?
+          suggestion_json
         end
       end
 

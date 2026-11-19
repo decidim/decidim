@@ -254,6 +254,11 @@ export default class Suggestion {
     if (!this.voteUpButton || !this.voteDownButton) {
       return;
     }
+    if (!this.votesUrl) {
+      this.voteUpButton.disabled = true;
+      this.voteDownButton.disabled = true;
+      return;
+    }
     if (this.suggestionsList.document.signedIn) {
       this.voteUpButton.addEventListener("click", () => this.vote(1));
       this.voteDownButton.addEventListener("click", () => this.vote(-1));

@@ -263,4 +263,11 @@ describe("SuggestionsList", () => {
     expect(button.getAttribute("aria-pressed")).toBe("true");
     expect(global.fetch).toHaveBeenCalledWith(suggestion.votesUrl, expect.objectContaining({ method: "POST" }));
   });
+
+  it("disables voting when there is no votes URL", () => {
+    const unvotable = new Suggestion(suggestionsList, { ...fetchResult[0], votesUrl: null });
+
+    expect(unvotable.voteUpButton.disabled).toBe(true);
+    expect(unvotable.voteDownButton.disabled).toBe(true);
+  });
 });

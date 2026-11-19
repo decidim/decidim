@@ -47,6 +47,22 @@ module Decidim
           expect(suggestion1_json["voteWeight"]).to eq(0)
           expect(suggestion1_json["votesUrl"]).to include("/suggestions/#{suggestion1.id}/votes")
         end
+
+        context "when the document is not published" do
+          let(:document) { build(:collaborative_text_document, component:) }
+          let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+          before { sign_in user }
+
+          it "does not return vote URLs" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            response.parsed_body.each do |item|
+              expect(item).not_to have_key("votesUrl")
+            end
+          end
+        end
       end
 
       describe "POST #create" do
