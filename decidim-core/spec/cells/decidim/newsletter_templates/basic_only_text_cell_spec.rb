@@ -20,12 +20,25 @@ describe Decidim::NewsletterTemplates::BasicOnlyTextCell, type: :cell do
   let(:settings) { { body_en: body } }
   let(:logo_url) { Rails.application.routes.url_helpers.rails_representation_path(organization.logo.variant(resize_to_fit: [600, 160]), host: organization.host) }
   let(:root_url) { Decidim::Core::Engine.routes.url_helpers.root_url(host: organization.host, port: Capybara.server_port) }
+  let(:origin) { "http://#{organization.host}:#{Capybara.server_port}" }
 
   controller Decidim::PagesController
 
   context "when the organization has no logo set" do
     it "shows the custom body" do
       expect(subject).to have_text(body)
+    end
+  end
+
+  context "when the body contains a relative image" do
+    let(:body) { %(<p>Hello</p><img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />) }
+
+    it "prefixes the image URL with the host origin" do
+      expect(subject.to_s).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/12345.JPG" alt="image"))
+    end
+
+    it "does not insert the locale in image URLs" do
+      expect(subject.to_s).not_to match(%r{/[a-z]{2}/rails/active_storage})
     end
   end
 

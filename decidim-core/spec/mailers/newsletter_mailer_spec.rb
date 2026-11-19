@@ -33,6 +33,24 @@ module Decidim
         expect(email_body(mail)).to include("Content for Sarah Connor")
       end
 
+      context "when the body contains a relative image" do
+        let(:newsletter) do
+          create(:newsletter,
+                 organization:,
+                 subject: { en: "Email for %{name}" },
+                 body: { en: '<p>Content for %{name}</p><img src="/rails/active_storage/blobs/redirect/12345.JPG" alt="image" />' })
+        end
+        let(:origin) { "http://#{organization.host}:#{Capybara.server_port}" }
+
+        it "prefixes the image URL with the host origin" do
+          expect(email_body(mail)).to include("#{origin}/rails/active_storage/blobs/redirect/12345.JPG")
+        end
+
+        it "does not insert the locale in image URLs" do
+          expect(email_body(mail)).not_to match(%r{/[a-z]{2}/rails/active_storage})
+        end
+      end
+
       context "when the user has a different locale" do
         before do
           user.locale = "ca"
