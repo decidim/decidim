@@ -33,6 +33,7 @@ module Decidim
           get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = response.parsed_body
+          suggestion1_json = body.find { |item| item["id"] == suggestion1.id }
           expect(body.first.keys).to contain_exactly("changeset", "createdAt", "downVotesCount", "id", "profileHtml", "status", "summary", "type", "upVotesCount", "voteWeight", "votesUrl")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
           expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
@@ -44,7 +45,7 @@ module Decidim
           expect(body.first["upVotesCount"]).to eq(0)
           expect(body.first["downVotesCount"]).to eq(0)
           expect(body.first["voteWeight"]).to eq(0)
-          expect(body.first["votesUrl"]).to include("/suggestions/#{suggestion1.id}/votes")
+          expect(suggestion1_json["votesUrl"]).to include("/suggestions/#{suggestion1.id}/votes")
         end
       end
 
