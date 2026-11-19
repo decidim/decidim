@@ -103,6 +103,8 @@ ro:
             success: Sondajul a fost creat cu succes.
           destroy:
             success: Sondajul a fost eliminat cu succes.
+          edit:
+            title: Modificați sondajul
           index:
             title: Sondaje
           new:
