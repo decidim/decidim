@@ -53,6 +53,10 @@ module Decidim
       it "returns false with a broad check, as trashed participatory process roles do not grant access" do
         expect(checker.send(:user_has_any_role?, user, participatory_process, broad_check: true)).to be(false)
       end
+
+      it "returns true when the trashed participatory process is the one being checked" do
+        expect(checker.send(:user_has_any_role?, user, trashed_participatory_process, broad_check: true)).to be(true)
+      end
     end
 
     describe "#space_user_role?" do

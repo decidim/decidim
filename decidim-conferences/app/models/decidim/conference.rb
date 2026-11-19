@@ -70,8 +70,10 @@ module Decidim
              class_name: "Decidim::ConferenceUserRole",
              inverse_of: :conference
 
-    # Query by the conference id instead of the association, which may be a stale cached collection.
-    after_real_destroy { Decidim::ConferenceUserRole.where(conference: self).destroy_all }
+    # Query by the conference id instead of the association, which may be a stale cached
+    # collection. Run before the conference itself is removed so the roles are deleted while the
+    # parent record still exists.
+    before_real_destroy { Decidim::ConferenceUserRole.where(conference: self).destroy_all }
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Conference.slug_format }

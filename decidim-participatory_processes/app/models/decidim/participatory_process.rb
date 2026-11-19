@@ -59,8 +59,10 @@ module Decidim
              class_name: "Decidim::ParticipatoryProcessUserRole",
              inverse_of: :participatory_process
 
-    # Query by the process id instead of the association, which may be a stale cached collection.
-    after_real_destroy { Decidim::ParticipatoryProcessUserRole.where(participatory_process: self).destroy_all }
+    # Query by the process id instead of the association, which may be a stale cached
+    # collection. Run before the process itself is removed so the roles are deleted while the
+    # parent record still exists.
+    before_real_destroy { Decidim::ParticipatoryProcessUserRole.where(participatory_process: self).destroy_all }
 
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",

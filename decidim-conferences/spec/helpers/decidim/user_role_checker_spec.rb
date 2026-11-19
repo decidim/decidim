@@ -53,6 +53,10 @@ module Decidim
       it "returns false with a broad check, as trashed conference roles do not grant access" do
         expect(checker.send(:user_has_any_role?, user, conference, broad_check: true)).to be(false)
       end
+
+      it "returns true when the trashed conference is the one being checked" do
+        expect(checker.send(:user_has_any_role?, user, trashed_conference, broad_check: true)).to be(true)
+      end
     end
 
     describe "#space_user_role?" do
