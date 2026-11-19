@@ -8,6 +8,7 @@ module Decidim
           @highlighted_spaces ||= OrganizationPrioritizedAssemblies
                                   .new(current_organization, current_user)
                                   .query
+                                  .with_attached_hero_image
         end
 
         def i18n_scope

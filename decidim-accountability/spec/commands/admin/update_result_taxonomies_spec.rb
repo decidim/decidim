@@ -12,7 +12,7 @@ module Decidim
         let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
         let(:taxonomy_ids) { [taxonomy.id] }
         let(:result_ids) { [resource.id] }
-        let(:command) { described_class.new(taxonomy_ids, result_ids, organization) }
+        let(:command) { described_class.new(taxonomy_ids, result_ids, resource.component) }
 
         subject { command.call }
 
@@ -47,6 +47,20 @@ module Decidim
           it "updates the resource" do
             expect(subject).to broadcast(:update_resources_taxonomies)
             expect(resource.reload.taxonomies.first).to eq(taxonomy)
+          end
+        end
+
+        context "when a result belongs to another organization" do
+          let(:other_organization) { create(:organization) }
+          let(:other_participatory_process) { create(:participatory_process, organization: other_organization) }
+          let(:other_component) { create(:accountability_component, participatory_space: other_participatory_process) }
+          let!(:other_resource) { create(:result, component: other_component) }
+          let(:result_ids) { [resource.id, other_resource.id] }
+
+          it "does not update the other result" do
+            subject
+
+            expect(other_resource.reload.taxonomies).to be_empty
           end
         end
       end

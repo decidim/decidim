@@ -89,6 +89,34 @@ module Decidim
           expect(helper.is_active_link?("/admin/users")).to be(true)
         end
       end
+
+      context "when the condition is a controller/action pair" do
+        let(:current_path) { "/admin/users" }
+
+        before do
+          allow(helper).to receive(:params).and_return({ controller: "decidim/admin/users", action: "show" })
+        end
+
+        # Menu items are commonly defined as `active: [controllers, []]`, where an
+        # empty actions list means "any action of these controllers". This is what
+        # makes the admin menu highlight the current section, so it must keep working
+        # across `active_link_to` versions.
+        it "returns true when the controller matches and the actions list is empty" do
+          expect(helper.is_active_link?("/admin/users", [%w(decidim/admin/users), []])).to be(true)
+        end
+
+        it "returns true when both the controller and the action match" do
+          expect(helper.is_active_link?("/admin/users", [%w(decidim/admin/users), %w(show index)])).to be(true)
+        end
+
+        it "returns false when the action is not listed" do
+          expect(helper.is_active_link?("/admin/users", [%w(decidim/admin/users), %w(edit)])).to be(false)
+        end
+
+        it "returns false when the controller does not match" do
+          expect(helper.is_active_link?("/admin/users", [%w(decidim/admin/static_pages), []])).to be(false)
+        end
+      end
     end
   end
 end

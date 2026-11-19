@@ -5,8 +5,10 @@ module Decidim
   class ImpersonationLog < ApplicationRecord
     SESSION_TIME_IN_MINUTES = 30
 
+    # `admin` has no `inverse_of`: the reciprocal `has_many :impersonation_logs` on `Decidim::User` is keyed
+    # on `decidim_user_id`, so it is the reciprocal of `user` and not of `admin`.
     belongs_to :admin, foreign_key: "decidim_admin_id", class_name: "Decidim::User"
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", inverse_of: :impersonation_logs
 
     validate :same_organization
 

@@ -4,7 +4,7 @@ One of the first things you will want to do after you install Decidim is applyin
 
 == Organization colors
 
-If you only want to change colors and anything more, the most easy and fast way is doing this in the Administrator panel, in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+If you only want to change colors and anything more, the most easy and fast way is doing this in the Administrator panel, in Administration -> Settings -> Configuration (URL `/admin/organization/edit`):
 
 image::organization-colors.png[Organization colors]
 
@@ -31,7 +31,7 @@ using your environment variables. Please do notice that this has security implic
 export DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=true
 ----
 
-Then you will have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+Then you will have a new textarea field called "Header snippets" when editing the organization in the System panel (URL `/system/organizations/:id/edit`):
 
 image::header-snippet.png[Header snippet]
 
@@ -54,6 +54,28 @@ Decidim uses Tailwind CSS as a CSS framework, which has a default configuration 
 Since this file is being managed by Decidim, it will be impossible to customize it.
 
 You can override the default configuration by creating a file  `config/tailwind.config.js.erb` starting from the following https://github.com/decidim/decidim/blob/develop/decidim-core/lib/decidim/assets/tailwind/tailwind.config.js.erb[content]
+
+== Design System tokens
+
+The color, typography, spacing, border radius, shadow, and breakpoint values come from the Design System tokens available at `decidim-core/app/packs/stylesheets/decidim/tokens/`.
+
+The token files are generated from the Design System and should not be edited manually. The Tailwind configuration reads them through `tokens/tailwind.js`, so changes made in the Design System are propagated to the application styles without duplicating values in the codebase.
+
+You can use the tokens in your own styles through the generated CSS custom properties or through the Tailwind utilities. For example:
+
+[source,css]
+----
+.my-component {
+  color: var(--color-color-text-primary);
+  background-color: var(--color-color-bg-neutral-light);
+  border-radius: var(--measure-border-radius-border-radius-sm);
+  box-shadow: var(--shadow-shadow-sm);
+}
+----
+
+The `--primary`, `--secondary`, `--tertiary`, `--success`, `--warning`, and `--alert` variables are kept as public aliases for backwards compatibility. The organization colors are applied on top of these variables, so applications can still customize their brand colors from the administration panel.
+
+If a value you need is not available as a token, prefer adding it to the Design System instead of hard-coding it in the application.
 
 == Overriding CSS and styles
 

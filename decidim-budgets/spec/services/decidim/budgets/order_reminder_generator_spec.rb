@@ -31,9 +31,7 @@ module Decidim::Budgets
         let!(:order) { create(:order, :with_projects, user:, budget:, created_at: 1.day.ago) }
 
         it "sends reminder" do
-          expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
-          expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+          expect { subject.generate }.to change(Decidim::Reminder, :count).by(1).and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
         end
 
         context "and another order in different budget" do
@@ -41,9 +39,7 @@ module Decidim::Budgets
           let!(:another_order) { create(:order, :with_projects, user:, budget: another_budget, created_at: 1.day.ago) }
 
           it "sends reminder with two records" do
-            expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
-            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1)
+            expect { subject.generate }.to change(Decidim::Reminder, :count).by(1).and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
             expect(Decidim::Reminder.first.records.count).to eq(2)
           end
         end
@@ -54,9 +50,8 @@ module Decidim::Budgets
           end
 
           it "does not send reminder" do
-            expect(Decidim::Budgets::SendVoteReminderJob).not_to receive(:perform_later)
-
             expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+            expect { subject.generate }.not_to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
           end
         end
 
@@ -64,9 +59,8 @@ module Decidim::Budgets
           let!(:reminder) { create(:reminder, user:, component:) }
 
           it "sends existing reminder" do
-            expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
             expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+            expect { subject.generate }.to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
           end
 
           context "and record has been already added to the reminder" do
@@ -75,8 +69,7 @@ module Decidim::Budgets
             before { reminder.records << reminder_record }
 
             it "sends existing reminder but does not re-add record to the reminder" do
-              expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later).twice
-
+              expect { 2.times { subject.generate } }.to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob).twice
               expect { subject.generate }.not_to change(reminder.records, :count)
               expect { subject.generate }.not_to change(Decidim::Reminder, :count)
             end
@@ -85,9 +78,7 @@ module Decidim::Budgets
               before { order.update!(checked_out_at: 1.minute.ago) }
 
               it "does not send reminder" do
-                expect(Decidim::Budgets::SendVoteReminderJob).not_to receive(:perform_later)
-
-                subject.generate
+                expect { subject.generate }.not_to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
               end
             end
           end
@@ -96,8 +87,8 @@ module Decidim::Budgets
             let!(:reminder_delivery) { create(:reminder_delivery, reminder:, created_at: 1.hour.ago) }
 
             it "does not send reminder" do
-              expect(Decidim::Budgets::SendVoteReminderJob).not_to receive(:perform_later)
               expect { subject.generate }.not_to change(Decidim::Reminder, :count)
+              expect { subject.generate }.not_to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
             end
           end
         end
@@ -111,9 +102,7 @@ module Decidim::Budgets
           let!(:reminder_delivery) { create(:reminder_delivery, reminder:, created_at: order.created_at + intervals[0]) }
 
           it "sends reminder again" do
-            expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
-            subject.generate
+            expect { subject.generate }.to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
           end
         end
       end
@@ -133,11 +122,10 @@ module Decidim::Budgets
             before { recent_order.update!(checked_out_at: 1.minute.ago) }
 
             it "marks recent record as completed and sends reminder about first order" do
-              expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
               expect { subject.generate }.to change(reminder.records.active, :count)
                 .to(1)
                 .and change(reminder.records.completed, :count).to(1)
+                .and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
               expect(reminder.records.active.first.remindable).to eq(first_order)
             end
           end
@@ -146,11 +134,10 @@ module Decidim::Budgets
             before { first_order.update!(checked_out_at: 1.minute.ago) }
 
             it "marks first record as completed and sends reminder about recent order" do
-              expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
               expect { subject.generate }.to change(reminder.records.active, :count)
                 .to(1)
                 .and change(reminder.records.completed, :count).to(1)
+                .and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
               expect(reminder.records.active.first.remindable).to eq(recent_order)
             end
           end
@@ -159,11 +146,10 @@ module Decidim::Budgets
             before { first_order.destroy! }
 
             it "marks first record as deleted and sends reminder about recent order" do
-              expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
               expect { subject.generate }.to change(reminder.records.active, :count)
                 .to(1)
                 .and change(reminder.records.deleted, :count).to(1)
+                .and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
               expect(reminder.records.active.first.remindable).to eq(recent_order)
             end
           end
@@ -172,11 +158,10 @@ module Decidim::Budgets
             before { recent_order.destroy! }
 
             it "marks recent record as deleted and sends reminder about first order" do
-              expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
               expect { subject.generate }.to change(reminder.records.deleted, :count)
                 .to(1)
                 .and change(reminder.records.deleted, :count).to(1)
+                .and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
               expect(reminder.records.active.first.remindable).to eq(first_order)
             end
           end
@@ -192,8 +177,7 @@ module Decidim::Budgets
         end
 
         it "sends reminders" do
-          expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later).exactly(5).times
-          subject.generate
+          expect { subject.generate }.to have_enqueued_job(Decidim::Budgets::SendVoteReminderJob).exactly(5).times
         end
       end
     end

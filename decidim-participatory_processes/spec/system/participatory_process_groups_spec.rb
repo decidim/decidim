@@ -195,7 +195,7 @@ describe "Participatory Process Groups" do
       end
 
       it "does not show cards of proposals from process out of group" do
-        expect(page).to have_no_selector("#proposals__proposal_#{independent_proposal.id}")
+        expect(page).to have_no_css("#proposals__proposal_#{independent_proposal.id}")
         expect(page).to have_no_text "Independent proposal!"
         expect(page).not_to have_i18n_content(out_of_group_process.title, strip_tags: true)
       end
@@ -239,7 +239,7 @@ describe "Participatory Process Groups" do
       end
 
       it "does not show cards of results from process out of group" do
-        expect(page).to have_no_selector("#accountability__result_#{independent_result.id}")
+        expect(page).to have_no_css("#accountability__result_#{independent_result.id}")
         expect(page).to have_no_text "Independent result!"
         expect(page).not_to have_i18n_content out_of_group_process.title
       end
@@ -453,22 +453,6 @@ describe "Participatory Process Groups" do
       )
     end
     let(:titles) { page.all("a.card__grid h3") }
-
-    shared_examples "showing all processes counts" do
-      it "shows count of all group processes" do
-        within "#processes-grid h3" do
-          expect(page).to have_text(/ALL\s+\(5\)/)
-        end
-      end
-    end
-
-    shared_examples "not showing processes belonging to other group" do
-      it "does not list process of other group" do
-        within("#processes-grid") do
-          expect(page).to have_no_text(translated(other_group_process.title, locale: :en))
-        end
-      end
-    end
 
     before do
       create(

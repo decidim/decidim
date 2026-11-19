@@ -85,7 +85,10 @@ module Decidim
           component = GlobalID::Locator.locate(component_id)
           if component
             begin
-              component.update!(settings: component.settings.to_h.merge(taxonomy_filters: [filter.id.to_s]))
+              settings = component.settings.to_h
+              settings[:taxonomy_filters] ||= []
+              settings[:taxonomy_filters] << filter.id.to_s unless settings[:taxonomy_filters].include?(filter.id.to_s)
+              component.update!(settings:)
               result[:components_assigned][filter.internal_name[organization.default_locale]] ||= []
               result[:components_assigned][filter.internal_name[organization.default_locale]] << component_id
             rescue ActiveRecord::RecordInvalid

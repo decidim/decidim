@@ -463,6 +463,46 @@ describe Decidim::Assemblies::Permissions do
       it_behaves_like "allows any action on subject", :assembly
       it_behaves_like "allows any action on subject", :assembly_user_role
 
+      context "when performing a moderation action" do
+        let(:action) do
+          { scope: :admin, action: :foo, subject: :moderation }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when previewing an assembly" do
+        let(:action) do
+          { scope: :admin, action: :preview, subject: :assembly }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when reading a component" do
+        let(:action) do
+          { scope: :admin, action: :read, subject: :component }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when exporting component data" do
+        let(:action) do
+          { scope: :admin, action: :export, subject: :component_data }
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when performing an assembly admin action" do
+        let(:action) do
+          { scope: :admin, action: :foo, subject: :attachment }
+        end
+
+        it { is_expected.to be true }
+      end
+
       context "when assembly has members" do
         let(:assembly) { create(:assembly, organization:, has_members: true) }
         let!(:context) { { current_participatory_space: assembly } }

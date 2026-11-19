@@ -32,7 +32,7 @@ describe "Homepage conferences content blocks" do
   it "updates the number of highlighted conferences with a number input field" do
     visit decidim_admin.edit_organization_homepage_content_block_path(highlighted_conferences_content_block)
 
-    expect(find("input[type='number'][name='content_block[settings][max_results]']").value).to eq("6")
+    expect(page).to have_field(type: "number", name: "content_block[settings][max_results]", with: "6")
 
     fill_in "content_block[settings][max_results]", with: "1"
     click_on "Update"

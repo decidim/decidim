@@ -124,6 +124,69 @@ module Decidim
           it_behaves_like "blocking a user"
         end
       end
+
+      describe "bulk_create" do
+        let(:justification) { ::Faker::Lorem.sentence(word_count: 12) }
+        let(:request_params) { { user_ids: [target_user.id], block_users: { justification: } } }
+        let!(:target_user) { create(:user, :admin, :confirmed, organization:) }
+
+        shared_examples "denies bulk blocking" do
+          it "does not block the target user" do
+            post :bulk_create, params: request_params
+
+            expect(target_user.reload.blocked?).to be(false)
+            expect(flash[:alert]).to be_present
+          end
+        end
+
+        context "when current user is a user manager" do
+          let(:current_user) { create(:user, :user_manager, :confirmed, organization:) }
+
+          it_behaves_like "denies bulk blocking"
+        end
+
+        context "when current user is a space administrator" do
+          let(:participatory_process) { create(:participatory_process, organization:) }
+          let(:current_user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
+
+          it_behaves_like "denies bulk blocking"
+        end
+      end
+
+      describe "bulk_destroy" do
+        let!(:blocked_user) do
+          create(
+            :user,
+            :blocked,
+            :confirmed,
+            organization:,
+            nickname: "blocked_nickname",
+            extended_data: { "user_name" => "Original name" }
+          )
+        end
+
+        shared_examples "denies bulk unblocking" do
+          it "does not unblock the target user" do
+            delete :bulk_destroy, params: { user_ids: [blocked_user.id] }
+
+            expect(blocked_user.reload.blocked?).to be(true)
+            expect(flash[:alert]).to be_present
+          end
+        end
+
+        context "when current user is a user manager" do
+          let(:current_user) { create(:user, :user_manager, :confirmed, organization:) }
+
+          it_behaves_like "denies bulk unblocking"
+        end
+
+        context "when current user is a space administrator" do
+          let(:participatory_process) { create(:participatory_process, organization:) }
+          let(:current_user) { create(:process_admin, :confirmed, organization:, participatory_process:) }
+
+          it_behaves_like "denies bulk unblocking"
+        end
+      end
     end
   end
 end

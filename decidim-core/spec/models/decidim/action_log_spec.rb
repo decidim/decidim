@@ -15,7 +15,12 @@ describe Decidim::ActionLog do
     context "when no user is given" do
       let(:action_log) { build(:action_log, user: nil, organization: build(:organization)) }
 
-      it { is_expected.not_to be_valid }
+      it { is_expected.to be_valid }
+
+      it "can be persisted" do
+        expect { action_log.save! }.not_to raise_error
+        expect(action_log.reload.user).to be_nil
+      end
     end
 
     context "when no action is given" do
@@ -244,6 +249,171 @@ describe Decidim::ActionLog do
       it "returns the lazy-loaded user" do
         expect(subject).to be_a(Decidim::Api::ApiUser)
       end
+    end
+
+    context "when there is no user" do
+      let(:action_log) { create(:action_log, user: nil, organization: create(:organization)) }
+
+      it { is_expected.to be_nil }
+    end
+
+    context "when the user ID is blank" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          user_id: nil,
+          user_type: "Decidim::User",
+          organization: create(:organization)
+        )
+      end
+
+      it { is_expected.to be_nil }
+    end
+
+    context "when the user type is blank" do
+      let(:action_log) do
+        create(
+          :action_log,
+          user: nil,
+          user_id: 1,
+          user_type: nil,
+          organization: create(:organization)
+        )
+      end
+
+      it { is_expected.to be_nil }
+    end
+  end
+
+  describe ".lazy_relation" do
+    let(:organization) { create(:organization) }
+    let!(:meetings) { create_list(:meeting, 2, :published) }
+    let!(:action_logs) do
+      meetings.map do |meeting|
+        create(:action_log, action: "publish", visibility: "all", resource: meeting, organization: meeting.organization)
+      end
+    end
+
+    it "eager loads the moderation and author associations for meetings" do
+      resources = action_logs.map(&:resource_lazy)
+
+      expect(resources).to all(be_a(Decidim::Meetings::Meeting))
+      resources.each do |meeting|
+        expect(meeting.association(:moderation).loaded?).to be(true)
+        expect(meeting.association(:author).loaded?).to be(true)
+      end
+    end
+
+    it "eager loads the participatory_space and its organization associations for components" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, component:), organization:, participatory_space: component.participatory_space)
+      end
+
+      lazy_components = logs.map(&:component_lazy)
+
+      expect(lazy_components).to all(satisfy { |component| component.association(:participatory_space).loaded? })
+      expect(lazy_components).to all(satisfy { |component| component.participatory_space.association(:organization).loaded? })
+    end
+
+    it "eager loads the component participatory space and its organization for resources with a component" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, :published, component:), organization:, participatory_space: component.participatory_space)
+      end
+
+      resources = logs.map(&:resource_lazy)
+
+      expect(resources).to all(satisfy { |resource| resource.association(:component).loaded? })
+      expect(resources).to all(satisfy { |resource| resource.component.association(:participatory_space).loaded? })
+      expect(resources).to all(satisfy { |resource| resource.component.participatory_space.association(:organization).loaded? })
+    end
+
+    it "eager loads the component through the commentable and the organization through the participatory space for comments" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        comment = create(:comment, commentable: create(:dummy_resource, :published, component:))
+        create(:action_log, action: "create", visibility: "all", resource: comment, organization:, participatory_space: component.participatory_space)
+      end
+
+      comments = logs.map(&:resource_lazy)
+
+      expect(comments).to all(satisfy { |comment| comment.association(:root_commentable).loaded? })
+      expect(comments).to all(satisfy { |comment| comment.root_commentable.association(:component).loaded? })
+      expect(comments).to all(satisfy { |comment| comment.root_commentable.component.association(:participatory_space).loaded? })
+      expect(comments).to all(satisfy { |comment| comment.root_commentable.component.participatory_space.association(:organization).loaded? })
+    end
+
+    it "eager loads the commentable ancestor chain for replies" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        comment = create(:comment, commentable: create(:dummy_resource, :published, component:))
+        comment = create(:comment, commentable: comment) while comment.depth < Decidim::Comments::Comment::MAX_DEPTH
+
+        create(:action_log, action: "create", visibility: "all", resource: comment, organization:, participatory_space: component.participatory_space)
+      end
+
+      comments = logs.map(&:resource_lazy)
+
+      comments.each do |comment|
+        # The chain is built from the already loaded associations only. Reading
+        # `commentable` would lazily load it, so the assertions below would pass
+        # even when the ancestor chain is not preloaded.
+        ancestors = [comment]
+        while ancestors.last.association(:commentable).loaded?
+          ancestor = ancestors.last.commentable
+          break unless ancestor.is_a?(Decidim::Comments::Comment)
+
+          ancestors << ancestor
+        end
+
+        expect(ancestors.size).to eq(Decidim::Comments::Comment::MAX_DEPTH + 1)
+        expect(ancestors).to all(satisfy { |record| record.association(:commentable).loaded? })
+
+        root = ancestors.last.commentable
+        expect(root.association(:component).loaded?).to be(true)
+        expect(root.component.association(:participatory_space).loaded?).to be(true)
+        expect(root.component.participatory_space.association(:organization).loaded?).to be(true)
+      end
+    end
+
+    it "eager loads the avatar attachment for users" do
+      users = create_list(:user, 2, :confirmed, organization:)
+      logs = users.map do |user|
+        create(:action_log, action: "create", visibility: "all", resource: create(:dummy_resource, :published, organization:), organization:, user:)
+      end
+
+      lazy_users = logs.map(&:user_lazy)
+
+      expect(lazy_users).to all(satisfy { |user| user.association(:avatar_attachment).loaded? })
+      expect(lazy_users).to all(satisfy { |user| user.avatar_attachment&.association(:blob)&.loaded? })
+    end
+
+    it "eager loads the author associations for user authors" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        resource = create(:dummy_resource, :published, component:, author: create(:user, :confirmed, organization:))
+        create(:action_log, action: "create", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
+      end
+
+      authors = logs.map { |log| log.resource_lazy.author }
+
+      expect(authors).to all(satisfy { |author| author.association(:organization).loaded? })
+      expect(authors).to all(satisfy { |author| author.association(:avatar_attachment).loaded? })
+      expect(authors).to all(satisfy { |author| author.avatar_attachment&.association(:blob)&.loaded? })
+    end
+
+    it "skips the nested author associations when the author type does not have them" do
+      components = create_list(:component, 2, :published, organization:)
+      logs = components.map do |component|
+        resource = create(:dummy_resource, :published, component:, author: organization)
+        create(:action_log, action: "create", visibility: "all", resource:, organization:, participatory_space: component.participatory_space)
+      end
+
+      authors = logs.map { |log| log.resource_lazy.author }
+
+      expect(authors).to all(eq(organization))
     end
   end
 end

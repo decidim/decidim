@@ -9,10 +9,12 @@ module Decidim
         #
         # status_id - the status id to update
         # result_ids - the results ids to update
+        # current_component - the component where the results belong to
         # current_user - the user performing the action
-        def initialize(status_id, result_ids, current_user)
+        def initialize(status_id, result_ids, current_component, current_user)
           @status_id = status_id
           @result_ids = result_ids
+          @current_component = current_component
           @current_user = current_user
         end
 
@@ -32,13 +34,13 @@ module Decidim
 
         private
 
-        attr_reader :status_id, :result_ids, :current_user
+        attr_reader :status_id, :result_ids, :current_component, :current_user
 
         def update_results_status
-          Decidim::Accountability::Result.where(id: result_ids).find_each do |result|
+          Decidim::Accountability::Result.where(component: current_component, id: result_ids).find_each do |result|
             next if result.decidim_accountability_status_id == status_id
 
-            status = Decidim::Accountability::Status.find_by(id: status_id)
+            status = Decidim::Accountability::Status.where(component: current_component, id: status_id).first
 
             next if status.blank?
 

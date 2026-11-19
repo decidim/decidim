@@ -15,12 +15,14 @@ module Decidim
 
         attr_reader :form
 
+        delegate :current_organization, to: :form
+
         def attributes
           super.merge({ participatory_processes: })
         end
 
         def participatory_processes
-          Decidim::ParticipatoryProcess.where(id: form.participatory_process_ids)
+          Decidim::ParticipatoryProcess.where(organization: current_organization, id: form.participatory_process_ids)
         end
       end
     end

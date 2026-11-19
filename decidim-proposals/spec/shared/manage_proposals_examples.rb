@@ -462,7 +462,7 @@ shared_examples "manage proposals" do
     it "cannot answer a proposal" do
       go_to_admin_proposal_page(proposal)
 
-      expect(page).to have_no_selector(".edit_proposal_answer")
+      expect(page).to have_no_css(".edit_proposal_answer")
     end
   end
 

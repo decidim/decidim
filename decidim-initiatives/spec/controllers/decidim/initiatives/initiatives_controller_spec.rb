@@ -70,6 +70,28 @@ describe Decidim::Initiatives::InitiativesController do
         expect(subject.helpers.initiatives.first).to eq(commented_initiative)
       end
     end
+
+    context "with pending initiatives" do
+      let(:user) { create(:user, :confirmed, organization:) }
+      let(:other_organization) { create(:organization) }
+      let!(:pending_initiative) { create(:initiative, :created, organization:, author: user) }
+      let!(:other_organization_pending_initiative) do
+        initiative = create(:initiative, :created, organization: other_organization)
+        initiative.author = user
+        initiative.save!(validate: false)
+        initiative
+      end
+
+      before do
+        sign_in user, scope: :user
+        get :index, params: { locale: I18n.locale }
+      end
+
+      it "only includes pending initiatives from the current organization" do
+        expect(subject.helpers.pending_initiatives).to include(pending_initiative)
+        expect(subject.helpers.pending_initiatives).not_to include(other_organization_pending_initiative)
+      end
+    end
   end
 
   describe "GET show" do
@@ -99,6 +121,15 @@ describe Decidim::Initiatives::InitiativesController do
       it "Unpublished initiatives are shown too" do
         get :show, params: { slug: created_initiative.slug, locale: I18n.locale }
         expect(subject.helpers.current_initiative).to eq(created_initiative)
+      end
+    end
+
+    context "when the initiative belongs to another organization" do
+      let!(:other_initiative) { create(:initiative, organization: create(:organization)) }
+
+      it "returns 404" do
+        expect { get :show, params: { slug: other_initiative.slug, locale: I18n.locale } }
+          .to raise_error(ActiveRecord::RecordNotFound)
       end
     end
   end

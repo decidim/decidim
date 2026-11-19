@@ -97,7 +97,7 @@ module Decidim
           Arel.sql(
             sanitize_sql_array(
               [
-                "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
+                "ABS(decidim_participatory_processes.start_date - (CURRENT_DATE at time zone :timezone)::date)",
                 { timezone: }
               ]
             )
@@ -117,6 +117,10 @@ module Decidim
                       },
                       index_on_create: ->(_process) { false },
                       index_on_update: ->(process) { process.visible? })
+
+    def self.searchable_arguments
+      [:organization, :active_step]
+    end
 
     # Scope to return only the promoted processes.
     #

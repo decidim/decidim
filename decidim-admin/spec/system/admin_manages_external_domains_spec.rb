@@ -56,7 +56,7 @@ describe "Admin manages external domain list" do
       expect(page).to have_text("Add to allowed list")
       click_on "Add to allowed list"
       within ".external-domains-list" do
-        find(:css, "input[type=text]").set("example.org")
+        find_field(type: "text").set("example.org")
       end
 
       click_on "Update"

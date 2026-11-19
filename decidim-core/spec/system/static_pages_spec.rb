@@ -66,7 +66,7 @@ describe "Static pages" do
         it "disables iframe" do
           visit decidim.page_path(video_page, locale: I18n.locale)
           expect(page).to have_text("You need to enable all cookies in order to see this content")
-          expect(page).to have_no_selector("iframe")
+          expect(page).to have_no_css("iframe")
         end
       end
 
