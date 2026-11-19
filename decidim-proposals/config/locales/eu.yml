@@ -888,7 +888,7 @@ eu:
           edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
           hidden_likes_count:
-            one: eta pertsona %{count} gehiago
+            one: eta %{count} pertsona gehiago
             other: eta %{count} pertsona gehiago
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
           link_to_promoted_emendation_text: Ikusi baztertutako zuzeketa.
