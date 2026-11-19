@@ -32,6 +32,20 @@ describe "Admin manages external domain list" do
       expect(organization.external_domain_allowlist).not_to include("example.org")
     end
 
+    it "warns about unsaved changes when a domain has been removed" do
+      within ".external-domains-list" do
+        page.all("button.remove-external-domain")[0].click
+      end
+
+      expect(page.evaluate_script(<<~JS)).to be(true)
+        (() => {
+          const event = new Event("beforeunload", { cancelable: true });
+          window.dispatchEvent(event);
+          return event.defaultPrevented;
+        })()
+      JS
+    end
+
     it "reorders the elements in the list" do
       down_buttons = page.all(".external-domains-list button.move-down-question")
       up_buttons = page.all(".external-domains-list button.move-up-question")

@@ -167,6 +167,8 @@ describe "Organizations" do
 
       it_behaves_like "form hiding advanced settings"
 
+      it_behaves_like "a form with unsaved changes", "form", "update_organization_name_en", "Organizations"
+
       it "properly validate name" do
         create(:organization, name: { ca: "", en: "Duplicate organization", es: "" })
 

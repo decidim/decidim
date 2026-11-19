@@ -123,6 +123,16 @@ describe "Admin manages initiatives" do
     it_behaves_like "paginating a collection"
   end
 
+  context "when editing an initiative" do
+    let(:initiative) { create(:initiative, organization:) }
+
+    before do
+      visit decidim_admin_initiatives.edit_initiative_path(initiative)
+    end
+
+    it_behaves_like "a form with unsaved changes", ".edit_initiative", "initiative_title_en", "Initiatives"
+  end
+
   context "when the initiative has an attachment" do
     let!(:initiative_with_attachment) { create(:initiative, organization:) }
     let!(:document) { create(:attachment, :with_image, attached_to: initiative_with_attachment) }
