@@ -58,13 +58,15 @@ describe("Manager", () => {
       id: 1,
       title: "Suggestion 1",
       status: "pending",
-      restore: jest.fn()
+      restore: jest.fn(),
+      blur: jest.fn()
     },
     {
       id: 2,
       title: "Suggestion 2",
       status: "applied",
-      restore: jest.fn()
+      restore: jest.fn(),
+      blur: jest.fn()
     }
   ];
 
@@ -139,6 +141,8 @@ describe("Manager", () => {
     window.document.querySelector("[data-confirm-ok]").click();
     await new Promise(process.nextTick);
 
+    expect(suggestions[0].blur).toHaveBeenCalled();
+    expect(suggestions[1].blur).toHaveBeenCalled();
     expect(window.location.href).toBe(fetchResult.redirect);
   });
 });

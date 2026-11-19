@@ -104,14 +104,12 @@ describe "Admin edits documents" do
 
   it "can cancel applied suggestions" do
     click_on "2 suggestions"
-    click_on "Suggestion controls", match: :first
-    click_on "Apply"
+    find(".collaborative-texts-suggestions-box-item", text: "A new content").execute_script("this.querySelector('.button-apply').click()")
     expect(page).to have_no_text("Third paragraph")
     expect(page).to have_text("A new content")
 
     click_on "2 suggestions"
-    click_on "Suggestion controls", match: :first
-    click_on "Restore"
+    find(".collaborative-texts-suggestions-box-item", text: "A new content").execute_script("this.querySelector('.button-restore').click()")
     expect(page).to have_text("Third paragraph")
     expect(page).to have_no_text("A new content")
 
@@ -194,5 +192,27 @@ describe "Admin edits documents" do
     expect(document.body).not_to include("Added content")
     expect(document.body).to include("A meaningful content")
     expect(document.consolidated_body).to eq(document.body)
+  end
+
+  it "keeps pending suggestion text when consolidating with an open preview" do
+    item = find(".collaborative-texts-suggestions-box-item", text: "A new content", visible: :all)
+    item.execute_script("this.querySelector('.collaborative-texts-suggestions-box-item-dropdown').click()")
+    item.execute_script("this.querySelector('.button-apply').click()")
+    expect(page).to have_no_text("Third paragraph")
+
+    find(".collaborative-texts-suggestions-box-item", text: "A meaningful content", visible: :all).execute_script(
+      "this.dispatchEvent(new Event('touchstart', { bubbles: true }))"
+    )
+    expect(page).to have_css(".collaborative-texts-highlight")
+
+    within ".collaborative-texts-manager" do
+      accept_confirm { click_on "Consolidate accepted suggestions" }
+    end
+    expect(page).to have_no_button("Consolidate accepted suggestions")
+
+    document.document_versions.reload
+    expect(document.consolidated_body).to include("Second title")
+    expect(document.consolidated_body).to include("A new content")
+    expect(document.consolidated_body).not_to include("A meaningful content")
   end
 end

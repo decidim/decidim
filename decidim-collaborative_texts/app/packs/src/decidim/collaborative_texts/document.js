@@ -125,8 +125,15 @@ export default class Document {
 
   _sanitizeNodes(nodes) {
     return [...nodes].filter((node) => node).map((node) => (node.nodeType === Node.TEXT_NODE
-      ? node.textContent
+      ? this._escapeText(node.textContent)
       : node.outerHTML));
+  }
+
+  // Text nodes are stored as HTML, so escape them to keep their content literal
+  _escapeText(text) {
+    const wrapper = window.document.createElement("div");
+    wrapper.textContent = text;
+    return wrapper.innerHTML;
   }
 
   _onSuggest(event) {

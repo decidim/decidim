@@ -1,3 +1,6 @@
+/* eslint max-lines: ["error", 320] */
+import { diffWordsWithSpace } from "diff";
+
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -21,6 +24,7 @@ export default class Suggestion {
         break;
       }
     }
+    this.original = entry.changeset.original || [];
     this.replace = entry.changeset.replace;
     this.summary = entry.summary;
     this.item = null;
@@ -44,12 +48,15 @@ export default class Suggestion {
     });
   }
 
-  // wrap affected nodes by the suggestion in a div to temporarily apply the changes
-  // this is used to highlight (or replace) the nodes when hovering the suggestion
+  // Wrap affected nodes in a div to temporarily highlight or replace them on hover
   highlight() {
     // If applied, just add the style to the changesWrapper
     if (this.applied) {
       this.changesWrapper.classList.add("collaborative-texts-highlight");
+      return;
+    }
+    // Browsers can fire mouseenter after touchstart, avoid duplicating the preview
+    if (this.highlightWrapper) {
       return;
     }
     this.highlightWrapper = window.document.createElement("div");
@@ -60,11 +67,10 @@ export default class Suggestion {
       suggestion.changesWrapper.classList.add("collaborative-texts-highlight-hidden");
       suggestion.nodes.forEach((node) => node.classList.add("collaborative-texts-highlight-shown"));
     });
-    this._applyTo(this.highlightWrapper);
+    this._renderDiff(this.highlightWrapper);
   }
 
-  // Restores the highlighted nodes to their original state
-  // this is used to remove the highlight when leaving the suggestion
+  // Restore the highlighted nodes when leaving the suggestion
   blur() {
     // If applied, just remove the style from the changesWrapper
     if (this.applied && this.changesWrapper) {
@@ -117,7 +123,6 @@ export default class Suggestion {
   }
 
   // Apply the changes to the wrapper passed as argument
-  // this does not manipulate the DOM, but only the wrapper
   _applyTo(wrapper) {
     this.replace.forEach((text) => wrapper.insertAdjacentHTML("beforeend", text));
     // wrap in <p> any text nodes
@@ -128,6 +133,65 @@ export default class Suggestion {
         node.replaceWith(paragraph);
       }
     });
+  }
+
+  // Highlight the removed text and the added text when hovering the suggestion
+  _renderDiff(wrapper) {
+    const before = this._text(this.original);
+    const after = this._text(this.replace);
+    // A markup-only change has no words to diff, show both versions instead
+    if (before === after && this.original.join("") !== this.replace.join("")) {
+      [["del", this.original], ["ins", this.replace]].forEach(([tag, nodes]) => {
+        const version = window.document.createElement(tag);
+        nodes.forEach((node) => version.insertAdjacentHTML("beforeend", node));
+        wrapper.appendChild(version);
+      });
+      return;
+    }
+    // Very long selections are not word-diffed, they are marked as fully removed and added
+    const changes = before.length + after.length > 10000
+      ? [{ removed: true, value: before }, { added: true, value: after }]
+      : diffWordsWithSpace(before, after);
+    let paragraph = window.document.createElement("p");
+    wrapper.appendChild(paragraph);
+    let previous = null;
+    changes.forEach((change) => {
+      change.value.split("\n").forEach((value, index) => {
+        if (index > 0) {
+          paragraph = window.document.createElement("p");
+          wrapper.appendChild(paragraph);
+        }
+        if (!value) {
+          return;
+        }
+        const flipped = previous && ((previous.added && change.removed) || (previous.removed && change.added));
+        if (flipped && !(/\s$/).test(previous.value) && !(/^\s/).test(value)) {
+          paragraph.appendChild(window.document.createTextNode(" "));
+        }
+        if (!change.added && !change.removed) {
+          paragraph.appendChild(window.document.createTextNode(value));
+          return;
+        }
+        const tag = change.added
+          ? "ins"
+          : "del";
+        const mark = window.document.createElement(tag);
+        mark.textContent = value;
+        paragraph.appendChild(mark);
+      });
+      previous = change;
+    });
+  }
+
+  // Preserve block and <br> breaks, textContent does not add them
+  _text(nodes) {
+    const wrapper = window.document.createElement("div");
+    wrapper.innerHTML = nodes.join("\n");
+    wrapper.querySelectorAll("br").forEach((element) => element.replaceWith("\uE000"));
+    wrapper.querySelectorAll("p, div, li, h1, h2, h3, h4, h5, h6, blockquote, pre").forEach((element) => {
+      element.after(window.document.createTextNode("\n"));
+    });
+    return wrapper.textContent.replace(/\n{2,}/g, "\n").trim().replace(/\uE000/g, "\n");
   }
 
   _hideOriginalNodes(className = "collaborative-texts-hidden") {
@@ -230,14 +294,27 @@ export default class Suggestion {
     });
   }
 
-  _resetDropdown() {
-
-  }
-
   _bindEvents() {
     this.item.addEventListener("mouseenter", this.highlight.bind(this));
     this.item.addEventListener("mouseleave", this.blur.bind(this));
+    this.item.addEventListener("touchstart", this._onTouchStart.bind(this));
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
+  }
+
+  // An event handler for touchstart for mobile devices
+  _onTouchStart(event) {
+    if (event.target.closest(".button-apply, .button-restore")) {
+      return;
+    }
+    let isShown = this.highlightWrapper;
+    if (this.applied) {
+      isShown = this.changesWrapper.classList.contains("collaborative-texts-highlight");
+    }
+    if (isShown) {
+      this.blur();
+    } else {
+      this.highlight();
+    }
   }
 }
