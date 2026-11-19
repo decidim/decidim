@@ -17,10 +17,10 @@ module Decidim
       def embed_transformed_url(request_host)
         return nil if parsed_online_meeting_uri.nil?
 
-        case parsed_online_meeting_uri.host
-        when "www.youtube.com"
+        case normalized_hostname
+        when "youtube.com"
           transform_youtube_url(parsed_online_meeting_uri)
-        when "www.twitch.tv"
+        when "twitch.tv"
           transform_twitch_url(parsed_online_meeting_uri, request_host)
         else
           online_meeting_service_url
@@ -30,7 +30,7 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        embeddable_services.include?(parsed_online_meeting_uri.host)
+        normalized_embeddable_services.include?(normalized_hostname)
       end
 
       def embed_code(request_host)
@@ -53,6 +53,21 @@ module Decidim
 
       def embeddable_services
         @embeddable_services ||= Meetings.embeddable_services
+      end
+
+      def normalized_embeddable_services
+        @normalized_embeddable_services ||= embeddable_services.map { |service| normalize_hostname(service) }
+      end
+
+      def normalized_hostname
+        @normalized_hostname ||= normalize_hostname(parsed_online_meeting_uri.host)
+      end
+
+      # Strips a single leading "www." or "m." so that equivalent hosts are
+      # treated the same. Only one prefix is removed so that multi-prefix hosts
+      # (e.g. "www.m.youtube.com") are not considered equivalent.
+      def normalize_hostname(hostname)
+        hostname.to_s.sub(/\A(?:www|m)\./, "")
       end
 
       # YouTube transformation consists on:
