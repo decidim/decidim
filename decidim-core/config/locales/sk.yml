@@ -276,6 +276,7 @@ sk:
         create: "%{user_name}pridal súčasť %{resource_name} do priestoru %{space_name}"
         delete: "%{user_name} odstránil súčasť %{resource_name} z priestoru %{space_name}"
         export_component: "%{user_name} exportoval/a %{resource_name} %{component_name} v %{space_name} ako %{format_name}"
+        menu_hidden: "%{user_name} skryl/a komponent %{resource_name} z ponuky v priestore %{space_name}"
         publish: "%{user_name} publikoval súčasť %{resource_name} v priestore %{space_name}"
         restore: "%{user_name} obnovil/a komponent %{resource_name} v priestore %{space_name}"
         soft_delete: "%{user_name} presunul/a do koša komponent %{resource_name} v priestore %{space_name}"
@@ -443,6 +444,10 @@ sk:
       withdraw:
         error: Pri sťahovaní pozmeňujúceho návrhu sa vyskytol problém.
         success: Pozmeňujúci návrh bol úspešne stiahnutý.
+      wizard_step_form:
+        steps:
+          '1': Vytvorte svoj pozmeňujúci návrh
+          '2': Publikujte svoj pozmeňujúci návrh
     anonymous_user: Anonymné
     application:
       document:
@@ -581,6 +586,7 @@ sk:
           global:
             amendments_enabled: Zmeny povolené
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálny počet znakov na komentár
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             dummy_global_attribute1: Zástupný atribút 1
             dummy_global_attribute2: Zástupný atribút 2
@@ -686,6 +692,13 @@ sk:
           all: Všetky
         filter_taxonomy_values:
           all: Všetky
+    delete_user_mailer:
+      delete:
+        body_1: Váš účet bol deaktivovaný a už nie je prístupný. Vaše osobné údaje sú naplánované na trvalé odstránenie v súlade s našimi zásadami uchovávania údajov.
+        body_2: Z bezpečnostných dôvodov sa niektoré údaje súvisiace s autorizáciou uchovajú; ak si vytvoríte nový účet a znova sa autorizujete, môžu byť prepojené s vaším novým účtom.
+        greetings_html: S pozdravom,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Vážený/á %{username},
+      subject: Váš účet bol odstránený
     devise:
       omniauth_registrations:
         create:
@@ -907,9 +920,13 @@ sk:
           affected_user:
             email_intro: 'Zmena bola prijatá pre %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom %{amendable_title}.
+            email_subject: Prijatý pozmeňujúci návrh pre %{amendable_title} od %{emendation_author_name}
+            notification_title: <a href="%{emendation_path}">Pozmeňujúci návrh</a>, ktorý vytvoril/a <a href="%{emendation_author_path}">%{emendation_author_name}</a>, bol prijatý pre <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Zmena bola prijatá pre %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Po kliknutí na predchádzajúcu odkaz môžete prestať prijímať oznámenia.
+            email_subject: Prijatý pozmeňujúci návrh pre %{amendable_title} od %{emendation_author_name}
+            notification_title: <a href="%{emendation_path}">Pozmeňujúci návrh</a>, ktorý vytvoril/a <a href="%{emendation_author_path}">%{emendation_author_name}</a>, bol prijatý pre <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Nová zmena bola vytvorená pre hodnotu%{amendable_title}. Môžete ju vidieť z tejto stránky: '
@@ -925,20 +942,29 @@ sk:
           affected_user:
             email_intro: 'Zamietnutý pozmeňovací návrh pre %{amendable_title} bol publikovaný ako nový %{amendable_type}. Môžete ho vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom %{amendable_title}.
+            email_subject: Pozmeňujúci návrh od %{emendation_author_name} bol zverejnený ako nový %{amendable_type}
+            notification_title: <a href="%{emendation_path}">Zamietnutý pozmeňujúci návrh</a> pre <a href="%{amendable_path}">%{amendable_title}</a> zverejnil/a <a href="%{emendation_author_path}">%{emendation_author_name}</a> ako nový %{amendable_type}.
           follower:
             email_intro: 'Označenie odmietnutej pre číslo %{amendable_title} bolo povýšené na nezávislý%{amendable_type}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+            email_subject: Pozmeňujúci návrh od %{emendation_author_name} bol zverejnený ako nový %{amendable_type}
+            notification_title: <a href="%{emendation_path}">Zamietnutý pozmeňujúci návrh</a> pre <a href="%{amendable_path}">%{amendable_title}</a> zverejnil/a <a href="%{emendation_author_path}">%{emendation_author_name}</a> ako nový %{amendable_type}.
         amendment_rejected:
           affected_user:
             email_intro: 'Oznámenie bolo zamietnuté za %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože ste autorom %{amendable_title}.
+            email_subject: Zamietnutý pozmeňujúci návrh pre %{amendable_title} od %{emendation_author_name}
+            notification_title: <a href="%{emendation_path}">Pozmeňujúci návrh</a>, ktorý vytvoril/a <a href="%{emendation_author_path}">%{emendation_author_name}</a>, bol zamietnutý pre <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Oznámenie bolo zamietnuté za %{amendable_title}. Môžete ju vidieť z tejto stránky: '
             email_outro: Toto oznámenie ste dostali, pretože sledujete %{amendable_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+            email_subject: Zamietnutý pozmeňujúci návrh pre %{amendable_title} od %{emendation_author_name}
+            notification_title: <a href="%{emendation_path}">Pozmeňujúci návrh</a>, ktorý vytvoril/a <a href="%{emendation_author_path}">%{emendation_author_name}</a>, bol zamietnutý pre <a href="%{amendable_path}">%{amendable_title}</a>.
         emendation_promoted:
           follower:
             email_intro: 'Pre %{amendable_title} bola zverejnená úprava. Môžete si ju pozrieť na tejto stránke:'
             email_outro: Toto upozornenie ste dostali, pretože ste autorom %{amendable_title}.
+            email_subject: Úprava od %{emendation_author_name} bola zverejnená ako nový %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'Do dokumentu%{resource_title} bol pridaný nový dokument. Môžete ho vidieť z tejto stránky: '
@@ -971,6 +997,18 @@ sk:
         notification_body: Opravili sme spôsob používania prezývok, aby nevznikali duplicity, a preto sme odstránili pravidlo rozlišovania veľkých a malých písmen. <br/> Vaša prezývka bola vytvorená po inej s rovnakým menom, preto sme ju automaticky premenovali. Môžete si ju zmeniť v <a href="%{link_to_account_settings}">nastaveniach vášho účtu</a>.
       notification_event:
         notification_title: Vyskytla sa udalosť pre <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Boli ste pridaný/á ako člen do participatívneho priestoru.
+            email_outro: Toto upozornenie ste dostali, pretože vás administrátor pridal do <a href="%{resource_url}">%{resource_title}</a>. Ak je prístup do tohto priestoru obmedzený, budete k nemu mať prístup pomocou svojho účtu.<br> Váš profil sa zobrazí v <a href="%{members_page}">zozname členov</a> priestoru.
+            email_subject: Teraz máte prístup k %{resource_title}.
+            notification_title: Teraz máte prístup k <a href="%{resource_url}">%{resource_title}</a>.
+          unpublished:
+            email_intro: Boli ste pridaný/á ako člen do participatívneho priestoru.
+            email_outro: Toto upozornenie ste dostali, pretože vás administrátor pridal do <a href="%{resource_url}">%{resource_title}</a>. Ak je prístup do tohto priestoru obmedzený, budete k nemu mať prístup pomocou svojho účtu.
+            email_subject: Teraz máte prístup k %{resource_title}.
+            notification_title: Teraz máte prístup k <a href="%{resource_url}">%{resource_title}</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -989,13 +1027,25 @@ sk:
           notification_title: |-
             Administrátor odstránil váš %{resource_type}, pretože bol nahlásený ako %{report_reasons}.</br>
             <i>%{resource_content}</i>
+      resource_liked:
+        email_intro: 'Používateľ %{liker_name}, ktorého sledujete, práve označil, že sa mu páči „%{resource_title}“, a myslíme si, že by vás to mohlo zaujímať. Pozrite si to a zapojte sa:'
+        email_outro: Toto upozornenie ste dostali, pretože sledujete používateľa %{liker_name}. Prijímanie upozornení môžete zrušiť kliknutím na predchádzajúci odkaz.
+        email_subject: "%{liker_name} pridal/a nové označenie Páči sa mi to"
+        notification_title: Používateľovi <a href="%{liker_path}">%{liker_name}</a> sa páči %{resource_type} <a href="%{resource_path}">%{resource_title}</a>.
       resources:
         soft_deleted:
           notification_title: Administrátor odstránil váš „%{resource_type}“ „%{resource_title}“.
       users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">Profilová stránka</a> používateľa %{name}, ktorého sledujete, bola aktualizovaná.
+          email_outro: Toto upozornenie ste dostali, pretože sledujete používateľa %{name}. Prijímanie upozornení môžete zrušiť kliknutím na predchádzajúci odkaz.
+          email_subject: "%{name} aktualizoval/a svoj profil"
+          notification_title: <a href="%{resource_path}">Profilová stránka</a> používateľa %{name}, ktorého sledujete, bola aktualizovaná.
         user_officialized:
+          email_intro: Účastník %{name} bol oficializovaný.
           email_outro: Toto upozornenie ste dostali, pretože ste administrátorom organizácie.
           email_subject: "%{name} bol/a oficializovaný/á"
+          notification_title: Účastník %{name} bol oficializovaný.
     export_mailer:
       download_your_data_export:
         click_button_html: Kliknutím na nasledujúci odkaz si stiahnete svoje údaje.<br/>Súbor bude k dispozícii na stiahnutie do %{date}.
@@ -1202,6 +1252,8 @@ sk:
       dynamic:
         screen_reader_explanation: Nasledujúci prvok je mapa, ktorá zobrazuje položky na tejto stránke ako body na mape. Prvok je možné použiť s čítačkou obrazovky, ale môže byť ťažšie pochopiteľný.
         skip_button: Preskočiť mapu
+        zoom_in: Priblížiť
+        zoom_out: Oddialiť
       static:
         latlng_text: 'zemepisná šírka: %{latitude}, zemepisná dĺžka: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1356,6 +1408,7 @@ sk:
         own_activity: Moje vlastné činnosť, ako keby niekto komentoval vo svojom návrhu alebo ma zmienil
         push_notifications: Push upozornenia
         push_notifications_reminder: Ak chcete dostávať upozornenia z platformy, musíte ich najprv povoliť v nastaveniach prehliadača.
+        push_notifications_unsupported_browser: Váš prehliadač nie je podporovaný.
         receive_notifications_about: Chcem dostávať oznámenia
         update_notifications_settings: Uložiť zmeny
       update:
@@ -1544,6 +1597,10 @@ sk:
         never_logged_in: nikdy neprihlásený/á
         subject: Upozornenie na neaktívny účet
     participatory_space:
+      labels:
+        reference: Referencia priestoru
+        restricted: Obmedzený priestor
+        transparent: Transparentný priestor
       pages:
         user_profile:
           member_of:
@@ -1551,6 +1608,10 @@ sk:
     participatory_space_members:
       index:
         members: Členovia
+    participatory_spaces:
+      show:
+        restricted_space: Toto je obmedzený priestor. Zobraziť si ho a zúčastniť sa môžu iba členovia a administrátori.
+        transparent_space: Toto je transparentný priestor. Obsah si môže zobraziť ktokoľvek, ale zúčastniť sa môžu iba členovia a administrátori.
     passwords:
       update:
         error: Pri aktualizácii hesla sa vyskytol problém.
@@ -1698,6 +1759,8 @@ sk:
       login_modal:
         please_log_in: Prosím, prihláste sa
         sign_up: Vytvoriť účet
+      mentions:
+        search_prompt: Píšte pre vyhľadávanie účastníkov
       mentions_modal:
         remove_recipient: Odstrániť príjemcu %{name}
       progress: Priebeh
@@ -2261,6 +2324,7 @@ sk:
       close: Zavrieť
       reset: Obnoviť
       select: Vybrat
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2269,6 +2333,8 @@ sk:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2282,6 +2348,7 @@ sk:
       long_with_particles: "%d. %B %Y o %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      time_of_day_with_time_zone: "%H:%M %Z"
       tooltip: "%d.%m.%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
