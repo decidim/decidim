@@ -59,15 +59,7 @@ describe "Import proposals answers from a file" do
       dynamically_attach_file(:import_file, json_file)
 
       notifier = instance_double(Decidim::Proposals::Import::BatchNotifier, notify!: nil)
-      expect(Decidim::Proposals::Import::BatchNotifier).to receive(:new).with(
-        collection: satisfy { |collection| collection.compact.size == amount },
-        context: hash_including(
-          current_component: component,
-          current_participatory_space: participatory_space,
-          current_user: user,
-          import_creator_class: Decidim::Proposals::Import::ProposalAnswerCreator
-        )
-      ).and_return(notifier)
+      allow(Decidim::Proposals::Import::BatchNotifier).to receive(:new).and_return(notifier)
       expect(notifier).to receive(:notify!).once
       expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(
         instance_of(Decidim::Proposals::Proposal),
@@ -77,6 +69,15 @@ describe "Import proposals answers from a file" do
 
       click_on "Import"
       expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
+      expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
+        collection: satisfy { |collection| collection.compact.size == amount },
+        context: hash_including(
+          current_component: component,
+          current_participatory_space: participatory_space,
+          current_user: user,
+          import_creator_class: Decidim::Proposals::Import::ProposalAnswerCreator
+        )
+      )
       answers.each do |answer|
         proposal = Decidim::Proposals::Proposal.find(answer[:id])
         expect(proposal.state).to eq(answer[:state])
@@ -113,15 +114,7 @@ describe "Import proposals answers from a file" do
         dynamically_attach_file(:import_file, json_file)
 
         notifier = instance_double(Decidim::Proposals::Import::BatchNotifier, notify!: nil)
-        expect(Decidim::Proposals::Import::BatchNotifier).to receive(:new).with(
-          collection: satisfy { |collection| collection.compact.size == amount },
-          context: hash_including(
-            current_component: component,
-            current_participatory_space: participatory_space,
-            current_user: user,
-            import_creator_class: Decidim::Proposals::Import::ProposalAnswerCreator
-          )
-        ).and_return(notifier)
+        allow(Decidim::Proposals::Import::BatchNotifier).to receive(:new).and_return(notifier)
         expect(notifier).to receive(:notify!).once
         expect(Decidim::Proposals::Admin::NotifyProposalAnswer).to receive(:call).with(
           instance_of(Decidim::Proposals::Proposal),
@@ -131,6 +124,15 @@ describe "Import proposals answers from a file" do
 
         click_on "Import"
         expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
+        expect(Decidim::Proposals::Import::BatchNotifier).to have_received(:new).with(
+          collection: satisfy { |collection| collection.compact.size == amount },
+          context: hash_including(
+            current_component: component,
+            current_participatory_space: participatory_space,
+            current_user: user,
+            import_creator_class: Decidim::Proposals::Import::ProposalAnswerCreator
+          )
+        )
         answers.each do |answer|
           proposal = Decidim::Proposals::Proposal.find(answer[:id])
           expect(proposal.state).to eq(answer[:state])

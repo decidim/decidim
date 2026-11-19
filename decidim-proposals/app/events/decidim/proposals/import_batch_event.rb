@@ -7,7 +7,7 @@ module Decidim
         [
           I18n.t("email_intro", **import_i18n_options),
           "<br><br>",
-          I18n.t("email_link", **import_i18n_options)
+          I18n.t("#{i18n_scope}.email_link", **import_i18n_options.except(:scope))
         ].join(" ").html_safe
       end
 
