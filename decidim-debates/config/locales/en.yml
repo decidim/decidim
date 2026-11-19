@@ -47,7 +47,7 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
-          step:
+          phase:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Participants can create debates

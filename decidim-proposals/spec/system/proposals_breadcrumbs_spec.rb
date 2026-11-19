@@ -6,7 +6,7 @@ describe "Proposals Breadcrumb" do
   include_context "with a component"
 
   let(:organization) { create(:organization) }
-  let(:participatory_space) { create(:participatory_process, :with_steps, :published, organization:, title: { "en" => "Participatory space" }) }
+  let(:participatory_space) { create(:participatory_process, :with_phases, :published, organization:, title: { "en" => "Participatory space" }) }
   let(:component) { create(:proposal_component, :published, :with_amendments_enabled, participatory_space:, name: { "en" => "Component" }) }
   let(:proposal) { create(:proposal, component:, title: { "en" => "Proposal" }) }
   let(:router) { Decidim::EngineRouter.main_proxy(component) }

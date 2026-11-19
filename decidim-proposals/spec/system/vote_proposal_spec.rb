@@ -98,8 +98,8 @@ describe "Vote Proposal", slow: true do
       shared_examples "displaying the vote button correctly" do |likes_enabled:, likes_blocked:|
         before do
           component.update!(
-            step_settings: {
-              component.participatory_space.active_step.id => {
+            phase_settings: {
+              component.participatory_space.active_phase.id => {
                 votes_enabled: true,
                 likes_blocked:,
                 likes_enabled:

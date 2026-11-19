@@ -157,7 +157,7 @@ en:
           global:
             announcement: Announcement
             comments_blocked: Comments blocked
-          step:
+          phase:
             announcement: Announcement
     statistics:
       all_collaborative_texts_count: All collaborative texts

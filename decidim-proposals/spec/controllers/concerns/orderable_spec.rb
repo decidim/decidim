@@ -9,9 +9,9 @@ module Decidim
     end
 
     describe OrderableFakeController do
-      let(:participatory_process) { create(:participatory_process, :with_steps) }
-      let(:active_step_id) { participatory_process.active_step.id }
-      let(:component) { create(:component, :with_one_step, participatory_space: participatory_process, manifest_name: "proposals") }
+      let(:participatory_process) { create(:participatory_process, :with_phases) }
+      let(:active_phase_id) { participatory_process.active_phase.id }
+      let(:component) { create(:component, :with_one_phase, participatory_space: participatory_process, manifest_name: "proposals") }
       let(:component_settings) do
         double(
           default_sort_order: component_default_sort_order,
@@ -20,14 +20,14 @@ module Decidim
       end
       let(:current_settings) do
         double(:current_settings,
-               default_sort_order: step_default_sort_order,
+               default_sort_order: phase_default_sort_order,
                votes_enabled?: votes_enabled,
                votes_blocked?: votes_blocked,
                votes_hidden?: votes_hidden,
                comments_enabled?: comments_enabled)
       end
       let(:component_default_sort_order) { "automatic" }
-      let(:step_default_sort_order) { "" }
+      let(:phase_default_sort_order) { "" }
       let(:votes_enabled) { nil }
       let(:votes_blocked) { nil }
       let(:votes_hidden) { nil }
@@ -52,9 +52,9 @@ module Decidim
           end
         end
 
-        context "when step has default_sort_order" do
+        context "when phase has default_sort_order" do
           let(:component_default_sort_order) { "random" }
-          let(:step_default_sort_order) { "most_commented" }
+          let(:phase_default_sort_order) { "most_commented" }
           let!(:proposal_with_comments) { create(:proposal, component:, comments_count: 5) }
 
           it "use it instead of component's" do
@@ -62,9 +62,9 @@ module Decidim
           end
         end
 
-        context "when step has default default_sort_order" do
+        context "when phase has default default_sort_order" do
           let(:component_default_sort_order) { "most_followed" }
-          let(:step_default_sort_order) { "automatic" }
+          let(:phase_default_sort_order) { "automatic" }
           let(:votes_blocked) { false }
 
           it "use it instead of component's" do
