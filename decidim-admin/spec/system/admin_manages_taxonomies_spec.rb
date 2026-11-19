@@ -284,15 +284,15 @@ describe "Admin manages taxonomies" do
     end
 
     it "displays the pagination" do
-      expect(page).to have_text(translated(taxonomies[25].name))
+      expect(page).to have_text(translated(taxonomies[20].name))
       expect(page).to have_text("Drag over for previous page")
       expect(page).to have_link("Prev")
 
       all(".js-sortable tr").last.drag_to(all(".js-sortable tr").first)
 
       expect(page).to have_text("Drag over for next page")
-      expect(page).to have_text(translated(taxonomies[25].name))
-      expect(page).to have_no_text(translated(taxonomies[24].name))
+      expect(page).to have_text(translated(taxonomies[20].name))
+      expect(page).to have_no_text(translated(taxonomies[19].name))
     end
   end
 

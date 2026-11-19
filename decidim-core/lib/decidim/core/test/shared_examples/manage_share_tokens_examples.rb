@@ -194,11 +194,11 @@ shared_examples "manage resource share tokens" do
     end
 
     it "displays pagination" do
-      expect(page).to have_css("tbody tr", count: 25)
+      expect(page).to have_css("tbody tr", count: 20)
       within '[aria-label="Pagination"]' do
         click_on "Next"
       end
-      expect(page).to have_css("tbody tr", count: 1)
+      expect(page).to have_css("tbody tr", count: 6)
     end
   end
 end
