@@ -33,14 +33,50 @@ module Decidim
           get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = response.parsed_body
-          expect(body.first.keys).to contain_exactly("changeset", "createdAt", "id", "profileHtml", "status", "summary", "type")
+          suggestion1_json = body.find { |item| item["id"] == suggestion1.id }
+          expect(body.first.keys).to contain_exactly("changeset", "createdAt", "downVotesCount", "id", "profileHtml", "status", "summary", "type", "upVotesCount", "voteWeight", "votesUrl")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
-          expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
-          expect(body.first["summary"]).to include("Replace:")
-          expect(body.first["profileHtml"]).to include(suggestion1.author.name)
-          expect(body.first["status"]).to eq(suggestion1.status)
-          expect(body.first["type"]).to eq("replace")
-          expect(body.first["createdAt"]).to be_present
+          expect(suggestion1_json["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
+          expect(suggestion1_json["summary"]).to include("Replace:")
+          expect(suggestion1_json["profileHtml"]).to include(suggestion1.author.name)
+          expect(suggestion1_json["status"]).to eq(suggestion1.status)
+          expect(suggestion1_json["type"]).to eq("replace")
+          expect(suggestion1_json["createdAt"]).to be_present
+          expect(suggestion1_json["upVotesCount"]).to eq(0)
+          expect(suggestion1_json["downVotesCount"]).to eq(0)
+          expect(suggestion1_json["voteWeight"]).to eq(0)
+          expect(suggestion1_json["votesUrl"]).to include("/suggestions/#{suggestion1.id}/votes")
+        end
+
+        it "loads the votes in a fixed number of queries" do
+          create(:collaborative_text_suggestion_vote, suggestion: suggestion1, author: user, weight: 1)
+          sign_in user
+          queries = []
+          subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |*, payload|
+            queries << payload[:sql] if payload[:sql].include?("decidim_collaborative_texts_suggestion_votes")
+          end
+
+          get(:index, params:)
+
+          expect(queries.size).to eq(2)
+        ensure
+          ActiveSupport::Notifications.unsubscribe(subscriber)
+        end
+
+        context "when the document is not published" do
+          let(:document) { build(:collaborative_text_document, component:) }
+          let(:user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+          before { sign_in user }
+
+          it "does not return vote URLs" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            response.parsed_body.each do |item|
+              expect(item).not_to have_key("votesUrl")
+            end
+          end
         end
       end
 

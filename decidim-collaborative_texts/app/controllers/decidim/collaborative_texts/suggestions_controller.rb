@@ -34,11 +34,56 @@ module Decidim
       private
 
       def suggestions_for(version)
-        version.suggestions.map do |suggestion|
-          suggestion.presenter.safe_json.merge(
+        router = Decidim::EngineRouter.main_proxy(current_component)
+        suggestions = version.suggestions
+        vote_counts = vote_counts_for(suggestions)
+        user_vote_weights = user_vote_weights_for(suggestions)
+
+        suggestions.map do |suggestion|
+          suggestion_json = suggestion.presenter.safe_json(
+            current_user,
+            vote_counts: vote_counts[suggestion.id] || {},
+            user_vote_weight: user_vote_weights.fetch(suggestion.id, 0)
+          ).merge(
             profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip
           )
+          suggestion_json[:votesUrl] = router.document_suggestion_votes_path(document, suggestion) if document.published?
+          suggestion_json
         end
+      end
+
+      # Fetch the vote totals for all the listed suggestions in a single query.
+      def vote_counts_for(suggestions)
+        counts = suggestions
+                 .joins(:votes)
+                 .group(
+                   "decidim_collaborative_texts_suggestion_votes.suggestion_id",
+                   "decidim_collaborative_texts_suggestion_votes.weight"
+                 )
+                 .count
+
+        counts.each_with_object({}) do |(key, count), result|
+          suggestion_id, weight = key
+          result[suggestion_id] ||= {}
+          result[suggestion_id][weight] = count
+        end
+      end
+
+      # Fetch the current participant's votes for all the listed suggestions in a single query.
+      def user_vote_weights_for(suggestions)
+        return {} unless current_user
+
+        suggestions
+          .joins(:votes)
+          .where(decidim_collaborative_texts_suggestion_votes: {
+                   decidim_author_id: current_user.id,
+                   decidim_author_type: current_user.class.base_class.name
+                 })
+          .pluck(
+            "decidim_collaborative_texts_suggestion_votes.suggestion_id",
+            "decidim_collaborative_texts_suggestion_votes.weight"
+          )
+          .to_h
       end
 
       def document

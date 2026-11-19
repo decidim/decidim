@@ -50,6 +50,7 @@
          data-collaborative-texts-suggestions-box-template="#collaborative-texts-suggestions-box-template"
          data-collaborative-texts-suggestions-box-item-template="#collaborative-texts-suggestions-box-item-template"
          data-collaborative-texts-suggestions-url="<%= document_suggestions_path(document) %>"
+         data-collaborative-texts-signed-in="<%= user_signed_in? %>"
          data-collaborative-texts-rollout-url="<%= document_path(document) if allowed_to?(:rollout, :collaborative_text, document:) %>"
          class="collaborative-texts-container editor-content">
       <%= decidim_sanitize decidim_rich_text(document.consolidated_body), { scrubber: Decidim::AdminInputScrubber.new } %>
