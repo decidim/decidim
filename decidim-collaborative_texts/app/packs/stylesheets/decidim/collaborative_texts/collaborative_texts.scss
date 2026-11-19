@@ -200,7 +200,7 @@
     }
 
     &-item-votes {
-      @apply flex items-center justify-end gap-2 mt-2;
+      @apply flex items-center justify-end gap-2 mt-2 pr-2;
 
       .button {
         @apply flex items-center gap-1 p-0 text-secondary;
