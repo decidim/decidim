@@ -140,6 +140,39 @@ describe "ephemeral action authorization" do
               expect(page).to have_field :proposal_title, with: "This is a new proposal"
               expect(page).to have_field :proposal_body, with: "The proposal includes a lot of ideas"
             end
+
+            context "and recovers its session from another component" do
+              let!(:other_component) do
+                create(
+                  :proposal_component,
+                  :with_creation_enabled,
+                  manifest:,
+                  participatory_space:,
+                  permissions:
+                )
+              end
+
+              it "the user is redirected to the action started in the new session" do
+                accept_confirm do
+                  find("#main-bar [data-close]").click
+                end
+
+                expect(page).to have_no_css("#main-bar [data-close]")
+
+                visit main_component_path(other_component)
+
+                click_on "New proposal"
+
+                fill_in :authorization_handler_document_number, with: document_number
+                fill_in :authorization_handler_postal_code, with: postal_code
+                fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
+                check :authorization_handler_tos_agreement
+                click_on "Send"
+
+                expect(page).to have_css "h1", text: "Create new proposal"
+                expect(page).to have_current_path(Decidim::EngineRouter.main_proxy(other_component).new_proposal_path)
+              end
+            end
           end
 
           context "when data does not match the authorization criteria" do

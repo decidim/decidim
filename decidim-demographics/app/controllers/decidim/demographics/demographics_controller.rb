@@ -66,7 +66,9 @@ module Decidim
       end
 
       def questionnaire
+        # rubocop:disable Decidim/OrganizationScopedFinder -- questionnaire_for is a demographic scoped to current_organization
         @questionnaire ||= Decidim::Forms::Questionnaire.where(questionnaire_for:).first_or_initialize
+        # rubocop:enable Decidim/OrganizationScopedFinder
         Decidim::Demographics.create_default_questionnaire!(@questionnaire)
         @questionnaire
       end

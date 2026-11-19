@@ -156,7 +156,15 @@ module Decidim
         end
 
         def response_options_url(params)
-          url_for(params.merge(controller: "decidim/templates/admin/questionnaire_templates/questionnaires", action: "response_options", format: :json, template_id: template.id))
+          url_for(
+            decidim_url_params(
+              params,
+              controller: "decidim/templates/admin/questionnaire_templates/questionnaires",
+              action: "response_options",
+              format: :json,
+              template_id: template.id
+            )
+          )
         end
 
         def after_update_url
@@ -231,7 +239,7 @@ module Decidim
 
         def search(term)
           locales = current_organization.available_locales
-          @templates
+          @templates # rubocop:disable Decidim/OrganizationScopedFinder -- @templates is assigned from collection, which is scoped to current_organization
             .where(locales.map { |l| "name ->> '#{l}' ILIKE :text" }.join(" OR "), text: "%#{term}%")
             .or(@templates.where(locales.map { |l| "description ->> '#{l}' ILIKE :text" }.join(" OR "), text: "%#{term}%"))
         end

@@ -8,7 +8,7 @@ module Decidim
   # Base class to be inherited from the different modules' seeds classes
   class Seeds
     SEEDS_CONFIG = {
-      comments_count: { slow: 6, fast: 2 },
+      comments_count: { slow: 0..6, fast: 0..2 },
       comments_nested_probability: { slow: 0.5, fast: 0.2 },
       comments_vote_skip_probability: { slow: 0.5, fast: 0.7 },
       comments_votes_count: { slow: 12, fast: 3 },

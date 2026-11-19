@@ -136,7 +136,7 @@ module Decidim
       def current_participatory_space
         return unless params["slug"]
 
-        @current_participatory_space ||= Initiative.find(id_from_slug(params[:slug]))
+        @current_participatory_space ||= Initiative.where(organization: current_organization).find(id_from_slug(params[:slug]))
       end
 
       def current_participatory_space_manifest
@@ -150,7 +150,9 @@ module Decidim
       end
 
       def pending_initiatives
-        @pending_initiatives ||= Initiative.where(state: %w(created validating)).where(author: current_user)
+        @pending_initiatives ||= Initiative.where(organization: current_organization)
+                                           .where(state: %w(created validating))
+                                           .where(author: current_user)
       end
 
       alias collection initiatives

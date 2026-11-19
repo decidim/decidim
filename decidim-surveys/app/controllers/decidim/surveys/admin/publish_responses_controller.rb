@@ -18,7 +18,7 @@ module Decidim
         def update
           enforce_permission_to(:update, :questionnaire_publish_responses, survey:)
 
-          Decidim::Surveys::PublishResponses.call(params[:id], current_user) do
+          Decidim::Surveys::PublishResponses.call(questionnaire, params[:id], current_user) do
             on(:ok) do
               render json: {}
             end
@@ -32,7 +32,7 @@ module Decidim
         def destroy
           enforce_permission_to(:destroy, :questionnaire_publish_responses, survey:)
 
-          Decidim::Surveys::UnpublishResponses.call(params[:id], current_user) do
+          Decidim::Surveys::UnpublishResponses.call(questionnaire, params[:id], current_user) do
             on(:ok) do
               render json: {}
             end

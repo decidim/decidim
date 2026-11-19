@@ -42,7 +42,9 @@ module Decidim
 
             def destroy_all
               enforce_permission_to :csv_import, :space_member
+              # rubocop:disable Decidim/OrganizationScopedFinder -- by_participatory_space scopes to the current participatory space
               Decidim::ParticipatorySpace::Member.by_participatory_space(participatory_space).delete_all
+              # rubocop:enable Decidim/OrganizationScopedFinder
               redirect_to new_members_csv_imports_path
             end
 

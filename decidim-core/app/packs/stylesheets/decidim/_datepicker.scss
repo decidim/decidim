@@ -70,7 +70,7 @@
   }
 
   &__period-column {
-    @apply w-28 h-8 top-1 right-10 my-2 mx-1 absolute;
+    @apply w-28 h-8 top-0 right-6 my-2 mx-1 absolute;
   }
 
   &__calendar-button {
@@ -147,11 +147,11 @@
   }
 
   &__period-am {
-    @apply ml-1 accent-secondary bg-secondary;
+    @apply ml-1 !mt-3 accent-secondary bg-secondary;
   }
 
   &__period-pm {
-    @apply ml-1;
+    @apply ml-1 !mt-3;
   }
 
   &__label-row {
