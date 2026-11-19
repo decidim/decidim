@@ -12,6 +12,7 @@ sk:
         plural: Množné číslo
       attachment:
         attachment_collection_id: Priečinok
+        attachments: Prílohy
         description: Popis
         file: Súbor
         title: Názov prílohy alebo obrázka
@@ -50,6 +51,7 @@ sk:
         alert_color: Upozornenie
         available_authorizations: Dostupné autorizácie
         badges_enabled: Povoliť odznaky
+        comments_max_length: Maximálny počet znakov na komentár (ponechajte 0 pre predvolenú hodnotu)
         customize_welcome_notification: Prispôsobte uvítanie
         default_locale: Predvolený jazyk
         description: Popis
@@ -909,6 +911,7 @@ sk:
       officializations:
         block:
           error: Pri blokovaní účastníka sa vyskytol problém.
+          no_user: Nenašiel sa žiadny používateľ
           success: Účastník bol úspešne zablokovaný.
         bulk_action:
           block:
@@ -918,6 +921,7 @@ sk:
             invalid: Pri odblokovaní účastníkov sa vyskytol problém.
             success: Účastníci boli úspešne odblokovaní.
         create:
+          no_user_found: Účastník sa nenašiel.
           success: Účastník bol úspešne oficionalizovaný.
         destroy:
           success: Oficionalizácia účastníka bola úspešne zrušená.
@@ -944,6 +948,7 @@ sk:
           officialize: Oficializovať
           title: Oficializovať účastníka "%{name}"
         show_email:
+          no_user: Nenašiel sa žiadny používateľ
           title: Zobraziť e-mail
         show_email_modal:
           description: Ak potrebujete kontaktovať účastníka priamo, môžete kliknúť na tlačidlo Zobraziť a uvidíte jeho e-mailovú adresu. Táto akcia bude zaznamenaná.
@@ -978,6 +983,10 @@ sk:
           logos:
             organization_logos: Logá organizácie
             preview: Náhľad
+          machine_translation_display_priority:
+            options:
+              original: Systém zobrazuje informácie v jazyku, ktorý použil autor. Obsah vytvorený v administrácii s manuálnymi prekladmi zobrazí hodnoty preložené administrátorom.
+              translation: Systém zobrazí preklad, ak je k dispozícii, v opačnom prípade sa použije pôvodný jazyk.
           rich_text_editor_in_public_views_help: V niektorých textových oknách budú účastníci môcť vkladať niektoré HTML tagy pomocou pokročilého textového editoru.
           social_handlers: Sociálne
           twitter: X
@@ -1107,6 +1116,8 @@ sk:
           previous_title: Predchádzajúca položka
         attachments:
           add_attachments: Nové prílohy
+          attachment_legend: Pridať galériu príloh (voliteľné)
+          edit_attachments: Upraviť prílohy
       static_page_topics:
         create:
           error: Pri tvorbe novej témy nastala chyba.
@@ -1324,6 +1335,11 @@ sk:
       errors:
         impersonate_user:
           reason: Pri správe nespravovaného účastníka musíte uviesť dôvod.
+      file_help:
+        attachment:
+          explanation: 'Pokyny pre súbor:'
+          message_1: Podporované sú súbory CSV, JSON a Excel (.xlsx)
+          message_2: Pre súbory CSV musí byť oddeľovačom stĺpcov bodkočiarka (";")
     moderations:
       actions:
         expand: Rozbaliť
