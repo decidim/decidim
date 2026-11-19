@@ -815,8 +815,8 @@ sv:
           final_proposal: Färdigt förslag
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
-            one: och %{count} mer person
-            other: och %{count} fler personer
+            one: och %{count} person till
+            other: och %{count} personer till
           info-message: Det här är ett <strong>gemensamt utkast</strong> till ett förslag. Det innebär att du kan hjälpa författarna med att utforma förslaget genom kommentarsfältet nedan eller bidra till förslaget direkt genom att begära redigeringsåtkomst. När författarna till förslaget ger dig åtkomst kan du göra ändringar av utkastet.
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
@@ -982,8 +982,8 @@ sv:
           edit_proposal: Redigera
           estimated_cost: Beräknad kostnad
           hidden_likes_count:
-            one: och %{count} mer person
-            other: och %{count} fler personer
+            one: och %{count} person till
+            other: och %{count} personer till
           link_to_collaborative_draft_help_text: Detta förslag är resultatet av ett gemensamt utkast. Läs historiken
           link_to_collaborative_draft_text: Visa det gemensamma utkastet
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
