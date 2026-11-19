@@ -24,6 +24,18 @@ describe Decidim::StatsParticipantsCount do
       expect(subject).to eq(22)
     end
 
+    it "does not count twice the validated registrations included in the attendees" do
+      create_list(:registration, 3, meeting: closed_meeting, validated_at: Time.current)
+
+      expect(subject).to eq(20)
+    end
+
+    it "does not subtract more validated registrations than attendees" do
+      create_list(:registration, 10, meeting: another_closed_meeting, validated_at: Time.current)
+
+      expect(subject).to eq(22)
+    end
+
     context "when the meetings should not disclose their attendees" do
       let(:unpublished_component) { create(:meeting_component, :unpublished, participatory_space:) }
       let(:other_space_component) { create(:meeting_component, :published, organization:) }

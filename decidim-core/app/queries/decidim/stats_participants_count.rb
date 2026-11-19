@@ -55,10 +55,15 @@ module Decidim
     def meeting_attendees_count
       return 0 unless Decidim.module_installed?(:meetings)
 
+      validated_registrations = Decidim::Meetings::Registration
+                                .where.not(validated_at: nil)
+                                .where("decidim_meetings_registrations.decidim_meeting_id = decidim_meetings_meetings.id")
+                                .select("COUNT(*)")
+
       Decidim::Meetings::Meeting
         .with_public_attendees_count
         .where(component: space_components.published)
-        .sum(:attendees_count)
+        .sum(Arel.sql("GREATEST(decidim_meetings_meetings.attendees_count - (#{validated_registrations.to_sql}), 0)"))
     end
 
     def likes_query
