@@ -36,7 +36,7 @@ module Decidim
       def suggestions_for(version)
         router = Decidim::EngineRouter.main_proxy(current_component)
 
-        version.suggestions.includes(:votes).map do |suggestion|
+        version.suggestions.map do |suggestion|
           suggestion_json = suggestion.presenter.safe_json(current_user).merge(
             profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip
           )

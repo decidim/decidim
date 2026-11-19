@@ -43,7 +43,7 @@ module Decidim
       end
 
       def safe_json(current_user = nil)
-        votes = suggestion.votes.to_a
+        vote_counts = suggestion.votes.group(:weight).count
 
         {
           id:,
@@ -52,20 +52,21 @@ module Decidim
           status:,
           type:,
           createdAt: created_at,
-          upVotesCount: votes.count { |vote| vote.weight == 1 },
-          downVotesCount: votes.count { |vote| vote.weight == -1 },
-          voteWeight: vote_weight(votes, current_user)
+          upVotesCount: vote_counts[1] || 0,
+          downVotesCount: vote_counts[-1] || 0,
+          voteWeight: vote_weight(current_user)
         }
       end
 
       private
 
-      def vote_weight(votes, user)
+      def vote_weight(user)
         return 0 unless user
 
-        votes.find do |vote|
-          vote.decidim_author_id == user.id && vote.decidim_author_type == user.class.base_class.name
-        end&.weight || 0
+        suggestion.votes.find_by(
+          decidim_author_id: user.id,
+          decidim_author_type: user.class.base_class.name
+        )&.weight || 0
       end
     end
   end
