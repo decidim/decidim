@@ -118,8 +118,6 @@ ca:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2242,6 +2240,7 @@ ca:
       close: Tancar
       reset: Reiniciar
       select: Seleccionar
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2250,6 +2249,8 @@ ca:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2263,7 +2264,8 @@ ca:
       long_with_particles: "%d %B, de %Y a les %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%Z de %H:%M"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Esborrats
