@@ -11,7 +11,7 @@ module Decidim
       translatable_fields :body
       enum :status, { unpublished: 0, published: 1, closed: 2 }
 
-      belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id"
+      belongs_to :questionnaire, class_name: "Decidim::Meetings::Questionnaire", foreign_key: "decidim_questionnaire_id", inverse_of: :questions
 
       has_many :responses,
                class_name: "Decidim::Meetings::Response",

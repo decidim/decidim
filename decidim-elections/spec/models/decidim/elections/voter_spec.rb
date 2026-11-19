@@ -17,6 +17,11 @@ module Decidim
         expect(subject.election).to eq(election)
       end
 
+      it "uses the election's voters association as the inverse" do
+        expect(election.voters).to eq([voter])
+        expect(election.voters.first.election).to be(election)
+      end
+
       describe "validations" do
         context "when data is missing" do
           let(:voter) { build(:election_voter, election:, data: {}) }

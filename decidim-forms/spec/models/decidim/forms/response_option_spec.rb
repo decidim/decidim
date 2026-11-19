@@ -13,17 +13,37 @@ module Decidim
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:question_type) { "single_option" }
       let(:question) { create(:questionnaire_question, questionnaire:, question_type:) }
+      let(:response) { create(:response, question:, questionnaire:) }
       let(:display_conditions) { create_list(:display_condition, 2, response_option:) }
       let(:response_option) { build(:response_option, question:, body: { en: "A statement", ca: "Una afirmació", es: "Una afirmación" }) }
 
       it { is_expected.to be_valid }
 
-      it "has an association of question" do
-        expect(subject.question).to eq(question)
+      it "uses the question's response_options association as the inverse" do
+        subject.save!
+
+        expect(question.response_options.first.question).to be(question)
       end
 
       it "has an association of display_conditions" do
         expect(subject.display_conditions).to eq(display_conditions)
+      end
+
+      describe "#destroy" do
+        let(:response_option) { create(:response_option, question:) }
+
+        it "does not destroy the recorded choices" do
+          choice = create(:response_choice, response:, response_option:)
+
+          expect(response_option.destroy).to be(false)
+          expect(response_option.errors[:base]).to include("Cannot delete record because dependent choices exist")
+          expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+        end
+
+        it "is destroyed when it has no recorded choices" do
+          expect(response_option.destroy).to be_truthy
+          expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(false)
+        end
       end
 
       describe "#translated_body" do

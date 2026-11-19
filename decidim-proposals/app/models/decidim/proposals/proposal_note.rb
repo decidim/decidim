@@ -7,7 +7,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
-      belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true
+      belongs_to :proposal, foreign_key: "decidim_proposal_id", class_name: "Decidim::Proposals::Proposal", counter_cache: true, inverse_of: :notes
       belongs_to :author, foreign_key: "decidim_author_id", class_name: "Decidim::User"
       has_many :replies, foreign_key: "parent_id", class_name: "Decidim::Proposals::ProposalNote", inverse_of: :parent, dependent: :destroy
       belongs_to :parent, class_name: "Decidim::Proposals::ProposalNote", inverse_of: :replies, optional: true
