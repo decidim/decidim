@@ -261,7 +261,10 @@ describe("SuggestionsList", () => {
     expect(button.querySelector(".js-collaborative-texts-vote-up-count").textContent).toBe("1");
     expect(button.classList.contains("is-vote-selected")).toBe(true);
     expect(button.getAttribute("aria-pressed")).toBe("true");
-    expect(global.fetch).toHaveBeenCalledWith(suggestion.votesUrl, expect.objectContaining({ method: "POST" }));
+    expect(global.fetch).toHaveBeenCalledWith(suggestion.votesUrl, expect.objectContaining({
+      method: "POST",
+      body: JSON.stringify({ weight: 1 })
+    }));
   });
 
   it("disables voting when there is no votes URL", () => {
