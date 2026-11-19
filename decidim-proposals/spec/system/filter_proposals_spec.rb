@@ -228,6 +228,30 @@ describe "Filter Proposals", :slow do
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 1)
       end
+
+      it "keeps the origin accordion working after the origin options are refreshed" do
+        visit_component
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          check "Rejected"
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Official/i)
+        end
+
+        click_on "Origin"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text "Official"
+        end
+
+        click_on "Origin"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_text "Official"
+        end
+      end
     end
 
     context "when official_proposals setting is enabled" do

@@ -37,6 +37,16 @@ var selectedOriginValues = function($form) {
   return values;
 };
 
+var reconnectAccordion = function($form) {
+  if (!$form.length) {
+    return;
+  }
+
+  $form[0].dispatchEvent(new CustomEvent("accordion:reconnect", {
+    detail: { collapse: true }
+  }));
+};
+
 var retainOriginValues = function($form, values) {
   $form.find("input[data-retained-origin]").remove();
 
@@ -86,9 +96,13 @@ $("form.new_filter").each(function() {
       bubbles: true,
       detail: { element: $newOriginFilter[0] }
     }));
+
+    reconnectAccordion($form);
   } else if ($originFilter.length) {
     $originFilter.remove();
     retainOriginValues($form, selectedOrigins);
+
+    reconnectAccordion($form);
   }
 });
 
