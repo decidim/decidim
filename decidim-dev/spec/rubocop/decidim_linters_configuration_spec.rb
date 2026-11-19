@@ -51,6 +51,11 @@ RSpec.describe "decidim-linters RuboCop configuration" do
     expect(matches?("decidim-core/app/controllers/decidim/components/base_controller.rb")).to be(true)
   end
 
+  it "matches non-admin commands" do
+    expect(matches?("decidim-core/app/commands/decidim/create_follow.rb")).to be(true)
+    expect(matches?("decidim-proposals/app/commands/decidim/proposals/create_proposal.rb")).to be(true)
+  end
+
   it "does not match non-controller files" do
     expect(matches?("decidim-core/app/models/decidim/user.rb")).to be(false)
     expect(matches?("decidim-core/lib/decidim/core.rb")).to be(false)
