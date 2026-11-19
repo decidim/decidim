@@ -16,7 +16,7 @@ module Decidim
         proposals_query,
         proposal_votes_query,
         survey_response_query
-      ].flatten.uniq.count
+      ].flatten.uniq.count + meeting_attendees_count
     end
 
     private
@@ -50,6 +50,20 @@ module Decidim
       organizers = meetings.where(decidim_author_type: Decidim::UserBaseEntity.name).pluck(:decidim_author_id)
 
       [registrations, organizers].flatten.uniq
+    end
+
+    def meeting_attendees_count
+      return 0 unless Decidim.module_installed?(:meetings)
+
+      validated_registrations = Decidim::Meetings::Registration
+                                .where.not(validated_at: nil)
+                                .where("decidim_meetings_registrations.decidim_meeting_id = decidim_meetings_meetings.id")
+                                .select("COUNT(*)")
+
+      Decidim::Meetings::Meeting
+        .with_public_attendees_count
+        .where(component: space_components.published)
+        .sum(Arel.sql("GREATEST(decidim_meetings_meetings.attendees_count - (#{validated_registrations.to_sql}), 0)"))
     end
 
     def likes_query

@@ -140,6 +140,8 @@ module Decidim
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
+      scope :with_public_attendees_count, -> { closed.not_hidden.published.visible.where(closing_visible: true) }
+
       scope :authored_by, ->(author) { where(author:) }
 
       scope_search_multi :with_any_type, TYPE_OF_MEETING.keys
