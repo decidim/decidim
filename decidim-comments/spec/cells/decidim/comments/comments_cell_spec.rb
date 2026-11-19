@@ -46,8 +46,117 @@ module Decidim::Comments
         end
 
         it "renders the single comment warning" do
-          expect(subject).to have_css(".flash.secondary", text: "You are seeing a single comment")
-          expect(subject).to have_css(".flash.secondary", text: "View all comments")
+          expect(subject).to have_css(".flash.info", text: "You are seeing a single comment thread")
+          expect(subject).to have_css(".flash.info", text: "View all comments")
+          expect(subject).to have_css(".flash.info .flash__icon svg")
+          expect(subject).to have_css(".flash.info .flash__message a", text: "View all comments")
+          expect(subject).to have_css(".flash.info[data-alert-box] button.close-button[data-close]")
+        end
+
+        context "when the single comment is a reply" do
+          let(:my_cell) { cell("decidim/comments/comments", commentable, single_comment: comment.id) }
+          let(:thread_root) { create(:comment, commentable:) }
+          let(:first_reply) { create(:comment, commentable: thread_root, root_commentable: commentable) }
+          let(:comment) { create(:comment, commentable: first_reply, root_commentable: commentable) }
+
+          it "renders the whole thread chain leading to the target comment" do
+            expect(subject).to have_text(thread_root.body.values.first)
+            expect(subject).to have_text(first_reply.body.values.first)
+            expect(subject).to have_text(comment.body.values.first)
+          end
+
+          it "renders the ancestor replies containers unfolded" do
+            expect(subject).to have_css("#comment-#{thread_root.id}-replies:not(.hidden)")
+            expect(subject).to have_css("#comment-#{first_reply.id}-replies:not(.hidden)")
+          end
+
+          it "highlights only the target comment" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
+            expect(subject).to have_no_css("#comment_#{thread_root.id}.comment--highlighted")
+            expect(subject).to have_no_css("#comment_#{first_reply.id}.comment--highlighted")
+          end
+
+          it "marks only the target comment with aria-current" do
+            expect(subject).to have_css("#comment_#{comment.id}[aria-current='true']")
+            expect(subject).to have_no_css("#comment_#{thread_root.id}[aria-current]")
+            expect(subject).to have_no_css("#comment_#{first_reply.id}[aria-current]")
+          end
+
+          it "does not render the replies toggle for the ancestors" do
+            expect(subject).to have_no_css("#comment-#{thread_root.id}-replies-trigger")
+            expect(subject).to have_no_css("#comment-#{first_reply.id}-replies-trigger")
+          end
+
+          it "does not render unrelated threads on the same commentable" do
+            other_comments.each do |other_comment|
+              expect(subject).to have_no_text(other_comment.body.values.first)
+            end
+          end
+
+          it "does not render the sibling replies of the ancestors" do
+            sibling = create(:comment, commentable: thread_root, root_commentable: commentable)
+
+            expect(subject).to have_no_text(sibling.body.values.first)
+          end
+
+          context "with a deleted comment in the chain" do
+            before { first_reply.update!(deleted_at: Time.current) }
+
+            it "still renders the target comment" do
+              expect(subject).to have_text(thread_root.body.values.first)
+              expect(subject).to have_css(".comment__deleted")
+              expect(subject).to have_text(comment.body.values.first)
+            end
+          end
+
+          context "with a hidden comment in the chain" do
+            before do
+              create(
+                :moderation,
+                :hidden,
+                reportable: first_reply,
+                participatory_space: commentable.participatory_space
+              )
+            end
+
+            it "still renders the target comment" do
+              expect(subject).to have_text(thread_root.body.values.first)
+              expect(subject).to have_css(".comment__moderated")
+              expect(subject).to have_text(comment.body.values.first)
+            end
+          end
+        end
+
+        context "when the single comment is a top level comment" do
+          it "highlights the target comment" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
+          end
+
+          it "marks the target comment with aria-current" do
+            expect(subject).to have_css("#comment_#{comment.id}[aria-current='true']")
+          end
+
+          context "when the target has replies" do
+            let!(:reply) { create(:comment, commentable: comment, root_commentable: commentable) }
+
+            it "keeps the standard lazy loaded replies toggle" do
+              expect(subject).to have_css("#comment-#{comment.id}-replies-trigger")
+              expect(subject).to have_no_text(reply.body.values.first)
+            end
+
+            it "highlights the target so it stays identifiable once the replies are loaded" do
+              expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted")
+              expect(subject).to have_no_css("#comment_#{reply.id}")
+            end
+          end
+        end
+
+        context "with the single comment being deleted" do
+          before { comment.update!(deleted_at: Time.current) }
+
+          it "highlights the deleted target" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted .comment__deleted")
+          end
         end
 
         context "with the single comment being moderated" do
@@ -66,9 +175,13 @@ module Decidim::Comments
             expect(subject).to have_css(".comment__moderated")
           end
 
+          it "highlights the moderated target" do
+            expect(subject).to have_css("#comment_#{comment.id}.comment--highlighted .comment__moderated")
+          end
+
           it "renders the single comment warning" do
-            expect(subject).to have_css(".flash.secondary", text: "You are seeing a single comment")
-            expect(subject).to have_css(".flash.secondary", text: "View all comments")
+            expect(subject).to have_css(".flash.info", text: "You are seeing a single comment thread")
+            expect(subject).to have_css(".flash.info", text: "View all comments")
           end
         end
       end

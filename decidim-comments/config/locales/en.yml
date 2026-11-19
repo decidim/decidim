@@ -121,7 +121,7 @@ en:
         loading: Loading comments ...
         no_comments_yet: No comments yet
         single_comment_warning: <a href="%{url}">View all comments</a>
-        single_comment_warning_title: You are seeing a single comment
+        single_comment_warning_title: You are seeing a single comment thread
         title:
           one: "%{count} comment"
           other: "%{count} comments"
