@@ -90,7 +90,7 @@ module Decidim
       end
 
       def contributor_count
-        @contributor_count ||= coauthorships.where.not(decidim_author_type: "Decidim::Organization").count
+        @contributor_count ||= coauthorships.count { |coauthorship| coauthorship.decidim_author_type != "Decidim::Organization" }
       end
 
       def has_suggestions?
