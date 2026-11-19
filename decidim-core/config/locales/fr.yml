@@ -2095,6 +2095,7 @@ fr:
       close: Fermer
       reset: Réinitialiser
       select:
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2103,6 +2104,8 @@ fr:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%d %B %Y %H h %M min %S s"
       devise:
@@ -2116,6 +2119,7 @@ fr:
       long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      time_of_day_with_time_zone: "%H:%M %Z"
       tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
