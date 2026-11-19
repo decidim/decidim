@@ -2,21 +2,40 @@
  * CheckBoxesTree component.
  */
 export default class CheckBoxesTree {
-  constructor() {
-    this.checkboxesTree = Array.from(document.querySelectorAll("[data-checkboxes-tree]"));
+  constructor(scope = document) {
+    this.checkboxesTree = [];
+    this.checkboxesLeaf = [];
+    this.refresh(scope);
+  }
 
-    if (!this.checkboxesTree.length) {
+  /**
+   * Adds the checkboxes that are inside the given scope to the tree, so they
+   * also handle the parent/children behaviour. It is useful when a filter
+   * section is replaced dynamically.
+   * @public
+   * @param {HTMLElement|Document} scope - The element containing the new checkboxes
+   * @returns {Void} - Returns nothing.
+   */
+  refresh(scope = document) {
+    this.checkboxesTree = this.checkboxesTree.filter((input) => document.contains(input));
+    this.checkboxesLeaf = this.checkboxesLeaf.filter((input) => document.contains(input));
+
+    const checkboxesTree = Array.from(scope.querySelectorAll("[data-checkboxes-tree]")).filter((input) => !this.checkboxesTree.includes(input));
+    const checkboxesLeaf = Array.from(scope.querySelectorAll("[data-children-checkbox] input")).filter((input) => !this.checkboxesLeaf.includes(input));
+
+    if (!checkboxesTree.length && !checkboxesLeaf.length) {
       return;
     }
 
-    this.checkboxesLeaf = Array.from(document.querySelectorAll("[data-children-checkbox] input"));
+    this.checkboxesTree.push(...checkboxesTree);
+    this.checkboxesLeaf.push(...checkboxesLeaf);
 
     // handles the click in a tree, what means to mark/unmark every children
-    this.checkboxesTree.forEach((input) => input.addEventListener("click", (event) => this.checkTheCheckBoxes(event.target)));
+    checkboxesTree.forEach((input) => input.addEventListener("click", (event) => this.checkTheCheckBoxes(event.target)));
     // handles the click in a leaf, what means to update the parent possibly
-    this.checkboxesLeaf.forEach((input) => input.addEventListener("change", (event) => this.checkTheCheckParent(event.target)));
-    // Review parent checkboxes on initial load
-    this.checkboxesLeaf.forEach((input) => this.checkTheCheckParent(input));
+    checkboxesLeaf.forEach((input) => input.addEventListener("change", (event) => this.checkTheCheckParent(event.target)));
+    // Review parent checkboxes
+    checkboxesLeaf.forEach((input) => this.checkTheCheckParent(input));
   }
 
   /**

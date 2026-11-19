@@ -146,12 +146,17 @@ module Decidim
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.official')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.meetings')
       # i18n-tasks-use t('decidim.proposals.application_helper.filter_origin_values.all')
-      def filter_origin_values
+      def filter_origin_values(component = current_component, user = current_user, options = {})
         scope = "decidim.proposals.application_helper.filter_origin_values"
+        availability = options[:availability]
+        states = options.fetch(:states, Decidim::Proposals::Proposal.default_filter_states(component))
+        proposal_class = Decidim::Proposals::Proposal
         origin_values = []
-        origin_values << TreePoint.new("official", t("official", scope:)) if component_settings.official_proposals_enabled
-        origin_values << TreePoint.new("participants", t("participants", scope:))
-        origin_values << TreePoint.new("meeting", t("meetings", scope:))
+        origin_values << TreePoint.new("official", t("official", scope:)) if proposal_class.with_official_origin_available?(component, user, availability, states)
+        origin_values << TreePoint.new("participants", t("participants", scope:)) if proposal_class.with_participants_origin_available?(component, user, availability, states)
+        origin_values << TreePoint.new("meeting", t("meetings", scope:)) if proposal_class.with_meeting_origin_available?(component, user, availability, states)
+
+        return if origin_values.empty?
 
         TreeNode.new(
           TreePoint.new("", t("all", scope:)),
@@ -186,10 +191,11 @@ module Decidim
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
-          if component_settings.official_proposals_enabled
+          origin_filter_values = filter_origin_values(current_component, current_user, availability: params.dig(:filter, :with_availability), states: filter.with_any_state)
+          if origin_filter_values
             items.append(method: :with_any_origin,
                          name: "[with_any_origin]",
-                         collection: filter_origin_values,
+                         collection: origin_filter_values,
                          label: t("decidim.proposals.proposals.filters.origin"),
                          id: "origin")
           end
@@ -219,9 +225,10 @@ module Decidim
               type: :radio_buttons
             )
           end
+
+          items.reject { |item| item[:collection].blank? }
         end
         # rubocop:enable Metrics/CyclomaticComplexity
-        items.reject { |item| item[:collection].blank? }
       end
 
       def component_name

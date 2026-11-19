@@ -224,6 +224,248 @@ module Decidim
         end
       end
 
+      describe ".with_official_origin_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with official origin" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with official origin" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          it "returns true" do
+            expect(described_class.with_official_origin_available?(component)).to be true
+          end
+
+          context "when the proposals belong to another component" do
+            let(:other_component) { create(:proposal_component) }
+            let!(:proposal) { create(:proposal, :official, component: other_component) }
+
+            it "returns false" do
+              expect(described_class.with_official_origin_available?(component)).to be false
+            end
+          end
+        end
+
+        context "when official proposals are disabled" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          before do
+            component.update!(settings: { official_proposals_enabled: false })
+          end
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal) { create(:proposal, :official, :unpublished, component:) }
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          before do
+            create(:moderation, reportable: proposal, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are withdrawn" do
+          let!(:proposal) { create(:proposal, :official, :withdrawn, component:) }
+
+          it "returns false" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+
+          context "when the withdrawn availability is selected" do
+            it "returns true" do
+              expect(described_class.with_official_origin_available?(component, nil, "withdrawn")).to be true
+            end
+          end
+        end
+
+        context "when proposals are rejected" do
+          let!(:proposal) { create(:proposal, :official, :rejected, component:) }
+
+          it "returns false with the default state selection" do
+            expect(described_class.with_official_origin_available?(component)).to be false
+          end
+
+          it "returns true when the rejected state is selected" do
+            expect(described_class.with_official_origin_available?(component, nil, nil, %w(rejected))).to be true
+          end
+        end
+      end
+
+      describe ".with_participants_origin_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with participants origin" do
+          let!(:proposal) { create(:proposal, :official, component:) }
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with participants origin" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "returns true" do
+            expect(described_class.with_participants_origin_available?(component)).to be true
+          end
+        end
+
+        context "when the only participant origin belongs to an invisible amendment" do
+          let!(:amendable) { create(:proposal, :official, component:) }
+          let!(:emendation) { create(:proposal, component:) }
+          let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
+
+          before do
+            component.update!(settings: { amendments_enabled: true })
+            component.update!(
+              step_settings: {
+                component.participatory_space.active_step.id => { amendments_visibility: "participants" }
+              }
+            )
+          end
+
+          it "returns false for anonymous visitors" do
+            expect(described_class.with_participants_origin_available?(component, nil)).to be false
+          end
+
+          it "returns true for the participant who created the amendment" do
+            expect(described_class.with_participants_origin_available?(component, amendment.amender)).to be true
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal) { create(:proposal, :unpublished, component:) }
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          before do
+            create(:moderation, reportable: proposal, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are withdrawn" do
+          let!(:proposal) { create(:proposal, :withdrawn, component:) }
+
+          it "returns false" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+
+          context "when the withdrawn availability is selected" do
+            it "returns true" do
+              expect(described_class.with_participants_origin_available?(component, nil, "withdrawn")).to be true
+            end
+          end
+        end
+
+        context "when proposals are rejected" do
+          let!(:proposal) { create(:proposal, :rejected, component:) }
+
+          it "returns false with the default state selection" do
+            expect(described_class.with_participants_origin_available?(component)).to be false
+          end
+
+          it "returns true when the rejected state is selected" do
+            expect(described_class.with_participants_origin_available?(component, nil, nil, %w(rejected))).to be true
+          end
+        end
+      end
+
+      describe ".with_meeting_origin_available?" do
+        let(:component) { create(:proposal_component) }
+
+        context "when there are no proposals with meeting origin" do
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+
+        context "when there are proposals with meeting origin" do
+          let!(:proposal) { create(:proposal, :official_meeting, component:) }
+
+          it "returns true" do
+            expect(described_class.with_meeting_origin_available?(component)).to be true
+          end
+        end
+
+        context "when proposals are not published" do
+          let!(:proposal) { create(:proposal, :official_meeting, :unpublished, component:) }
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are hidden" do
+          let!(:proposal) { create(:proposal, :official_meeting, component:) }
+
+          before do
+            create(:moderation, reportable: proposal, hidden_at: Time.current)
+          end
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+        end
+
+        context "when proposals are withdrawn" do
+          let!(:proposal) { create(:proposal, :official_meeting, :withdrawn, component:) }
+
+          it "returns false" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+
+          context "when the withdrawn availability is selected" do
+            it "returns true" do
+              expect(described_class.with_meeting_origin_available?(component, nil, "withdrawn")).to be true
+            end
+          end
+        end
+
+        context "when proposals are rejected" do
+          let!(:proposal) { create(:proposal, :official_meeting, :rejected, component:) }
+
+          it "returns false with the default state selection" do
+            expect(described_class.with_meeting_origin_available?(component)).to be false
+          end
+
+          it "returns true when the rejected state is selected" do
+            expect(described_class.with_meeting_origin_available?(component, nil, nil, %w(rejected))).to be true
+          end
+        end
+      end
+
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
       end

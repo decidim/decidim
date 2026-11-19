@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 650] */
+/* eslint max-lines: ["error", 700] */
 /* global global, jest */
 import FormFilterController from "src/decidim/controllers/form_filter/controller";
 import { Application } from "@hotwired/stimulus";
@@ -353,7 +353,8 @@ describe("FormFilterController - Initiative Filters", () => {
     // Mock CheckBoxesTree
     mockCheckBoxesTree = {
       setContainerForm: jest.fn(),
-      updateChecked: jest.fn()
+      updateChecked: jest.fn(),
+      refresh: jest.fn()
     };
     CheckBoxesTree.mockImplementation(() => mockCheckBoxesTree);
 
@@ -448,6 +449,39 @@ describe("FormFilterController - Initiative Filters", () => {
       const [path] = controller._currentStateAndPath();
 
       expect(path).toContain("filter%5Bsearch_text_cont%5D=environmental+initiative");
+    });
+  });
+
+  describe("dynamic filter content", () => {
+    it("handles changes from dynamically added inputs", () => {
+      const spy = jest.spyOn(controller, "_onFormChange");
+
+      controller.connect();
+
+      const newCheckbox = document.createElement("input");
+      newCheckbox.type = "checkbox";
+      newCheckbox.name = "filter[with_any_origin][]";
+      newCheckbox.value = "official";
+      newCheckbox.checked = true;
+      element.appendChild(newCheckbox);
+
+      newCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it("refreshes the checkboxes tree when a filter section is re-rendered", () => {
+      controller.connect();
+
+      const newSection = document.createElement("div");
+      element.appendChild(newSection);
+
+      newSection.dispatchEvent(new CustomEvent("form-filter:refresh", {
+        bubbles: true,
+        detail: { element: newSection }
+      }));
+
+      expect(mockCheckBoxesTree.refresh).toHaveBeenCalledWith(newSection);
     });
   });
 
