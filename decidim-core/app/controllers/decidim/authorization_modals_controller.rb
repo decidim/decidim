@@ -25,7 +25,7 @@ module Decidim
     end
 
     def current_component
-      @current_component ||= Decidim::Component.where(participatory_space: current_organization.participatory_spaces).find(params[:component_id])
+      @current_component ||= Decidim::Component.where(participatory_space: current_organization.participatory_spaces).find(params[:component_id]) # rubocop:disable Decidim/OrganizationScopedFinder -- participatory_spaces is scoped to current_organization
     end
 
     def authorization_action

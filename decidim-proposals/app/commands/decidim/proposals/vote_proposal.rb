@@ -60,10 +60,12 @@ module Decidim
       end
 
       def user_votes
+        # rubocop:disable Decidim/OrganizationScopedFinder -- component is derived from the scoped proposal
         @user_votes ||= ProposalVote.where(
           author: @current_user,
           proposal: Proposal.where(component:)
         )
+        # rubocop:enable Decidim/OrganizationScopedFinder
       end
 
       def build_proposal_vote

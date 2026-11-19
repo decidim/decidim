@@ -50,10 +50,13 @@ module Decidim
         # @return [Decidim::Comments::Comment]
         def create_comment(resource, root_commentable = nil)
           author = random_user
+          root = root_commentable || resource
+          space = root.respond_to?(:participatory_space) ? root.participatory_space : root
 
           params = {
             commentable: resource,
-            root_commentable: root_commentable || resource,
+            root_commentable: root,
+            participatory_space: space,
             body: { en: ::Faker::Lorem.sentence(word_count: 50) },
             author:
           }

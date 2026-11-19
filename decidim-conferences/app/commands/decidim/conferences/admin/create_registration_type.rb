@@ -29,7 +29,9 @@ module Decidim
 
         def conference_meetings
           meeting_components = resource.conference.components.where(manifest_name: "meetings")
+          # rubocop:disable Decidim/OrganizationScopedFinder -- meeting components are scoped to the conference
           Decidim::ConferenceMeeting.where(component: meeting_components).where(id: form.conference_meeting_ids)
+          # rubocop:enable Decidim/OrganizationScopedFinder
         end
 
         def run_after_hooks

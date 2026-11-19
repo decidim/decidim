@@ -48,6 +48,20 @@ module Decidim
           expect(resource.reload.taxonomies.first).to eq(taxonomy)
         end
       end
+
+      context "when the only taxonomy belongs to another organization" do
+        let!(:external_taxonomy) { create(:taxonomy, :with_parent) }
+        let(:taxonomy_ids) { [external_taxonomy.id] }
+
+        before do
+          resource.update!(taxonomies: [taxonomy_one])
+        end
+
+        it "broadcasts invalid taxonomies and keeps the resource's taxonomy" do
+          expect(subject).to broadcast(:invalid_taxonomies)
+          expect(resource.reload.taxonomies).to contain_exactly(taxonomy_one)
+        end
+      end
     end
   end
 end

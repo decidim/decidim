@@ -51,7 +51,7 @@ module Decidim
       def current_participatory_space
         return unless params["slug"]
 
-        @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
+        @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or( # rubocop:disable Decidim/OrganizationScopedFinder -- organization_participatory_processes is scoped to current_organization
           organization_participatory_processes.where(id: params["slug"])
         ).first!
       end

@@ -29,6 +29,8 @@ module Decidim
 
         attr_reader :form
 
+        delegate :current_component, to: :form
+
         def update_sortition
           Decidim.traceability.update!(
             sortition,
@@ -39,7 +41,7 @@ module Decidim
         end
 
         def sortition
-          @sortition ||= Sortition.find(form.id)
+          @sortition ||= Sortition.where(component: current_component).find(form.id)
         end
       end
     end

@@ -22,7 +22,7 @@ module Decidim
       end
 
       def questionnaire
-        @questionnaire ||= Decidim::Meetings::Questionnaire.find_by(questionnaire_for: poll) if poll
+        @questionnaire ||= Decidim::Meetings::Questionnaire.find_by(questionnaire_for: poll) if poll # rubocop:disable Decidim/OrganizationScopedFinder -- poll belongs to the meeting, which is scoped to current_component
       end
     end
   end

@@ -32,7 +32,9 @@ module Decidim
       private
 
       def impersonation_log
+        # rubocop:disable Decidim/OrganizationScopedFinder -- admin and user are the current session users
         @impersonation_log ||= Decidim::ImpersonationLog.where(admin: current_user, user:).active.first
+        # rubocop:enable Decidim/OrganizationScopedFinder
       end
 
       def close_session

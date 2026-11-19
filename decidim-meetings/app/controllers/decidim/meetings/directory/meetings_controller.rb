@@ -30,7 +30,7 @@ module Decidim
         end
 
         def search_collection
-          Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability(
+          Meeting.where(component: meeting_components).published.not_hidden.visible_for(current_user).with_availability( # rubocop:disable Decidim/OrganizationScopedFinder -- meeting_components is scoped to current_organization
             filter_params[:availability]
           ).includes(
             :component,
@@ -51,7 +51,7 @@ module Decidim
         end
 
         def meeting_components
-          @meeting_components ||= Decidim::Component
+          @meeting_components ||= Decidim::Component # rubocop:disable Decidim/OrganizationScopedFinder -- participatory_spaces is scoped to current_organization
                                   .where(manifest_name: "meetings")
                                   .where(participatory_space: participatory_spaces)
                                   .published

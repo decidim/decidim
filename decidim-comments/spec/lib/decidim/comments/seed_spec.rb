@@ -13,6 +13,16 @@ module Decidim
           subject.comments_for(dummy_resource)
           expect(Decidim::Comments::SortedComments.for(dummy_resource).length).to be_between(0, 6).inclusive
         end
+
+        it "stores the participatory space for the seeded comments" do
+          dummy_resource = create(:dummy_resource)
+          allow(subject).to receive(:rand).and_return(1)
+
+          subject.comments_for(dummy_resource)
+
+          comment = Decidim::Comments::SortedComments.for(dummy_resource).last
+          expect(comment.participatory_space).to eq(dummy_resource.participatory_space)
+        end
       end
     end
   end

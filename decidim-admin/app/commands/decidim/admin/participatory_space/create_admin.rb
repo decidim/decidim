@@ -120,7 +120,9 @@ module Decidim
         def existing_user
           return @existing_user if defined?(@existing_user)
 
+          # rubocop:disable Decidim/OrganizationScopedFinder -- organization is the participatory space's organization
           @existing_user = User.find_by(email: form.email, organization: participatory_space.organization)
+          # rubocop:enable Decidim/OrganizationScopedFinder
 
           InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user&.invitation_pending?
 

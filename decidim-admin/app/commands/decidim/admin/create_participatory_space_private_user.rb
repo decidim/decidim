@@ -51,7 +51,7 @@ module Decidim
             title: user.name
           }
         ) do
-          Decidim::ParticipatorySpacePrivateUser.find_or_create_by!(
+          Decidim::ParticipatorySpacePrivateUser.find_or_create_by!( # rubocop:disable Decidim/OrganizationScopedFinder -- user and participatory_space are scoped to the current invitation
             user:,
             privatable_to: @private_user_to,
             role: form.role,
@@ -63,7 +63,7 @@ module Decidim
       def existing_user
         return @existing_user if defined?(@existing_user)
 
-        @existing_user = User.find_by(
+        @existing_user = User.find_by( # rubocop:disable Decidim/OrganizationScopedFinder -- user and participatory_space are scoped to the current invitation
           email: form.email.downcase,
           organization: private_user_to.organization
         )
