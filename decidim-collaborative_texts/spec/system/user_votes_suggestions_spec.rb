@@ -39,6 +39,18 @@ describe "User votes suggestions" do
 
       expect(page).to have_css("#loginModal", visible: :visible)
     end
+
+    it "exposes the vote totals to screen readers" do
+      up_count_id = "collaborative-texts-vote-up-count-#{suggestion.id}"
+      down_count_id = "collaborative-texts-vote-down-count-#{suggestion.id}"
+
+      within(".collaborative-texts-suggestions-box-item-votes") do
+        expect(page).to have_css(".js-collaborative-texts-vote-up[aria-describedby='#{up_count_id}']")
+        expect(page).to have_css(".js-collaborative-texts-vote-down[aria-describedby='#{down_count_id}']")
+        expect(page).to have_css("##{up_count_id}", text: "0")
+        expect(page).to have_css("##{down_count_id}", text: "0")
+      end
+    end
   end
 
   context "when the user is signed in" do
