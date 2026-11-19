@@ -2213,6 +2213,7 @@ pt-BR:
       long_with_particles: "%d %B, %Y as %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Exclusões
