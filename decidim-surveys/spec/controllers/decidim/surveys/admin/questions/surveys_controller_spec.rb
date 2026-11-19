@@ -68,8 +68,18 @@ module Decidim
             end
 
             context "when rendering the questions form" do
+              render_views
+
+              routes { Decidim::Surveys::AdminEngine.routes }
+
               let(:questionnaire) { create(:questionnaire, :with_all_questions) }
               let(:survey) { create(:survey, questionnaire:) }
+
+              before do
+                # Simulate the engine being mounted, so route helpers generated while
+                # rendering do not need the participatory space mount parameters.
+                routes.default_url_options[:script_name] = "/admin"
+              end
 
               it "renders the questions form" do
                 get(:edit_questions, params:)
