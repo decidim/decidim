@@ -222,6 +222,23 @@ describe Decidim::OpenDataExporter do
       end
     end
 
+    describe "with multiline records" do
+      let(:proposal_component) { create(:proposal_component, organization:, published_at: Time.current) }
+      let!(:proposal) do
+        create(:proposal, :published, component: proposal_component, body: { en: "First line\nSecond line\nThird line" })
+      end
+
+      before do
+        subject.export
+      end
+
+      it "counts records instead of CSV lines in the README" do
+        readme = zip_contents.glob("README.md").first.get_input_stream.read
+
+        expect(readme).to include("## proposals (1 resource)")
+      end
+    end
+
     describe "with a space" do
       subject { described_class.new(organization, path, resource) }
 
