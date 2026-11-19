@@ -888,8 +888,8 @@ sv:
           edit_proposal: Redigera
           estimated_cost: Beräknad kostnad
           hidden_likes_count:
-            one: och %{count} mer person
-            other: och %{count} fler personer
+            one: och %{count} person till
+            other: och %{count} personer till
           link_to_promoted_emendation_help_text: Detta förslag är ett annonserat ändringsförslag
           link_to_promoted_emendation_text: Visa det avvisade ändringsförslaget.
           link_to_proposal_from_emendation_help_text: Detta är ett avvisat ändringsförslag
