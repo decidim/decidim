@@ -36,15 +36,15 @@ module Decidim
           suggestion1_json = body.find { |item| item["id"] == suggestion1.id }
           expect(body.first.keys).to contain_exactly("changeset", "createdAt", "downVotesCount", "id", "profileHtml", "status", "summary", "type", "upVotesCount", "voteWeight", "votesUrl")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
-          expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
-          expect(body.first["summary"]).to include("Replace:")
-          expect(body.first["profileHtml"]).to include(suggestion1.author.name)
-          expect(body.first["status"]).to eq(suggestion1.status)
-          expect(body.first["type"]).to eq("replace")
-          expect(body.first["createdAt"]).to be_present
-          expect(body.first["upVotesCount"]).to eq(0)
-          expect(body.first["downVotesCount"]).to eq(0)
-          expect(body.first["voteWeight"]).to eq(0)
+          expect(suggestion1_json["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
+          expect(suggestion1_json["summary"]).to include("Replace:")
+          expect(suggestion1_json["profileHtml"]).to include(suggestion1.author.name)
+          expect(suggestion1_json["status"]).to eq(suggestion1.status)
+          expect(suggestion1_json["type"]).to eq("replace")
+          expect(suggestion1_json["createdAt"]).to be_present
+          expect(suggestion1_json["upVotesCount"]).to eq(0)
+          expect(suggestion1_json["downVotesCount"]).to eq(0)
+          expect(suggestion1_json["voteWeight"]).to eq(0)
           expect(suggestion1_json["votesUrl"]).to include("/suggestions/#{suggestion1.id}/votes")
         end
       end
