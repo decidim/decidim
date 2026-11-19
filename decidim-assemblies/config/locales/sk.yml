@@ -248,6 +248,8 @@ sk:
               label: Prístup
               options:
                 open: Každý môže vidieť zhromaždenie a zúčastniť sa.
+                restricted: Iba členovia a administrátori ho môžu vidieť a zúčastniť sa. Nezobrazí sa vo všeobecnom vyhľadávaní, API ani v súboroch otvorených dát.
+                transparent: Každý môže vidieť zhromaždenie, ale zúčastniť sa môžu iba členovia a administrátori.
               set_this_space_as: Nastaviť tento priestor ako
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             duration: Trvanie

@@ -878,7 +878,7 @@ ja:
           edit_proposal: 編集
           estimated_cost: 推定コスト
           hidden_likes_count:
-            other: '%{count} 人以上'
+            other: 他 %{count} 人
           link_to_promoted_emendation_help_text: この提案は奨励された提案です
           link_to_promoted_emendation_text: 拒否されたemendationを参照してください。
           link_to_proposal_from_emendation_help_text: これが拒否されました

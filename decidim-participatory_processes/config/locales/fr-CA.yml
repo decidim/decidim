@@ -285,6 +285,7 @@ fr-CA:
         activate: "%{user_name} a activé l'étape %{resource_name} dans la concertation %{space_name}"
         create: "%{user_name} a créé l'étape %{resource_name} dans la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'étape %{resource_name} de la concertation %{space_name}"
+        system_activate: La phase %{resource_name} a été activée automatiquement dans le processus participatif %{space_name}.
         update: "%{user_name} a mis à jour l'étape %{resource_name} de la concertation %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"

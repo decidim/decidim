@@ -888,7 +888,7 @@ ca:
           edit_proposal: Editar
           estimated_cost: Cost estimat
           hidden_likes_count:
-            one: i %{count} persona més
+            one: i %{count} persones més
             other: i %{count} persones més
           link_to_promoted_emendation_help_text: Aquesta proposta és una esmena promocionada
           link_to_promoted_emendation_text: Veure l'esmena rebutjada.

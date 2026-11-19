@@ -753,9 +753,11 @@ es-PY:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
           success: Te has inscrito al encuentro con éxito. Por estar inscrita recibirás una notificación si se producen actualizaciones.
+          unauthorized: Debes iniciar sesión antes de inscribirte al encuentro.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
+          unauthorized: Debes iniciar sesión antes de rechazar la invitación.
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.
