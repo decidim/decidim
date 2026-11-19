@@ -114,8 +114,6 @@ ja:
       decidim_with_month_name_short: "%-m月%-d日"
       help:
         date_format: 'フォーマット: dd/mm/yyyy'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -2242,7 +2240,6 @@ ja:
       long_with_particles: "%Y年%m月%d日 %H:%M"
       short: "%Y/%m/%d %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%Y-%m-%d %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: 削除
