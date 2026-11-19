@@ -32,7 +32,7 @@ module Decidim
       private
 
       def registration
-        @registration ||= Decidim::Meetings::Registration.find_by(meeting: @meeting, user: @user)
+        @registration ||= @meeting.registrations.find_by(user: @user)
       end
 
       def destroy_registration
@@ -40,8 +40,9 @@ module Decidim
       end
 
       def questionnaire_responses
-        questionnaire = Decidim::Forms::Questionnaire.find_by(questionnaire_for_id: @meeting)
-        questionnaire.responses.where(user: @user) if questionnaire.present?
+        return unless @meeting.questionnaire
+
+        @meeting.questionnaire.responses.where(user: @user)
       end
 
       def destroy_questionnaire_responses
