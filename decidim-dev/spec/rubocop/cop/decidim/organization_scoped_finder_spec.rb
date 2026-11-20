@@ -839,6 +839,13 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense when a dynamic model follows a scoped relation" do
+    expect_offense(<<~RUBY)
+      Decidim::Foo.where(organization: current_organization).first.model_class.find_by(id: params[:id])
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
   it "accepts a dynamically resolved model class scoped through where" do
     expect_no_offenses(<<~RUBY)
       manifest.model_class.where(organization: current_organization).find_by(id: params[:id])

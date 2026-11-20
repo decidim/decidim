@@ -164,6 +164,9 @@ module RuboCop
           return false unless node
           return true if scoped_node?(node)
           return false unless node.call_type?
+          # A dynamic model method starts a new query root, so a scope applied
+          # earlier in the chain does not apply to the class it resolves.
+          return false if dynamic_model_method?(node)
           return scoped_or_branches?(node) if node.method_name == :or
 
           organization_scoped?(node.receiver)
@@ -173,10 +176,14 @@ module RuboCop
           return false unless node
           return false if ignored_constant?(node)
           return true if node.const_type?
-          return true if node.call_type? && DYNAMIC_MODEL_METHODS.include?(node.method_name)
+          return true if dynamic_model_method?(node)
           return false unless node.call_type?
 
           unscoped_model_class?(node.receiver)
+        end
+
+        def dynamic_model_method?(node)
+          node.call_type? && DYNAMIC_MODEL_METHODS.include?(node.method_name)
         end
 
         # An `or` relation whose branches are not all scoped can leak records
@@ -360,17 +367,20 @@ module RuboCop
 
         def constructed_scope_root?(node)
           return false unless node.call_type?
-
-          if node.receiver&.const_type?
-            return true if SCOPED_QUERY_CONSTRUCTOR_METHODS.include?(node.method_name) &&
-                           node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
-
-            return scoped_finder_arguments?(node)
-          end
-
+          # As in `organization_scoped?`, a dynamic model method starts a new
+          # query root, so a scope constructed earlier does not apply to it.
+          return false if dynamic_model_method?(node)
+          return constructed_const_scope_root?(node) if node.receiver&.const_type?
           return scoped_constructor_argument?(node) if node.method_name == :or
 
           constructed_scope_root?(node.receiver) if node.receiver
+        end
+
+        def constructed_const_scope_root?(node)
+          return true if SCOPED_QUERY_CONSTRUCTOR_METHODS.include?(node.method_name) &&
+                         node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
+
+          scoped_finder_arguments?(node)
         end
 
         # Query objects in Decidim commonly receive the organization or the
