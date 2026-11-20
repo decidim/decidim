@@ -752,9 +752,11 @@ fi:
         create:
           invalid: Tapaamiseen liittyminen epäonnistui.
           success: Liittymisesi tapaamiseen onnistui. Koska olet ilmoittautunut tähän tapaamiseen, sinulle ilmoitetaan, kun tapaamista päivitetään.
+          unauthorized: Sinun täytyy kirjautua sisään hyväksyäksesi kutsun tapaamiseen.
         decline_invitation:
           invalid: Kutsun hylkääminen epäonnistui.
           success: Kutsun hylkääminen onnistui.
+          unauthorized: Sinun täytyy kirjautua sisään hylätäksesi kutsun tapaamiseen.
         destroy:
           invalid: Tapaamisesta poistuminen epäonnistui.
           success: Tapaamisesta poistuminen onnistui.

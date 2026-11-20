@@ -80,7 +80,7 @@ eu:
       decidim:
         meetings:
           meeting:
-            text: '%{link} topaketan eztabaidatu da'
+            text: 'Topaketan eztabaidatu da %{link}'
       decidim/meetings/meeting:
         one: Topaketa
         other: Topaketak
@@ -752,9 +752,11 @@ eu:
         create:
           invalid: Arazo bat izan da topaketa honekin bat egitean.
           success: Topaketan izena ongi eman duzu. Bilera honetarako izena eman duzulako, jakinarazi egingo dizute eguneraketak badaude.
+          unauthorized: Saioa hasi behar duzu topaketan izena eman aurretik.
         decline_invitation:
           invalid: Arazo bat egon da gonbidapenari uko egitean.
           success: Zuzen uko egin diozu gonbidapenari.
+          unauthorized: Saioa hasi behar duzu gonbidapenari uko egin aurretik.
         destroy:
           invalid: Arazo bat izan da topaketa honetatik ateratzean.
           success: Topaketatik ongi atera zara.
