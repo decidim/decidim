@@ -82,7 +82,14 @@ module Decidim
         resource_slug = params["#{params[:resource_name]}_slug"]
 
         find_by = resource_slug.present? ? { slug: resource_slug } : { id: resource_id }
-        @resource ||= Decidim.find_resource_manifest(params[:resource_name])&.model_class&.find_by(find_by)
+        model = Decidim.find_resource_manifest(params[:resource_name])&.model_class
+        # Resolve only organization-owned resources. Subclasses that manage
+        # resources without a direct organization association must override
+        # this method with an organization-scoped lookup.
+        return unless model.respond_to?(:reflect_on_association)
+        return unless model.reflect_on_association(:organization)
+
+        @resource ||= model.where(organization: current_organization).find_by(find_by)
         @resource if @resource&.allow_resource_permissions?
       end
 
