@@ -852,9 +852,15 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
-  it "accepts a dynamically resolved model class scoped with resource_scope" do
+  it "accepts a resource manifest lookup chained with resource_scope" do
     expect_no_offenses(<<~RUBY)
       Decidim.find_resource_manifest(params[:resource_name])&.resource_scope(component)&.find_by(id: params[:id])
+    RUBY
+  end
+
+  it "accepts an or relation whose branch is scoped with resource_scope" do
+    expect_no_offenses(<<~RUBY)
+      collection.or(manifest.resource_scope(component))
     RUBY
   end
 
