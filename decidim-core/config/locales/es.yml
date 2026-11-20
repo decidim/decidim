@@ -2290,7 +2290,7 @@ es:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      time_of_day_with_time_zone: "%Z de %H:%M"
+      time_of_day_with_time_zone: "%H:%M %Z"
       tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
