@@ -39,16 +39,10 @@ module Decidim
           variation_key = match_data[3]
 
           blob = GlobalID::Locator.locate(blob_gid)
-          if variation_key
-            variation = begin
-              ActiveSupport::JSON.decode(Base64.strict_decode64(variation_key))
-            rescue JSON::ParseError
-              variation_key
-            end
-            blob_url(blob, variation)
-          else
-            blob_url(blob)
-          end
+          variation = Decidim::BlobVariation.parse(variation_key)
+          variation = nil unless variation && blob.respond_to?(:variable?) && blob.variable?
+
+          blob_url(blob, variation)
         end
       end
 

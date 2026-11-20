@@ -80,6 +80,28 @@ module Decidim
           expect(image_src).to be_blob_url(image_blob)
         end
       end
+
+      context "when the string includes an unsafe blob variation" do
+        let(:current_host) { "https://example.lvh.me" }
+        let(:image_blob) { create(:blob, :image) }
+        let(:unsafe_variation) do
+          Base64.strict_encode64(ActiveSupport::JSON.encode("instance_eval" => "1", "format" => "png"))
+        end
+        let(:value) do
+          <<~HTML.squish
+            <p><img src="#{image_blob.to_global_id}/#{unsafe_variation}" alt="Image blob"></p>
+          HTML
+        end
+
+        before do
+          ActiveStorage::Current.url_options = { host: current_host }
+        end
+
+        it "falls back to the original blob URL" do
+          expect(subject).not_to include("/rails/active_storage/representations/")
+          expect(Nokogiri::HTML(subject).at("img").attr(:src)).to be_blob_url(image_blob)
+        end
+      end
     end
   end
 end

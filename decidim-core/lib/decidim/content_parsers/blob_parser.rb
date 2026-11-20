@@ -80,6 +80,9 @@ module Decidim
         variation = ActiveStorage.verifier.verify(variation_part, purpose: :variation)
         return unless variation
 
+        variation = Decidim::BlobVariation.normalize_hash(variation)
+        return unless variation
+
         # Convert to base64 encoded JSON string for better representation within
         # the URLs. This manually encoded part will not expire as it is
         # persisted to the database.
