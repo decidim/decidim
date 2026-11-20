@@ -143,6 +143,17 @@ describe Decidim::Meetings::MeetingsController do
         )
       end
 
+      it "rejects participatory spaces from another organization" do
+        other_organization = create(:organization)
+        other_process = create(:participatory_process, organization: other_organization)
+
+        get :show, params: { id: meeting.id, previous_space: "Decidim::ParticipatoryProcess##{other_process.id}" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
       it "rejects non-participatory space class names" do
         get :show, params: { id: meeting.id, previous_space: "Decidim::User#1" }
 
