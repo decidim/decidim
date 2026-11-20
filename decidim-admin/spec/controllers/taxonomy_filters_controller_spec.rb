@@ -170,6 +170,54 @@ module Decidim
             get :edit, params: { taxonomy_id: other_root_taxonomy.id, id: other_taxonomy_filter.id }
           end.to raise_error(ActiveRecord::RecordNotFound)
         end
+
+        it "raises not found when updating a taxonomy filter from another organization" do
+          expect do
+            patch :update, params: {
+              taxonomy_id: other_root_taxonomy.id,
+              id: other_taxonomy_filter.id,
+              root_taxonomy_id: other_root_taxonomy.id,
+              taxonomy_filter: {
+                taxonomy_items: [other_taxonomy.id],
+                name: { en: "Hijacked" }
+              }
+            }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+
+          expect(other_taxonomy_filter.reload.name["en"]).not_to eq("Hijacked")
+        end
+
+        it "raises not found when destroying a taxonomy filter from another organization" do
+          expect do
+            delete :destroy, params: { taxonomy_id: other_root_taxonomy.id, id: other_taxonomy_filter.id }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+
+          expect(Decidim::TaxonomyFilter).to exist(other_taxonomy_filter.id)
+        end
+
+        it "raises not found when updating a filter from another organization with a current taxonomy" do
+          expect do
+            patch :update, params: {
+              taxonomy_id: root_taxonomy.id,
+              id: other_taxonomy_filter.id,
+              root_taxonomy_id: root_taxonomy.id,
+              taxonomy_filter: {
+                taxonomy_items: [taxonomy.id],
+                name: { en: "Hijacked" }
+              }
+            }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+
+          expect(other_taxonomy_filter.reload.name["en"]).not_to eq("Hijacked")
+        end
+
+        it "raises not found when destroying a filter from another organization with a current taxonomy" do
+          expect do
+            delete :destroy, params: { taxonomy_id: root_taxonomy.id, id: other_taxonomy_filter.id }
+          end.to raise_error(ActiveRecord::RecordNotFound)
+
+          expect(Decidim::TaxonomyFilter).to exist(other_taxonomy_filter.id)
+        end
       end
     end
   end

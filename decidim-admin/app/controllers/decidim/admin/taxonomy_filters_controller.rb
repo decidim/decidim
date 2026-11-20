@@ -11,6 +11,7 @@ module Decidim
       before_action only: :edit do
         redirect_to taxonomy_filters_path(root_taxonomy) unless taxonomy_filter && root_taxonomy == taxonomy_filter.root_taxonomy
       end
+      before_action :ensure_taxonomy_filter, only: [:update, :destroy]
 
       helper_method :collection, :root_taxonomy, :taxonomy_filter
 
@@ -93,6 +94,10 @@ module Decidim
 
       def taxonomy_filter
         @taxonomy_filter ||= collection.find_by(id: params[:id])
+      end
+
+      def ensure_taxonomy_filter
+        raise ActiveRecord::RecordNotFound unless taxonomy_filter
       end
 
       def set_taxonomies_breadcrumb_item
