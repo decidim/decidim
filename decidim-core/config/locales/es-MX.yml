@@ -251,6 +251,7 @@ es-MX:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
+        menu_hidden: "%{user_name} ocultó el componente %{resource_name} del menú en el espacio de participación: %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
         restore: "%{user_name} restauró el componente %{resource_name} en el espacio %{space_name}"
         soft_delete: "%{user_name} ha movido el componente %{resource_name} del espacio %{space_name} a la papelera"
@@ -857,6 +858,8 @@ es-MX:
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
+        file_contains_unsafe_content: El archivo contiene contenido no seguro
+        file_is_not_a_valid_image: El archivo no es una imagen válida
         file_resolution_too_large: La resolución del archivo es demasiado grande
         not_inside_organization: El archivo no está vinculado a ninguna organización.
       internal_server_error:

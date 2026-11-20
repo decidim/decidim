@@ -43,7 +43,7 @@ shared_examples "higher user role hides" do
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
-        find(:css, "input[name='report[hide]']").set(true)
+        find_field(name: "report[hide]").set(true)
         click_on "Hide"
       end
 
@@ -81,7 +81,7 @@ shared_examples "higher user role hides resource with comments" do
       expect(page).to have_css(".flag-modal", visible: :visible)
 
       within ".flag-modal" do
-        find(:css, "input[name='report[hide]']").set(true)
+        find_field(name: "report[hide]").set(true)
         click_on "Hide"
       end
 

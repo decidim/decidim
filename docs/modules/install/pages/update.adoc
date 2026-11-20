@@ -60,6 +60,19 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "decidim-dev", DECIDIM_VERSION
 ----
 
+== Repairing questionnaire submissions
+
+The forms upgrade backfills existing questionnaire responses into submissions. We have noticed an edge case in which application instances running the previous version write responses while the upgrade is in progress, and those responses are left without a submission.
+
+You can run the following rake task after all instances have been upgraded to ensure your system is not corrupted.
+
+[source,console]
+----
+bin/rails decidim_forms:upgrade:fix_orphan_responses
+----
+
+The task is safe to rerun. It creates missing submissions and links unlinked responses without deleting responses. It raises an error if responses belonging to an existing questionnaire remain unlinked. Responses whose questionnaire no longer exists are left untouched.
+
 == Compatibility versions matrix
 
 There are different versions of Decidim that are compatible with different versions of Ruby and Node. You can check the following table to see which versions are compatible with each other:
@@ -71,6 +84,6 @@ include::install:partial$version_matrix.adoc[]
 
 . Make a full backup of the database before updating, just in case something unexpected happens.
 . Never add 2 or more versions of Decidim to the same deployment to production, as the database structure could change, deprecated functions could be removed, causing issues that may prevent you to successfully run post release commands.
-. If you are more than update away. Always update from one version to the immediately next one and then repeat the process until you are up to date.
-. Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases[Releases]. Some releases require to perform certain actions as they may change some database structures. Follow that instructions if you are affected.
+. If you are more than 1 update away, always update from one version to the immediately next one and then repeat the process until you are up to date.
+. Always check the instructions for a certain version upgrade in https://github.com/decidim/decidim/releases[Releases]. Some releases require performing certain actions as they may change some database structures. Follow that instructions if you are affected.
 . Check also the file https://github.com/decidim/decidim/blob/develop/CHANGELOG.md[CHANGELOG] It may have relevant information for updates between versions.

@@ -149,9 +149,7 @@ shared_examples "proposals wizards" do |options|
 
         it "can discard the draft" do
           expect(page).to have_link("Discard this draft")
-          click_on "Discard this draft"
-
-          accept_confirm
+          accept_confirm { click_on "Discard this draft" }
 
           expect(page).to have_callout("Proposal draft was successfully deleted.")
           within "#wizard-steps" do

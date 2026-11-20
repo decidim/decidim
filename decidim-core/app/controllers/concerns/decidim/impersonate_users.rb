@@ -87,14 +87,14 @@ module Decidim
       end
 
       def expired_log
-        @expired_log ||= Decidim::ImpersonationLog
+        @expired_log ||= Decidim::ImpersonationLog # rubocop:disable Decidim/OrganizationScopedFinder -- real_user is the impersonated user of the current session
                          .where(admin: real_user)
                          .expired
                          .first
       end
 
       def impersonation_log
-        @impersonation_log ||= Decidim::ImpersonationLog
+        @impersonation_log ||= Decidim::ImpersonationLog # rubocop:disable Decidim/OrganizationScopedFinder -- real_user is the impersonated user of the current session
                                .where(admin: real_user)
                                .active
                                .first

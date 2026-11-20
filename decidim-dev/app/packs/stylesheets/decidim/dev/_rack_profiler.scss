@@ -1,4 +1,14 @@
 .profiler-results.profiler-bottom {
   bottom: 26px !important;
   z-index: 88888 !important;
+
+  // Keep the popup within the viewport when it has a lot of content (e.g.
+  // rendered partials). It is anchored to the results container, whose
+  // height can grow with the number of profiled requests, so we pin it to
+  // the bottom and cap its height instead of relying on the height computed
+  // by rack-mini-profiler.
+  .profiler-popup {
+    bottom: 1px !important;
+    max-height: calc(100vh - 60px) !important;
+  }
 }

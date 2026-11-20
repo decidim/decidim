@@ -46,7 +46,7 @@ describe "Meeting live event" do
 
     it "tells that you need to enable cookies" do
       visit meeting_live_event_path
-      expect(page).to have_no_selector("iframe")
+      expect(page).to have_no_css("iframe")
       expect(page).to have_text("You need to enable all cookies in order to see this content")
     end
 

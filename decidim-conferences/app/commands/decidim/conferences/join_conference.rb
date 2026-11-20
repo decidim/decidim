@@ -43,11 +43,16 @@ module Decidim
       end
 
       def create_registration
+        # Acquire the same row lock as Admin::DestroyRegistrationType so the deletion check and this
+        # insert serialize: the destroy cannot pass its check while this insert is in flight, and this
+        # insert cannot commit against a type that is being deleted.
+        @registration_type.lock!
         Decidim::Conferences::ConferenceRegistration.create!(conference:, user:, registration_type: @registration_type)
       end
 
       def create_meetings_registrations
-        published_meeting_components = Decidim::Component.where(participatory_space: conference).where(manifest_name: "meetings").published
+        published_meeting_components = conference.components.where(manifest_name: "meetings").published
+        # rubocop:disable-next Decidim/OrganizationScopedFinder -- components are scoped to the conference above
         meetings = Decidim::Meetings::Meeting.where(component: published_meeting_components).where(id: @registration_type.conference_meetings.pluck(:id))
 
         meetings.each do |meeting|

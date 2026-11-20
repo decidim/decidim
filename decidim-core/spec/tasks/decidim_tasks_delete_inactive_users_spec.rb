@@ -21,10 +21,11 @@ describe "rake decidim:participants:delete_inactive_participants", type: :task d
 
   context "when no days argument is provided" do
     it "uses the default inactivity period" do
-      expect(Decidim::DeleteInactiveParticipantsJob).to receive(:perform_later).with(organization1)
-      expect(Decidim::DeleteInactiveParticipantsJob).to receive(:perform_later).with(organization2)
-
-      task.execute
+      expect do
+        task.execute
+      end
+        .to have_enqueued_job(Decidim::DeleteInactiveParticipantsJob).with(organization1)
+        .and have_enqueued_job(Decidim::DeleteInactiveParticipantsJob).with(organization2)
     end
   end
 

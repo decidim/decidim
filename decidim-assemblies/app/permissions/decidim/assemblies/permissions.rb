@@ -22,7 +22,7 @@ module Decidim
 
         return permission_action unless user
 
-        if !has_manageable_assemblies? && !user.admin?
+        if !user.admin? && !has_manageable_assemblies?
           disallow!
           return permission_action
         end
@@ -214,6 +214,7 @@ module Decidim
       # A moderator needs to be able to read the assembly they are assigned to,
       # and needs to perform all actions for the moderations of that assembly.
       def moderator_action?
+        return if user.admin?
         return unless can_manage_assembly?(role: :moderator)
 
         allow! if permission_action.subject == :moderation
@@ -221,6 +222,7 @@ module Decidim
 
       # Collaborators can read/preview everything inside their assembly.
       def collaborator_action?
+        return if user.admin?
         return unless can_manage_assembly?(role: :collaborator)
         return if permission_action.subject == :space_member
 
@@ -229,6 +231,7 @@ module Decidim
 
       # Evaluators can only read the assembly components
       def evaluator_action?
+        return if user.admin?
         return unless can_manage_assembly?(role: :evaluator)
 
         allow! if permission_action.action == :read && permission_action.subject == :component
@@ -238,8 +241,8 @@ module Decidim
       # Process admins can perform everything *inside* that assembly. They cannot
       # perform actions on assembly groups or other assemblies.
       def assembly_admin_action?
-        return unless can_manage_assembly?(role: :admin)
         return if user.admin?
+        return unless can_manage_assembly?(role: :admin)
 
         is_allowed = [
           :attachment,

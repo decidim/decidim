@@ -610,7 +610,7 @@ es:
         form:
           email: Correo electrónico
           invite_explanation: Se invitará a la participante a unirse a la organización.
-          name_or_nickname: Nombre o apodo
+          name_or_nickname: Nombre o alias
           select_user: Seleccionar miembro
         index:
           import_via_csv: Importar vía csv

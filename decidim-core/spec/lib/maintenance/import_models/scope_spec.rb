@@ -17,7 +17,7 @@ module Decidim::Maintenance::ImportModels
     let!(:sub4_scope) { described_class.create!(name: { "en" => "Scope 1 fourth level" }, code: "1111", decidim_organization_id: organization.id, parent: sub3_scope) }
     let!(:sub5_scope) { described_class.create!(name: { "en" => "Scope 1 fifth level" }, code: "11111", decidim_organization_id: organization.id, parent: sub4_scope) }
     let(:external_scope) { described_class.create!(name: { "en" => "INVALID scope" }, code: "3", decidim_organization_id: external_organization.id) }
-    let(:settings) { { scopes_enabled: component_scope_enabled, scope_id: sub3_scope.id } }
+    let(:settings) { { scopes_enabled: component_scope_enabled, scope_id: sub3_scope&.id }.compact }
     let(:space_scopes_enabled) { true }
     let(:component_scope_enabled) { true }
     let(:root_taxonomy_name) { "~ Scopes" }
@@ -26,20 +26,20 @@ module Decidim::Maintenance::ImportModels
       described_class.add_resource_class("Decidim::Dev::DummyResource")
       # update part_of for scopes
       scope.update!(part_of: [scope.id])
-      another_scope.update!(part_of: [scope.id])
-      sub2_scope.update!(part_of: [scope.id, sub2_scope.id])
-      sub3_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id])
-      sub4_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id])
-      sub5_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id, sub5_scope.id])
-      assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled)
-      participatory_process.update!(decidim_scope_id: sub2_scope.id)
+      another_scope.update!(part_of: [scope.id]) if another_scope
+      sub2_scope.update!(part_of: [scope.id, sub2_scope.id]) if sub2_scope
+      sub3_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id]) if sub3_scope
+      sub4_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id]) if sub4_scope
+      sub5_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id, sub5_scope.id]) if sub5_scope
+      assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled) if sub2_scope
+      participatory_process.update!(decidim_scope_id: sub2_scope.id) if sub2_scope
       # as scope settings are disabled now, we need to update the settings directly as it was already there
       # rubocop:disable-next Rails/SkipsModelValidations
       dummy_component.update_column(:settings, {
                                       "global" => settings
                                     })
-      dummy_resource.update!(decidim_scope_id: sub4_scope.id) if dummy_resource
-      external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true)
+      dummy_resource.update!(decidim_scope_id: sub4_scope.id) if dummy_resource && sub4_scope
+      external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true) if external_scope
     end
 
     describe "#name" do
@@ -119,6 +119,40 @@ module Decidim::Maintenance::ImportModels
     describe ".to_taxonomies" do
       it_behaves_like "a single root taxonomy"
       it_behaves_like "can be converted to taxonomies"
+
+      context "without children" do
+        let(:another_scope) { nil }
+        let(:sub2_scope) { nil }
+        let(:sub3_scope) { nil }
+        let!(:sub4_scope) { nil }
+        let!(:sub5_scope) { nil }
+        let(:external_scope) { nil }
+        let(:internal_name) { "#{root_taxonomy_name}: #{dummy_component.name[I18n.locale.to_s]}" }
+        let(:title) { subject.name }
+        let(:participatory_space_manifests) { described_class.participatory_space_classes.map { |cls| cls.name.sub(/\ADecidim::/, "").underscore.pluralize } }
+
+        it "returns the participatory process types as taxonomies" do
+          expect(described_class.with(organization).to_h).to eq(
+            {
+              taxonomies: { title[I18n.locale.to_s] => subject.taxonomies },
+              filters: [
+                {
+                  name: root_taxonomy_name,
+                  internal_name:,
+                  items: [[title[I18n.locale.to_s]]],
+                  components: [dummy_component.to_global_id.to_s]
+                },
+                {
+                  name: root_taxonomy_name,
+                  items: [[title[I18n.locale.to_s]]],
+                  components: [],
+                  participatory_space_manifests:
+                }
+              ]
+            }
+          )
+        end
+      end
     end
 
     describe ".to_h" do

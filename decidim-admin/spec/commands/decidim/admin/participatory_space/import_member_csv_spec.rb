@@ -30,9 +30,7 @@ module Decidim::Admin::ParticipatorySpace
       end
 
       it "does not enqueue any job" do
-        expect(ImportMemberCsvJob).not_to receive(:perform_later)
-
-        subject.call
+        expect { subject.call }.not_to have_enqueued_job(ImportMemberCsvJob)
       end
     end
 
@@ -45,9 +43,7 @@ module Decidim::Admin::ParticipatorySpace
       end
 
       it "enqueues a job for each present value without BOM" do
-        expect(ImportMemberCsvJob).to receive(:perform_later).with(email, kind_of(String), members_to, current_user)
-
-        subject.call
+        expect { subject.call }.to have_enqueued_job(ImportMemberCsvJob).with(email, kind_of(String), members_to, current_user)
       end
     end
 
@@ -56,9 +52,7 @@ module Decidim::Admin::ParticipatorySpace
     end
 
     it "enqueues a job for each present value" do
-      expect(ImportMemberCsvJob).to receive(:perform_later).twice.with(kind_of(String), kind_of(String), members_to, current_user)
-
-      subject.call
+      expect { subject.call }.to have_enqueued_job(ImportMemberCsvJob).with(kind_of(String), kind_of(String), members_to, current_user).twice
     end
   end
 end

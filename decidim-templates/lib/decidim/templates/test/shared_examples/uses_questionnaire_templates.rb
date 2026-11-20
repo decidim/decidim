@@ -54,7 +54,7 @@ shared_examples_for "uses questionnaire templates" do |_questionnaire_for|
 
         it "loads the templates in the select" do
           choose("Select template")
-          page.find("input[name='select-template']").click
+          page.find_field(name: "select-template").click
 
           within "#template-list", visible: :hidden do
             expect(page).to have_css("option", visible: :hidden, count: 6)

@@ -45,7 +45,6 @@ es:
             allow_unregistered: Permitir a las usuarias no registradas responder a la encuesta
             allow_unregistered_help: Si está activo, no será necesario iniciar sesión para responder a la encuesta. Esto puede llevar a datos pobres o poco fiables y será más vulnerable a ataques automatizados. ¡Usar con precaución! Es importante que un participante pueda responder a la misma encuesta varias veces, utilizando diferentes navegadores o la función de "navegación privada" de su navegador web.
             announcement: Aviso
-            clean_after_publish: Borrar las respuestas al publicar la encuesta
             description: Descripción
             ends_at: Respuestas aceptadas hasta
             ends_at_help: Dejar en blanco si no hay ninguna fecha específica
@@ -153,6 +152,7 @@ es:
           publish_responses: "%{user_name} publicó las respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
           unpublish_responses: "%{user_name} despublicó las respuestas a las preguntas de la encuesta %{resource_name} en el espacio de participación %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} ha borrado las respuestas al cuestionario \"%{resource_name}\" del espacio de participación: %{space_name}"
           update: "%{user_name} actualizó el cuestionario %{resource_name}"
       errors:
         response:

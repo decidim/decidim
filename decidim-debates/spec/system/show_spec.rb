@@ -12,8 +12,7 @@ describe "show" do
   let!(:debate) { create(:debate, component:, description:, information_updates:, instructions:) }
 
   before do
-    visit_component
-    click_on debate.title[I18n.locale.to_s], class: "card__list"
+    visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
   end
 
   context "when is created from the admin panel" do
@@ -39,19 +38,19 @@ describe "show" do
     context "when the field is description" do
       let(:description) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
 
-      it { expect(page).to have_no_selector("iframe") }
+      it { expect(page).to have_no_css("iframe") }
     end
 
     context "when the field is information_updates" do
       let(:information_updates) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
 
-      it { expect(page).to have_no_selector("iframe") }
+      it { expect(page).to have_no_css("iframe") }
     end
 
     context "when the field is instructions" do
       let(:instructions) { { en: %(Description <iframe class="ql-video" allowfullscreen="true" src="#{iframe_src}" frameborder="0"></iframe>) } }
 
-      it { expect(page).to have_no_selector("iframe") }
+      it { expect(page).to have_no_css("iframe") }
     end
 
     context "when participant is deleted" do
@@ -72,6 +71,37 @@ describe "show" do
     it "shows the debate reference" do
       within ".layout-container__reference" do
         expect(page).to have_text(debate.reference)
+      end
+    end
+  end
+
+  context "when there is a component announcement" do
+    let(:announcement) { { en: "Important announcement" } }
+    let(:debate_path) { Decidim::EngineRouter.main_proxy(component).debate_path(debate) }
+
+    context "with the component's settings" do
+      before do
+        component.update!(settings: { announcement: })
+        visit debate_path
+      end
+
+      it "shows the announcement" do
+        expect(page).to have_text("Important announcement")
+      end
+    end
+
+    context "with the step's settings" do
+      before do
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { announcement: }
+          }
+        )
+        visit debate_path
+      end
+
+      it "shows the announcement" do
+        expect(page).to have_text("Important announcement")
       end
     end
   end
