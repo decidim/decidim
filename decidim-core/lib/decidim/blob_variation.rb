@@ -15,6 +15,10 @@ module Decidim
     MAX_DIMENSION = 3840
     MAX_TRANSFORMATIONS = 8
     ALLOWED_FORMATS = %w(png jpg jpeg gif webp).freeze
+    # The image_processing operations that accept a nil dimension through
+    # `default_dimensions`. The other resize operations require both
+    # dimensions to be positive integers.
+    NILABLE_DIMENSION_KEYS = [:resize_to_fit, :resize_to_limit].freeze
     ALLOWED_KEYS = {
       "format" => :format,
       "resize_to_fit" => :resize_to_fit,
@@ -60,7 +64,7 @@ module Decidim
       when :format
         normalize_format(value)
       when :resize_to_fit, :resize_to_fill, :resize_to_limit, :resize_and_pad
-        normalize_dimensions(value)
+        normalize_dimensions(key, value)
       else
         [false, nil]
       end
@@ -75,16 +79,21 @@ module Decidim
       [true, format]
     end
 
-    def normalize_dimensions(value)
-      return [false, nil] unless value.is_a?(Array) && value.length.between?(1, 2)
+    # All the resize operations are called with exactly two positional
+    # arguments, so a variation with a different number of dimensions would
+    # raise an ArgumentError when the representation is built.
+    def normalize_dimensions(key, value)
+      return [false, nil] unless value.is_a?(Array) && value.length == 2
       return [false, nil] if value.all?(&:nil?)
-      return [false, nil] unless value.all? { |dimension| valid_dimension?(dimension) }
+      return [false, nil] unless value.all? { |dimension| valid_dimension?(key, dimension) }
 
       [true, value]
     end
 
-    def valid_dimension?(value)
-      value.nil? || (value.is_a?(Integer) && value.positive? && value <= MAX_DIMENSION)
+    def valid_dimension?(key, value)
+      return NILABLE_DIMENSION_KEYS.include?(key) if value.nil?
+
+      value.is_a?(Integer) && value.positive? && value <= MAX_DIMENSION
     end
   end
 end

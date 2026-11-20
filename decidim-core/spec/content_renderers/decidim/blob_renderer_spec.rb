@@ -177,6 +177,18 @@ module Decidim
         end
       end
 
+      context "when the variation has an incomplete resize_and_pad dimension" do
+        let(:incomplete_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(resize_and_pad: [100, nil])) }
+        let(:content) { %(<p><img src="#{image_blob.to_global_id}/#{incomplete_encoded}" alt="Incomplete padding"></p>) }
+
+        it "falls back to the original blob URL" do
+          expect(subject).not_to include("/rails/active_storage/representations/")
+
+          doc = Nokogiri::HTML(subject)
+          expect(doc.at("img[alt='Incomplete padding']").attr(:src)).to be_blob_url(image_blob)
+        end
+      end
+
       context "when the variation is not valid base64" do
         let(:content) { %(<p><img src="#{image_blob.to_global_id}/a" alt="Invalid base64"></p>) }
 

@@ -23,9 +23,21 @@ module Decidim
         )
       end
 
-      it "accepts nil dimensions" do
+      it "accepts a nil dimension for resize_to_fit and resize_to_limit" do
+        expect(described_class.parse(encode(resize_to_fit: [nil, 1000]))).to eq(
+          resize_to_fit: [nil, 1000]
+        )
         expect(described_class.parse(encode(resize_to_limit: [nil, 1000]))).to eq(
           resize_to_limit: [nil, 1000]
+        )
+      end
+
+      it "accepts two dimensions for resize_to_fill and resize_and_pad" do
+        expect(described_class.parse(encode(resize_to_fill: [100, 100]))).to eq(
+          resize_to_fill: [100, 100]
+        )
+        expect(described_class.parse(encode(resize_and_pad: [100, 100]))).to eq(
+          resize_and_pad: [100, 100]
         )
       end
 
@@ -56,6 +68,24 @@ module Decidim
         expect(described_class.parse(encode(resize_to_limit: [100, 5000]))).to be_nil
         expect(described_class.parse(encode(resize_to_limit: ["100", 100]))).to be_nil
         expect(described_class.parse(encode(resize_to_limit: [nil, nil]))).to be_nil
+      end
+
+      it "rejects a variation with a single dimension" do
+        expect(described_class.parse(encode(resize_to_fit: [100]))).to be_nil
+        expect(described_class.parse(encode(resize_to_limit: [100]))).to be_nil
+        expect(described_class.parse(encode(resize_to_fill: [100]))).to be_nil
+        expect(described_class.parse(encode(resize_and_pad: [100]))).to be_nil
+      end
+
+      it "rejects a variation with more than two dimensions" do
+        expect(described_class.parse(encode(resize_to_limit: [100, 100, 100]))).to be_nil
+      end
+
+      it "rejects nil dimensions for resize_to_fill and resize_and_pad" do
+        expect(described_class.parse(encode(resize_to_fill: [100, nil]))).to be_nil
+        expect(described_class.parse(encode(resize_to_fill: [nil, 100]))).to be_nil
+        expect(described_class.parse(encode(resize_and_pad: [100, nil]))).to be_nil
+        expect(described_class.parse(encode(resize_and_pad: [nil, 100]))).to be_nil
       end
 
       it "rejects unsupported formats" do
