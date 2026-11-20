@@ -281,6 +281,18 @@ module Decidim
         end
       end
 
+      describe "#formatted_body with an unsafe blob variation" do
+        let(:blob) { create(:blob, :image) }
+        let(:encoded_variation) do
+          Base64.strict_encode64(ActiveSupport::JSON.encode("instance_eval" => "1", "format" => "png"))
+        end
+        let(:comment) { create(:comment, body: "hello ![x](#{blob.to_global_id}/#{encoded_variation})") }
+
+        it "does not render a representation URL" do
+          expect(comment.formatted_body).not_to include("/rails/active_storage/representations/")
+        end
+      end
+
       describe "#comment_threads count" do
         let!(:parent) { create(:comment, commentable:) }
         let!(:comments) { create_list(:comment, 3, commentable: parent, root_commentable: commentable) }

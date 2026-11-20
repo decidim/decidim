@@ -138,6 +138,72 @@ module Decidim
 
         it_behaves_like "correctly rendered blob URLs"
       end
+
+      context "when the variation contains an unsafe transformation" do
+        let(:unsafe_transforms) do
+          {
+            "instance_eval" => "-> { File.write(\"/tmp/decidim_blob_rce_marker\", \"pwned\") }",
+            "format" => "png"
+          }
+        end
+        let(:unsafe_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(unsafe_transforms)) }
+        let(:content) { %(<p><img src="#{image_blob.to_global_id}/#{unsafe_encoded}" alt="Unsafe variation"></p>) }
+
+        it "does not render a representation URL" do
+          expect(subject).not_to include("/rails/active_storage/representations/")
+        end
+
+        it "renders the original blob URL" do
+          doc = Nokogiri::HTML(subject)
+          expect(doc.at("img[alt='Unsafe variation']").attr(:src)).to be_blob_url(image_blob)
+        end
+      end
+
+      context "when the variation contains an unsupported format" do
+        let(:unsupported_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(format: "html")) }
+        let(:content) { %(<p><img src="#{image_blob.to_global_id}/#{unsupported_encoded}" alt="Unsupported format"></p>) }
+
+        it "falls back to the original blob URL" do
+          expect(subject).not_to include("/rails/active_storage/representations/")
+        end
+      end
+
+      context "when the variation has an oversized dimension" do
+        let(:oversized_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(resize_to_limit: [100, 99_999])) }
+        let(:content) { %(<p><img src="#{image_blob.to_global_id}/#{oversized_encoded}" alt="Oversized"></p>) }
+
+        it "falls back to the original blob URL" do
+          expect(subject).not_to include("/rails/active_storage/representations/")
+        end
+      end
+
+      context "when the variation is not valid base64" do
+        let(:content) { %(<p><img src="#{image_blob.to_global_id}/a" alt="Invalid base64"></p>) }
+
+        it "falls back to the original blob URL without raising" do
+          expect { subject }.not_to raise_error
+          expect(subject).not_to include("/rails/active_storage/representations/")
+        end
+      end
+
+      context "when the variation is applied to a non-image blob" do
+        let(:variation_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(format: "png", resize_to_limit: [100, 100])) }
+        let(:content) { %(<p><img src="#{document_blob.to_global_id}/#{variation_encoded}" alt="Non-image"></p>) }
+
+        it "falls back to the original blob URL without raising" do
+          expect { subject }.not_to raise_error
+          expect(subject).not_to include("/rails/active_storage/representations/")
+        end
+      end
+
+      context "when the variation uses a supported transformation" do
+        let(:supported_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(format: "png", resize_to_fit: [100, 100])) }
+        let(:content) { %(<p><img src="#{image_blob.to_global_id}/#{supported_encoded}" alt="Supported"></p>) }
+
+        it "renders a representation URL" do
+          expect(subject).to include("/rails/active_storage/representations/")
+        end
+      end
     end
   end
 end
