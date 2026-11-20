@@ -7,6 +7,7 @@ module Decidim
 
     def show
       enforce_permission_to :read, :authorization
+      raise ActiveRecord::RecordNotFound if resource.blank?
 
       render template: "decidim/authorization_modals/show"
     end
@@ -20,7 +21,10 @@ module Decidim
     def resource
       @resource ||= if params[:resource_name] && params[:resource_id]
                       manifest = Decidim.find_resource_manifest(params[:resource_name])
-                      manifest&.model_class&.find_by(id: params[:resource_id])
+                      model = manifest&.model_class
+                      # Free resources are not tied to a component, so they must
+                      # be scoped through their direct organization association.
+                      model.where(organization: current_organization).find_by(id: params[:resource_id]) if model&.reflect_on_association(:organization)
                     end
     end
 
