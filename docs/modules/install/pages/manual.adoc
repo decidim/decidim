@@ -40,11 +40,14 @@ rbenv global 3.4.7
 
 == 2. Installing PostgreSQL
 
-Now we are going to install PostgreSQL for the database:
+Ubuntu 24.04 provides PostgreSQL 16 by default. Add the https://www.postgresql.org/download/linux/ubuntu/[PostgreSQL Apt repository] to install PostgreSQL 17:
 
 [source,bash]
 ----
-sudo apt install -y postgresql libpq-dev
+sudo apt install -y postgresql-common
+sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
+sudo apt update
+sudo apt install -y postgresql-17 libpq-dev
 sudo -u postgres psql -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'thepassword'"
 ----
 
