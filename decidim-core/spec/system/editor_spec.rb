@@ -141,8 +141,7 @@ describe "Editor" do
 
     visit "/test_editor"
 
-    # Wait for the editor to be initialized
-    expect(page).to have_css(prosemirror_selector)
+    wait_for_editor_initialization
   end
 
   after do
@@ -1515,8 +1514,7 @@ describe "Editor" do
       let(:editor_content) { %(<p>Hello, <a href="https://decidim.org">world</a>!</p>) }
 
       before do
-        prosemirror.native.send_keys [:control, :right, :right]
-        prosemirror.native.send_keys [:left, :left]
+        place_cursor_in_link
       end
 
       it "shows the bubble menu" do
@@ -1574,6 +1572,43 @@ describe "Editor" do
         end
       end
     end
+  end
+
+  # Waits for the editor and its extensions to be fully initialized. Tiptap
+  # defers the editor creation (and therefore the extensions' `onCreate` hooks,
+  # such as the one registering the link bubble menu) to a separate task, so
+  # the presence of the editor element alone does not guarantee that the editor
+  # is ready to be interacted with.
+  def wait_for_editor_initialization
+    expect(page).to have_css(prosemirror_selector)
+
+    page.document.synchronize do
+      initialized = page.execute_script(
+        "return !!document.querySelector(arguments[0])?.editor?.isInitialized",
+        prosemirror_selector
+      )
+
+      raise Capybara::ExpectationNotMet, "The editor is not initialized yet" unless initialized
+    end
+  end
+
+  # Moves the cursor inside the first link of the editor content. Moving the
+  # cursor with native key events is racy because the DOM selection and the
+  # editor state are synchronized asynchronously, which can make some key
+  # presses get lost and leave the cursor outside the link.
+  def place_cursor_in_link
+    page.execute_script(<<~JS, prosemirror_selector)
+      const editor = document.querySelector(arguments[0]).editor;
+      let linkStart = null;
+
+      editor.state.doc.descendants((node, pos) => {
+        if (linkStart === null && node.isText && node.marks.some((mark) => mark.type.name === "link")) {
+          linkStart = pos;
+        }
+      });
+
+      editor.chain().focus().setTextSelection(linkStart + 1).run();
+    JS
   end
 
   # Wait for the image to load and the resizer to be initialized before
