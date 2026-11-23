@@ -120,10 +120,23 @@ module Decidim
     def find_blob_from_url(url)
       if url.start_with?("gid://")
         gid = url[%r{\Agid://[^/]+/[^/]+/\d+}]
-        return GlobalID::Locator.locate(gid, only: ActiveStorage::Blob) if gid
+        return find_blob_from_global_id(gid) if gid
       end
 
       find_blob_by_key(url.split("/").second_to_last)
+    end
+
+    # A blob that no longer exists is treated as "no blob for this candidate"
+    # so the remaining image candidates are still considered. Other backend
+    # errors keep propagating.
+    #
+    # Rescuing ActiveRecord::RecordNotFound (instead of using
+    # GlobalID::Locator.fetch) keeps this compatible with globalid versions
+    # older than 1.4.0, where that method is not available.
+    def find_blob_from_global_id(gid)
+      GlobalID::Locator.locate(gid, only: ActiveStorage::Blob)
+    rescue ActiveRecord::RecordNotFound
+      nil
     end
 
     def find_blob_by_key(blob_key)

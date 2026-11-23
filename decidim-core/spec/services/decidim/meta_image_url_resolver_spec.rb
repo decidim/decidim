@@ -115,6 +115,29 @@ describe Decidim::MetaImageUrlResolver do
     it { is_expected.to end_with("/description_image.jpg") }
   end
 
+  context "when no attachments and the first description image is a GlobalID for a missing blob" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:deleted_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "deleted.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:deleted_blob_gid) do
+      deleted_blob.to_global_id.tap { deleted_blob.destroy }
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{deleted_blob_gid}\"><img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "skips the missing blob and uses the next valid editor image" do
+      expect { subject }.not_to raise_error
+      expect(subject).to end_with("/description_image.jpg")
+    end
+  end
+
   context "when the description image is referenced by a bare blob id" do
     let(:resource) { proposal }
     let(:attachment) { nil }
