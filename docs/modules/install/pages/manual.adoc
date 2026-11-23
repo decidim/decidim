@@ -53,6 +53,7 @@ pg_lsclusters
 ----
 
 The first listing shows any existing clusters. In the second, find the row for version 17 and the cluster you want to use (usually `main`).
+Check the `Status` column for that row. If it shows `down`, start the cluster with `sudo pg_ctlcluster 17 main start` (substitute its name for `main` if needed), then run `pg_lsclusters` again to confirm it is `online`.
 If an older cluster already uses port 5432, the new cluster can have a different port.
 The command below reads the port for `17/main`. If your cluster has another name, replace `main` with that name. Use the port to create the application user:
 
