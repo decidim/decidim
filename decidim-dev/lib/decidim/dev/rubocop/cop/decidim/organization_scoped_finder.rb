@@ -49,11 +49,14 @@ module RuboCop
         # create, or delete. Only these can establish organization scope.
         # Methods such as `first_or_create` or `update_all` use their arguments
         # as values to write, so they do not filter out records from other
-        # organizations.
+        # organizations. The Enumerable predicates (`any?`, `none?`, `one?`)
+        # treat a hash argument as a case-equality pattern rather than as a
+        # database filter, so they load unscoped records and cannot establish
+        # scope; `exists?` does filter with its argument.
         FILTERING_ARGUMENT_METHODS = [
           :where,
           :find_by, :find_by!, :find_sole_by,
-          :exists?, :any?, :many?, :none?, :one?,
+          :exists?, :many?,
           :find_or_create_by, :find_or_create_by!, :find_or_initialize_by,
           :create_or_find_by, :create_or_find_by!,
           :destroy_by, :delete_by
