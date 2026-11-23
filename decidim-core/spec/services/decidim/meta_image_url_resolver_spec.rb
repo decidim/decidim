@@ -138,6 +138,49 @@ describe Decidim::MetaImageUrlResolver do
     end
   end
 
+  context "when the description has more images than the inspection limit" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:rejected_images) do
+      Array.new(described_class::MAX_DESCRIPTION_IMAGES) do |index|
+        "<img src=\"https://example.org/images/rejected-#{index}.png\">"
+      end
+    end
+    let(:body) do
+      { en: "<p>#{rejected_images.join}<img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "does not inspect images past the limit" do
+      expect(subject).to be_nil
+    end
+
+    context "when a lower priority image is available" do
+      let(:hero_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+      it "falls back to the lower priority image" do
+        expect(subject).to end_with("/city.jpeg")
+      end
+    end
+  end
+
+  context "when the description repeats the same rejected image" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:rejected_images) do
+      Array.new(described_class::MAX_DESCRIPTION_IMAGES * 2) do
+        "<img src=\"https://example.org/images/rejected.png\">"
+      end
+    end
+    let(:body) do
+      { en: "<p>#{rejected_images.join}<img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "inspects the repeated source only once" do
+      expect(subject).to end_with("/description_image.jpg")
+    end
+  end
+
   context "when the description image is referenced by a bare blob id" do
     let(:resource) { proposal }
     let(:attachment) { nil }

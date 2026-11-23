@@ -10,6 +10,7 @@ module Decidim
 
     IMAGE_FIELDS = [:hero_image, :banner_image, :avatar].freeze
     DESCRIPTION_FIELDS = [:body, :description, :short_description, :content, :additional_info].freeze
+    MAX_DESCRIPTION_IMAGES = 20
     CONTENT_BLOCK_TYPES = {
       { manifest_name: :hero, scope_name: :homepage } => [:background_image]
     }.freeze
@@ -66,22 +67,46 @@ module Decidim
 
     # Extracts the first image blob from the resource description.
     #
+    # Only a limited number of distinct image sources are inspected so that
+    # descriptions with many rejected image tags cannot trigger repeated blob
+    # lookups.
+    #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_description
-      DESCRIPTION_FIELDS.each do |field|
-        html = resource.try(field)
-        next unless html
+      inspected_urls = Set.new
 
-        html = translated_attribute(html).strip if html.is_a?(Hash)
+      DESCRIPTION_FIELDS.each do |field|
+        html = description_field_html(field)
         next if html.blank?
 
-        Nokogiri::HTML(html).css("img").each do |image_element|
-          image_url = image_element["src"]
-          next if image_url.blank?
+        blob = blob_from_description_html(html, inspected_urls)
+        return blob if blob.present?
+        return nil if inspected_urls.size >= MAX_DESCRIPTION_IMAGES
+      end
 
-          blob = find_blob_from_url(image_url)
-          return blob if blob.present? && allowed_blob?(blob)
-        end
+      nil
+    end
+
+    def description_field_html(field)
+      html = resource.try(field)
+      return if html.blank?
+
+      return translated_attribute(html).strip if html.is_a?(Hash)
+
+      html
+    end
+
+    def blob_from_description_html(html, inspected_urls)
+      Nokogiri::HTML(html).css("img").each do |image_element|
+        image_url = image_element["src"]
+        next if image_url.blank?
+        next if inspected_urls.include?(image_url)
+        break if inspected_urls.size >= MAX_DESCRIPTION_IMAGES
+
+        inspected_urls << image_url
+
+        blob = find_blob_from_url(image_url)
+        return blob if blob.present? && allowed_blob?(blob)
       end
 
       nil
