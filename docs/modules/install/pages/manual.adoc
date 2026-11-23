@@ -45,10 +45,21 @@ Ubuntu 24.04 provides PostgreSQL 16 by default. Add the https://www.postgresql.o
 [source,bash]
 ----
 sudo apt install -y postgresql-common
+pg_lsclusters
 sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
 sudo apt update
 sudo apt install -y postgresql-17 libpq-dev
-sudo -u postgres psql -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'thepassword'"
+pg_lsclusters
+----
+
+The first listing shows any existing clusters. In the second, find the row for version 17 and the cluster you want to use (usually `main`).
+If an older cluster already uses port 5432, the new cluster can have a different port.
+The command below reads the port for `17/main`. If your cluster has another name, replace `main` with that name. Use the port to create the application user:
+
+[source,bash]
+----
+PG17_PORT=$(pg_lsclusters --no-header 17 main | awk '{print $3}')
+sudo -u postgres psql -p "$PG17_PORT" -c "CREATE USER decidim_app WITH SUPERUSER CREATEDB NOCREATEROLE PASSWORD 'thepassword'"
 ----
 
 You need to change the password (in this example is "thepassword") and save it somewhere to configure it later with the application.
@@ -98,12 +109,13 @@ For installing `rbenv-vars`:
 git clone https://github.com/rbenv/rbenv-vars.git "$(rbenv root)"/plugins/rbenv-vars
 ----
 
-Then, in **any folder above your decidim generated application**, you need to create a file named `.rbenv-vars` and put your variables there:
+Then, in **any folder above your decidim generated application**, create a file named `.rbenv-vars`. Run the following in the same shell where you set `PG17_PORT` so the application uses the same cluster as `psql`:
 
 [source,bash]
 ----
 cat << EOF > .rbenv-vars
 DATABASE_HOST=localhost
+DATABASE_PORT=$PG17_PORT
 DATABASE_USERNAME=decidim_app
 DATABASE_PASSWORD=thepassword
 EOF
