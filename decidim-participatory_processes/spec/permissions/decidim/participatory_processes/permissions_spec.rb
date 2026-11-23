@@ -473,6 +473,31 @@ describe Decidim::ParticipatoryProcesses::Permissions do
       end
     end
 
+    context "when the user has a role in a trashed process" do
+      let(:user) { create(:user, organization:) }
+      let(:restricted_process) { create(:participatory_process, :restricted, organization:) }
+      let(:trashed_restricted_process) { create(:participatory_process, :restricted, :trashed, organization:) }
+      let(:action) { { scope: :public, action: :read, subject: :process } }
+
+      before { create(:participatory_process_user_role, user:, participatory_process: trashed_restricted_process) }
+
+      context "when the process being checked is not trashed" do
+        let(:context) { { current_participatory_space: restricted_process } }
+
+        it "denies access, as a role in a trashed process does not grant access to other processes" do
+          expect(subject).to be false
+        end
+      end
+
+      context "when the process being checked is the trashed one" do
+        let(:context) { { current_participatory_space: trashed_restricted_process } }
+
+        it "allows access, so the admin of the trashed process can still manage and restore it" do
+          expect(subject).to be true
+        end
+      end
+    end
+
     context "when user is a evaluator" do
       let(:user) { process_evaluator }
 

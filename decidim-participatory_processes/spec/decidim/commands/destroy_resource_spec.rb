@@ -35,4 +35,23 @@ describe Decidim::Commands::DestroyResource do
       expect(action_log.version.event).to eq "destroy"
     end
   end
+
+  context "when destroying a trashed participatory process" do
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
+    let(:resource) { create(:participatory_process, :trashed, organization:) }
+
+    before { create(:participatory_process_user_role, user:, participatory_process: resource) }
+
+    it "removes the process user roles" do
+      subject.call
+
+      expect(Decidim::ParticipatoryProcessUserRole.where(participatory_process: resource)).not_to exist
+    end
+
+    it "broadcasts ok" do
+      expect do
+        subject.call
+      end.to broadcast(:ok)
+    end
+  end
 end

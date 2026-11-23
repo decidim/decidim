@@ -526,6 +526,31 @@ describe Decidim::Assemblies::Permissions do
           evaluator: true
         )
       end
+
+      context "when the user has a role in a trashed assembly" do
+        let(:user) { create(:user, organization:) }
+        let(:restricted_assembly) { create(:assembly, organization:, access_mode: :restricted) }
+        let(:trashed_restricted_assembly) { create(:assembly, :restricted, :trashed, organization:) }
+        let(:action) { { scope: :public, action: :read, subject: :assembly } }
+
+        before { create(:assembly_user_role, user:, assembly: trashed_restricted_assembly) }
+
+        context "when the assembly being checked is not trashed" do
+          let(:context) { { current_participatory_space: restricted_assembly } }
+
+          it "denies access, as a role in a trashed assembly does not grant access to other assemblies" do
+            expect(subject).to be false
+          end
+        end
+
+        context "when the assembly being checked is the trashed one" do
+          let(:context) { { current_participatory_space: trashed_restricted_assembly } }
+
+          it "allows access, so the admin of the trashed assembly can still manage and restore it" do
+            expect(subject).to be true
+          end
+        end
+      end
     end
   end
 
