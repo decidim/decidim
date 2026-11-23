@@ -161,8 +161,8 @@ describe "Admin manages participatory processes", versioning: true do
 
         %w(participatory_process_start_date participatory_process_end_date).each do |field_id|
           date_field = find_by_id("#{field_id}_date")
-          date_field.send_keys [:control, "a"]
-          date_field.send_keys :backspace
+          date_length = date_field.value.length
+          date_field.send_keys(([:arrow_left] * date_length) + ([:delete] * date_length))
 
           expect(page).to have_field("#{field_id}_date", with: "")
           expect(page).to have_field(field_id, with: "", visible: :all)
