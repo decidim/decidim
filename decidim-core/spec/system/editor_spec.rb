@@ -1274,8 +1274,11 @@ describe "Editor" do
       end
 
       before do
-        # Focuses the image within the editor
-        prosemirror.native.send_keys [:left]
+        wait_for_image_resizer
+
+        page.execute_script("document.querySelector('#{prosemirror_selector}').focus()")
+        expect(page).to have_css("#{prosemirror_selector}.ProseMirror-focused", visible: :all)
+        expect(page).to have_css(".ProseMirror-selectednode .editor-content-image", visible: :all)
       end
 
       shared_examples "resize controls" do |mode|
@@ -1571,6 +1574,16 @@ describe "Editor" do
         end
       end
     end
+  end
+
+  # Wait for the image to load and the resizer to be initialized before
+  # interacting with it. Otherwise, the drag events may be processed
+  # before the natural dimensions are known, and the pending node view
+  # initialization updates may reset the width set by the drag.
+  def wait_for_image_resizer
+    expect(page).to have_css("[data-image-resizer-dimension-value='#{width}']", visible: :all)
+    expect(page).to have_css("[data-image-resizer-dimension-value='#{height}']", visible: :all)
+    expect(page).to have_no_css("#{prosemirror_selector} .editor-content-image img[width]", visible: :all)
   end
 
   def expect_value(html)
