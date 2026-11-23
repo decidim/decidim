@@ -224,6 +224,26 @@ describe Decidim::MetaImageUrlResolver do
     it { is_expected.to be_nil }
   end
 
+  context "when a rejected description image comes before an allowed editor image" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:orphan_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "orphan.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{orphan_blob.to_global_id}\"><img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "skips the rejected image and uses the allowed editor image" do
+      expect(subject).to end_with("/description_image.jpg")
+    end
+  end
+
   context "when the description image belongs to an editor image from another organization" do
     let(:resource) { proposal }
     let(:attachment) { nil }
