@@ -1,5 +1,69 @@
 # Changelog
 
+## [0.32.3](https://github.com/decidim/decidim/tree/0.32.3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-admin**: Backport 'Fix admin show participant email after session is expired' to v0.32 [\#17943](https://github.com/decidim/decidim/pull/17943)
+- **decidim-forms**: Backport 'Show description on read-only surveys with "title and descriptions" questions' to v0.32 [\#17953](https://github.com/decidim/decidim/pull/17953)
+- **decidim-core**: Backport 'Fix taxonomies import when filters already exist' to v0.32 [\#17945](https://github.com/decidim/decidim/pull/17945)
+- **decidim-admin**, **decidim-proposals**: Backport 'Fix proposal states radio buttons on Safari browsers' to v0.32 [\#17951](https://github.com/decidim/decidim/pull/17951)
+- **decidim-core**: Backport 'Fix likes listing order to be chronological' to v0.32 [\#17987](https://github.com/decidim/decidim/pull/17987)
+- **decidim-core**: Backport 'Remove confusing i18n date format strings (order and separator)' to v0.32 [\#17986](https://github.com/decidim/decidim/pull/17986)
+- **decidim-verifications**: Backport 'Transfer onboarding data to already existing ephemeral user' to v0.32 [\#17984](https://github.com/decidim/decidim/pull/17984)
+- **decidim-core**, **decidim-participatory processes**: Backport 'Fix process dates cannot be removed' to v0.32 [\#17957](https://github.com/decidim/decidim/pull/17957)
+- **decidim-accountability**, **decidim-admin**, **decidim-assemblies**, **decidim-budgets**, **decidim-conferences**, **decidim-core**, **decidim-dev**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-templates**, **decidim-verifications**: Backport 'Add cop for detecting missing Organization scoped finders (part 2)' to v0.32 [\#17988](https://github.com/decidim/decidim/pull/17988)
+- **decidim-verifications**: Backport 'Sanitize identity document offline explanation' to v0.32 [\#17998](https://github.com/decidim/decidim/pull/17998)
+- **decidim-admin**, **decidim-core**, **decidim-design**, **decidim-proposals**, **decidim-system**: Backport 'Fix SCSS deprecation warnings related to `tom-select`' to v0.32 [\#18011](https://github.com/decidim/decidim/pull/18011)
+- **decidim-assemblies**: Backport 'Show all child assemblies in admin list' to v0.32 [\#18001](https://github.com/decidim/decidim/pull/18001)
+- **decidim-core**, **decidim-participatory processes**: Backport 'Add logging on automatic phase change' to v0.32 [\#18013](https://github.com/decidim/decidim/pull/18013)
+- **decidim-assemblies**, **decidim-core**: Backport 'Fix spinner loading for assemblies children list' to v0.32 [\#18029](https://github.com/decidim/decidim/pull/18029)
+- **decidim-assemblies**: Backport 'Fix slow queries in assemblies admin index' to v0.32 [\#18028](https://github.com/decidim/decidim/pull/18028)
+- **decidim-accountability**, **decidim-admin**, **decidim-budgets**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-demographics**, **decidim-dev**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-templates**, **decidim-verifications**: Backport 'Add cop for detecting missing Organization scoped finders (part 3)' to v0.32 [\#18010](https://github.com/decidim/decidim/pull/18010)
+- **decidim-dev**: Backport 'Fix `decidim-dev` module loading its rake tasks multiple times' to v0.32 [\#18038](https://github.com/decidim/decidim/pull/18038)
+- **decidim-demographics**, **decidim-forms**, **decidim-surveys**: Backport 'Fix survey question description formatting' to v0.32 [\#18046](https://github.com/decidim/decidim/pull/18046)
+- **decidim-surveys**: Backport 'Fix survey questions partially lost on space import' to v0.32 [\#18043](https://github.com/decidim/decidim/pull/18043)
+- **decidim-core**, **decidim-dev**: Backport 'Additional SVG improvements' to v0.32 [\#18075](https://github.com/decidim/decidim/pull/18075)
+- **decidim-comments**, **decidim-core**: Backport 'Fix sanitization issue with the proposal's title on mentions' to v0.32 [\#18082](https://github.com/decidim/decidim/pull/18082)
+- **decidim-core**: Backport 'Fix quotes on manifests with organizations' descriptions' to v0.32 [\#18084](https://github.com/decidim/decidim/pull/18084)
+- **decidim-core**: Backport 'Fix highlighted content banner migration when the content block is missing' to v0.32 [\#18103](https://github.com/decidim/decidim/pull/18103)
+- **decidim-proposals**: Backport 'Fix leftover comment replies after removing collaborative drafts' to v0.32 [\#18108](https://github.com/decidim/decidim/pull/18108)
+- **decidim-core**: Backport 'Fix regeneration on open data scheduled export' to v0.32 [\#18058](https://github.com/decidim/decidim/pull/18058)
+- **decidim-meetings**: Backport 'Fix unauthenicated meeting invites sign-in with correct warning' to v0.32 [\#18060](https://github.com/decidim/decidim/pull/18060)
+- **decidim-admin**, **decidim-ai**, **decidim-core**: Backport 'Fix file upload rejection for uppercase file extensions' to v0.32 [\#18120](https://github.com/decidim/decidim/pull/18120)
+- **decidim-budgets**, **decidim-core**: Backport 'Hide results per page options if the per page amount is non-standard' to v0.32 [\#18099](https://github.com/decidim/decidim/pull/18099)
+- **decidim-meetings**: Backport 'Fix linked meetings not shown in the highlighted meetings content block' to v0.32 [\#18088](https://github.com/decidim/decidim/pull/18088)
+- **decidim-comments**, **decidim-core**: Backport 'Fix production boot failing when Faker is missing' to v0.32 [\#18123](https://github.com/decidim/decidim/pull/18123)
+- **decidim-core**, **decidim-dev**: Backport 'Additional SVG improvements (part 2)' to v0.32 [\#18095](https://github.com/decidim/decidim/pull/18095)
+- **decidim-core**, **decidim-meetings**: Backport 'Fix i18n time formats with hardcoded strings' to v0.32 [\#18124](https://github.com/decidim/decidim/pull/18124)
+- **decidim-core**, **decidim-forms**, **decidim-participatory processes**: Backport 'Fix migrations for CTA to hero CB and answer option counter cache' to v0.32 [\#18100](https://github.com/decidim/decidim/pull/18100)
+- **decidim-admin**: Backport 'Remove the leftover Appearance page route and controller' to v0.32 [\#18145](https://github.com/decidim/decidim/pull/18145)
+- **decidim-admin**, **decidim-conferences**, **decidim-dev**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**, **decidim-verifications**: Backport 'Fix edge case with `or` on OrganizationScopedFinder cop' to v0.32 [\#18144](https://github.com/decidim/decidim/pull/18144)
+- **decidim-core**: Backport 'Fix date picker parsing of blank and pasted dates' to v0.32 [\#18150](https://github.com/decidim/decidim/pull/18150)
+- **decidim-admin**, **decidim-core**, **decidim-forms**, **decidim-generators**, **decidim-meetings**, **decidim-proposals**, **decidim-surveys**, **decidim-templates**: Backport 'Fix unsafe params on pagination' to v0.32 [\#18149](https://github.com/decidim/decidim/pull/18149)
+- **decidim-admin**, **decidim-assemblies**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-dev**, **decidim-forms**, **decidim-initiatives**, **decidim-meetings**, **decidim-pages**, **decidim-participatory processes**, **decidim-proposals**, **decidim-surveys**, **decidim-verifications**: Backport 'Add cop for detecting missing Organization scoped finders (part 4)' to v0.32 [\#18146](https://github.com/decidim/decidim/pull/18146)
+- **decidim-dev**: Backport 'Fix rack profiler viewport when there are hundreds of partials to render' to v0.32 [\#18156](https://github.com/decidim/decidim/pull/18156)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Remove confusing i18n date format strings (order and separator)' to v0.32 [\#17986](https://github.com/decidim/decidim/pull/17986)
+
+### Internal
+
+- **decidim-admin**, **decidim-core**, **decidim-design**, **decidim-proposals**, **decidim-system**: Backport 'Fix SCSS deprecation warnings related to `tom-select`' to v0.32 [\#18011](https://github.com/decidim/decidim/pull/18011)
+
 ## [0.32.2](https://github.com/decidim/decidim/tree/0.32.2)
 
 ### Added

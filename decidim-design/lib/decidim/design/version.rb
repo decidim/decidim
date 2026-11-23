@@ -3,7 +3,7 @@
 module Decidim
   module Design
     def self.version
-      "0.32.2"
+      "0.32.3"
     end
   end
 end
