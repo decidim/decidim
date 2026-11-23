@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-pages version.
   module Blogs
     def self.version
-      "0.31.8"
+      "0.31.9"
     end
   end
 end
