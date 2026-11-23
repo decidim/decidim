@@ -27,7 +27,6 @@ el:
         nickname: Ψευδώνυμο
         password: Κωδικός πρόσβασης
         password_confirmation: Επιβεβαιώστε τον κωδικό πρόσβασης
-        personal_url: Προσωπική ιστοσελίδα
         remove_avatar: Αφαίρεση avatar
         tos_agreement: Όροι Παροχής Υπηρεσιών
     models:

@@ -6,8 +6,42 @@ sk:
         title: Názov
         total_budget: Celkový rozpočet
         weight: Pozícia v poradí
+      pabulib_rules:
+        equalshares:
+          help: Metóda rovnakých podielov (MES) bez doplnenia. V metóde MES začína každý hlasujúci s rovnakým virtuálnym podielom z rozpočtu a projekt je vybraný vtedy, keď si ho jeho podporovatelia môžu spoločne dovoliť.
+          label: Metóda rovnakých podielov (%{rule})
+        equalshares/add1:
+          help: Použije základné pravidlo equalshares, ale ak sa zastaví príliš skoro, postupne zvyšuje virtuálny rozpočet každého hlasujúceho vždy o 1 jednotku (Add1) a prepočítava výsledok, pokiaľ sa výsledné vybrané projekty stále zmestia do skutočného rozpočtu.
+          label: Metóda rovnakých podielov, add1 (%{rule})
+        equalshares/add1_comparison:
+          help: Použije pravidlo equalshares/add1 a následne aplikuje rovnaký krok porovnania ako vyššie.
+          label: Metóda rovnakých podielov, add1 s porovnaním (%{rule})
+        equalshares_comparison:
+          help: 'Použije základné pravidlo equalshares a následne pridá jeden krok navyše: porovná jeho výsledok s referenčným výsledkom pažravej metódy a zmení ho iba vtedy, ak viac hlasujúcich uprednostňuje výsledok pažravej metódy.'
+          label: Metóda rovnakých podielov, s porovnaním (%{rule})
+        greedy:
+          help: Štandardný aproximačný prístup typu problém batohu. Projekty sú zoradené podľa počtu hlasov (zostupne). Algoritmus prechádza zoznamom a vyberá projekty, ktoré sa zmestia do zostávajúceho rozpočtu. Ak je projekt príliš drahý vzhľadom na aktuálne zostávajúce prostriedky, preskočí sa a algoritmus pokračuje na ďalší projekt, aby zistil, či sa zmestí.
+          label: Pažravá metóda (%{rule})
+        greedy_custom:
+          help: Používa sa pre špeciálne prípady, ktoré nezapadajú do štandardných algoritmov, ako sú manuálne presuny rozpočtu alebo zložité hybridné pravidlá.
+          label: Pažravá metóda, vlastná (%{rule})
+        greedy_exclusive:
+          help: Rieši konfliktné skupiny projektov. Funguje ako štandardná pažravá metóda, ale ak sú viaceré „víťazné“ projekty v konflikte (napr. sú v rovnakej výlučnej zóne alebo kategórii), uplatní sa pravidlo hierarchie (napr. projekty na úrovni mestskej časti môžu mať prednosť pred celomestskými alebo naopak) namiesto spoliehania sa výlučne na počet hlasov.
+          label: Pažravá metóda, výlučná (%{rule})
+        greedy_no_skip:
+          help: Projekty sú zoradené podľa počtu hlasov (zostupne). Algoritmus vyberá projekty, ktoré sa zmestia do zostávajúceho rozpočtu, ale okamžite sa zastaví pri prvom projekte, ktorý sa už nezmestí. Žiadne nasledujúce projekty sa už nezvažujú, aj keby sa do rozpočtu zmestili.
+          label: Pažravá metóda, bez preskakovania (%{rule})
+        greedy_threshold:
+          help: Správa sa ako štandardná pažravá metóda, ale projekty sa zvažujú len vtedy, ak spĺňajú definovanú hranicu min_project_score_threshold.
+          label: Pažravá metóda, s hranicou (%{rule})
+        unknown:
+          help: Informácia buď nie je k dispozícii, alebo existovalo viacero možností a nie je jasné, ktorá z nich platí.
+          label: Neznáme (%{rule})
       pabulib_vote_types:
+        approval: Schvaľovacie (%{type})
         cumulative: Rozdeľovanie hlasov medzi projekty (Hlasujúci má viac hlasov, pričom jednému projektu môže prideliť aj viac než jeden hlas.)
+        ordinal: Ordinálne (%{type})
+        scoring: Bodové (%{type})
       project:
         budget_amount: Výška rozpočtu
         description: Popis
@@ -87,12 +121,86 @@ sk:
             invalid: Pri aktualizácii tohto rozpočtu sa vyskytol problém.
             success: Rozpočet bol úspešne aktualizovaný.
         exports:
+          formats:
+            pabulib: Pabulib
           projects: Projekty
+          voting_results: Výsledky hlasovania
         models:
           project:
             name: Projekt
         pabulib_exports:
+          create:
+            invalid: Prosím, opravte chyby vo formulári.
+            no_votes: Zatiaľ nie sú žiadne hlasy na export.
           show:
+            create: Exportovať
+            explanation_html: |
+              <p>
+                Toto zobrazenie vytvorí export výsledkov hlasovania participatívneho rozpočtu pre %{format_link}.
+              </p>
+            explanation_link_label_format: formát Pabulib
+            export_details_data: Atribúty údajov
+            export_details_general: Všeobecné podrobnosti
+            fields:
+              country:
+                help: Krajina, v ktorej sa hlasovanie konalo.
+                label: Krajina (%{field})
+              default_score:
+                help: 'Predvolené skóre pre bodový typ hlasovania (predvolené: %{default_value}).'
+                label: Predvolené skóre (%{field})
+              description:
+                help: Popis hlasovania opisujúci, o čom sa hlasovalo.
+                label: Popis (%{field})
+              district:
+                help: Hlasovací obvod v rámci hlasovania. Ak napríklad používate štvrte ako podjednotky, pomocou tohto poľa ich môžete priradiť k obvodom.
+                label: Obvod (%{field})
+              instance:
+                help: Inštancia hlasovania, napríklad pri každoročne sa opakujúcich hlasovaniach by to bol rok hlasovania.
+                label: Inštancia (%{field})
+              max_length:
+                help: 'Maximálny počet projektov na výber (predvolené: %{default_value}).'
+                label: Maximálna dĺžka (%{field})
+              max_points:
+                help: 'Maximálny počet bodov priradených vybraným projektom (predvolené: %{default_value}).'
+                help_default_value: pre kumulatívny typ hlasovania hodnota max_sum_points, pre bodový typ hlasovania ∞
+                label: Maximálny počet bodov (%{field})
+              max_sum_cost:
+                help: 'Maximálny súčet nákladov projektu (predvolené: %{default_value}).'
+                label: Maximálny súčet nákladov (%{field})
+              max_sum_points:
+                help: Maximálny súčet priradených bodov pre každý projekt.
+                label: Maximálny súčet bodov (%{field})
+              min_length:
+                help: 'Minimálny počet projektov na výber (predvolené: %{default_value}).'
+                label: Minimálna dĺžka (%{field})
+              min_points:
+                help: 'Minimálny počet bodov priradených vybraným projektom (predvolené: %{default_value}).'
+                label: Minimálny počet bodov (%{field})
+              min_sum_cost:
+                help: 'Minimálny súčet nákladov projektu (predvolené: %{default_value}).'
+                label: Minimálny súčet nákladov (%{field})
+              min_sum_points:
+                help: 'Minimálny súčet priradených bodov pre každý projekt (predvolené: %{default_value}).'
+                label: Minimálny súčet bodov (%{field})
+              rule:
+                help: Algoritmus použitý na výber víťazných projektov na základe hlasov.
+                label: Pravidlo (%{field})
+              scoring_fn:
+                help: 'Bodovacia funkcia pre ordinálny typ hlasovania (predvolené: %{default_value}).'
+                label: Bodovacia funkcia (%{field})
+              subunit:
+                help: Hlasovacia podjednotka v rámci hlasovania, napríklad oblasť v rámci mesta alebo obce.
+                label: Podjednotka (%{field})
+              unit:
+                help: Hlasovacia jednotka v rámci hlasovania, napríklad názov mesta alebo obce.
+                label: Jednotka (%{field})
+              vote_type:
+                help: Ako sa vyhodnocujú výsledky hlasovania (viac informácií nájdete v dokumentácii).
+                label: Typ hlasovania (%{field})
+            format_info_html: Viac informácií o týchto podrobnostiach sa dozviete v dokumentácii %{link}.
+            large_dataset_warning_html: |
+              <p>Vaša dátová sada obsahuje %{amount} hlasov, a preto je veľmi veľká na exportovanie cez toto používateľské rozhranie.</p>
+              <p>Zvážte, prosím, exportovanie vašej dátovej sady z konzoly pomocou nasledujúceho príkazu: <code>%{command}</code></p>
             title: Exportovať výsledky hlasovania rozpočtu %{budget} vo formáte Pabulib
         projects:
           create:
@@ -371,6 +479,7 @@ sk:
             announcement: Oznámenie
             clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
+            comments_max_length: Maximálny počet znakov na komentár (ponechajte 0 pre predvolenú hodnotu)
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             form:
               errors:

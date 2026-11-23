@@ -189,6 +189,8 @@ sk:
           application_type_help_html: 'Typ klienta OAuth, ako je definovaný v <a href="%{client_type_link}" target="_blank">RFC 6749, časť 2.1</a>. Verejní klienti musia implementovať tok PKCE, ako je definovaný v <a href="%{pkce_link}" target="_blank">RFC 7636</a>. '
           refresh_tokens_help_html: 'Obnovovacie tokeny (refresh tokens) sú užitočné v prípade, že token potrebuje dlhšiu životnosť, než aká je priradená prístupovému tokenu. Upozorňujeme, že <strong>obnovovacie tokeny by sa mali používať opatrne</strong>, pretože môžu oslabiť bezpečnosť vašich používateľov. '
           scopes_explanation:
+            "admin:read": Umožňuje používateľovi vykonávať operácie dopytovania (query) súvisiace s administráciou prostredníctvom GraphQL API.
+            "admin:write": Umožňuje používateľovi vykonávať administrátorské operácie mutácií (mutation) prostredníctvom GraphQL API.
             "api:read": Umožňuje používateľovi vykonávať operácie dopytovania (query) prostredníctvom GraphQL API.
             "api:write": Umožňuje používateľovi vykonávať operácie mutácií (mutation) prostredníctvom GraphQL API.
             profile: Poskytuje prístup k údajom vlastného profilu používateľa. Tento rozsah (scope) je potrebný len v prípade, že sa aplikácia OAuth používa iba ako poskytovateľ identity alebo autentifikačná služba.

@@ -752,9 +752,11 @@ ca:
         create:
           invalid: S'ha produït un error en inscriure's a aquesta trobada.
           success: T'has inscrit a la trobada amb èxit. Per estar inscrita, rebràs notificacions si s'hi produeixen actualitzacions.
+          unauthorized: Cal que iniciïs la teva sessió abans d'inscriure't a la trobada.
         decline_invitation:
           invalid: S'ha produït un error en declinar la invitació.
           success: Has declinat la invitació amb èxit.
+          unauthorized: Cal que iniciïs la teva sessió abans de rebutjar la invitació.
         destroy:
           invalid: S'ha produït un error en abandonar aquesta trobada.
           success: Has abandonat la trobada amb èxit.

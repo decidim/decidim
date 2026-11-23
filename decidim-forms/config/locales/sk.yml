@@ -152,6 +152,7 @@ sk:
           publish_responses: "%{user_name} zverejnil/a odpovede na otázku %{resource_name} v priestore %{space_name}"
           unpublish_responses: "%{user_name} zrušil/a zverejnenie odpovedí na otázku %{resource_name} v priestore %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} odstránil/a odpovede dotazníka %{resource_name} v priestore %{space_name}"
           update: "%{user_name} aktualizoval/a dotazník %{resource_name}"
       errors:
         response:

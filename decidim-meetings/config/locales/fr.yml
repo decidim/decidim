@@ -736,9 +736,11 @@ fr:
         create:
           invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
           success: "Vous avez rejoint la rencontre avec succès. En tant que parciticpant à cette rencontre, vous serez avisé \ndes éventuelles mises à jour."
+          unauthorized: Vous devez vous connecter avant de vous inscrire à la réunion.
         decline_invitation:
           invalid: Un problème est survenu lors du refus de l'invitation.
           success: Vous avez refusé l'invitation avec succès.
+          unauthorized: Vous devez vous connecter avant de refuser l'invitation.
         destroy:
           invalid: Il y a eu un problème lors de l'annulation de votre inscription.
           success: Vous avez annulé votre inscription avec succès.
