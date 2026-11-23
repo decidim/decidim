@@ -90,12 +90,15 @@ $("form.new_filter").each(function() {
       }
     }
 
-    retainOriginValues($form, selectedOrigins);
-
     $newOriginFilter[0].dispatchEvent(new CustomEvent("form-filter:refresh", {
       bubbles: true,
       detail: { element: $newOriginFilter[0] }
     }));
+
+    // Retain the selected values after the refresh, as the tree marks the
+    // options collapsed into "All" with the "ignore-filter" class. Otherwise
+    // those values would be submitted as "All" on the next filter change.
+    retainOriginValues($form, selectedOrigins);
 
     reconnectAccordion($form);
   } else if ($originFilter.length) {

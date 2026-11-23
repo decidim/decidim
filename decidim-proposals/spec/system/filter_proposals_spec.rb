@@ -254,6 +254,58 @@ describe "Filter Proposals", :slow do
       end
     end
 
+    context "when a status change leaves a single origin option" do
+      let!(:participant_proposal) { create(:proposal, :accepted, component:) }
+      let!(:official_proposal) { create(:proposal, :official, component:) }
+
+      before do
+        component.update!(
+          settings: { official_proposals_enabled: true },
+          step_settings: {
+            component.participatory_space.active_step.id => { proposal_answering_enabled: true }
+          }
+        )
+
+        visit_component
+      end
+
+      it "keeps the selected origin when the other origin is available again" do
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          uncheck "All"
+          check "Official"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+        expect(page).to have_text(translated(official_proposal.title))
+        expect(page).to have_no_text(translated(participant_proposal.title))
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          uncheck "Accepted"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          check "Accepted"
+        end
+
+        # Wait for the refreshed Origin filter, as the options depend on the
+        # selected states and the list is updated after it.
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Participants/i)
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+        expect(page).to have_text(translated(official_proposal.title))
+        expect(page).to have_no_text(translated(participant_proposal.title))
+      end
+    end
+
     context "when official_proposals setting is enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: true })
