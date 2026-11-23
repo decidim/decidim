@@ -221,7 +221,7 @@ export default class extends Controller {
     // Remove the origin values retained for a previous history entry. They are
     // added again below when the restored URL still selects them and the
     // corresponding option is not available in the form.
-    this.element.querySelectorAll("input[type='hidden'][data-retained-origin]").forEach((input) => input.remove());
+    this._removeRetainedOrigins();
 
     const filterParams = this._parseLocationFilterValues();
     const currentOrder = this._parseLocationOrderValue();
@@ -271,6 +271,15 @@ export default class extends Controller {
   }
 
   /**
+   * Removes the hidden origin inputs retained from a previous filter state.
+   * @private
+   * @returns {Void} - Returns nothing.
+   */
+  _removeRetainedOrigins() {
+    this.element.querySelectorAll("input[type='hidden'][data-retained-origin]").forEach((input) => input.remove());
+  }
+
+  /**
    * Keeps hidden inputs for the origin values that do not have a matching
    * checkbox in the form, so that the selection is still submitted when the
    * available origin options change (for example, when filtering by state).
@@ -279,7 +288,7 @@ export default class extends Controller {
    * @returns {Void} - Returns nothing.
    */
   _updateRetainedOrigins(values) {
-    this.element.querySelectorAll("input[type='hidden'][data-retained-origin]").forEach((input) => input.remove());
+    this._removeRetainedOrigins();
 
     const checkboxValues = Array.from(this.element.querySelectorAll("input[type='checkbox'][name='filter[with_any_origin][]']:not(.ignore-filter)")).map((checkbox) => checkbox.value);
 
@@ -324,6 +333,12 @@ export default class extends Controller {
 
     if (event && (!event.target.matches("input, select") || event.target.matches("[data-disable-dynamic-change]"))) {
       return;
+    }
+
+    if (event && event.target.matches("input[name='filter[with_any_origin][]']")) {
+      // An explicit origin change replaces the retained selection. Retained
+      // origins are only kept for status changes and history restoration.
+      this._removeRetainedOrigins();
     }
 
     const [newPath, newState] = this._currentStateAndPath();

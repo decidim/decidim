@@ -867,6 +867,32 @@ describe "Filter Proposals", :slow do
       expect(page).to have_text(translated(participant_proposal.title))
       expect(page).to have_text(translated(official_proposal.title))
     end
+
+    it "shows all the origins when selecting all after the selected origin disappears" do
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        uncheck "All"
+        check "Participants"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_no_text(translated(official_proposal.title))
+
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
+        uncheck "Accepted"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 0)
+
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        expect(page).to have_no_text(/Participants/i)
+        check "All"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(official_proposal.title))
+      expect(page).to have_no_text(translated(participant_proposal.title))
+    end
   end
 
   context "when using the browser history", :slow do

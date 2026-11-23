@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 700] */
+/* eslint max-lines: ["error", 730] */
 /* global global, jest */
 import FormFilterController from "src/decidim/controllers/form_filter/controller";
 import { Application } from "@hotwired/stimulus";
@@ -482,6 +482,48 @@ describe("FormFilterController - Initiative Filters", () => {
       }));
 
       expect(mockCheckBoxesTree.refresh).toHaveBeenCalledWith(newSection);
+    });
+  });
+
+  describe("retained origin values", () => {
+    const addRetainedOrigin = (value) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "filter[with_any_origin][]";
+      input.value = value;
+      input.dataset.retainedOrigin = "true";
+      element.appendChild(input);
+      return input;
+    };
+
+    it("removes retained origins when an origin checkbox changes", () => {
+      controller.connect();
+
+      const retainedInput = addRetainedOrigin("participants");
+      const originCheckbox = document.createElement("input");
+      originCheckbox.type = "checkbox";
+      originCheckbox.name = "filter[with_any_origin][]";
+      originCheckbox.value = "official";
+      originCheckbox.checked = true;
+      element.appendChild(originCheckbox);
+
+      originCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expect(element.querySelector("input[data-retained-origin]")).toBeNull();
+      expect(element.contains(retainedInput)).toBe(false);
+    });
+
+    it("keeps retained origins when another filter changes", () => {
+      controller.connect();
+
+      const retainedInput = addRetainedOrigin("participants");
+      const statusCheckbox = element.querySelector("#with_any_state_open");
+
+      statusCheckbox.checked = true;
+      statusCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expect(element.querySelector("input[data-retained-origin]")).toBe(retainedInput);
+      expect(element.contains(retainedInput)).toBe(true);
     });
   });
 
