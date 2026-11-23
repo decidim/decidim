@@ -18,7 +18,7 @@ es:
           label: Método de Equal Shares (reparto equitativo), comparación add1 (%{rule})
         equalshares_comparison:
           help: 'Utiliza equalshares (reparto equitativo) como base y, luego, añade un paso extra: compara su resultado con un enfoque de maximización inmediata y cambia solo si más votantes prefieren el resultado de este enfoque.'
-          label: Métode de Equals Shares (reparto equitativo), comparación (%{rule})
+          label: Método de Equal Shares (reparto equitativo), comparación (%{rule})
         greedy:
           help: La aproximación estándar de estilo Knapsack (mochila). Los proyectos se ordenan por número de votos (de más a menos). El algoritmo recorre la lista, seleccionando los proyectos que encajan en el restante presupuesto. Si un proyecto es demasiado caro para los fondos restantes actuales, se omite y el algoritmo pasa al siguiente proyecto para comprobar si encaja.
           label: Maximización inmediata (%{rule})
@@ -161,7 +161,7 @@ es:
                 help_default_value: para el tipo de voto acumulativo con valor «max_sum_points», para el tipo de voto de puntuación ∞
                 label: Puntuación máxima (%{field})
               max_sum_cost:
-                help: 'Importe máximo del coste de un proyecto (por defecto: %{default_value}).'
+                help: 'Suma máxima de los costes de los proyectos (por defecto: %{default_value}).'
                 label: Coste total máximo (%{field})
               max_sum_points:
                 help: Suma máxima de los puntos asignados a cada proyecto.
@@ -173,7 +173,7 @@ es:
                 help: 'Puntuación mínima asignada a los proyectos seleccionados (por defecto: %{default_value}).'
                 label: Puntuación mínima (%{field})
               min_sum_cost:
-                help: 'Importe mínimo del coste de un proyecto (por defecto: %{default_value}).'
+                help: 'Suma mínima de los costes de los proyectos (por defecto: %{default_value}).'
                 label: Coste mínimo (%{field})
               min_sum_points:
                 help: 'Suma mínima de los puntos asignados a cada proyecto (por defecto: %{default_value}).'
