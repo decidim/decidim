@@ -18,12 +18,22 @@ describe "Social shares" do
       content_type: "image/jpeg"
     )
   end
+  let!(:description_editor_image) do
+    create(:editor_image, organization:).tap do |editor_image|
+      editor_image.file.attach(description_image)
+    end
+  end
   let(:content_image) do
     ActiveStorage::Blob.create_and_upload!(
       io: File.open(Decidim::Dev.asset("city.jpeg")),
       filename: "content_image.jpg",
       content_type: "image/jpeg"
     )
+  end
+  let!(:content_editor_image) do
+    create(:editor_image, organization:).tap do |editor_image|
+      editor_image.file.attach(content_image)
+    end
   end
   let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
   let(:resource) { organization }

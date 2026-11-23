@@ -3,6 +3,7 @@
 module Decidim
   # Resolves the most appropriate image URL for meta tags from a given resource within an organization.
   # Searches in the following order: attachment images, images in resource description, participatory space images, and default content block images.
+  # Description images are only used when they belong to an editor image in the current organization.
   # Ensures the selected image is resized to 1200x630 pixels.
   class MetaImageUrlResolver
     include TranslatableAttributes
@@ -25,6 +26,7 @@ module Decidim
     # @return [String, nil] - The resolved image blob or nil if no image is found.
     def resolve
       return unless blob
+      return unless blob.variable?
       return unless blob.service.exist?(blob.key)
 
       resized_variant = blob.variant(resize_to_limit: [1200, 630]).processed
@@ -73,17 +75,13 @@ module Decidim
         html = translated_attribute(html).strip if html.is_a?(Hash)
         next if html.blank?
 
-        image_element = Nokogiri::HTML(html).css("img").first
-        next unless image_element
+        Nokogiri::HTML(html).css("img").each do |image_element|
+          image_url = image_element["src"]
+          next if image_url.blank?
 
-        image_url = image_element["src"]
-        next if image_url.blank?
-
-        blob = find_blob_by_id(image_url.split("/").last)
-        return blob if blob.present?
-
-        blob = find_blob_from_url(image_url)
-        return blob if blob.present?
+          blob = find_blob_from_url(image_url)
+          return blob if blob.present? && allowed_blob?(blob)
+        end
       end
 
       nil
@@ -120,7 +118,10 @@ module Decidim
     end
 
     def find_blob_from_url(url)
-      return GlobalID::Locator.locate(url, only: ActiveStorage::Blob) if url.start_with?("gid://")
+      if url.start_with?("gid://")
+        gid = url[%r{\Agid://[^/]+/[^/]+/\d+}]
+        return GlobalID::Locator.locate(gid, only: ActiveStorage::Blob) if gid
+      end
 
       find_blob_by_key(url.split("/").second_to_last)
     end
@@ -129,8 +130,17 @@ module Decidim
       ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
     end
 
-    def find_blob_by_id(blob_id)
-      ActiveStorage::Blob.find_by(id: blob_id) if blob_id.present?
+    # Only blobs attached to editor images in the current organization are
+    # allowed. This prevents user-controlled content from resolving private
+    # blobs (for example verification attachments) or blobs from other
+    # organizations.
+    def allowed_blob?(blob)
+      return false if organization.blank?
+
+      blob.attachments.any? do |attachment|
+        attachment.record_type == "Decidim::EditorImage" &&
+          Decidim::EditorImage.exists?(id: attachment.record_id, organization:)
+      end
     end
 
     def blob_from_attached_file(file)

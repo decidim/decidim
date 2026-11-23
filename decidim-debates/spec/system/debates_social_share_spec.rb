@@ -19,6 +19,11 @@ describe "Social shares" do
       content_type: "image/jpeg"
     )
   end
+  let!(:description_editor_image) do
+    create(:editor_image, organization:).tap do |editor_image|
+      editor_image.file.attach(description_image)
+    end
+  end
   let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
   let(:resource) { debate }
 
