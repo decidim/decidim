@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.32.4](https://github.com/decidim/decidim/tree/0.32.4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+Nothing.
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+Nothing.
+
+### Internal
+
+Nothing.
+
 ## [0.32.3](https://github.com/decidim/decidim/tree/0.32.3)
 
 ### Added
