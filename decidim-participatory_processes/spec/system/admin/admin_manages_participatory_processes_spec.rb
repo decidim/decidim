@@ -159,18 +159,23 @@ describe "Admin manages participatory processes", versioning: true do
           click_on translated(participatory_process3.title)
         end
 
-        start_date = find_by_id("participatory_process_start_date_date")
-        start_date.send_keys(:end)
-        10.times { start_date.send_keys(:backspace) }
+        %w(participatory_process_start_date participatory_process_end_date).each do |field_id|
+          date_field = find_by_id("#{field_id}_date")
+          date_field.send_keys [:control, "a"]
+          date_field.send_keys :backspace
 
-        end_date = find_by_id("participatory_process_end_date_date")
-        end_date.send_keys(:end)
-        10.times { end_date.send_keys(:backspace) }
+          expect(page).to have_field("#{field_id}_date", with: "")
+          expect(page).to have_field(field_id, with: "", visible: :all)
+        end
 
         click_on "Update"
 
-        expect(participatory_process3.reload.start_date).not_to be_present
-        expect(participatory_process3.end_date).not_to be_present
+        expect(page).to have_callout("Participatory process successfully updated.")
+
+        participatory_process3.reload
+
+        expect(participatory_process3.start_date).to be_nil
+        expect(participatory_process3.end_date).to be_nil
       end
     end
   end
