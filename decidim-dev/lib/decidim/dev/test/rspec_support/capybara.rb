@@ -84,6 +84,21 @@ module Decidim
   end
 end
 
+# See: https://github.com/teamcapybara/capybara/issues/2865
+module ChromeResetWithoutWildcard
+  private
+
+  def execute_cdp(cmd, params = {})
+    return super unless cmd == "Storage.clearDataForOrigin" && params[:origin] == "*"
+
+    super("Network.clearBrowserCookies")
+    return unless params[:storageTypes].include?("local_storage")
+
+    super(cmd, { origin: Capybara.current_session.server.base_url, storageTypes: "local_storage" })
+  end
+end
+Capybara::Selenium::Driver::ChromeDriver.prepend(ChromeResetWithoutWildcard)
+
 # Expected values: "", "2", "3", etc. (see parallel_tests documentation)
 parallel_run_idx = ENV.fetch("TEST_ENV_NUMBER", "").to_i
 parallel_run_idx -= 1 if parallel_run_idx.positive?
