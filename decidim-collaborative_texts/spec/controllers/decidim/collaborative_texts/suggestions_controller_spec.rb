@@ -47,18 +47,24 @@ module Decidim
         it "eager loads the authors of the suggestions and their avatars" do
           queries = []
           callback = lambda do |_name, _start, _finish, _id, payload|
-            queries << payload[:sql] unless payload[:cached] || payload[:name] == "SCHEMA"
+            queries << payload unless payload[:name] == "SCHEMA"
           end
 
           ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
             get(:index, params:)
           end
 
+          uncached_queries = queries.reject { |query| query[:cached] }.map { |query| query[:sql] }
+          # Cached queries are counted for the organizations check because all the
+          # suggestions share the same organization, so a missing preload would be
+          # served from the query cache for every author after the first one.
+          all_queries = queries.map { |query| query[:sql] }
+
           expect(response).to have_http_status(:ok)
-          expect(queries.grep(/FROM "decidim_users".*"id" IN \(/).size).to eq(1)
-          expect(queries.grep(/FROM "decidim_organizations"/).size).to eq(1)
-          expect(queries.grep(/FROM "active_storage_attachments".*"record_id" IN \(/).size).to eq(1)
-          expect(queries.grep(/FROM "active_storage_blobs".*"id" IN \(/).size).to eq(1)
+          expect(uncached_queries.grep(/FROM "decidim_users".*"id" IN \(/).size).to eq(1)
+          expect(all_queries.grep(/FROM "decidim_organizations"/).size).to eq(1)
+          expect(uncached_queries.grep(/FROM "active_storage_attachments".*"record_id" IN \(/).size).to eq(1)
+          expect(uncached_queries.grep(/FROM "active_storage_blobs".*"id" IN \(/).size).to eq(1)
         end
       end
 
