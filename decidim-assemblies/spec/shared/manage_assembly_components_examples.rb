@@ -53,6 +53,7 @@ shared_examples "manage assembly components" do
     end
 
     it "has a successful admin log" do
+      expect(page).to have_callout("Component created successfully.")
       visit decidim_admin.root_path
       expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end
