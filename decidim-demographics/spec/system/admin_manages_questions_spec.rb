@@ -1074,7 +1074,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_callout("First response cannot be removed because it has recorded answers.")
+      expect(page).to have_callout("First response cannot be removed because it has responses.")
 
       visit manage_questions_path
       expand_all_questions
@@ -1092,7 +1092,7 @@ describe "Admin manages demographic questions" do
 
       click_on "Save"
 
-      expect(page).to have_callout("<script>alert(1)</script> cannot be removed because it has recorded answers.")
+      expect(page).to have_callout("<script>alert(1)</script> cannot be removed because it has responses.")
     end
 
     # Removing the question marks its options as deleted as well, so the whole question
