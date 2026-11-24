@@ -7,7 +7,11 @@ the instructions for all the patch releases in GitHub:
 - <https://github.com/decidim/decidim/releases/tag/v0.31.1>
 - <https://github.com/decidim/decidim/releases/tag/v0.31.2>
 - <https://github.com/decidim/decidim/releases/tag/v0.31.3>
-- <https://github.com/decidim/decidim/releases/tag/v0.31.4>
+- <https://github.com/decidim/decidim/releases/tag/v0.31.5>
+- <https://github.com/decidim/decidim/releases/tag/v0.31.6>
+- <https://github.com/decidim/decidim/releases/tag/v0.31.7>
+- <https://github.com/decidim/decidim/releases/tag/v0.31.8>
+- <https://github.com/decidim/decidim/releases/tag/v0.31.9>
 
 ## 1. Upgrade notes
 
