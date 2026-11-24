@@ -38,6 +38,14 @@ describe Decidim::FindAndUpdateDescendantsJob do
       end.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).exactly(:twice)
     end
 
+    context "when the element is a component" do
+      it "updates the search indexes of its resources" do
+        expect do
+          Decidim::FindAndUpdateDescendantsJob.perform_now(proposal_component)
+        end.to have_enqueued_job(Decidim::UpdateSearchIndexesJob).with([proposal], 1).exactly(:once)
+      end
+    end
+
     context "when recursion reaches max depth" do
       it "does not update search indexes" do
         expect do

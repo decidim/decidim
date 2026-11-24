@@ -69,10 +69,8 @@ module Decidim
       filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
     end
 
-    def spaces_to_filter
-      return nil if filters[:with_space_state].blank?
-
-      Decidim.participatory_space_manifests.flat_map do |manifest|
+    def visible_space_ids_by_type
+      @visible_space_ids_by_type ||= Decidim.participatory_space_manifests.to_h do |manifest|
         public_spaces = manifest.participatory_spaces.call(organization).public_spaces
         spaces = case filters[:with_space_state]
                  when "active"
@@ -84,7 +82,24 @@ module Decidim
                  else
                    public_spaces
                  end
-        spaces.select(:id).to_a
+        [manifest.model_class_name, spaces.pluck(:id)]
+      end
+    end
+
+    # Resources in a registered participatory space are only returned if the space is public.
+    # Without a space state filter, resources outside of them (users, process groups...) are kept.
+    def space_conditions
+      @space_conditions ||= begin
+        conditions = visible_space_ids_by_type.map do |type, ids|
+          SearchableResource.where(decidim_participatory_space_type: type, decidim_participatory_space_id: ids)
+        end
+
+        if filters[:with_space_state].blank?
+          conditions << SearchableResource.where(decidim_participatory_space_type: nil)
+          conditions << SearchableResource.where.not(decidim_participatory_space_type: visible_space_ids_by_type.keys)
+        end
+
+        conditions.reduce(:or) || SearchableResource.none
       end
     end
 
@@ -93,11 +108,7 @@ module Decidim
         organization:,
         locale: I18n.locale,
         resource_type: class_name
-      )
-
-      if (spaces = spaces_to_filter)
-        query = query.where(decidim_participatory_space: spaces)
-      end
+      ).and(space_conditions)
 
       query = query.order(datetime: :desc)
       query = query.global_search(I18n.transliterate(term)) if term.present?

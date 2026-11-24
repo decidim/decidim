@@ -4,13 +4,14 @@ require "spec_helper"
 
 describe Decidim::Search do
   let(:current_organization) { create(:organization) }
+  let(:participatory_space) { create(:participatory_process, organization: current_organization) }
 
   context "with resources from different organizations" do
     let(:other_organization) { create(:organization) }
     let(:term) { "fire" }
     let(:fake_type) { "Decidim::Organization" } # a type that is not searchable
     let!(:result) do
-      create(:searchable_resource, organization: current_organization, content_a: "Fight fire with fire")
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, content_a: "Fight fire with fire")
     end
     let!(:non_searchable_resource) do
       create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where is your crown king nothing?")
@@ -43,10 +44,10 @@ describe Decidim::Search do
   end
 
   context "with resources indexed in many languages" do
-    let!(:lice_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Erradicació de polls a l'escola") }
-    let!(:lice_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Eradication of lice in school") }
-    let!(:ci_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
-    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continuous improvement with periodic polls") }
+    let!(:lice_ca) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :ca, content_a: "Erradicació de polls a l'escola") }
+    let!(:lice_en) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :en, content_a: "Eradication of lice in school") }
+    let!(:ci_ca) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
+    let!(:ci_en) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :en, content_a: "Continuous improvement with periodic polls") }
 
     context "when term has matches in many languages" do
       let(:term) { "polls" }
@@ -84,7 +85,7 @@ describe Decidim::Search do
     let(:term) { "" }
 
     before do
-      create(:searchable_resource, organization: current_organization)
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space)
     end
 
     it "returns some random results" do
@@ -100,8 +101,12 @@ describe Decidim::Search do
 
   describe "when search term has imperfections" do
     # NOTE: when indexing searchables accents are removed
-    let!(:searchable1) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "Sangtrait és un gran grup") }
-    let!(:searchable2) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "A mi m'agrada Sangtrait") }
+    let!(:searchable1) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "Sangtrait és un gran grup")
+    end
+    let!(:searchable2) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "A mi m'agrada Sangtrait")
+    end
 
     context "with accents in the term" do
       let(:term) { "sangtraït" }
@@ -133,8 +138,12 @@ describe Decidim::Search do
   end
 
   describe "ordering" do
-    let!(:searchable1) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "Black Sabbat yeah", datetime: datetime1) }
-    let!(:searchable2) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "Back in black també yeah", datetime: datetime2) }
+    let!(:searchable1) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "Black Sabbat yeah", datetime: datetime1)
+    end
+    let!(:searchable2) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "Back in black també yeah", datetime: datetime2)
+    end
     let(:term) { "black" }
 
     context "when searchables are from the future" do
@@ -191,7 +200,8 @@ describe Decidim::Search do
       let(:resource_type) { "Decidim::Dev::DummyResource" }
 
       before do
-        create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where is your crown king nothing?")
+        create_list(:searchable_resource, 5, organization: current_organization, decidim_participatory_space: participatory_space, resource_type:,
+                                             content_a: "Where is your crown king nothing?")
 
         3.times do
           create(
@@ -346,6 +356,61 @@ describe Decidim::Search do
             on(:invalid) { raise("Should not happen") }
           end
         end
+      end
+    end
+
+    describe "with non public spaces" do
+      let!(:public_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :active, organization: current_organization)
+        )
+      end
+      let!(:unpublished_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :active, :unpublished, organization: current_organization)
+        )
+      end
+      let!(:private_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          decidim_participatory_space: create(:assembly, :published, :restricted, organization: current_organization)
+        )
+      end
+      let!(:user_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          resource: create(:user, organization: current_organization),
+          decidim_participatory_space: nil
+        )
+      end
+
+      it "only returns resources from public spaces and resources without space" do
+        described_class.call(term, current_organization) do
+          on(:ok) do |results_by_type|
+            expect(results_by_type["Decidim::Dev::DummyResource"][:results]).to eq [public_resource.resource]
+            expect(results_by_type["Decidim::User"][:results]).to eq [user_resource.resource]
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "computes the visible spaces only once per search" do
+        manifest = Decidim.find_participatory_space_manifest(:participatory_processes)
+        allow(manifest).to receive(:participatory_spaces).and_call_original
+
+        described_class.call(term, current_organization)
+
+        expect(manifest).to have_received(:participatory_spaces).once
       end
     end
   end

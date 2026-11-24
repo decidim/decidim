@@ -73,8 +73,8 @@ module Decidim
                           A: :body,
                           datetime: :created_at
                         },
-                        index_on_create: true,
-                        index_on_update: ->(comment) { comment.visible? })
+                        index_on_create: ->(comment) { comment.indexable_for_search? },
+                        index_on_update: ->(comment) { comment.indexable_for_search? })
 
       def self.searchable_arguments
         [:commentable, { root_commentable: { component: { participatory_space: :organization } } }, { author: [:avatar_attachment, :organization] }]
@@ -102,6 +102,16 @@ module Decidim
 
       def visible?
         participatory_space.try(:visible?) && component.try(:published?)
+      end
+
+      # The global search is not scoped to any user, so only comments that anyone can see are indexed.
+      # The root commentable's `visible?` covers its own, its component's and its space's visibility.
+      # This method is required in case comments are re-indexed, for example after a component is published or unpublished.
+      def indexable_for_search?
+        return false if deleted? || hidden?
+        return false unless root_commentable.try(:commentable?)
+
+        root_commentable.try(:visible?)
       end
 
       alias original_participatory_space participatory_space

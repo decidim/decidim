@@ -124,6 +124,61 @@ module Decidim
         end
       end
 
+      describe "#indexable_for_search?" do
+        subject { comment.indexable_for_search? }
+
+        let!(:commentable) { create(:dummy_resource, :published, component:) }
+
+        it { is_expected.to be_truthy }
+
+        context "when the comment is deleted" do
+          before { comment.update!(deleted_at: Time.current) }
+
+          it { is_expected.to be_falsey }
+
+          it "is removed from the search index" do
+            expect(comment.searchable_resources).to be_empty
+          end
+        end
+
+        context "when the comment is hidden" do
+          before do
+            create(:moderation, :hidden, reportable: comment)
+            comment.reload
+          end
+
+          it { is_expected.to be_falsey }
+        end
+
+        context "when comments are disabled in the component" do
+          before { component.update!(settings: { comments_enabled: false }) }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context "when the component is not published" do
+          before { component.unpublish! }
+
+          it { is_expected.to be_falsey }
+        end
+
+        context "when the root commentable is not published" do
+          let!(:commentable) { create(:dummy_resource, component:) }
+
+          it { is_expected.to be_falsey }
+
+          it "is not indexed on creation" do
+            expect(comment.searchable_resources).to be_empty
+          end
+        end
+
+        context "when the participatory space is not visible" do
+          before { component.participatory_space.unpublish! }
+
+          it { is_expected.to be_falsey }
+        end
+      end
+
       describe "#up_voted_by?" do
         let(:user) { create(:user, :confirmed, organization: comment.organization) }
 
