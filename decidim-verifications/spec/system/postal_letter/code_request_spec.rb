@@ -36,6 +36,11 @@ describe "Postal letter code request" do
 
     context "and getting it sent" do
       before do
+        # Wait for the letter request to be processed before switching users: the
+        # submission is asynchronous, and `relogin_as` only applies to the next
+        # request, which could still be the in-flight form submission.
+        expect(page).to have_text("Thanks! We will send a verification code to your address.")
+
         relogin_as admin, scope: :user
         visit decidim_admin_postal_letter.root_path
       end
