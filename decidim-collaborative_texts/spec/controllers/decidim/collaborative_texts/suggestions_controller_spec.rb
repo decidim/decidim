@@ -10,9 +10,10 @@ module Decidim
       let(:document) { build(:collaborative_text_document, :published, component:) }
       let!(:first_version) { create(:collaborative_text_version, document:) }
       let!(:second_version) { create(:collaborative_text_version, document:) }
+      let(:suggestion_authors) { create_list(:user, 2, :confirmed, organization: component.organization) }
       let!(:old_suggestion) { create(:collaborative_text_suggestion, document_version: first_version) }
-      let!(:suggestion1) { create(:collaborative_text_suggestion, document_version: document.current_version) }
-      let!(:suggestion2) { create(:collaborative_text_suggestion, document_version: document.current_version) }
+      let!(:suggestion1) { create(:collaborative_text_suggestion, document_version: document.current_version, author: suggestion_authors.first) }
+      let!(:suggestion2) { create(:collaborative_text_suggestion, document_version: document.current_version, author: suggestion_authors.last) }
 
       let(:params) do
         {
@@ -41,6 +42,23 @@ module Decidim
           expect(body.first["status"]).to eq(suggestion1.status)
           expect(body.first["type"]).to eq("replace")
           expect(body.first["createdAt"]).to be_present
+        end
+
+        it "eager loads the authors of the suggestions and their avatars" do
+          queries = []
+          callback = lambda do |_name, _start, _finish, _id, payload|
+            queries << payload[:sql] unless payload[:cached] || payload[:name] == "SCHEMA"
+          end
+
+          ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
+            get(:index, params:)
+          end
+
+          expect(response).to have_http_status(:ok)
+          expect(queries.grep(/FROM "decidim_users".*"id" IN \(/).size).to eq(1)
+          expect(queries.grep(/FROM "decidim_organizations"/).size).to eq(1)
+          expect(queries.grep(/FROM "active_storage_attachments".*"record_id" IN \(/).size).to eq(1)
+          expect(queries.grep(/FROM "active_storage_blobs".*"id" IN \(/).size).to eq(1)
         end
       end
 
