@@ -45,7 +45,8 @@ describe "User edit meeting" do
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: "Dummy title2"
-        first(".tiptap.ProseMirror").set(new_description)
+        expect(page).to have_css("#meeting_description .editor-container .ProseMirror")
+        fill_in_editor "meeting_description", with: new_description
         select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
         click_on "Update"
@@ -65,7 +66,11 @@ describe "User edit meeting" do
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: "Dummy title3"
-        new_description.length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+        expect(page).to have_css("#meeting_description .editor-container .ProseMirror")
+        clear_editor "meeting_description"
+
+        expect(find("#meeting_description input[name='meeting[description]']", visible: :all).value).to be_empty
+
         select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
         click_on "Update"
