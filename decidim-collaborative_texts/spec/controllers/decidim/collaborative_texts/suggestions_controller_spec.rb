@@ -66,6 +66,24 @@ module Decidim
           expect(uncached_queries.grep(/FROM "active_storage_attachments".*"record_id" IN \(/).size).to eq(1)
           expect(uncached_queries.grep(/FROM "active_storage_blobs".*"id" IN \(/).size).to eq(1)
         end
+
+        context "when a suggestion is authored by the organization" do
+          let!(:suggestion1) do
+            create(
+              :collaborative_text_suggestion,
+              document_version: document.current_version,
+              author: component.organization
+            )
+          end
+
+          it "renders the official author" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            official_suggestion = response.parsed_body.find { |item| item["id"] == suggestion1.id }
+            expect(official_suggestion["profileHtml"]).to include(I18n.t("decidim.author.official_author"))
+          end
+        end
       end
 
       describe "POST #create" do
