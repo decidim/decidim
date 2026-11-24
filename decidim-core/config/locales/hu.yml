@@ -29,7 +29,6 @@ hu:
         old_password: Jelenlegi jelszó
         password: Jelszó
         password_confirmation: Jelszó megerősítése
-        personal_url: Személyes URL
         remove_avatar: Avatár eltávolítása
         tos_agreement: A szolgáltatás felhasználási feltételei
     models:

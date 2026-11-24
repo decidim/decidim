@@ -34,9 +34,7 @@ describe Decidim::Budgets::Admin::CreateOrderReminders do
     let!(:order) { create(:order, budget:, created_at: 3.days.ago) }
 
     it "user will be reminded" do
-      expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
-      expect { command }.to broadcast(:ok, 1)
+      expect { command }.to broadcast(:ok, 1).and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
     end
 
     context "with reminder" do
@@ -46,9 +44,7 @@ describe Decidim::Budgets::Admin::CreateOrderReminders do
         let!(:reminder_delivery) { create(:reminder_delivery, reminder:) }
 
         it "user will not be reminded" do
-          expect(Decidim::Budgets::SendVoteReminderJob).not_to receive(:perform_later)
-
-          expect { command }.to broadcast(:ok, 0)
+          expect { command }.to broadcast(:ok, 0).and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob).exactly(0).times
         end
       end
 
@@ -56,9 +52,7 @@ describe Decidim::Budgets::Admin::CreateOrderReminders do
         let!(:reminder_delivery) { create(:reminder_delivery, reminder:, created_at: 2.days.ago) }
 
         it "user will be reminded" do
-          expect(Decidim::Budgets::SendVoteReminderJob).to receive(:perform_later)
-
-          expect { command }.to broadcast(:ok, 1)
+          expect { command }.to broadcast(:ok, 1).and have_enqueued_job(Decidim::Budgets::SendVoteReminderJob)
         end
       end
     end

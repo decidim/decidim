@@ -4,7 +4,7 @@
   </h1>
 </div>
 
-<%= translated_attribute(current_organization.id_documents_explanation_text).html_safe unless using_online? %>
+<%= decidim_sanitize_editor_admin(translated_attribute(current_organization.id_documents_explanation_text)) unless using_online? %>
 
 <%= decidim_form_for(@form, url: authorization_path) do |form| %>
       <%= render partial: "form", locals: { form: } %>

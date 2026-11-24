@@ -120,6 +120,7 @@ module Decidim
           end
 
           def questionnaire
+            # rubocop:disable-next Decidim/OrganizationScopedFinder -- questionnaire_for is scoped by the host controller
             @questionnaire ||= Questionnaire.includes(questions: [:display_conditions, :response_options]).find_by(questionnaire_for:)
           end
 

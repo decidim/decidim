@@ -1,7 +1,8 @@
-<tr data-assembly-id="<%= assembly.id %>" data-parent-id="<%= assembly.parent_id %>" data-level="<%= assembly.ancestors.count %>">
+<% depth = assembly_depth(assembly) %>
+<tr data-assembly-id="<%= assembly.id %>" data-parent-id="<%= assembly.parent_id %>" data-level="<%= depth %>">
   <td class="whitespace-nowrap" data-label="<%= t("models.assembly.fields.title", scope: "decidim.admin") %>">
     <% if parent_assembly_id %>
-      <% [assembly.ancestors.count - 1, 0].max.times do |index| %>
+      <% [depth - 1, 0].max.times do |index| %>
         <span class="px-3"></span>
       <% end %>
       <span class="px-3 text-xl text-secondary opacity-10">|</span>
@@ -21,7 +22,7 @@
       <% end %>
     </span>
 
-    <% if assembly.children.count.positive? %>
+    <% if parent_ids_with_children.include?(assembly.id) %>
       <%= link_to url_for(query_params_with(parent_id_eq: assembly.id)), remote: true, data: { arrow_down: true } do %>
         <%= icon "arrow-down-s-line", class: "w-4 h-4 ml-2" %>
       <% end %>

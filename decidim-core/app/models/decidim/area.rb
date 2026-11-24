@@ -20,6 +20,15 @@ module Decidim
                inverse_of: :areas,
                optional: true
 
+    # Reciprocal of the models that point to an area. `Decidim::ActionLog` records are not cascaded: they are
+    # the audit trail and `Decidim::ActionLog` raises `ActiveRecord::ReadOnlyRecord` on destroy, so a `dependent:`
+    # here would only bypass that guard.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs,
+             foreign_key: "decidim_area_id",
+             class_name: "Decidim::ActionLog",
+             inverse_of: :area
+
     validates :name, presence: true, uniqueness: { scope: [:organization, :area_type] }
 
     before_destroy :abort_if_dependencies

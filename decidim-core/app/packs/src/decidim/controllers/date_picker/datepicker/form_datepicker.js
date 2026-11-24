@@ -6,12 +6,28 @@ import { formatInputDate, formatInputTime } from "src/decidim/controllers/date_p
 import { getDictionary } from "src/decidim/refactor/moved/i18n";
 
 export default function formDatePicker(input) {
-
   const i18nDate = getDictionary("date.formats");
   const i18nDateHelp = getDictionary("date.formats.help");
   const i18nTime = getDictionary("time");
   const i18nTimeHelp = getDictionary("time.formats.help");
-  const formats = { order: i18nDate.order, separator: i18nDate.separator, time: i18nTime.clock_format || 24 }
+  /* eslint-disable dot-location */
+  // See: https://docs.ruby-lang.org/en/3.4/strftime_formatting_rdoc.html
+  const dateFormat = i18nDate.decidim_short
+    // Padding modifiers (removed, not supported by the date picker)
+    .replace(/%[0_-]/g, "%")
+    // Upcase modifier (removed, not supported by the date picker)
+    .replaceAll("%^", "%")
+    // Week-based year (converted to regular full year as it is not supported by the date picker)
+    .replace(/%[gG]/, "%Y")
+    // Shorthand conventions %D, %x, %F
+    .replace(/%[Dx]/, "%m/%d/%y")
+    .replace("%F", "%Y-%m-%d")
+    // VMS date (converted to day-month-year as it is not supported by the date picker)
+    .replace("%v", "%d-%m-%Y")
+  /* eslint-enable dot-location */
+  const dateOrder = dateFormat.replace("%Y", "y").replaceAll("%", "").replace(/[^A-Za-z]/g, "-");
+  const dateSeparator = (dateFormat.match(/([^%A-Za-z])/) || ["/"])[0];
+  const formats = { order: dateOrder, separator: dateSeparator, time: i18nTime.clock_format || 24 }
 
   if (!customElements.get("wc-datepicker")) {
     defineCustomElements();

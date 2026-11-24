@@ -25,6 +25,43 @@ module Decidim
             configuration = File.read(runtime_config_path)
             expect(configuration).to include(decidim_core_gem_path)
           end
+
+          it "requires the design tokens file" do
+            configuration = File.read(runtime_config_path)
+
+            expect(configuration).to include("designTokens")
+            expect(configuration).to include("tokens/tailwind.js")
+          end
+
+          it "uses design tokens for the font sizes" do
+            configuration = File.read(runtime_config_path)
+
+            expect(configuration).to include("fontSize: designTokens.fontSize")
+          end
+
+          it "uses design tokens for the spacing" do
+            configuration = File.read(runtime_config_path)
+
+            expect(configuration).to include("spacing: designTokens.spacing")
+          end
+
+          it "uses design tokens for the box shadows" do
+            configuration = File.read(runtime_config_path)
+
+            expect(configuration).to include("boxShadow: designTokens.boxShadow")
+          end
+
+          it "uses design tokens for the border radius" do
+            configuration = File.read(runtime_config_path)
+
+            expect(configuration).to include("borderRadius: designTokens.borderRadius")
+          end
+
+          it "uses design tokens for the screens" do
+            configuration = File.read(runtime_config_path)
+
+            expect(configuration).to include("screens: designTokens.screens")
+          end
         end
       end
     end

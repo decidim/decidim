@@ -83,6 +83,9 @@ describe Decidim::OpenDataExporter do
       let(:resource_file_name) { "taxonomies" }
       let(:resource_title) { "### taxonomies" }
       let!(:resource) { create(:taxonomy, organization:) }
+      let(:other_organization) { create(:organization) }
+      let!(:other_organization_taxonomy) { create(:taxonomy, organization: other_organization) }
+      let(:exported_ids) { CSV.parse(data, headers: true, col_sep: Decidim.default_csv_col_sep).map { |row| row["id"] } }
       let(:help_lines) do
         [
           "* id: The unique identifier of this taxonomy",
@@ -95,6 +98,11 @@ describe Decidim::OpenDataExporter do
       it "includes the resource data" do
         expect(data).to include(resource.id.to_s)
         expect(data).to include(resource.weight.to_s)
+      end
+
+      it "does not include taxonomies from other organizations" do
+        expect(exported_ids).to include(resource.id.to_s)
+        expect(exported_ids).not_to include(other_organization_taxonomy.id.to_s)
       end
     end
 
