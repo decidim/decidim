@@ -2,8 +2,13 @@
 
 ## 1. Upgrade notes
 
-NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, we recommend
-checking out the last version of this document in the [GitHub page for the releases of this branch](https://github.com/decidim/decidim/releases/).
+NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, you need to follow
+the instructions for all the patch releases in GitHub:
+
+- <https://github.com/decidim/decidim/releases/tag/v0.32.0>
+- <https://github.com/decidim/decidim/releases/tag/v0.32.1>
+- <https://github.com/decidim/decidim/releases/tag/v0.32.2>
+- <https://github.com/decidim/decidim/releases/tag/v0.32.3>
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
