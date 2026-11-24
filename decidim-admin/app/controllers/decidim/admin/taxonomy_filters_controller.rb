@@ -89,7 +89,7 @@ module Decidim
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= collection.find(params.expect(:id))
+        @taxonomy_filter ||= collection.find(params.require(:id))
       end
 
       def set_taxonomies_breadcrumb_item
