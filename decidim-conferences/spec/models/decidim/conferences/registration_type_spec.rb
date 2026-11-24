@@ -33,6 +33,25 @@ module Decidim
           expect(registration_type.conference).to eq registration_type.participatory_space
         end
       end
+
+      describe "#conference_invites" do
+        let(:registration_type) { create(:registration_type) }
+        let(:user) { create(:user, organization: registration_type.conference.organization) }
+
+        it "is the inverse of the invite registration type" do
+          invite = create(:conference_invite, registration_type:, conference: registration_type.conference, user:)
+
+          expect(registration_type.conference_invites).to contain_exactly(invite)
+        end
+
+        it "destroys the invites when the registration type is destroyed" do
+          create(:conference_invite, registration_type:, conference: registration_type.conference, user:)
+
+          registration_type.destroy!
+
+          expect(Decidim::Conferences::ConferenceInvite.where(registration_type:)).not_to exist
+        end
+      end
     end
   end
 end

@@ -28,6 +28,7 @@ module Decidim
     include ActiveStorage::SetCurrent
     include OnboardingActionMethods
     include EphemeralSessionChecker
+    include Decidim::UrlHelper
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -44,6 +45,7 @@ module Decidim
     helper Decidim::SocialShareButtonHelper
     helper Decidim::FiltersHelper
     helper Decidim::OnboardingActionHelper
+    helper Decidim::UrlHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,

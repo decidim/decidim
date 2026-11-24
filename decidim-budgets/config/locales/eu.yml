@@ -56,7 +56,7 @@ eu:
       decidim:
         budgets:
           project:
-            text: '%{link} aurrekontuari gehitu zaio'
+            text: 'Aurrekontu honi %{link} gehitu zaio'
       decidim/budgets/budget:
         one: Aurrekontua
         other: Aurrekontuak
