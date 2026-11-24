@@ -127,7 +127,11 @@ What to check when upgrading: if `DECIDIM_SYSTEM_ACCESSLIST_IPS` is set in produ
 
 You can read more about this change on PR [#17933](https://github.com/decidim/decidim/pull/17933).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.7. Meeting embed domains are no longer added automatically to the CSP
+
+The domains configured in `MEETINGS_EMBEDDABLE_SERVICES` are no longer appended automatically to the `frame-src` directive of the Content Security Policy when displaying a meeting or a live event. If you embed services in meetings, add their domains to `frame-src` through `Decidim.content_security_policies_extra` in the initializer or through the organization's System panel. Otherwise, the browser will block the embedded services.
+
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
