@@ -8,9 +8,6 @@ module Decidim
       layout "decidim/admin/settings"
 
       before_action :set_taxonomies_breadcrumb_item
-      before_action only: :edit do
-        redirect_to taxonomy_filters_path(root_taxonomy) unless taxonomy_filter && root_taxonomy == taxonomy_filter.root_taxonomy
-      end
 
       helper_method :collection, :root_taxonomy, :taxonomy_filter
 
@@ -92,7 +89,7 @@ module Decidim
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= collection.find_by(id: params[:id])
+        @taxonomy_filter ||= collection.find(params.require(:id))
       end
 
       def set_taxonomies_breadcrumb_item
