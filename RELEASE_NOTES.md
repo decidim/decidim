@@ -2,8 +2,13 @@
 
 ## 1. Upgrade notes
 
-NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, we recommend
-checking out the last version of this document in the [GitHub page for the releases of this branch](https://github.com/decidim/decidim/releases/).
+NOTE: This is the draft for the releases notes. If you are an implementer or someone that is upgrading a Decidim installation, you need to follow
+the instructions for all the patch releases in GitHub:
+
+- <https://github.com/decidim/decidim/releases/tag/v0.32.0>
+- <https://github.com/decidim/decidim/releases/tag/v0.32.1>
+- <https://github.com/decidim/decidim/releases/tag/v0.32.2>
+- <https://github.com/decidim/decidim/releases/tag/v0.32.3>
 
 As usual, we recommend that you have a full backup, of the database, application code and static files.
 
@@ -42,23 +47,7 @@ bin/rails data:migrate
 
 ## 2. General notes
 
-### 2.1. Verification code security hardening
-
-The verification code confirmation flow has been enhanced with multiple security improvements. Failed attempt tracking has been moved from client-side session to server-side database storage, with three layers of protection:
-
-1. **Server-side failed attempt tracking**: Failed attempts are now tracked in the database with automatic lockout after 5 failed attempts (configurable via `DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS`) and automatic unlock after 30 minutes (configurable via `DECIDIM_VERIFICATION_UNLOCK_IN`).
-
-2. **Code expiration**: SMS verification codes now expire after 10 minutes (configurable via `DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES`), reducing the window of opportunity for unauthorized access.
-
-3. **HTTP-level rate limiting**: Rack::Attack now throttles verification confirmation endpoints to 10 requests per minute per IP.
-
-Server-side failed attempt tracking applies to all verification handlers (SMS, postal letter, ID documents, CSV census). Code expiration applies only to SMS verification. HTTP-level rate limiting applies only to SMS and postal letter authorization paths.
-
-We strongly recommend that implementers review any custom authorization handlers for code that may still rely on the old session-based attempt tracking patterns, which have been replaced by the new server-side mechanism.
-
-You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
-
-### 2.2. [[TITLE OF THE ACTION]]
+### 2.1. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
