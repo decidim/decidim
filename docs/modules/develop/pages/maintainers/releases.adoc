@@ -30,7 +30,7 @@ decidim-releaser --github-token=$(gh auth token) --version-type=rc
 .. Another for creating the new release in the stable branch with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
 During this process you will have the instructions on how to follow with the process in the command line. One of the tasks is updating Crowdin, you can read more about this in the "Create the stable branch in Crowdin" section of this page.
 . Review, accept and merge the Pull Request.
-. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
+. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems. As this is a release candidate, the NPM packages are automatically published with the `next` tag.
 . Once all the gems are published:
 .. Re-run the failed generators tests at the release branch.
 .. Always check if there are any pending security CVEs that need to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
