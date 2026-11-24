@@ -91,7 +91,7 @@ describe "Conference speakers" do
           click_link_or_button "Publish"
         end
 
-        expect(page).to have_callout("Conference speaker successfully published.")
+        expect(page).to have_admin_callout("Conference speaker successfully published.")
 
         visit decidim_conferences.conference_conference_speakers_path(conference)
 
