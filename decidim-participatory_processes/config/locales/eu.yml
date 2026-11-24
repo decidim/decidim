@@ -284,6 +284,7 @@ eu:
         activate: "%{user_name} parte-hartzaileak %{resource_name} urratsa aktibatu du %{space_name} partaidetza-prozesuan"
         create: "%{user_name} parte-hartzaileak %{resource_name} fasea lortu du %{space_name} partaidetza-prozesuan"
         delete: "%{user_name} parte-hartzaileak %{resource_name} fasea ezabatu du %{space_name} partaidetza-prozesuan"
+        system_activate: '%{resource_name} fasea automatikoki aktibatu zen %{space_name} prozesu parte-hartzailean.'
         update: "%{user_name} parte-hartzaileak %{resource_name} fasea eguneratu du %{space_name} partaidetza-prozesuan"
       participatory_process_user_role:
         create: "%{user_name} parte-hartzaileak %{resource_name} parte-hartzailea gonbidatu du %{space_name} partaidetza-prozesura"

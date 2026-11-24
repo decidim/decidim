@@ -73,6 +73,7 @@ module Decidim
 
           if form.states.present?
             if form.states.include?("not_answered")
+              # rubocop:disable-next Decidim/OrganizationScopedFinder -- proposals is scoped to origin_component above
               proposals.not_answered.or(proposals.where(id: proposals.only_status(form.states).pluck(:id)))
             else
               proposals.only_status(form.states)

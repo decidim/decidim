@@ -134,6 +134,7 @@ cs:
           section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
           section_p_code_html: Základní rozložení můžete najít v %{link_section_code}
           section_p_desktop: Souřadnicová síť pro desktop se skládá z 12 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 48px
+          section_p_mobile: Mobilní systém rámců se skládá ze 4 roztažitelných sloupců s mezerou mezi sloupci 16px a prostorem vlevo a vpravo 16px.
           section_p_tablet: Souřadnicová síť pro tablet je složena z 8 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 24px
           tablet: Tablet
           title: Rozložení

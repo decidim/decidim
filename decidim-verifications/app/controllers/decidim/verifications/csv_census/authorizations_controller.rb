@@ -35,6 +35,7 @@ module Decidim
         end
 
         def load_authorization
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to current_organization
           @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "csv_census"

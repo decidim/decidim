@@ -9,7 +9,8 @@ module Decidim
 
       # Initializes a UnpublishResponses Command.
       #
-      def initialize(question_id, current_user)
+      def initialize(questionnaire, question_id, current_user)
+        @questionnaire = questionnaire
         @question_id = question_id
         @current_user = current_user
       end
@@ -30,14 +31,14 @@ module Decidim
 
       private
 
-      attr_reader :question_id, :current_user
+      attr_reader :questionnaire, :question_id, :current_user
 
       def unpublish_survey_response
         question.update(survey_responses_published_at: nil)
       end
 
       def question
-        Decidim::Forms::Question.find(question_id)
+        questionnaire.questions.find(question_id)
       end
 
       def create_action_log
