@@ -35,6 +35,7 @@ module Decidim
         @form = form(manifest.component_form_class).from_params(component_params)
         enforce_permission_to :create, :component
 
+        ctrl = self
         CreateComponent.call(@form) do
           on(:ok) do
             if (landing_page_path = participatory_space_landing_page_path(resource)).present?
@@ -54,6 +55,7 @@ module Decidim
               participatory_space: @form.participatory_space,
               settings: @form.settings
             )
+            ctrl.instance_variable_set(:@component, @component)
             render action: "new", status: :unprocessable_content
           end
         end

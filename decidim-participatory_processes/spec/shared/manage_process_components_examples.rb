@@ -166,6 +166,11 @@ shared_examples "manage process components" do
     end
 
     context "when there is an error on the form" do
+      let(:root_taxonomy) { create(:taxonomy, organization: participatory_process.organization) }
+      let!(:taxonomy_filter) do
+        create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_process.manifest.name])
+      end
+
       it "displays the error page" do
         find("button[data-target=add-component-dropdown]").click
 
