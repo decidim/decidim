@@ -1596,8 +1596,8 @@ describe "Editor" do
   # before the natural dimensions are known, and the pending node view
   # initialization updates may reset the width set by the drag.
   def wait_for_image_resizer
-    expect(page).to have_css("[data-image-resizer-dimension-value='#{width}']", visible: :all)
-    expect(page).to have_css("[data-image-resizer-dimension-value='#{height}']", visible: :all)
+    expect(page).to have_css("[data-image-resizer-dimension-value='#{dimensions[0]}']", visible: :all)
+    expect(page).to have_css("[data-image-resizer-dimension-value='#{dimensions[1]}']", visible: :all)
     expect(page).to have_no_css("#{prosemirror_selector} .editor-content-image img[width]", visible: :all)
   end
 
