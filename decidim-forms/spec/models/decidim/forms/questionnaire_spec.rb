@@ -50,6 +50,11 @@ module Decidim
           create(:response, questionnaire:)
           expect(subject.reload).not_to be_questions_editable
         end
+
+        it "returns false when a submission exists" do
+          create(:submission, questionnaire:)
+          expect(subject.reload).not_to be_questions_editable
+        end
       end
 
       describe "#responded_by?" do
@@ -63,6 +68,30 @@ module Decidim
         it "returns true if the given user has responded the questionnaire" do
           create(:response, questionnaire:, question:, user:)
           expect(questionnaire).to be_responded_by(user)
+        end
+
+        it "returns true if the given session token has submitted the questionnaire" do
+          create(:submission, questionnaire:, user: nil, session_token: "anon")
+          expect(questionnaire).to be_responded_by("anon")
+        end
+      end
+
+      describe "#submission_for" do
+        let(:user) { create(:user, organization: questionable.organization) }
+
+        it "returns the latest submission of a user" do
+          create(:submission, questionnaire:, user:, session_token: "legacy", created_at: 2.days.ago)
+          latest = create(:submission, questionnaire:, user:, session_token: "current")
+          expect(questionnaire.submission_for(user:, session_token: "anything")).to eq(latest)
+        end
+
+        it "returns the anonymous submission by session token" do
+          submission = create(:submission, questionnaire:, user: nil, session_token: "anon")
+          expect(questionnaire.submission_for(user: nil, session_token: "anon")).to eq(submission)
+        end
+
+        it "returns nil when nothing was submitted" do
+          expect(questionnaire.submission_for(user:, session_token: "anon")).to be_nil
         end
       end
 

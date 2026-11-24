@@ -3,19 +3,19 @@
 module Decidim
   module Surveys
     module Admin
-      # This command is executed when the user deletes all the responses of a survey
+      # This command is executed when the user deletes all the submissions of a survey
       # from the admin panel.
-      class DeleteSurveyResponses < Decidim::Command
-        # Initializes a DeleteSurveyResponses Command.
+      class DeleteSurveySubmissions < Decidim::Command
+        # Initializes a DeleteSurveySubmissions Command.
         #
-        # survey - The current instance of the survey whose responses will be deleted.
+        # survey - The current instance of the survey whose submissions will be deleted.
         # current_user - the user performing the action
         def initialize(survey, current_user)
           @survey = survey
           @current_user = current_user
         end
 
-        # Deletes all the survey responses.
+        # Deletes all the survey submissions.
         #
         # Broadcasts :ok if successful.
         def call
@@ -26,7 +26,7 @@ module Decidim
             questionnaire,
             current_user
           ) do
-            questionnaire.responses.destroy_all
+            questionnaire.submissions.find_each(&:destroy)
           end
 
           broadcast(:ok)

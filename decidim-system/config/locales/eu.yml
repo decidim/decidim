@@ -129,7 +129,7 @@ eu:
             did_not_receive_confirmation_instructions?: Ez duzu baieztatzeko jarraibiderik jaso?
             did_not_receive_unlock_instructions?: Ez duzu desblokeatzeko jarraibiderik jaso?
             forgot_your_password?: Pasahitza ahaztu duzu?
-            log_in: Hasi saioa
+            log_in: Saioa hasi
             sign_up: Kontu bat sortu
       menu:
         admins: Administratzaileak

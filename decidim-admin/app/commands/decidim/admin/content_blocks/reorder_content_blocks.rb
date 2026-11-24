@@ -79,7 +79,6 @@ module Decidim
         end
 
         def collection
-          # rubocop:disable-next Decidim/OrganizationScopedFinder -- ContentBlock.for_scope scopes by the given organization
           @collection ||= Decidim::ContentBlock.for_scope(scope, organization:).where(scoped_resource_id:)
         end
       end

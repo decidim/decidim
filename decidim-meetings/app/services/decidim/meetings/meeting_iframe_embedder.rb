@@ -8,6 +8,10 @@ module Decidim
     # in the live event. For some services it is required to transform a bit
     # the structure of the URL.
     class MeetingIframeEmbedder
+      # Hosts for which a single leading "www." or "m." prefix is stripped when
+      # normalizing hostnames.
+      PREFIX_STRIPPABLE_HOSTS = %w(youtube.com twitch.tv).freeze
+
       # Public: Initializes the service.
       # online_meeting_service_url - A String containing the url of the online meeting
       def initialize(online_meeting_service_url)
@@ -17,10 +21,10 @@ module Decidim
       def embed_transformed_url(request_host)
         return nil if parsed_online_meeting_uri.nil?
 
-        case parsed_online_meeting_uri.host
-        when "www.youtube.com"
+        case normalized_hostname
+        when "youtube.com"
           transform_youtube_url(parsed_online_meeting_uri)
-        when "www.twitch.tv"
+        when "twitch.tv"
           transform_twitch_url(parsed_online_meeting_uri, request_host)
         else
           online_meeting_service_url
@@ -30,7 +34,7 @@ module Decidim
       def embeddable?
         return nil if parsed_online_meeting_uri.nil?
 
-        embeddable_services.include?(parsed_online_meeting_uri.host)
+        normalized_embeddable_services.include?(normalized_hostname)
       end
 
       def embed_code(request_host)
@@ -53,6 +57,24 @@ module Decidim
 
       def embeddable_services
         @embeddable_services ||= Meetings.embeddable_services
+      end
+
+      def normalized_embeddable_services
+        @normalized_embeddable_services ||= embeddable_services.map { |service| normalize_hostname(service) }
+      end
+
+      def normalized_hostname
+        @normalized_hostname ||= normalize_hostname(parsed_online_meeting_uri.host)
+      end
+
+      # Strips a single leading "www." or "m." only when the remaining host is
+      # youtube.com or twitch.tv. Any other host is returned unchanged so that
+      # it is matched exactly. Only one prefix is removed so that multi-prefix
+      # hosts (e.g. "www.m.youtube.com") are not considered equivalent.
+      def normalize_hostname(hostname)
+        stripped_hostname = hostname.to_s.sub(/\A(?:www|m)\./, "")
+
+        PREFIX_STRIPPABLE_HOSTS.include?(stripped_hostname) ? stripped_hostname : hostname.to_s
       end
 
       # YouTube transformation consists on:
