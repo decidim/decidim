@@ -78,7 +78,7 @@ decidim-releaser --github-token=$(gh auth token) --version-type=minor
 ----
 . Wait for the tests to finish and check that everything is passing before releasing the version.
 NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
-. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems. As this is the newest stable line, the NPM packages are published with the default `latest` tag, so no `NPM_TAG` is needed for new minor versions.
+. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems. As this is the newest stable line, the NPM packages are automatically published with the `latest` tag.
 . Once all the gems are published:
 .. Re-run the failed generators tests at the release branch.
 .. Always check if there are any pending security CVEs that needs to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
@@ -102,7 +102,7 @@ After you commit this change in `develop` branch you will have to wait a couple 
 Releasing new versions from a *_release/x.y-stable_* branch is quite easy.
 The process is very similar from releasing a new Decidim version:
 
-NOTE: By default, the NPM packages are published with the `latest` tag. If you are releasing from a maintenance branch that has been superseded by a newer minor version (that is, it is not the newest stable line), you must publish them with a version-specific tag instead by setting `NPM_TAG=release-x.y`, for instance `NPM_TAG=release-0.31 bin/rake release_all`. For the newest stable line, run `bin/rake release_all` without `NPM_TAG` so that the packages keep the default `latest` tag.
+NOTE: The NPM packages are automatically published with a tag inferred from the release version. Prerelease versions use `next`, while stable versions use `latest` when they are equal to or newer than the latest stable version published on RubyGems, and `release-x.y` (for instance `release-0.31`) for older stable lines. You can override the inferred tag with `NPM_TAG`, for example `NPM_TAG=release-0.31 bin/rake release_all`.
 
 . Merge all the https://github.com/decidim/decidim/pulls?q=is%3Apr+is%3Aopen+author%3Adecidim-bot+sort%3Aupdated-desc[Crowdin pull requests created by the user `decidim-bot`], specially the one that is going to be merged against the release branch `release/x.y-stable` that should be returned by the provided example search (pick the correct pull request for the release from the results).
 . Make sure that there are no more PRs to backport. Learn more about xref:develop:backports.adoc[Backports].
@@ -116,7 +116,7 @@ decidim-releaser --github-token=$(gh auth token) --version-type=patch
 . This will create a Pull Request for the new release with title `Bump to vx.y.z version`. Wait for the tests to finish and check that everything is passing before releasing the version.
 NOTE: When you bump the version, the generator tests will fail because the gems and NPM packages have not been actually published yet (as in sent to rubygems/npm). You may see errors such as `No matching version found for @decidim/browserslist-config@~0.xx.y` in the CI logs. This should be fine as long as you have ensured that the generators tests passed in the previous commit.
 . Review, accept and merge the Pull Request.
-. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems.
+. Run `git pull && bin/rake release_all`, this will create all the tags, push the commits and tags and release the gems to RubyGems. Be ready for the One Time Password fill for each of the gems. The NPM tag is inferred automatically as explained above, so no `NPM_TAG` is needed unless you want to override it.
 . Once all the gems are published:
 .. Re-run the failed generators tests at the release branch.
 .. Always check if there are any pending security CVEs that needs to be published. If there are, then follow the instructions in the xref:develop:maintainers/security.adoc[Security] page.
