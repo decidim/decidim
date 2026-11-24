@@ -90,9 +90,10 @@ module Decidim
         context "when editing a filter with a different root taxonomy" do
           let(:another_root_taxonomy) { create(:taxonomy, organization:) }
 
-          it "redirects to the root" do
-            get :edit, params: { taxonomy_id: another_root_taxonomy.id, id: taxonomy_filter.id }
-            expect(response).to redirect_to(taxonomy_filters_path(another_root_taxonomy))
+          it "raises not found" do
+            expect do
+              get :edit, params: { taxonomy_id: another_root_taxonomy.id, id: taxonomy_filter.id }
+            end.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
 
