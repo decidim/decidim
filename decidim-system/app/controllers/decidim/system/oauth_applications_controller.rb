@@ -70,8 +70,8 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:error] = I18n.t("oauth_applications.destroy.error", scope: "decidim.system")
-            redirect_to :back
+            flash[:error] = I18n.t("oauth_applications.destroy.error", scope: "decidim.system")
+            redirect_back_or_to(oauth_applications_path)
           end
         end
       end
