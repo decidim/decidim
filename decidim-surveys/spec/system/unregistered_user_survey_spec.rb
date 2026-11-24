@@ -33,8 +33,6 @@ describe "Respond a survey" do
   context "when the survey does not allow responses" do
     it "does not allow responding the survey" do
       visit_component
-      choose "All"
-      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -52,7 +50,7 @@ describe "Respond a survey" do
       survey.update!(allow_responses: true, allow_unregistered: true)
     end
 
-    # rubocop:disable Naming/VariableNumber
+    # rubocop:disable-next Naming/VariableNumber
     context "when survey allows editing" do
       let(:question_description) do
         {
@@ -77,7 +75,6 @@ describe "Respond a survey" do
 
       before do
         visit_component
-        click_on translated_attribute(questionnaire.title)
 
         fill_in :questionnaire_responses_0, with: "My first response"
         check "questionnaire_tos_agreement"
@@ -93,11 +90,9 @@ describe "Respond a survey" do
         expect(page).to have_text("Already responded")
       end
     end
-    # rubocop:enable Naming/VariableNumber
 
     it "allows responding the questionnaire" do
       visit_component
-      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -121,7 +116,6 @@ describe "Respond a survey" do
     context "and honeypot is filled" do
       it "fails with spam complain" do
         visit_component
-        click_on translated_attribute(questionnaire.title)
         fill_in question.body["en"], with: "My first response"
         fill_in "honeypot_id", with: "I am a robot"
 
@@ -136,7 +130,7 @@ describe "Respond a survey" do
     end
 
     def questionnaire_public_path
-      main_component_path(component)
+      Decidim::EngineRouter.main_proxy(component).survey_path(survey)
     end
   end
 end

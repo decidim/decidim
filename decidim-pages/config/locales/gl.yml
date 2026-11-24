@@ -16,6 +16,17 @@ gl:
             announcement: Anuncio
           step:
             announcement: Anuncio
+    open_data:
+      help:
+        pages:
+          body: O corpo da páxina
+          component: O compoñente ao que pertence a páxina
+          created_at: A data na que se creou esta páxina
+          id: O identificador único desta páxina
+          participatory_space: O espazo ao que pertence esta páxina (por exemplo, un proceso participativo ou unha asemblea)
+          title: O título da páxina
+          updated_at: A última data na que se actualizou esta páxina
+          url: O URL desta páxina
     pages:
       admin:
         models:
@@ -23,8 +34,12 @@ gl:
             body: Corpo
         pages:
           edit:
+            add_attachments: Engadir anexos
+            edit_attachments: Editar anexos
             save: Actualización
             title: Editar páxina
           update:
             invalid: Produciuse un erro ao gardar a páxina.
             success: A páxina gardouse correctamente.
+      show:
+        empty: Aínda non hai contidos nesta páxina.

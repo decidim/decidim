@@ -191,7 +191,7 @@ module Decidim
       it "includes the current locale by default" do
         allow(I18n).to receive(:locale).and_return(:en)
 
-        expect(controller.default_url_options).to eq(locale: "en")
+        expect(controller.send(:default_url_options)).to eq(locale: "en")
       end
 
       context "when request script_name already includes locale" do
@@ -200,7 +200,7 @@ module Decidim
         end
 
         it "does not inject locale again" do
-          expect(controller.default_url_options).to eq({})
+          expect(controller.send(:default_url_options)).to eq({})
         end
       end
     end

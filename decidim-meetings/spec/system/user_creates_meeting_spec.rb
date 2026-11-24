@@ -127,7 +127,7 @@ describe "User creates meeting" do
         let(:meeting_address) { "Some address" }
         let(:latitude) { 40.1234 }
         let(:longitude) { 2.1234 }
-        let(:base_date) { Time.new.utc }
+        let(:base_date) { Time.now.utc }
         let(:meeting_start_date) { base_date.strftime("%d/%m/%Y") }
         let(:start_month) { base_date.strftime("%b") }
         let(:start_day) { base_date.day }
@@ -224,8 +224,8 @@ describe "User creates meeting" do
           expect(page).to have_text("#{start_month.upcase}\n-\n#{end_month.upcase}")
           expect(page).to have_text(start_day)
           expect(page).to have_text(end_day)
-          expect(page).to have_text(meeting_start_time)
-          expect(page).to have_text(meeting_end_time)
+          expect(page).to have_text(base_date.strftime("%H:%M"))
+          expect(page).to have_text((base_date + 4.hours).strftime("%H:%M"))
           expect(page).to have_css("[data-author]", text: user.name)
 
           visit decidim.last_activities_path

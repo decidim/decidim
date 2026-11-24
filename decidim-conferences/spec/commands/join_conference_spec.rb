@@ -46,6 +46,17 @@ module Decidim::Conferences
         expect(last_registration.conference).to eq(conference)
       end
 
+      it "locks the registration type before creating the registration, matching Admin::DestroyRegistrationType" do
+        queries = capture_queries { subject.call }
+
+        lock = queries.index { |sql| sql.include?("FOR UPDATE") && sql.include?("decidim_conferences_registration_types") }
+        insert = queries.index { |sql| sql.include?("INSERT INTO \"decidim_conferences_conference_registrations\"") }
+
+        expect(lock).not_to be_nil
+        expect(insert).not_to be_nil
+        expect(lock).to be < insert
+      end
+
       it "sends an email with the pending validation" do
         perform_enqueued_jobs { subject.call }
 
@@ -165,6 +176,15 @@ module Decidim::Conferences
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
+    end
+
+    def capture_queries
+      queries = []
+      subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") { |_, _, _, _, data| queries << data[:sql] }
+      yield
+      queries
+    ensure
+      ActiveSupport::Notifications.unsubscribe(subscriber)
     end
   end
 end

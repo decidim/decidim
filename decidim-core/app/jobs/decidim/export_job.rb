@@ -7,7 +7,7 @@ module Decidim
 
     queue_as :exports
 
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def perform(user, component, name, format, resource_id = nil, filters = nil)
       export_manifest = component.manifest.export_manifests.find do |manifest|
         manifest.name == name.to_sym
@@ -23,6 +23,5 @@ module Decidim
 
       ExportMailer.export(user, private_export).deliver_later
     end
-    # rubocop:enable Metrics/ParameterLists
   end
 end

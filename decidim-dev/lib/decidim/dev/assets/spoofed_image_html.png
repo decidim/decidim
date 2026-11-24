@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html>
+<head><title>Not an image</title></head>
+<body><script>alert("xss");</script></body>
+</html>

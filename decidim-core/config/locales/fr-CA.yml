@@ -43,7 +43,6 @@ fr-CA:
         old_password: Mot de passe actuel
         password: Mot de passe
         password_confirmation: Confirmez votre mot de passe
-        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         tos_agreement: Conditions d'utilisation
     errors:
@@ -102,8 +101,6 @@ fr-CA:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: jj/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -236,6 +233,7 @@ fr-CA:
         create: "%{user_name} a ajouté la fonctionnalité %{resource_name} à l'espace %{space_name}"
         delete: "%{user_name} a supprimé la fonctionnalité %{resource_name} de l'espace %{space_name}"
         export_component: "%{user_name} a exporté le %{resource_name} %{component_name} dans %{space_name} en tant que %{format_name}"
+        menu_hidden: "%{user_name} a masqué le composant %{resource_name} du menu dans l'espace %{space_name}"
         publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         restore: "%{user_name} a restauré la fonctionnalité %{resource_name} dans l'espace %{space_name}"
         unpublish: "%{user_name} a dépublié la fonctionnalité %{resource_name} de l'espace %{space_name}"
@@ -764,6 +762,8 @@ fr-CA:
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
+        file_contains_unsafe_content: Le fichier contient du contenu dangereux
+        file_is_not_a_valid_image: Le fichier n’est pas une image valide
         file_resolution_too_large: La résolution du fichier est trop grande
         not_inside_organization: Le fichier n'est attaché à aucune organisation.
       internal_server_error:
@@ -2092,6 +2092,7 @@ fr-CA:
       close: Fermer
       reset: Réinitialiser
       select: Sélectionner
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2100,6 +2101,8 @@ fr-CA:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%d %B %Y %H h %M min %S s"
       devise:
@@ -2113,7 +2116,8 @@ fr-CA:
       long_with_particles: "%d %B %Y à %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%H:%M %Z"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Suppressions

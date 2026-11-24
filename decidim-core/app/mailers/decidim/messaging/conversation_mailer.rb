@@ -9,7 +9,7 @@ module Decidim
 
       private
 
-      # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable-next Metrics/ParameterLists
       def send_notification(from:, to:, conversation:, action:, message: nil, third_party: nil)
         with_user(to) do
           @organization = to.organization
@@ -24,7 +24,6 @@ module Decidim
           mail(to: to.email, subject:)
         end
       end
-      # rubocop:enable Metrics/ParameterLists
     end
   end
 end

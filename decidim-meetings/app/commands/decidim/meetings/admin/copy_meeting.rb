@@ -38,14 +38,13 @@ module Decidim
         attr_reader :form, :meeting, :copied_meeting
 
         def copy_meeting!
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: meeting.organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse(form.description, current_organization: meeting.organization).rewrite
 
           @copied_meeting = Decidim.traceability.create!(
             Meeting,
             form.current_user,
             taxonomizations: form.taxonomizations,
-            title: parsed_title,
+            title: form.title,
             description: parsed_description,
             end_time: form.end_time,
             start_time: form.start_time,

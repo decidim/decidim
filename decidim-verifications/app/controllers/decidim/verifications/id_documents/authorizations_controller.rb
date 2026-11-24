@@ -14,6 +14,8 @@ module Decidim
         before_action :load_authorization
 
         def choose
+          enforce_permission_to :create, :authorization, authorization: @authorization
+
           url_params = { redirect_url: }.compact
 
           return redirect_to(action: :new, **url_params.merge(using: verification_type)) if available_methods.count == 1
@@ -84,6 +86,7 @@ module Decidim
         end
 
         def load_authorization
+          # rubocop:disable-next Decidim/OrganizationScopedFinder -- user is current_user, scoped to current_organization
           @authorization = Decidim::Authorization.find_or_initialize_by(
             user: current_user,
             name: "id_documents"

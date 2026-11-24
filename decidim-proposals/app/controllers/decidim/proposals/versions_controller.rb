@@ -7,6 +7,8 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ResourceVersionsConcern
 
+      private
+
       def versioned_resource
         @versioned_resource ||= Proposal.not_hidden.published.where(component: current_component).find(params.expect(:proposal_id))
       end

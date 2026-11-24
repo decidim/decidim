@@ -45,7 +45,6 @@ sk:
             allow_unregistered: Povoliť neregistrovaným používateľom odpovedať na prieskum
             allow_unregistered_help: Ak je táto možnosť aktívna, na odpovedanie na prieskum nebude potrebné prihlásenie. To môže viesť k nekvalitným alebo nespoľahlivým údajom a bude to zraniteľnejšie voči automatizovaným útokom. Používajte opatrne! Majte na pamäti, že účastník môže na ten istý prieskum odpovedať viackrát pomocou rôznych prehliadačov alebo funkcie „súkromné prehliadanie“ vo svojom webovom prehliadači.
             announcement: Oznámenie
-            clean_after_publish: Vymazať odpovede pri zverejnení prieskumu
             description: Popis
             ends_at: Odpovede prijímané do
             ends_at_help: Ponechajte prázdne, ak nie je určený konkrétny dátum
@@ -153,6 +152,7 @@ sk:
           publish_responses: "%{user_name} zverejnil/a odpovede na otázku %{resource_name} v priestore %{space_name}"
           unpublish_responses: "%{user_name} zrušil/a zverejnenie odpovedí na otázku %{resource_name} v priestore %{space_name}"
         questionnaire:
+          delete_all_responses: "%{user_name} odstránil/a odpovede dotazníka %{resource_name} v priestore %{space_name}"
           update: "%{user_name} aktualizoval/a dotazník %{resource_name}"
       errors:
         response:

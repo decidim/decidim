@@ -2,7 +2,7 @@
 
 module Decidim
   module Elections
-    class ElectionsController < ApplicationController
+    class ElectionsController < Decidim::Elections::ApplicationController
       include Decidim::ApplicationHelper
       include Decidim::AttachmentsHelper
       include Decidim::FilterResource
@@ -11,9 +11,17 @@ module Decidim
 
       helper_method :elections, :election, :tab_panel_items, :questions, :paginated_elections
 
-      def index; end
+      def index
+        enforce_permission_to :read, :election
+
+        redirect_to Decidim::EngineRouter.main_proxy(current_component).election_path(single_election, share_token: params[:share_token].presence) if single_election?
+      end
 
       def show
+        raise ActionController::RoutingError, "Not Found" unless election
+
+        enforce_permission_to(:read, :election, election:)
+
         respond_to do |format|
           format.html { render :show }
 
@@ -35,6 +43,18 @@ module Decidim
 
       def questions
         @questions ||= election.questions.includes(:response_options)
+      end
+
+      def single_election?
+        request.format.html? && published_elections.one?
+      end
+
+      def single_election
+        published_elections.first
+      end
+
+      def published_elections
+        @published_elections ||= available_elections.published
       end
 
       def search_collection

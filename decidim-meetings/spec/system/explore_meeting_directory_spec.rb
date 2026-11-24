@@ -36,7 +36,7 @@ describe "Explore meeting directory" do
       visit directory
 
       within "#panel-dropdown-menu-date" do
-        expect(find("input[value='upcoming']", visible: false).checked?).to be(true)
+        expect(find("input[value='upcoming']", visible: :all).checked?).to be(true)
       end
 
       within "#meetings" do

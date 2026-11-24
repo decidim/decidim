@@ -96,12 +96,12 @@ describe "Autocomplete multiselect" do
 
       describe "select one participant" do
         it "shows selected participant and creates hidden input" do
-          find("input[type='text']").fill_in with: participant.name.slice(0..2)
+          find_field(type: "text").fill_in with: participant.name.slice(0..2)
           find(".autoComplete_wrapper ul#autoComplete_list_1 li", match: :first, wait: 2).click
           expect(page).to have_text(participant.name)
-          hidden_input = find("input[type='hidden']", visible: false)
+          hidden_input = find("input[type='hidden']", visible: :all)
           expect(hidden_input.value).to eq(participant.id.to_s)
-          text_input = find("input[type='text']")
+          text_input = find_field(type: "text")
           expect(text_input.value).to eq("")
         end
       end

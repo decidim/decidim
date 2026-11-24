@@ -1,0 +1,8 @@
+<!-- A document whose style sheet and presentation attributes reference resources
+     resolved against the document itself: the "image()" function with a relative
+     path, and the color profile declared as a name and as a fragment. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <style>circle { fill: #000; background-image: image("logo.png"); color-profile: url(#profile); }</style>
+  <defs><iccProfile id="profile"/></defs>
+  <circle cx="8" cy="8" r="8" color-profile="sRGB"/>
+</svg>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A document with an unclosed element, which is not a well formed XML
+     document, so it is rejected instead of recovered. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <g>
+    <circle cx="8" cy="8" r="8"/>
+</svg>

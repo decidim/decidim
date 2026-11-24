@@ -7,6 +7,8 @@ module Decidim
         include Concerns::AssemblyAdmin
         include Decidim::Admin::ParticipatorySpaceExport
 
+        protected
+
         def exportable_space
           current_assembly
         end

@@ -51,6 +51,19 @@ describe Decidim::Meetings::Permissions do
     it_behaves_like "permission is not set"
   end
 
+  context "when reading a meeting" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :meeting }
+    end
+
+    context "when listing meetings without a specific meeting" do
+      let(:meeting) { nil }
+      let(:question) { nil }
+
+      it { is_expected.to be true }
+    end
+  end
+
   context "when responding a question" do
     let(:action) do
       { scope: :public, action: :create, subject: :response }

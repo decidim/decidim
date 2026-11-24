@@ -57,6 +57,10 @@ shared_examples "manage impersonations examples" do
 
     it_behaves_like "impersonating a user" do
       let(:impersonated_user) { Decidim::User.managed.last }
+
+      before do
+        expect(page).to have_callout("The managed participant has been successfully created.")
+      end
     end
   end
 
@@ -133,6 +137,7 @@ shared_examples "manage impersonations examples" do
     end
 
     it "redirects normally when session expires while reload" do
+      expect(page).to have_current_path(decidim.root_path)
       expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
       travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes / 2
       visit current_path
@@ -340,7 +345,7 @@ shared_examples "manage impersonations examples" do
       fill_in(:impersonate_user_reason, with: reason) if reason
       fill_in :impersonate_user_authorization_document_number, with: document_number
       fill_in :impersonate_user_authorization_postal_code, with: "08224"
-      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.new.utc.strftime("%d/%m/%Y")
+      fill_in_datepicker :impersonate_user_authorization_birthday_date, with: Time.now.utc.strftime("%d/%m/%Y")
     end
 
     within "[data-content]" do
@@ -359,10 +364,11 @@ shared_examples "manage impersonations examples" do
     end
 
     fill_in_the_impersonation_form("123456789X", reason:)
-    expect(page).to have_callout("You are managing the participant") if reason && reason.length.positive?
+    expect(page).to have_callout("You are managing the participant") if user.managed || (reason && reason.length.positive?)
   end
 
   def simulate_session_expiration
+    expect(page).to have_current_path(decidim.root_path)
     expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
     session_time = Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
     first_travel_time = session_time.even? ? session_time / 2 : (session_time / 2) + 1

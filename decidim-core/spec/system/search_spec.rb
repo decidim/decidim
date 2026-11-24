@@ -24,7 +24,7 @@ describe "Search" do
     end
 
     it "is not indexable by crawlers" do
-      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+      expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
     end
 
     it "displays the results page" do
@@ -63,6 +63,27 @@ describe "Search" do
 
     it "shows the mobile version of the search form" do
       expect(page).to have_css("#input-search-mobile")
+    end
+  end
+
+  context "when filtering the results on a mobile" do
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.search_path(term:)
+      click_on(id: "dc-dialog-accept")
+    end
+
+    it "toggles the filters list" do
+      expect(page).to have_css("#dropdown-menu-search", visible: :hidden)
+
+      find_by_id("dropdown-trigger-search").click
+
+      expect(page).to have_css("#dropdown-menu-search", visible: :visible)
+
+      find_by_id("dropdown-trigger-search").click
+
+      expect(page).to have_css("#dropdown-menu-search", visible: :hidden)
     end
   end
 

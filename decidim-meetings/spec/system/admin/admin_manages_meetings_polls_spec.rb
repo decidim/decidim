@@ -101,11 +101,11 @@ describe "Admin manages meetings polls" do
 
       select "Single option", from: "Type"
       expect(page).to have_css(".questionnaire-question-response-option", count: 2)
-      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+      expect(page).to have_no_css(".questionnaire-question-matrix-row")
 
       select "Multiple option", from: "Type"
       expect(page).to have_css(".questionnaire-question-response-option", count: 2)
-      expect(page).to have_no_selector(".questionnaire-question-matrix-row")
+      expect(page).to have_no_css(".questionnaire-question-matrix-row")
     end
 
     it "does not incorrectly reorder when clicking response options" do
@@ -144,6 +144,7 @@ describe "Admin manages meetings polls" do
 
       select "Single option", from: "Type"
       click_on "Save"
+      expect(page).to have_text("There was a problem updating this meeting poll.")
 
       expand_all_questions
       expect(page).to have_select("Type", selected: "Single option")
@@ -168,7 +169,7 @@ describe "Admin manages meetings polls" do
       select "3", from: "Maximum number of choices"
 
       click_on "Save"
-      expand_all_questions
+      expect(page).to have_text("There was a problem updating this meeting poll.")
 
       within ".questionnaire-question-response-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
@@ -199,13 +200,13 @@ describe "Admin manages meetings polls" do
       end
 
       it "updates the free text option selector according to the selected question type" do
-        expect(page).to have_no_selector("[id$=max_choices]")
+        expect(page).to have_no_css("[id$=max_choices]")
 
         select "Multiple option", from: "Type"
         expect(page).to have_css("[id$=max_choices]")
 
         select "Single option", from: "Type"
-        expect(page).to have_no_selector("[id$=max_choices]")
+        expect(page).to have_no_css("[id$=max_choices]")
       end
 
       it "updates the max choices selector according to the configured options" do
@@ -318,6 +319,7 @@ describe "Admin manages meetings polls" do
 
       it "keeps the content of blocked questions" do
         expect(page).to have_text("There was a problem updating this meeting poll")
+        # The expand call is needed here as we are also checking questions with no errors.
         expand_all_questions
 
         expect(page).to have_css("input[value='#{translated_attribute(unpublished_question.body)}']:not([disabled])")
@@ -373,6 +375,7 @@ describe "Admin manages meetings polls" do
         end
 
         click_on "Save"
+        expect(page).to have_callout("Meeting poll successfully updated.")
         expand_all_questions
 
         # Reloads and checks persisted order
@@ -413,7 +416,21 @@ describe "Admin manages meetings polls" do
   end
 
   def expand_all_questions
-    click_on "Expand all questions"
+    page.document.synchronize do
+      click_on "Expand all questions"
+
+      # Check that all questions were expanded correctly or retry if not.
+      all(".questionnaire-question").each do |node|
+        question_id = node["id"].match(/\Aquestionnaire_question_([0-9]+)-field\z/)[1]
+
+        within node do
+          page.find("label[for='questionnaire_questions_#{question_id}_body']")
+        end
+      rescue Capybara::ElementNotFound => e
+        sleep 0.1
+        raise e
+      end
+    end
   end
 
   def visit_questionnaire_edit_path_and_expand_all

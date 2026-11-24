@@ -83,6 +83,29 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  context "when accepting the admin terms of service" do
+    let(:organization) { create(:organization) }
+    let(:user) { create(:user, organization:) }
+    let(:action_name) { :accept }
+    let(:action_subject) { :admin_terms }
+
+    context "when the user has a role in a participatory space" do
+      let(:assembly) { create(:assembly, organization:) }
+
+      before { create(:assembly_user_role, user:, assembly:) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the only role the user has is in a trashed participatory space" do
+      let(:assembly) { create(:assembly, :trashed, organization:) }
+
+      before { create(:assembly_user_role, user:, assembly:) }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   context "when action is not registered" do
     it_behaves_like "permission is not set"
   end

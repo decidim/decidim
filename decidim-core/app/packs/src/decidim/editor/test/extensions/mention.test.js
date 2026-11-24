@@ -65,7 +65,10 @@ describe("Mention", () => {
   let editorElement = null;
 
   const normalizeHTML = (html) => {
-    return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "");
+    // Note that the "separator" is only ProseMirror's internal element used to
+    // place the cursor at the correct location before atomic inline nodes.
+    return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "").
+      replace(/<img class="ProseMirror-separator"(?:\s[^>]*)?>/g, "");
   };
 
   beforeEach(() => {
@@ -115,7 +118,7 @@ describe("Mention", () => {
     const suggestions = document.querySelector(".editor-suggestions");
     suggestions.querySelector(".editor-suggestions-item").click();
 
-    expect(editorElement.innerHTML).toEqual(
+    expect(normalizeHTML(editorElement.innerHTML)).toEqual(
       '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
     expect(normalizeHTML(editor.getHTML())).toEqual(
@@ -129,7 +132,7 @@ describe("Mention", () => {
 
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
 
-    expect(editorElement.innerHTML).toEqual(
+    expect(normalizeHTML(editorElement.innerHTML)).toEqual(
       '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
     expect(normalizeHTML(editor.getHTML())).toEqual(

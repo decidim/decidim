@@ -34,7 +34,9 @@ module Decidim
           unique_id: handler.unique_id,
           metadata: handler.metadata,
           verification_metadata: handler.verification_metadata,
-          verification_attachment: handler.verification_attachment
+          verification_attachment: handler.verification_attachment,
+          failed_attempts: 0,
+          locked_at: nil
         }
 
         authorization.save!

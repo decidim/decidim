@@ -209,19 +209,18 @@ module Decidim
         end
         authors = bulk_find_or_create_users(emails:)
 
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         proposal.votes.insert_all(
           authors.map do |author|
             { decidim_author_id: author.id }
           end
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       def create_proposal_notes!(proposal:, amount: 3)
         author_admins = Decidim::User.where(organization:, admin: true).all.sample(amount)
 
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         proposal.notes.insert_all(
           author_admins.map do |author|
             {
@@ -230,7 +229,6 @@ module Decidim
             }
           end
         )
-        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

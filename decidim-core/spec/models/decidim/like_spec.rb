@@ -61,26 +61,30 @@ module Decidim
     end
 
     context "when retrieving for_listing" do
-      before do
-        like.save!
-      end
-
-      let!(:other_resource) { create(:dummy_resource, component:, users: [author]) }
       let!(:other_author) { create(:user, :confirmed, organization:) }
-      let!(:other_like1) do
-        create(:like, resource:, author: other_author)
-      end
-      let!(:other_like2) do
-        create(:like, resource: other_resource, author:)
+      let!(:last_like) { create(:like, resource:, author:, created_at: 1.day.ago) }
+      let!(:first_like) { create(:like, resource:, author: other_author, created_at: 3.days.ago) }
+      let!(:other_resource) { create(:dummy_resource, component:, users: [author]) }
+      let!(:middle_like) { create(:like, resource: other_resource, author:, created_at: 2.days.ago) }
+
+      it "sorts likes by created_at regardless of the author" do
+        expect(Decidim::Like.for_listing.pluck(:id)).to eq([first_like.id, middle_like.id, last_like.id])
       end
 
-      it "sorts user likes first and then by created_at" do
-        expected_sorting = [
-          like.id,
-          other_like2.id,
-          other_like1.id
-        ]
-        expect(Decidim::Like.for_listing.pluck(:id)).to eq(expected_sorting)
+      context "when likes have the same created_at" do
+        let(:tied_at) { 4.days.ago }
+        let(:tied_author) { create(:user, :confirmed, organization:) }
+        # Inserted in reverse id order so the tiebreaker, not the insertion order, decides
+        let!(:tied_like_with_higher_id) do
+          create(:like, id: Decidim::Like.maximum(:id) + 2, resource: other_resource, author: other_author, created_at: tied_at)
+        end
+        let!(:tied_like_with_lower_id) do
+          create(:like, id: tied_like_with_higher_id.id - 1, resource: other_resource, author: tied_author, created_at: tied_at)
+        end
+
+        it "sorts them by id" do
+          expect(Decidim::Like.where(created_at: tied_at).for_listing.pluck(:id)).to eq([tied_like_with_lower_id.id, tied_like_with_higher_id.id])
+        end
       end
     end
   end

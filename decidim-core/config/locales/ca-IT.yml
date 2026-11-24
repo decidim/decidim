@@ -50,7 +50,6 @@ ca-IT:
         old_password: Contrasenya actual
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
-        personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
     errors:
@@ -117,8 +116,6 @@ ca-IT:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -251,6 +248,7 @@ ca-IT:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         export_component: "%{user_name} ha exportat %{resource_name}%{component_name} de %{space_name} com %{format_name}"
+        menu_hidden: "%{user_name} ha amagat el component %{resource_name} del menú de l'espai de participació: %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         restore: "%{user_name} ha restaurat el component %{resource_name} a l'espai %{space_name}"
         soft_delete: "%{user_name} ha mogut el component %{resource_name} a l'espai %{space_name} a la paperera"
@@ -821,7 +819,6 @@ ca-IT:
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
           password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
-          personal_url: L'URL personal d'aquesta usuària
           remember_created_at: La data i hora en què es va seleccionar la usuària per ser recordada
           reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
           roles: El rol que té aquesta participant, si en té cap
@@ -854,6 +851,8 @@ ca-IT:
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_contains_unsafe_content: El fitxer conté contingut no segur
+        file_is_not_a_valid_image: El fitxer no és una imatge vàlida
         file_resolution_too_large: La resolució de l'arxiu és massa gran
         not_inside_organization: L'arxiu no està vinculat a cap organització.
       internal_server_error:
@@ -2267,6 +2266,7 @@ ca-IT:
       close: Tancar
       reset: Reiniciar
       select: Seleccionar
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2275,6 +2275,8 @@ ca-IT:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2288,7 +2290,8 @@ ca-IT:
       long_with_particles: "%d %B, de %Y a les %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%Z de %H:%M"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Esborrats

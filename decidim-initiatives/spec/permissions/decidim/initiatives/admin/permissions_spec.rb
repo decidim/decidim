@@ -229,6 +229,27 @@ describe Decidim::Initiatives::Admin::Permissions do
         it { is_expected.to be true }
       end
 
+      context "when managing resource permissions" do
+        let(:action_subject) { :resource_permission }
+        let(:action_name) { :update }
+
+        context "when initiative is created" do
+          let(:initiative) { create(:initiative, :created, organization:) }
+
+          it { is_expected.to be true }
+        end
+
+        context "when initiative is not created" do
+          it_behaves_like "permission is not set"
+        end
+
+        context "when reading" do
+          let(:action_name) { :read }
+
+          it_behaves_like "permission is not set"
+        end
+      end
+
       context "when reading an initiatives settings" do
         let(:action_subject) { :initiatives_settings }
         let(:action_name) { :update }
@@ -325,6 +346,28 @@ describe Decidim::Initiatives::Admin::Permissions do
           end
 
           it { is_expected.to be false }
+        end
+      end
+
+      context "when destroying and the types with initiatives are already resolved" do
+        let(:action_name) { :destroy }
+        let(:initiative_type) { create(:initiatives_type) }
+        let(:organization) { initiative_type.organization }
+
+        context "and the type has initiatives" do
+          let(:context) { { initiative_type:, initiative_types_with_initiatives: [initiative_type.id] } }
+
+          it { is_expected.to be false }
+        end
+
+        context "and the type has no initiatives" do
+          let(:context) { { initiative_type:, initiative_types_with_initiatives: [] } }
+
+          it "is allowed without checking the scopes" do
+            expect(initiative_type).not_to receive(:scopes)
+
+            expect(subject).to be true
+          end
         end
       end
 

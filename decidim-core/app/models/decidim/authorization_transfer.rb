@@ -28,10 +28,10 @@ module Decidim
   # called with the transfer record, i.e. instance of this class with access to
   # all necessary information required for handling the transfer.
   class AuthorizationTransfer < ApplicationRecord
-    belongs_to :authorization, class_name: "Decidim::Authorization"
-    belongs_to :user, class_name: "Decidim::User"
-    belongs_to :source_user, class_name: "Decidim::User"
-    has_many :records, class_name: "Decidim::AuthorizationTransferRecord", foreign_key: :transfer_id, dependent: :destroy
+    belongs_to :authorization, class_name: "Decidim::Authorization", inverse_of: :transfers
+    belongs_to :user, class_name: "Decidim::User", inverse_of: :authorization_transfers
+    belongs_to :source_user, class_name: "Decidim::User", inverse_of: :source_transfers
+    has_many :records, class_name: "Decidim::AuthorizationTransferRecord", foreign_key: :transfer_id, inverse_of: :transfer, dependent: :destroy
 
     class DisabledError < StandardError; end
 
@@ -243,9 +243,8 @@ module Decidim
       transferrable_records = resource_class.where(user_column => source_user_id)
       transferrable_ids = transferrable_records.pluck(:id)
 
-      # rubocop:disable Rails::SkipsModelValidations
+      # rubocop:disable-next Rails::SkipsModelValidations
       transferrable_records.update_all(user_column => user_id)
-      # rubocop:enable Rails::SkipsModelValidations
 
       records.create!(
         transferrable_ids.map do |resource_id|

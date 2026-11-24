@@ -59,7 +59,7 @@ module Decidim
 
       private
 
-      # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable-next Metrics/ParameterLists
       def render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
         case form_method
         when :collection_radio_buttons
@@ -82,7 +82,6 @@ module Decidim
           form.send(form_method, name, options)
         end
       end
-      # rubocop:enable Metrics/ParameterLists
 
       # Renders a select field collection input for the given attribute
       #

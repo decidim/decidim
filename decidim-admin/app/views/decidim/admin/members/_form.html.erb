@@ -3,6 +3,7 @@
     <div id="panel-title" class="card-section">
       <div class="row">
         <% if @form.persisted? %>
+          <%= form.hidden_field :user_id %>
           <div class="columns">
             <%= form.text_field :name, readonly: true %>
           </div>

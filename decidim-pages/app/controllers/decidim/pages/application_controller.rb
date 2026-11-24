@@ -11,6 +11,8 @@ module Decidim
       include Decidim::AttachmentsHelper
 
       def show
+        enforce_permission_to :read, :page
+
         @page = Page.find_by(component: current_component)
       end
     end

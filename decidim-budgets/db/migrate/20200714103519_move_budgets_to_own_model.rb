@@ -65,17 +65,15 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
   end
 
   def add_budget_references_to_projects(resource)
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Project.where(decidim_component_id: resource.decidim_component_id)
            .update_all(decidim_budgets_budget_id: resource.id)
-    # rubocop:enable Rails/SkipsModelValidations
   end
 
   def add_budget_reference_to_orders(resource)
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Order.where(decidim_component_id: resource.decidim_component_id)
          .update_all(decidim_budgets_budget_id: resource.id)
-    # rubocop:enable Rails/SkipsModelValidations
   end
 
   # down methods
@@ -94,16 +92,14 @@ class MoveBudgetsToOwnModel < ActiveRecord::Migration[5.2]
   end
 
   def add_component_reference_to_orders(resource)
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Order.where(decidim_budgets_budget_id: resource.id)
          .update_all(decidim_component_id: resource.decidim_component_id)
-    # rubocop:enable Rails/SkipsModelValidations
   end
 
   def add_component_reference_to_projects(resource)
-    # rubocop:disable Rails/SkipsModelValidations
+    # rubocop:disable-next Rails/SkipsModelValidations
     Project.where(decidim_budgets_budget_id: resource.id)
            .update_all(decidim_component_id: resource.decidim_component_id)
-    # rubocop:enable Rails/SkipsModelValidations
   end
 end

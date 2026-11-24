@@ -133,6 +133,19 @@ module Decidim
             end
           end
 
+          context "when title has a user mention" do
+            let(:mentioned_user) { create(:user, :confirmed, organization:) }
+            let(:title) { "A reasonable proposal title mentioning @#{mentioned_user.nickname}" }
+
+            it "does not rewrite the mention to the mentioned user GID" do
+              command.call
+              proposal.reload
+
+              expect(translated(proposal.title)).not_to include(mentioned_user.to_global_id.to_s)
+              expect(translated(proposal.title)).to include("@#{mentioned_user.nickname}")
+            end
+          end
+
           context "with an author" do
             it "sets the author" do
               command.call
@@ -186,6 +199,37 @@ module Decidim
 
               it "does not remove older attachments" do
                 expect { command.call }.to change(Decidim::Attachment, :count).from(1).to(2)
+              end
+            end
+
+            context "with an attachment from another organization" do
+              let(:other_proposal) { create(:proposal) }
+              let!(:foreign_attachment) { create(:attachment, :with_pdf, attached_to: other_proposal) }
+              let(:uploaded_files) { [{ id: foreign_attachment.id, title: "Hijacked title" }] }
+
+              it "does not update the foreign attachment" do
+                original_title = foreign_attachment.title
+
+                expect { command.call }.to broadcast(:ok)
+                expect(foreign_attachment.reload.title).to eq(original_title)
+              end
+            end
+
+            context "with a foreign attachment id in the kept attachments" do
+              let!(:own_attachment) { create(:attachment, :with_pdf, attached_to: proposal, weight: 7) }
+              let!(:foreign_attachment) { create(:attachment, :with_pdf, attached_to: create(:proposal), weight: 42) }
+              let(:current_files) { [own_attachment.id, foreign_attachment.id] }
+
+              it "updates the weight of the owned attachment" do
+                expect { command.call }.to broadcast(:ok)
+
+                expect(own_attachment.reload.weight).to eq(1)
+              end
+
+              it "does not update the weight of the foreign attachment" do
+                expect { command.call }.to broadcast(:ok)
+
+                expect(foreign_attachment.reload.weight).to eq(42)
               end
             end
           end

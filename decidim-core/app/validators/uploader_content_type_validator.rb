@@ -3,7 +3,7 @@
 # This validator ensures the files to be uploaded match the attached uploader's
 # content types.
 class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeValidator
-  # rubocop: disable Metrics/CyclomaticComplexity
+  # rubocop: disable-next Metrics/CyclomaticComplexity
   def validate_each(record, attribute, value)
     begin
       values = parse_values(value)
@@ -38,7 +38,6 @@ class UploaderContentTypeValidator < ActiveModel::Validations::FileContentTypeVa
       validate_blacklist(record, attribute, content_type, forbidden_types)
     end
   end
-  # rubocop: enable Metrics/CyclomaticComplexity
 
   def check_validity!; end
 

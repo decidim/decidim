@@ -111,9 +111,18 @@ module Decidim
       # Returns an HTML-safe String.
       def present_explanation
         h.content_tag(:div, class: "logs__log__explanation") do
+          escaped_params = i18n_params.transform_values do |value|
+            if value.is_a?(String) && !value.html_safe?
+              ERB::Util.html_escape(value)
+            else
+              value
+            end
+          end
+
           I18n.t(
             action_string,
-            **i18n_params
+            escape: false,
+            **escaped_params
           ).html_safe
         end
       end
@@ -196,10 +205,19 @@ module Decidim
       # Returns a Hash.
       def i18n_params
         {
-          user_name: user_presenter.present,
+          user_name: system_action? ? nil : user_presenter.present,
           resource_name: resource_presenter.try(:present),
           space_name: space_presenter.present
         }
+      end
+
+      # Private: Whether the action was performed by the system rather than a
+      # user. A deleted user still leaves its reference in the log, so this
+      # cannot be based on the loaded `user` association.
+      #
+      # Returns a Boolean.
+      def system_action?
+        action_log.user_id.blank? && action_log.user_type.blank?
       end
 
       # Private: Calculates if the diff has to be shown or not.

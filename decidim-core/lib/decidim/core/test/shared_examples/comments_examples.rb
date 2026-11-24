@@ -17,11 +17,10 @@ shared_examples "comments" do
     let!(:user) { create(:user, :malicious, :confirmed, organization:) }
 
     before do
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       comments.each do |comment|
         comment.author.update_column(:name, "user_#{comment.author.id}\n<script>alert('name')</script>") if comment.author.is_a?(Decidim::UserBaseEntity)
       end
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     it "properly displays the user name" do
@@ -780,10 +779,8 @@ shared_examples "comments" do
 
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
-            click_on "Delete"
+            accept_confirm { click_on "Delete" }
           end
-
-          accept_confirm
 
           expect(page).to have_css("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do

@@ -22,11 +22,10 @@ module Decidim
     # html_options - a Hash with options
     #
     # Renders a collection of check boxes.
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def collection_check_boxes(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       error_and_help_text(attribute, options) + super
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Public: generates a radio buttons input from a collection and adds help
     # text and errors.
@@ -39,11 +38,10 @@ module Decidim
     # html_options    - a Hash with options
     #
     # Renders a collection of radio buttons.
-    # rubocop:disable Metrics/ParameterLists
+    # rubocop:disable-next Metrics/ParameterLists
     def collection_radio_buttons(attribute, collection, value_attribute, text_attribute, options = {}, html_options = {})
       error_and_help_text(attribute, options) + super
     end
-    # rubocop:enable Metrics/ParameterLists
 
     # Public: Generates a form field for each locale.
     #

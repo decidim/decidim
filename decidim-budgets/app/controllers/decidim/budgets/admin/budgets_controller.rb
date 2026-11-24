@@ -65,7 +65,7 @@ module Decidim
         end
 
         def budgets
-          @budgets ||= Budget.where(component: current_component).order(weight: :asc)
+          @budgets ||= Budget.includes(:component).where(component: current_component).order(weight: :asc)
         end
 
         def budget
@@ -77,7 +77,7 @@ module Decidim
         end
 
         def orders
-          @orders ||= Order.where(budget: budgets)
+          @orders ||= Order.where(budget: budgets) # rubocop:disable Decidim/OrganizationScopedFinder -- budgets are scoped to current_component above
         end
 
         def pending_orders

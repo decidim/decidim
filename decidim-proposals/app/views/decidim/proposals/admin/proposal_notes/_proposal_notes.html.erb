@@ -7,7 +7,7 @@
   </button>
 
   <div id="panel-notes">
-    <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note", collection: proposal.notes.not_reply %>
+    <%= render partial: "decidim/proposals/admin/proposal_notes/proposal_note", collection: proposal.notes.preload(:replies, :author).not_reply %>
     <%= render partial: "decidim/proposals/admin/proposal_notes/form", locals: { form_path: proposal_proposal_notes_path(proposal, @notes_form) } %>
   </div>
 </div>

@@ -42,9 +42,8 @@ module Decidim
       end
 
       def reset_weights
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         collection.where.not(weight: nil).where(id: order).update_all(weight: nil)
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       def set_new_weights
@@ -65,11 +64,11 @@ module Decidim
       end
 
       def collection
-        @collection ||= Decidim::Taxonomy.where(organization:, parent_id: first_item.parent_id)
+        @collection ||= organization.taxonomies.where(parent_id: first_item.parent_id)
       end
 
       def first_item
-        @first_item ||= Decidim::Taxonomy.where(organization:).find(order.first)
+        @first_item ||= organization.taxonomies.find(order.first)
       end
     end
   end
