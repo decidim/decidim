@@ -315,7 +315,9 @@ describe "Explore projects", :slow do
 
       it "displays the results per page selector" do
         within "#projects" do
-          expect(page).to have_css("[data-pagination]")
+          within "[data-pagination]" do
+            expect(page).to have_text(I18n.t("decidim.shared.results_per_page.label"))
+          end
         end
       end
 
