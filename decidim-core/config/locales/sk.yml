@@ -593,15 +593,15 @@ sk:
             no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
             resources_permissions_enabled: Oprávnenie zdrojov povolené
             taxonomy_filters: Vyberte filtre pre komponent
-          step:
+          phase:
             amendment_creation_enabled: Umožniť zmenu a doplnenie
             amendment_promotion_enabled: Propagovanie zmien bola povolená
             amendment_reaction_enabled: Reakcia na zmenu bola povolená
             amendments_visibility: Viditeľnosť pozmeňovacieho návrhu
             comments_blocked: Komentáre blokované
-            dummy_step_attribute1: Atribút 1 zástupného kroku
-            dummy_step_attribute2: Atribút 2 zástupného kroku
-            dummy_step_translatable_text: Zástupný krok textu na preloženie
+            dummy_phase_attribute1: Atribút 1 zástupného kroku
+            dummy_phase_attribute2: Atribút 2 zástupného kroku
+            dummy_phase_translatable_text: Zástupný krok textu na preloženie
       pagination:
         page_title: "%{component_name} - Strana %{current_page} z %{total_pages}"
     contact: Kontakt
