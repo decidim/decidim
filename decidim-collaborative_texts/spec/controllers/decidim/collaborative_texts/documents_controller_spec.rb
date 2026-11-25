@@ -25,9 +25,13 @@ module Decidim
           expect(controller.helpers.documents).not_to include(unpublished_document)
         end
 
-        it "preloads the document versions used by the cards" do
+        it "preloads the associations used by the cards" do
           get :index
-          expect(controller.helpers.documents.first.association(:document_versions)).to be_loaded
+
+          document = controller.helpers.documents.first
+          expect(document.association(:component)).to be_loaded
+          expect(document.association(:document_versions)).to be_loaded
+          expect(document.association(:coauthorships)).to be_loaded
         end
 
         context "when filtering by state" do
