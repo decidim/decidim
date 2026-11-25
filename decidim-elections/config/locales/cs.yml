@@ -20,6 +20,8 @@ cs:
           election_census: Rejstřík obyvatel
           election_dashboard: Ovládací panel
           election_questions: Otázky
+      tooltips:
+        edit_elections_info: Tuto volbu nelze upravit
     components:
       elections:
         actions:

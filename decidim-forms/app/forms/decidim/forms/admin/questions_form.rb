@@ -8,7 +8,7 @@ module Decidim
         attribute :questions, Array[QuestionForm]
 
         def map_model(model)
-          self.questions = model.questions.map do |question|
+          self.questions = model.questions.includes(:response_options, :display_conditions, :matrix_rows).map do |question|
             QuestionForm.from_model(question)
           end
         end
