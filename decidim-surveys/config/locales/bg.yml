@@ -14,8 +14,6 @@ bg:
         settings:
           global:
             announcement: Съобщение
-          step:
-            announcement: Съобщение
     events:
       surveys:
         survey_closed:
