@@ -22,8 +22,6 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
-          step:
-            announcement: Ogłoszenie
     elections:
       actions:
         preview: Podgląd
