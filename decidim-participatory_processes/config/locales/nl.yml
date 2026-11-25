@@ -161,7 +161,7 @@ nl:
         edit:
           update: Bijwerken
         new:
-          create: Aanmaken
+          create: Creëren
         ordering:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
@@ -278,6 +278,9 @@ nl:
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
+        participatory_process_steps:
+          index:
+            title: Stappen
         participatory_processes:
           form:
             duration: Duur
