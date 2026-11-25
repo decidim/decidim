@@ -302,6 +302,26 @@ describe "Meeting registrations" do
           end
         end
       end
+
+      context "when the registration form has a mandatory file question and no file is attached" do
+        let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, question_type: :files, mandatory: true) }
+
+        before do
+          login_as user, scope: :user
+          visit questionnaire_public_path
+          check "questionnaire_tos_agreement"
+          accept_confirm { click_on "Submit" }
+        end
+
+        it "renders the validation error only once" do
+          expect(page).to have_callout(callout_failure)
+
+          within ".response-questionnaire__question" do
+            expect(page).to have_css(".form-error", count: 1)
+            expect(page).to have_text(/blank/i)
+          end
+        end
+      end
     end
 
     context "and the user is going to the meeting" do
