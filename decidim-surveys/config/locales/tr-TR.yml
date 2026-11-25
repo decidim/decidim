@@ -14,8 +14,6 @@ tr:
         settings:
           global:
             announcement: Duyuru
-          step:
-            announcement: Duyuru
     events:
       surveys:
         survey_closed:
