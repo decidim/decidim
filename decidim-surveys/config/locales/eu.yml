@@ -37,8 +37,6 @@ eu:
           announcement: Oharra
           global:
             announcement: Oharra
-          step:
-            announcement: Oharra
     events:
       surveys:
         survey_closed:
