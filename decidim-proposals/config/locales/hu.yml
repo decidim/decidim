@@ -87,7 +87,6 @@ hu:
         settings:
           global:
             amendments_enabled: A módosítások engedélyezve vannak
-            amendments_enabled_help: Ha aktív, minden lépéshez konfigurálja a Módosítás funkciókat.
             amendments_wizard_help_text: Módosítások Varázsló súgószöveg
             announcement: Közlemény
             attachments_allowed: Mellékletek engedélyezése
@@ -111,7 +110,7 @@ hu:
             proposal_wizard_step_1_help_text: Javaslat varázsló "Létrehozás" gomb súgójának szövege
             resources_permissions_enabled: Egyes javaslatokhoz műveleti engedélyeket állíthatsz be
             threshold_per_proposal: Küszöbérték javaslatonként
-          step:
+          phase:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_creation_enabled_help: A résztvevő módosíthatja a javaslatokat.
             amendment_promotion_enabled: A módosítás promotálása engedélyezett
@@ -123,13 +122,10 @@ hu:
               all: A módosítások mindenki számára láthatóak
               participants: A módosítások csak a szerzőik számára láthatóak
             amendments_visibility_help: Ha a „Módosítások csak a szerzőik számára láthatóak” opciót választják, akkor a résztvevőnek be kell jelentkeznie a módosítások megtekintéséhez.
-            announcement: Közlemény
             answers_with_costs: Költségek engedélyezése javaslati válaszoknál
             comments_blocked: Megjegyzések letiltva
             creation_enabled: A résztvevők létrehozhatnak javaslatokat
             creation_enabled_readonly: Ez a beállítás le van tiltva, ha aktiválja a Részvételi Szövegek funkciót. A javaslatok részvételi szövegekként való feltöltéséhez kattintson a Részvételi Szövegek gombra és kövesse az utasításokat.
-            default_sort_order: Alapértelmezett javaslat rendezés
-            proposal_answering_enabled: Javaslat válasz engedélyezve
             publish_answers_immediately: Javaslati válaszok azonnali közzététele
             publish_answers_immediately_help_html: 'Ne feledje, hogy ennek engedélyezése nélkül bármely javaslatot, kiválasztva őket, a művelet használatával manuálisan kell közzétennie. További információért arról, hogyan működik ez, lásd <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             votes_blocked: Szavazások letiltva
