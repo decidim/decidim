@@ -69,8 +69,7 @@ tr:
             enable_pads_creation: Altlık oluşturmayı etkinleştirin
             resources_permissions_enabled: Her toplantı için işlem izinleri ayarlanabilir
             terms_and_conditions_url_for_meeting_creators: Toplantı oluşturucuları için şartlar ve koşullar URL'si
-          step:
-            announcement: Duyuru
+          phase:
             comments_blocked: Yorumlar engellendi
             creation_enabled_for_participants: Katılımcılar tarafından toplantı oluşturma etkinleştirildi
     events:
