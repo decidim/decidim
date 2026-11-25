@@ -14,8 +14,6 @@ it:
         settings:
           global:
             announcement: Annuncio
-          step:
-            announcement: Annuncio
     events:
       surveys:
         survey_closed:
