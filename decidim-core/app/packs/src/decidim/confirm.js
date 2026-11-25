@@ -49,6 +49,7 @@ class ConfirmDialog {
       // without going through the buttons, so the callers must be released.
       onClose = () => {
         if (!this.closing) {
+          this.$source?.focus();
           settle(false);
         }
       };
