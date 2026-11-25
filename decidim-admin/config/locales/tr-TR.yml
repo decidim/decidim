@@ -333,9 +333,7 @@ tr:
           title: Bileşeni düzenle
           update: Güncelleştirme
         form:
-          default_step_settings: Varsayılan adım ayarları
           global_settings: Genel Ayarlar
-          step_settings: Adım ayarları
         hide:
           success: Bileşen menüden başarıyla gizlendi.
         index:
