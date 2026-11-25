@@ -26,19 +26,13 @@ uk:
         description: Опис
         hero_image: Зображення
         participatory_process_ids: Супутні рухи
-      participatory_process_step:
-        description: Опис
-        end_date: Дата закінчення
-        short_description: Стислий опис
-        start_date: Дата початку
-        title: Назва
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
         role: Роль
     models:
-      decidim/participatory_process_step_activated_event: Крок започато
-      decidim/participatory_process_step_changed_event: Крок змінено
+      decidim/participatory_process_phase_activated_event: Крок започато
+      decidim/participatory_process_phase_changed_event: Крок змінено
   activerecord:
     models:
       decidim/participatory_process:
@@ -51,7 +45,7 @@ uk:
         few: Гурти руху співучасті
         many: Гуртів руху співучасті
         other: Гуртів руху співучасті
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Крок
         few: Кроки
         many: Кроків
@@ -66,7 +60,7 @@ uk:
         edit: Редагувати
         new_process: Додати рух
         new_process_group: Створити сукупність рухів
-        new_process_step: Додати крок
+        new_process_phase: Додати крок
         new_process_user_role: Додати учасника руху
         preview: Попередній перегляд
         publish: Оприлюднити
@@ -81,8 +75,8 @@ uk:
           attachments: Вкладені файли
           components: Складові
           moderations: Дії з модерації
+          phases: Кроки
           process_admins: Учасники руху
-          steps: Кроки
       models:
         participatory_process:
           fields:
@@ -92,11 +86,7 @@ uk:
           name: Рух співучасті
         participatory_process_group:
           name: Сукупність рухів
-        participatory_process_step:
-          fields:
-            end_date: Дата закінчення
-            start_date: Дата початку
-            title: Назва
+        participatory_process_phase:
           name: Крок руху співучасті
         participatory_process_user_role:
           fields:
@@ -122,6 +112,21 @@ uk:
         update:
           error: При спробі оновити цю сукупність рухів співучасті сталася помилка.
           success: Сукупність рухів співучасті успішно оновлено.
+      participatory_process_phase_activations:
+        create:
+          error: При започаткуванні цього кроку руху співучасті сталася помилка.
+          success: Крок руху співучасті успішно започато.
+      participatory_process_phases:
+        create:
+          error: При спробі створити новий крок руху співучасті сталася помилка.
+          success: Крок руху співучасті успішно створено.
+        default_title: Вступ
+        destroy:
+          success: Крок руху співучасті успішно видалено.
+        ordering:
+          error: При зміні порядку кроків цього руху співучасті сталася помилка.
+        update:
+          error: При спробі оновити цей крок руху співучасті сталася помилка.
       participatory_process_publications:
         create:
           error: При оприлюдненні цього руху співучасті сталася помилка.
@@ -129,25 +134,6 @@ uk:
         destroy:
           error: При скасуванні оприлюднення цього руху співучасті сталася помилка.
           success: Оприлюднення руху співучасті успішно скасовано.
-      participatory_process_step_activations:
-        create:
-          error: При започаткуванні цього кроку руху співучасті сталася помилка.
-          success: Крок руху співучасті успішно започато.
-      participatory_process_steps:
-        create:
-          error: При спробі створити новий крок руху співучасті сталася помилка.
-          success: Крок руху співучасті успішно створено.
-        default_title: Вступ
-        destroy:
-          success: Крок руху співучасті успішно видалено.
-        edit:
-          update: Оновити
-        new:
-          create: Додати
-        ordering:
-          error: При зміні порядку кроків цього руху співучасті сталася помилка.
-        update:
-          error: При спробі оновити цей крок руху співучасті сталася помилка.
       participatory_process_user_roles:
         create:
           error: При спробі додати учасника в цей рух співучасті сталася помилка.
@@ -188,7 +174,7 @@ uk:
         publish: "%{user_name} оприлюднив рух співучасті %{resource_name}"
         unpublish: "%{user_name} скасував оприлюднення руху співучасті %{resource_name}"
         update: "%{user_name} оновив рух співучасті %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} започаткував крок %{resource_name} у русі співучасті %{space_name}"
         create: "%{user_name} створив крок %{resource_name} у русі співучасті %{space_name}"
         delete: "%{user_name} видалив крок %{resource_name} у русі співучасті %{space_name}"
@@ -199,12 +185,12 @@ uk:
         update: "%{user_name} змінів роль учасника %{resource_name} у русі співучасті %{space_name}"
     events:
       participatory_process:
-        step_activated:
+        phase_activated:
           email_intro: 'У %{participatory_space_title} приведено в дію крок %{resource_title}. Ви можете переглянути його на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
           notification_title: Приведено в дію крок %{resource_title} простору співучасті <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
+        phase_changed:
           email_intro: 'Дати для кроку %{resource_title} в %{participatory_space_title} оновлено. Ви можете переглянути їх на сторінці:'
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{participatory_space_title}
@@ -217,11 +203,14 @@ uk:
           name: Діяльність
       show:
         title: Сукупності рухів співучасті
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Кроки руху
+        process_phases: Кроки руху
     participatory_processes:
       admin:
+        participatory_process_phases:
+          index:
+            title: Кроки
         participatory_processes:
           form:
             related_processes: Супутні рухи
@@ -274,5 +263,5 @@ uk:
         index:
           promoted_processes: Висвітлені рухи
         participatory_process:
-          active_step: 'Поточний крок:'
+          active_phase: 'Поточний крок:'
           take_part: Взяти участь
