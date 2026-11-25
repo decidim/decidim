@@ -62,8 +62,9 @@ describe "Homepage" do
         let(:user) { create(:user, :admin, :confirmed, organization:) }
 
         before do
+          wait_pending_requests
           login_as user, scope: :user if user
-          visit current_path
+          visit decidim.root_path
         end
 
         describe "the edit button" do
