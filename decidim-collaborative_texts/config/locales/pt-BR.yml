@@ -112,14 +112,12 @@ pt-BR:
           draft: Este documento está atualmente em revisão pelos administradores. As sugestões não são permitidas neste momento, mas você pode ver as sugestões feitas por outros participantes.
           not_accepting_suggestions: Sugestões não são permitidas no momento.
           selection_active: Uma seleção está ativa. Cancele a seleção atual para fazer uma nova.
-        suggestions_count: "Sugestões de %{count}"
         toggle: Mostrar/ocultar sugestões
       documents:
         index:
           count:
             one: "%{count} texto colaborativo"
             other: "%{count} textos colaborativos"
-          empty: Ainda não há textos colaborativos.
         show:
           contributors: Colaboradores
       models:
@@ -150,8 +148,6 @@ pt-BR:
           global:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
-          step:
-            announcement: Anúncio
     statistics:
       all_collaborative_texts_count: Todos os textos colaborativos
       collaborative_texts_count: Textos colaborativos
