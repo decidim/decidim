@@ -35,7 +35,7 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_unit.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_unit.log' --pattern spec/ --exclude-pattern spec/system
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_unit.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_unit.log' --pattern spec/ --exclude-pattern 'spec/(system|types)'
             name: "Unit tests"
             parallel_processors: 4
             shard: "unit"

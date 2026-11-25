@@ -1,0 +1,124 @@
+name: "[CI] API Types"
+on:
+  push:
+    branches:
+      - develop
+      - release/*
+      - "*-stable"
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    paths:
+      - "decidim-api/**"
+      - "decidim-accountability/**"
+      - "decidim-assemblies/**"
+      - "decidim-blogs/**"
+      - "decidim-budgets/**"
+      - "decidim-collaborative_texts/**"
+      - "decidim-comments/**"
+      - "decidim-conferences/**"
+      - "decidim-core/**"
+      - "decidim-debates/**"
+      - "decidim-dev/**"
+      - "decidim-forms/**"
+      - "decidim-initiatives/**"
+      - "decidim-meetings/**"
+      - "decidim-pages/**"
+      - "decidim-participatory_processes/**"
+      - "decidim-proposals/**"
+      - "decidim-surveys/**"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  changes:
+    name: Detect changed modules
+    runs-on: ubuntu-24.04
+    outputs:
+      modules: ${{ steps.matrix.outputs.modules }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+      - uses: dorny/paths-filter@v4
+        id: filter
+        with:
+          # On push, compare against the previous commit on the same branch.
+          base: ${{ github.event_name == 'push' && github.ref || '' }}
+          filters: |
+            all:
+              - "decidim-api/**"
+              - "decidim-core/**"
+              - "decidim-comments/**"
+              - "decidim-dev/**"
+              - "decidim-participatory_processes/**"
+            decidim-accountability:
+              - "decidim-accountability/**"
+            decidim-assemblies:
+              - "decidim-assemblies/**"
+            decidim-blogs:
+              - "decidim-blogs/**"
+            decidim-budgets:
+              - "decidim-budgets/**"
+            decidim-collaborative_texts:
+              - "decidim-collaborative_texts/**"
+            decidim-comments:
+              - "decidim-comments/**"
+            decidim-conferences:
+              - "decidim-conferences/**"
+            decidim-core:
+              - "decidim-core/**"
+            decidim-debates:
+              - "decidim-debates/**"
+            decidim-dev:
+              - "decidim-dev/**"
+            decidim-forms:
+              - "decidim-forms/**"
+            decidim-initiatives:
+              - "decidim-initiatives/**"
+            decidim-meetings:
+              - "decidim-meetings/**"
+            decidim-pages:
+              - "decidim-pages/**"
+            decidim-participatory_processes:
+              - "decidim-participatory_processes/**"
+            decidim-proposals:
+              - "decidim-proposals/**"
+            decidim-surveys:
+              - "decidim-surveys/**"
+      - name: Build matrix
+        id: matrix
+        env:
+          CHANGES: ${{ steps.filter.outputs.changes }}
+        run: |
+          all_modules='["decidim-accountability","decidim-assemblies","decidim-blogs","decidim-budgets","decidim-collaborative_texts","decidim-comments","decidim-conferences","decidim-core","decidim-debates","decidim-dev","decidim-forms","decidim-initiatives","decidim-meetings","decidim-pages","decidim-participatory_processes","decidim-proposals","decidim-surveys"]'
+          changes="${CHANGES:-[]}"
+          if jq -e 'index("all")' <<< "$changes" > /dev/null; then
+            modules="$all_modules"
+          else
+            modules=$(jq -c '[.[] | select(. != "all")]' <<< "$changes")
+          fi
+          echo "modules=$modules" >> "$GITHUB_OUTPUT"
+
+  types:
+    name: "Types: ${{ matrix.module }}"
+    needs: changes
+    if: needs.changes.outputs.modules != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        module: ${{ fromJSON(needs.changes.outputs.modules) }}
+    uses: ./.github/workflows/test_app.yml
+    secrets: inherit
+    with:
+      shard: "types"
+      system_specs: false
+      upload_coverage: false
+      test_command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_types.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_types.log' --pattern spec/types/
+      working-directory: ${{ matrix.module }}

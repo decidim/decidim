@@ -30,6 +30,16 @@ Large test suites are split into [parallel workflows](https://docs.github.com/en
 - `lint_code.yml`: Lints Ruby, JS, and ERB files
 - `ci_main.yml`: Tests for main folder
 - `ci_core.yml`: Base template for module testing using `test_app.yml`
+- `ci_api_types.yml`: Runs the `spec/types` suites of the modules affected by a change
+
+### API Type Specs
+
+The `spec/types` suites run only in `ci_api_types.yml`, which builds a dynamic matrix from the changed paths:
+
+- Changes to `decidim-api`, `decidim-core`, `decidim-comments`, `decidim-dev`, or `decidim-participatory_processes` run the type specs of all 17 modules that have a `spec/types` directory.
+- A change to only one module runs that module's type specs.
+
+The module workflows exclude `spec/types` (`--exclude-pattern spec/types` or `'spec/(system|types)'`) so these tests run exactly once.
 
 ## Special Cases
 
