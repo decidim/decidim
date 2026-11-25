@@ -137,6 +137,34 @@ module Decidim
         end
       end
 
+      context "when the field is disabled" do
+        let(:output) do
+          resource.slug = "<p>#{"Long content " * 100}</p>"
+          builder.editor :slug, disabled: true, lines: 5
+        end
+
+        it "renders the full preview without a height limit" do
+          preview = parsed.css(".editor .editor-preview").first
+
+          expect(preview.text).to include("Long content")
+          expect(preview["style"]).to include("min-height: 5rem")
+          expect(preview["style"]).not_to include("max-height")
+        end
+      end
+
+      context "when the field is not disabled" do
+        let(:output) do
+          builder.editor :slug, lines: 5
+        end
+
+        it "limits the preview height to the configured lines" do
+          preview = parsed.css(".editor .editor-preview").first
+
+          expect(preview["style"]).to include("min-height: 5rem")
+          expect(preview["style"]).to include("max-height: 5rem")
+        end
+      end
+
       context "when using full toolbar" do
         let(:output) do
           builder.editor :slug, toolbar: :full

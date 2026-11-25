@@ -185,7 +185,7 @@ module Decidim
           }
         ) do
           safe_join [
-            editor_preview(editor_value, lines, editor_options[:editor]["context"]),
+            editor_preview(editor_value, lines, editor_options[:editor]["context"], disabled: options[:disabled]),
             content_tag(:div, nil, class: "editor-input", style: "min-height: #{lines}rem", hidden: true)
           ]
         end
@@ -868,12 +868,17 @@ module Decidim
 
     # Private: creates a lightweight preview for the editor content. The actual
     # editor is initialized later by JavaScript when the field becomes visible.
-    def editor_preview(value, lines, context)
+    # Disabled editors are never initialized, so their preview must not limit
+    # the height of the content.
+    def editor_preview(value, lines, context, disabled: false)
       preview = if value.present?
                   context == "participant" ? @template.decidim_sanitize_editor(value) : @template.decidim_sanitize_editor_admin(value)
                 end
 
-      content_tag(:div, preview, class: "editor-preview", style: "min-height: #{lines}rem; max-height: #{lines}rem")
+      style = "min-height: #{lines}rem"
+      style += "; max-height: #{lines}rem" unless disabled
+
+      content_tag(:div, preview, class: "editor-preview", style:)
     end
 
     # Private: creates the options to pass to the view editor and its attached
