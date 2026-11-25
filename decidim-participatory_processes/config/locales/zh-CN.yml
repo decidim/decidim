@@ -246,6 +246,9 @@ zh-CN:
         participatory_process_imports:
           form:
             document_legend: 添加文档
+        participatory_process_steps:
+          index:
+            title: 阶段
         participatory_processes:
           form:
             duration: 期限
