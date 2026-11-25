@@ -35,8 +35,7 @@ zh-CN:
           global:
             announcement: 通 知
             comments_enabled: 评论已启用
-          step:
-            announcement: 通 知
+          phase:
             comments_blocked: 评论已阻止
     events:
       blogs:
