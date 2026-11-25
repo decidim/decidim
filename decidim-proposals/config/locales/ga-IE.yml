@@ -46,6 +46,11 @@ ga:
           amend: Leasaigh
           comment: Tabhair Trácht
         name: Moltaí
+        settings:
+          step:
+            default_sort_order_options:
+              random: Randamach
+              recent: Is Déanaí
     events:
       proposals:
         coauthor_invited:
