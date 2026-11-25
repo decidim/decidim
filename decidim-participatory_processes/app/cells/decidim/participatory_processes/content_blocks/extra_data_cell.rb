@@ -6,33 +6,33 @@ module Decidim
       class ExtraDataCell < Decidim::ContentBlocks::ParticipatorySpaceExtraDataCell
         include ParticipatorySpaceContentBlocksHelper
 
-        delegate :steps, :active_step, :start_date, :end_date, :participatory_process_group, to: :resource
+        delegate :phases, :active_phase, :start_date, :end_date, :participatory_process_group, to: :resource
 
         private
 
         def extra_data_items
-          [dates_item, step_item, group_item].compact
+          [dates_item, phase_item, group_item].compact
         end
 
-        def active_step_name
-          translated_attribute active_step.title
+        def active_phase_name
+          translated_attribute active_phase.title
         end
 
-        def step_item
-          return if active_step.blank?
+        def phase_item
+          return if active_phase.blank?
 
           {
-            title: t("active_step", scope: "layouts.decidim.participatory_processes.participatory_process"),
+            title: t("active_phase", scope: "layouts.decidim.participatory_processes.participatory_process"),
             icon: "direction-line",
-            partial: "active_step"
+            partial: "active_phase"
           }
         end
 
         def dates_item
           {
             title: [
-              t("start_date", scope: "activemodel.attributes.participatory_process_step"),
-              t("end_date", scope: "activemodel.attributes.participatory_process_step")
+              t("start_date", scope: "activemodel.attributes.participatory_process_phase"),
+              t("end_date", scope: "activemodel.attributes.participatory_process_phase")
             ].join(" / "),
             icon: "calendar-todo-line",
             text: [

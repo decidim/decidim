@@ -6,11 +6,11 @@ module Decidim
   describe AmendmentsController do
     routes { Decidim::Core::Engine.routes }
 
-    let!(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:active_step_id) { participatory_process.active_step.id }
-    let(:step_settings) { { active_step_id => { amendment_creation_enabled: true } } }
+    let!(:participatory_process) { create(:participatory_process, :with_phases) }
+    let(:active_phase_id) { participatory_process.active_phase.id }
+    let(:phase_settings) { { active_phase_id => { amendment_creation_enabled: true } } }
     let(:settings) { { amendments_enabled: true } }
-    let!(:component) { create(:component, participatory_space: participatory_process, settings:, step_settings:) }
+    let!(:component) { create(:component, participatory_space: participatory_process, settings:, phase_settings:) }
     let(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
     let!(:amendable) { create(:dummy_resource, component:) }

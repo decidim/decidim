@@ -492,7 +492,7 @@ en:
             workflow_choices:
               all: 'Vote in all: allows participants to vote in all budgets.'
               one: 'Vote in one: allows participants to vote in any budget, but only in one.'
-          step:
+          phase:
             announcement: Announcement
             comments_blocked: Comments blocked
             highlighted_heading: Highlighted heading

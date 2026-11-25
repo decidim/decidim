@@ -95,7 +95,7 @@ module Decidim
       end
 
       context "when participatory space is restricted" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :restricted, organization: current_organization) }
+        let(:participatory_space) { create(:participatory_process, :with_phases, :restricted, organization: current_organization) }
         let(:current_component) { create(:collaborative_text_component, participatory_space:) }
         let(:model) { create(:collaborative_text_document, :published, component: current_component) }
         let(:query) { "{ id }" }
@@ -115,7 +115,7 @@ module Decidim
       end
 
       context "when participatory space is not published" do
-        let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
+        let(:participatory_space) { create(:participatory_process, :with_phases, :unpublished, organization: current_organization) }
         let(:current_component) { create(:collaborative_text_component, participatory_space:) }
         let(:model) { create(:collaborative_text_document, :published, component: current_component) }
         let(:query) { "{ id }" }

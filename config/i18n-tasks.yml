@@ -133,7 +133,7 @@ ignore_unused:
   - '{date,time.formats}.*'
   - datetime.distance_in_words.*
   - decidim.admin.actions.share
-  - decidim.admin.participatory_process_steps.default_title
+  - decidim.admin.participatory_process_phases.default_title
   - decidim.admin.admin_log.changeset.*
   - decidim.verifications.admin_log.csv_datum.*
   - decidim.admin.forms.file_help.import_csv.*

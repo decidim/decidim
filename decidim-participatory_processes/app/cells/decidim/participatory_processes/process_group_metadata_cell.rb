@@ -5,7 +5,7 @@ require "cell/partial"
 module Decidim
   module ParticipatoryProcesses
     class ProcessGroupMetadataCell < Decidim::CardMetadataCell
-      delegate :active_step, :meta_scope, to: :model
+      delegate :active_phase, :meta_scope, to: :model
 
       def initialize(*)
         super

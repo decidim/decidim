@@ -32,7 +32,7 @@ Decidim.register_component(:debates) do |component|
     settings.attribute :attachments_allowed, type: :boolean, default: false
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :likes_enabled, type: :boolean, default: true
     settings.attribute :likes_blocked, type: :boolean
     settings.attribute :creation_enabled, type: :boolean, default: false
