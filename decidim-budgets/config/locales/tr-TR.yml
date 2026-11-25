@@ -168,15 +168,11 @@ tr:
             workflow_choices:
               all: 'Hepsinde oy ver: Katılımcıların tüm bütçelerde oy kullanmasına olanak tanır.'
               one: 'Birinde oy verin: Katılımcıların herhangi bir bütçede, ancak yalnızca bir bütçede oy kullanmasına izin verir.'
-          step:
-            announcement: Duyuru
+          phase:
             comments_blocked: Yorumlar engellendi
             highlighted_heading: Vurgulanan başlık
-            landing_page_content: Bütçeler ana sayfası
             list_heading: Liste başlığı
-            more_information_modal: Daha fazla bilgi
             show_votes: Oyları göster
-            title: Başlık
             votes: Oylama
             votes_choices:
               disabled: Oylama devre dışı
