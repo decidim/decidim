@@ -124,8 +124,7 @@ fi:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
-          step:
-            announcement: Ilmoitus
+          phase:
             comments_blocked: Kommentointi estetty
             likes_blocked: Tykkäykset estetty
             likes_enabled: Tykkäykset käytössä
