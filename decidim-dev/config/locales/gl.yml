@@ -35,14 +35,9 @@ gl:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: Gústame bloqueados
             likes_enabled: Gústame activados
-            readonly_step_attribute: Atributo de paso de só lectura
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:
