@@ -178,8 +178,7 @@ fi-pl:
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
-          step:
-            announcement: Ilmoitus
+          phase:
             comments_blocked: Kommentointi on estetty
             creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
     download_your_data:
