@@ -178,8 +178,7 @@ es-MX:
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
             terms_and_conditions_url_for_meeting_creators: URL de términos y condiciones para las creadoras de encuentros
-          step:
-            announcement: Anuncio
+          phase:
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
     download_your_data:
