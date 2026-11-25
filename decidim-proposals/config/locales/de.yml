@@ -242,11 +242,11 @@ de:
             default_sort_order_options:
               automatic: Automatisch
               most_commented: Am meisten kommentiert
-              most_followed: Am häufigsten gefolgt
+              most_followed: Am meisten gefolgt
               most_liked: Am häufigsten unterstützt
               most_voted: Am meisten gewählt
               random: Zufällig
-              recent: Neueste
+              recent: Kürzlich hinzugefügt
               with_more_authors: Mit mehr Autoren
             likes_blocked: Unterstützungsfunktion gesperrt
             likes_enabled: Unterstützungsfunktion aktiviert
