@@ -165,7 +165,7 @@ nl:
         index:
           steps_title: Stappen
         new:
-          create: Aanmaken
+          create: Creëren
         ordering:
           error: Er is een fout opgetreden bij het herschikken van deze processtappen.
         update:
