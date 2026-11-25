@@ -104,6 +104,7 @@ lv:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
             show_votes: Rādīt balsis
+            title: Nosaukums
             votes_choices:
               enabled: Balsošana ir iespējota
   index:
