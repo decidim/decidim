@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 310] */
+/* eslint max-lines: ["error", 330] */
 
 import { Controller } from "@hotwired/stimulus"
 import * as i18n from "src/decidim/refactor/moved/i18n";
@@ -91,11 +91,9 @@ export default class extends Controller {
       // In WYSIWYG editors (TipTap) we need to find the active editor from the
       // DOM node.
       if (this.element.parentElement.classList.contains("editor")) {
-        this.element.parentElement.addEventListener("editor:initialized", (event) => {
-          this.editor = event.detail.editor;
-          this.userInput = this.editor.view.dom;
-          this.initializeCounter();
-        });
+        this.editorContainer = this.element.parentElement;
+        this.boundEditorInitialized = this.onEditorInitialized.bind(this);
+        this.editorContainer.addEventListener("editor:initialized", this.boundEditorInitialized);
 
         // Wait until the next javascript loop so WYSIWYG editors are created
         setTimeout(() => {
@@ -119,9 +117,28 @@ export default class extends Controller {
     }
   }
 
+  onEditorInitialized(event) {
+    this.editor = event.detail.editor;
+    this.userInput = this.editor.view.dom;
+    this.initializeCounter();
+  }
+
   initializeCounter() {
     this.updateInputLength();
     this.previousInputLength = this.inputLength;
+
+    // Bind the counter events only once per editor instance. The same editor
+    // can be announced multiple times (e.g. after a reconnect) and binding the
+    // events again would duplicate the counter updates.
+    if (this.counterInitialized && this.initializedEditor === this.editor) {
+      this.updateStatus();
+      this.updateScreenReaderStatus();
+      this.setDescribedBy(true);
+      return;
+    }
+
+    this.counterInitialized = true;
+    this.initializedEditor = this.editor;
 
     this.bindEvents();
     this.setDescribedBy(true);
@@ -278,6 +295,10 @@ export default class extends Controller {
   }
 
   disconnect() {
+    if (this.editorContainer && this.boundEditorInitialized) {
+      this.editorContainer.removeEventListener("editor:initialized", this.boundEditorInitialized);
+    }
+
     if (this.container) {
       this.container.remove();
     }
