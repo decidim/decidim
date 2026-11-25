@@ -35,14 +35,9 @@ es-MX:
               bar: Barra
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: '"Me gusta" desactivados'
             likes_enabled: '"Me gusta" activados'
-            readonly_step_attribute: Atributo de sólo lectura
-            test_options:
-              bar: Barra
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:
