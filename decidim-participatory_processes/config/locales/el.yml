@@ -41,14 +41,9 @@ el:
         participatory_structure: Πώς αποφασίστηκε
         target: Ποιος συμμετέχει
         title: Τίτλος
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Διαδρομή Call To Action
         cta_text: Κείμενο κουμπιού «Call To Action»
-        description: Περιγραφή
-        end_date: Ημερομηνία λήξης
-        short_description: Σύντομη περιγραφή
-        start_date: Ημερομηνία έναρξης
-        title: Τίτλος
       participatory_process_user_role:
         email: Email
         name: Όνομα
@@ -60,8 +55,8 @@ el:
             document:
               allowed_file_content_types: 'Μη έγκυρος τύπος εγγράφου. Επιτρέπονται μόνο αρχεία με τις ακόλουθες επεκτάσεις: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Η φάση ενεργοποιήθηκε
-      decidim/participatory_process_step_changed_event: Η φάση άλλαξε
+      decidim/participatory_process_phase_activated_event: Η φάση ενεργοποιήθηκε
+      decidim/participatory_process_phase_changed_event: Η φάση άλλαξε
   activerecord:
     models:
       decidim/participatory_process:
@@ -70,7 +65,7 @@ el:
       decidim/participatory_process_group:
         one: Ομάδα διαδικασιών συμμετοχής
         other: Ομάδες διαδικασιών συμμετοχής
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Φάση
         other: Φάσεις
   decidim:
@@ -84,7 +79,7 @@ el:
         import_process: Εισαγωγή
         new_process: Νέα διαδικασία
         new_process_group: Νέα ομάδα διαδικασιών
-        new_process_step: Νέα φάση
+        new_process_phase: Νέα φάση
         new_process_user_role: Νέος διαχειριστής διαδικασιών
         preview: Προεπισκόπηση
         publish: Δημοσίευση
@@ -99,8 +94,8 @@ el:
           attachments: Συνημμένα
           components: Στοιχεία
           moderations: Εποπτεύσεις
+          phases: Φάσεις
           process_admins: Διαχειριστές διαδικασιών
-          steps: Φάσεις
       models:
         participatory_process:
           fields:
@@ -112,11 +107,7 @@ el:
           fields:
             title: Τίτλος
           name: Ομάδα διαδικασιών
-        participatory_process_step:
-          fields:
-            end_date: Ημερομηνία λήξης
-            start_date: Ημερομηνία έναρξης
-            title: Τίτλος
+        participatory_process_phase:
           name: Φάση διαδικασίας συμμετοχής
         participatory_process_user_role:
           fields:
@@ -149,6 +140,24 @@ el:
         new:
           import: Εισαγωγή
           select: Επιλέξτε ποια δεδομένα θέλετε να εισαγάγετε
+      participatory_process_phase_activations:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά την ενεργοποίηση αυτής της φάσης της διαδικασίας συμμετοχής.
+          success: Η φάση διαδικασίας συμμετοχής ενεργοποιήθηκε με επιτυχία.
+      participatory_process_phases:
+        create:
+          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας φάσης διαδικασίας συμμετοχής.
+          success: Η φάση διαδικασίας συμμετοχής δημιουργήθηκε με επιτυχία.
+        default_title: Εισαγωγή
+        destroy:
+          error:
+            active_phase: Δεν είναι δυνατή η διαγραφή της ενεργής φάσης.
+            last_phase: Δεν είναι δυνατή η διαγραφή της τελευταίας φάσης μιας διεργασίας.
+          success: Η φάση διαδικασίας συμμετοχής διαγράφηκε με επιτυχία.
+        ordering:
+          error: Παρουσιάστηκε πρόβλημα κατά την αναδιάταξη αυτών των φάσεων της διαδικασίας συμμετοχής.
+        update:
+          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
       participatory_process_publications:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημοσίευση αυτής της διαδικασίας συμμετοχής.
@@ -156,28 +165,6 @@ el:
         destroy:
           error: Υπήρξε ένα πρόβλημα κατά την κατάργηση δημοσίευσης αυτής της διαδικασίας συμμετοχής.
           success: Η δημοσίευση της διαδικασίας συμμετοχής καταργήθηκε με επιτυχία.
-      participatory_process_step_activations:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά την ενεργοποίηση αυτής της φάσης της διαδικασίας συμμετοχής.
-          success: Η φάση διαδικασίας συμμετοχής ενεργοποιήθηκε με επιτυχία.
-      participatory_process_steps:
-        create:
-          error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία μιας νέας φάσης διαδικασίας συμμετοχής.
-          success: Η φάση διαδικασίας συμμετοχής δημιουργήθηκε με επιτυχία.
-        default_title: Εισαγωγή
-        destroy:
-          error:
-            active_step: Δεν είναι δυνατή η διαγραφή της ενεργής φάσης.
-            last_step: Δεν είναι δυνατή η διαγραφή της τελευταίας φάσης μιας διεργασίας.
-          success: Η φάση διαδικασίας συμμετοχής διαγράφηκε με επιτυχία.
-        edit:
-          update: Ενημέρωση
-        new:
-          create: Δημιουργία
-        ordering:
-          error: Παρουσιάστηκε πρόβλημα κατά την αναδιάταξη αυτών των φάσεων της διαδικασίας συμμετοχής.
-        update:
-          error: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της διαδικασίας συμμετοχής.
       participatory_process_user_roles:
         create:
           error: Υπήρξε ένα πρόβλημα κατά την προσθήκη ενός συμμετέχοντα για αυτήν τη διαδικασία συμμετοχής.
@@ -224,7 +211,7 @@ el:
       participatory_process_group:
         create: "Ο χρήστης %{user_name} δημιούργησε την ομάδα διαδικασίας συμμετοχής %{resource_name}"
         update: "Ο χρήστης %{user_name} ενημέρωσε την ομάδα διαδικασίας συμμετοχής %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "Ο χρήστης %{user_name} ενεργοποίησε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
         create: "Ο χρήστης %{user_name} δημιούργησε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
         delete: "Ο χρήστης %{user_name} διέγραψε τη φάση %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
@@ -235,21 +222,21 @@ el:
         update: "Ο χρήστης %{user_name} άλλαξε τον ρόλο του συμμετέχοντα %{resource_name} στη διαδικασία συμμετοχής %{space_name}"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'Η φάση %{resource_title} είναι πλέον ενεργή για τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Η φάση %{resource_title} είναι πλέον ενεργή για τον χώρο συμμετοχής <a href="%{resource_path}">%{participatory_space_title}</a>
+        phase_changed:
+          email_intro: 'Οι ημερομηνίες για τη φάση %{resource_title} στον χώρο συμμετοχής %{participatory_space_title} ενημερώθηκαν. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
+          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
+          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
+          notification_title: Οι ημερομηνίες για τη φάση <a href="%{resource_path}">%{resource_title}</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a> ενημερώθηκαν.
         role_assigned:
           email_intro: Έχετε εκχωρηθεί ως %{role} για τη διαδικασία συμμετοχής «%{resource_title}».
           email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε %{role} της διαδικασίας συμμετοχής «%{resource_title}».
           email_subject: Έχετε εκχωρηθεί ως %{role} για «%{resource_title}».
           notification_title: Έχετε εκχωρηθεί ως %{role} για τη διαδικασία συμμετοχής <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: 'Η φάση %{resource_title} είναι πλέον ενεργή για τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Η φάση %{resource_title} είναι πλέον ενεργή για τον χώρο συμμετοχής <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
-          email_intro: 'Οι ημερομηνίες για τη φάση %{resource_title} στον χώρο συμμετοχής %{participatory_space_title} ενημερώθηκαν. Μπορείτε να την δείτε από αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής %{participatory_space_title}. Μπορείτε να διακόψετε τη λήψη ειδοποιήσεων ακολουθώντας τον προηγούμενο σύνδεσμο.
-          email_subject: Μια ενημέρωση στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Οι ημερομηνίες για τη φάση <a href="%{resource_path}">%{resource_title}</a> στον χώρο συμμετοχής <a href="%{participatory_space_url}">%{participatory_space_title}</a> ενημερώθηκαν.
     help:
       participatory_spaces:
         participatory_processes:
@@ -277,9 +264,9 @@ el:
             other: "%{count} διεργασίες"
       show:
         title: Ομάδες διαδικασιών συμμετοχής
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Φάσεις διαδικασίας
+        process_phases: Φάσεις διαδικασίας
     participatory_processes:
       admin:
         content_blocks:
@@ -295,6 +282,9 @@ el:
         participatory_process_imports:
           form:
             document_legend: Προσθήκη εγγράφου
+        participatory_process_phases:
+          index:
+            title: Φάσεις
         participatory_processes:
           form:
             duration: Διάρκεια
@@ -353,7 +343,7 @@ el:
         index:
           promoted_processes: Επισημασμένες διαδικασίες
         participatory_process:
-          active_step: 'Τρέχουσα φάση:'
+          active_phase: 'Τρέχουσα φάση:'
           more_info: Περισσότερες πληροφορίες
           more_info_about: Περισσότερες πληροφορίες για τη διαδικασία %{resource_name}
           take_part: Συμμετάσχετε
