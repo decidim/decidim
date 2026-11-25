@@ -148,7 +148,7 @@ uk:
         index:
           steps_title: Кроки
         new:
-          create: Додати
+          create: Створити
         ordering:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
