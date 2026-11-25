@@ -55,10 +55,8 @@ uk:
             proposal_wizard_step_1_help_text: Довідка майстра пропозицій щодо кроку "Створити"
             resources_permissions_enabled: Для кожної пропозиції можна встановити ті чи інші дозволи на дії
             threshold_per_proposal: Поріг на кожну пропозицію
-          step:
-            announcement: Оголошення
+          phase:
             comments_blocked: Коментарі вимкнено
-            proposal_answering_enabled: Відповіді на пропозиції увімкнено
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
