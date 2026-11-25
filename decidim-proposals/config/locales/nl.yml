@@ -128,7 +128,7 @@ nl:
               random: Willekeurig
               recent: Meest recent
               with_more_authors: Met meer auteurs
-            proposal_answering_enabled: Formeel antwoord op voorstellen toegestaan.
+            proposal_answering_enabled: Reacties op voorstellen ingeschakeld
             publish_answers_immediately: Publiceer voorstel antwoorden onmiddellijk
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen actief
