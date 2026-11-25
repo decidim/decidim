@@ -16,8 +16,6 @@ zh-CN:
         settings:
           global:
             announcement: 通 知
-          step:
-            announcement: 通 知
     elections:
       actions:
         preview: 预览
