@@ -32,8 +32,6 @@ fi-pl:
         settings:
           global:
             announcement: Ilmoitus
-          step:
-            announcement: Ilmoitus
     elections:
       actions:
         confirm_delete_election: Haluatko varmasti poistaa tämän vaalin?
