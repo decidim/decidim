@@ -30,8 +30,7 @@ tr:
             announcement: duyuru
             attachments_allowed: Eklere İzin Ver
             comments_enabled: Yorumlar etkin
-          step:
-            announcement: duyuru
+          phase:
             comments_blocked: Yorumlar engellendi
     debates:
       actions:
