@@ -19,6 +19,8 @@ describe "Editor" do
   let(:form) { Decidim::FormBuilder.new(:record, record, template, {}) }
   let(:template_class) do
     Class.new(ActionView::Base) do
+      include Decidim::SanitizeHelper
+
       def protect_against_forgery?
         false
       end

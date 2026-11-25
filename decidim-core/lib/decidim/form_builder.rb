@@ -156,6 +156,7 @@ module Decidim
       label_text = label_for(name) if label_text.blank?
       options.delete(:required)
       help_text = options.delete(:help_text)
+      editor_value = options.fetch(:value) { object.public_send(name) }
       editor_image = Decidim::EditorImage.new
       editor_options = editor_options(editor_image, options)
       hidden_options = editor_hidden_options(name, options)
@@ -182,7 +183,12 @@ module Decidim
             disabled: options[:disabled],
             options: editor_options[:editor]
           }
-        ) { content_tag(:div, nil, class: "editor-input", style: "min-height: #{lines}rem") }
+        ) do
+          safe_join [
+            editor_preview(editor_value, lines, editor_options[:editor]["context"], disabled: options[:disabled]),
+            content_tag(:div, nil, class: "editor-input", style: "min-height: #{lines}rem", hidden: true)
+          ]
+        end
         template += error_for(name, options) if error?(name)
         template += editor_upload(editor_image, editor_options[:upload])
         template.html_safe
@@ -858,6 +864,25 @@ module Decidim
       return object.send(attribute).record.class if klass.respond_to?(:record) && klass.record.present?
 
       object.class
+    end
+
+    # Private: creates a lightweight preview for the editor content. The actual
+    # editor is initialized later by JavaScript when the field becomes visible.
+    # The preview is focusable so keyboard users can reach editors that are
+    # outside the viewport. Disabled editors are never initialized, so their
+    # preview must not limit the height of the content nor add a tab stop.
+    def editor_preview(value, lines, context, disabled: false)
+      preview = if value.present?
+                  context == "participant" ? @template.decidim_sanitize_editor(value) : @template.decidim_sanitize_editor_admin(value)
+                end
+
+      style = "min-height: #{lines}rem"
+      style += "; max-height: #{lines}rem" unless disabled
+
+      attributes = { class: "editor-preview", style: }
+      attributes[:tabindex] = 0 unless disabled
+
+      content_tag(:div, preview, **attributes)
     end
 
     # Private: creates the options to pass to the view editor and its attached

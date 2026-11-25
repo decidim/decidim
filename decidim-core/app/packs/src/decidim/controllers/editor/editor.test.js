@@ -1,0 +1,276 @@
+/* global jest */
+
+import { Application } from "@hotwired/stimulus";
+import EditorController from "src/decidim/controllers/editor/controller";
+import "src/decidim/editor/test/helpers";
+
+jest.mock("images/decidim/remixicon.symbol.svg", () => "test/url.svg");
+
+const sleep = (time = 0) => new Promise((resolve) => setTimeout(resolve, time));
+
+class MockIntersectionObserver {
+  static instances = [];
+
+  constructor(callback) {
+    this.callback = callback;
+    MockIntersectionObserver.instances.push(this);
+  }
+
+  observe() {
+    this.observed = true;
+  }
+
+  disconnect() {
+    this.disconnected = true;
+  }
+}
+
+describe("EditorController", () => {
+  let application = null;
+  let container = null;
+
+  beforeEach(async () => {
+    MockIntersectionObserver.instances = [];
+    window.IntersectionObserver = MockIntersectionObserver;
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview tabindex="0"><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden></div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+    application = Application.start();
+    application.register("editor", EditorController);
+
+    await sleep();
+  });
+
+  afterEach(() => {
+    application.stop();
+    document.body.innerHTML = "";
+  });
+
+  it("does not initialize the editor until it is visible", () => {
+    expect(document.querySelector(".ProseMirror")).toBeNull();
+    expect(MockIntersectionObserver.instances[0].observed).toBe(true);
+  });
+
+  it("initializes the editor when it intersects the viewport", async () => {
+    MockIntersectionObserver.instances[0].callback([{ isIntersecting: true }]);
+    await sleep();
+
+    expect(document.querySelector(".ProseMirror")).not.toBeNull();
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+    expect(document.querySelector("input[type=hidden]").value).toEqual("<p>Hello</p>");
+  });
+
+  it("initializes the editor when it receives the reveal event", () => {
+    container.dispatchEvent(new CustomEvent("editor:reveal", { bubbles: true }));
+
+    expect(document.querySelector(".ProseMirror")).not.toBeNull();
+  });
+
+  it("initializes the editor and moves focus to it when the preview receives focus", async () => {
+    const preview = container.querySelector(".editor-preview");
+    expect(preview.getAttribute("tabindex")).toBe("0");
+
+    preview.focus();
+    await sleep();
+
+    const proseMirror = container.querySelector(".editor-input .ProseMirror");
+    expect(proseMirror).not.toBeNull();
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+    expect(document.activeElement).toBe(proseMirror);
+  });
+
+  it("does not initialize disabled editors when their preview receives focus", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]" disabled>
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="true" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden></div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const preview = container.querySelector(".editor-preview");
+    expect(preview.hasAttribute("tabindex")).toBe(false);
+
+    preview.dispatchEvent(new FocusEvent("focus"));
+    await sleep();
+
+    expect(document.querySelector(".ProseMirror")).toBeNull();
+    expect(container.querySelector(".editor-preview").hidden).toBe(false);
+    expect(container.querySelector(".editor-input").hidden).toBe(true);
+  });
+
+  it("dispatches editor:initialized when reusing an editor initialized before the controller connected", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden>
+            <div class="ProseMirror">Existing content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const existingEditor = { commands: { setContent: jest.fn() } };
+    document.querySelector(".ProseMirror").editor = existingEditor;
+    container = document.querySelector(".editor-container");
+    const listener = jest.fn();
+    container.addEventListener("editor:initialized", listener);
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    expect(listener).toHaveBeenCalledTimes(1);
+    expect(listener.mock.calls[0][0].detail.editor).toBe(existingEditor);
+  });
+
+  it("dispatches editor:initialized when revealing an editor initialized before reveal", async () => {
+    const listener = jest.fn();
+    container.addEventListener("editor:initialized", listener);
+
+    const existingEditor = { commands: { setContent: jest.fn() } };
+    const proseMirror = document.createElement("div");
+    proseMirror.classList.add("ProseMirror");
+    proseMirror.editor = existingEditor;
+    container.querySelector(".editor-input").appendChild(proseMirror);
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    expect(controller.reveal()).toBe(existingEditor);
+    expect(listener).toHaveBeenCalledTimes(1);
+    expect(listener.mock.calls[0][0].detail.editor).toBe(existingEditor);
+  });
+
+  it("reuses an editor initialized before the controller connected", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden>
+            <div class="ProseMirror">Existing content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const existingEditor = { commands: { setContent: jest.fn() } };
+    document.querySelector(".ProseMirror").editor = existingEditor;
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    expect(controller.reveal()).toBe(existingEditor);
+    expect(container.querySelectorAll(".ProseMirror")).toHaveLength(1);
+    expect(container.dataset.editorInitialized).toBe("true");
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+  });
+
+  it("rebuilds the editor when the cached ProseMirror node has no editor instance", async () => {
+    application.stop();
+    MockIntersectionObserver.instances = [];
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}" data-editor-initialized="true">
+          <div class="editor-preview" data-editor-preview hidden><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem">
+            <div class="ProseMirror">Stale content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    // The stale node and its initialized marker are discarded so the field
+    // returns to the regular lazy initialization path.
+    expect(container.querySelector(".ProseMirror")).toBeNull();
+    expect(controller.editor).toBeUndefined();
+    expect(container.dataset.editorInitialized).toBeUndefined();
+    expect(container.querySelector(".editor-preview").hidden).toBe(false);
+    expect(container.querySelector(".editor-input").hidden).toBe(true);
+    expect(MockIntersectionObserver.instances).toHaveLength(1);
+    expect(MockIntersectionObserver.instances[0].observed).toBe(true);
+
+    MockIntersectionObserver.instances[0].callback([{ isIntersecting: true }]);
+    await sleep();
+
+    const proseMirror = container.querySelector(".editor-input .ProseMirror");
+    expect(proseMirror).not.toBeNull();
+    expect(container.querySelectorAll(".ProseMirror")).toHaveLength(1);
+    expect(proseMirror.editor).toBe(controller.editor);
+    expect(container.dataset.editorInitialized).toBe("true");
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+  });
+
+  it("keeps disabled editors read-only when the cached ProseMirror node has no editor instance", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]" disabled>
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="true" data-options="{&quot;context&quot;:&quot;admin&quot;}" data-editor-initialized="true">
+          <div class="editor-preview" data-editor-preview hidden><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem">
+            <div class="ProseMirror">Stale content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    expect(container.querySelector(".ProseMirror")).toBeNull();
+    expect(controller.editor).toBeUndefined();
+    expect(container.dataset.editorInitialized).toBeUndefined();
+    expect(container.querySelector(".editor-preview").hidden).toBe(false);
+    expect(container.querySelector(".editor-input").hidden).toBe(true);
+  });
+});
