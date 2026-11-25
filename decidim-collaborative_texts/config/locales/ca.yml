@@ -119,14 +119,12 @@ ca:
           draft: Actualment, aquest document està sent revisat per les administradores. No es poden fer suggeriments en aquest moment, però pots veure suggeriments fets per altres participants.
           not_accepting_suggestions: Els suggeriments no estan permesos en aquest moment.
           selection_active: Una selecció és activa. Si us plau, cancel·leu la selecció actual per crear-ne una de nova.
-        suggestions_count: "%{count} suggeriments"
         toggle: Mostrar o amagar els suggeriments
       documents:
         index:
           count:
             one: "%{count} text col·laboratiu"
             other: "%{count} textos col·laboratius"
-          empty: Encara no hi ha cap text col·laboratiu.
         show:
           contributors: Contribuïdores
       models:
@@ -157,8 +155,6 @@ ca:
           global:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-          step:
-            announcement: Avís
     statistics:
       all_collaborative_texts_count: Tots els textos col·laboratius
       collaborative_texts_count: Textos col·laboratius
