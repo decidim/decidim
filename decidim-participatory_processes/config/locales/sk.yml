@@ -511,7 +511,7 @@ sk:
           edit:
             title: Upraviť fázu participatívneho procesu
           index:
-            title: Fázy
+            title: Kroky
           new:
             title: Nová fáza participatívneho procesu
         participatory_process_user_roles:
