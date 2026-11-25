@@ -157,8 +157,7 @@ pl:
             maps_enabled: Mapy włączone
             resources_permissions_enabled: Uprawnienia działań można ustawić dla każdego spotkania
             terms_and_conditions_url_for_meeting_creators: Adres URL Regulaminu dla twórców spotkania
-          step:
-            announcement: Ogłoszenie
+          phase:
             comments_blocked: Komentarze zablokowane
             creation_enabled_for_participants: Możliwe tworzenie spotkań przez uczestników
     events:
