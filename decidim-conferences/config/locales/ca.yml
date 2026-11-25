@@ -281,6 +281,7 @@ ca:
           error: S'ha produït un error en afegir un tipus d'inscripció per a aquesta jornada.
           success: El tipus d'inscripció s'ha afegit correctament a aquesta jornada.
         destroy:
+          error: Hi ha hagut un problema en eliminar aquest tipus de registre. Els tipus de registre amb registres no es poden eliminar.
           success: El tipus d'inscripció s'ha eliminat correctament d'aquesta jornada.
         edit:
           update: Actualitzar

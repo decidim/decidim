@@ -15,7 +15,7 @@ ca:
           label: Mètode de Equal Shares (repartiment equitatiu), add1 (%{rule})
         equalshares/add1_comparison:
           help: Fa servir equalshares/add1 i després aplica el mateix pas de comparació que s'ha descrit anteriorment.
-          label: Mètode d'Equal Shares (repartiment equitatiu), comparació add1 (%{rules})
+          label: Mètode d'Equal Shares (repartiment equitatiu), comparació add1 (%{rule})
         equalshares_comparison:
           help: 'Fa servir equalshares (repartiment equitatiu) com a base i, després, afegiu un pas extra: compara el seu resultat amb un enfocament de maximització immediata i canvia només si més votants prefereixen el resultat d''aquest enfocament.'
           label: Mètode d'Equal Shares (repartiment equitatiu), comparació (%{rule})
