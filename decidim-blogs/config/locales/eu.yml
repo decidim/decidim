@@ -124,8 +124,7 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             taxonomy_filters: Osagairako iragazkiak hautatu
             taxonomy_filters_add: Erantsi iragazkia
-          step:
-            announcement: Jakinarazpena
+          phase:
             comments_blocked: Iruzkinak blokeatuta
             likes_blocked: Atsegin dut blokeatuta
             likes_enabled: Atsegin dut gaituta
