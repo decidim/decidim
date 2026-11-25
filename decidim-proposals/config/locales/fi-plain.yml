@@ -249,7 +249,7 @@ fi-pl:
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
               recent: Viimeisimmät
-              with_more_authors: Eniten tekijöitä
+              with_more_authors: Eniten laatijoita
             likes_blocked: Tykkäykset estetty
             likes_enabled: Tykkäykset käytössä
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
