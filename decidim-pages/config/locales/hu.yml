@@ -14,8 +14,6 @@ hu:
         settings:
           global:
             announcement: Közlemény
-          step:
-            announcement: Közlemény
     pages:
       admin:
         models:
