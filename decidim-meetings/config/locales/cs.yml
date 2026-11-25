@@ -183,8 +183,7 @@ cs:
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
-          step:
-            announcement: Oznámení
+          phase:
             comments_blocked: Komentáře blokovány
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
     download_your_data:
