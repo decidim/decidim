@@ -144,7 +144,7 @@ de:
           fields:
             actions: Aktionen
             end_date: Enddatum
-            start_date: Anfangsdatum
+            start_date: Startdatum
             title: Titel
           name: Partizipativer Prozessschritt
         participatory_process_user_role:
@@ -502,7 +502,7 @@ de:
           edit:
             title: Partizipativen Prozessschritt bearbeiten
           index:
-            title: Phasen
+            title: Schritte
           new:
             title: Neuer partizipativer Prozessschritt
         participatory_process_user_roles:
