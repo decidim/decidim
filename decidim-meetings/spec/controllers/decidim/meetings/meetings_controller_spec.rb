@@ -98,6 +98,45 @@ describe Decidim::Meetings::MeetingsController do
   end
 
   describe "#show" do
+    context "when the meeting is online and its host is an embeddable service" do
+      let(:meeting) do
+        create(
+          :meeting,
+          :published,
+          :online,
+          component: meeting_component,
+          online_meeting_url: "https://stream.example.org/meeting"
+        )
+      end
+      let(:frame_src) { response.headers["Content-Security-Policy"][/frame-src [^;]+/] }
+
+      before do
+        allow(Decidim::Meetings).to receive(:embeddable_services).and_return(["stream.example.org"])
+      end
+
+      it "does not add the embeddable service host to the frame-src directive" do
+        get :show, params: { id: meeting.id }
+
+        expect(frame_src).not_to include("stream.example.org")
+      end
+
+      context "when the host is allowed in the organization's content security policy" do
+        before do
+          organization.update!(
+            content_security_policy: organization.content_security_policy.merge(
+              "frame-src" => "#{organization.content_security_policy["frame-src"]} https://stream.example.org"
+            )
+          )
+        end
+
+        it "keeps the host in the frame-src directive" do
+          get :show, params: { id: meeting.id }
+
+          expect(frame_src).to include("https://stream.example.org")
+        end
+      end
+    end
+
     context "when user is not logged in" do
       it "can access non private meetings" do
         get :show, params: { id: meeting.id }
