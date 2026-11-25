@@ -17,8 +17,6 @@ tr:
         settings:
           global:
             announcement: Duyuru
-          step:
-            announcement: Duyuru
     elections:
       actions:
         preview: Önizleme
