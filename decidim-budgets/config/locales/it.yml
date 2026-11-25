@@ -192,7 +192,7 @@ it:
             list_heading: Intestazione dell'elenco
             more_information_modal: Finestra modale "Maggiori informazioni"
             show_votes: Mostra voti
-            title: Nome
+            title: Titolo
             votes: Votazione
             votes_choices:
               disabled: Votazioni disabilitate
