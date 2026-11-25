@@ -14,6 +14,11 @@ on:
       working-directory:
         required: true
         type: string
+      parallel_processors:
+        description: 'Number of parallel test processors'
+        required: false
+        default: 3
+        type: number
       shard:
         description: 'Shard name for the parallel test runtime log (empty disables runtime caching)'
         required: false
@@ -63,7 +68,7 @@ jobs:
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
-      PARALLEL_TEST_PROCESSORS: 3
+      PARALLEL_TEST_PROCESSORS: ${{ inputs.parallel_processors }}
     services:
       # If you see any inconsistency between CI and local testing environment related to the accessibility validator, the best way of troubleshooting is:
       # 1. Go to the "Raw log" of the failing action
