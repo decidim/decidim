@@ -41,14 +41,9 @@ bg:
         participatory_structure: Как е решено
         target: Кой участва
         title: Заглавие
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Път на фразата, подтикваща към действие
         cta_text: Текст на призива към действие
-        description: Описание
-        end_date: Крайна дата
-        short_description: Кратко описание
-        start_date: Начална дата
-        title: Заглавие
       participatory_process_user_role:
         email: Имейл
         name: Име
@@ -60,8 +55,8 @@ bg:
             document:
               allowed_file_content_types: 'Невалиден файлов формат. Позволени са само файлове със следните разширения: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Фазата е активирана
-      decidim/participatory_process_step_changed_event: Променена фаза
+      decidim/participatory_process_phase_activated_event: Фазата е активирана
+      decidim/participatory_process_phase_changed_event: Променена фаза
   activerecord:
     models:
       decidim/participatory_process:
@@ -70,7 +65,7 @@ bg:
       decidim/participatory_process_group:
         one: Група на процеса за участие
         other: Групи на процеса за участие
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Фаза
         other: Фази
   decidim:
@@ -84,7 +79,7 @@ bg:
         import_process: Импортиране
         new_process: Нов процес
         new_process_group: Нова група на процеса
-        new_process_step: Нова фаза
+        new_process_phase: Нова фаза
         new_process_user_role: Нов администратор на процес
         preview: Преглед
         publish: Публикувай
@@ -103,8 +98,8 @@ bg:
           attachments: Прикачени файлове
           components: Компоненти
           moderations: Модерации
+          phases: Фази
           process_admins: Администратори на процеси
-          steps: Фази
       models:
         participatory_process:
           fields:
@@ -117,11 +112,7 @@ bg:
           fields:
             title: Заглавие
           name: Група на процеса
-        participatory_process_step:
-          fields:
-            end_date: Крайна дата
-            start_date: Начална дата
-            title: Заглавие
+        participatory_process_phase:
           name: Фаза на процес на участие
         participatory_process_user_role:
           fields:
@@ -154,6 +145,24 @@ bg:
         new:
           import: Импортиране
           select: Изберете кои данни искате да импортирате
+      participatory_process_phase_activations:
+        create:
+          error: Възникна проблем при активирането на този етап на процеса на участие.
+          success: Групата на процеса на участие беше активирана успешно.
+      participatory_process_phases:
+        create:
+          error: Възникна проблем при създаването на нов етап на процеса на участие.
+          success: Етапът на процеса на участие беше създаден успешно.
+        default_title: Въведение
+        destroy:
+          error:
+            active_phase: Не може да се изтрие активна фаза.
+            last_phase: Не може да се изтрие последната фаза от процес.
+          success: Етапът на процеса на участие беше изтрит успешно.
+        ordering:
+          error: Възникна проблем при промяната на реда на тези етапи на процеса на участие.
+        update:
+          error: Възникна проблем при актуализирането на тази фаза от процеса на участие.
       participatory_process_publications:
         create:
           error: Възникна проблем при публикуването на този процес на участие.
@@ -161,28 +170,6 @@ bg:
         destroy:
           error: Възникна проблем при премахването на публикацията на този процес на участие.
           success: Публикацията на процеса на участие беше премахната успешно.
-      participatory_process_step_activations:
-        create:
-          error: Възникна проблем при активирането на този етап на процеса на участие.
-          success: Групата на процеса на участие беше активирана успешно.
-      participatory_process_steps:
-        create:
-          error: Възникна проблем при създаването на нов етап на процеса на участие.
-          success: Етапът на процеса на участие беше създаден успешно.
-        default_title: Въведение
-        destroy:
-          error:
-            active_step: Не може да се изтрие активна фаза.
-            last_step: Не може да се изтрие последната фаза от процес.
-          success: Етапът на процеса на участие беше изтрит успешно.
-        edit:
-          update: Актуализация
-        new:
-          create: Създаване
-        ordering:
-          error: Възникна проблем при промяната на реда на тези етапи на процеса на участие.
-        update:
-          error: Възникна проблем при актуализирането на тази фаза от процеса на участие.
       participatory_process_user_roles:
         create:
           error: Възникна проблем при добавянето на участник за този процес на участие.
@@ -230,7 +217,7 @@ bg:
       participatory_process_group:
         create: "%{user_name} създаде групата на процеса на участие %{resource_name}"
         update: "%{user_name} актуализира групата на процеса на участие %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} активира етапа %{resource_name} в процеса на участие %{space_name}"
         create: "%{user_name} създаде етапа %{resource_name} в процеса на участие %{space_name}"
         delete: "%{user_name} изтри фазата %{resource_name} в процеса на участие %{space_name}"
@@ -241,21 +228,21 @@ bg:
         update: "%{user_name} промени ролята на участника %{resource_name} в процеса на участие %{space_name}"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'Фазата %{resource_title} вече е активна за %{participatory_space_title}. Можете да го видите от тази страница:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Актуализиране на %{participatory_space_title}
+          notification_title: Фазата %{resource_title} вече е активна за <a href="%{resource_path}">%{participatory_space_title}</a>
+        phase_changed:
+          email_intro: 'Фазата %{resource_title} вече е активна за <a href="%{resource_path}">%{participatory_space_title}</a>:'
+          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
+          email_subject: Актуализиране на %{participatory_space_title}
+          notification_title: Датите за фазата <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> са актуализирани.
         role_assigned:
           email_intro: Назначени сте като %{role} за процес на участие „%{resource_title}“.
           email_outro: Получавате това известие, защото сте %{role} на процеса на участие „%{resource_title}“.
           email_subject: Назначени сте като %{role} за „%{resource_title}“.
           notification_title: Назначени сте като %{role} за процес на участие <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: 'Фазата %{resource_title} вече е активна за %{participatory_space_title}. Можете да го видите от тази страница:'
-          email_outro: Получавате това известие, защото следвате %{participatory_space_title}. Може да прекратите известията чрез предходния линк.
-          email_subject: Актуализиране на %{participatory_space_title}
-          notification_title: Фазата %{resource_title} вече е активна за <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
-          email_intro: 'Фазата %{resource_title} вече е активна за <a href="%{resource_path}">%{participatory_space_title}</a>:'
-          email_outro: Датите за фазата %{resource_title} в %{participatory_space_title} са актуализирани. Можете да го видите от тази страница.
-          email_subject: Актуализация на %{participatory_space_title}
-          notification_title: Датите за фазата <a href="%{resource_path}">%{resource_title}</a> в <a href="%{participatory_space_url}">%{participatory_space_title}</a> са актуализирани.
     help:
       participatory_spaces:
         participatory_processes:
@@ -294,9 +281,9 @@ bg:
             other: "%{count} процеса"
       show:
         title: Групи на процеса за участие
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Фази на процеса
+        process_phases: Фази на процеса
     participatory_processes:
       admin:
         content_blocks:
@@ -317,6 +304,9 @@ bg:
           form:
             document_legend: Добавяне на документ
             slug_help_html: 'Съкратените URL се използват за генериране на URL адреси, които сочат към този процес. Приема само букви, цифри и тирета и трябва да започва с буква. Пример: %{url}'
+        participatory_process_phases:
+          index:
+            title: Фази
         participatory_processes:
           form:
             duration: Продължителност
@@ -400,7 +390,7 @@ bg:
         index:
           promoted_processes: Акцентирани процеси
         participatory_process:
-          active_step: Текуща фаза
+          active_phase: Текуща фаза
           more_info: Повече информация
           more_info_about: Повече информация за процеса %{resource_name}
           take_part: Участвайте
