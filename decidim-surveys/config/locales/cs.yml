@@ -36,8 +36,6 @@ cs:
           announcement: Oznámení
           global:
             announcement: Oznámení
-          step:
-            announcement: Oznámení
     events:
       surveys:
         survey_closed:
