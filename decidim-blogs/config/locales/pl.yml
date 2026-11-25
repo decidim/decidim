@@ -74,8 +74,7 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
-          step:
-            announcement: Ogłoszenie
+          phase:
             comments_blocked: Komentarze zablokowane
     events:
       blogs:
