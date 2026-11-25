@@ -481,15 +481,11 @@ ja:
             workflow_choices:
               all: '全てに投票: 参加者はすべての予算に投票できます。'
               one: '1つの投票: 参加者はどの予算にも一度だけ投票できます。'
-          step:
-            announcement: お知らせ
+          phase:
             comments_blocked: コメントをブロック
             highlighted_heading: ハイライトされた見出し
-            landing_page_content: 予算ランディングページ
             list_heading: 見出しのリスト
-            more_information_modal: 詳しい情報
             show_votes: 投票を表示
-            title: タイトル
             votes: 投票
             votes_choices:
               disabled: 投票は無効です
