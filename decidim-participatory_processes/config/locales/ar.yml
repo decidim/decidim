@@ -28,21 +28,16 @@ ar:
         description: وصف
         hero_image: صورة
         participatory_process_ids: العمليات ذات الصلة
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: دعوة إلى مسار العمل
         cta_text: دعوة إلى نص العمل
-        description: الوصف
-        end_date: تاريخ الانتهاء
-        short_description: وصف قصير
-        start_date: تاريخ البداية
-        title: العنوان
       participatory_process_user_role:
         email: البريد الإلكتروني
         name: اسم
         role: وظيفة
     models:
-      decidim/participatory_process_step_activated_event: تم تنشيط المرحلة
-      decidim/participatory_process_step_changed_event: تغيرت المرحلة
+      decidim/participatory_process_phase_activated_event: تم تنشيط المرحلة
+      decidim/participatory_process_phase_changed_event: تغيرت المرحلة
   activerecord:
     models:
       decidim/participatory_process:
@@ -59,7 +54,7 @@ ar:
         few: مجموعات العملية التشاركية
         many: مجموعات العملية التشاركية
         other: مجموعات العملية التشاركية
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         zero: المراحل
         one: مرحلة
         two: المراحل
@@ -77,7 +72,7 @@ ar:
         import_process: استيراد
         new_process: عملية جديدة
         new_process_group: مجموعة عملية جديدة
-        new_process_step: مرحلة جديدة
+        new_process_phase: مرحلة جديدة
         new_process_user_role: المشرف عملية جديدة
         preview: معاينة
         publish: نشر
@@ -92,8 +87,8 @@ ar:
           attachments: مرفقات
           components: المكونات
           moderations: الإعتدال
+          phases: المراحل
           process_admins: مدراء العملية
-          steps: المراحل
       models:
         participatory_process:
           fields:
@@ -104,11 +99,7 @@ ar:
           name: عملية المشاركة
         participatory_process_group:
           name: مجموعة العملية
-        participatory_process_step:
-          fields:
-            end_date: تاريخ الانتهاء
-            start_date: تاريخ البدء
-            title: عنوان
+        participatory_process_phase:
           name: مرحلة العملية التشاركية
         participatory_process_user_role:
           fields:
@@ -137,6 +128,21 @@ ar:
       participatory_process_imports:
         new:
           import: استيراد
+      participatory_process_phase_activations:
+        create:
+          error: حدثت مشكلة أثناء تنشيط مرحلة العملية التشاركية هذه.
+          success: تم تنشيط مرحلة العملية التشاركية بنجاح.
+      participatory_process_phases:
+        create:
+          error: كانت هناك مشكلة في إنشاء مرحلة عملية تشاركية جديدة.
+          success: تم إنشاء مرحلة العملية التشاركية بنجاح.
+        default_title: المقدمة
+        destroy:
+          success: تم حذف مرحلة العملية التشاركية بنجاح.
+        ordering:
+          error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
+        update:
+          error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
       participatory_process_publications:
         create:
           error: كانت هناك مشكلة في نشر هذه العملية التشاركية.
@@ -144,25 +150,6 @@ ar:
         destroy:
           error: كانت هناك مشكلة في إلغاء نشر هذه العملية التشاركية.
           success: عملية المشاركة غير منشورة بنجاح.
-      participatory_process_step_activations:
-        create:
-          error: حدثت مشكلة أثناء تنشيط مرحلة العملية التشاركية هذه.
-          success: تم تنشيط مرحلة العملية التشاركية بنجاح.
-      participatory_process_steps:
-        create:
-          error: كانت هناك مشكلة في إنشاء مرحلة عملية تشاركية جديدة.
-          success: تم إنشاء مرحلة العملية التشاركية بنجاح.
-        default_title: المقدمة
-        destroy:
-          success: تم حذف مرحلة العملية التشاركية بنجاح.
-        edit:
-          update: تحديث
-        new:
-          create: إنشاء
-        ordering:
-          error: كانت هناك مشكلة في إعادة ترتيب هذه المراحل من العملية التشاركية.
-        update:
-          error: حدثت مشكلة أثناء تحديث هذه المرحلة من العملية التشاركية.
       participatory_process_user_roles:
         create:
           error: حدثت مشكلة أثناء إضافة مشارك لهذه العملية التشاركية.
@@ -205,7 +192,7 @@ ar:
         update: "%{user_name} تحديث العملية التشاركية %{resource_name}"
       participatory_process_group:
         unpublish: "المستخدم %{user_name} قام بإلغاء نشر مجموعة عملية المشاركة %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} تفعيل المرحلة %{resource_name} في عملية المشاركة %{space_name}"
         create: "%{user_name} خلق المرحلة %{resource_name} في العملية التشاركية %{space_name}"
         delete: "%{user_name} حذف المرحلة %{resource_name} في عملية المشاركة %{space_name}"
@@ -216,12 +203,12 @@ ar:
         update: "غير %{user_name} دور المشارك %{resource_name} في العملية التشاركية %{space_name}"
     events:
       participatory_process:
-        step_activated:
+        phase_activated:
           email_intro: 'المرحلة %{resource_title} نشطة الآن لمدة %{participatory_space_title}. يمكنك أن ترى ذلك من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تحديث إلى %{participatory_space_title}
           notification_title: المرحلة %{resource_title} نشطة الآن لمدة <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
+        phase_changed:
           email_intro: 'تم تحديث تواريخ المرحلة %{resource_title} في %{participatory_space_title} . يمكنك أن ترى ذلك من هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تحديث إلى %{participatory_space_title}
@@ -240,9 +227,9 @@ ar:
           name: نشاط
       show:
         title: مجموعات العملية التشاركية
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: مراحل العملية
+        process_phases: مراحل العملية
     participatory_processes:
       admin:
         content_blocks:
@@ -251,6 +238,9 @@ ar:
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
+        participatory_process_phases:
+          index:
+            title: المراحل
         participatory_processes:
           form:
             duration: المدة الزمنية
@@ -315,6 +305,6 @@ ar:
         index:
           promoted_processes: عمليات مميزة
         participatory_process:
-          active_step: 'المرحلة الحالية:'
+          active_phase: 'المرحلة الحالية:'
           more_info: مزيد من المعلومات
           take_part: خذ جزء
