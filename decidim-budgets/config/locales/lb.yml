@@ -145,7 +145,6 @@ lb:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite

@@ -49,8 +49,6 @@ es:
       meeting_registration_invite:
         email: Correo electrónico
         name: Nombre
-      response:
-        add_documents: Añadir documentos
       validate_registration_code:
         code: Código
     errors:
@@ -168,7 +166,7 @@ es:
             announcement: Aviso
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
@@ -347,10 +345,10 @@ es:
             success: La participante ha sido invitada a unirse al encuentro correctamente.
           form:
             attendee_type: Tipo de Asistente
-            existing_user: Participante existente
+            email: Correo electrónico
             invite: Invitar
             invite_explanation: La participante será invitada a unirse al encuentro y también a la organización.
-            non_user: Participante no existente
+            name_or_nickname: Nombre o alias
             select_user: Seleccionar participante
           index:
             invites: Invitaciones
@@ -395,7 +393,7 @@ es:
             assign: Asignar
             link_a_space: Vincular un espacio
             private_meeting_warning: Los espacios enlazados no se aplicarán si la reunión es privada y no transparente.
-            restricted_space_warning: Los espacios enlazados no se aplicarán cuando el encuentro pertenezca a un espacio restringido no transparente.
+            restricted_space_warning: Los espacios enlazados no se aplicarán cuando el encuentro pertenezca a un espacio restringido.
             select: Selecciona un espacio
             table:
               actions: Acciones
@@ -754,9 +752,11 @@ es:
         create:
           invalid: Se ha producido un error al inscribirte a este encuentro.
           success: Te has inscrito al encuentro con éxito. Por ese motivo recibirás una notificación si se producen actualizaciones.
+          unauthorized: Debes iniciar sesión antes de inscribirte al encuentro.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has rechazado la invitación con éxito.
+          unauthorized: Debes iniciar sesión antes de rechazar la invitación.
         destroy:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.

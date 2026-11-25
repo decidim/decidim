@@ -23,7 +23,7 @@ module Decidim
         OpenStruct.new(author: user)
       end
 
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
 
       it "adds author i18n attributes" do
         expect(subject.i18n_options.keys).to include(:author_name)

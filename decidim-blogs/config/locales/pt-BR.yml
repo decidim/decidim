@@ -76,7 +76,6 @@ pt-BR:
       posts:
         edit:
           add_attachments: Adicionar anexos
-          attachment_legend: Adicionar um documento ou uma imagem
           back: Voltar à postagem
           button: Atualizar
           edit_attachments: Editar anexos
@@ -114,7 +113,6 @@ pt-BR:
             announcement: Anúncio
             attachments_allowed: Permitir anexos
             comments_enabled: Comentários ativados
-            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             creation_enabled_for_participants: Os usuários podem criar postagens
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.

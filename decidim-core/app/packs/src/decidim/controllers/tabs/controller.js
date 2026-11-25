@@ -1,10 +1,11 @@
 import { Controller } from "@hotwired/stimulus";
+import autofocus from "src/decidim/refactor/implementation/autofocus"
 
 /**
  * This JavaScript is taken from the following link:
  * https://www.w3.org/WAI/ARIA/apg/patterns/tabs/examples/tabs-automatic/
  *
- * To which i have converted it to a Stimulus controller, trying to keep decidim structure.
+ * To which we have converted it to a Stimulus controller, trying to keep decidim structure.
  * We keep the same HTML structure as on foundation, but we are replacing with a truly accessible tabs implementation.
  */
 
@@ -18,6 +19,7 @@ export default class TabsController extends Controller {
 
     this._onKeydown = this.onKeydown.bind(this);
     this._onClick = this.onClick.bind(this);
+    this._onFocus = this.onFocus.bind(this);
 
     for (let index = 0; index < this.tabs.length; index += 1) {
       let tab = this.tabs[index];
@@ -33,6 +35,7 @@ export default class TabsController extends Controller {
           this.firstTab = tab;
         }
         this.lastTab = tab;
+        tabpanel.addEventListener("focus", this._onFocus);
       } else {
         console.error(`Tab at index ${index} references a nonexistent panel:`, tab.getAttribute("aria-controls"));
       }
@@ -57,6 +60,9 @@ export default class TabsController extends Controller {
       tab.removeEventListener("keydown", this._onKeydown);
       tab.removeEventListener("click", this._onClick);
     }
+    for (let tabPanel of this.tabpanels) {
+      tabPanel.removeEventListener("focus", this._onFocus);
+    }
   }
 
   setSelectedTab(currentTab, setFocus) {
@@ -72,6 +78,7 @@ export default class TabsController extends Controller {
         this.tabpanels[index].setAttribute("aria-hidden", "false");
         if (setFocus && tab) {
           tab.focus();
+          this.tabpanels[index].dispatchEvent(new CustomEvent("focus"));
         }
       } else {
         this.setInactiveTab(tab)
@@ -118,6 +125,9 @@ export default class TabsController extends Controller {
   }
 
   /* EVENT HANDLERS */
+  onFocus(event) {
+    autofocus(event.target);
+  }
 
   onKeydown(event) {
     let tgt = event.currentTarget;

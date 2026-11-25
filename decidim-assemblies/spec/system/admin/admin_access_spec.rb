@@ -8,6 +8,7 @@ describe "AdminAccess" do
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:assembly, organization:, title: { en: "My space" }) }
   let(:other_participatory_space) { create(:assembly, organization:) }
+  let(:participatory_space_path) { decidim_assemblies.assembly_path(participatory_space) }
 
   context "with participatory space admin" do
     let(:role) { create(:assembly_admin, :confirmed, organization:, assembly: participatory_space) }
@@ -41,5 +42,86 @@ describe "AdminAccess" do
     let(:unauthorized_target_path) { decidim_admin_assemblies.moderations_path(other_participatory_space) }
 
     it_behaves_like "admin participatory space access"
+  end
+
+  context "when assembly is restricted" do
+    let(:participatory_space) { create(:assembly, organization:, title: { en: "My space" }, access_mode: :restricted) }
+    let(:participatory_space_path) { decidim_assemblies.assembly_path(participatory_space) }
+
+    context "with participatory space admin" do
+      let(:role) { create(:assembly_admin, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.edit_assembly_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.edit_assembly_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of restricted space"
+    end
+
+    context "with participatory space collaborator" do
+      let(:role) { create(:assembly_collaborator, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.components_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.components_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of restricted space"
+    end
+
+    context "with participatory space evaluator" do
+      let(:role) { create(:assembly_evaluator, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.components_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.components_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of restricted space"
+    end
+
+    context "with participatory space moderator" do
+      let(:role) { create(:assembly_moderator, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.moderations_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.moderations_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of restricted space"
+    end
+  end
+
+  context "when assembly is transparent" do
+    let(:participatory_space) { create(:assembly, organization:, title: { en: "My space" }, access_mode: :transparent) }
+
+    context "with participatory space admin" do
+      let(:role) { create(:assembly_admin, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.edit_assembly_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.edit_assembly_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of transparent space"
+    end
+
+    context "with participatory space collaborator" do
+      let(:role) { create(:assembly_collaborator, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.components_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.components_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of transparent space"
+    end
+
+    context "with participatory space evaluator" do
+      let(:role) { create(:assembly_evaluator, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.components_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.components_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of transparent space"
+    end
+
+    context "with participatory space moderator" do
+      let(:role) { create(:assembly_moderator, :confirmed, organization:, assembly: participatory_space) }
+      let(:target_path) { decidim_admin_assemblies.moderations_path(participatory_space) }
+      let(:unauthorized_target_path) { decidim_admin_assemblies.moderations_path(other_participatory_space) }
+
+      it_behaves_like "admin participatory space access"
+      it_behaves_like "admin participatory space access public interface of transparent space"
+    end
   end
 end

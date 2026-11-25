@@ -19,5 +19,14 @@
         </li>
       <% end %>
     <% end %>
+    <% if defined?(extra_export_links) && extra_export_links.is_a?(Array) %>
+      <% extra_export_links.each do |link| %>
+        <li class="dropdown__item">
+          <%= link_to link[:href], method: link[:method], class: "dropdown__button" do %>
+            <%= t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{link[:type]}"), export_format: link[:format_name]) %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
   </ul>
 </div>

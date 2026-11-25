@@ -5,16 +5,11 @@
 Until we have the version 1.0 we support only the last two minor versions with
 security updates.
 
-Exceptionally, we are also extending support for v0.27 until October 2025, as it
-is the last version with the old design. This marks 18 months since the release
-of v0.28, giving ample time for organizations to upgrade to newer versions that
-include the latest design and features.
-
 | Version       | Supported          |
 |---------------|--------------------|
+| 0.32.x        | :white_check_mark: |
 | 0.31.x        | :white_check_mark: |
-| 0.30.x        | :white_check_mark: |
-| \<= 0.29.x    | :x:                |
+| \<= 0.30.x    | :x:                |
 
 ## Reporting a Vulnerability
 

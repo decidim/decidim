@@ -51,6 +51,20 @@ describe "Order comments" do
       expect(page).to have_select("order", selected: "Best rated", wait: 5)
     end
 
+    it "keeps the focus on the sort dropdown after changing the order", :js, :slow do
+      within ".comment-order-by" do
+        page.evaluate_script("document.getElementById('order').focus()")
+        select "Best rated", from: "order"
+      end
+
+      within(".comment-threads", wait: 5) do
+        expect(page).to have_css("div:first-child#comment_#{best_rated_comment.id}", wait: 5)
+      end
+
+      expect(page).to have_select("order", selected: "Best rated", wait: 5)
+      expect(page.evaluate_script("document.activeElement.id")).to eq("order")
+    end
+
     it "user selects \"Most discussed\" as sorting criteria", :js, :slow do
       within ".comment-order-by" do
         select "Most discussed", from: "order"

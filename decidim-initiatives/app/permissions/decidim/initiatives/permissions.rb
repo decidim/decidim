@@ -99,10 +99,18 @@ module Decidim
       end
 
       def creation_enabled?
-        Decidim::Initiatives.creation_enabled && (
-        Decidim::Initiatives.do_not_require_authorization ||
-          UserAuthorizations.for(user).any?) &&
-          authorized?(:create, permissions_holder: initiative_type)
+        return false unless Decidim::Initiatives.creation_enabled
+
+        # Before the initiative type is selected there is no permissions holder
+        # to run the type-specific authorization against. The type-specific
+        # check is enforced once the type is known (e.g. when selecting the
+        # type or filling the data), so the wizard can render the per-type
+        # authorization modals to unverified users.
+        return true if initiative_type.blank?
+
+        return false unless Decidim::Initiatives.do_not_require_authorization || UserAuthorizations.for(user).any?
+
+        authorized?(:create, permissions_holder: initiative_type)
       end
 
       def request_membership?
@@ -127,9 +135,9 @@ module Decidim
           initiative.promoting_committee_enabled? &&
           !initiative.has_authorship?(user) &&
           (
-          Decidim::Initiatives.do_not_require_authorization ||
-              UserAuthorizations.for(user).any?
-        )
+            Decidim::Initiatives.do_not_require_authorization ||
+                UserAuthorizations.for(user).any?
+          )
       end
 
       def print_initiative?
@@ -200,9 +208,9 @@ module Decidim
 
       def can_user_support?(initiative)
         !initiative.offline_signature_type? && (
-        Decidim::Initiatives.do_not_require_authorization ||
-            UserAuthorizations.for(user).any?
-      )
+          Decidim::Initiatives.do_not_require_authorization ||
+              UserAuthorizations.for(user).any?
+        )
       end
 
       def user_can_preview_space?

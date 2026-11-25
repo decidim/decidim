@@ -24,6 +24,41 @@ module Decidim
       it { is_expected.to be_versioned }
       it { is_expected.to act_as_paranoid }
 
+      describe "query efficiency" do
+        def count_queries
+          queries = []
+          callback = lambda do |_name, _start, _finish, _id, payload|
+            queries << payload[:sql] unless payload[:name] == "SCHEMA"
+          end
+
+          ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
+            yield
+          end
+
+          queries
+        end
+
+        before do
+          2.times { create(:coauthorship, coauthorable: proposal, author: create(:user, :confirmed, organization:)) }
+        end
+
+        context "when the coauthorships and their authors are preloaded" do
+          it "does not query again for the identities" do
+            record = described_class.includes({ coauthorships: :author }).find(proposal.id)
+
+            expect(count_queries { record.identities }).to be_empty
+          end
+        end
+
+        context "when only the coauthorships are preloaded" do
+          it "eager loads the authors instead of querying per coauthorship" do
+            record = described_class.includes(:coauthorships).find(proposal.id)
+
+            expect(count_queries { record.identities }.size).to eq(2)
+          end
+        end
+      end
+
       describe "newsletter participants" do
         subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }
 
@@ -194,7 +229,7 @@ module Decidim
       end
 
       describe "#voted_by?" do
-        let(:user) { create(:user, organization: subject.organization) }
+        let(:user) { create(:user, :confirmed, organization: subject.organization) }
 
         it "returns false if the proposal is not voted by the given user" do
           expect(subject).not_to be_voted_by(user)
@@ -272,8 +307,66 @@ module Decidim
         end
       end
 
+      describe "#maximum_votes_reached?" do
+        before do
+          component[:settings]["global"] = { threshold_per_proposal: 10 }
+          component.save!
+        end
+
+        it "uses the database count of final votes instead of the counter cache" do
+          create_list(:proposal_vote, 10, proposal:)
+          proposal.proposal_votes_count = 0
+
+          expect(proposal.maximum_votes_reached?).to be(true)
+        end
+
+        it "uses the database count even when the votes association is preloaded" do
+          proposal.votes.load
+          create_list(:proposal_vote, 10, proposal:)
+          proposal.proposal_votes_count = 0
+
+          expect(proposal.maximum_votes_reached?).to be(true)
+        end
+
+        it "does not count temporary votes" do
+          create_list(:proposal_vote, 9, proposal:)
+          create(:proposal_vote, proposal:, temporary: true)
+
+          expect(proposal.maximum_votes_reached?).to be(false)
+        end
+
+        it "uses the precomputed final votes count when available" do
+          create_list(:proposal_vote, 10, proposal:)
+          proposal.update!(proposal_votes_count: 0)
+
+          proposals = described_class.where(id: proposal.id)
+          described_class.preload_final_votes_counts(proposals)
+
+          expect(proposals.first.maximum_votes_reached?).to be(true)
+        end
+
+        it "ignores a stale counter cache when computing the threshold" do
+          proposal.update!(proposal_votes_count: 10)
+
+          expect(proposal.maximum_votes_reached?).to be(false)
+        end
+
+        it "discards the precomputed final votes count when the record is reloaded" do
+          create_list(:proposal_vote, 10, proposal:)
+
+          proposals = described_class.where(id: proposal.id)
+          described_class.preload_final_votes_counts(proposals)
+          preloaded_proposal = proposals.first
+          expect(preloaded_proposal.maximum_votes_reached?).to be(true)
+
+          Decidim::Proposals::ProposalVote.where(proposal:).delete_all
+
+          expect(preloaded_proposal.reload.maximum_votes_reached?).to be(false)
+        end
+      end
+
       describe "#editable_by?" do
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
 
         context "when user is author" do
           let(:proposal) { create(:proposal, component:, users: [author], updated_at: Time.current) }
@@ -344,7 +437,7 @@ module Decidim
       end
 
       describe "#withdrawable_by" do
-        let(:author) { create(:user, organization:) }
+        let(:author) { create(:user, :confirmed, organization:) }
 
         context "when user is author" do
           let(:proposal) { create(:proposal, component:, users: [author], created_at: Time.current) }
@@ -353,14 +446,14 @@ module Decidim
         end
 
         context "when user is admin" do
-          let(:admin) { build(:user, :admin, organization:) }
+          let(:admin) { build(:user, :confirmed, :admin, organization:) }
           let(:proposal) { build(:proposal, component:, users: [author], created_at: Time.current) }
 
           it { is_expected.not_to be_withdrawable_by(admin) }
         end
 
         context "when user is not the author" do
-          let(:someone_else) { build(:user, organization:) }
+          let(:someone_else) { build(:user, :confirmed, organization:) }
           let(:proposal) { build(:proposal, component:, users: [author], created_at: Time.current) }
 
           it { is_expected.not_to be_withdrawable_by(someone_else) }
@@ -404,7 +497,7 @@ module Decidim
       end
 
       describe "#with_evaluation_assigned_to" do
-        let(:user) { create(:user, organization:) }
+        let(:user) { create(:user, :confirmed, organization:) }
         let(:space) { component.participatory_space }
         let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process: space) }
         let(:assigned_proposal) { create(:proposal, component:) }

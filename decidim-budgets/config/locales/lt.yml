@@ -253,7 +253,6 @@ lt:
           global:
             announcement: Pranešimas
             comments_enabled: Komentarai aktyvuoti
-            comments_max_length: Maksimalus komentaro ilgis (įrašyti 0 įprastam ilgiui)
             form:
               errors:
                 budget_voting_rule_only_one: Turi būti įjungta tik viena balsavimo taisyklė.

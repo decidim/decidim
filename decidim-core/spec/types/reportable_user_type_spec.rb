@@ -7,7 +7,8 @@ module Decidim
   module Core
     describe ReportableUserType do
       include_context "with a graphql class type"
-      let!(:model) { create(:user_report, details: "Testing reason") }
+      let(:organization) { create(:organization) }
+      let!(:model) { create(:user_report, details: "Testing reason", user: build(:user, :confirmed, organization:)) }
 
       include_examples "timestamps interface"
 
@@ -49,20 +50,20 @@ module Decidim
         end
 
         context "when the user has an incidence (i.e. is deleted or blocked)" do
-          let(:moderation) { create(:user_moderation, user: create(:user)) }
+          let(:moderation) { create(:user_moderation, user: create(:user, organization:)) }
 
           let!(:model) { create(:user_report, moderation:, user: moderation.user, details: "Testing reason") }
 
           it_behaves_like "unauthorized User object"
 
           context "when the user that made the report deleted their account" do
-            let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :deleted)) }
+            let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :deleted, organization:)) }
 
             it_behaves_like "unauthorized User object"
           end
 
           context "when the user that made the reporting got blocked" do
-            let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :blocked)) }
+            let(:moderation) { create(:user_moderation, user: create(:user, :confirmed, :blocked, organization:)) }
 
             it_behaves_like "unauthorized User object"
           end

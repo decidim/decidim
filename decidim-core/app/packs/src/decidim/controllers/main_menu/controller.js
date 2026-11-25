@@ -34,6 +34,10 @@ export default class extends Controller {
     this.handleCloseButtonClick = this.handleCloseButtonClick.bind(this)
     this.focusTrapHandler = this.focusTrapHandler.bind(this)
 
+    if (!this.menuButton.hasAttribute("aria-expanded")) {
+      this.menuButton.setAttribute("aria-expanded", "false");
+    }
+
     this.menuButton.addEventListener("click", this.handleButtonClick)
     this.menuContainer.addEventListener("click", this.handleContainerClick)
 
@@ -144,5 +148,6 @@ export default class extends Controller {
     this.element.setAttribute("aria-expanded", "false")
     this.menuContainer.setAttribute("aria-hidden", "true")
     this.menuContainer.removeAttribute("aria-modal")
+    this.menuButton.focus({ preventScroll: true })
   }
 }

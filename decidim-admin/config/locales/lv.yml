@@ -470,10 +470,6 @@ lv:
         update:
           error: Tvēruma atjaunināšanas laikā radās problēma.
           success: Tvērums ir veiksmīgi atjaunināts
-      shared:
-        gallery:
-          add_images: Pievienot attēlus
-          gallery_legend: Pievienojiet attēlu galeriju (pēc izvēles)
       static_page_topics:
         create:
           error: Tēmas izveides laikā radās problēma.

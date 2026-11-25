@@ -181,7 +181,7 @@ shared_examples "manage conferences" do
     it "publishes the conference" do
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-controller='dropdown']").click
-        find("a", text: "Publish", visible: true).click
+        find("a", text: "Publish", visible: :visible).click
       end
 
       expect(page).to have_callout("Conference successfully published.")
@@ -208,7 +208,7 @@ shared_examples "manage conferences" do
     it "unpublishes the conference" do
       within("tr", text: translated_attribute(conference.title)) do
         find("button[data-controller='dropdown']").click
-        find("a", text: "Unpublish", visible: true).click
+        find("a", text: "Unpublish", visible: :visible).click
       end
 
       expect(page).to have_callout("Conference successfully unpublished.")

@@ -1099,6 +1099,8 @@ module Decidim
         expect(parsed.css('label[for="resource_slug"]', text: "Slug")).to be_empty
         expect(parsed.css('input[type="text"][name="resource[slug]"]')).not_to be_empty
 
+        # `have_field` cannot match a nil value, so the rendered value is checked directly
+        # rubocop:disable-next Capybara/RSpec/FindElementValueEq
         expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
       end
 
@@ -1114,6 +1116,8 @@ module Decidim
           node = Capybara.string builder.send(field_type, :slug)
           expect(node).to have_css('label[for="resource_slug"]', text: "Slug")
           expect(node).to have_css("input[type='#{html_field_type}'][name='resource[slug]']")
+          # `have_field` cannot match a nil value, so the rendered value is checked directly
+          # rubocop:disable-next Capybara/RSpec/FindElementValueEq
           expect(node.find_field("resource_slug").value).to eq resource.slug
         end
       end
@@ -1133,6 +1137,8 @@ module Decidim
         expect(parsed.css("label")).to be_empty
         expect(parsed.css('label[for="resource_slug"]', text: "Slug")).to be_empty
         expect(parsed.css('input[type="tel"][name="resource[slug]"]')).not_to be_empty
+        # `have_field` cannot match a nil value, so the rendered value is checked directly
+        # rubocop:disable-next Capybara/RSpec/FindElementValueEq
         expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
       end
 
@@ -1333,7 +1339,7 @@ module Decidim
 
         expect(parsed.css('label[for="resource_born_at"]', text: "Born at")).not_to be_empty
         expect(parsed.css('input[type="date"][name="resource[born_at]"]')).not_to be_empty
-        expect(Capybara.string(node).find_field("resource_born_at").value).to eq resource.born_at.to_s
+        expect(Capybara.string(node)).to have_field("resource_born_at", with: resource.born_at.to_s)
       end
 
       it "should generate datetime_field input" do
@@ -1357,6 +1363,8 @@ module Decidim
         expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
         expect(parsed.css('input[type="search"][name="resource[slug]"]')).not_to be_empty
 
+        # `have_field` cannot match a nil value, so the rendered value is checked directly
+        # rubocop:disable-next Capybara/RSpec/FindElementValueEq
         expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
       end
 
@@ -1367,7 +1375,7 @@ module Decidim
 
         expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
         expect(parsed.css('input[type="color"][name="resource[slug]"]')).not_to be_empty
-        expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
+        expect(Capybara.string(node)).to have_field("resource_slug", with: resource.slug)
       end
 
       it "should generate collection_select input" do

@@ -26,7 +26,10 @@ module Decidim
 
         case permission_action.action
         when :read
-          allow! if election.present? && election.published?
+          return allow! if user&.admin?
+          return allow! if election.nil?
+
+          allow! if election.published?
         end
       end
 

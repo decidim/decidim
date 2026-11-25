@@ -24,7 +24,7 @@ describe "Search" do
     end
 
     it "is not indexable by crawlers" do
-      expect(page.find('meta[name="robots"]', visible: false)[:content]).to eq("noindex")
+      expect(page.find('meta[name="robots"]', visible: :all)[:content]).to eq("noindex")
     end
 
     it "displays the results page" do
@@ -66,6 +66,27 @@ describe "Search" do
     end
   end
 
+  context "when filtering the results on a mobile" do
+    before do
+      driven_by(:iphone)
+      switch_to_host(organization.host)
+      visit decidim.search_path(term:)
+      click_on(id: "dc-dialog-accept")
+    end
+
+    it "toggles the filters list" do
+      expect(page).to have_css("#dropdown-menu-search", visible: :hidden)
+
+      find_by_id("dropdown-trigger-search").click
+
+      expect(page).to have_css("#dropdown-menu-search", visible: :visible)
+
+      find_by_id("dropdown-trigger-search").click
+
+      expect(page).to have_css("#dropdown-menu-search", visible: :hidden)
+    end
+  end
+
   context "when there is a malformed URL" do
     let(:participatory_space) { create(:participatory_process, :published, :with_steps, organization:) }
     let!(:proposal_component) { create(:proposal_component, participatory_space:) }
@@ -80,6 +101,18 @@ describe "Search" do
 
       expect(page).to have_text("100 results for the search")
       expect(page).to have_text("Results per page")
+    end
+  end
+
+  context "when searching for users" do
+    let!(:confirmed) { create_list(:user, 10, :confirmed, organization:) }
+    let!(:unconfirmed) { create_list(:user, 5, organization:) }
+
+    it "finds only the confirmed accounts" do
+      visit "/search?filter[with_resource_type]=Decidim::User"
+
+      expect(page).to have_text("10 results for the search")
+      confirmed.each { |record| expect(page).to have_text(record.name) }
     end
   end
 end

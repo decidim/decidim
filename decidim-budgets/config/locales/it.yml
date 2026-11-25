@@ -167,7 +167,6 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             landing_page_content: Pagina iniziale dei budget
             more_information_modal: Finestra modale "Maggiori informazioni"
             projects_per_page: Progetti per pagina

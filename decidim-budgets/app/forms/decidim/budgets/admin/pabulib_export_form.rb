@@ -1,0 +1,49 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Budgets
+    module Admin
+      # This class holds a Form to create a new pabulib export for projects
+      # from Decidim's admin panel.
+      class PabulibExportForm < Decidim::Form
+        attribute :description, String
+        validates :description, presence: true
+
+        attribute :country, String
+        validates :country, presence: true
+
+        attribute :unit, String
+        attribute :subunit, String
+        attribute :district, String
+        attribute :instance, String
+
+        attribute :vote_type, String
+        validates :vote_type, presence: true, inclusion: { in: ->(_form) { Decidim::Budgets::Pabulib::VOTE_TYPES } }
+
+        attribute :rule
+        validates :rule, presence: true, inclusion: { in: ->(_form) { Decidim::Budgets::Pabulib::RULES } }
+
+        attribute :min_length, Integer
+        attribute :max_length, Integer
+
+        # approval
+        attribute :min_sum_cost, Integer
+        attribute :max_sum_cost, Integer
+
+        # ordinal
+        attribute :scoring_fn, String
+
+        # cumulative, scoring
+        attribute :min_points, Integer
+        attribute :max_points, Integer
+
+        # cumulative
+        attribute :min_sum_points, Integer
+        attribute :max_sum_points, Integer
+
+        # scoring
+        attribute :default_score, Integer
+      end
+    end
+  end
+end

@@ -8,7 +8,12 @@ module Decidim
         return permission_action unless permission_action.scope == :public
         return permission_action unless permission_action.subject == :demographics
 
-        toggle_allow(demographic.collect_data?) if permission_action.action == :respond
+        case permission_action.action
+        when :read, :destroy
+          allow!
+        when :respond
+          toggle_allow(demographic.collect_data?)
+        end
 
         permission_action
       end

@@ -63,7 +63,7 @@ describe Decidim::UploadModalCell, type: :cell do
       expect(subject).to have_css("input[name='dummy[#{attribute}_validation]']", visible: :hidden)
     end
 
-    it "renders the hidden checkbox with the correct ID for Foundation Abide" do
+    it "renders the hidden checkbox with the correct ID" do
       expect(subject).to have_css("input##{attribute}_validation", visible: :hidden)
     end
 

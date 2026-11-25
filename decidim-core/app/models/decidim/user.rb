@@ -21,17 +21,35 @@ module Decidim
 
     devise :invitable, :database_authenticatable, :registerable, :confirmable, :timeoutable,
            :recoverable, :trackable, :lockable,
-           :decidim_validatable, :decidim_newsletterable, :jwt_authenticatable,
-           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys, jwt_revocation_strategy: Decidim::Api::JwtDenylist,
+           :decidim_validatable, :decidim_newsletterable,
+           :omniauthable, omniauth_providers: Decidim::OmniauthProvider.available.keys,
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email],
                           confirmation_keys: [:decidim_organization_id, :email]
     devise :rememberable if Decidim.enable_remember_me
 
-    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
+    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", inverse_of: :user, dependent: :destroy
     has_many :access_grants, class_name: "Doorkeeper::AccessGrant", foreign_key: :resource_owner_id, dependent: :destroy
     has_many :access_tokens, class_name: "Doorkeeper::AccessToken", foreign_key: :resource_owner_id, dependent: :destroy
-    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", dependent: :destroy
+    has_many :reminders, foreign_key: "decidim_user_id", class_name: "Decidim::Reminder", inverse_of: :user, dependent: :destroy
     has_many :private_exports, class_name: "Decidim::PrivateExport", dependent: :destroy, inverse_of: :attached_to, as: :attached_to
+    has_many :impersonation_logs, foreign_key: "decidim_user_id", class_name: "Decidim::ImpersonationLog", inverse_of: :user, dependent: :destroy
+
+    # Reciprocals of the models that reference `Decidim::User` specifically. The `inverse_of` is
+    # explicit where the association name does not match the name used on the other side. For the
+    # messaging models it is declared only on this side, see the comment in `Decidim::Messaging::Receipt`.
+    has_many :amendments, foreign_key: "decidim_user_id", class_name: "Decidim::Amendment", inverse_of: :amender, dependent: :destroy
+    has_many :authorization_transfers, class_name: "Decidim::AuthorizationTransfer", inverse_of: :user, dependent: :destroy
+    has_many :authorizations, foreign_key: "decidim_user_id", class_name: "Decidim::Authorization", inverse_of: :user, dependent: :destroy
+    has_many :editor_images, foreign_key: :decidim_author_id, class_name: "Decidim::EditorImage", inverse_of: :author, dependent: :destroy
+    has_many :members, foreign_key: "decidim_user_id", class_name: "Decidim::ParticipatorySpace::Member", inverse_of: :user, dependent: :destroy
+    has_many :newsletters, foreign_key: :author_id, class_name: "Decidim::Newsletter", inverse_of: :author, dependent: :destroy
+    has_many :receipts, foreign_key: "decidim_recipient_id", class_name: "Decidim::Messaging::Receipt", inverse_of: :recipient, dependent: :destroy
+    has_many :reports, foreign_key: "decidim_user_id", class_name: "Decidim::Report", inverse_of: :user, dependent: :destroy
+    has_many :share_tokens, foreign_key: "decidim_user_id", class_name: "Decidim::ShareToken", inverse_of: :user, dependent: :destroy
+    has_many :source_transfers, foreign_key: :source_user_id, class_name: "Decidim::AuthorizationTransfer", inverse_of: :source_user, dependent: :destroy
+    # Reports made by this user. `has_many :user_reports` (from `Decidim::UserReportable`) is the
+    # other direction: the reports about this user.
+    has_many :user_reports_made, class_name: "Decidim::UserReport", inverse_of: :user, dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname,
@@ -48,6 +66,8 @@ module Decidim
     validate :all_roles_are_valid
 
     has_one_attached :download_your_data_file
+
+    scope :tos_accepted, -> { where.not(accepted_tos_version: nil) }
 
     scope :managed, -> { where(managed: true) }
     scope :not_managed, -> { where(managed: false) }
@@ -77,14 +97,26 @@ module Decidim
                         B: :nickname,
                         datetime: :created_at
                       },
-                      index_on_create: ->(user) { !(user.deleted? || user.blocked?) },
-                      index_on_update: ->(user) { !(user.deleted? || user.blocked?) })
+                      index_on_create: ->(user) { user.visible? },
+                      index_on_update: ->(user) { user.visible? })
+
+    def self.searchable_arguments
+      [:organization, :avatar_attachment]
+    end
 
     before_save :ensure_encrypted_password
     before_save :save_password_change
 
     def user_invited?
       invitation_token_changed? && invitation_accepted_at_changed?
+    end
+
+    def profile_published?
+      # Note that we are not calling `tos_accepted?` here to avoid N+1 queries
+      # when querying through e.g. a list of records and their authors.
+      return false if accepted_tos_version.blank?
+
+      super
     end
 
     # Public: Allows customizing the invitation instruction email content when

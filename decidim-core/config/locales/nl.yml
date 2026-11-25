@@ -26,7 +26,6 @@ nl:
         nickname: Bijnaam
         password: Wachtwoord
         password_confirmation: Bevestig uw wachtwoord
-        personal_url: Persoonlijke URL
         remove_avatar: Verwijder avatar
     models:
       decidim/attachment_created_event: Bijlage
@@ -297,7 +296,6 @@ nl:
           global:
             amendments_enabled: Wijzigingen toegestaan
             comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte
             dummy_global_attribute1: Voorbeeld-kenmerk 1
             dummy_global_attribute2: Voorbeeld-kenmerk 2
             dummy_global_translatable_text: Vertaalbare tekst Dummy
@@ -587,7 +585,6 @@ nl:
           modal_title: Nieuwe conversatie
           no_results: Geen resultaten gevonden
         error_modal:
-          close: Sluit venster
           correct_errors: Corrigeer de fouten en probeer opnieuw.
           intro: 'Er waren de volgende fouten met je bericht:'
           ok: OK

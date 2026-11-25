@@ -11,7 +11,7 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization:) }
         let(:component) { create(:component, participatory_space: participatory_process, manifest_name: "blogs") }
-        let(:current_user) { create(:user, organization:) }
+        let(:current_user) { create(:user, :confirmed, organization:) }
         let(:title) { "Post title" }
         let(:body) { "Lorem Ipsum dolor sit amet" }
         let(:publish_time) { nil }

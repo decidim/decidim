@@ -1,7 +1,6 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 
-import "src/decidim/admin/tab_focus"
 import "src/decidim/admin/application"
 import "src/decidim/admin/resources_permissions"
 import "src/decidim/admin/newsletters"
@@ -21,6 +20,7 @@ import "src/decidim/admin/css_preview"
 import "src/decidim/admin/sync_radio_buttons"
 import "src/decidim/admin/text_copy"
 import "src/decidim/admin/taxonomy_filters"
+import "src/decidim/admin/member_form"
 
 // CSS
 import "entrypoints/decidim_admin.scss";

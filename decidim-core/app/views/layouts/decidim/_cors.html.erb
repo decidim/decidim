@@ -1,12 +1,1 @@
 <div id="svg-cors-container" style="display: none"></div>
-<script type="text/javascript">
-  Rails.ajax({
-    url: window.Decidim.config.get("icons_path"),
-    type: "get",
-    success: function(data) {
-      var div = document.getElementById("svg-cors-container");
-      div.innerHTML = new XMLSerializer().serializeToString(data.documentElement);
-      document.body.insertBefore(div, document.body.childNodes[0]);
-    }
-  });
-</script>

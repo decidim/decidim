@@ -5,7 +5,7 @@ tr:
         body: Vücut
         decidim_author_id: Yazar
         published_at: Yayın zamanı
-        title: Başlik / Unvani 
+        title: Başlik / Unvani
     models:
       decidim/blogs/create_post_event: Yeni blog yazısı
   activerecord:
@@ -43,7 +43,6 @@ tr:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
-            comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi

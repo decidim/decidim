@@ -299,7 +299,6 @@ pt-BR:
           global:
             clear_all: Apagar tudo
             comments_enabled: Comentários ativados
-            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             default_taxonomy: Taxonomia padrão
             default_taxonomy_help: Selecione qual taxonomia você deseja mostrar por padrão. Se nenhuma taxonomia for selecionada, os resultados serão exibidos em um formato de lista.
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.

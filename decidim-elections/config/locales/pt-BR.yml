@@ -121,7 +121,6 @@ pt-BR:
             title: Editar eleição
           form:
             add_images: Adicionar imagens
-            attachment_legend: Adicionar uma galeria de imagens (opcional)
             basic_title: Informação básica
             calendar: Calendário
             calendar_description: Verifique se o fuso horário da organização está correto nas configurações da organização. A configuração atual é %{timezone}.

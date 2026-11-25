@@ -157,10 +157,6 @@ kaa:
       share_tokens:
         actions:
           destroy: Óshiriw
-      shared:
-        gallery:
-          add_images: Súwretlerdi qosıw
-          edit_images: Súwretlerdi ózgertiw
       static_pages:
         edit:
           update: Jańalaw

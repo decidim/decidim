@@ -85,11 +85,32 @@ fr:
         models:
           project:
             name: Projet
+        pabulib_exports:
+          show:
+            explanation_link_label_format: Format Pabulib
+            export_details_data: Attributs de données
+            export_details_general: Informations générales
+            fields:
+              country:
+                help: Le pays où s'est tenu le vote.
+                label: Pays (%{field})
+              description:
+                help: Description précisant l'objet du vote.
+                label: Description (%{field})
+              max_length:
+                help: 'Nombre maximum de projets à sélectionner (par défaut : %{default_value}).'
+                label: Nombre maximum (%{field})
+              max_points:
+                help: 'Nombre maximum de points attribués aux projets sélectionnés (par défaut : %{default_value}).'
+                label: Nombre maximum de points (%{field})
+              rule:
+                label: Règle (%{field})
         projects:
           create:
             invalid: Il y a eu un problème lors de la création de ce projet.
             success: Projet créé avec succès.
           edit:
+            title: Modifier le projet à %{budget}
             update: Mettre à jour
           index:
             actions: Actions
@@ -112,6 +133,7 @@ fr:
             title: Projets supprimés
           new:
             create: Créer
+            title: Nouveau projet à %{budget}
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce projet.
             success: Projet mis à jour avec succès.
@@ -205,6 +227,7 @@ fr:
         project:
           fields:
             map: Carte
+            taxonomies: Taxonomies
             title: Titre
       order:
         status:
@@ -333,8 +356,9 @@ fr:
         settings:
           global:
             announcement: Annonce
+            clear_all: Tout effacer
             comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_max_length: Nombre maximum de caractères par commentaire (Laisser 0 pour la valeur par défaut)
             define_taxonomy_filters: Veuillez définir des filtres pour cet espace participatif avant d'utiliser ce paramètre.
             form:
               errors:
@@ -343,8 +367,10 @@ fr:
             geocoding_enabled: Cartes activées
             landing_page_content: Page d'accueil des budgets
             more_information_modal: Plus d’informations
+            no_taxonomy_filters_found: Aucun filtre de taxonomie n'a été trouvé.
             projects_per_page: Projets par page
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque projet
+            taxonomy_filters_add: Ajouter un filtre
             title: Titre
             total_budget: Budget total
             vote_minimum_budget_projects_number: Nombre minimum de projets à voter
@@ -390,6 +416,7 @@ fr:
           participatory_space: 'À quel espace (ex : Processus participatif ou Assemblée) appartient ce projet'
           reference: La référence unique du projet
           selected_at: L'heure à laquelle le projet a été sélectionné
+          taxonomies: Les taxonomies du projet
           title: Le titre du projet
           updated_at: La dernière date de mise à jour du projet
           url: L'URL du projet

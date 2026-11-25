@@ -108,7 +108,6 @@ zh-CN:
         settings:
           global:
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度 (默认值留0)
             display_progress_enabled: 显示进度
             intro: 简介
           step:

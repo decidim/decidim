@@ -42,7 +42,92 @@ bin/rails data:migrate
 
 ## 2. General notes
 
-### 2.1. [[TITLE OF THE ACTION]]
+### 2.1. Unconfirmed and managed participants are now hidden by default
+
+Participants that have not confirmed their account or accepted the terms of service of the website and managed participants are now hidden by default. This means that these profiles do not appear publicly on the website before the participant has accepted the terms of service. It is assumed that the consent to publish the participant's personal details on the website is mandated by the terms of service.
+
+The profiles will be considered hidden by default and visible after the participant has accepted the terms of service or after a managed participant account is elevated to a regular participant account. The details of the hidden profiles are not displayed on the website and the API.
+
+This change is based on the GDPR regulation:
+
+> [...] In particular, such measures shall ensure that by default personal data are not made accessible without the individual’s intervention to an indefinite number of natural persons.
+>
+> GDPR Art. 25 (2)
+
+You can read more about this change on PR [#11036](https://github.com/decidim/decidim/pull/11036).
+
+### 2.2. Sidekiq configuration overwrite
+
+As we are doing changes in the default sidekiq.yml configuration and we want to do them automatically, this file will be overwritten during the upgrade process (on the `bin/rails decidim:upgrade` command).
+
+If you have queues or any configuration particular to your environment that you do not want to get overwritten, you can do so by calling another configuration file on the sidekiq daemon call. For instance:
+
+```bash
+sidekiq -C config/sidekiq.yml -C config/sidekiq.local.yml
+```
+
+You can read more about this change on PR [#17596](https://github.com/decidim/decidim/pull/17596).
+
+### 2.3. Verification code security hardening
+
+The verification code confirmation flow has been enhanced with multiple security improvements. Failed attempt tracking has been moved from client-side session to server-side database storage, with three layers of protection:
+
+1. **Server-side failed attempt tracking**: Failed attempts are now tracked in the database with automatic lockout after 5 failed attempts (configurable via `DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS`) and automatic unlock after 30 minutes (configurable via `DECIDIM_VERIFICATION_UNLOCK_IN`).
+
+2. **Code expiration**: SMS verification codes now expire after 10 minutes (configurable via `DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES`), reducing the window of opportunity for unauthorized access.
+
+3. **HTTP-level rate limiting**: Rack::Attack now throttles verification confirmation endpoints to 10 requests per minute per IP.
+
+Server-side failed attempt tracking applies to all verification handlers (SMS, postal letter, ID documents, CSV census). Code expiration applies only to SMS verification. HTTP-level rate limiting applies only to SMS and postal letter authorization paths.
+
+We strongly recommend that implementers review any custom authorization handlers for code that may still rely on the old session-based attempt tracking patterns, which have been replaced by the new server-side mechanism.
+
+You can read more about this change on PR [#17639](https://github.com/decidim/decidim/pull/17639).
+
+### 2.4. Bullet initializer defaults changed
+
+The generated Bullet initializer (`config/initializers/bullet.rb`, only created when the app is generated with the `--profiling` option) changed its defaults:
+
+- `Bullet.enable` is now set to `Rails.env.local?` instead of `true`, so Bullet only runs on development and test environments. Bullet errors no longer affect production or staging environments.
+- `Bullet.raise = true` was added, which means that detected queries raise errors instead of only logging warnings.
+- Three new settings can now be controlled with environment variables:
+
+| Environment variable           | Default  | Setting                             |
+|--------------------------------|----------|-------------------------------------|
+| `DECIDIM_BULLET_N_PLUS_ONE`    | enabled  | `Bullet.n_plus_one_query_enable`    |
+| `DECIDIM_BULLET_UNUSED_EAGER`  | disabled | `Bullet.unused_eager_loading_enable`|
+| `DECIDIM_BULLET_COUNTER_CACHE` | enabled  | `Bullet.counter_cache_enable`       |
+
+Any of these variables can be disabled by setting it to `0`, `false` or `no`. Note that `DECIDIM_BULLET_UNUSED_EAGER` is disabled by default, as it can trigger false positives on pages with a single result.
+
+This initializer is not overwritten automatically during the upgrade (`bin/rails decidim:upgrade` does not touch it). If your app was generated with the `--profiling` option and you have a custom `config/initializers/bullet.rb`, review it and update it manually to match the [new template](https://github.com/decidim/decidim/blob/develop/decidim-generators/lib/decidim/generators/app_templates/bullet_initializer.rb) if you want to keep the same behavior as newly generated applications.
+
+You can read more about this change on PR [#17160](https://github.com/decidim/decidim/pull/17160).
+
+### 2.5. Personal URL field removed from participant profiles
+
+The personal URL field has been removed from participant profiles and the account settings form. This field was being widely used to publish spam links on the platform, so participants can no longer add or edit it, and it is no longer displayed on public profiles. The field has also been removed from the API.
+
+Existing values stored in the database are no longer displayed. This field will get removed from the database on v0.34.0.
+
+This change is part of the work to reduce profile spam tracked in issue [#17955](https://github.com/decidim/decidim/issues/17955).
+
+### 2.6. `DECIDIM_SYSTEM_ACCESSLIST_IPS` now works as an allow-list
+
+`DECIDIM_SYSTEM_ACCESSLIST_IPS` (`Decidim.config.system_accesslist_ips`) is documented as the list of addresses allowed to access the `/system` area, but the `Rack::Attack` rule that implemented it was inverted: it blocked the requests from the addresses in the list and allowed all the others.
+
+The rule now behaves as documented:
+
+- When the list is empty, access to the system area is not restricted, as before.
+- When the list has entries, only the addresses it contains — single IPs such as `1.2.3.4` or ranges such as `1.2.3.4/24` — can access the system area and its sub-paths. Any other address gets `403 Forbidden`.
+- Requests from an address that cannot be read, and configured entries that are not valid addresses, are blocked instead of raising an error inside the middleware.
+- The rule matches the system mount itself using `PATH_INFO`, so it also applies when the app is deployed under a subpath, and it no longer matches a public route that only contains a `system` segment.
+
+What to check when upgrading: if `DECIDIM_SYSTEM_ACCESSLIST_IPS` is set in production, make sure it includes the addresses used by the administrators, by the proxy or load balancer that forwards the requests, and by any monitoring tool that checks the system area, as after this change those are the only addresses that can reach it. An installation that relied on the previous behavior — blocking some addresses while leaving the rest open — cannot keep that configuration, since the list is now the only way to grant access.
+
+You can read more about this change on PR [#17933](https://github.com/decidim/decidim/pull/17933).
+
+### 2.7. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -50,7 +135,14 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. [[TITLE OF THE ACTION]]
+### 3.1. New Active Storage Sidekiq queue
+
+Active Storage jobs now run in the dedicated Sidekiq queue `active_storage` to avoid blocking the default queue.
+Please add this queue to your `config/sidekiq.yml` and ensure at least one Sidekiq process is consuming it.
+
+You can read more about this change on PR [#17520](https://github.com/decidim/decidim/pull/17520).
+
+### 3.2. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -59,7 +151,21 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 Implementers need to configure these changes it in your scheduler task system in the production server. We give the examples
 with `crontab`, although alternatively you could use `whenever` gem or the scheduled jobs of your hosting provider.
 
-### 4.1. [[TITLE OF THE TASK]]
+### 4.1. Remove unattached blobs
+
+Back in [#11851](https://github.com/decidim/decidim/pull/11851) we have added as a migration step a rake task aimed to clean up the unattached blobs (`decidim:upgrade:attachments_cleanup`)
+We add this as a permanent cron task, so that we can handle better the failed downloads or abandoned file uploads.
+
+```bash
+# Delete unattached upload blobs
+0 * * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rake decidim:attachments_cleanup
+```
+
+By default, the task deletes unattached blobs older than 60 minutes. This window is intentional, as we want to remove abandoned or potentially dangerous uploads as soon as possible. Note that files uploaded in a form that is still open (not yet submitted) are also unattached, so submissions done after the cleanup window may lose that file. Keep in mind that 60 minutes is only the earliest time a blob becomes eligible for deletion: the cron above runs hourly and the task queues deletions with `purge_later`, so files are usually removed some time after the window, not exactly at the 60-minute mark. If needed, the window can be configured with the `clean_up_unattached_blobs_after_in_minutes` argument, e.g. `bundle exec rake decidim:attachments_cleanup[1440]` keeps unattached blobs for at least 24 hours.
+
+You can read more about this change on PR [#17790](https://github.com/decidim/decidim/pull/17790).
+
+### 4.2. [[TITLE OF THE TASK]]
 
 ```bash
 4 0 * * * cd /home/user/decidim_application && RAILS_ENV=production bundle exec rails decidim:TASK
@@ -69,7 +175,15 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1. `initFoundation` Javascript function has been removed
+
+In order to fully remove Foundation CSS, we need to remove any dependency to Foundation-Sites. In the latest releases we started to rely more on Stimulus controllers and plain Javascript.
+
+If you are a developer or implementer, and you are upgrading your module or application, make sure that you do not have `foundation-sites` related code.
+
+You can read more about this change on PR [#16889](https://github.com/decidim/decidim/pull/16889).
+
+### 5.2. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

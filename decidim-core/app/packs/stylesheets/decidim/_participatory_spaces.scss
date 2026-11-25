@@ -49,7 +49,7 @@
         }
 
         &__collection-content {
-          @apply w-auto ml-6 my-4 pl-4 lg:pl-8 border-l border-[#D3D5D9];
+          @apply w-auto sm:ml-6 sm:my-4 sm:pl-4 lg:pl-8 sm:border-l sm:border-[#D3D5D9];
 
           p {
             @apply pt-4;
@@ -111,7 +111,17 @@
     }
 
     &-item {
-      @apply flex items-center gap-1 text-white font-semibold hover:underline [&>svg]:fill-current;
+      @apply flex items-center gap-1 text-white font-semibold hover:underline;
+    }
+
+    &-label {
+      @apply flex-1 min-w-0 overflow-hidden text-ellipsis;
+
+      overflow-wrap: anywhere;
+    }
+
+    &-item > svg {
+      @apply shrink-0 fill-current;
     }
   }
 

@@ -122,7 +122,6 @@ en:
             title: Edit election
           form:
             add_images: Add images
-            attachment_legend: Add an image gallery (optional)
             basic_title: Basic info
             calendar: Calendar
             calendar_description: Check that the organization time zone is correct in the organization settings. The current configuration is %{timezone}.

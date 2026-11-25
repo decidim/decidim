@@ -41,7 +41,7 @@ const htmlEncode = (text) => {
 
 document.addEventListener("turbo:load", () => {
   const $badge = $(`
-    <div lang="en" class="decidim-accessibility-badge" tabindex="0" aria-label="Toggle accessibility report">
+    <div lang="en" class="decidim-accessibility-badge" tabindex="0" role="button" aria-label="Toggle accessibility report">
       <div class="decidim-accessibility-title">WAI WCAG</div>
       <div class="decidim-accessibility-info"></div>
     </div>

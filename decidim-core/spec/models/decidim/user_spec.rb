@@ -60,6 +60,36 @@ module Decidim
       end
     end
 
+    it_behaves_like "profile visibility" do
+      let(:profile) { build(:user, :confirmed, organization:) }
+    end
+
+    shared_examples "user visibility" do
+      context "with a confirmed user" do
+        let(:user) { build(:user, :confirmed, organization:) }
+
+        it { is_expected.to be(true) }
+      end
+
+      context "with an unconfirmed user" do
+        let(:user) { build(:user, organization:) }
+
+        it { is_expected.to be(false) }
+      end
+    end
+
+    describe "#profile_published?" do
+      subject { user.profile_published? }
+
+      include_examples "user visibility"
+    end
+
+    describe "#visible?" do
+      subject { user.visible? }
+
+      include_examples "user visibility"
+    end
+
     describe "validations" do
       context "when the nickname is empty" do
         before do
@@ -243,6 +273,26 @@ module Decidim
 
         it "returns the correct results" do
           expect(subject.count).to eq(5)
+        end
+      end
+    end
+
+    describe "search indexing" do
+      context "with confirmed and unconfirmed accounts" do
+        let(:confirmed) { create_list(:user, 10, :confirmed, organization:) }
+        let(:unconfirmed) { create_list(:user, 5, organization:) }
+
+        it "indexes only the confirmed accounts" do
+          expect { confirmed | unconfirmed }.to change(Decidim::SearchableResource, :count).by(10 * organization.available_locales.count)
+        end
+      end
+
+      context "when an account changes from unconfirmed to confirmed" do
+        let!(:user) { create(:user, organization:) }
+
+        it "adds the search indexing record" do
+          expect(Decidim::SearchableResource.count).to eq(0)
+          expect { user.update!(confirmed_at: Time.current) }.to change(Decidim::SearchableResource, :count).by(organization.available_locales.count)
         end
       end
     end

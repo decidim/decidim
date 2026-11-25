@@ -30,9 +30,7 @@ describe "User edits a debate" do
 
     context "and empties the form" do
       it "allows submission and show errors" do
-        visit_component
-
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
@@ -56,9 +54,7 @@ describe "User edits a debate" do
     end
 
     it "allows editing my debate", :slow do
-      visit_component
-
-      click_on debate.title.values.first
+      visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
       find("#dropdown-trigger-resource-#{debate.id}").click
       click_on "Edit"
 
@@ -79,9 +75,7 @@ describe "User edits a debate" do
 
     context "when attachments are disallowed" do
       it "does not show the attachments form" do
-        visit_component
-
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
@@ -91,14 +85,13 @@ describe "User edits a debate" do
 
     context "when attachments are allowed", :slow do
       let(:attachments_allowed) { true }
-      let(:image_filename) { "city2.jpeg" }
-      let(:image_path) { Decidim::Dev.asset(image_filename) }
+      let(:attached_image_filename) { "city2.jpeg" }
+      let(:attached_image_path) { Decidim::Dev.asset(attached_image_filename) }
       let(:document_filename) { "Exampledocument.pdf" }
       let(:document_path) { Decidim::Dev.asset(document_filename) }
 
       before do
-        visit_component
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
       end
@@ -109,7 +102,7 @@ describe "User edits a debate" do
           fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
         end
 
-        dynamically_attach_file(:debate_attachments, image_path)
+        dynamically_attach_file(:debate_attachments, attached_image_path)
         dynamically_attach_file(:debate_attachments, document_path)
 
         within ".edit_debate" do
@@ -118,7 +111,7 @@ describe "User edits a debate" do
 
         expect(page).to have_text("Debate successfully updated.")
         expect(page).to have_css("[data-author]", text: user.name)
-        expect(page).to have_css("img[src*='#{image_filename}']")
+        expect(page).to have_css("img[src*='#{attached_image_filename}']")
 
         click_on "Documents"
 
@@ -138,14 +131,13 @@ describe "User edits a debate" do
 
     context "when the debate has an attachment", :slow do
       let(:attachments_allowed) { true }
-      let(:image_filename) { "city.jpeg" }
+      let(:attached_image_filename) { "city.jpeg" }
       let(:document_filename) { "Exampledocument.pdf" }
       let(:document_path) { Decidim::Dev.asset(document_filename) }
       let!(:image_attachment) { create(:attachment, :with_image, attached_to: debate) }
 
       it "can remove an attachment" do
-        visit_component
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
@@ -155,15 +147,19 @@ describe "User edits a debate" do
         end
 
         click_on("Save")
-        expect(page).to have_no_css("img[src*='#{image_filename}']")
+        expect(page).to have_no_css("img[src*='#{attached_image_filename}']")
       end
 
       it "can attach a file" do
-        visit_component
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
 
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
+
+        within ".edit_debate" do
+          fill_in :debate_title, with: "Should every organization use Decidim?"
+          fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
+        end
 
         dynamically_attach_file(:debate_attachments, document_path)
         click_on("Save")
@@ -173,19 +169,18 @@ describe "User edits a debate" do
       end
 
       it "can edit a debate with an attachment" do
-        visit_component
-
-        click_on debate.title.values.first
+        visit Decidim::EngineRouter.main_proxy(component).debate_path(debate)
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
 
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
+          fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
           find("*[type=submit]").click
         end
 
         expect(page).to have_text("Debate successfully updated.")
-        expect(page).to have_css("img[src*='#{image_filename}']")
+        expect(page).to have_css("img[src*='#{attached_image_filename}']")
       end
     end
   end

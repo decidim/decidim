@@ -135,9 +135,11 @@ ja:
           not_required: 任意
           properties: プロパティ
           right_aside: 右サイド
+          section_p_breakpoints: '要素のレスポンシブ幅を管理する際には、デフォルトの `container` Tailwindクラスを使用します。サポートされている解像度は以下の通りです：'
           section_p_code: 新しいモジュールを実装する際、HTML構造を設定するために必要なコードを自動的に提供するヘルパーがいくつかあります。一貫性を保つために、クラス属性付きのdiv要素を直接使用するのではなく、これらのヘルパーを使用すべきです。
           section_p_code_html: 基本的なレイアウトは %{link_section_code} で確認できます
           section_p_desktop: デスクトップグリッドシステムは、列間に16pxの隙間と、左右に48pxのマージンを持つ12の柔軟な列で構成されています。
+          section_p_mobile: モバイルグリッドシステムは、16pxの隙間と16pxの左右マージンの間に溝を持つ4つのフレキシブルな列で構成されています。
           section_p_tablet: タブレットグリッドシステムは、列間に16pxの隙間と、左右に24pxのマージンを持つ8つの柔軟な列で構成されています。
           tablet: タブレット
           title: レイアウト

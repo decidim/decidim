@@ -22,6 +22,8 @@ module Decidim
 
         # Public: To be implemented at the controller. You need to
         # return the space that will be exported.
+        protected
+
         def exportable_space
           raise NotImplementedError
         end

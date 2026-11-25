@@ -69,7 +69,7 @@ describe Decidim::Meetings::MeetingsController do
     end
 
     context "when current user is NOT the author of the meeting" do
-      let(:current_user) { create(:user, organization: meeting_component.organization) }
+      let(:current_user) { create(:user, :confirmed, organization: meeting_component.organization) }
       let(:meeting) { create(:meeting, component: meeting_component, author: current_user) }
 
       before { sign_in user }
@@ -121,6 +121,58 @@ describe Decidim::Meetings::MeetingsController do
         get :show, params: { id: meeting.id }
 
         expect(flash[:alert]).to include("You are not authorized to perform this action.")
+      end
+    end
+
+    context "with previous_space parameter" do
+      let(:other_process) { create(:participatory_process, organization:) }
+
+      it "accepts valid participatory space class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::ParticipatoryProcess##{other_process.id}" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to eq(
+          I18n.t(
+            "meetings.show.redirect_notice",
+            scope: "decidim.meetings",
+            previous_space_url: request.referer,
+            previous_space_name: decidim_escape_translated(other_process.title),
+            current_space_name: decidim_escape_translated(participatory_process.title)
+          )
+        )
+      end
+
+      it "rejects non-participatory space class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::User#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects arbitrary class names" do
+        get :show, params: { id: meeting.id, previous_space: "Decidim::System::Admin#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects non-existent class names" do
+        get :show, params: { id: meeting.id, previous_space: "NonExistent::Class#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
+      end
+
+      it "rejects blank class names" do
+        get :show, params: { id: meeting.id, previous_space: "#1" }
+
+        expect(subject).to render_template(:show)
+        expect(flash[:alert]).to be_blank
+        expect(flash[:notice]).to be_blank
       end
     end
 

@@ -121,7 +121,6 @@ es:
             title: Editar la elección
           form:
             add_images: Añadir imágenes
-            attachment_legend: Añadir galería de imágenes (opcional)
             basic_title: Información básica
             calendar: Calendario
             calendar_description: Compruebe que la zona horaria es correcta en la configuración de la organización. La configuración actual es %{timezone}.
@@ -194,7 +193,7 @@ es:
           update: "%{user_name} actualizó las preguntas de la elección \"%{resource_name}\""
       census_checks:
         show:
-          description: Esto significa que, una vez que comiencen las elecciones, se puede votar en ellas.
+          description: Esto significa que, una vez que comiencen las elecciones, podrás votar.
           exit_button: Salir de la comprobación del censo
           title: Se te ha verificado correctamente
       censuses:

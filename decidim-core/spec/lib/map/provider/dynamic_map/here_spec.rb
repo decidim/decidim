@@ -32,7 +32,9 @@ module Decidim
                 marker_color: "#e02d2d",
                 tile_layer: {
                   api_key: "key1234", foo: "bar", language: "en"
-                }
+                },
+                zoom_in_text: "Zoom in",
+                zoom_out_text: "Zoom out"
               )
             end
 
@@ -51,7 +53,9 @@ module Decidim
                     marker_color: "#e02d2d",
                     tile_layer: {
                       api_key: "key1234", foo: "bar", language: "ca"
-                    }
+                    },
+                    zoom_in_text: "Ampliar",
+                    zoom_out_text: "Allunyar"
                   )
                 end
               end
@@ -64,7 +68,9 @@ module Decidim
                     marker_color: "#e02d2d",
                     tile_layer: {
                       api_key: "key1234", foo: "bar", language: "es"
-                    }
+                    },
+                    zoom_in_text: "Ampliar",
+                    zoom_out_text: "Alejar"
                   )
                 end
               end
@@ -86,7 +92,9 @@ module Decidim
                     api_key: "appid123secret456",
                     foo: "bar",
                     language: "en"
-                  }
+                  },
+                  zoom_in_text: "Zoom in",
+                  zoom_out_text: "Zoom out"
                 )
               end
             end

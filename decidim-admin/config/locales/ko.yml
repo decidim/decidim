@@ -34,7 +34,6 @@ ko:
       organization:
         alert_color: 알림
         badges_enabled: 뱃지 활성화
-        comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
         customize_welcome_notification: 환영 알림 커스터마이징
         default_locale: 기본 위치
         description: 상세정보
@@ -537,11 +536,6 @@ ko:
       share_tokens:
         actions:
           destroy: 삭제
-      shared:
-        gallery:
-          add_images: 이미지 추가
-          edit_images: 이미지 편집
-          gallery_legend: 이미지 갤러리 추가하기 (선택사항)
       static_pages:
         create:
           error: 새 페이지를 생성하는 도중 문제가 생겼습니다.

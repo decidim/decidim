@@ -66,6 +66,9 @@ To have public assets in your application, so that you do not rely on the Active
 8. Add a bucket policy similar to the example below.
    - If you are unsure of your bucket’s ARN, you can find it in the Properties tab. For this example, we use  `arn:aws:s3:::your-bucket-name`
 9. Click *Save changes*
+10. Still in the *Permissions tab*, locate the *Object Ownership* section and click *Edit*
+11. Select the options "ACLs enabled" and "Object writer"
+12. Click *Save changes*
 [source,json]
 ----
 {

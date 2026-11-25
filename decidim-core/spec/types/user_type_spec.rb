@@ -27,14 +27,21 @@ module Decidim
       end
 
       describe "deleted user" do
-        let(:model) { create(:user, :deleted) }
+        let(:model) { create(:user, :confirmed, :deleted) }
         let(:query) { "{ id }" }
 
         it_behaves_like "unauthorized User object"
       end
 
       describe "moderated user" do
-        let(:model) { create(:user, :blocked) }
+        let(:model) { create(:user, :confirmed, :blocked) }
+        let(:query) { "{ id }" }
+
+        it_behaves_like "unauthorized User object"
+      end
+
+      describe "managed user" do
+        let(:model) { create(:user, :confirmed, :managed) }
         let(:query) { "{ id }" }
 
         it_behaves_like "unauthorized User object"
@@ -122,7 +129,7 @@ module Decidim
         end
 
         context "when user is deleted" do
-          let(:model) { create(:user, :deleted) }
+          let(:model) { create(:user, :confirmed, :deleted) }
 
           it_behaves_like "unauthorized User object"
         end
@@ -181,14 +188,6 @@ module Decidim
 
         it "returns the about about" do
           expect(response).to include("about" => model.about)
-        end
-      end
-
-      describe "personalUrl" do
-        let(:query) { "{ personalUrl }" }
-
-        it "returns the personal url field" do
-          expect(response).to include("personalUrl" => model.personal_url)
         end
       end
     end

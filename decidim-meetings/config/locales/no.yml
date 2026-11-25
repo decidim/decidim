@@ -83,7 +83,6 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
-            comments_max_length: Maks lengde på kommentarer (Sett 0 for standardverdi)
             creation_enabled_for_participants: Deltakere kan opprette møter
             default_registration_terms: Standard registreringsvilkår
             enable_pads_creation: Aktiver oppretting av pads
@@ -196,10 +195,8 @@
             success: Deltakeren ble invitert til å delta møtet.
           form:
             attendee_type: Deltakertype
-            existing_user: Eksisterende deltaker
             invite: Inviter
             invite_explanation: Deltakeren vil bli invitert til å delta på møtet og i organisasjonen også.
-            non_user: Ikke eksisterende deltaker
             select_user: Velg deltaker
           index:
             invites: Invitasjoner

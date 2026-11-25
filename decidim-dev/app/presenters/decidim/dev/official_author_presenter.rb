@@ -15,7 +15,13 @@ module Decidim
         false
       end
 
-      def respond_to_missing?(*)
+      def visible?
+        true
+      end
+
+      def respond_to_missing?(method, _include_private = false)
+        return false if method == :__getobj__
+
         true
       end
 

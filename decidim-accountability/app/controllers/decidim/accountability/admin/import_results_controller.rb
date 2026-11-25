@@ -5,13 +5,15 @@ module Decidim
     module Admin
       # This controller allows an admin to import results from a csv file for the Accountability component
       class ImportResultsController < Admin::ApplicationController
-        before_action :ensure_permissions
-
         def new
+          enforce_permission_to :create, :result
+
           @form = form(Admin::ImportResultsForm).instance
         end
 
         def create
+          enforce_permission_to :create, :result
+
           @form = form(Admin::ImportResultsForm).from_params(params, current_component:)
 
           if @form.valid?
@@ -23,12 +25,6 @@ module Decidim
             flash[:alert] = I18n.t("imports.create.invalid", scope: "decidim.accountability.admin")
             render action: "new", status: :unprocessable_content
           end
-        end
-
-        private
-
-        def ensure_permissions
-          enforce_permission_to :create, :result
         end
       end
     end

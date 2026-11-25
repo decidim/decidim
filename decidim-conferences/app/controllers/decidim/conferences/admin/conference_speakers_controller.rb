@@ -117,7 +117,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= current_conference.speakers
+          @collection ||= current_conference.speakers.includes(:user)
         end
       end
     end

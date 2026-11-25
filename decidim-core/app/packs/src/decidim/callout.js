@@ -19,3 +19,13 @@ document.addEventListener("turbo:load", () => {
     callout.innerHTML += "&nbsp;";
   }, 500);
 });
+
+document.addEventListener("click", (event) => {
+  const closeButton = event.target.closest("[data-alert-box] [data-close]");
+
+  if (!closeButton) {
+    return;
+  }
+
+  closeButton.closest("[data-alert-box]").remove();
+});

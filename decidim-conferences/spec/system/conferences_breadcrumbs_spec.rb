@@ -73,4 +73,27 @@ describe "Conferences Breadcrumb" do
       end
     end
   end
+
+  context "when checking the current page marker" do
+    scenario "marks only the breadcrumb item as the current page on the conferences index page" do
+      visit decidim_conferences.conferences_path(locale: I18n.locale)
+
+      expect(page).to have_css("[aria-current='page']", count: 1, visible: :all)
+      expect(find("[aria-current='page']")).to have_text("Conferences")
+    end
+
+    scenario "marks only the deepest active breadcrumb item as the current page on a conference page" do
+      visit decidim_conferences.conference_path(participatory_space, locale: I18n.locale)
+
+      expect(page).to have_css("[aria-current='page']", count: 1, visible: :all)
+      expect(find("[aria-current='page']")).to have_text(translated(participatory_space.title))
+    end
+
+    scenario "marks only the deepest active breadcrumb item as the current page on a component page" do
+      visit router.root_path
+
+      expect(page).to have_css("[aria-current='page']", count: 1, visible: :all)
+      expect(find("[aria-current='page']")).to have_text(translated(participatory_space.title))
+    end
+  end
 end

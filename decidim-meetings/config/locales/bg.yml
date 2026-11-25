@@ -145,7 +145,6 @@ bg:
           global:
             announcement: Обявление
             comments_enabled: Коментарите са активирани
-            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             creation_enabled_for_participants: Участниците могат да създават срещи
             default_registration_terms: Условия за регистрация по подразбиране
             enable_pads_creation: Активирай създаване на бележки
@@ -270,10 +269,8 @@ bg:
             success: Участникът беше поканен успешно да се присъедини към срещата.
           form:
             attendee_type: Тип присъстващ
-            existing_user: Съществуващ участник
             invite: Покани
             invite_explanation: Участникът ще бъде поканен да се присъедини към срещата, както и към организацията.
-            non_user: Несъществуващ участник
             select_user: Избор на участник
           index:
             invites: Покани

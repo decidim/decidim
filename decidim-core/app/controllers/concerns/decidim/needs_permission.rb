@@ -41,21 +41,13 @@ module Decidim
           component_settings: try(:component_settings),
           current_organization: try(:current_organization),
           current_component: try(:current_component),
-          share_token: try(:store_share_token)
+          share_token: store_share_token
         }
       end
 
-      def enforce_permission_to(action, subject, extra_context = {})
-        if Rails.env.development?
-          Rails.logger.debug "==========="
-          Rails.logger.debug [permission_scope, action, subject, permission_class_chain].map(&:inspect).join("\n")
-          Rails.logger.debug "==========="
-        end
+      public
 
-        raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
-      end
-
-      # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable-next Metrics/ParameterLists
       def allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain, user = current_user, scope = nil)
         scope ||= permission_scope
         permission_action = Decidim::PermissionAction.new(scope:, action:, subject:)
@@ -70,10 +62,21 @@ module Decidim
       rescue Decidim::PermissionAction::PermissionNotSetError
         false
       end
-      # rubocop:enable Metrics/ParameterLists
 
       def admin_allowed_to?(action, subject, extra_context = {}, chain = permission_class_chain, user = current_user)
         allowed_to?(action, subject, extra_context, chain, user, :admin)
+      end
+
+      protected
+
+      def enforce_permission_to(action, subject, extra_context = {})
+        if Rails.env.development?
+          Rails.logger.debug "==========="
+          Rails.logger.debug [permission_scope, action, subject, permission_class_chain].map(&:inspect).join("\n")
+          Rails.logger.debug "==========="
+        end
+
+        raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
       def permission_class_chain
@@ -82,6 +85,14 @@ module Decidim
 
       def permission_scope
         raise "Please, make this method return a symbol"
+      end
+
+      private
+
+      def store_share_token
+        session[:share_token] = params[:share_token] if params.has_key?(:share_token)
+
+        session[:share_token].presence
       end
     end
   end

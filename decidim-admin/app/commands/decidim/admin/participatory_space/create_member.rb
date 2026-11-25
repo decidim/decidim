@@ -53,6 +53,7 @@ module Decidim
               title: user.name
             }
           ) do
+            # rubocop:disable-next Decidim/OrganizationScopedFinder -- user and participatory_space are scoped to the current invitation
             member = Decidim::ParticipatorySpace::Member.where(user:, participatory_space: @member_to).first_or_initialize
             member.role = form.role
             member.published = form.published
@@ -62,10 +63,15 @@ module Decidim
         end
 
         def existing_user
-          @existing_user ||= User.find_by(
-            email: form.email.downcase,
-            organization: member_to.organization
-          )
+          @existing_user ||= if form.member_type == "name"
+                               form.user
+                             else
+                               # rubocop:disable-next Decidim/OrganizationScopedFinder -- organization is the member's participatory space organization
+                               User.find_by(
+                                 email: form.email.downcase,
+                                 organization: member_to.organization
+                               )
+                             end
         end
 
         def send_notification_for_existing_user
@@ -92,12 +98,22 @@ module Decidim
         end
 
         def user_form
-          OpenStruct.new(name: form.name,
-                         email: form.email.downcase,
-                         organization: member_to.organization,
-                         admin: false,
-                         invited_by: current_user,
-                         invitation_instructions:)
+          if form.member_type == "name"
+            OpenStruct.new(name: form.user.name,
+                           email: form.user.email.downcase,
+                           organization: member_to.organization,
+                           admin: false,
+                           invited_by: current_user,
+                           invitation_instructions:)
+          else
+            email_local_part = form.email.split("@").first
+            OpenStruct.new(name: email_local_part,
+                           email: form.email.downcase,
+                           organization: member_to.organization,
+                           admin: false,
+                           invited_by: current_user,
+                           invitation_instructions:)
+          end
         end
 
         def invitation_instructions

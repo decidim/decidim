@@ -50,6 +50,20 @@ module Decidim
             class_name: "Decidim::ParticipatoryProcessStep",
             dependent: :destroy,
             inverse_of: :participatory_process
+    # Trashing a process is a soft delete and `Decidim::ParticipatoryProcessUserRole` is not soft deletable, so
+    # `dependent: :destroy` would remove the roles permanently and restoring the process could not bring them
+    # back. The roles are only removed when the process is permanently deleted.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :participatory_process_user_roles,
+             foreign_key: "decidim_participatory_process_id",
+             class_name: "Decidim::ParticipatoryProcessUserRole",
+             inverse_of: :participatory_process
+
+    # Query by the process id instead of the association, which may be a stale cached
+    # collection. Run before the process itself is removed so the roles are deleted while the
+    # parent record still exists.
+    before_real_destroy { Decidim::ParticipatoryProcessUserRole.where(participatory_process: self).destroy_all }
+
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",
@@ -97,7 +111,7 @@ module Decidim
           Arel.sql(
             sanitize_sql_array(
               [
-                "ABS(start_date - (CURRENT_DATE at time zone :timezone)::date)",
+                "ABS(decidim_participatory_processes.start_date - (CURRENT_DATE at time zone :timezone)::date)",
                 { timezone: }
               ]
             )
@@ -117,6 +131,10 @@ module Decidim
                       },
                       index_on_create: ->(_process) { false },
                       index_on_update: ->(process) { process.visible? })
+
+    def self.searchable_arguments
+      [:organization, :active_step]
+    end
 
     # Scope to return only the promoted processes.
     #

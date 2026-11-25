@@ -13,14 +13,32 @@ module Decidim
     include Decidim::Loggable
     include Decidim::HasUploadValidations
 
-    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
-    has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
-    has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
+    belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :user_entities
+    has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", inverse_of: :user, dependent: :destroy
+    has_many :following_follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", inverse_of: :user, dependent: :destroy
 
+    # `blocking` has no `inverse_of`, and neither has the reciprocal `Decidim::UserBlock#user`, because the two
+    # are keyed on different columns: this association joins `decidim_user_blocks.id` to `decidim_users.block_id`,
+    # the reciprocal joins `decidim_user_id`. Declaring the inverse on either side makes the block the in-memory
+    # target of this association, and autosave then propagates `block_id` onto the block's primary key, so nulling
+    # `block_id` (the admin unblock commands) saves the block as an insert with a NULL id.
     has_one :blocking, class_name: "Decidim::UserBlock", foreign_key: :id, primary_key: :block_id, dependent: :destroy
 
+    # Reciprocals of the models that point to a user entity. They are declared here and not on
+    # `Decidim::User` because those models reference `Decidim::UserBaseEntity`, the STI base class,
+    # so the reciprocal is only resolved for every kind of user entity when it lives here.
+    # `Decidim::ActionLog` records are not cascaded: they are the audit trail and that model raises
+    # `ActiveRecord::ReadOnlyRecord` on destroy. For the messaging models `inverse_of` is declared only
+    # on this side, see the comment in `Decidim::Messaging::Message`.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :action_logs, foreign_key: :user_id, class_name: "Decidim::ActionLog", inverse_of: :user
+    has_many :badge_scores, foreign_key: :user_id, class_name: "Decidim::Gamification::BadgeScore", inverse_of: :user, dependent: :destroy
+    has_many :messages, foreign_key: :decidim_sender_id, class_name: "Decidim::Messaging::Message", inverse_of: :sender, dependent: :destroy
+    has_many :participations, foreign_key: :decidim_participant_id, class_name: "Decidim::Messaging::Participation", inverse_of: :participant, dependent: :destroy
+    has_one :user_moderation, foreign_key: :decidim_user_id, class_name: "Decidim::UserModeration", inverse_of: :user, dependent: :destroy
+
     # Regex for name & nickname format validations
-    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|\n\r])/m
+    REGEXP_NAME = /\A(?!.*[<>?%&\^*#@()\[\]=+:;"{}\\|\n\r]).*\z/m
     REGEXP_NICKNAME = /\A[a-z0-9_-]+\z/
 
     has_one_attached :avatar
@@ -32,11 +50,49 @@ module Decidim
     scope :confirmed, -> { where.not(confirmed_at: nil) }
     scope :not_confirmed, -> { where(confirmed_at: nil) }
 
+    # Visible user entities are those that should appear publicly on the
+    # platform, such as on their personal profile page, the GraphQL API or
+    # other places where the user may appear.
+    scope :visible, lambda {
+      profile_published.not_blocked.merge(
+        Decidim::User.tos_accepted.or(
+          Decidim::UserBaseEntity.where.not(type: "Decidim::User")
+        )
+      )
+    }
+
+    # User entities that have their profile visible on the platform from the
+    # user's own perspective. This includes also blocked users because the
+    # decision to hide their profile has been made by someone else.
+    scope :profile_published, -> { confirmed.not_deleted.where(managed: false) }
+
     scope :blocked, -> { where(blocked: true) }
     scope :not_blocked, -> { where(blocked: false) }
     scope :available, -> { where(deleted_at: nil, blocked: false, managed: false) }
 
     scope :not_deleted, -> { where(deleted_at: nil) }
+
+    def visible?
+      return false if blocked?
+
+      profile_published?
+    end
+
+    # Note that the blocked users have the profile published on purpose for the
+    # admin users to be able access those profiles e.g. for inspecting the
+    # user's activity on the platform.
+    def profile_published?
+      return false if managed?
+      return false if deleted_at.present?
+
+      confirmed_at.present?
+    end
+
+    # This will hide the resource from the search index when the resource is not
+    # public and when the resource is searchable (i.e. `Decidim::User`).
+    def hidden?
+      !visible?
+    end
 
     # Public: Returns a collection with all the public entities this user is following.
     #
@@ -62,7 +118,7 @@ module Decidim
     end
 
     def users_followings
-      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self })
+      @users_followings ||= Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).order(decidim_follows: { created_at: :asc, id: :asc })
     end
 
     def followings_blocked?

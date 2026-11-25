@@ -22,7 +22,7 @@ describe "Conversations" do
 
     it "shows the topbar button as inactive" do
       within "#trigger-dropdown-account" do
-        expect(page).to have_no_selector("span[data-unread-items]")
+        expect(page).to have_no_css("span[data-unread-items]")
       end
     end
   end
@@ -31,6 +31,13 @@ describe "Conversations" do
     it "allows sending an initial message", :slow do
       start_conversation("Is this a Ryanair style democracy?")
       expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+    end
+
+    it "redirects to the created conversation", :slow do
+      start_conversation("Is this a Ryanair style democracy?")
+
+      expect(page).to have_css(".conversation__message:last-child", text: "Is this a Ryanair style democracy?")
+      expect(page).to have_current_path(decidim.conversation_path(Decidim::Messaging::Conversation.last))
     end
 
     it "redirects to an existing conversation if it exists already", :slow do
@@ -43,7 +50,7 @@ describe "Conversations" do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user, organization:) }
+    let(:recipient) { create(:user, :confirmed, organization:) }
 
     before do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -61,7 +68,7 @@ describe "Conversations" do
     end
 
     it "shows an empty conversation page" do
-      expect(page).to have_no_selector(".card--list__item")
+      expect(page).to have_no_css(".card--list__item")
       expect(page).to have_current_path decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
@@ -70,7 +77,7 @@ describe "Conversations" do
     it_behaves_like "create new conversation"
 
     context "and recipient has restricted communications" do
-      let(:recipient) { create(:user, direct_message_types: "followed-only", organization:) }
+      let(:recipient) { create(:user, :confirmed, direct_message_types: "followed-only", organization:) }
 
       context "and recipient does not follow user" do
         it "redirects user with access error" do
@@ -159,7 +166,7 @@ describe "Conversations" do
 
       it "shows the topbar button as inactive" do
         within "#trigger-dropdown-account" do
-          expect(page).to have_no_selector("span[data-unread-items]")
+          expect(page).to have_no_css("span[data-unread-items]")
         end
       end
 
@@ -240,7 +247,7 @@ describe "Conversations" do
         end
 
         it "does not show the sending form" do
-          expect(page).to have_no_selector("textarea#message_body")
+          expect(page).to have_no_css("textarea#message_body")
         end
       end
 
@@ -322,7 +329,7 @@ describe "Conversations" do
           expect(page).to have_css(".conversation__modal-results li", count: 1)
           expect(page).to have_text("Maria")
           expect(page).to have_no_css(".ts-dropdown .option", visible: :visible)
-          expect(find_by_id("add_conversation_users", visible: false).value).to eq("")
+          expect(find_by_id("add_conversation_users", visible: :all).value).to eq("")
         end
       end
     end
@@ -330,7 +337,7 @@ describe "Conversations" do
 
   describe "when having a conversation with multiple participants" do
     context "and it is with only one participant" do
-      let(:user1) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
       let!(:conversation2) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -379,9 +386,9 @@ describe "Conversations" do
     end
 
     context "and it is with four participants" do
-      let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user, organization:) }
-      let(:user3) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
       let!(:conversation4) do
         Decidim::Messaging::Conversation.start!(
           originator: user,
@@ -439,15 +446,15 @@ describe "Conversations" do
     end
 
     context "and it is with ten participants" do
-      let(:user1) { create(:user, organization:) }
-      let(:user2) { create(:user, organization:) }
-      let(:user3) { create(:user, organization:) }
-      let(:user4) { create(:user, organization:) }
-      let(:user5) { create(:user, organization:) }
-      let(:user6) { create(:user, organization:) }
-      let(:user7) { create(:user, organization:) }
-      let(:user8) { create(:user, organization:) }
-      let(:user9) { create(:user, organization:) }
+      let(:user1) { create(:user, :confirmed, organization:) }
+      let(:user2) { create(:user, :confirmed, organization:) }
+      let(:user3) { create(:user, :confirmed, organization:) }
+      let(:user4) { create(:user, :confirmed, organization:) }
+      let(:user5) { create(:user, :confirmed, organization:) }
+      let(:user6) { create(:user, :confirmed, organization:) }
+      let(:user7) { create(:user, :confirmed, organization:) }
+      let(:user8) { create(:user, :confirmed, organization:) }
+      let(:user9) { create(:user, :confirmed, organization:) }
       let!(:conversation10) do
         Decidim::Messaging::Conversation.start!(
           originator: user,

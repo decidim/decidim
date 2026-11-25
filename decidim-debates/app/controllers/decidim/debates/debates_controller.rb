@@ -16,6 +16,12 @@ module Decidim
       helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form, :tab_panel_items
       before_action :authenticate_user!, only: [:new, :create]
 
+      def index
+        enforce_permission_to :read, :debate
+
+        redirect_to Decidim::EngineRouter.main_proxy(current_component).debate_path(single_debate, share_token: params[:share_token].presence) if redirect_to_single_debate?
+      end
+
       def new
         enforce_permission_to :create, :debate
 
@@ -42,6 +48,8 @@ module Decidim
 
       def show
         raise ActionController::RoutingError, "Not Found" if debate.blank?
+
+        enforce_permission_to :read, :debate, debate:
       end
 
       def edit
@@ -92,6 +100,25 @@ module Decidim
         @form_presenter ||= present(@form, presenter_class: Decidim::Debates::DebatePresenter)
       end
 
+      def redirect_to_single_debate?
+        return false unless request.format.html?
+        return false if creating_debates?
+
+        visible_debates.one?
+      end
+
+      def single_debate
+        visible_debates.first
+      end
+
+      def visible_debates
+        @visible_debates ||= search_collection
+      end
+
+      def creating_debates?
+        current_settings.creation_enabled? && current_component.participatory_space.can_participate?(current_user)
+      end
+
       def paginated_debates
         @paginated_debates ||= paginate(debates).includes(:taxonomies)
       end
@@ -109,7 +136,7 @@ module Decidim
       end
 
       def search_collection
-        Debate.where(component: current_component).not_hidden
+        Debate.includes(:component).where(component: current_component).not_hidden
       end
 
       def default_filter_params

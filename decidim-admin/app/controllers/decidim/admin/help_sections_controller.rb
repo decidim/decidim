@@ -12,17 +12,17 @@ module Decidim
 
       helper_method :sections
 
-      before_action do
-        enforce_permission_to :update, :help_sections
-      end
-
       def show
+        enforce_permission_to :update, :help_sections
+
         @form = form(HelpSectionsForm).from_model(
           OpenStruct.new(sections:)
         )
       end
 
       def update
+        enforce_permission_to :update, :help_sections
+
         @form = form(HelpSectionsForm).from_params(
           params[:help_sections]
         )

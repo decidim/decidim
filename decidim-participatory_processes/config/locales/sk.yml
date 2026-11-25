@@ -12,14 +12,14 @@ sk:
         duplicate_categories: Duplikovať kategórie
         duplicate_components: Duplikovať komponenty
         duplicate_landing_page_blocks: Duplikovať bloky vstupnej stránky
-        duplicate_steps: Duplikovať kroky
+        duplicate_steps: Duplikovať fázy
         end_date: Dátum ukončenia
         has_members: Tento priestor má členov
         hero_image: Domáce obrázok
         import_attachments: Importovať prílohy
         import_categories: Importovať kategórie
         import_components: Importovať komponenty
-        import_steps: Importovať kroky
+        import_steps: Importovať fázy
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
         participatory_process_group_id: Skupina procesov
@@ -290,6 +290,7 @@ sk:
         activate: "% {USER_NAME} aktivoval% {resource_name} krok% {space_name} participáciu"
         create: "% {USER_NAME} vytvoril% {resource_name} krok vo% {space_name} účastníckych procesoch"
         delete: "% {USER_NAME} odstránených% {resource_name} krok vo% {space_name} účastníckych procesoch"
+        system_activate: Fáza %{resource_name} bola automaticky aktivovaná v participatívnom procese %{space_name}.
         update: "% {USER_NAME} aktualizoval% {resource_name} krok vo% {space_name} účastníckych procesoch"
       participatory_process_user_role:
         create: "% {USER_NAME} pozval užívateľa% {resource_name} do procesu participácie% {space_name}"
@@ -527,6 +528,8 @@ sk:
               label: Prístup
               options:
                 open: Každý môže vidieť proces a zúčastniť sa.
+                restricted: Iba členovia a administrátori ho môžu vidieť a zúčastniť sa. Nezobrazí sa vo všeobecnom vyhľadávaní, v API ani v súboroch otvorených dát.
+                transparent: Každý môže vidieť proces, ale zúčastniť sa môžu iba členovia a administrátori.
               set_this_space_as: Nastaviť tento priestor ako
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             duration: Čas trvania

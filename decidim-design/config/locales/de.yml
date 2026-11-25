@@ -87,6 +87,7 @@ de:
           adjacent_links_paragraph: Wenn die selbe Ressource mehrere angrenzende Links hat, die auf sie verweisen es erschwert solchen Benutzern, durch die Seite zu schauen, da sie unter Umständen mehrere Links durchlaufen müssen, um zur nächsten Ressource zu gelangen.
           color_contrast: Farbkontrast
           color_contrast_paragraph: Wenn Sie die Benutzeroberfläche erstellen oder die Farben ändern, stellen Sie immer sicher, dass Sie mit Ihren Änderungen nicht die Barrierefreiheit verletzen. Sie können mit der Farbkontrastprüfung sicherstellen, dass Ihre Textfarben ausreichend Kontrast zur Hintergrundfarbe haben, auf der sie angezeigt werden.
+          decidim_follows_html: Decidim befolgt die %{link}
           dynamic_changes_header: Dynamische Funktionalität ändert den Seitenkontext unintuitiv
           dynamic_changes_paragraph: Änderungen in den Formulareingaben sollten den Kontext der Seite nicht automatisch ändern.
           elements_hidden: Elemente versteckt
@@ -97,6 +98,7 @@ de:
           illogical_heading_paragraph: Jede Seite sollte eine logische Überschriftenreihenfolge haben, wenn die Überschriften <h1>, <h2>, <h3>, <h4>, <h5> und <h6> verwendet werden.
           important_sections_heading: Überschrift zu wichtigen Abschnitten
           important_sections_paragraph: Es ist sehr wichtig, dass jeder wichtige Abschnitt der Seite eine Überschrift hat, die es einfacher macht zu verstehen, welche wichtigen Abschnitte auf der Seite nur durch das Durchsuchen der Rubriken.
+          learn_more_about_html: Erfahren Sie mehr über %{link}
           links_and_buttons: Links und Tasten
           links_and_buttons_paragraph: Die Ankerelemente (z.B. Links) sollen auf andere Seiten verlinken oder Positionen innerhalb der Seite verankert werden. Wenn das Element z.B. ein verstecktes Element auf dieser Seite öffnen soll, sollten Sie stattdessen das Element <button> verwenden.
           unique_h1: Eindeutige H1
@@ -104,6 +106,7 @@ de:
           use_aria: Benutze ARIA
           use_aria_header: ARIA-Attribute verwenden, wenn möglich
           use_aria_paragraph: Viele Elemente, die interaktive Funktionalität auf der Website bieten, erfordern ARIA-Attribute auf ihnen, um sie barrierefrei zugänglich zu machen.
+          wcag_guidelines: Web Content Accessibility Guidelines (WCAG)
         color:
           color_header: Farbe
           description_p1: Wir bieten eine Grundpalette mit wenigen Farben, so dass kleinere Anpassungen einfach sind. Sie können die Grundpalette entweder im Administrationsbereich oder in der Tailwind-Konfigurationsdatei ändern, wenn Sie erweiterte Anpassungen vornehmen möchten.
@@ -132,9 +135,11 @@ de:
           not_required: Nicht erforderlich
           properties: Eigenschaften
           right_aside: Seitlich rechts
+          section_p_breakpoints: 'Für die responsive Breite von Elementen verwenden wir die Standard-Tailwind-Klasse `container`. Folgende Auflösungen werden unterstützt:'
           section_p_code: Wenn Sie neue Module implementieren, haben Sie einige Helfer, die Ihnen automatisch den Code zur Verfügung stellen, um die HTML-Struktur einzurichten. Du solltest diese Helfer verwenden, anstatt direkt div Elemente mit Klassen zu verwenden, damit du die Konsistenz aufrechterhalten kannst.
           section_p_code_html: Sie finden die Grundlayouts in %{link_section_code}
           section_p_desktop: Desktop-Rastersystem besteht aus 12 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px
+          section_p_mobile: Das mobile Rastersystem besteht aus 4 flexiblen Spalten mit einem Spaltenabstand von 16px sowie linken und rechten Rändern von 16px.
           section_p_tablet: Desktop-Rastersystem besteht aus 8 flexiblen Spalten mit einem Raster zwischen 16px und linken und rechten Rändern von 48px.
           tablet: Tablet
           title: Layout
@@ -155,9 +160,9 @@ de:
         address_description_2: Abhängig vom Typ des Inhalts kann die Adresse eine Online-URL sein. In solchen Fällen sind die angezeigten Informationen genau dieselbe, aber passend geformt.
         ally_link: a11y-dropdown-Komponente
         argument: Argument
-        assemblies: Gremien
-        assembly_g: Gremium G
-        assembly_s: Gremium S
+        assemblies: Versammlungen
+        assembly_g: Versammlung G
+        assembly_s: Versammlung S
         avatar: Profilbild
         avatar_description: Es wird verwendet, wenn es schmale Leerzeichen gibt, in denen der Autor eine sekundäre Information ist.
         background: Hintergrund und Ränder

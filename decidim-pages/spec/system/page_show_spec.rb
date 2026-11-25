@@ -93,5 +93,19 @@ describe "Show a page" do
         end
       end
     end
+
+    context "when the page has attachments" do
+      let!(:document) { create(:attachment, :with_pdf, attached_to: page_component) }
+      let!(:photo) { create(:attachment, :with_image, attached_to: page_component) }
+
+      before do
+        visit_component
+      end
+
+      it "displays the attachments" do
+        expect(page).to have_css("[data-controls='panel-images']")
+        expect(page).to have_css("[data-controls='panel-documents']")
+      end
+    end
   end
 end

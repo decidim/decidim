@@ -126,7 +126,6 @@ nl:
         settings:
           global:
             comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
             display_progress_enabled: Geef de voortgang weer
             intro: Inleiding
           step:

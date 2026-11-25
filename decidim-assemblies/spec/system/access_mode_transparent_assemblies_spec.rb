@@ -15,4 +15,41 @@ describe "Access Mode Transparent Assemblies" do
 
   it_behaves_like "access mode transparent participatory spaces"
   it_behaves_like "access mode transparent participatory spaces comments"
+
+  context "when accessing transparent assembly and user has space roles assigned" do
+    context "when user is a space admin" do
+      it_behaves_like "access mode transparent participatory spaces" do
+        let!(:admin) { create(:assembly_admin, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
+      end
+    end
+
+    context "when user is a space collaborator" do
+      it_behaves_like "access mode transparent participatory spaces" do
+        let!(:admin) { create(:assembly_collaborator, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
+      end
+    end
+
+    context "when user is a space moderator" do
+      it_behaves_like "access mode transparent participatory spaces", with_attachments: false do
+        let!(:admin) { create(:assembly_moderator, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
+      end
+    end
+
+    context "when user is a space evaluator" do
+      it_behaves_like "access mode transparent participatory spaces", with_attachments: false do
+        let!(:admin) { create(:assembly_evaluator, :confirmed, assembly: transparent_participatory_space) }
+        let!(:user) { admin }
+      end
+    end
+
+    context "when user is a member" do
+      it_behaves_like "access mode transparent participatory spaces" do
+        let!(:user) { create(:user, :confirmed, organization:) }
+        let!(:member) { create(:assembly_member, user:, participatory_space: transparent_participatory_space) }
+      end
+    end
+  end
 end

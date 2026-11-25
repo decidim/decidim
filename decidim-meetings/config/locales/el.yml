@@ -122,7 +122,6 @@ el:
           global:
             announcement: Ανακοίνωση
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για την προκαθορισμένη τιμή)
             creation_enabled_for_participants: Οι συμμετέχοντες μπορούν να δημιουργήσουν συναντήσεις
             default_registration_terms: Προεπιλεγμένοι όροι εγγραφής
             enable_pads_creation: Ενεργοποίηση δημιουργίας πινάκων σημειώσεων
@@ -246,10 +245,8 @@ el:
             success: Ο συμμετέχων προσκλήθηκε με επιτυχία στη σύσκεψη.
           form:
             attendee_type: Τύπος συμμετέχοντα
-            existing_user: Υπάρχων συμμετέχων
             invite: Πρόσκληση
             invite_explanation: Ο συμμετέχων θα προσκληθεί να συμμετάσχει στη σύσκεψη και στον οργανισμό.
-            non_user: Ο συμμετέχων δεν υπάρχει
             select_user: Επιλέξτε συμμετέχοντα
           index:
             invites: Προσκλήσεις

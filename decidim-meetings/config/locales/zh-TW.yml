@@ -120,7 +120,6 @@ zh-TW:
           global:
             announcement: 公告
             comments_enabled: 已啟用留言
-            comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             creation_enabled_for_participants: 參與者可以建立會議
             default_registration_terms: 預設報名條款
             enable_pads_creation: 啟用平板創建
@@ -243,10 +242,8 @@ zh-TW:
             success: 已成功邀請參與者加入會議。
           form:
             attendee_type: 參與者類型
-            existing_user: 現有參與者
             invite: 邀請
             invite_explanation: 參與者將被邀請加入會議和組織。
-            non_user: 不存在的參與者。
             select_user: 選擇參與者
           index:
             invites: 邀請

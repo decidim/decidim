@@ -68,7 +68,7 @@ describe "Explore meetings", :slow do
       it "shows all the upcoming meetings" do
         visit_component
         within "#panel-dropdown-menu-date" do
-          expect(find("input[value='upcoming']", visible: false).checked?).to be(true)
+          expect(find("input[value='upcoming']", visible: :all).checked?).to be(true)
         end
 
         within "#meetings" do
@@ -523,9 +523,7 @@ describe "Explore meetings", :slow do
       expect(page).to have_i18n_content(meeting.location_hints, strip_tags: true)
       expect(page).to have_text(meeting.address)
       expect(page).to have_text(meeting.reference)
-      expect(page).to have_text(I18n.l(meeting.start_time, format: "%H:%M"))
-      expect(page).to have_text(I18n.l(meeting.end_time, format: "%H:%M"))
-      expect(page).to have_text("UTC")
+      expect(page).to have_text("#{I18n.l(meeting.start_time, format: :time_of_day)} - #{I18n.l(meeting.end_time, format: :time_of_day_with_time_zone)}")
 
       within ".meeting__calendar-day" do
         expect(page).to have_text(date.day)
@@ -549,7 +547,7 @@ describe "Explore meetings", :slow do
 
     context "without taxonomies" do
       it "does not show any tag" do
-        expect(page).to have_no_selector("[data-tags]")
+        expect(page).to have_no_css("[data-tags]")
       end
     end
 

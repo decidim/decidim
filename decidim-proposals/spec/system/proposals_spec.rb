@@ -628,7 +628,7 @@ describe "Proposals" do
       let!(:most_liked_proposal) { create(:proposal, component:, created_at: 1.month.ago) }
       let!(:likes) do
         3.times.collect do
-          create(:like, resource: most_liked_proposal, author: build(:user, organization:))
+          create(:like, resource: most_liked_proposal, author: build(:user, :confirmed, organization:))
         end
       end
       let!(:less_liked_proposal) { create(:proposal, component:) }
@@ -713,7 +713,7 @@ describe "Proposals" do
 
       it "finds the correct proposal" do
         within "form.new_filter" do
-          find("input[name='filter[search_text_cont]']", match: :first).set("lorem")
+          find_field(name: "filter[search_text_cont]", match: :first).set("lorem")
           find("*[type=submit]").click
         end
 

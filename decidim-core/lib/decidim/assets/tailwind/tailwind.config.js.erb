@@ -5,7 +5,9 @@
 // https://docs.decidim.org/en/develop/customize/styles
 //
 
-const { inherit, current, transparent, white, neutral } = require("tailwindcss/colors")
+const { inherit, current, transparent } = require("tailwindcss/colors")
+// The Design System tokens are the single source of truth for the theme values.
+const designTokens = require("<%= design_tokens_path %>")
 
 const withOpacity =
   (variable) =>
@@ -32,15 +34,13 @@ module.exports = {
       inherit,
       current,
       transparent,
-      white,
-      neutral,
+      ...designTokens.colors,
+      // The primary, secondary and tertiary colors can be overridden by the
+      // organization. The rest of the colors come from the Design System.
       primary: withOpacity("--primary-rgb"),
       secondary: withOpacity("--secondary-rgb"),
       tertiary: withOpacity("--tertiary-rgb"),
-      success: "#28A745",
-      alert: "#ED1C24",
-      warning: "#FFB703",
-      black: "#020203",
+      // Legacy aliases. Prefer the Design System tokens above in new code.
       gray: {
         DEFAULT: "#6B7280CC", // 80% opacity
         2: "#3E4C5C",
@@ -59,32 +59,24 @@ module.exports = {
     },
     container: {
       center: true,
-      padding: {
-        DEFAULT: "1rem",
-        lg: "4rem"
-      }
+      padding: designTokens.containerPadding
     },
     fontFamily: {
       sans: ["Source Sans Pro", "ui-sans-serif", "system-ui", "sans-serif"]
     },
-    fontSize: {
-      xs: ["12px", "16px"],
-      sm: ["14px", "18px"],
-      md: ["16px", "20px"],
-      lg: ["18px", "23px"],
-      xl: ["20px", "25px"],
-      "2xl": ["24px", "30px"],
-      "3xl": ["32px", "40px"],
-      "4xl": ["36px", "45px"],
-      "5xl": ["48px", "60px"]
-    },
+    fontSize: designTokens.fontSize,
     extend: {
+      spacing: designTokens.spacing,
+      lineHeight: designTokens.lineHeight,
+      boxShadow: designTokens.boxShadow,
+      borderRadius: designTokens.borderRadius,
+      borderWidth: designTokens.borderWidth,
+      maxWidth: designTokens.maxWidth,
+      opacity: designTokens.opacity,
       transitionProperty: {
         'top': 'top',
       },
-      screens: {
-        'xs': '375px'
-      }
+      screens: designTokens.screens
     }
   },
   plugins: [require("@tailwindcss/typography")]

@@ -6,6 +6,8 @@ module Decidim
       # This command is executed when the user changes a Page from the admin
       # panel.
       class UpdatePage < Decidim::Command
+        include ::Decidim::MultipleAttachmentsMethods
+
         # Initializes a UpdatePage Command.
         #
         # form - The form from which to get the data.
@@ -13,6 +15,7 @@ module Decidim
         def initialize(form, page)
           @form = form
           @page = page
+          @attached_to = page
         end
 
         # Updates the page if valid.
@@ -21,11 +24,31 @@ module Decidim
         def call
           return broadcast(:invalid) if @form.invalid?
 
-          update_page
+          if process_attachments?
+            build_attachments
+            return broadcast(:invalid) if attachments_invalid?
+          end
+
+          with_events(with_transaction: true) do
+            update_page
+            attachment_cleanup!(include_all_attachments: true)
+            create_attachments(first_weight: first_attachment_weight) if process_attachments?
+          end
+
           broadcast(:ok)
         end
 
         private
+
+        def event_arguments
+          {
+            resource: @page,
+            extra: {
+              event_author: @form.current_user,
+              locale:
+            }
+          }
+        end
 
         def update_page
           Decidim.traceability.update!(
@@ -33,6 +56,10 @@ module Decidim
             @form.current_user,
             body: @form.body
           )
+        end
+
+        def first_attachment_weight
+          @page.attachments.count
         end
       end
     end

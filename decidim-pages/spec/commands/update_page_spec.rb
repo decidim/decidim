@@ -46,6 +46,9 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.pages.admin.update_page:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.pages.admin.update_page:after"
+
           it "creates a new page with the same name as the component" do
             expect(page).to receive(:update!)
             command.call
@@ -61,6 +64,46 @@ module Decidim
             action_log = Decidim::ActionLog.last
             expect(action_log.version).to be_present
             expect(action_log.version.event).to eq "update"
+          end
+        end
+
+        describe "with attachments" do
+          before do
+            # We do not optimize the eager loading here, as these associations are loaded by
+            # .with_attached_file and used internally by ActiveStorage callbacks during destroy,
+            # which Bullet does not track.
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::Attachment", association: :file_attachment
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Attachment", association: :record
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Attachment", association: :blob
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Blob", association: :variant_records
+            Bullet.add_safelist type: :unused_eager_loading, class_name: "ActiveStorage::Blob", association: :preview_image_attachment
+          end
+
+          let!(:existing_attachment) { create(:attachment, :with_pdf, attached_to: page) }
+          let(:form_params) do
+            {
+              "body" => { "en" => "My new body" },
+              "attachments" => [existing_attachment.id.to_s]
+            }
+          end
+
+          it "keeps existing attachments" do
+            command.call
+            expect(page.reload.attachments).to include(existing_attachment)
+          end
+
+          context "when removing attachments" do
+            let(:form_params) do
+              {
+                "body" => { "en" => "My new body" },
+                "attachments" => []
+              }
+            end
+
+            it "removes attachments not in the list" do
+              command.call
+              expect(page.reload.attachments).not_to include(existing_attachment)
+            end
           end
         end
       end

@@ -259,7 +259,7 @@ describe "Admin manages officializations" do
   end
 
   describe "contacting the user" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       within_admin_sidebar_menu do
@@ -277,7 +277,7 @@ describe "Admin manages officializations" do
   end
 
   describe "clicking on user name" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       within_admin_sidebar_menu do
@@ -297,7 +297,7 @@ describe "Admin manages officializations" do
   end
 
   describe "clicking on user nickname" do
-    let!(:user) { create(:user, organization:) }
+    let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
       within_admin_sidebar_menu do
@@ -348,6 +348,27 @@ describe "Admin manages officializations" do
 
       users.each do |user|
         expect(page).to have_text("#{admin.name} retrieved the email of the participant #{user.name}")
+      end
+    end
+
+    context "when the session has expired" do
+      let(:user) { users.first }
+
+      it "displays the correct message" do
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          find("button[data-controller='dropdown']").click
+          click_on "Show email"
+        end
+
+        expire_browser_session do
+          within "#show-email-modal" do
+            click_on "Show"
+
+            within "#user_email" do
+              expect(page).to have_text("You are not authorized to perform this action.")
+            end
+          end
+        end
       end
     end
   end

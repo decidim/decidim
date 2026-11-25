@@ -27,10 +27,6 @@ id:
       models:
         proposal:
           attributes:
-            add_documents:
-              needs_to_be_reattached: Perlu disambungkan kembali
-            add_photos:
-              needs_to_be_reattached: Perlu disambungkan kembali
             body:
               identical: DAN judul tidak bisa sama
             title:

@@ -49,8 +49,6 @@ es-PY:
       meeting_registration_invite:
         email: Correo electrónico
         name: Nombre
-      response:
-        add_documents: Añadir documentos
       validate_registration_code:
         code: Código
     errors:
@@ -168,7 +166,7 @@ es-PY:
             announcement: Anuncio
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
@@ -347,10 +345,10 @@ es-PY:
             success: El usuario ha sido invitado con éxito a unirse al encuentro.
           form:
             attendee_type: Tipo de asistente
-            existing_user: Usuario existente
+            email: Correo electrónico
             invite: Invitar
             invite_explanation: El usuario será invitado a unirse a la reunión y también a la organización.
-            non_user: Usuario no existente
+            name_or_nickname: Nombre o apodo
             select_user: Selecciona un usuario
           index:
             invites: Invitaciones
@@ -754,9 +752,11 @@ es-PY:
         create:
           invalid: Ha habido un problema al unirse a este encuentro.
           success: Te has inscrito al encuentro con éxito. Por estar inscrita recibirás una notificación si se producen actualizaciones.
+          unauthorized: Debes iniciar sesión antes de inscribirte al encuentro.
         decline_invitation:
           invalid: Ha habido un problema al rechazar la invitación.
           success: Has rechazado la invitación con éxito.
+          unauthorized: Debes iniciar sesión antes de rechazar la invitación.
         destroy:
           invalid: Ha habido un problema al salir de esta encuentro.
           success: Has salido del encuentro con éxito.

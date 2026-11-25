@@ -53,6 +53,7 @@ shared_examples "manage assembly components" do
     end
 
     it "has a successful admin log" do
+      expect(page).to have_callout("Component created successfully.")
       visit decidim_admin.root_path
       expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(assembly.title)}")
     end
@@ -178,6 +179,8 @@ shared_examples "manage assembly components" do
           find("button[data-controller='dropdown']").click
           click_on "Publish"
         end
+
+        expect(page).to have_callout("The component has been successfully published.")
 
         expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
                                                 "decidim.events.components.component_published", {

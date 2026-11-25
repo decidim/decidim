@@ -13,9 +13,9 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
   let(:resource_title) { resource.current_user.name }
   let(:resource_path) { profile_path(resource.current_user.nickname) }
   let(:resource_url) { profile_url(resource.current_user.nickname, host: resource.current_user.organization.host, port: Capybara.server_port) }
-  let(:notification_title) { "The participant <a href=\"#{profile_path(resource.current_user.nickname)}\">#{resource.current_user.name}</a> has tried to verify themselves with the data of another participant (<a href=\"#{profile_path(resource.managed_user.nickname)}\">#{resource.managed_user.name}</a>)." }
+  let(:notification_title) { "The participant <a href=\"#{profile_path(resource.current_user.nickname)}\">#{resource.current_user.name}</a> has tried to verify themselves with the data of another participant (#{resource.managed_user.name})." }
   let(:email_subject) { "Failed verification attempt against another participant" }
-  let(:email_intro) { "The participant <a href=\"#{profile_url(resource.current_user.nickname, host: resource.current_user.organization.host, port: Capybara.server_port)}\">#{resource.current_user.name}</a> has tried to verify themselves with the data of another participant (<a href=\"#{profile_url(resource.managed_user.nickname, host: resource.current_user.organization.host, port: Capybara.server_port)}\">#{resource.managed_user.name}</a>)." }
+  let(:email_intro) { "The participant <a href=\"#{profile_url(resource.current_user.nickname, host: resource.current_user.organization.host, port: Capybara.server_port)}\">#{resource.current_user.name}</a> has tried to verify themselves with the data of another participant (#{resource.managed_user.name})." }
   let(:email_outro) { "Check the <a href=\"#{admin_router.conflicts_url}\">Verifications's conflicts list</a> and contact the participant to verify their details and solve the issue." }
 
   it_behaves_like "a simple event email"
@@ -27,7 +27,7 @@ describe Decidim::Verifications::ManagedUserErrorEvent do
     end
 
     it "includes managed_user_profile" do
-      expect(subject.default_i18n_options[:managed_user_path]).to eq(profile_path(resource.managed_user.nickname))
+      expect(subject.default_i18n_options[:managed_user_path]).to eq(root_path)
     end
   end
 end

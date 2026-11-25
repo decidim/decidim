@@ -1,5 +1,5 @@
 [data-dialog] {
-  @apply invisible opacity-0 fixed z-50 inset-0 bg-[rgba(0,0,0,0.25)] transition duration-300;
+  @apply invisible opacity-0 fixed z-[110] inset-0 bg-[rgba(0,0,0,0.25)] transition duration-300;
 
   & > * {
     @apply absolute inset-1/2 translate-x-[-50%] translate-y-[-50%] w-[90%] lg:max-w-[900px] max-h-[95vh] h-fit overflow-y-auto p-6 bg-white z-50 rounded shadow-[0_4px_6px_rgba(211,211,211,0.25)];
@@ -22,19 +22,27 @@
   }
 
   [data-dialog-container] {
-    @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2 text-left;
+    @apply block text-left;
 
-    > svg {
-      @apply w-6 h-6 text-gray fill-current flex-none;
-    }
+    &:has(> svg) {
+      @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2;
 
-    > :last-child {
-      @apply col-span-2 md:col-span-1 md:col-start-2;
+      > svg {
+        @apply w-6 h-6 text-gray fill-current flex-none mb-6;
+      }
+
+      > :last-child {
+        @apply col-span-2 md:col-span-1 md:col-start-2;
+      }
     }
   }
 
   [data-dialog-title] {
-    @apply text-2xl text-black font-semibold focus:outline-none;
+    @apply flex items-center gap-2 text-xl text-gray-2 font-semibold focus:outline-none pb-2 mb-4 md:border-b md:border-gray-3;
+
+    > svg {
+      @apply w-6 h-6 text-gray fill-current flex-none;
+    }
   }
 
   [data-dialog-actions] {
@@ -59,7 +67,7 @@
     }
 
     [data-dialog-container] {
-      @apply grid-cols-none;
+      @apply grid grid-cols-none;
 
       &.layout-content {
         @apply bg-white;

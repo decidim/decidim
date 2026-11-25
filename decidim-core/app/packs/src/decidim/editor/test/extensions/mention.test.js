@@ -1,6 +1,6 @@
 /* global jest, global */
 
-import { createBasicEditor, updateContent } from "src/decidim/editor/test/helpers";
+import { createBasicEditor, updateContent, sleep } from "src/decidim/editor/test/helpers";
 
 import Mention from "src/decidim/editor/extensions/mention";
 
@@ -65,7 +65,10 @@ describe("Mention", () => {
   let editorElement = null;
 
   const normalizeHTML = (html) => {
-    return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "");
+    // Note that the "separator" is only ProseMirror's internal element used to
+    // place the cursor at the correct location before atomic inline nodes.
+    return html.replace(/\s*data-mention-suggestion-char="[^"]*"/g, "").
+      replace(/<img class="ProseMirror-separator"(?:\s[^>]*)?>/g, "");
   };
 
   beforeEach(() => {
@@ -87,8 +90,11 @@ describe("Mention", () => {
     const items = suggestions.querySelectorAll(".editor-suggestions-item");
     expect(items.length).toEqual(expectedTags.length);
     for (const item of items) {
-      expect(expectedTags.includes(item.textContent)).toBe(true);
+      expect(expectedTags.includes(item.querySelector(".editor-suggestions-item-label").textContent)).toBe(true);
     }
+
+    expect(items[0].querySelector(".editor-suggestions-item-avatar")).toBeInstanceOf(HTMLImageElement);
+    expect(items[0].querySelector(".editor-suggestions-item-avatar").getAttribute("src")).toBe("/avatars/joannadoe.jpg");
   });
 
   it("does not display the suggestions when less than two characters are entered", async () => {
@@ -97,9 +103,12 @@ describe("Mention", () => {
 
     const suggestions = document.querySelector(".editor-suggestions");
     expect(suggestions).toBeInstanceOf(HTMLDivElement);
-    expect(suggestions.childNodes.length).toBe(0);
-    expect(suggestions.classList.contains("hidden")).toBe(true);
-    expect(suggestions.classList.contains("hide")).toBe(true);
+    const items = suggestions.querySelectorAll(".editor-suggestions-item");
+    expect(items.length).toBe(1);
+    expect(items[0].textContent).toBe("Type to search participants");
+    expect(items[0].disabled).toBe(true);
+    expect(suggestions.classList.contains("hidden")).toBe(false);
+    expect(suggestions.classList.contains("hide")).toBe(false);
   });
 
   it("allows selecting a mention from the list by clicking it", async () => {
@@ -109,11 +118,11 @@ describe("Mention", () => {
     const suggestions = document.querySelector(".editor-suggestions");
     suggestions.querySelector(".editor-suggestions-item").click();
 
-    expect(editorElement.innerHTML).toEqual(
-      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+    expect(normalizeHTML(editorElement.innerHTML)).toEqual(
+      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
     expect(normalizeHTML(editor.getHTML())).toEqual(
-      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
   });
 
@@ -123,11 +132,28 @@ describe("Mention", () => {
 
     editorElement.dispatchEvent(new KeyboardEvent("keydown", { key: "Enter" }));
 
-    expect(editorElement.innerHTML).toEqual(
-      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+    expect(normalizeHTML(editorElement.innerHTML)).toEqual(
+      '<p><span data-suggestion="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
     expect(normalizeHTML(editor.getHTML())).toEqual(
-      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe (John Doe)">@johndoe (John Doe)</span> </p>'
+      '<p><span data-type="mention" data-id="@johndoe" data-label="@johndoe">@johndoe</span> </p>'
     );
+  });
+
+  it("allows selecting a mention when content changes after triggering", async () => {
+    editorElement.focus();
+    await updateContent(editorElement, "@joh", editor);
+
+    const suggestions = document.querySelector(".editor-suggestions");
+    expect(suggestions).toBeInstanceOf(HTMLDivElement);
+
+    editor.commands.setContent("<p>Some new content @joh</p>");
+    await sleep(50);
+
+    expect(() => {
+      suggestions.querySelector(".editor-suggestions-item").click();
+    }).not.toThrow();
+
+    expect(normalizeHTML(editor.getHTML())).toContain('data-type="mention"');
   });
 });

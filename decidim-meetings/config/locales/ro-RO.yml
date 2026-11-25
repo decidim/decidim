@@ -126,7 +126,6 @@ ro:
           global:
             announcement: Anunţ
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
             creation_enabled_for_participants: Participanții pot crea întâlniri
             default_registration_terms: Condiții de înregistrare implicite
             enable_pads_creation: Activează crearea de pad-uri
@@ -273,10 +272,8 @@ ro:
             success: Participantul a fost invitat cu succes să se alăture ședinței.
           form:
             attendee_type: Tip de participant
-            existing_user: Participant existent
             invite: Invită
             invite_explanation: Participantul va fi invitat să se alăture întâlnirii şi organizaţiei.
-            non_user: Participant neexistent
             select_user: Selecteză un participant
           index:
             invites: Invitații

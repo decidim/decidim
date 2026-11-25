@@ -56,7 +56,6 @@ zh-CN:
           global:
             announcement: 通 知
             comments_enabled: 评论已启用
-            comments_max_length: 评论最大长度 (默认值留0)
             creation_enabled_for_participants: 参与者可以创建会议
             default_registration_terms: 默认注册条款
             enable_pads_creation: 启用页面创建
@@ -163,10 +162,8 @@ zh-CN:
             success: 成功邀请与会者加入会议。
           form:
             attendee_type: 参与者类型
-            existing_user: 现有参与者
             invite: 邀请
             invite_explanation: 与会者将应邀参加会议，也将应邀参加本组织。
-            non_user: 非现有参与者
             select_user: 选择参与者
           index:
             invites: 邀请

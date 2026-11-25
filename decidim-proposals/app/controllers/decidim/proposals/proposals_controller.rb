@@ -32,26 +32,32 @@ module Decidim
       # rubocop:enable Naming/VariableNumber
 
       def index
+        enforce_permission_to :read, :proposal
+
         if component_settings.participatory_texts_enabled?
-          @proposals = Decidim::Proposals::Proposal
-                       .where(component: current_component)
-                       .published
-                       .not_hidden
-                       .only_amendables
-                       .includes(:taxonomies, :attachments, :coauthorships)
-                       .order(position: :asc)
+          proposals = Decidim::Proposals::Proposal
+                      .where(component: current_component)
+                      .published
+                      .not_hidden
+                      .only_amendables
+                      .includes(:taxonomies, :attachments, :coauthorships, :resource_permission)
+          @proposals = proposals.order(position: :asc)
+          @proposals = Decidim::Proposals::Proposal.preload_final_votes_counts(@proposals) if component_settings.threshold_per_proposal.positive?
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
           @proposals = search.result
 
           @proposals = reorder(@proposals)
           @proposals = paginate(@proposals)
-          @proposals = @proposals.includes(:component, :coauthorships, :attachments)
+          @proposals = @proposals.includes(:component, :coauthorships, :attachments, :resource_permission)
+          @proposals = Decidim::Proposals::Proposal.preload_final_votes_counts(@proposals) if component_settings.threshold_per_proposal.positive?
         end
       end
 
       def show
         raise ActionController::RoutingError, "Not Found" if @proposal.blank? || !can_show_proposal?
+
+        enforce_permission_to :read, :proposal, proposal: @proposal
       end
 
       def new
@@ -184,7 +190,12 @@ module Decidim
       private
 
       def search_collection
-        Proposal.where(component: current_component).published.not_hidden.with_availability(params.fetch(:filter, {}).fetch(:with_availability, {}))
+        chosen_state = params.fetch(:filter, {}).fetch(:with_availability, {})
+        Proposal.includes(:taxonomies, :amended, :amendable)
+                .where(component: current_component)
+                .published
+                .not_hidden
+                .with_availability(chosen_state)
       end
 
       def default_filter_params

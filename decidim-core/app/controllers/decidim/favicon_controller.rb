@@ -12,6 +12,7 @@ module Decidim
   class FaviconController < ::DecidimController
     include ActionController::DataStreaming # For Rails 7, check out `ActiveStorage::Streaming`.
     include NeedsOrganization
+    include NeedsPermission
 
     skip_before_action :verify_authenticity_token, :verify_organization
     skip_after_action :verify_same_origin_request
@@ -51,6 +52,14 @@ module Decidim
       return unless current_organization
 
       @favicon_blob ||= current_organization.favicon_ico&.blob
+    end
+
+    def permission_class_chain
+      [Decidim::Permissions]
+    end
+
+    def permission_scope
+      :public
     end
   end
 end

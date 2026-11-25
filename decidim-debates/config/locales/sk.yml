@@ -43,7 +43,7 @@ sk:
             attachments_allowed: Povoliť prílohy
             clear_all: Vymazať všetko
             comments_enabled: Komentáre povolené
-            comments_max_length: Maximálna dĺžka komentárov (Ponechajte 0 pre predvolenú hodnotu)
+            comments_max_length: Maximálny počet znakov na komentár (ponechajte 0 pre predvolenú hodnotu)
             define_taxonomy_filters: Pred použitím tohto nastavenia definujte nejaké filtre pre tento participatívny priestor.
             no_taxonomy_filters_found: Nenašli sa žiadne taxonomické filtre.
             taxonomy_filters: Vyberte filtre pre komponent
@@ -77,13 +77,13 @@ sk:
             update: Aktualizovať debatu
           form:
             add_attachments: Pridať prílohy
-            attachment_legend: Pridať dokument alebo obrázok
+            comments_layout_locked_warning: Rozloženie komentárov nie je možné zmeniť, pretože komentáre už boli zverejnené.
             comments_visualization: Zobrazenie komentárov
             comments_warning: Po zverejnení prvého komentára už nie je možné zmeniť vybranú možnosť zobrazenia.
             debate_type: Typ debaty
             edit_attachments: Upraviť prílohy
             errors:
-              comments_layout_locked: Po zverejnení komentárov už nemôžete zmeniť rozloženie komentárov.
+              comments_layout_locked: Rozloženie komentárov nie je možné zmeniť, pretože komentáre už boli zverejnené.
             finite: Konečná (so začiatočným a koncovým časom)
             open: Otvorená (bez začiatočného alebo koncového času)
             single_column: 'Jeden stĺpec: Komentáre sa zobrazujú v chronologickom poradí a môžu mať odpovede.'
@@ -205,6 +205,13 @@ sk:
             email_outro: Toto upozornenie ste dostali, pretože sledujete participatívny priestor %{participatory_space_title}. Prijímanie upozornení môžete zrušiť kliknutím na predchádzajúci odkaz.
             email_subject: Nová debata „%{resource_title}“ v priestore %{participatory_space_title}
             notification_title: Debata <a href="%{resource_path}">%{resource_title}</a> bola vytvorená v priestore <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Dobrý deň,
+              používateľ %{author_name}, ktorého sledujete, vytvoril novú debatu „%{resource_title}“. Pozrite si ju a zapojte sa:
+            email_outro: Toto upozornenie ste dostali, pretože sledujete používateľa %{author_name}. Prijímanie upozornení môžete zrušiť kliknutím na predchádzajúci odkaz.
+            email_subject: Nová debata „%{resource_title}“ od %{author_name}
+            notification_title: <a href="%{author_path}">%{author_name}</a> vytvoril/a debatu <a href="%{resource_path}">%{resource_title}</a>.
         creation_disabled:
           email_intro: 'Tvorba debát v priestore %{participatory_space_title} už nie je možná. Môžete sa zúčastniť otvorených debát na tejto stránke:'
           email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
@@ -236,7 +243,7 @@ sk:
           description_own: Zúčastnili ste sa na %{score} debatách.
           name: Debaty
           next_level_in: Podieľajte sa na ďalších %{score} debatách pre dosiahnutie ďalšej úrovne!
-          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate. 
+          unearned_another: Tento účastník sa nezúčastnil na žiadnej debate.
           unearned_own: Zatiaľ ste sa nezúčastnili žiadnych debát.
     open_data:
       help:

@@ -82,7 +82,6 @@ lb:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
-            comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
@@ -151,10 +150,8 @@ lb:
             success: Der Benutzer wurde erfolgreich zum Meeting eingeladen.
           form:
             attendee_type: Teilnehmertyp
-            existing_user: Existierender Benutzer
             invite: Einladen
             invite_explanation: Der Benutzer wird eingeladen, dem Meeting und der Organisation beizutreten.
-            non_user: Nicht existierender Benutzer
             select_user: Nutzer wählen
           index:
             invites: Lädt ein

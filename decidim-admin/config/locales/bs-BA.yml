@@ -433,10 +433,6 @@ bs:
         update:
           error: Pojavio se problem pri ažuriranju ove organizacije.
           success: Organizacija je uspešno ažurirana.
-      shared:
-        gallery:
-          add_images: Dodaj slike
-          gallery_legend: Dodaj galeriju slika (opciono)
       users_statistics:
         users_count:
           last_day: Poslednji dan

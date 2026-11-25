@@ -18,6 +18,7 @@ module Decidim
       :organization_logo,
       file_size: { less_than_or_equal_to: ->(record) { record.maximum_upload_size } },
       uploader_content_type: true,
+      uploader_image_content: true,
       uploader_image_dimensions: true
     )
     attached_config[:organization_logo] = OpenStruct.new(uploader: OAuthApplicationLogoUploader)

@@ -14,7 +14,6 @@ pl:
         import_attachments: Importuj załączniki
         import_categories: Importuj kategorie
         import_components: Importuj komponenty
-        import_steps: Importuj kroki
         local_area: Obszar organizacji
         meta_scope: Zakres metadanych
         participatory_process_group_id: Grupa procesów

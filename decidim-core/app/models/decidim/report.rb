@@ -7,8 +7,8 @@ module Decidim
 
     REASONS = %w(spam offensive does_not_belong hidden_during_block parent_hidden).freeze
 
-    belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: "Decidim::Moderation"
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
+    belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: "Decidim::Moderation", inverse_of: :reports
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", inverse_of: :reports
 
     validates :reason, presence: true
     validates :user, uniqueness: { scope: :decidim_moderation_id }
@@ -29,7 +29,7 @@ module Decidim
     def user_and_moderation_same_organization
       return if !moderation || !user
 
-      errors.add(:moderation, :invalid) unless user.organization == moderation.organization
+      errors.add(:moderation, :invalid) unless user.decidim_organization_id == moderation.organization.id
     end
   end
 end

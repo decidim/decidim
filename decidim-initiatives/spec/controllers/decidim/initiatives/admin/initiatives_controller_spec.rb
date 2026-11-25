@@ -76,6 +76,41 @@ describe Decidim::Initiatives::Admin::InitiativesController do
     end
   end
 
+  describe "cross-organization filter scoping" do
+    render_views
+
+    let(:other_org) { create(:organization) }
+    let(:other_type) { create(:initiatives_type, organization: other_org, title: { en: "Foreign InitiativesType" }) }
+    let(:own_type) { create(:initiatives_type, organization:, title: { en: "Own InitiativesType" }) }
+    let!(:own_initiative) { create(:initiative, organization:, scoped_type: create(:initiatives_type_scope, type: own_type)) }
+    let(:other_area) { create(:area, organization: other_org, name: { en: "Foreign Area" }) }
+    let(:own_area) { create(:area, organization:, name: { en: "Own Area" }) }
+
+    before do
+      sign_in admin_user, scope: :user
+    end
+
+    it "does not expose type names from other organizations" do
+      get :index, params: { q: { type_id_eq: other_type.id } }
+      expect(response.body).not_to include("Foreign InitiativesType")
+    end
+
+    it "shows type names from the current organization" do
+      get :index, params: { q: { type_id_eq: own_type.id } }
+      expect(response.body).to include("Own InitiativesType")
+    end
+
+    it "does not expose area names from other organizations" do
+      get :index, params: { q: { decidim_area_id_eq: other_area.id } }
+      expect(response.body).not_to include("Foreign Area")
+    end
+
+    it "shows area names from the current organization" do
+      get :index, params: { q: { decidim_area_id_eq: own_area.id } }
+      expect(response.body).to include("Own Area")
+    end
+  end
+
   context "when edit" do
     context "and Users without initiatives" do
       before do
@@ -584,9 +619,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       end
 
       it "is not allowed" do
-        expect(Decidim::Initiatives::ExportInitiativesJob).not_to receive(:perform_later).with(user, "CSV", nil)
-
-        post :export, params: { format: :csv }
+        expect { post :export, params: { format: :csv } }.not_to have_enqueued_job(Decidim::Initiatives::ExportInitiativesJob).with(user, "CSV", nil)
         expect(flash[:alert]).not_to be_empty
         expect(response).to have_http_status(:found)
       end
@@ -598,9 +631,7 @@ describe Decidim::Initiatives::Admin::InitiativesController do
       end
 
       it "is allowed" do
-        expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", nil)
-
-        post :export, params: { format: :csv }
+        expect { post :export, params: { format: :csv } }.to have_enqueued_job(Decidim::Initiatives::ExportInitiativesJob).with(admin_user, organization, "csv", nil)
         expect(flash[:alert]).to be_nil
         expect(response).to have_http_status(:found)
       end
@@ -611,9 +642,8 @@ describe Decidim::Initiatives::Admin::InitiativesController do
         let(:comma_separated_ids) { collection_ids.join(",") }
 
         it "enqueues the job" do
-          expect(Decidim::Initiatives::ExportInitiativesJob).to receive(:perform_later).with(admin_user, organization, "csv", collection_ids)
-
-          post :export, params: { format: :csv, collection_ids: comma_separated_ids }
+          expect { post :export, params: { format: :csv, collection_ids: comma_separated_ids } }
+            .to have_enqueued_job(Decidim::Initiatives::ExportInitiativesJob).with(admin_user, organization, "csv", collection_ids)
           expect(flash[:alert]).to be_nil
           expect(response).to have_http_status(:found)
         end

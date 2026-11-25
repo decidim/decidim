@@ -6,8 +6,8 @@ describe Decidim::Meetings::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
   let(:participatory_space) { create(:participatory_process, :with_steps) }
-  let(:user) { create(:user, organization: participatory_space.organization) }
-  let(:admin_user) { create(:user, :admin, organization: participatory_space.organization) }
+  let(:user) { create(:user, :confirmed, organization: participatory_space.organization) }
+  let(:admin_user) { create(:user, :confirmed, :admin, organization: participatory_space.organization) }
   let(:context) do
     {
       current_component: meeting_component,
@@ -49,6 +49,19 @@ describe Decidim::Meetings::Permissions do
     end
 
     it_behaves_like "permission is not set"
+  end
+
+  context "when reading a meeting" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :meeting }
+    end
+
+    context "when listing meetings without a specific meeting" do
+      let(:meeting) { nil }
+      let(:question) { nil }
+
+      it { is_expected.to be true }
+    end
   end
 
   context "when responding a question" do

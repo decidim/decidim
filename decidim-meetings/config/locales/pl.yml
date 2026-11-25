@@ -151,7 +151,6 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
-            comments_max_length: Maksymalna długość komentarzy (Pozostaw 0 dla wartości domyślnej)
             creation_enabled_for_participants: Uczestnicy mogą tworzyć spotkania
             default_registration_terms: Domyślne warunki rejestracji
             enable_pads_creation: Włącz tworzenie padów
@@ -278,10 +277,8 @@ pl:
             success: Zaproszono użytkownika do udziału w spotkaniu.
           form:
             attendee_type: Typ uczestnika
-            existing_user: Istniejący użytkownik
             invite: Zaproś
             invite_explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu i do organizacji.
-            non_user: Nieistniejący użytkownik
             select_user: Wybierz użytkownika
           index:
             invites: Zaproszeni

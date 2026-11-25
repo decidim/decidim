@@ -17,7 +17,7 @@ tr:
         decidim_scope_id: kapsam
         description: Açıklama
         developer_group: Tanıtım grubu
-        document: Belge 
+        document: Belge
         domain: domain
         duplicate_categories: Yinelenen kategoriler
         duplicate_features: Yinelenen özellikler
@@ -25,9 +25,9 @@ tr:
         facebook: Facebook
         github: GitHub
         hero_image: Ana resim
-        import_attachments: Eki içe aktar 
-        import_categories: Kategorileri içe aktar 
-        import_components: Bireşenleri içe aktar 
+        import_attachments: Eki içe aktar
+        import_categories: Kategorileri içe aktar
+        import_components: Bireşenleri içe aktar
         included_at: Dahil
         instagram: Instagram
         is_transparent: Şeffaf mı

@@ -4,36 +4,41 @@ module Decidim
   module Verifications
     # A command to confirm a previous partial authorization.
     class ConfirmUserAuthorization < Decidim::Command
-      # Number of failed confirmation attempts before throttling.
-      MAX_FAILED_ATTEMPTS = 2
-
       # Public: Initializes the command.
       #
       # authorization - An Authorization to be confirmed.
       # form - A form object with the verification data to confirm it.
-      def initialize(authorization, form, session)
+      def initialize(authorization, form)
         @authorization = authorization
         @form = form
-        @session = session
       end
 
       # Executes the command. Broadcasts these events:
       #
       # - :ok when everything is valid.
       # - :invalid if the handler was not valid and we could not proceed.
+      # - :locked if too many failed attempts and the authorization is locked.
+      # - :expired if the verification code has expired.
       #
       # Returns nothing.
       def call
         return already_confirmed! if authorization.granted?
 
-        return invalid! unless form.valid?
+        Decidim::Authorization.transaction do
+          authorization.lock!
+          authorization.clear_expired_lock!
 
-        throttle! if too_many_failed_attempts?
+          return locked! if authorization.locked_for_confirmation?
 
-        if confirmation_successful?
-          valid!
-        else
-          invalid!
+          return invalid! unless form.valid?
+
+          return expired! if code_expired?
+
+          if confirmation_successful?
+            valid!
+          else
+            invalid!
+          end
         end
       rescue StandardError => e
         invalid!(e.message)
@@ -51,41 +56,39 @@ module Decidim
 
       def valid!
         authorization.grant!
-        reset_failed_attempts!
+        authorization.reset_failed_attempts!
         broadcast(:ok)
       end
 
       def invalid!(message = nil)
-        record_failed_attempt!
+        authorization.record_failed_attempt!
         broadcast(:invalid, message)
       end
 
       def already_confirmed!
-        reset_failed_attempts!
+        authorization.reset_failed_attempts!
         broadcast(:already_confirmed)
       end
 
-      def too_many_failed_attempts?
-        failed_attempts > MAX_FAILED_ATTEMPTS
+      def locked!
+        broadcast(:locked)
       end
 
-      def failed_attempts
-        session[:failed_attempts] ||= 0
+      def code_expired?
+        sent_at = authorization.verification_metadata["code_sent_at"]
+        return false unless sent_at
+
+        sent_at = Time.zone.parse(sent_at.to_s) if sent_at.is_a?(String)
+        sent_at < Decidim.verification_code_expiry_minutes.minutes.ago
       end
 
-      def reset_failed_attempts!
-        session[:failed_attempts] = 0
+      def expired!
+        authorization.update!(verification_metadata: {})
+        authorization.reset_failed_attempts!
+        broadcast(:expired)
       end
 
-      def record_failed_attempt!
-        session[:failed_attempts] = failed_attempts + 1
-      end
-
-      def throttle!
-        sleep rand * failed_attempts
-      end
-
-      attr_reader :authorization, :form, :session
+      attr_reader :authorization, :form
     end
   end
 end

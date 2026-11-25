@@ -45,6 +45,10 @@ module Decidim
                         index_on_create: ->(debate) { debate.visible? },
                         index_on_update: ->(debate) { debate.visible? })
 
+      def self.searchable_arguments
+        [:taxonomies, { component: { participatory_space: :organization } }]
+      end
+
       scope :updated_at_desc, -> { order(arel_table[:updated_at].desc) }
       scope :open, -> { where(closed_at: nil) }
       scope :closed, -> { where.not(closed_at: nil).or(where(end_time: ..Time.current)) }
@@ -217,7 +221,7 @@ module Decidim
       # way in order to properly calculate the counter with hidden
       # comments.
       #
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       def update_comments_count
         comments_count = comments.not_hidden.not_deleted.count
         last_comment = comments.not_hidden.not_deleted.order(created_at: :desc).first
@@ -230,7 +234,6 @@ module Decidim
           updated_at: Time.current
         )
       end
-      # rubocop:enable Rails/SkipsModelValidations
 
       # Create i18n ransackers for :title and :description.
       # Create the :search_text ransacker alias for searching from both of these.

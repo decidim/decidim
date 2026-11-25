@@ -140,7 +140,7 @@ module Decidim
 
       scope :visible, -> { where("decidim_meetings_meetings.private_meeting != ? OR decidim_meetings_meetings.transparent = ?", true, true) }
 
-      scope :authored_by, ->(author) { where(decidim_author_id: author) }
+      scope :authored_by, ->(author) { where(author:) }
 
       scope_search_multi :with_any_type, TYPE_OF_MEETING.keys
 
@@ -153,6 +153,10 @@ module Decidim
                         },
                         index_on_create: ->(meeting) { meeting.visible? && meeting.published? },
                         index_on_update: ->(meeting) { meeting.visible? && meeting.published? })
+
+      def self.searchable_arguments
+        [:taxonomies, { component: { participatory_space: :organization } }]
+      end
 
       # we create a salt for the meeting only on new meetings to prevent changing old IDs for existing (Ether)PADs
       before_create :set_default_salt

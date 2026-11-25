@@ -149,6 +149,14 @@ describe "Initiative" do
           expect(page).to have_no_text("0 comments")
         end
       end
+
+      context "when the description contains an embedded video" do
+        let(:base_initiative) do
+          create(:initiative, organization:, state:, description:)
+        end
+
+        it_behaves_like "has embedded video in description", :description
+      end
     end
 
     context "when I am the author of the initiative" do
@@ -280,6 +288,7 @@ describe "Initiative" do
 
       context "when visiting the debates component" do
         let!(:debate) { create(:debate, component: debates_component) }
+        let!(:another_debate) { create(:debate, component: debates_component) }
         let(:user) { create(:user, :confirmed, organization:) }
 
         before do
@@ -288,13 +297,14 @@ describe "Initiative" do
         end
 
         it "displays the debates index without errors" do
-          expect(page).to have_css('[id^="debates__debate"]', count: 1)
+          expect(page).to have_css('[id^="debates__debate"]', count: 2)
           expect(page).to have_text(translated(debate.title))
         end
       end
 
       context "when visiting the elections component" do
         let!(:election) { create(:election, :published, component: elections_component) }
+        let!(:another_election) { create(:election, :published, component: elections_component) }
         let(:user) { create(:user, :confirmed, organization:) }
 
         before do
@@ -303,7 +313,7 @@ describe "Initiative" do
         end
 
         it "displays the elections index without errors" do
-          expect(page).to have_css('[id^="elections__election"]', count: 1)
+          expect(page).to have_css('[id^="elections__election"]', count: 2)
           expect(page).to have_text(translated(election.title))
         end
       end

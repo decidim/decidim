@@ -251,7 +251,6 @@ hu:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
-            comments_max_length: Kommentek maximális hossza (Hagyjon 0 -t az alapértékhez)
             form:
               errors:
                 budget_voting_rule_only_one: Csak egy szavazási szabály állítható be.

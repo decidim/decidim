@@ -1,0 +1,2 @@
+<!-- A document with a base which is relative to the document itself, so the references under it are resolved against the document and not against another host. -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:base="images/" viewBox="0 0 16 16"><image href="logo.png" width="16" height="16"/></svg>

@@ -43,7 +43,6 @@ ar:
         alert_color: تنبيه
         available_authorizations: التراخيص المتاحة
         badges_enabled: تمكين الشارات
-        comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
         customize_welcome_notification: تخصيص إشعار الترحيب
         default_locale: اللغة الافتراضية
         description: الوصف
@@ -677,10 +676,6 @@ ar:
           'true': 'نعم'
         new:
           create: إنشاء
-      shared:
-        gallery:
-          add_images: إضافة صور
-          edit_images: تعديل الصورة
       static_page_topics:
         create:
           error: كانت هناك مشكلة في إنشاء موضوع جديد.

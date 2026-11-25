@@ -160,7 +160,6 @@ bg:
         settings:
           global:
             comments_enabled: Коментарите са разрешени
-            comments_max_length: Максимална дължина на коментарите (Оставете 0 за стойност по подразбиране)
             display_progress_enabled: Показвай развитието
             intro: Въведение
           step:

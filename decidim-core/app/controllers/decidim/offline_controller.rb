@@ -4,7 +4,11 @@ module Decidim
   class OfflineController < Decidim::ApplicationController
     include HasSpecificBreadcrumb
 
-    def show; end
+    def show
+      enforce_permission_to :read, :offline
+    end
+
+    private
 
     def breadcrumb_item
       {

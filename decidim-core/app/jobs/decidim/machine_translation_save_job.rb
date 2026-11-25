@@ -24,9 +24,8 @@ module Decidim
           resource[field_name] = resource[field_name].merge("machine_translations" => { target_locale => translated_text })
         end
 
-        # rubocop:disable Rails/SkipsModelValidations
+        # rubocop:disable-next Rails/SkipsModelValidations
         resource.update_column field_name.to_sym, resource[field_name]
-        # rubocop:enable Rails/SkipsModelValidations
       end
 
       send_translated_report_notifications(resource) if reported_resource_in_organization_language?(resource, target_locale)

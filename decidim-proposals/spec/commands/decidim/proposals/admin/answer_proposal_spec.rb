@@ -10,7 +10,7 @@ module Decidim
 
         let(:command) { described_class.new(form, proposal) }
         let(:proposal) { create(:proposal) }
-        let(:current_user) { create(:user, :admin) }
+        let(:current_user) { create(:user, :confirmed, :admin) }
         let(:form) do
           ProposalAnswerForm.from_params(form_params).with_context(
             current_user:,

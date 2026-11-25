@@ -15,6 +15,7 @@ describe "Show replies" do
     switch_to_host(organization.host)
     visit resource_path
     expect(page).to have_text(translated_attribute(commentable.title))
+    wait_comments_to_load
   end
 
   after do
@@ -58,7 +59,8 @@ describe "Show replies" do
 
       click_button "Load more comments"
 
-      expect(page).to have_css(".comment")
+      expect(page).to have_css(".comment", minimum: 25)
+      expect(page).to have_no_button("Load more comments")
     end
 
     it "can reply to a loaded comment", :slow do
@@ -93,6 +95,7 @@ describe "Show replies" do
       end
 
       expect(page).to have_css(%(html[lang="es"]))
+      wait_comments_to_load("es")
     end
 
     it "shows the replies button in the correct locale" do
@@ -104,5 +107,10 @@ describe "Show replies" do
 
       expect(page).to have_css(".comment-thread .comment", count: 4)
     end
+  end
+
+  # Waits for the comments section to be loaded initially.
+  def wait_comments_to_load(locale = "en")
+    expect(page).to have_no_text(I18n.with_locale(locale) { I18n.t("decidim.components.comments.loading") })
   end
 end

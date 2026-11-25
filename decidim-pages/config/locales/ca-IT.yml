@@ -34,6 +34,8 @@ ca-IT:
             body: Cos
         pages:
           edit:
+            add_attachments: Afegir fitxer(s) adjunt(s)
+            edit_attachments: Editar fitxer(s) adjunt(s)
             save: Actualitzar
             title: Editar pàgina
           update:

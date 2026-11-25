@@ -13,6 +13,8 @@ module Decidim
           included do
             helper_method :templates, :choose_template?
 
+            protected
+
             def templates
               @templates = current_organization.templates.where(templatable_type:)
               @templates = @templates.where.not(id: params[:id]) if templates_path?
@@ -28,8 +30,6 @@ module Decidim
 
               templates.any? && templatable.pristine?
             end
-
-            protected
 
             def templatable
               raise NotImplementedError, "Please set the templatable resource in your controller"

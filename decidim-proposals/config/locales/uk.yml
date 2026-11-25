@@ -13,14 +13,6 @@ uk:
         answer: Відповісти
       proposals_copy:
         origin_component_id: Складова, звідки потрібно скопіювати пропозиції
-    errors:
-      models:
-        proposal:
-          attributes:
-            add_documents:
-              needs_to_be_reattached: Необхідно повторно вкласти
-            add_photos:
-              needs_to_be_reattached: Необхідно повторно вкласти
     models:
       decidim/proposals/creation_enabled_event: Внесення пропозицій увімкнено
       decidim/proposals/proposal_mentioned_event: Пропозицію було згадано

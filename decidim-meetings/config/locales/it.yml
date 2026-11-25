@@ -85,7 +85,6 @@ it:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
             creation_enabled_for_participants: I partecipanti possono creare riunioni
             default_registration_terms: Termini di registrazione predefiniti
             enable_pads_creation: Abilita la creazione di pad
@@ -198,10 +197,8 @@ it:
             success: L'utente è stato invitato a partecipare alla riunione.
           form:
             attendee_type: Tipo di partecipante
-            existing_user: Utente esistente
             invite: Invita
             invite_explanation: L'utente sarà invitato a partecipare alla riunione e all'organizzazione.
-            non_user: Utente non esistente
             select_user: Seleziona utente
           index:
             invites: Inviti

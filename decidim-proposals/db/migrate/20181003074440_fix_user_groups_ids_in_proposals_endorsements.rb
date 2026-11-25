@@ -12,7 +12,7 @@ class FixUserGroupsIdsInProposalsEndorsements < ActiveRecord::Migration[5.2]
     default_scope { where(type: "Decidim::UserGroup") }
   end
 
-  # rubocop:disable Rails/SkipsModelValidations
+  # rubocop:disable-next Rails/SkipsModelValidations
   def change
     UserGroup.find_each do |group|
       old_id = group.extended_data["old_user_group_id"]
@@ -23,5 +23,4 @@ class FixUserGroupsIdsInProposalsEndorsements < ActiveRecord::Migration[5.2]
         .update_all(decidim_user_group_id: group.id)
     end
   end
-  # rubocop:enable Rails/SkipsModelValidations
 end

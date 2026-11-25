@@ -37,7 +37,6 @@ ko:
           global:
             announcement: 공지 사항
             comments_enabled: 댓글 활성화됨
-            comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
           step:
             announcement: 공지 사항
             comments_blocked: 댓글 차단됨

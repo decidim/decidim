@@ -301,7 +301,7 @@ es:
           global:
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Caracteres máximos por comentario (dejar 0 para el valor predeterminado)
             default_taxonomy: Taxonomía predeterminada
             default_taxonomy_help: Selecciona qué taxonomía quieres mostrar por defecto. Si no se selecciona alguna taxonomía, los resultados se mostrarán en un formato de lista.
             define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.

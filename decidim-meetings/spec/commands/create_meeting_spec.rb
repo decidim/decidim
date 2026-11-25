@@ -24,14 +24,16 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:description) { Faker::Lorem.sentence(word_count: 3) }
+    let(:title) { Faker::Lorem.sentence(word_count: 1) }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:form) do
       double(
         invalid?: invalid,
-        title: Faker::Lorem.sentence(word_count: 1),
-        description: Faker::Lorem.sentence(word_count: 3),
+        title:,
+        description:,
         location: Faker::Lorem.sentence(word_count: 2),
         location_hints: Faker::Lorem.sentence(word_count: 3),
         start_time:,
@@ -115,6 +117,40 @@ module Decidim::Meetings
       it "sets the component" do
         subject.call
         expect(meeting.component).to eq current_component
+      end
+
+      context "when description has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:description) { "Meeting description mentioning @#{mentioned_user.nickname}" }
+
+        it "rewrites the mention to the mentioned user GID" do
+          subject.call
+
+          expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
+      end
+
+      context "when description has a user mention with a hyphen in the nickname" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:, nickname: "test-user-hyphen") }
+        let(:description) { "Meeting description mentioning @#{mentioned_user.nickname}" }
+
+        it "rewrites the mention to the mentioned user GID" do
+          subject.call
+
+          expect(meeting.description.values.join(" ")).to include(mentioned_user.to_global_id.to_s)
+        end
+      end
+
+      context "when title has a user mention" do
+        let(:mentioned_user) { create(:user, :confirmed, organization:) }
+        let(:title) { "Meeting title mentioning @#{mentioned_user.nickname}" }
+
+        it "does not rewrite the mention to the mentioned user GID" do
+          subject.call
+
+          expect(translated(meeting.title)).not_to include(mentioned_user.to_global_id.to_s)
+          expect(translated(meeting.title)).to include("@#{mentioned_user.nickname}")
+        end
       end
 
       it "sets the longitude and latitude" do

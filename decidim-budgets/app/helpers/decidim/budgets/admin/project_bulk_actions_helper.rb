@@ -14,6 +14,29 @@ module Decidim
             ]
           )
         end
+
+        private
+
+        # Renders a component export dropdown menu for the admin panel.
+        # Overridden in this component to add extra links to the menu.
+        #
+        # @see Decidim::Admin::ExportsHelper#render_dropdown
+        def render_dropdown(component:, resource_id:, filters:)
+          render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id:, filters:, extra_export_links: }
+        end
+
+        # Returns a list of extra export links to be added at the end of the
+        # export dropdown options.
+        def extra_export_links
+          [
+            {
+              type: :voting_results,
+              format: :pb,
+              format_name: t("decidim.budgets.admin.exports.formats.pabulib"),
+              href: budget_pabulib_export_path(budget)
+            }
+          ]
+        end
       end
     end
   end

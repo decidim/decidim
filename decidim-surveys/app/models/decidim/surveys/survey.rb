@@ -48,6 +48,10 @@ module Decidim
                         index_on_create: ->(survey) { survey.visible? },
                         index_on_update: ->(survey) { survey.visible? })
 
+      def self.searchable_arguments
+        [:questionnaire, { component: { participatory_space: :organization } }]
+      end
+
       def open?
         return false if allow_responses.blank?
         return true if time_indefinite?

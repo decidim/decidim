@@ -61,6 +61,7 @@ shared_examples "manage process components" do
       end
 
       it "has a successful admin log" do
+        expect(page).to have_callout("Component created successfully.")
         visit decidim_admin.root_path
         expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(participatory_process.title)}")
       end
@@ -284,6 +285,8 @@ shared_examples "manage process components" do
           click_on "Publish"
         end
 
+        expect(page).to have_callout("The component has been successfully published.")
+
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css("a", text: "Hide")
@@ -298,6 +301,8 @@ shared_examples "manage process components" do
           find("button[data-controller='dropdown']").click
           click_on "Publish"
         end
+
+        expect(page).to have_callout("The component has been successfully published.")
 
         expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
                                                 "decidim.events.components.component_published", {

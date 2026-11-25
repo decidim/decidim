@@ -20,6 +20,7 @@ module Decidim
             initiative_user_action?
             attachment_action?
             initiatives_settings_action?
+            resource_permission_action?
 
             return permission_action
           end
@@ -95,11 +96,21 @@ module Decidim
 
           case permission_action.action
           when :destroy
-            scopes_are_empty = initiative_type && initiative_type.scopes.all? { |scope| scope.initiatives.empty? }
-            toggle_allow(scopes_are_empty)
+            toggle_allow(initiative_type_destroyable?(initiative_type))
           else
             allow!
           end
+        end
+
+        # When the caller has already resolved which types have initiatives, the
+        # check uses that instead of walking the scopes of each type.
+        def initiative_type_destroyable?(initiative_type)
+          return false unless initiative_type
+
+          types_with_initiatives = context.fetch(:initiative_types_with_initiatives, nil)
+          return types_with_initiatives.exclude?(initiative_type.id) if types_with_initiatives
+
+          initiative_type.scopes.all? { |scope| scope.initiatives.empty? }
         end
 
         def initiative_type_scope_action?
@@ -172,6 +183,14 @@ module Decidim
                         permission_action.subject == :initiatives_settings
 
           toggle_allow(user.admin?)
+        end
+
+        def resource_permission_action?
+          return unless permission_action.subject == :resource_permission &&
+                        permission_action.action == :update
+          return unless initiative.created?
+
+          allow!
         end
 
         def moderator_action?

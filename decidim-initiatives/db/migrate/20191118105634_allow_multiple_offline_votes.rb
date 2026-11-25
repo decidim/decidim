@@ -24,9 +24,8 @@ class AllowMultipleOfflineVotes < ActiveRecord::Migration[5.2]
         "total" => initiative.old_offline_votes.to_i
       }
 
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       initiative.update_column(:offline_votes, offline_votes)
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     remove_column :decidim_initiatives, :old_offline_votes

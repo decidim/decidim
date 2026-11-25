@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/proposals/test/factories"
 
 module Decidim
   module Comments
     describe Comment do
       let(:component) { create(:component, manifest_name: "dummy") }
       let!(:commentable) { create(:dummy_resource, component:) }
-      let!(:author) { create(:user, organization: commentable.organization) }
+      let!(:author) { create(:user, :confirmed, organization: commentable.organization) }
       let!(:comment) { create(:comment, commentable:, author:) }
       let!(:replies) { create_list(:comment, 3, commentable: comment, root_commentable: commentable) }
       let!(:up_vote) { create(:comment_vote, :up_vote, comment:) }
@@ -57,6 +58,22 @@ module Decidim
 
       it "has an associated participatory_process" do
         expect(comment.participatory_space).to eq(component.participatory_space)
+      end
+
+      describe ".for_organization" do
+        let(:organization) { commentable.organization }
+        let(:other_organization) { create(:organization) }
+        let(:other_participatory_space) { create(:participatory_process, organization: other_organization) }
+        let(:other_component) { create(:component, manifest_name: "dummy", participatory_space: other_participatory_space) }
+        let!(:other_commentable) { create(:dummy_resource, component: other_component) }
+        let!(:other_comment) { create(:comment, commentable: other_commentable) }
+
+        it "returns only comments from the given organization" do
+          comments = described_class.for_organization(organization:)
+
+          expect(comments).to include(comment)
+          expect(comments).not_to include(other_comment)
+        end
       end
 
       it "is valid if its parent is a comment and can accept new comments" do
@@ -109,7 +126,7 @@ module Decidim
       end
 
       describe "#up_voted_by?" do
-        let(:user) { create(:user, organization: comment.organization) }
+        let(:user) { create(:user, :confirmed, organization: comment.organization) }
 
         it "returns true if the given user has upvoted the comment" do
           create(:comment_vote, comment:, author: user, weight: 1)
@@ -122,7 +139,7 @@ module Decidim
       end
 
       describe "#down_voted_by?" do
-        let(:user) { create(:user, organization: comment.organization) }
+        let(:user) { create(:user, :confirmed, organization: comment.organization) }
 
         it "returns true if the given user has downvoted the comment" do
           create(:comment_vote, comment:, author: user, weight: -1)
@@ -165,7 +182,7 @@ module Decidim
       end
 
       describe "#users_to_notify_on_comment_created" do
-        let(:user) { create(:user, organization: comment.organization) }
+        let(:user) { create(:user, :confirmed, organization: comment.organization) }
 
         it "includes the comment author" do
           expect(comment.users_to_notify_on_comment_created)
@@ -243,6 +260,23 @@ module Decidim
 
           it "converts all URLs to links and strips attributes in anchors" do
             expect(comment.formatted_body).to eq(result)
+          end
+        end
+
+        describe "when the comment contains a proposal mention" do
+          before { allow(Decidim).to receive(:content_processors).and_return([:mention_resource]) }
+
+          let(:payload) { %(Check this proposal"><img src=x onerror="alert(document.cookie)">) }
+          let(:proposal) { create(:proposal, title: { en: payload }) }
+          let(:comment) { create(:comment, commentable: proposal, body: { en: "See #{proposal.to_global_id}" }) }
+
+          it "escapes the title of the mentioned proposal" do
+            fragment = Loofah.fragment(comment.formatted_body)
+            mention = fragment.at_css(".editor-mention")
+
+            expect(mention.at_css("span").text).to eq(proposal.presenter.title)
+            expect(fragment.css("img[onerror]")).to be_empty
+            expect(fragment.css('img[src="x"]')).to be_empty
           end
         end
       end

@@ -8,6 +8,12 @@ describe Decidim do
   end
 
   describe ".seed!" do
+    before do
+      # The n+1 query that we are ignoring here is hard to fix within the seed. When adding .includes(:organization)
+      # to the model, it will prompt to remove it due to another error.
+      Bullet.add_safelist :type => :n_plus_one_query, :class_name => "Decidim::User", :association => :organization
+    end
+
     it "actually seeds" do
       expect { described_class.seed! }.not_to raise_error
     end
@@ -31,7 +37,10 @@ describe Decidim do
 
       expect(manifests).to all(receive(:seed!).once)
 
-      application = double(railties: (decidim_railties + other_railties))
+      application = double(
+        railties: (decidim_railties + other_railties),
+        reloader: double(check!: false, reload!: true)
+      )
       allow(Rails).to receive(:application).and_return application
 
       described_class.seed!

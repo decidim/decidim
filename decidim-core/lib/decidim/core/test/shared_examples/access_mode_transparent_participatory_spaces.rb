@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "access mode transparent participatory spaces" do
+shared_examples "access mode transparent participatory spaces" do |with_attachments: true|
   let!(:admin) { create(:user, :admin, :confirmed, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let!(:other_user) { create(:user, :confirmed, organization:) }
@@ -55,17 +55,20 @@ shared_examples "access mode transparent participatory spaces" do
       end
     end
 
-    context "when the user is admin" do
-      before do
-        switch_to_host(organization.host)
-        login_as admin, scope: :user
-        visit participatory_space_index_path
-      end
+    # Evaluators and Moderators do not have permissions to see the admin attachments page
+    if with_attachments
+      context "when the user is admin" do
+        before do
+          switch_to_host(organization.host)
+          login_as admin, scope: :user
+          visit participatory_space_index_path
+        end
 
-      it "does not show the privacy warning in attachments admin" do
-        visit transparent_participatory_space_attachment_path
-        within "#attachments" do
-          expect(page).to have_no_text("Any participant could share this document to others")
+        it "does not show the privacy warning in attachments admin" do
+          visit transparent_participatory_space_attachment_path
+          within "#attachments" do
+            expect(page).to have_no_text("Any participant could share this document to others")
+          end
         end
       end
     end

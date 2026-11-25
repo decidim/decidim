@@ -36,6 +36,8 @@ sk:
             body: Telo
         pages:
           edit:
+            add_attachments: Pridať prílohy
+            edit_attachments: Upraviť prílohy
             save: Aktualizovať
             title: Upraviť stránku
           update:

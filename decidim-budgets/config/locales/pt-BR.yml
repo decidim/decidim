@@ -346,7 +346,6 @@ pt-BR:
             announcement: Anúncio
             clear_all: Limpar tudo
             comments_enabled: Comentários ativados
-            comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             define_taxonomy_filters: Por favor, defina alguns filtros para este espaço participativo antes de usar esta configuração.
             form:
               errors:

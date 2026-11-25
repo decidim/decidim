@@ -457,9 +457,12 @@ describe "Authentication" do
     it "sends an email with the instructions" do
       visit decidim.new_user_confirmation_path
 
-      within ".new_user" do
-        fill_in :confirmation_user_email, with: user.email
-        perform_enqueued_jobs { find("*[type=submit]").click }
+      perform_enqueued_jobs do
+        within ".new_user" do
+          fill_in :confirmation_user_email, with: user.email
+          find("*[type=submit]").click
+        end
+        expect(page).to have_callout("If your email address exists in our database")
       end
 
       expect(emails.count).to eq(2)
@@ -492,14 +495,13 @@ describe "Authentication" do
             fill_in :session_user_password, with: "DfyvHn425mYAy2HL"
           end
 
-          page.driver.browser.manage.delete_all_cookies
-          expect(page.driver.browser.manage.all_cookies).to be_empty
+          expire_browser_session do
+            within "#session_new_user" do
+              find("*[type=submit]").click
+            end
 
-          within "#session_new_user" do
-            find("*[type=submit]").click
+            expect(page).to have_text("Unable to verify your request. Please retry.")
           end
-
-          expect(page).to have_text("Unable to verify your request. Please retry.")
         end
       end
 
@@ -563,12 +565,14 @@ describe "Authentication" do
       it "sends a password recovery email" do
         visit decidim.new_user_password_path
 
-        within ".new_user" do
-          fill_in :password_user_email, with: user.email
-          perform_enqueued_jobs { find("*[type=submit]").click }
+        perform_enqueued_jobs do
+          within ".new_user" do
+            fill_in :password_user_email, with: user.email
+            find("*[type=submit]").click
+          end
+          expect(page).to have_callout("If your email address exists in our database")
         end
 
-        expect(page).to have_text("If your email address exists in our database")
         expect(emails.count).to eq(1)
       end
 
@@ -697,10 +701,13 @@ describe "Authentication" do
             click_on("Log in", match: :first)
 
             (maximum_attempts - 1).times do
-              within ".new_user" do
-                fill_in :session_user_email, with: user.email
-                fill_in :session_user_password, with: "not-the-password"
-                perform_enqueued_jobs { find("*[type=submit]").click }
+              perform_enqueued_jobs do
+                within ".new_user" do
+                  fill_in :session_user_email, with: user.email
+                  fill_in :session_user_password, with: "not-the-password"
+                  find("*[type=submit]").click
+                end
+                expect(page).to have_callout("Invalid email address or password")
               end
             end
           end
@@ -728,12 +735,14 @@ describe "Authentication" do
         end
 
         it "resends the unlock instructions" do
-          within ".new_user" do
-            fill_in :unlock_user_email, with: user.email
-            perform_enqueued_jobs { find("*[type=submit]").click }
+          perform_enqueued_jobs do
+            within ".new_user" do
+              fill_in :unlock_user_email, with: user.email
+              find("*[type=submit]").click
+            end
+            expect(page).to have_callout("If your account exists")
           end
 
-          expect(page).to have_text("If your account exists")
           expect(emails.count).to eq(1)
         end
 

@@ -30,9 +30,9 @@ module Decidim
         end
         return broadcast(:invalid) if form.invalid?
 
+        initialize_user
         transaction do
-          create_or_find_user
-          @identity = create_identity
+          @identity = existing_identity || create_identity
         end
         trigger_omniauth_event
 
@@ -50,11 +50,23 @@ module Decidim
 
     REGEXP_SANITIZER = /[<>?%&\^*#@()\[\]=+:;"{}\\|]/
 
+    def initialize_user
+      create_or_find_user
+    rescue ActiveRecord::RecordNotUnique
+      @create_retries ||= 0
+
+      # This may happen if the callback endpoint is called several times in a
+      # row which some Omniauth providers may allow (e.g. through a double
+      # click). This should ensure that the user will not get an error even if
+      # the authentication service sent the callback request several times.
+      raise if @create_retries >= 2
+
+      @create_retries += 1
+      retry
+    end
+
     def create_or_find_user
-      @user = User.find_or_initialize_by(
-        email: verified_email,
-        organization:
-      )
+      @user = organization.users.find_or_initialize_by(email: verified_email)
 
       if @user.persisted?
         # If user has left the account unconfirmed and later on decides to sign
@@ -105,6 +117,7 @@ module Decidim
     end
 
     def existing_identity
+      # rubocop:disable-next Decidim/OrganizationScopedFinder -- user: organization.users scopes the lookup to the current organization
       @existing_identity ||= Identity.find_by(
         user: organization.users,
         provider: form.provider,

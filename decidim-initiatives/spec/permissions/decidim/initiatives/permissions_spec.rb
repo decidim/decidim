@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Initiatives::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization:) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization:) }
   let(:context) { {} }
@@ -31,7 +31,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
 
       it { is_expected.to be false }
     end
@@ -93,7 +93,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user is admin" do
-      let(:user) { create(:user, :admin, organization:) }
+      let(:user) { create(:user, :confirmed, :admin, organization:) }
 
       it { is_expected.to be true }
     end
@@ -229,6 +229,58 @@ describe Decidim::Initiatives::Permissions do
       end
     end
 
+    context "when the initiative type has not been selected yet" do
+      let(:context) { {} }
+
+      context "when creation is enabled" do
+        before do
+          allow(Decidim::Initiatives)
+            .to receive(:creation_enabled)
+            .and_return(true)
+        end
+
+        context "when authorizations are not required" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(true)
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "when the user has an authorization" do
+          before do
+            create(:authorization, :granted, user:)
+          end
+
+          it { is_expected.to be true }
+        end
+
+        context "when the user has no authorization" do
+          before do
+            allow(Decidim::Initiatives)
+              .to receive(:do_not_require_authorization)
+              .and_return(false)
+          end
+
+          it "allows rendering the type selection so the user can verify" do
+            expect(subject).to be true
+          end
+        end
+      end
+
+      context "when creation is not enabled" do
+        before do
+          allow(Decidim::Initiatives)
+            .to receive(:creation_enabled)
+            .and_return(false)
+        end
+
+        it { is_expected.to be false }
+      end
+    end
+
     context "when creation is not enabled" do
       before do
         allow(Decidim::Initiatives)
@@ -273,7 +325,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -312,7 +364,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -351,7 +403,7 @@ describe Decidim::Initiatives::Permissions do
       end
 
       context "when user is admin" do
-        let(:user) { create(:user, :admin, organization:) }
+        let(:user) { create(:user, :confirmed, :admin, organization:) }
         let(:initiative) { create(:initiative, :created, author: user, organization:) }
 
         it { is_expected.to be true }
@@ -504,7 +556,7 @@ describe Decidim::Initiatives::Permissions do
     end
 
     context "when user belongs to another organization" do
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
 
       it { is_expected.to be false }
     end

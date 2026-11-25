@@ -151,7 +151,6 @@ zh-TW:
         settings:
           global:
             comments_enabled: 已啟用留言
-            comments_max_length: 留言字數上限 (0 表示使用預設)
             display_progress_enabled: 顯示進度
             intro: 介紹
           step:

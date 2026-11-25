@@ -301,7 +301,7 @@ ca:
           global:
             clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            comments_max_length: Caràcters màxims per comentari (deixar a 0 el valor predeterminat)
             default_taxonomy: Taxonomia predeterminada
             default_taxonomy_help: Selecciona quina taxonomia vols mostrar per defecte. Si no se selecciona cap taxonomia, els resultats es mostraran en un format de llista.
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.

@@ -50,7 +50,6 @@ ca:
         old_password: Contrasenya actual
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
-        personal_url: URL personal
         remove_avatar: Elimina la imatge de perfil
         tos_agreement: Termes i condicions d'ús
     errors:
@@ -117,8 +116,6 @@ ca:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Format: dd/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -129,8 +126,8 @@ ca:
         other: al voltant de %{count} mesos
       half_a_minute: mig minut
       less_than_x_minutes:
-        one: fa menys d'un minut
-        other: fa menys de %{count} minuts
+        one: menys d'un minut
+        other: menys de %{count} minuts
       less_than_x_seconds:
         one: fa menys d'un segon
         other: fa menys de %{count} segons
@@ -251,6 +248,7 @@ ca:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         export_component: "%{user_name} ha exportat %{resource_name}%{component_name} de %{space_name} com %{format_name}"
+        menu_hidden: "%{user_name} ha amagat el component %{resource_name} del menú de l'espai de participació: %{space_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
         restore: "%{user_name} ha restaurat el component %{resource_name} a l'espai %{space_name}"
         soft_delete: "%{user_name} ha mogut el component %{resource_name} a l'espai %{space_name} a la paperera"
@@ -552,7 +550,7 @@ ca:
           global:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
-            comments_max_length: Longitud màxima dels comentaris
+            comments_max_length: Caràcters màxims per comentari
             define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             dummy_global_attribute1: Atribut de prova 1
             dummy_global_attribute2: Atribut de prova 2
@@ -658,6 +656,13 @@ ca:
           all: Tots
         filter_taxonomy_values:
           all: Totes
+    delete_user_mailer:
+      delete:
+        body_1: El teu compte s'ha desactivat i ja no és accessible. Les teves dades personals estan programades per eliminar-les permanentment d'acord amb les nostres polítiques de retenció de dades.
+        body_2: Per raons de seguretat, es conservaran algunes dades relacionades amb la verificació; d'aquesta manera si creessis un compte nou i el tornes a verificar, es podria vincular l'autorització amb aquest compte nou.
+        greetings_html: Atentament,<br/><a href="%{organization_url}">%{organization_name}</a>
+        hello: Hola %{username},
+      subject: El teu compte ha estat eliminat
     devise:
       omniauth_registrations:
         create:
@@ -814,7 +819,6 @@ ca:
           officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
           organization: L'organització a la qual pertany aquesta usuària
           password_updated_at: La data en què van canviar per darrera vegada les seves contrasenyes
-          personal_url: L'URL personal d'aquesta usuària
           remember_created_at: La data i hora en què es va seleccionar la usuària per ser recordada
           reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
           roles: El rol que té aquesta participant, si en té cap
@@ -847,6 +851,8 @@ ca:
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
+        file_contains_unsafe_content: El fitxer conté contingut no segur
+        file_is_not_a_valid_image: El fitxer no és una imatge vàlida
         file_resolution_too_large: La resolució de l'arxiu és massa gran
         not_inside_organization: L'arxiu no està vinculat a cap organització.
       internal_server_error:
@@ -948,6 +954,18 @@ ca:
         notification_body: S'ha corregit la manera en que es fan servir els àlies per a que no n'hi hagi de duplicats, per fer-ho ja no es distingueix entre majúscules i minúscules.<br/>El teu àlies es va crear més tard que un altre d'igual, així que s'ha renombrat automàticament. Pots modificar el teu àlies des de la <a href="%{link_to_account_settings}">configuració del teu compte</a>.
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_space:
+        member_added:
+          published:
+            email_intro: Se t'ha afegit com a membre a un espai de participació.
+            email_outro: Has rebut aquesta notificació perquè una administradora t'ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. El teu perfil es mostrarà a la <a href="%{members_page}">llista de membres</a> d'aquest espai.<br> Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_subject: Ara tens accés a "%{resource_title}".
+            notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
+          unpublished:
+            email_intro: Se t'ha afegit com a membre a un espai de participació.
+            email_outro: Has rebut aquesta notificació perquè una administradora t'ha afegit a <a href="%{resource_url}">"%{resource_title}"</a>. Si l'accés a aquest espai és restringit, hi podràs accedir sempre que hagis iniciat la teva sessió amb el teu compte.
+            email_subject: Ara tens accés a "%{resource_title}".
+            notification_title: Ara tens accés a <a href="%{resource_url}">"%{resource_title}"</a>.
       reports:
         parent_hidden:
           email_intro: |-
@@ -1185,6 +1203,8 @@ ca:
       dynamic:
         screen_reader_explanation: El següent element és un mapa que presenta els components d'aquesta pàgina com a punts al mapa. L'element es pot fer servir amb un lector de pantalla però pot ser difícil d'entendre.
         skip_button: Saltar el mapa
+        zoom_in: Ampliar
+        zoom_out: Allunyar
       static:
         latlng_text: 'latitud: %{latitude}, longitud: %{longitude}'
         map_service_brand: OpenStreetMap
@@ -1214,7 +1234,6 @@ ca:
         create:
           error: No s'ha iniciat la conversa. Torna-ho a provar més tard.
         error_modal:
-          close: Tanca la finestra
           correct_errors: Si us plau, corregiu els errors i torneu-ho a intentar.
           intro: 'Hi ha els següents errors al vostre missatge:'
           ok: D'acord
@@ -1526,14 +1545,11 @@ ca:
         log_in: entra
         never_logged_in: mai ha iniciat sessió
         subject: Avís de compte inactiu
-      removal_notification:
-        body: El teu compte a %{organization_name} s'ha eliminat per inactivitat.
-        greetings_html: |
-          Atentament,<br>
-          %{organization_name}
-        hello: Benvolgut/da %{username},
-        subject: Avís de compte inactiu
     participatory_space:
+      labels:
+        reference: Referència de l'espai de participació
+        restricted: Espai de participació restringit
+        transparent: Espai de participació transparent
       pages:
         user_profile:
           member_of:
@@ -1544,7 +1560,7 @@ ca:
     participatory_spaces:
       show:
         restricted_space: Aquest és un espai restringit. Només membres i administradores el poden veure i participar-hi.
-        transparent_space: Aquest és un espai restringit però transparent. Qualsevol pot veure'n el contingut, però només les membres i administradores hi poden participar.
+        transparent_space: Aquest és un espai transparent. Qualsevol pot veure'n el contingut, però només les membres i administradores hi poden participar.
     passwords:
       update:
         error: Hi ha hagut un problema en actualitzar la contrasenya.
@@ -1692,6 +1708,8 @@ ca:
       login_modal:
         please_log_in: Si us plau, inicia la sessió
         sign_up: Crea un compte
+      mentions:
+        search_prompt: Escriu aquí per cercar entre les participants
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
       progress: Progrés
@@ -1862,17 +1880,17 @@ ca:
         ignore: |-
           Si no vols acceptar la invitació, si us plau, ignora aquest correu electrònic.<br /> El teu compte no es crearà fins que no accedeixis a l'enllaç anterior i estableixis el teu àlies i contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administradora de %{application}. Pots acceptar-ho a través de l'enllaç següent."
-        invited_you_as_member: "%{invited_by} t'ha convidat com a membre de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_member: "%{invited_by} t'ha convidat com a membre de %{application}. Pots acceptar-ho a través del següent enllaç."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administradora de %{application}, pots acceptar-lo a través de l'enllaç següent.
-        someone_invited_you_as_member: Algú t'ha convidat com a membre de %{application}, pots acceptar-ho a través de l'enllaç següent.
+        someone_invited_you_as_member: Algú t'ha convidat com a membre de %{application}, pots acceptar-ho a través del següent enllaç.
         subject: Instruccions d'invitació
       invite_admin:
         subject: T'han convidat a administrar %{organization}
       invite_collaborator:
         subject: T'han convidat a col·laborar a %{organization}
       invite_member:
-        subject: T'han convidat a participar en un espai de participació privat a%{organization}
+        subject: T'han convidat a participar en un espai de participació privat a %{organization}
       organization_admin_invitation_instructions:
         subject: T'han convidat a administrar %{organization}
       password_change:
@@ -2074,7 +2092,6 @@ ca:
   layouts:
     decidim:
       announcements:
-        view_less: Mostra menys
         view_more: Més informació
       data_consent:
         details:
@@ -2249,6 +2266,7 @@ ca:
       close: Tancar
       reset: Reiniciar
       select: Seleccionar
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2257,6 +2275,8 @@ ca:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2270,7 +2290,8 @@ ca:
       long_with_particles: "%d %B, de %Y a les %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%H:%M %Z"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Esborrats

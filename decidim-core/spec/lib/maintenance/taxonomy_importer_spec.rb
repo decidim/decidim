@@ -180,6 +180,51 @@ module Decidim::Maintenance
         end
       end
 
+      context "when component already has taxonomy filters" do
+        let(:json_filters) do
+          [
+            {
+              "name" => "New root taxonomy",
+              "internal_name" => "Imported filter",
+              "participatory_space_manifests" => participatory_space_manifests,
+              "items" => [["New taxonomy", "New child taxonomy"]],
+              "components" => [
+                component_id
+              ]
+            }
+          ]
+        end
+        let!(:existing_filter) { create(:taxonomy_filter, root_taxonomy: create(:taxonomy, organization:)) }
+        let!(:another_existing_filter) { create(:taxonomy_filter, root_taxonomy: create(:taxonomy, organization:)) }
+
+        before do
+          component.update!(settings: { taxonomy_filters: [existing_filter.id.to_s, another_existing_filter.id.to_s] })
+        end
+
+        it "preserves existing taxonomy filters and appends the imported one without duplicates" do
+          subject.import!
+
+          imported_filter = Decidim::TaxonomyFilter.find_by!(
+            internal_name: { organization.default_locale => "Imported filter" },
+            root_taxonomy:
+          )
+
+          expect(component.reload.settings[:taxonomy_filters]).to contain_exactly(
+            existing_filter.id.to_s,
+            another_existing_filter.id.to_s,
+            imported_filter.id.to_s
+          )
+
+          subject.import!
+
+          expect(component.reload.settings[:taxonomy_filters]).to contain_exactly(
+            existing_filter.id.to_s,
+            another_existing_filter.id.to_s,
+            imported_filter.id.to_s
+          )
+        end
+      end
+
       context "when a filter already exists" do
         let!(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
         let!(:filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: ["participatory_processes"]) }

@@ -10,9 +10,9 @@ describe "Evaluator manages proposals" do
   let(:participatory_space_path) do
     decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
   end
-  let!(:user) { create(:user, organization:) }
+  let!(:user) { create(:user, :confirmed, organization:) }
   let!(:evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user:, participatory_process:) }
-  let!(:another_user) { create(:user, organization:) }
+  let!(:another_user) { create(:user, :confirmed, organization:) }
   let!(:another_evaluator_role) { create(:participatory_process_user_role, role: :evaluator, user: another_user, participatory_process:) }
 
   include Decidim::ComponentPathHelper
@@ -32,6 +32,24 @@ describe "Evaluator manages proposals" do
     it "can only see the assigned proposals" do
       expect(page).to have_text(translated(assigned_proposal.title))
       expect(page).to have_no_text(translated(unassigned_proposal.title))
+    end
+  end
+
+  context "when visiting an unassigned proposal directly" do
+    before do
+      allow(Rails.application).to \
+        receive(:env_config).with(no_args).and_wrap_original do |m, *|
+          m.call.merge(
+            "action_dispatch.show_exceptions" => true,
+            "action_dispatch.show_detailed_exceptions" => false
+          )
+        end
+
+      visit Decidim::EngineRouter.admin_proxy(current_component).proposal_path(unassigned_proposal)
+    end
+
+    it "does not allow access" do
+      expect(page).to have_text("The page you are looking for cannot be found")
     end
   end
 

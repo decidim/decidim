@@ -79,6 +79,8 @@ fi-pl:
           update_settings:
             invalid: Asiakirjan päivittäminen epäonnistui.
             success: Asiakirjan päivittäminen onnistui.
+        exports:
+          document_suggestions: Ehdotukset
         index:
           published: Julkaistu
           unpublished: Julkaisematon

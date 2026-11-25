@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Debates::Permissions do
   subject { described_class.new(user, permission_action, context).permissions.allowed? }
 
-  let(:user) { create(:user, organization: debates_component.organization) }
+  let(:user) { create(:user, :confirmed, organization: debates_component.organization) }
   let(:context) do
     {
       current_component: debates_component,
@@ -66,6 +66,29 @@ describe Decidim::Debates::Permissions do
       let(:extra_settings) { { creation_enabled?: true } }
 
       it { is_expected.to be true }
+    end
+  end
+
+  context "when reading debates" do
+    let(:action) do
+      { scope: :public, action: :read, subject: :debate }
+    end
+
+    it { is_expected.to be true }
+
+    context "when there is no debate" do
+      let(:debate) { nil }
+
+      it { is_expected.to be true }
+    end
+
+    context "when the debate is hidden" do
+      before do
+        create(:moderation, :hidden, reportable: debate)
+        debate.reload
+      end
+
+      it { is_expected.to be false }
     end
   end
 

@@ -156,6 +156,10 @@ module Decidim
                       # is Resourceable instead of ParticipatorySpaceResourceable so we cannot use `visible?`
                       index_on_update: ->(initiative) { initiative.published? })
 
+    def self.searchable_arguments
+      [:organization]
+    end
+
     def self.export_serializer
       Decidim::Initiatives::DownloadYourDataInitiativeSerializer
     end
@@ -330,9 +334,8 @@ module Decidim
         counters["total"] += count
       end
 
-      # rubocop:disable Rails/SkipsModelValidations
+      # rubocop:disable-next Rails/SkipsModelValidations
       update_column("online_votes", online_votes)
-      # rubocop:enable Rails/SkipsModelValidations
     end
 
     def set_offline_votes_total

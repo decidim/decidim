@@ -131,7 +131,6 @@ lt:
           global:
             announcement: Pranešimas
             comments_enabled: Komentarai aktyvuoti
-            comments_max_length: Maksimalus komentarų ilgis (numatytoji vertė – 0)
             creation_enabled_for_participants: Dalyviai gali sukurti susitikimus
             default_registration_terms: Numatytos registracijos sąlygos
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
@@ -257,10 +256,8 @@ lt:
             success: Dalyvis pakviestas dalyvauti susirinkime.
           form:
             attendee_type: Dalyvio tipas
-            existing_user: Egzistuojantis dalyvis
             invite: Pakviesti
             invite_explanation: Dalyvis bus pakviestas dalyvauti ne tik susirinkime, bet ir organizacijoje.
-            non_user: Neegzistuojantis dalyvis
             select_user: Pasirinkti dalyvį
           index:
             invites: Pakvietimai
