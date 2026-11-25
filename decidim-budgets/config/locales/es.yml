@@ -491,15 +491,11 @@ es:
             workflow_choices:
               all: 'Votar en todos: permitir a las participantes votar en todos los presupuestos.'
               one: 'Votar en uno: permitir a las participantes votar en cualquier presupuesto, pero sólo en uno.'
-          step:
-            announcement: Aviso
+          phase:
             comments_blocked: Comentarios bloqueados
             highlighted_heading: Encabezado destacado
-            landing_page_content: Página de inicio de presupuestos
             list_heading: Título de lista
-            more_information_modal: Modal de "Más información"
             show_votes: Mostrar los votos
-            title: Título
             votes: Votación
             votes_choices:
               disabled: Votación deshabilitada
