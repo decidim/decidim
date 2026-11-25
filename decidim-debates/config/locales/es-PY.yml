@@ -46,8 +46,7 @@ es-PY:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
-          step:
-            announcement: Anuncio
+          phase:
             comments_blocked: Comentarios bloqueados
             creation_enabled: Las participantes pueden crear debates
             likes_blocked: '"Me gusta" bloqueado'
