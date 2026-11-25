@@ -30,8 +30,7 @@ module Decidim
         request.parameters[:locale].presence ||
         current_user_locale ||
         request.session[:user_locale].presence ||
-        accept_language_locale ||
-        I18n.locale
+        accept_language_locale
     end
 
     def current_user_locale
