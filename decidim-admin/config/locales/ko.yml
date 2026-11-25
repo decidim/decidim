@@ -226,9 +226,7 @@ ko:
           title: 구성 요소 편집
           update: 업데이트
         form:
-          default_step_settings: 기본 단계 설정
           global_settings: 전역 설정
-          step_settings: 단계 설정
         index:
           add: 구성 요소 추가
           headers:
