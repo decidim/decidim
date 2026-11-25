@@ -223,6 +223,9 @@ ru:
         process_steps: Шаги движения
     participatory_processes:
       admin:
+        participatory_process_steps:
+          index:
+            title: Шаги
         participatory_processes:
           form:
             related_processes: Подобные движения
