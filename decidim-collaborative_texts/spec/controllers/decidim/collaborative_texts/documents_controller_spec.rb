@@ -79,6 +79,43 @@ module Decidim
             expect { get :show, params: { id: "non-existent" } }.to raise_error(ActionController::RoutingError)
           end
         end
+
+        context "when the document is unpublished" do
+          context "when the user is an admin" do
+            let(:admin) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+            before { allow(controller).to receive(:current_user).and_return(admin) }
+
+            it "returns the document so it can be previewed" do
+              get :show, params: { id: unpublished_document.id }
+
+              expect(controller.helpers.document).to eq(unpublished_document)
+            end
+
+            it "preloads the associations used by the document" do
+              get :show, params: { id: unpublished_document.id }
+
+              document = controller.helpers.document
+              expect(document.association(:component)).to be_loaded
+              expect(document.association(:document_versions)).to be_loaded
+              expect(document.association(:coauthorships)).to be_loaded
+            end
+          end
+
+          context "when the user is not an admin" do
+            it "raises an ActionController::RoutingError error" do
+              expect { get :show, params: { id: unpublished_document.id } }.to raise_error(ActionController::RoutingError)
+            end
+          end
+
+          context "when the user is a logged in participant" do
+            before { allow(controller).to receive(:current_user).and_return(user) }
+
+            it "raises an ActionController::RoutingError error" do
+              expect { get :show, params: { id: unpublished_document.id } }.to raise_error(ActionController::RoutingError)
+            end
+          end
+        end
       end
     end
   end
