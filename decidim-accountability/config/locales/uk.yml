@@ -106,7 +106,7 @@ uk:
             comments_enabled: Коментарі увімкнено
             display_progress_enabled: Показувати перебіг
             intro: Вступ
-          step:
+          phase:
             comments_blocked: Коментарі вимкнено
     events:
       accountability:
