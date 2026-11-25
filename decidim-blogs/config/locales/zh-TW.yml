@@ -63,8 +63,7 @@ zh-TW:
           global:
             announcement: 公告
             comments_enabled: 啟用評論功能
-          step:
-            announcement: 公告
+          phase:
             comments_blocked: 留言已封鎖
     events:
       blogs:
