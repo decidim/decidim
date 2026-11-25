@@ -274,15 +274,11 @@ lt:
             workflow_choices:
               all: 'Balsuoti už visus: dalyviai gali balsuoti už visus biudžetus.'
               one: 'Balsuoti už vieną: dalyviai gali balsuoti tik už vieną pasirinktą biudžetą.'
-          step:
-            announcement: Skelbimas
+          phase:
             comments_blocked: Komentarai užblokuoti
             highlighted_heading: Paryškinta antraštė
-            landing_page_content: Biudžetų numatytasis puslapis
             list_heading: Pateikti antraštę
-            more_information_modal: Išsamesnės informacijos modalinis langas
             show_votes: Rodyti balsus
-            title: Pavadinimas
             votes: Balsavimas
             votes_choices:
               disabled: Balsavimas išjungtas
