@@ -14,8 +14,6 @@ lb:
         settings:
           global:
             announcement: Ankündigung
-          step:
-            announcement: Ankündigung
     pages:
       admin:
         models:
