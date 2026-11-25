@@ -32,11 +32,11 @@ ar:
       participatory_process_step:
         cta_path: دعوة إلى مسار العمل
         cta_text: دعوة إلى نص العمل
-        description: الوصف
+        description: وصف
         end_date: تاريخ الانتهاء
         short_description: وصف قصير
-        start_date: تاريخ البداية
-        title: العنوان
+        start_date: تاريخ البدء
+        title: عنوان
       participatory_process_user_role:
         email: البريد الإلكتروني
         name: اسم
@@ -107,6 +107,7 @@ ar:
           name: مجموعة العملية
         participatory_process_step:
           fields:
+            actions: الإجراءات
             end_date: تاريخ الانتهاء
             start_date: تاريخ البدء
             title: عنوان
@@ -252,6 +253,9 @@ ar:
         participatory_process_imports:
           form:
             document_legend: إضافة وثيقة
+        participatory_process_steps:
+          index:
+            title: المراحل
         participatory_processes:
           form:
             duration: المدة الزمنية
