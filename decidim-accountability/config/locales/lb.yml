@@ -124,7 +124,7 @@ lb:
             comments_enabled: Kommentare aktiviert
             display_progress_enabled: Fortschritt anzeigen
             intro: Einführung
-          step:
+          phase:
             comments_blocked: Kommentare blockiert
     events:
       accountability:
