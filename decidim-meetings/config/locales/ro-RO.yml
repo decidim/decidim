@@ -133,8 +133,7 @@ ro:
             registration_code_enabled: Codul de înregistrare și QR activate
             resources_permissions_enabled: Drepturile de acțiune pot fi setate pentru fiecare întâlnire
             terms_and_conditions_url_for_meeting_creators: URL condiții pentru întrunirea creatorilor
-          step:
-            announcement: Anunţ
+          phase:
             comments_blocked: Comentarii blocate
             creation_enabled_for_participants: Crearea de şedinţe de către participanţi este activată
     download_your_data:
