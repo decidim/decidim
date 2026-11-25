@@ -32,8 +32,6 @@ de:
         settings:
           global:
             announcement: Ankündigung
-          step:
-            announcement: Ankündigung
     elections:
       actions:
         confirm_delete_election: Sind Sie sicher, dass Sie diese Wahl löschen möchten?
