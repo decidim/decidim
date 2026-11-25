@@ -80,7 +80,7 @@ describe "Proposals" do
         click_on "New proposal"
       end
 
-      it_behaves_like "a form with unsaved changes", ".new_proposal", "Title", "Back"
+      it_behaves_like "a public form with unsaved changes", ".new_proposal", "Title", "Back"
     end
 
     context "and draft proposal exists for current users" do
