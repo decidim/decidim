@@ -39,7 +39,16 @@ module Decidim
       private
 
       def document
-        @document ||= search_collection.find_by(id: params[:id])
+        @document ||= document_collection.find_by(id: params[:id])
+      end
+
+      def document_collection
+        collection = Document.includes(:component, :document_versions, :coauthorships).where(component: current_component)
+        current_user&.admin? ? collection : collection.published
+      end
+
+      def search_collection
+        document_collection.published
       end
 
       def presenter
@@ -48,10 +57,6 @@ module Decidim
 
       def documents
         @documents ||= search.result
-      end
-
-      def search_collection
-        Document.includes(:component, :document_versions, :coauthorships).where(component: current_component).published
       end
 
       def default_filter_params
