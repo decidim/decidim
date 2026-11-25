@@ -298,7 +298,7 @@ el:
             no_taxonomy_filters_found: Δεν βρέθηκαν φίλτρα ταξινομίας.
             taxonomy_filters: Επιλογή φίλτρων για το στοιχείο
             taxonomy_filters_add: Προσθήκη φίλτρου
-          step:
+          phase:
             comments_blocked: Τα σχόλια αποκλείστηκαν
           visualization: Οπτικοποίηση
     download_your_data:
