@@ -30,8 +30,7 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer er aktivert
-          step:
-            announcement: Kunngjøring
+          phase:
             comments_blocked: Kommentarer er blokkert
             creation_enabled: Deltakere kan opprette debatter
     debates:
