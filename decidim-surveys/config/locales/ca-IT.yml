@@ -37,8 +37,6 @@ ca-IT:
           announcement: Avís
           global:
             announcement: Avís
-          step:
-            announcement: Avís
     events:
       surveys:
         survey_closed:
