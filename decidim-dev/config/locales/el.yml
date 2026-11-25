@@ -33,11 +33,6 @@ el:
             test_options:
               bar: Μπάρα
               foo: Foo
-          step:
-            readonly_step_attribute: Χαρακτηριστικό βήματος μόνο για ανάγνωση
-            test_options:
-              bar: Bar
-              foo: Foo
     dummy:
       admin:
         exports:
