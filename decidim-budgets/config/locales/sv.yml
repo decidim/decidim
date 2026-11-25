@@ -491,15 +491,11 @@ sv:
             workflow_choices:
               all: 'Rösta på alla: låt deltagare att rösta i alla budgetar.'
               one: 'Rösta på en: låt deltagare rösta i valfri budget, men bara i en.'
-          step:
-            announcement: Meddelande
+          phase:
             comments_blocked: Stäng av kommentarer
             highlighted_heading: Markerad rubrik
-            landing_page_content: Landningssida för budgetar
             list_heading: Rubrik för lista
-            more_information_modal: Fönster "Mer information"
             show_votes: Visa röster
-            title: Titel
             votes: Omröstning
             votes_choices:
               disabled: Omröstning inaktiverad
