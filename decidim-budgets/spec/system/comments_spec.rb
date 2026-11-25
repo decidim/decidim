@@ -32,7 +32,7 @@ describe "Comments" do
       visit decidim_budgets.budget_project_path(id: commentable.id, budget_id: budget.id)
 
       another_window = window_opened_by do
-        within(".comment", match: :first) do
+        within("#comment_#{comments.first.id}") do
           page.find("[id^='dropdown-trigger']").click
           click_on "Get link"
         end
