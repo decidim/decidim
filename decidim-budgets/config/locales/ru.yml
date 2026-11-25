@@ -96,6 +96,7 @@ ru:
             announcement: Объявление
             comments_blocked: Комментарии отключены
             show_votes: Показать голоса
+            title: Название
             votes_choices:
               enabled: Голосование включено
   index:
