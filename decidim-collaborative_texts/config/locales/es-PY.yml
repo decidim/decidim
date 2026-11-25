@@ -119,14 +119,12 @@ es-PY:
           draft: Actualmente, este documento está siendo revisado por las administradoras. No se pueden hacer sugerencias en este momento, pero puedes ver sugerencias hechas por otras participantes.
           not_accepting_suggestions: Las sugerencias no están permitidas en este momento.
           selection_active: Una selección está activa. Por favor, cancela la selección actual para crear una nueva.
-        suggestions_count: "%{count} sugerencias"
         toggle: Mostrar u ocultar las sugerencias
       documents:
         index:
           count:
             one: "%{count} texto colaborativo"
             other: "%{count} textos colaborativos"
-          empty: Todavía no hay ningún texto colaborativo.
         show:
           contributors: Contribuidoras
       models:
@@ -157,8 +155,6 @@ es-PY:
           global:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
-          step:
-            announcement: Aviso
     statistics:
       all_collaborative_texts_count: Todos los textos colaborativos
       collaborative_texts_count: Textos colaborativos
