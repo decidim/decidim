@@ -107,6 +107,7 @@ tr:
           name: İşlem grubu
         participatory_process_step:
           fields:
+            actions: Eylemler
             end_date: Bitiş tarihi
             start_date: Başlangıç tarihi
             title: Başlık
