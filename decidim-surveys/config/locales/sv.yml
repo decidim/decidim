@@ -37,8 +37,6 @@ sv:
           announcement: Meddelande
           global:
             announcement: Meddelande
-          step:
-            announcement: Meddelande
     events:
       surveys:
         survey_closed:
