@@ -172,7 +172,7 @@ pl:
             comments_enabled: Komentarze włączone
             display_progress_enabled: Wyświetl postęp
             intro: Wprowadzenie
-          step:
+          phase:
             comments_blocked: Komentarze zablokowane
     events:
       accountability:
