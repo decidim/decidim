@@ -105,7 +105,6 @@ ro:
             one: "%{count} text colaborativ"
             few: "%{count} texte colaborativ"
             other: "%{count} texte colaborative"
-          empty: Nu există încă texte colaborative.
       models:
         collaborative_text:
           fields:
@@ -118,8 +117,6 @@ ro:
           global:
             announcement: Anunț
             comments_blocked: Comentarii blocate
-          step:
-            announcement: Anunț
     statistics:
       collaborative_texts_count: Texte colaborative
       collaborative_texts_count_tooltip: Numărul de texte colaborative
