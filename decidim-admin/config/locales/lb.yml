@@ -219,9 +219,7 @@ lb:
           title: Komponente bearbeiten
           update: Aktualisieren
         form:
-          default_step_settings: Standardschritteinstellungen
           global_settings: Globale Einstellungen
-          step_settings: Schritteinstellungen
         index:
           add: Komponente hinzufügen
           headers:
