@@ -176,8 +176,7 @@ gl:
             taxonomy_filters: Seleccionar filtros para o compoñente
             taxonomy_filters_add: Engadir filtro
             terms_and_conditions_url_for_meeting_creators: URL dos termos e condicións para persoas creadoras de reunións
-          step:
-            announcement: Anuncio
+          phase:
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Creación de reunións por persoas participantes activada
     download_your_data:
