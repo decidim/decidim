@@ -162,7 +162,7 @@ bg:
             comments_enabled: Коментарите са разрешени
             display_progress_enabled: Показвай развитието
             intro: Въведение
-          step:
+          phase:
             comments_blocked: Коментарите са блокирани
     events:
       accountability:
