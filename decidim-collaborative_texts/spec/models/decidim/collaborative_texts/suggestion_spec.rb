@@ -28,6 +28,27 @@ module Decidim
           expect(collaborative_text_suggestion.document.suggestions_count).to eq(2)
         end
       end
+
+      describe "#commentable?" do
+        subject { collaborative_text_suggestion.commentable? }
+
+        context "when the document is published" do
+          let(:document) { create(:collaborative_text_document, :published) }
+          let(:document_version) { create(:collaborative_text_version, document:) }
+
+          it { is_expected.to be true }
+
+          it "can have comments" do
+            suggestion = create(:collaborative_text_suggestion, document_version:)
+
+            expect { create(:comment, commentable: suggestion) }.to change { suggestion.reload.comments_count }.by(1)
+          end
+        end
+
+        context "when the document is not published" do
+          it { is_expected.to be false }
+        end
+      end
     end
   end
 end
