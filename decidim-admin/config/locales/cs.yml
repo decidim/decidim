@@ -332,9 +332,7 @@ cs:
           title: Upravit komponentu
           update: Aktualizace
         form:
-          default_step_settings: Výchozí nastavení kroku
           global_settings: Globální nastavení
-          step_settings: Nastavení kroku
         hide:
           success: Komponenta byla úspěšně skryta z menu.
         index:
