@@ -164,7 +164,6 @@ sv:
         settings:
           global:
             amendments_enabled: Aktivera ändringsförslag
-            amendments_enabled_help: Aktivera för kunna konfigurera ändringsförslag för varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
@@ -219,7 +218,7 @@ sv:
             taxonomy_filters_add: Lägg till filter
             threshold_per_proposal: Antal röster ett förslag behöver få för att gå vidare
             vote_limit: Max antal röster per deltagare
-          step:
+          phase:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
             amendment_promotion_enabled: Annonsering av ändringar är aktiverat
@@ -231,25 +230,12 @@ sv:
               all: Ändringsförslag är synliga för alla
               participants: Ändringsförslag är endast synliga för författarna
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
-            announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
             comments_blocked: Stäng av kommentarer
             creation_enabled: Deltagare kan skapa förslag
             creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
-            default_sort_order: Förvald sortering
-            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
-            default_sort_order_options:
-              automatic: Automatisk
-              most_commented: Flest kommentarer
-              most_followed: Flest följare
-              most_liked: Mest gillade
-              most_voted: Flest röster
-              random: Slumpvis
-              recent: Senaste
-              with_more_authors: Med flera författare
             likes_blocked: Stäng av gilla-markeringar
             likes_enabled: Aktivera gilla-markeringar
-            proposal_answering_enabled: Aktivera svar på förslag
             publish_answers_immediately: Publicera svar på förslag omedelbart
             publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             votes_blocked: Stäng av röstning
