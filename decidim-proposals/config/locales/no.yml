@@ -90,7 +90,6 @@
         settings:
           global:
             amendments_enabled: Endringer aktivert
-            amendments_enabled_help: Hvis aktiv, konfigurer du endringsfunksjoner for hvert trinn.
             amendments_wizard_help_text: Endrings Veiviser hjelpetekst
             announcement: Kunngjøring
             attachments_allowed: Tillat vedlegg
@@ -119,7 +118,7 @@
             proposal_wizard_step_1_help_text: Forslags veiviseren "Opprett" trinn-hjelpeteksten
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert forslag
             threshold_per_proposal: Terskel per forslag
-          step:
+          phase:
             amendment_creation_enabled: Oppretting av endringer aktivert
             amendment_creation_enabled_help: Deltakeren kan endre forslag.
             amendment_promotion_enabled: Forfremmelse av endringer aktivert
@@ -131,18 +130,9 @@
               all: Endringer er synlig for alle
               participants: Endringen er bare synlig for forfatteren
             amendments_visibility_help: Hvis alternativet "Endringer er bare synlige for forfatterne" er valgt, må deltaker være logget inn for å se endringene som er gjort.
-            announcement: Kunngjøring
             answers_with_costs: Aktiver kostnader på forslag til svar
             comments_blocked: Kommentarer blokkert
             creation_enabled: Deltakerne kan opprette forslag
-            default_sort_order: Standard sortering av forslag
-            default_sort_order_options:
-              most_commented: Mest kommentert
-              most_followed: Mest fulgt
-              random: Tilfeldig
-              recent: Nylig
-              with_more_authors: Med flere forfattere
-            proposal_answering_enabled: Forslags besvaring aktivert
             publish_answers_immediately: Publiser svar på forslag umiddelbart
     events:
       proposals:
