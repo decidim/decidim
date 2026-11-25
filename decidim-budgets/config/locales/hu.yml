@@ -272,15 +272,11 @@ hu:
             workflow_choices:
               all: 'Szavazás mindenütt: lehetővé teszi a résztvevők számára, hogy minden költségvetésben szavazzanak.'
               one: 'Szavazás egyben: lehetővé teszi a résztvevőknek, hogy bármely költségvetésben szavazzanak, de csak egy kiválasztottban.'
-          step:
-            announcement: Közlemény
+          phase:
             comments_blocked: Megjegyzések letiltva
             highlighted_heading: Kiemelt fejléc
-            landing_page_content: A költségvetések kezdőlapja
             list_heading: Listafejléc
-            more_information_modal: További információ modális ablak
             show_votes: Szavazatok megjelenítése
-            title: Cím
             votes: Szavazás
             votes_choices:
               disabled: Szavazás letiltva
