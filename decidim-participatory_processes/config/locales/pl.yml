@@ -41,14 +41,9 @@ pl:
         participatory_structure: Jak decydowano
         target: Kto uczestniczy
         title: Tytuł
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Ścieżka przycisku CTA
         cta_text: Tekst przycisku CTA
-        description: Opis
-        end_date: Data zakończenia
-        short_description: Krótki opis
-        start_date: Data rozpoczęcia
-        title: Tytuł
       participatory_process_user_role:
         email: Adres e-mail
         name: Imię
@@ -60,8 +55,8 @@ pl:
             document:
               allowed_file_content_types: 'Nieprawidłowy typ dokumentu. Dozwolone są tylko pliki z następującymi rozszerzeniami: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Aktualny etap
-      decidim/participatory_process_step_changed_event: Zmieniono etap
+      decidim/participatory_process_phase_activated_event: Aktualny etap
+      decidim/participatory_process_phase_changed_event: Zmieniono etap
   activerecord:
     models:
       decidim/participatory_process:
@@ -74,7 +69,7 @@ pl:
         few: Grupy procesu partycypacyjnego
         many: Grup procesu partycypacyjnego
         other: Grup procesu partycypacyjnego
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Etap
         few: Etapów
         many: Etapy
@@ -90,7 +85,7 @@ pl:
         import_process: Importuj
         new_process: Nowy proces
         new_process_group: Nowa grupa procesu
-        new_process_step: Nowy etap
+        new_process_phase: Nowy etap
         new_process_user_role: Nowy administrator procesu
         preview: Podgląd
         publish: Publikuj
@@ -109,8 +104,8 @@ pl:
           attachments: Załączniki
           components: Komponenty
           moderations: Moderacje
+          phases: Etapy
           process_admins: Użytkownicy procesu
-          steps: Etapy
       models:
         participatory_process:
           fields:
@@ -123,11 +118,7 @@ pl:
           fields:
             title: Tytuł
           name: Grupa procesu
-        participatory_process_step:
-          fields:
-            end_date: Data zakończenia
-            start_date: Data rozpoczęcia
-            title: Tytuł
+        participatory_process_phase:
           name: Etap procesu partycypacyjnego
         participatory_process_user_role:
           fields:
@@ -160,6 +151,24 @@ pl:
         new:
           import: Importuj
           select: Wybierz dane, które chcesz zaimportować
+      participatory_process_phase_activations:
+        create:
+          error: Podczas aktywowania tego etapu procesu partycypacyjnego wystąpił błąd.
+          success: Etap procesu partycypacyjnego został aktywowany.
+      participatory_process_phases:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego etapu procesu partycypacyjnego.
+          success: Utworzono etap procesu partycypacyjnego.
+        default_title: Wprowadzenie
+        destroy:
+          error:
+            active_phase: Nie można usunąć aktywnego etapu.
+            last_phase: Nie można usunąć ostatniego etapu procesu.
+          success: Etap procesu partycypacyjnego został usunięty.
+        ordering:
+          error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
+        update:
+          error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
       participatory_process_publications:
         create:
           error: Wystąpił błąd podczas publikowania tego procesu partycypacyjnego.
@@ -167,28 +176,6 @@ pl:
         destroy:
           error: Wystąpił błąd podczas cofania publikacji tego procesu partycypacyjnego.
           success: Publikacja procesu partycypacyjnego został cofnięta.
-      participatory_process_step_activations:
-        create:
-          error: Podczas aktywowania tego etapu procesu partycypacyjnego wystąpił błąd.
-          success: Etap procesu partycypacyjnego został aktywowany.
-      participatory_process_steps:
-        create:
-          error: Wystąpił błąd podczas tworzenia nowego etapu procesu partycypacyjnego.
-          success: Utworzono etap procesu partycypacyjnego.
-        default_title: Wprowadzenie
-        destroy:
-          error:
-            active_step: Nie można usunąć aktywnego etapu.
-            last_step: Nie można usunąć ostatniego etapu procesu.
-          success: Etap procesu partycypacyjnego został usunięty.
-        edit:
-          update: Aktualizuj
-        new:
-          create: Utwórz
-        ordering:
-          error: Wystąpił błąd podczas zmiany kolejności etapów procesu partycypacyjnego.
-        update:
-          error: Podczas aktualizowania etapu procesu partycypacyjnego wystąpił błąd.
       participatory_process_user_roles:
         create:
           error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
@@ -236,7 +223,7 @@ pl:
       participatory_process_group:
         create: "%{user_name} utworzył(a) grupę procesu partycypacyjnego %{resource_name}"
         update: "%{user_name} zaktualizował(a) grupę procesu partycypacyjnego %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} aktywował(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
         create: "%{user_name} utworzył(a) etap %{resource_name} w procesie partycypacyjnym %{space_name}"
         delete: "%{user_name} usunął/usunęła etap %{resource_name} z procesu partycypacyjnego %{space_name}"
@@ -247,21 +234,21 @@ pl:
         update: "%{user_name} zmienił(a) rolę użytkownika %{resource_name} w procesie partycypacyjnym %{space_name}"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'Etap %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Aktualizacja w %{participatory_space_title}
+          notification_title: Etap %{resource_title} jest teraz aktywny w <a href="%{resource_path}">%{participatory_space_title}</a>
+        phase_changed:
+          email_intro: 'Daty dla etapu %{resource_title} w %{participatory_space_title} zostały zaktualizowane. Możesz zobaczyć zmianę na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
+          email_subject: Aktualizacja w %{participatory_space_title}
+          notification_title: Zmieniono daty etapu <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         role_assigned:
           email_intro: Przypisano Ci rolę %{role} w procesie partycypacyjnym „%{resource_title}”.
           email_outro: 'Otrzymujesz to powiadomienie, ponieważ otrzymałeś rolę: %{role} w procesie partycypacyjnym „%{resource_title}”.'
           email_subject: Przypisano Ci rolę %{role} w „%{resource_title}”.
           notification_title: Przypisano Ci rolę %{role} w procesie partycypacyjnym <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: 'Etap %{resource_title} jest teraz aktywny w %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Aktualizacja w %{participatory_space_title}
-          notification_title: Etap %{resource_title} jest teraz aktywny w <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
-          email_intro: 'Daty dla etapu %{resource_title} w %{participatory_space_title} zostały zaktualizowane. Możesz zobaczyć zmianę na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po kliknięciu w poprzedni link.
-          email_subject: Aktualizacja w %{participatory_space_title}
-          notification_title: Zmieniono daty etapu <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     help:
       participatory_spaces:
         participatory_processes:
@@ -302,9 +289,9 @@ pl:
             other: "%{count} procesy"
       show:
         title: Uczestniczące grupy procesów
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Etapy procesu
+        process_phases: Etapy procesu
     participatory_processes:
       admin:
         content_blocks:
@@ -341,6 +328,9 @@ pl:
           form:
             document_legend: Dodaj dokument
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
+        participatory_process_phases:
+          index:
+            title: Etapy
         participatory_processes:
           form:
             duration: Czas trwania
@@ -432,7 +422,7 @@ pl:
         index:
           promoted_processes: Wyróżnione procesy
         participatory_process:
-          active_step: 'Aktualny etap:'
+          active_phase: 'Aktualny etap:'
           more_info: Więcej informacji
           more_info_about: Więcej informacji o procesie %{resource_name}
           take_part: Weź udział
