@@ -14,8 +14,6 @@ pt:
         settings:
           global:
             announcement: Anúncio
-          step:
-            announcement: Anúncio
     open_data:
       help:
         pages:
