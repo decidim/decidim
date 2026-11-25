@@ -124,8 +124,7 @@ ca:
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
-          step:
-            announcement: Avís
+          phase:
             comments_blocked: Comentaris bloquejats
             likes_blocked: '"M''agrada" desactivats'
             likes_enabled: '"M''agrada" activats'
