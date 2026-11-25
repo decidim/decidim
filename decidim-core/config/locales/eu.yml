@@ -560,15 +560,15 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             resources_permissions_enabled: Baliabideen baimenak gaituta
             taxonomy_filters: Osagairako iragazkiak hautatu
-          step:
+          phase:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
             amendment_reaction_enabled: Zuzenketaren erreakzioa aktibatuta
             amendments_visibility: Zuzenketaren ikusgarritasuna
             comments_blocked: Iruzkinak blokeatuta
-            dummy_step_attribute1: Proba-fasearen 1 atributua
-            dummy_step_attribute2: Proba-fasearen 2 atributua
-            dummy_step_translatable_text: Frogazko fasearen testua
+            dummy_phase_attribute1: Proba-fasearen 1 atributua
+            dummy_phase_attribute2: Proba-fasearen 2 atributua
+            dummy_phase_translatable_text: Frogazko fasearen testua
       pagination:
         page_title: "%{component_name} - %{total_pages} tik %{current_page} orrialde"
     contact: Harremanetarako
