@@ -162,9 +162,9 @@ ar:
             creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
             default_sort_order: التصنيف الافتراضي للاقتراح
             default_sort_order_options:
-              most_commented: صاحبة الأكثر تعليقات
-              most_followed: صاحبة أكثر متابعات
-              random: عشوائي
+              most_commented: الأكثر تعليقًا عليها
+              most_followed: الأكثر متابَعة
+              random: عشوائية
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
