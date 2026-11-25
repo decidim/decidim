@@ -75,8 +75,7 @@ bg:
           global:
             announcement: Обявление
             comments_enabled: Коментарите са разрешени
-          step:
-            announcement: Обявление
+          phase:
             comments_blocked: Коментарите са блокирани
     events:
       blogs:
