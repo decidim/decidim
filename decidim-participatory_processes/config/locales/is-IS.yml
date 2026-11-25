@@ -21,12 +21,6 @@ is-IS:
         description: Lýsing
         hero_image: Mynd
         participatory_process_ids: Tengd ferli
-      participatory_process_step:
-        description: Lýsing
-        end_date: Loka dagsetning
-        short_description: Stutt lýsing
-        start_date: Upphafsdagur
-        title: Titill
       participatory_process_user_role:
         email: Email
         name: Nafn
@@ -58,11 +52,6 @@ is-IS:
           name: Þátttökuferli
         participatory_process_group:
           name: Vinnuhópur
-        participatory_process_step:
-          fields:
-            end_date: Loka dagsetning
-            start_date: Upphafsdagur
-            title: Titill
         participatory_process_user_role:
           fields:
             email: Email
@@ -81,12 +70,8 @@ is-IS:
           update: Uppfæra
         new:
           create: Búa til
-      participatory_process_steps:
+      participatory_process_phases:
         default_title: Kynning
-        edit:
-          update: Uppfæra
-        new:
-          create: Búa til
       participatory_process_user_roles:
         edit:
           update: Uppfæra
@@ -107,10 +92,10 @@ is-IS:
         update: "%{user_name} uppfært %{resource_name} þátttökuferlið"
     events:
       participatory_process:
-        step_activated:
+        phase_activated:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Uppfærsla á %{participatory_space_title}
-        step_changed:
+        phase_changed:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
           email_subject: Uppfærsla á %{participatory_space_title}
     menu:
