@@ -35,14 +35,9 @@ sk:
               bar: Stĺpec
               baz: Baz
               foo: Test
-          step:
+          phase:
             likes_blocked: Lajky zablokované
             likes_enabled: Lajky povolené
-            readonly_step_attribute: Atribút kroku iba na čítanie
-            test_options:
-              bar: Stĺpec
-              baz: Baz
-              foo: Test
     dummy:
       admin:
         exports:
