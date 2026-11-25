@@ -36,21 +36,16 @@ tr:
         participatory_structure: Nasıl karar verilir
         target: Katılanlar
         title: Başlık
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Eylem yolunu çağır
         cta_text: Harekete Geçirici Mesaj metni
-        description: Açıklama
-        end_date: Bitiş tarihi
-        short_description: Kısa Açıklama
-        start_date: Başlangıç tarihi
-        title: Başlık
       participatory_process_user_role:
         email: E-posta
         name: isim
         role: rol
     models:
-      decidim/participatory_process_step_activated_event: Adım aktif
-      decidim/participatory_process_step_changed_event: Adım değişti
+      decidim/participatory_process_phase_activated_event: Adım aktif
+      decidim/participatory_process_phase_changed_event: Adım değişti
   activerecord:
     models:
       decidim/participatory_process:
@@ -59,7 +54,7 @@ tr:
       decidim/participatory_process_group:
         one: Katılımcı süreç grubu
         other: Katılımcı süreç grupları
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Adım
         other: adımlar
   decidim:
@@ -73,7 +68,7 @@ tr:
         import_process: İçe aktar
         new_process: Yeni süreç
         new_process_group: Yeni işlem grubu
-        new_process_step: Yeni adım
+        new_process_phase: Yeni adım
         new_process_user_role: Yeni işlem kullanıcısı
         preview: Ön izleme
         publish: Yayınla
@@ -89,8 +84,8 @@ tr:
           attachments: Ekler
           components: Bileşenler
           moderations: Denetimler
+          phases: adımlar
           process_admins: İşlemi gerçekleştiren kullanıcılar
-          steps: adımlar
       models:
         participatory_process:
           fields:
@@ -103,11 +98,7 @@ tr:
           fields:
             title: Başlık
           name: İşlem grubu
-        participatory_process_step:
-          fields:
-            end_date: Bitiş tarihi
-            start_date: Başlangıç tarihi
-            title: Başlık
+        participatory_process_phase:
           name: Katılımcı süreç adımı
         participatory_process_user_role:
           fields:
@@ -140,6 +131,21 @@ tr:
         new:
           import: İçe aktar
           select: Hangi verileri içe aktarmak istediğinizi seçin
+      participatory_process_phase_activations:
+        create:
+          error: Bu katılımcı süreç adımı etkinleştirilirken bir hata oluştu.
+          success: Katılımcı süreç adımı başarıyla etkinleştirildi.
+      participatory_process_phases:
+        create:
+          error: Yeni bir katılımcı süreç adımı oluştururken bir hata oluştu.
+          success: Katılımcı süreç adımı başarıyla oluşturuldu.
+        default_title: Giriş
+        destroy:
+          success: Katılımcı süreç adımı başarıyla silindi.
+        ordering:
+          error: Bu katılımcı süreç adımlarını yeniden sıralarken bir hata oluştu.
+        update:
+          error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
       participatory_process_publications:
         create:
           error: Bu katılımcı süreci yayınlayan bir hata oluştu.
@@ -147,25 +153,6 @@ tr:
         destroy:
           error: Bu katılımcı süreci yayından kaldırmada bir hata oluştu.
           success: Katılımcı süreç başarıyla yayından kaldırıldı.
-      participatory_process_step_activations:
-        create:
-          error: Bu katılımcı süreç adımı etkinleştirilirken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla etkinleştirildi.
-      participatory_process_steps:
-        create:
-          error: Yeni bir katılımcı süreç adımı oluştururken bir hata oluştu.
-          success: Katılımcı süreç adımı başarıyla oluşturuldu.
-        default_title: Giriş
-        destroy:
-          success: Katılımcı süreç adımı başarıyla silindi.
-        edit:
-          update: Güncelleştirme
-        new:
-          create: yaratmak
-        ordering:
-          error: Bu katılımcı süreç adımlarını yeniden sıralarken bir hata oluştu.
-        update:
-          error: Bu katılımcı süreç adımı güncellenirken bir hata oluştu.
       participatory_process_user_roles:
         create:
           error: Bu katılımcı süreç için bir kullanıcı eklenirken bir hata oluştu.
@@ -210,7 +197,7 @@ tr:
       participatory_process_group:
         create: "%{user_name}, %{resource_name} katılımcı süreç grubunu oluşturdu"
         update: "%{user_name}, %{resource_name} katılımcı süreç grubunu güncelledi"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı aktifleştirdi"
         create: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı oluşturdu"
         delete: "%{user_name} , %{space_name} katılımcı süreçte %{resource_name} adımı sildi"
@@ -221,21 +208,21 @@ tr:
         update: "%{user_name} , %{space_name} katılımcı sürecindeki kullanıcı %{resource_name} rolünü değiştirdi"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: '%{resource_title} adım şimdi %{participatory_space_title}için aktif. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title}bir güncelleme'
+          notification_title: '%{resource_title} adım şimdi <a href="%{resource_path}">%{participatory_space_title}</a>için aktif'
+        phase_changed:
+          email_intro: '%{participatory_space_title} %{resource_title} adımın tarihleri güncellendi. Bu sayfadan görebilirsiniz:'
+          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
+          email_subject: '%{participatory_space_title}bir güncelleme'
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> de <a href="%{resource_path}">%{resource_title}</a> adım için tarihler güncellendi.
         role_assigned:
           email_intro: Katılımcı "%{resource_title}" süreci için %{role} olarak atandınız.
           email_outro: Bu bildirimi, "%{resource_title}" katılım sürecinden %{role} olduğunuz için aldınız.
           email_subject: '"%{resource_title}" için %{role} olarak atandınız.'
           notification_title: Katılımcı süreç <a href="%{resource_url}">%{resource_title} </a> için %{role} olarak atandınız.
-        step_activated:
-          email_intro: '%{resource_title} adım şimdi %{participatory_space_title}için aktif. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}bir güncelleme'
-          notification_title: '%{resource_title} adım şimdi <a href="%{resource_path}">%{participatory_space_title}</a>için aktif'
-        step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} adımın tarihleri güncellendi. Bu sayfadan görebilirsiniz:'
-          email_outro: Bu bildirimi, %{participatory_space_title}izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
-          email_subject: '%{participatory_space_title}bir güncelleme'
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> de <a href="%{resource_path}">%{resource_title}</a> adım için tarihler güncellendi.
     help:
       participatory_spaces:
         participatory_processes:
@@ -263,9 +250,9 @@ tr:
             other: "%{count} süreç"
       show:
         title: Katılımcı süreç grupları
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Süreç adımları
+        process_phases: Süreç adımları
     participatory_processes:
       admin:
         content_blocks:
@@ -282,6 +269,9 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
+        participatory_process_phases:
+          index:
+            title: adımlar
         participatory_processes:
           form:
             duration: süre
@@ -332,7 +322,7 @@ tr:
         index:
           promoted_processes: Vurgulanan süreçler
         participatory_process:
-          active_step: 'Mevcut adım:'
+          active_phase: 'Mevcut adım:'
           more_info: Daha fazla bilgi
           more_info_about: '%{resource_name} hakkında daha fazla bilgi'
           take_part: Yer almak
