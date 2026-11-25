@@ -292,6 +292,9 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
+        participatory_process_steps:
+          index:
+            title: 分類
         participatory_processes:
           form:
             duration: 持續時間
