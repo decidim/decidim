@@ -109,7 +109,7 @@ bs:
             comments_enabled: Komentari su omogućeni
             display_progress_enabled: Prikaži napredak
             intro: Uvod
-          step:
+          phase:
             comments_blocked: Komentari su onemogućeni
     events:
       accountability:
