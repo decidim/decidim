@@ -31,8 +31,6 @@ ja:
         settings:
           global:
             announcement: お知らせ
-          step:
-            announcement: お知らせ
     elections:
       actions:
         confirm_delete_election: この選挙を削除してもよろしいですか？
