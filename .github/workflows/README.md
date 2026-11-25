@@ -14,6 +14,10 @@ We use GitHub Actions as CI with two key optimizations: **workflow splitting** a
 
 Large test suites are split into [parallel workflows](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) to reduce execution time:
 
+### Dependency Caching
+
+`test_app.yml` caches the pinned Chrome `.deb` (keyed by `chrome_version`) and installs the system libraries (`libvips`, `libvips-tools`, `libu2f-udev`) with `awalsh128/cache-apt-pkgs-action`. On a cache hit the Chrome download and the `apt-get` install are skipped; the cached `.deb` is still installed locally with `dpkg` because runners start clean.
+
 ## Core Workflows
 
 - `lint_code.yml`: Lints Ruby, JS, and ERB files

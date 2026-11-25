@@ -112,13 +112,26 @@ jobs:
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
         shell: "bash"
-      - name: Install dependencies
+      - name: Install apt packages (restored from cache when available)
+        uses: awalsh128/cache-apt-pkgs-action@v2
+        with:
+          packages: libvips libvips-tools libu2f-udev
+          version: "1.0"
+      - name: Restore cached Chrome ${{ inputs.chrome_version }} .deb
+        id: chrome-deb-cache
+        uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}/chrome-deb
+          key: chrome-deb-${{ runner.os }}-${{ runner.arch }}-${{ inputs.chrome_version }}
+      - name: Download Chrome ${{ inputs.chrome_version }} .deb (cache miss)
+        if: steps.chrome-deb-cache.outputs.cache-hit != 'true'
         run: |
-          sudo apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libu2f-udev libvips libvips-tools
-          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
-          sudo DEBIAN_FRONTEND=noninteractive dpkg -i /tmp/chrome.deb
-          rm /tmp/chrome.deb
+          mkdir -p "${RUNNER_TEMP}/chrome-deb"
+          wget --no-verbose -O "${RUNNER_TEMP}/chrome-deb/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb" https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
+        shell: "bash"
+      # Runners are ephemeral, so a cached .deb still needs to be (re)installed, but no download is needed.
+      - name: Install Chrome ${{ inputs.chrome_version }} ${{ steps.chrome-deb-cache.outputs.cache-hit == 'true' && 'from cache' || 'from download' }}
+        run: sudo DEBIAN_FRONTEND=noninteractive dpkg -i "${RUNNER_TEMP}/chrome-deb/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb"
         shell: "bash"
       - uses: nanasess/setup-chromedriver@v3
         with:
