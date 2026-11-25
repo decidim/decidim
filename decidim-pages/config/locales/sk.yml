@@ -16,8 +16,6 @@ sk:
         settings:
           global:
             announcement: Oznámenie
-          step:
-            announcement: Oznámenie
     open_data:
       help:
         pages:
