@@ -59,7 +59,10 @@ uk:
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
-            proposal_answering_enabled: Відповіді на пропозиції увімкнено
+            default_sort_order_options:
+              random: Довільно
+              recent: Нещодавні
+            proposal_answering_enabled: Увімкнено відповіді на пропозиції
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування увімкнене
             votes_hidden: Голоси приховані (якщо голосування увімкнене, то буде сховано кількість голосів)
