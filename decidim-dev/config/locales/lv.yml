@@ -20,8 +20,6 @@ lv:
               a: A izvēle
               b: B izvēle
               c: C izvēle
-          step:
-            readonly_step_attribute: Tikai lasāms soļa atribūts
     dummy:
       admin:
         exports:
