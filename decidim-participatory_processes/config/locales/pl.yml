@@ -126,6 +126,7 @@ pl:
           name: Grupa procesu
         participatory_process_step:
           fields:
+            actions: Działania
             end_date: Data zakończenia
             start_date: Data rozpoczęcia
             title: Tytuł
@@ -342,6 +343,9 @@ pl:
           form:
             document_legend: Dodaj dokument
             slug_help_html: 'Slugi URL wykorzystuje się do generowania adresów URL odsyłających do tego procesu. Można używać jedynie liter, cyfr i łączników, przy czym należy rozpocząć od litery. Przykład: %{url}'
+        participatory_process_steps:
+          index:
+            title: Etapy
         participatory_processes:
           form:
             duration: Czas trwania
