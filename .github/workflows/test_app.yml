@@ -14,6 +14,11 @@ on:
       working-directory:
         required: true
         type: string
+      shard:
+        description: 'Shard name for the parallel test runtime log (empty disables runtime caching)'
+        required: false
+        default: 'default'
+        type: string
       test_command:
         description: 'The testing command to be ran'
         required: true
@@ -136,6 +141,14 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
         shell: "bash"
+      - name: Restore parallel test runtimes
+        if: inputs.shard != ''
+        uses: actions/cache@v6
+        with:
+          path: ${{ inputs.working-directory }}/tmp/parallel_runtime_${{ inputs.shard }}.log
+          key: parallel-runtime-${{ inputs.working-directory }}-${{ inputs.shard }}-${{ github.head_ref || github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            parallel-runtime-${{ inputs.working-directory }}-${{ inputs.shard }}-${{ github.head_ref || github.ref_name }}-
       - run: |
           bundle install
           bundle exec rake parallel:create parallel:load_schema

@@ -32,6 +32,14 @@ Modules with large test suites are split across multiple workflows:
 - Proposals: `ci_proposals_system_admin.yml`, `ci_proposals_system_public.yml`, `ci_proposals_unit_tests.yml`
 - Similar patterns for other large modules
 
+### Runtime-Balanced Tests
+
+Every parallel test shard records per-file runtimes with `ParallelTests::RSpec::RuntimeLogger` into `tmp/parallel_runtime_<shard>.log`. The log is cached per module and shard, restored from the current branch, and read back with `--runtime-log`.
+
+Grouping uses parallel_tests' default behavior: recorded runtimes when the log has enough data, filesize otherwise. A missing or stale cache therefore never blocks a run.
+
+Note: with parallel_tests 5.9.x, do not pass the literal `--group-by default` value; it raises an unsupported option error. Omitting `--group-by` already selects this fallback behavior.
+
 ## Performance Monitoring
 
 - `ci_performance_metrics_monitoring.yml`: Lighthouse CI with budgets:

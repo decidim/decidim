@@ -37,24 +37,33 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/branch_flag_spec.rb
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_branch_flag.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_branch_flag.log' --pattern spec/runtime/branch_flag_spec.rb
             name: BranchFlag
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/component_generator_spec.rb
+            shard: "branch_flag"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_component_generator.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_component_generator.log' --pattern spec/runtime/component_generator_spec.rb
             name: ComponentGenerator
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/edge_flag_spec.rb
+            shard: "component_generator"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_edge_flag.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_edge_flag.log' --pattern spec/runtime/edge_flag_spec.rb
             name: EdgeFlag
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/no_flags_spec.rb
+            shard: "edge_flag"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_no_flags.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_no_flags.log' --pattern spec/runtime/no_flags_spec.rb
             name: NoFlags
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/path_flag_spec.rb
+            shard: "no_flags"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_path_flag.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_path_flag.log' --pattern spec/runtime/path_flag_spec.rb
             name: PathFlag
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/queue_flag_spec.rb
+            shard: "path_flag"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_queue_flag.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_queue_flag.log' --pattern spec/runtime/queue_flag_spec.rb
             name: QueueFlag
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/storage_flag_spec.rb
+            shard: "queue_flag"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_storage_flag.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_storage_flag.log' --pattern spec/runtime/storage_flag_spec.rb
             name: StorageFlag
-          - command: bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
+            shard: "storage_flag"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_full_app_generator.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_full_app_generator.log' --pattern spec/runtime/full_app_generator_spec.rb
             name: FullAppGenerator
-          - command: bundle exec parallel_test --type rspec --pattern spec/lib/
+            shard: "full_app_generator"
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_lib.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_lib.log' --pattern spec/lib/
             name: Lib
+            shard: "lib"
     name: ${{ matrix.test.name }}
     runs-on: ubuntu-24.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
@@ -117,6 +126,13 @@ jobs:
       - run: bundle install --jobs 4 --retry 3
         name: Install Ruby deps
         working-directory: ${{ env.DECIDIM_MODULE }}
+      - name: Restore parallel test runtimes
+        uses: actions/cache@v6
+        with:
+          path: ${{ env.DECIDIM_MODULE }}/tmp/parallel_runtime_${{ matrix.test.shard }}.log
+          key: parallel-runtime-${{ env.DECIDIM_MODULE }}-${{ matrix.test.shard }}-${{ github.head_ref || github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            parallel-runtime-${{ env.DECIDIM_MODULE }}-${{ matrix.test.shard }}-${{ github.head_ref || github.ref_name }}-
       - run: ${{ matrix.test.command }}
         name: ${{ matrix.test.name }}
         working-directory: ${{ env.DECIDIM_MODULE }}
