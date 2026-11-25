@@ -61,8 +61,8 @@ describe "Explore posts" do
           visit_component
         end
 
-        it "lists 25 resources per page by default" do
-          expect(page).to have_css("#blogs > a", count: 25)
+        it "lists 20 resources per page by default" do
+          expect(page).to have_css("#blogs > a", count: 20)
           expect(page).to have_css("[data-pages] [data-page]", count: 2)
         end
       end

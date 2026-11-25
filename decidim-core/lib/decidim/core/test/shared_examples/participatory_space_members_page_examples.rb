@@ -52,10 +52,10 @@ shared_examples "participatory space members page examples" do
       end
 
       context "with default pagination" do
-        it "returns first page with 25 members" do
+        it "returns first page with 20 members" do
           get :index, params: { slug_param => slug, :locale => I18n.locale }
 
-          expect(assigns(:members).count).to eq(25)
+          expect(assigns(:members).count).to eq(20)
           expect(assigns(:members).current_page).to eq(1)
           expect(assigns(:members).total_count).to eq(30)
         end
@@ -65,7 +65,7 @@ shared_examples "participatory space members page examples" do
         it "returns second page with remaining members" do
           get :index, params: { slug_param => slug, :locale => I18n.locale, :page => 2 }
 
-          expect(assigns(:members).count).to eq(5)
+          expect(assigns(:members).count).to eq(10)
           expect(assigns(:members).current_page).to eq(2)
           expect(assigns(:members).total_count).to eq(30)
         end
@@ -89,11 +89,11 @@ shared_examples "participatory space members page examples" do
           expect(assigns(:members).total_count).to eq(30)
         end
 
-        it "returns first 25 members when per_page is 25" do
-          get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 25 }
+        it "returns first 20 members when per_page is 20" do
+          get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 20 }
 
-          expect(assigns(:members).count).to eq(25)
-          expect(assigns(:members).limit_value).to eq(25)
+          expect(assigns(:members).count).to eq(20)
+          expect(assigns(:members).limit_value).to eq(20)
         end
 
         it "limits per_page to maximum allowed value" do
@@ -105,7 +105,7 @@ shared_examples "participatory space members page examples" do
         it "limit per_page to minimum allowed value" do
           get :index, params: { slug_param => slug, :locale => I18n.locale, :per_page => 5 }
 
-          expect(assigns(:members).limit_value).to eq(25)
+          expect(assigns(:members).limit_value).to eq(20)
         end
       end
 
