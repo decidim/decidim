@@ -45,7 +45,6 @@ module Decidim
         validate_multiple_locales(attributes, :description)
 
         attributes = attributes.to_h.reverse_merge(
-          weight: object.weight,
           total_budget: object.total_budget,
           decidim_scope_id: object.scope&.id
         )

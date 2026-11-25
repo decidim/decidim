@@ -10,8 +10,8 @@ module Decidim::Budgets
     let(:current_workflow) { Workflows::All.new(component, user) }
     let!(:budgets) do
       [
-        create(:budget, component:, weight: 0, total_budget: 20_000, title: Decidim::Faker::Localized.localized { "Higher cost" }),
-        create(:budget, component:, weight: 1, total_budget: 10_000, title: Decidim::Faker::Localized.localized { "Lower cost" })
+        create(:budget, component:, total_budget: 20_000, title: Decidim::Faker::Localized.localized { "Higher cost" }),
+        create(:budget, component:, total_budget: 10_000, title: Decidim::Faker::Localized.localized { "Lower cost" })
       ]
     end
     let(:component) { create(:budgets_component) }

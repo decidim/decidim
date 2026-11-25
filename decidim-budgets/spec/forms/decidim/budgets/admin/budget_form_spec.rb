@@ -16,14 +16,12 @@ describe Decidim::Budgets::Admin::BudgetForm do
   let(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
   let(:title) { Decidim::Faker::Localized.sentence(word_count: 3) }
   let(:description) { Decidim::Faker::Localized.sentence(word_count: 3) }
-  let(:weight) { 1 }
   let(:total_budget) { 100_000_000 }
 
   let(:attributes) do
     {
       title:,
       description:,
-      weight:,
       total_budget:
     }
   end
@@ -32,12 +30,6 @@ describe Decidim::Budgets::Admin::BudgetForm do
 
   describe "when title is missing" do
     let(:title) { { ca: nil, es: nil } }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when weight is missing" do
-    let(:weight) { nil }
 
     it { is_expected.not_to be_valid }
   end

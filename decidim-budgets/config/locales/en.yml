@@ -6,7 +6,6 @@ en:
         description: Description
         title: Title
         total_budget: Total budget
-        weight: Order position
       pabulib_rules:
         equalshares:
           help: Method of Equal Shares (MES) without completion. In MES, each voter starts with an equal virtual share of the budget, and a project is selected when its supporters can jointly afford it.

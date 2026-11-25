@@ -38,7 +38,7 @@ module Decidim
       attr_reader :components
 
       def budgets
-        @budgets ||= Decidim::Budgets::Budget.where(component: components).order(weight: :asc)
+        @budgets ||= Decidim::Budgets::Budget.where(component: components).order(id: :asc)
       end
     end
   end

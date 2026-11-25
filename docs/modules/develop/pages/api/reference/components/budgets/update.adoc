@@ -9,7 +9,6 @@ When you want to update data in your budget component, you need to rely on the `
 • title                 (Optional) - JSON
 • description           (Optional) - JSON
 • total_budget          (Optional) - Integer
-• weight                (Optional) - Integer
 ----
 
 == Sample request
