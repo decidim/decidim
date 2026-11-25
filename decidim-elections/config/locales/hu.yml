@@ -17,8 +17,6 @@ hu:
         settings:
           global:
             announcement: Közlemény
-          step:
-            announcement: Közlemény
     elections:
       actions:
         preview: Előnézet
