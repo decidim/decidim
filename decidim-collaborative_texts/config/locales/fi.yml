@@ -119,14 +119,12 @@ fi:
           draft: Tämä teksti on parhaillaan hallintakäyttäjien arvioitavana parhaillaan. Ehdotuksia ei sallita arvioinnin aikana, mutta voit tarkastella muiden osallistujien tekemiä muutosehdotuksia.
           not_accepting_suggestions: Muutosehdotuksia ei oteta vastaan tällä hetkellä.
           selection_active: Valinta on jo tehty. Paina peruuta nykyisestä valinnastasi, mikäli haluat tehdä uuden valinnan.
-        suggestions_count: "%{count} muutosehdotusta"
         toggle: Näytä/piilota muutosehdotukset
       documents:
         index:
           count:
             one: "%{count} yhteistyöteksti"
             other: "%{count} yhteistyötekstiä"
-          empty: Yhteistyötekstejä ei ole vielä luotu.
         show:
           contributors: Osallistujat
       models:
@@ -157,8 +155,6 @@ fi:
           global:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-          step:
-            announcement: Ilmoitus
     statistics:
       all_collaborative_texts_count: Kaikki yhteistyötekstit
       collaborative_texts_count: Yhteistyötekstit
