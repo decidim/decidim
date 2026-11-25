@@ -491,15 +491,11 @@ fi:
             workflow_choices:
               all: 'Äänestä kaikissa: sallii osallistujien äänestää kaikissa budjeteissa.'
               one: 'Äänestä yhdessä: sallii osallistujien äänestää missä tahansa budjetissa, mutta vain yhdessä.'
-          step:
-            announcement: Ilmoitus
+          phase:
             comments_blocked: Kommentointi estetty
             highlighted_heading: Korostuksen otsikko
-            landing_page_content: Budjetoinnin aloitussivun teksti
             list_heading: Listan otsikko
-            more_information_modal: Lisätietoikkunan teksti
             show_votes: Näytä äänet
-            title: Otsikko
             votes: Äänestys
             votes_choices:
               disabled: Äänestys estetty
