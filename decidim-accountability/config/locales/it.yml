@@ -288,7 +288,7 @@ it:
             no_taxonomy_filters_found: Nessun filtro tassonomico trovato.
             taxonomy_filters: Seleziona i filtri per il componente
             taxonomy_filters_add: Aggiungi filtro
-          step:
+          phase:
             comments_blocked: Commenti bloccati
           visualization: Visualizzazione
     download_your_data:
