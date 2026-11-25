@@ -1,6 +1,13 @@
 <tr data-id="<%= debate.id %>">
   <td data-label="<%= t("models.debate.fields.title", scope: "decidim.debates") %>">
-    <% if allowed_to? :update, :debate, debate: debate %>
+    <% if view == :deleted %>
+      <button type="button"
+              class="text-secondary hover:underline"
+              data-dialog-open="deleted-item-modal"
+              data-dialog-remote-url="<%= manage_trash_modal_debate_path(debate) %>" >
+        <%= present(debate).title(html_escape: true) %>
+      </button>
+    <% elsif allowed_to? :update, :debate, debate: debate %>
       <%= link_to present(debate).title(html_escape: true), edit_debate_path(debate) %>
     <% else %>
       <%= present(debate).title(html_escape: true) %><br>

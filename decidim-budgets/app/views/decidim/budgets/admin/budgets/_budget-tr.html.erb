@@ -1,6 +1,13 @@
 <tr data-id="<%= budget.id %>">
   <td data-label="<%= t("models.budget.fields.name", scope: "decidim.budgets") %>">
-    <% if allowed_to? :update, :budget, budget: budget %>
+    <% if view == :deleted %>
+      <button type="button"
+              class="text-secondary hover:underline"
+              data-dialog-open="deleted-item-modal"
+              data-dialog-remote-url="<%= manage_trash_modal_budget_path(budget) %>" >
+        <%= translated_attribute(budget.title) %>
+      </button>
+    <% elsif  allowed_to? :update, :budget, budget: budget %>
       <%= link_to translated_attribute(budget.title), budget_projects_path(budget) %><br>
     <% else %>
       <%= translated_attribute(budget.title) %>

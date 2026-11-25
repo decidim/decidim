@@ -77,6 +77,17 @@ module Decidim
           enforce_permission_to :create, Decidim::ParticipatoryProcess
         end
 
+        def manage_trash_modal
+          enforce_permission_to :manage_trash, :participatory_process
+
+          render partial: "decidim/admin/shared/deleted_space_modal",
+                 locals: {
+                   space: trashable_deleted_resource,
+                   space_type: :participatory_process,
+                   restore_path: restore_participatory_process_path(trashable_deleted_resource)
+                 }
+        end
+
         private
 
         def trashable_deleted_resource_type

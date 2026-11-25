@@ -111,6 +111,20 @@ module Decidim
           end
         end
 
+        def manage_trash_modal
+          enforce_permission_to :manage_trash, :collaborative_text, document:
+
+            document = trashable_deleted_resource
+
+          render partial: "decidim/admin/shared/deleted_resource_modal",
+                 locals: {
+                   resource: document,
+                   resource_type: :document,
+                   restore_path: restore_document_path(document)
+                 }
+        end
+
+
         private
 
         def trashable_deleted_resource_type

@@ -3,13 +3,22 @@
     <% if process.promoted? %>
       <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
     <% end %>
-    <% if allowed_to? :update, :process, process: process %>
-      <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br>
-    <% elsif allowed_to? :read, :component, process: process %>
-      <%= link_to translated_attribute(process.title), components_path(process) %><br>
-    <% else %>
-      <%= translated_attribute(process.title) %>
-    <% end %>
+    <% if view == :deleted %>
+      <button type="button"
+              class="text-secondary hover:underline"
+              data-dialog-open="deleted-item-modal"
+              data-dialog-remote-url="<%= manage_trash_modal_participatory_process_path(process) %>">
+        <%= translated_attribute(process.title) %>
+      </button>
+      <% else %>
+        <% if allowed_to? :update, :process, process: process %>
+          <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br>
+        <% elsif allowed_to? :read, :component, process: process %>
+          <%= link_to translated_attribute(process.title), components_path(process) %><br>
+        <% else %>
+          <%= translated_attribute(process.title) %>
+        <% end %>
+      <% end %>
   </td>
   <td class="table-list__date" data-label="<%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %>">
     <%= l process.created_at, format: :short %>

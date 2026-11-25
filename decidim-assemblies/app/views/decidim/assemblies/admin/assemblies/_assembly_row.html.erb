@@ -13,12 +13,21 @@
     <% end %>
 
     <span class="table-list__title-ellipsis">
-      <% if allowed_to? :update, :assembly, assembly: assembly %>
-        <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
-      <% elsif allowed_to? :read, :component, assembly: assembly %>
-        <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
+      <% if view == :deleted %>
+        <button type="button"
+                class="text-secondary hover:underline"
+                data-dialog-open="deleted-item-modal"
+                data-dialog-remote-url="<%= manage_trash_modal_assembly_path(assembly) %>">
+          <%= translated_attribute(assembly.title) %>
+        </button>
       <% else %>
-        <%= translated_attribute(assembly.title) %>
+        <% if allowed_to? :update, :assembly, assembly: assembly %>
+          <%= link_to translated_attribute(assembly.title), edit_assembly_path(assembly) %>
+        <% elsif allowed_to? :read, :component, assembly: assembly %>
+          <%= link_to translated_attribute(assembly.title), components_path(assembly) %><br>
+        <% else %>
+          <%= translated_attribute(assembly.title) %>
+        <% end %>
       <% end %>
     </span>
 

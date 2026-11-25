@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+﻿# frozen_string_literal: true
 
 require "decidim/proposals/admin_filter"
 
@@ -17,6 +17,7 @@ module Decidim
           member do
             patch :soft_delete
             patch :restore
+            get :manage_trash_modal
           end
           collection do
             post :update_taxonomies

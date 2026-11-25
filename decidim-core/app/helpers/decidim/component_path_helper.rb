@@ -47,5 +47,8 @@ module Decidim
     def can_be_managed?(component)
       component.manifest.admin_engine.present?
     end
+    def trash_modal_component_path(component)
+      EngineRouter.admin_proxy(component.participatory_space).manage_trash_modal_component_path(component)
+    end
   end
 end

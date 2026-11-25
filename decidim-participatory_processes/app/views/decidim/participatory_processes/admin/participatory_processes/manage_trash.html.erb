@@ -16,6 +16,8 @@
                collection: trashable_deleted_collection,
                as: :process,
                locals: { view: :deleted } %>
+
+    <%= decidim_modal id: "deleted-item-modal", class: "deleted-item-modal", remote: true %>
     </tbody>
   </table>
 </div>

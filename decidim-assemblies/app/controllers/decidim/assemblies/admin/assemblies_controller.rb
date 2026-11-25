@@ -72,6 +72,17 @@ module Decidim
           enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:parent_id])
         end
 
+        def manage_trash_modal
+          enforce_permission_to :manage_trash, :assembly
+
+          render partial: "decidim/admin/shared/deleted_space_modal",
+                 locals: {
+                   space: trashable_deleted_resource,
+                   space_type: :assembly,
+                   restore_path: restore_assembly_path(trashable_deleted_resource)
+                 }
+        end
+
         private
 
         def filtered_collection

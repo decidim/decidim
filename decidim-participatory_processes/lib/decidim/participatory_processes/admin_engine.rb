@@ -31,6 +31,7 @@ module Decidim
             member do
               patch :soft_delete
               patch :restore
+              get :manage_trash_modal
             end
 
             resources :steps, controller: "participatory_process_steps", except: [:show] do
@@ -70,6 +71,7 @@ module Decidim
                 get :share
                 patch :soft_delete
                 patch :restore
+                get :manage_trash_modal
               end
               collection do
                 get :manage_trash, to: "components#manage_trash"

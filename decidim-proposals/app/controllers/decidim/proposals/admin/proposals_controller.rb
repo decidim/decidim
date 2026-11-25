@@ -137,6 +137,19 @@ module Decidim
           end
         end
 
+        def manage_trash_modal
+          enforce_permission_to :manage_trash, :proposal
+
+          proposal = trashable_deleted_resource
+
+          render partial: "decidim/admin/shared/deleted_resource_modal",
+                 locals: {
+                   resource: proposal,
+                   resource_type: :proposal,
+                   restore_path: restore_proposal_path(proposal)
+                 }
+        end
+
         private
 
         def trashable_deleted_resource_type

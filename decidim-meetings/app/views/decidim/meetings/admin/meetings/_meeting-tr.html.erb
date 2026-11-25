@@ -2,7 +2,14 @@
 
 <tr data-id="<%= meeting.id %>">
   <td class="!text-left" data-label="<%= t("models.meeting.fields.title", scope: "decidim.meetings") %>">
-    <% if allowed_to? :update, :meeting, meeting: meeting %>
+    <% if view == :deleted %>
+      <button type="button"
+              class="text-secondary hover:underline"
+              data-dialog-open="deleted-item-modal"
+              data-dialog-remote-url="<%= manage_trash_modal_meeting_path(meeting) %>" >
+        <%= present(meeting).title(html_escape: true) %>
+      </button>
+    <% elsif allowed_to? :update, :meeting, meeting: meeting %>
       <%= link_to present(meeting).title(html_escape: true), Decidim::ResourceLocatorPresenter.new(meeting).edit %>
     <% else %>
       <%= present(meeting).title(html_escape: true) %><br>
