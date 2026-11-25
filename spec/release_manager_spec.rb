@@ -24,7 +24,7 @@ describe "Decidim::ReleaseManager" do
   end
 
   before do
-    allow(Net::HTTP).to receive(:get).with(URI(release_manager::RUBYGEMS_VERSIONS_URL)).and_return(versions.to_json)
+    allow(Net::HTTP).to receive(:get).with(URI.parse(release_manager::RUBYGEMS_VERSIONS_URL)).and_return(versions.to_json)
   end
 
   describe ".npm_tag" do

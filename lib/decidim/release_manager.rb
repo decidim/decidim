@@ -51,7 +51,7 @@ module Decidim
 
     # Resolves the latest stable Decidim version published to RubyGems.
     def self.latest_stable_version
-      versions = JSON.parse(Net::HTTP.get(URI(RUBYGEMS_VERSIONS_URL)))
+      versions = JSON.parse(Net::HTTP.get(URI.parse(RUBYGEMS_VERSIONS_URL)))
 
       versions
         .reject { |release| release["prerelease"] }
