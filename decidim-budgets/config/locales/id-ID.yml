@@ -80,8 +80,7 @@ id:
             projects_per_page: Proyek per halaman
             total_budget: Total anggaran
             vote_threshold_percent: Batas ambang persentase suara
-          step:
-            announcement: Pengumuman
+          phase:
             comments_blocked: Komentar diblokir
             show_votes: Tampilkan suara
             votes_choices:
