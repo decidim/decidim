@@ -172,9 +172,7 @@ id:
           title: Edit komponen
           update: Memperbarui
         form:
-          default_step_settings: Pengaturan langkah default
           global_settings: Pengaturan global
-          step_settings: Pengaturan langkah
         index:
           add: Tambahkan komponen
           headers:
