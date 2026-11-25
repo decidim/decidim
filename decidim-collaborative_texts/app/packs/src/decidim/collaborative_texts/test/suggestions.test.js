@@ -1,4 +1,5 @@
 /* eslint-disable prefer-reflect */
+/* eslint max-lines: ["error", 315] */
 /* global global, jest, process */
 
 import Document from "src/decidim/collaborative_texts/document";
@@ -289,6 +290,17 @@ describe("SuggestionsList", () => {
     expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(true);
     suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
     expect(suggestion.changesWrapper.classList.contains("collaborative-texts-highlight")).toBe(false);
+  });
+
+  it("closes the previous preview when touching another suggestion for the same text", () => {
+    suggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
+    firstSuggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(suggestion.highlightWrapper).toBe(null);
+    expect(firstSuggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
+    expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden")).not.toBe(null);
+    firstSuggestion.item.dispatchEvent(new Event("touchstart", { bubbles: true }));
+    expect(doc.doc.querySelector(".collaborative-texts-highlight-hidden")).toBe(null);
   });
 
   it("does not toggle the highlight when touching the suggestion actions", () => {

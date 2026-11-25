@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 320] */
+/* eslint max-lines: ["error", 322] */
 import { diffWordsWithSpace } from "diff";
 
 export default class Suggestion {
@@ -50,6 +50,8 @@ export default class Suggestion {
 
   // Wrap affected nodes in a div to temporarily highlight or replace them on hover
   highlight() {
+    // Only one preview can be shown for the same text
+    this.siblingSuggestions().forEach((suggestion) => suggestion.blur());
     // If applied, just add the style to the changesWrapper
     if (this.applied) {
       this.changesWrapper.classList.add("collaborative-texts-highlight");
