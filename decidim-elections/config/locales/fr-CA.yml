@@ -32,8 +32,6 @@ fr-CA:
         settings:
           global:
             announcement: Annonce
-          step:
-            announcement: Annonce
     elections:
       actions:
         confirm_delete_election: Êtes-vous sûr(e) de vouloir supprimer cette élection ?
