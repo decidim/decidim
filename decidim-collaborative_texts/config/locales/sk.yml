@@ -121,7 +121,6 @@ sk:
           draft: Tento dokument momentálne posudzujú administrátori. Návrhy v súčasnosti nie sú povolené, ale môžete si zobraziť návrhy od iných účastníkov.
           not_accepting_suggestions: Návrhy v súčasnosti nie sú povolené.
           selection_active: Výber je aktívny. Zrušte aktuálny výber, aby ste mohli vytvoriť nový.
-        suggestions_count: "%{count} návrhov"
         toggle: Zobraziť/skryť návrhy
       documents:
         index:
@@ -130,7 +129,6 @@ sk:
             few: "%{count} kolaboratívne texty"
             many: "%{count} kolaboratívnych textov"
             other: "%{count} kolaboratívnych textov"
-          empty: Zatiaľ tu nie sú žiadne kolaboratívne texty.
         show:
           contributors: Prispievatelia
       models:
@@ -161,8 +159,6 @@ sk:
           global:
             announcement: Oznámenie
             comments_blocked: Komentáre sú zablokované
-          step:
-            announcement: Oznámenie
     statistics:
       all_collaborative_texts_count: Všetky kolaboratívne texty
       collaborative_texts_count: Kolaboratívne texty
