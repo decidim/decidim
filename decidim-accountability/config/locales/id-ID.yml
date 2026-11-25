@@ -101,7 +101,7 @@ id:
             comments_enabled: Komentar diaktifkan
             display_progress_enabled: Kemajuan tampilan
             intro: Intro
-          step:
+          phase:
             comments_blocked: Komentar diblokir
     events:
       accountability:
