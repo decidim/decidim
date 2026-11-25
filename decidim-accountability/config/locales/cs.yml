@@ -324,7 +324,7 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
-          step:
+          phase:
             comments_blocked: Komentáře blokovány
           visualization: Vizualizace
     download_your_data:
