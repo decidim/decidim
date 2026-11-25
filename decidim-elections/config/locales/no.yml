@@ -17,8 +17,6 @@
         settings:
           global:
             announcement: Kunngjøring
-          step:
-            announcement: Kunngjøring
     elections:
       actions:
         preview: Forhåndsvis
