@@ -16,8 +16,6 @@ lt:
         settings:
           global:
             announcement: Pranešimas
-          step:
-            announcement: Pranešimas
     events:
       surveys:
         survey_closed:
