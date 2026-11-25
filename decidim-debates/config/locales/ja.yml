@@ -45,8 +45,7 @@ ja:
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
-          step:
-            announcement: お知らせ
+          phase:
             comments_blocked: コメントをブロック
             creation_enabled: 参加者はディベートを作成できます
             likes_blocked: '「いいね」がブロックされました'
