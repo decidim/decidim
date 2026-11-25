@@ -37,8 +37,6 @@ es:
           announcement: Aviso
           global:
             announcement: Aviso
-          step:
-            announcement: Aviso
     events:
       surveys:
         survey_closed:
