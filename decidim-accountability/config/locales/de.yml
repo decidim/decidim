@@ -310,7 +310,7 @@ de:
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
-          step:
+          phase:
             comments_blocked: Kommentare blockiert
           visualization: Visualisierung
     download_your_data:
