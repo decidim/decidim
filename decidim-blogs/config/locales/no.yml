@@ -42,8 +42,7 @@
           global:
             announcement: Kunngjøring
             comments_enabled: Kommentarer aktivert
-          step:
-            announcement: Kunngjøring
+          phase:
             comments_blocked: Kommentarer blokkert
     events:
       blogs:
