@@ -48,7 +48,7 @@ ro:
         cta_path: URL-ul butonului Apel la acțiune
         cta_text: Textul butonului Apel la acțiune
         description: Descriere
-        end_date: Data de încheiere
+        end_date: Dată de sfârșit
         short_description: Descriere scurtă
         start_date: Data de început
         title: Titlu
@@ -122,7 +122,7 @@ ro:
           name: Grup al procesului
         participatory_process_step:
           fields:
-            end_date: Data de încheiere
+            end_date: Dată de sfârșit
             start_date: Data de început
             title: Titlu
           name: Etapa procesului participativ
@@ -181,7 +181,7 @@ ro:
             last_step: Nu se puteți șterge ultima etapă a unui proces.
           success: Etapa procesului participativ a fost ştearsă cu succes.
         edit:
-          update: Actualizați
+          update: Actualizează
         index:
           steps_title: Etape
         new:
