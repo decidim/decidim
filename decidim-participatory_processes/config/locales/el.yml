@@ -296,6 +296,9 @@ el:
         participatory_process_imports:
           form:
             document_legend: Προσθήκη εγγράφου
+        participatory_process_steps:
+          index:
+            title: Φάσεις
         participatory_processes:
           form:
             duration: Διάρκεια
