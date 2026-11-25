@@ -128,7 +128,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             display_progress_enabled: Geef de voortgang weer
             intro: Inleiding
-          step:
+          phase:
             comments_blocked: Reacties geblokkeerd
     events:
       accountability:
