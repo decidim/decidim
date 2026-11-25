@@ -30,8 +30,7 @@ el:
           global:
             announcement: Ανακοίνωση
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-          step:
-            announcement: Ανακοίνωση
+          phase:
             comments_blocked: Τα σχόλια αποκλείστηκαν
             creation_enabled: Οι συμμετέχοντες μπορούν να δημιουργήσουν συζητήσεις
     debates:
