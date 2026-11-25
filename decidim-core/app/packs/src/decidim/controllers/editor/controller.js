@@ -121,7 +121,7 @@ export default class extends Controller {
 
     // Without a live editor instance this marker would prevent the lazy reveal
     // path in `autofocus.js` from initializing the container again.
-    delete this.element.dataset.editorInitialized;
+    Reflect.deleteProperty(this.element.dataset, "editorInitialized");
 
     // Show the lightweight preview again until the editor is initialized.
     this.showPreview();
