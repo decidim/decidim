@@ -332,9 +332,7 @@ fr:
           title: Modifier la fonctionnalité
           update: Mettre à jour
         form:
-          default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
-          step_settings: Paramètres de l'étape
         hide:
           success: Le composant a été retiré du menu avec succès.
         index:
