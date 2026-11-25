@@ -263,15 +263,15 @@ zh-CN:
             dummy_global_translatable_text: 虚拟可翻译文本
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 资源权限已启用
-          step:
+          phase:
             amendment_creation_enabled: 修改创建已启用
             amendment_promotion_enabled: 已启用修正促销功能
             amendment_reaction_enabled: 修正反应已启用
             amendments_visibility: 修正可见性
             comments_blocked: 评论已阻止
-            dummy_step_attribute1: 虚拟步骤属性 1
-            dummy_step_attribute2: 虚拟步骤属性 2
-            dummy_step_translatable_text: 虚拟步骤可翻译文本
+            dummy_phase_attribute1: 虚拟步骤属性 1
+            dummy_phase_attribute2: 虚拟步骤属性 2
+            dummy_phase_translatable_text: 虚拟步骤可翻译文本
     contact: 聯繫人
     content_blocks:
       footer_sub_hero:
