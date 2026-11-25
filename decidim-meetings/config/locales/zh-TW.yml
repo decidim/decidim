@@ -126,8 +126,7 @@ zh-TW:
             maps_enabled: 啟用地圖
             resources_permissions_enabled: 可以針對每個會議設定操作權限
             terms_and_conditions_url_for_meeting_creators: 會議創建者的使用條款和條件 URL
-          step:
-            announcement: 公告
+          phase:
             comments_blocked: 留言已封鎖
             creation_enabled_for_participants: 參與者可以創建會議
     events:
