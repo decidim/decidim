@@ -126,6 +126,8 @@ describe "Conference speakers" do
           click_link_or_button "Unpublish"
         end
 
+        expect(page).to have_callout("Conference speaker successfully unpublished.")
+
         visit decidim_conferences.conference_conference_speakers_path(conference)
 
         within "#conference_speakers-grid" do
