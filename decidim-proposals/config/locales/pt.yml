@@ -137,12 +137,12 @@ pt:
             comments_blocked: Comentários bloqueados
             default_sort_order: Ordenamento por defeitos das propostas
             default_sort_order_options:
-              most_commented: Mais comentada
-              most_followed: Mais seguida
-              random: Aleatório
-              recent: Mais recentes
+              most_commented: Mais comentadas
+              most_followed: Mais seguidas
+              random: Aleatória
+              recent: Recente
               with_more_authors: Com mais autores
-            proposal_answering_enabled: Resposta de proposta ativada
+            proposal_answering_enabled: Respostas à proposta ativadas
             publish_answers_immediately: Publicar as respostas às propostas imediatamente
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados
