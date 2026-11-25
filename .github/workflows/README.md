@@ -20,10 +20,16 @@ Large test suites are split into [parallel workflows](https://docs.github.com/en
 
 ### Shard Flags
 
-`test_app.yml` exposes two per-shard flags:
+`test_app.yml` exposes three shard-related inputs:
 
 - `system_specs`: starts the accessibility validator container (`docker run -d -p 8888:8888 ghcr.io/validator/validator`) only for shards that run system specs.
-- `upload_coverage`: uploads coverage to Qlty and Codecov; enable it on a single shard per module to avoid redundant uploads.
+- `upload_coverage`: uploads coverage to Qlty and Codecov. It defaults to `true`, so every shard reports the coverage it collects; set it to `false` only for jobs that should not report coverage (for example `ci_api_types.yml`).
+- `coverage_parts`: number of shards that upload coverage for a module. Matrix workflows pass `${{ strategy.job-total }}`; single-job workflows keep the default of `1`.
+
+Each shard uploads its own `coverage/coverage.json`; the CI service merges them:
+
+- **Codecov** merges every upload for the same commit and flag, so each module uses its working directory as the flag and all of its shards combine into one report.
+- **Qlty** keeps one report per tag and does not merge separate complete uploads. The working directory is passed as the `tag` and the shard count as `total-parts-count`, so Qlty merges the partial uploads server-side into a single report per module.
 
 ## Core Workflows
 

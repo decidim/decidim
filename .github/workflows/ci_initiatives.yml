@@ -38,19 +38,16 @@ jobs:
             parallel_processors: 4
             shard: "unit"
             system_specs: false
-            upload_coverage: true
           - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_system.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_system.log' --pattern spec/system --exclude-pattern spec/system/admin
             name: "System tests"
             parallel_processors: 3
             shard: "system"
             system_specs: true
-            upload_coverage: false
           - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_system_admin.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_system_admin.log' --pattern spec/system/admin
             name: "Admin system tests"
             parallel_processors: 3
             shard: "system_admin"
             system_specs: true
-            upload_coverage: false
     name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
@@ -59,5 +56,5 @@ jobs:
       shard: ${{ matrix.test.shard }}
       system_specs: ${{ matrix.test.system_specs }}
       test_command: ${{ matrix.test.command }}
-      upload_coverage: ${{ matrix.test.upload_coverage }}
+      coverage_parts: ${{ strategy.job-total }}
       working-directory: "decidim-initiatives"

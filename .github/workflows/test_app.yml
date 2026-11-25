@@ -30,10 +30,15 @@ on:
         default: false
         type: boolean
       upload_coverage:
-        description: 'Upload coverage to Qlty and Codecov (enable on one shard per module)'
+        description: 'Upload coverage to Qlty and Codecov (enabled by default, disable only when a job should not report coverage)'
         required: false
-        default: false
+        default: true
         type: boolean
+      coverage_parts:
+        description: 'Number of shards uploading coverage for this module, used by Qlty server-side merging (pass strategy.job-total)'
+        required: false
+        default: 1
+        type: number
       test_command:
         description: 'The testing command to be ran'
         required: true
@@ -209,6 +214,8 @@ jobs:
           files: coverage/coverage.json
           verbose: true
           add-prefix: ${{ env.DECIDIM_MODULE }}
+          tag: ${{ inputs.working-directory }}
+          total-parts-count: ${{ inputs.coverage_parts }}
       - uses: codecov/codecov-action@v7
         if: inputs.upload_coverage
         name: Upload coverage
