@@ -237,8 +237,8 @@ eu:
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek proposamenak sor ditzakete
             creation_enabled_readonly: Ezarpen hau desgaitu egiten da Partaidetza-testuak funtzionalitatea aktibatzen duzunean. Proposamenak partaidetza-testu gisa igotzeko, egin klik Partaidetza-testuak botoian eta jarraitu argibideei.
-            default_sort_order: Proposamenen lehenetsitako hurrenkera
-            default_sort_order_help: Automatikoa izateak esan nahi du babesak gaituta badaude proposamenak ausaz ordenatuta erakutsiko direla, eta babesak blokeatuta badaude, babes gehien jaso dutenen arabera ordenatuko direla.
+            default_sort_order: Proposamenen hurrenkera lehenetsia
+            default_sort_order_help: Automatikoak esan nahi du babesak gaituta badaude proposamenak ausaz ordenatuta erakutsiko direla, eta babesak blokeatuta badaude, babes gehien jaso dutenen arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
               most_commented: Iruzkin gehien dituztenak
@@ -246,11 +246,11 @@ eu:
               most_liked: Atsegin gehien
               most_voted: Babes gehien dituztenak
               random: Ausazko ordena
-              recent: Berrienetatik zaharrenetara
-              with_more_authors: Egile gehiago dituztenak
+              recent: Azkenak
+              with_more_authors: Egile gehiagorekin
             likes_blocked: Atsegin dut blokeatuta
             likes_enabled: Atsegin dut gaituta
-            proposal_answering_enabled: Proposamenei erantzuna gaituta
+            proposal_answering_enabled: Proposamena erantzutea gaituta dago
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati hau gaitu gabe erantzuten badiozu, aukeratu eta argitaratzeko ekintza erabiliz argitaratu beharko dituzula. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             votes_blocked: Babesak blokeatuta
