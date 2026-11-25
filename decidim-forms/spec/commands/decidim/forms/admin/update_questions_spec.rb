@@ -355,6 +355,18 @@ module Decidim
               expect(messages.first).to include("&lt;script&gt;alert(1)&lt;/script&gt;")
               expect(messages.first).not_to include("<script>")
             end
+
+            it "releases the removal flag of the refused option so the editor can be saved again" do
+              command.call
+
+              refused = form.questions.first.response_options.find { |option| option.id == response_option.id }
+              expect(refused.deleted?).to be(false)
+
+              expect { command.call }.to broadcast(:ok)
+
+              expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
+              expect(other_response_option.reload.body["en"]).to eq("Renamed option")
+            end
           end
 
           context "and a matrix row with choices is removed" do

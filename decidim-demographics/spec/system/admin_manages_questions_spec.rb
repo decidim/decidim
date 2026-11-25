@@ -1082,6 +1082,30 @@ describe "Admin manages demographic questions" do
       expect(page).to have_css(".questionnaire-question-response-option", count: 3)
     end
 
+    # The refused entry keeps its flag set, so saving again would be refused forever.
+    # The command releases the flag, which allows saving without reloading the page.
+    it "lets the admin save again after a refused removal without reloading" do
+      within ".questionnaire-question-response-option:nth-of-type(1)" do
+        click_on "Remove"
+      end
+
+      within ".questionnaire-question-response-option:nth-of-type(2)" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Renamed option"
+      end
+
+      click_on "Save"
+
+      expect(page).to have_callout("First response cannot be removed because it has responses.")
+
+      click_on "Save"
+
+      expect(page).to have_callout("Survey questions successfully saved.")
+
+      expect(question.reload.response_options.map { |option| option.body["en"] }).to eq(
+        ["First response", "Renamed option", "Third response"]
+      )
+    end
+
     # The callout renders the flash as HTML, so the saved text must appear as text.
     it "renders the saved option text as text in the error callout" do
       question.response_options.first.update!(body: { "en" => "<script>alert(1)</script>" })

@@ -73,6 +73,20 @@ module Decidim
           expect(fresh_question.destroy).to be_truthy
           expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
         end
+
+        it "still destroys the responses and their choices when the children were loaded beforehand" do
+          response_option = create(:response_option, question:)
+          matrix_row = create(:question_matrix_row, question:)
+          response = create(:response, question:, questionnaire:)
+          choice = create(:response_choice, response:, response_option:, matrix_row:)
+
+          fresh_question = Decidim::Forms::Question.find(question.id)
+          fresh_question.response_options.to_a.each { |option| option.choices.to_a }
+          fresh_question.matrix_rows.to_a.each { |row| row.choices.to_a }
+
+          expect(fresh_question.destroy).to be_truthy
+          expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+        end
       end
 
       context "when question type does not exists in allowed types" do

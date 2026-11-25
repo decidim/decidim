@@ -23,8 +23,19 @@ module Decidim
                dependent: :restrict_with_error,
                inverse_of: :response_option
 
+      # The `restrict_with_error` check reads the loaded target, which can still hold
+      # choices that were already removed through the response when a whole question is
+      # being destroyed. Reload the association so the check reflects the database.
+      before_destroy :reload_choices, prepend: true
+
       def translated_body
         Decidim::Forms::ResponseOptionPresenter.new(self).translated_body
+      end
+
+      private
+
+      def reload_choices
+        choices.reload
       end
     end
   end

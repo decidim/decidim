@@ -22,6 +22,7 @@ module Decidim
       validate :min_choices, if: -> { question.matrix? && question.mandatory? }
       validate :attachments_present, if: -> { question.question_type == "files" && question.mandatory? }
       validate :max_characters, if: -> { question.max_characters.positive? }
+      validate :choices_belong_to_question
 
       delegate :mandatory_body?, :mandatory_choices?, :matrix?, to: :question
 
@@ -94,6 +95,20 @@ module Decidim
       end
 
       private
+
+      # The submitted ids are the only link between a choice and the question it was
+      # answered for, so they have to be the question's own options and matrix rows.
+      # Otherwise a choice is stored for another question and keeps its option or row
+      # from being removed later on.
+      def choices_belong_to_question
+        foreign_choices = choices.select do |choice|
+          foreign_option = choice.response_option_id.present? && !question.response_options.exists?(choice.response_option_id)
+          foreign_row = choice.matrix_row_id.present? && !question.matrix_rows.exists?(choice.matrix_row_id)
+          foreign_option || foreign_row
+        end
+
+        errors.add(:choices, :invalid) if foreign_choices.any?
+      end
 
       def mandatory_body?
         question.mandatory_body? if display_conditions_fulfilled?

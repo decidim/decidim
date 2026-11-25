@@ -32,6 +32,8 @@ module Decidim
         ]
       end
 
+      let(:rows) { [] }
+
       let!(:question) do
         create(
           :questionnaire_question,
@@ -40,12 +42,18 @@ module Decidim
           question_type:,
           max_choices:,
           max_characters:,
-          options:
+          options:,
+          rows:
         )
       end
 
       let(:body) { Decidim::Faker::Localized.sentence }
       let!(:response) { build(:response, user:, questionnaire:, question:, body:) }
+
+      # The choices are checked against the question's own options and matrix rows, so the
+      # specs use their real ids instead of arbitrary ones.
+      let(:option_ids) { question.response_options.map(&:id) }
+      let(:matrix_row_ids) { question.matrix_rows.map(&:id) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -148,8 +156,8 @@ module Decidim
 
         it "is valid if few enough options checked" do
           subject.choices = [
-            { "response_option_id" => "1", "body" => "foo" },
-            { "response_option_id" => "2", "body" => "bar" }
+            { "response_option_id" => option_ids[0], "body" => "foo" },
+            { "response_option_id" => option_ids[1], "body" => "bar" }
           ]
 
           expect(subject).to be_valid
@@ -157,9 +165,9 @@ module Decidim
 
         it "is not valid if too many options checked" do
           subject.choices = [
-            { "response_option_id" => "1", "body" => "foo" },
-            { "response_option_id" => "2", "body" => "bar" },
-            { "response_option_id" => "3", "body" => "baz" }
+            { "response_option_id" => option_ids[0], "body" => "foo" },
+            { "response_option_id" => option_ids[1], "body" => "bar" },
+            { "response_option_id" => option_ids[2], "body" => "baz" }
           ]
 
           expect(subject).not_to be_valid
@@ -169,11 +177,12 @@ module Decidim
           let(:question_type) { "matrix_multiple" }
 
           let(:max_choices) { 2 }
+          let(:rows) { 3.times.map { { "body" => Decidim::Faker::Localized.sentence } } }
 
           it "is valid if few enough options checked" do
             subject.choices = [
-              { "response_option_id" => "1", "body" => "foo", "matrix_row_id" => "1" },
-              { "response_option_id" => "2", "body" => "bar", "matrix_row_id" => "1" }
+              { "response_option_id" => option_ids[0], "body" => "foo", "matrix_row_id" => matrix_row_ids[0] },
+              { "response_option_id" => option_ids[1], "body" => "bar", "matrix_row_id" => matrix_row_ids[0] }
             ]
 
             expect(subject).to be_valid
@@ -181,9 +190,9 @@ module Decidim
 
           it "is not valid if too many options checked" do
             subject.choices = [
-              { "response_option_id" => "1", "body" => "foo", "matrix_row_id" => "1" },
-              { "response_option_id" => "2", "body" => "bar", "matrix_row_id" => "1" },
-              { "response_option_id" => "3", "body" => "baz", "matrix_row_id" => "1" }
+              { "response_option_id" => option_ids[0], "body" => "foo", "matrix_row_id" => matrix_row_ids[0] },
+              { "response_option_id" => option_ids[1], "body" => "bar", "matrix_row_id" => matrix_row_ids[0] },
+              { "response_option_id" => option_ids[2], "body" => "baz", "matrix_row_id" => matrix_row_ids[0] }
             ]
 
             expect(subject).not_to be_valid
@@ -196,9 +205,9 @@ module Decidim
 
         it "is valid if all options checked" do
           subject.choices = [
-            { "response_option_id" => "1", "body" => "foo" },
-            { "response_option_id" => "2", "body" => "bar" },
-            { "response_option_id" => "3", "body" => "baz" }
+            { "response_option_id" => option_ids[0], "body" => "foo" },
+            { "response_option_id" => option_ids[1], "body" => "bar" },
+            { "response_option_id" => option_ids[2], "body" => "baz" }
           ]
 
           expect(subject).to be_valid
@@ -206,8 +215,8 @@ module Decidim
 
         it "is not valid if not all options checked" do
           subject.choices = [
-            { "response_option_id" => "1", "body" => "foo" },
-            { "response_option_id" => "2", "body" => "bar" }
+            { "response_option_id" => option_ids[0], "body" => "foo" },
+            { "response_option_id" => option_ids[1], "body" => "bar" }
           ]
 
           expect(subject).not_to be_valid
@@ -217,11 +226,13 @@ module Decidim
       context "when the question type is matrix" do
         let(:question_type) { "matrix_multiple" }
 
+        let(:rows) { 3.times.map { { "body" => Decidim::Faker::Localized.sentence } } }
+
         before do
           subject.choices = [
-            { "response_option_id" => "1", "body" => "foo", "matrix_row_id" => "3" },
-            { "response_option_id" => "2", "body" => "bar", "matrix_row_id" => "2" },
-            { "response_option_id" => "3", "body" => "baz", "matrix_row_id" => "1" }
+            { "response_option_id" => option_ids[0], "body" => "foo", "matrix_row_id" => matrix_row_ids[2] },
+            { "response_option_id" => option_ids[1], "body" => "bar", "matrix_row_id" => matrix_row_ids[1] },
+            { "response_option_id" => option_ids[2], "body" => "baz", "matrix_row_id" => matrix_row_ids[0] }
           ]
         end
 
@@ -230,7 +241,27 @@ module Decidim
         end
 
         it "saves correct matrix_row_id for each choice" do
-          expect(subject.choices.map(&:matrix_row_id)).to eq [3, 2, 1]
+          expect(subject.choices.map(&:matrix_row_id)).to eq [matrix_row_ids[2], matrix_row_ids[1], matrix_row_ids[0]]
+        end
+
+        it "is not valid when the choice belongs to an option of another question" do
+          other_question = create(:questionnaire_question, questionnaire:, question_type:, options:, rows:)
+
+          subject.choices = [
+            { "response_option_id" => other_question.response_options.first.id, "body" => "foo", "matrix_row_id" => matrix_row_ids[0] }
+          ]
+
+          expect(subject).not_to be_valid
+        end
+
+        it "is not valid when the choice belongs to a matrix row of another question" do
+          other_question = create(:questionnaire_question, questionnaire:, question_type:, options:, rows:)
+
+          subject.choices = [
+            { "response_option_id" => option_ids[0], "body" => "foo", "matrix_row_id" => other_question.matrix_rows.first.id }
+          ]
+
+          expect(subject).not_to be_valid
         end
       end
 

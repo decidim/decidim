@@ -46,6 +46,15 @@ module Decidim
           expect(question_matrix_row.destroy).to be_truthy
           expect(Decidim::Forms::QuestionMatrixRow.exists?(question_matrix_row.id)).to be(false)
         end
+
+        it "is destroyed when the loaded target still holds choices removed through the response" do
+          response = create(:response, question:, questionnaire:)
+          choice = create(:response_choice, response:, response_option: create(:response_option, question:), matrix_row: question_matrix_row)
+          question_matrix_row.choices.to_a
+          choice.destroy!
+
+          expect(question_matrix_row.destroy).to be_truthy
+        end
       end
 
       describe "#mandatory" do

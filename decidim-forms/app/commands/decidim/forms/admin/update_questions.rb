@@ -96,7 +96,17 @@ module Decidim
           record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
 
           if record.persisted? && form.deleted?
-            record.destroy!
+            begin
+              record.destroy!
+            rescue ActiveRecord::RecordNotDestroyed
+              # The removal is refused, so the record stays. Reset the flag, otherwise
+              # every later save would send it again and be refused as well, and the
+              # admin could only cancel the removal by reloading the page, which would
+              # discard the other unsaved changes.
+              form.deleted = false
+              raise
+            end
+
             return
           end
 

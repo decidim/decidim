@@ -44,6 +44,14 @@ module Decidim
           expect(response_option.destroy).to be_truthy
           expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(false)
         end
+
+        it "is destroyed when the loaded target still holds choices removed through the response" do
+          choice = create(:response_choice, response:, response_option:)
+          response_option.choices.to_a
+          choice.destroy!
+
+          expect(response_option.destroy).to be_truthy
+        end
       end
 
       describe "#translated_body" do
