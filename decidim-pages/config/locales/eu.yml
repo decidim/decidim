@@ -14,8 +14,6 @@ eu:
         settings:
           global:
             announcement: Oharra
-          step:
-            announcement: Oharra
     open_data:
       help:
         pages:
