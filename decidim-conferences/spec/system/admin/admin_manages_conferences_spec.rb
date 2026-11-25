@@ -27,6 +27,6 @@ describe "Admin manages conferences" do
   context "when creating a conference" do
     before { click_on "New conference" }
 
-    it_behaves_like "a form with unsaved changes", ".new_conference", "conference_title_en", "Conferences"
+    it_behaves_like "an admin form with unsaved changes", ".new_conference", "conference_title_en", "Conferences"
   end
 end

@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
-shared_examples "a form with unsaved changes" do |form_selector, field, exit_link|
+shared_examples "an admin form with unsaved changes" do |form_selector, field, exit_link|
+  let(:unsaved_form_field) { field.is_a?(Symbol) ? send(field) : field }
+
   it "asks for confirmation before leaving the form" do
     within form_selector do
-      fill_in field, with: "Unsaved changes"
+      fill_in unsaved_form_field, with: "Unsaved changes"
     end
     click_on exit_link, match: :first
 
@@ -12,17 +14,17 @@ shared_examples "a form with unsaved changes" do |form_selector, field, exit_lin
 
   it "keeps the unsaved changes when the confirmation is dismissed" do
     within form_selector do
-      fill_in field, with: "Unsaved changes"
+      fill_in unsaved_form_field, with: "Unsaved changes"
     end
     dismiss_confirm { click_on exit_link, match: :first }
 
     expect(page).to have_css(form_selector)
-    expect(page).to have_field(field, with: "Unsaved changes")
+    expect(page).to have_field(unsaved_form_field, with: "Unsaved changes")
   end
 
   it "leaves the form when the confirmation is accepted" do
     within form_selector do
-      fill_in field, with: "Unsaved changes"
+      fill_in unsaved_form_field, with: "Unsaved changes"
     end
     accept_confirm { click_on exit_link, match: :first }
 

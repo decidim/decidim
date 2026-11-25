@@ -130,7 +130,7 @@ describe "Admin manages initiatives" do
       visit decidim_admin_initiatives.edit_initiative_path(initiative)
     end
 
-    it_behaves_like "a form with unsaved changes", ".edit_initiative", "initiative_title_en", "Initiatives"
+    it_behaves_like "an admin form with unsaved changes", ".edit_initiative", "initiative_title_en", "Initiatives"
   end
 
   context "when the initiative has an attachment" do

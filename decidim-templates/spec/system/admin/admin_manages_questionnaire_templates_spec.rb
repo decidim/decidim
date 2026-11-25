@@ -94,7 +94,7 @@ describe "Admin manages questionnaire templates" do
       expect(page).to have_callout("Form successfully saved.")
     end
 
-    it_behaves_like "a form with unsaved changes", ".new_questionnaire_template", "template_name_en", "Questionnaires"
+    it_behaves_like "an admin form with unsaved changes", ".new_questionnaire_template", "template_name_en", "Questionnaires"
 
     context "when the questionnaire is not already responded" do
       let!(:template) { create(:questionnaire_template, organization:) }

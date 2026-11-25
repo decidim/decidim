@@ -25,6 +25,21 @@ describe "Admin manages surveys" do
   it_behaves_like "export survey user responses"
   it_behaves_like "manage announcements"
 
+  context "with an unsaved question" do
+    let!(:question) { create(:questionnaire_question, questionnaire:, body: { en: "This is the first question" }) }
+
+    before do
+      visit manage_questions_path
+      find(".button.expand-all").click
+    end
+
+    it_behaves_like "an admin form with unsaved changes", "form.edit_questions_survey", :unsaved_form_question_body, "Main"
+
+    def unsaved_form_question_body
+      find("[id$=body_en]")["id"]
+    end
+  end
+
   context "with a new survey" do
     before do
       within "tr", text: decidim_sanitize_translated(survey.title) do

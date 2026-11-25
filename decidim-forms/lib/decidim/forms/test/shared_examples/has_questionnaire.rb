@@ -152,35 +152,7 @@ shared_examples_for "has questionnaire" do
 
       click_on translated_attribute(component.name)
 
-      expect(page).to have_css("#confirm-modal", visible: :visible, text: I18n.t("decidim.shared.confirm_unload"))
-    end
-
-    it "keeps the response when the confirmation is dismissed" do
-      visit questionnaire_public_path
-      see_questionnaire_questions
-
-      fill_in question.body["en"], with: "My first response"
-
-      dismiss_confirm { click_on translated_attribute(component.name) }
-
-      expect(page).to have_field(question.body["en"], with: "My first response")
-    end
-
-    it "leaves the questionnaire when the confirmation is accepted" do
-      visit questionnaire_public_path
-      see_questionnaire_questions
-
-      fill_in question.body["en"], with: "My first response"
-
-      accept_confirm { click_on translated_attribute(component.participatory_space.title), match: :first }
-
-      20.times do
-        break if page.evaluate_script("!document.querySelector('.form.response-questionnaire')")
-
-        sleep 0.5
-      end
-
-      expect(page).to have_no_field(question.body["en"])
+      expect(page).to have_current_path(questionnaire_public_path)
     end
 
     context "when the questionnaire has already been responded by someone else" do

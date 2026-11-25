@@ -28,7 +28,7 @@ describe "Admin manages elections questions" do
       expand_all_questions
     end
 
-    it_behaves_like "a form with unsaved changes", "form.edit_questions", "questions[1234][body_en]", "Main"
+    it_behaves_like "an admin form with unsaved changes", "form.edit_questions", "questions[1234][body_en]", "Main"
   end
 
   context "when an admin user add a question" do
