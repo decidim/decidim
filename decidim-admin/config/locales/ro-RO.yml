@@ -272,9 +272,7 @@ ro:
           title: Editează componenta
           update: Actualizează
         form:
-          default_step_settings: Setări implicite pentru etapă
           global_settings: Setări generale
-          step_settings: Setări de etapă
         index:
           add: Adaugă componentă
           headers:
