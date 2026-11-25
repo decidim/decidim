@@ -281,6 +281,9 @@ pt:
         participatory_process_imports:
           form:
             document_legend: Adicionar um documento
+        participatory_process_steps:
+          index:
+            title: Fases
         participatory_processes:
           form:
             duration: Duração
