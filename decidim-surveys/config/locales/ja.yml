@@ -35,8 +35,6 @@ ja:
           announcement: お知らせ
           global:
             announcement: お知らせ
-          step:
-            announcement: お知らせ
     events:
       surveys:
         survey_closed:
