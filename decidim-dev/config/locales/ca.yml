@@ -35,14 +35,9 @@ ca:
               bar: Barra
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: '"M''agrada" desactivats'
             likes_enabled: '"M''agrada" activats'
-            readonly_step_attribute: Atribut de només lectura
-            test_options:
-              bar: Barra
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:
