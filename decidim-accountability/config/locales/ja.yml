@@ -303,7 +303,7 @@ ja:
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
-          step:
+          phase:
             comments_blocked: コメントをブロック
           visualization: ビジュアリゼーション
     download_your_data:
