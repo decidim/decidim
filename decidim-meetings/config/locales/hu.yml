@@ -97,8 +97,7 @@ hu:
             maps_enabled: Térképek engedélyezve
             resources_permissions_enabled: Minden találkozóra saját műveleti engedélyt állíthat be
             terms_and_conditions_url_for_meeting_creators: A találkozó szervezői számára a felhasználás feltételek URL-je
-          step:
-            announcement: Közlemény
+          phase:
             comments_blocked: Megjegyzések letiltva
             creation_enabled_for_participants: Résztvevők általi találkozók engedélyezve
     events:
