@@ -41,8 +41,7 @@ pt:
             no_taxonomy_filters_found: Nenhum filtro de taxonomia encontrado.
             taxonomy_filters: Selecionar filtros para o componente
             taxonomy_filters_add: Adicionar filtro
-          step:
-            announcement: Anúncio
+          phase:
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar debates
     debates:
