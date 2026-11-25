@@ -296,6 +296,9 @@ hu:
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
+        participatory_process_steps:
+          index:
+            title: Fázisok
         participatory_processes:
           form:
             duration: Időtartam
