@@ -471,15 +471,15 @@ lt:
             dummy_global_translatable_text: Testinis verčiamas tekstas
             enable_pads_creation: Leisti bendrų dokumentų kūrimą
             resources_permissions_enabled: Išteklių leidimai įjungti
-          step:
+          phase:
             amendment_creation_enabled: Pataisų kūrimas leidžiamas
             amendment_promotion_enabled: Pataisų paaukštinimai įjungti
             amendment_reaction_enabled: Pataisų reakcijos įjungtos
             amendments_visibility: Pataisų matomumas
             comments_blocked: Komentarai užblokuoti
-            dummy_step_attribute1: Fiktyvaus veiksmo atributas 1
-            dummy_step_attribute2: Fiktyvaus veiksmo atributas 2
-            dummy_step_translatable_text: Testinis Verčiamas Tekstas
+            dummy_phase_attribute1: Fiktyvaus veiksmo atributas 1
+            dummy_phase_attribute2: Fiktyvaus veiksmo atributas 2
+            dummy_phase_translatable_text: Testinis Verčiamas Tekstas
     contact: Kontaktas
     content_blocks:
       announcement:
