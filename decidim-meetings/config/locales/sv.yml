@@ -178,8 +178,7 @@ sv:
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
             terms_and_conditions_url_for_meeting_creators: URL till användarvillkor för de som skapar möten
-          step:
-            announcement: Meddelande
+          phase:
             comments_blocked: Stäng av kommentarer
             creation_enabled_for_participants: Låt deltagare skapa möten
     download_your_data:
