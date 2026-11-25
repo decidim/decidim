@@ -332,9 +332,7 @@ gl:
           title: Editar compoñente
           update: Actualización
         form:
-          default_step_settings: Configuración de paso predeterminada
           global_settings: Configuración global
-          step_settings: Configuración do paso
         hide:
           success: O compoñente ocultouse correctamente do menú.
         index:
