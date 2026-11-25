@@ -44,28 +44,38 @@ module Decidim
       Decidim.module_installed?(:conferences) && participatory_space.is_a?(Decidim::Conference)
     end
 
+    # A role in the given space always counts, even when that space is trashed, because that is
+    # what allows the space admins to reach their own trashed space (and restore it). The broad
+    # check only considers roles attached to spaces that are not trashed, so a role in a trashed
+    # space does not grant access to any other space.
     def participatory_process_user_role?(user, participatory_process = nil, broad_check: false)
       return false unless Decidim.module_installed?(:participatory_processes)
       return false unless participatory_process.nil? || participatory_process.is_a?(Decidim::ParticipatoryProcess)
-      return Decidim::ParticipatoryProcessUserRole.exists?(user:) if broad_check
 
-      Decidim::ParticipatoryProcessUserRole.exists?(user:, participatory_process:)
+      return true if participatory_process && Decidim::ParticipatoryProcessUserRole.exists?(user:, participatory_process:)
+      return false unless broad_check
+
+      Decidim::ParticipatoryProcessUserRole.exists?(user:, participatory_process: Decidim::ParticipatoryProcess.where(deleted_at: nil))
     end
 
     def assembly_user_role?(user, assembly = nil, broad_check: false)
       return false unless Decidim.module_installed?(:assemblies)
       return false unless assembly.nil? || assembly.is_a?(Decidim::Assembly)
-      return Decidim::AssemblyUserRole.exists?(user:) if broad_check
 
-      Decidim::AssemblyUserRole.exists?(user:, assembly:)
+      return true if assembly && Decidim::AssemblyUserRole.exists?(user:, assembly:)
+      return false unless broad_check
+
+      Decidim::AssemblyUserRole.exists?(user:, assembly: Decidim::Assembly.where(deleted_at: nil))
     end
 
     def conference_user_role?(user, conference = nil, broad_check: false)
       return false unless Decidim.module_installed?(:conferences)
       return false unless conference.nil? || conference.is_a?(Decidim::Conference)
-      return Decidim::ConferenceUserRole.exists?(user:) if broad_check
 
-      Decidim::ConferenceUserRole.exists?(user:, conference:)
+      return true if conference && Decidim::ConferenceUserRole.exists?(user:, conference:)
+      return false unless broad_check
+
+      Decidim::ConferenceUserRole.exists?(user:, conference: Decidim::Conference.where(deleted_at: nil))
     end
   end
 end

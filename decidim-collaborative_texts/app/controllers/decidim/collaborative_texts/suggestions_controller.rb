@@ -39,7 +39,7 @@ module Decidim
         vote_counts = vote_counts_for(suggestions)
         user_vote_weights = user_vote_weights_for(suggestions)
 
-        suggestions.map do |suggestion|
+        suggestions.includes(author: [:organization, { avatar_attachment: :blob }]).map do |suggestion|
           suggestion_json = suggestion.presenter.safe_json(
             current_user,
             vote_counts: vote_counts[suggestion.id] || {},

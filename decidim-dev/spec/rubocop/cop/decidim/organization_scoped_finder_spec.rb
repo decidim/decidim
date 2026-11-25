@@ -684,6 +684,33 @@ RSpec.describe RuboCop::Cop::Decidim::OrganizationScopedFinder, :config, type: :
     RUBY
   end
 
+  it "registers an offense for a where consumed by any? with a hash argument" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").any?(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a where consumed by none? with a hash argument" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").none?(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "registers an offense for a where consumed by one? with a hash argument" do
+    expect_offense(<<~RUBY)
+      Template.where(name: "foo").one?(organization: current_organization)
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Unscoped ActiveRecord finder detected. Scope the query to the current organization, e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`.
+    RUBY
+  end
+
+  it "accepts a where consumed by exists? with a scoped hash argument" do
+    expect_no_offenses(<<~RUBY)
+      Template.where(name: "foo").exists?(organization: current_organization)
+    RUBY
+  end
+
   it "accepts destructive methods on an organization-scoped relation" do
     expect_no_offenses(<<~RUBY)
       Template.where(organization: current_organization).update_all(name: "foo")

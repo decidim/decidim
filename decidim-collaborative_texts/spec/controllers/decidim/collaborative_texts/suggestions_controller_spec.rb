@@ -10,9 +10,10 @@ module Decidim
       let(:document) { build(:collaborative_text_document, :published, component:) }
       let!(:first_version) { create(:collaborative_text_version, document:) }
       let!(:second_version) { create(:collaborative_text_version, document:) }
+      let(:suggestion_authors) { create_list(:user, 2, :confirmed, organization: component.organization) }
       let!(:old_suggestion) { create(:collaborative_text_suggestion, document_version: first_version) }
-      let!(:suggestion1) { create(:collaborative_text_suggestion, document_version: document.current_version) }
-      let!(:suggestion2) { create(:collaborative_text_suggestion, document_version: document.current_version) }
+      let!(:suggestion1) { create(:collaborative_text_suggestion, document_version: document.current_version, author: suggestion_authors.first) }
+      let!(:suggestion2) { create(:collaborative_text_suggestion, document_version: document.current_version, author: suggestion_authors.last) }
 
       let(:params) do
         {
@@ -76,6 +77,47 @@ module Decidim
             response.parsed_body.each do |item|
               expect(item).not_to have_key("votesUrl")
             end
+          end
+        end
+
+        it "eager loads the authors of the suggestions and their avatars" do
+          queries = []
+          callback = lambda do |_name, _start, _finish, _id, payload|
+            queries << payload unless payload[:name] == "SCHEMA"
+          end
+
+          ActiveSupport::Notifications.subscribed(callback, "sql.active_record") do
+            get(:index, params:)
+          end
+
+          uncached_queries = queries.reject { |query| query[:cached] }.map { |query| query[:sql] }
+          # Cached queries are counted for the organizations check because all the
+          # suggestions share the same organization, so a missing preload would be
+          # served from the query cache for every author after the first one.
+          all_queries = queries.map { |query| query[:sql] }
+
+          expect(response).to have_http_status(:ok)
+          expect(uncached_queries.grep(/FROM "decidim_users".*"id" IN \(/).size).to eq(1)
+          expect(all_queries.grep(/FROM "decidim_organizations"/).size).to eq(1)
+          expect(uncached_queries.grep(/FROM "active_storage_attachments".*"record_id" IN \(/).size).to eq(1)
+          expect(uncached_queries.grep(/FROM "active_storage_blobs".*"id" IN \(/).size).to eq(1)
+        end
+
+        context "when a suggestion is authored by the organization" do
+          let!(:suggestion1) do
+            create(
+              :collaborative_text_suggestion,
+              document_version: document.current_version,
+              author: component.organization
+            )
+          end
+
+          it "renders the official author" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            official_suggestion = response.parsed_body.find { |item| item["id"] == suggestion1.id }
+            expect(official_suggestion["profileHtml"]).to include(I18n.t("decidim.author.official_author"))
           end
         end
       end

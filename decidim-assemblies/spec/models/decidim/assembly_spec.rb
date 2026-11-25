@@ -15,6 +15,41 @@ module Decidim
     include_examples "publicable"
     include_examples "resourceable"
 
+    context "when the assembly is trashed" do
+      let(:user) { create(:user, organization: subject.organization) }
+      let!(:user_role) { create(:assembly_user_role, assembly:, user:, role: "admin") }
+
+      it "keeps the user roles, as they are not soft deletable" do
+        subject.destroy!
+
+        expect(Decidim::AssemblyUserRole.where(id: user_role.id)).to exist
+      end
+
+      it "restores the user roles with the assembly" do
+        subject.destroy!
+        subject.restore
+
+        expect(assembly.reload.assembly_user_roles).to contain_exactly(user_role)
+      end
+
+      it "removes the user roles when the assembly is permanently deleted" do
+        subject.really_destroy!
+
+        expect(Decidim::AssemblyUserRole.where(id: user_role.id)).not_to exist
+      end
+
+      it "removes all user roles when the association cache is stale at permanent deletion" do
+        subject.assembly_user_roles.to_a # load the association cache
+
+        # Create a role through a different instance so the loaded collection above is stale
+        Decidim::Assembly.find(subject.id).assembly_user_roles.create!(user:, role: "collaborator")
+
+        subject.really_destroy!
+
+        expect(Decidim::AssemblyUserRole.where(assembly: subject.id)).not_to exist
+      end
+    end
+
     context "when there is an assembly with the same slug in the same organization" do
       let!(:external_assembly) { create(:assembly, organization: assembly.organization, slug: "my-slug") }
 

@@ -8,9 +8,9 @@ module Decidim
       include Decidim::Loggable
       include Decidim::DownloadYourData
 
-      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference"
+      belongs_to :conference, foreign_key: "decidim_conference_id", class_name: "Decidim::Conference", inverse_of: :conference_invites
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
-      belongs_to :registration_type, foreign_key: "decidim_conference_registration_type_id", class_name: "Decidim::Conferences::RegistrationType"
+      belongs_to :registration_type, foreign_key: "decidim_conference_registration_type_id", class_name: "Decidim::Conferences::RegistrationType", inverse_of: :conference_invites
 
       validates :user, uniqueness: { scope: :conference }
 
