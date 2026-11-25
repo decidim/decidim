@@ -59,6 +59,9 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
+            default_sort_order_options:
+              random: Произвольно
+              recent: Недавние
             proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
