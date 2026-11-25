@@ -508,7 +508,7 @@ cs:
           edit:
             title: Upravit fázi participačního procesu
           index:
-            title: Fáze
+            title: Kroky
           new:
             title: Nová fáze participativního procesu
         participatory_process_user_roles:
