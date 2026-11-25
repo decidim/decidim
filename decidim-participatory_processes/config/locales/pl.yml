@@ -129,6 +129,7 @@ pl:
           name: Grupa procesu
         participatory_process_step:
           fields:
+            actions: Działania
             end_date: Data zakończenia
             start_date: Data rozpoczęcia
             title: Tytuł
