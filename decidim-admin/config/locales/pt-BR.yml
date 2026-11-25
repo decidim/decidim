@@ -326,9 +326,7 @@ pt-BR:
           title: Editar componente
           update: Atualizar
         form:
-          default_step_settings: Configurações de etapa padrão
           global_settings: Configurações globais
-          step_settings: Configurações de etapa
         hide:
           success: O componente foi escondido do menu com sucesso.
         index:
