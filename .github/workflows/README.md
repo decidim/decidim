@@ -18,6 +18,13 @@ Large test suites are split into [parallel workflows](https://docs.github.com/en
 
 `test_app.yml` caches the pinned Chrome `.deb` (keyed by `chrome_version`) and installs the system libraries (`libvips`, `libvips-tools`, `libu2f-udev`) with `awalsh128/cache-apt-pkgs-action`. On a cache hit the Chrome download and the `apt-get` install are skipped; the cached `.deb` is still installed locally with `dpkg` because runners start clean.
 
+### Shard Flags
+
+`test_app.yml` exposes two per-shard flags:
+
+- `system_specs`: starts the accessibility validator container (`docker run -d -p 8888:8888 ghcr.io/validator/validator`) only for shards that run system specs.
+- `upload_coverage`: uploads coverage to Qlty and Codecov; enable it on a single shard per module to avoid redundant uploads.
+
 ## Core Workflows
 
 - `lint_code.yml`: Lints Ruby, JS, and ERB files

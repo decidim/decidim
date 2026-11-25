@@ -31,5 +31,7 @@ jobs:
     secrets: inherit
     with:
       shard: "default"
+      system_specs: true
       test_command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_default.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_default.log' --pattern spec/
+      upload_coverage: true
       working-directory: "decidim-demographics"
