@@ -332,9 +332,7 @@ sv:
           title: Redigera komponent
           update: Uppdatera
         form:
-          default_step_settings: Förvalda inställningar för steg
           global_settings: Globala inställningar
-          step_settings: Inställningar för steg
         hide:
           success: Komponenten har dolts från menyn.
         index:
