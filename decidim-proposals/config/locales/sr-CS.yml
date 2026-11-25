@@ -13,7 +13,7 @@ sr:
           global:
             new_proposal_body_template: Novi predlog šablona glavnog teksta
             new_proposal_body_template_help: Možete da definišete tekst koji će se pojavljivati pri kreiranju novog predloga
-          step:
+          phase:
             amendments_visibility: Vidljivost izmena
             amendments_visibility_choices:
               all: Izmene su vidljive svima
