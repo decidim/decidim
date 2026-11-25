@@ -160,7 +160,6 @@ ja:
         settings:
           global:
             amendments_enabled: 修正が有効
-            amendments_enabled_help: アクティブな場合、各ステップに修正機能を設定します。
             amendments_wizard_help_text: 修正ウィザードのヘルプテキスト
             announcement: お知らせ
             attachments_allowed: 添付ファイルを許可
@@ -215,7 +214,7 @@ ja:
             taxonomy_filters_add: フィルターを追加
             threshold_per_proposal: 提案ごとのしきい値
             vote_limit: 参加者ごとの投票制限
-          step:
+          phase:
             amendment_creation_enabled: 修正の作成は有効です
             amendment_creation_enabled_help: 参加者は提案を修正できます。
             amendment_promotion_enabled: 修正プロモーションを有効にする
@@ -227,25 +226,12 @@ ja:
               all: 修正内容はすべてに表示されます
               participants: 修正内容は著者にのみ表示されます
             amendments_visibility_help: '「修正は作成者にのみ表示される」オプションを選択した場合、参加者は修正内容を確認するためにログインする必要があります。'
-            announcement: お知らせ
             answers_with_costs: 提案の回答時にコストを有効にする
             comments_blocked: コメントをブロック
             creation_enabled: 参加者は提案を作成できます
             creation_enabled_readonly: 参加テキスト機能を有効にするとこの設定は無効になります。 参加テキストとして提案をアップロードするには、参加テキストボタンをクリックし、指示に従ってください。
-            default_sort_order: デフォルトの提案の並べ替え
-            default_sort_order_help: '「自動」にすると、投票が有効になっている間、提案はランダムにソートされます。 投票がブロックされると、最も投票数が多い順に並べられます'
-            default_sort_order_options:
-              automatic: 自動
-              most_commented: コメントの多い順
-              most_followed: フォローの多い順
-              most_liked: いいねが多い順
-              most_voted: 得票数順
-              random: ランダム
-              recent: 新しい順
-              with_more_authors: 起案者の多い順
             likes_blocked: '「いいね」がブロックされました'
             likes_enabled: いいねを有効にする
-            proposal_answering_enabled: 提案への回答を有効にする
             publish_answers_immediately: 提案の回答をすぐに公開
             publish_answers_immediately_help_html: 'これを有効にせずに提案に回答する場合、選択して公開アクションを使用して、手動で公開する必要があります。これがどのように機能するかの詳細については、<a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案の回答に関するドキュメントページ</a>を参照してください。'
             votes_blocked: 投票をブロックしました
