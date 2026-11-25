@@ -8,6 +8,7 @@ module Decidim
     class Suggestion < CollaborativeTexts::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Authorable
+      include Decidim::Comments::Commentable
 
       after_save :update_document_counters
 
@@ -15,6 +16,7 @@ module Decidim
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version", counter_cache: true, inverse_of: :suggestions
       has_one :document, class_name: "Decidim::CollaborativeTexts::Document", through: :document_version
 
+      delegate :component, to: :document
       delegate :participatory_space, :organization, to: :document_version
 
       def self.log_presenter_class_for(_log)
@@ -23,6 +25,11 @@ module Decidim
 
       def presenter
         @presenter ||= Decidim::CollaborativeTexts::SuggestionPresenter.new(self)
+      end
+
+      # Public: Overrides the `commentable?` Commentable concern method.
+      def commentable?
+        document.published?
       end
 
       private
