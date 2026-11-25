@@ -32,8 +32,6 @@ es:
         settings:
           global:
             announcement: Aviso
-          step:
-            announcement: Aviso
     elections:
       actions:
         confirm_delete_election: '¿Seguro que quieres eliminar esta elección?'
