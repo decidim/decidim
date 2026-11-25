@@ -37,21 +37,16 @@ lb:
         participatory_structure: Wie wird es entschieden
         target: Wer nimmt teil
         title: Titel
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: '"Call to Action"-Pfad'
         cta_text: Call to Action-Text
-        description: Beschreibung
-        end_date: Enddatum
-        short_description: Kurzbeschreibung
-        start_date: Ufanksdatum
-        title: Titel
       participatory_process_user_role:
         email: Email
         name: Numm
         role: Rolle
     models:
-      decidim/participatory_process_step_activated_event: Phase aktiviert
-      decidim/participatory_process_step_changed_event: Phase geändert
+      decidim/participatory_process_phase_activated_event: Phase aktiviert
+      decidim/participatory_process_phase_changed_event: Phase geändert
   activerecord:
     models:
       decidim/participatory_process:
@@ -60,7 +55,7 @@ lb:
       decidim/participatory_process_group:
         one: Prozessgruppe
         other: Prozessgruppen
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Etapp
         other: Phasen
   decidim:
@@ -74,7 +69,7 @@ lb:
         import_process: Import
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
-        new_process_step: Neue Phase
+        new_process_phase: Neue Phase
         new_process_user_role: Neuer Prozess-Administrator
         preview: Virausbléck
         publish: Verëffentlechen
@@ -89,8 +84,8 @@ lb:
           attachments: Unhäng
           components: Komponenten
           moderations: Moderationen
+          phases: Phasen
           process_admins: Benutzer verarbeiten
-          steps: Phasen
       models:
         participatory_process:
           fields:
@@ -102,11 +97,7 @@ lb:
           fields:
             title: Titel
           name: Prozessgruppe
-        participatory_process_step:
-          fields:
-            end_date: Enddatum
-            start_date: Ufanksdatum
-            title: Titel
+        participatory_process_phase:
           name: Beteiligungsprozess Phase
         participatory_process_user_role:
           fields:
@@ -139,6 +130,21 @@ lb:
         new:
           import: Import
           select: Wählen Sie aus, welche Daten Sie importieren möchten
+      participatory_process_phase_activations:
+        create:
+          error: Beim Aktivieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipativer Prozessschritt erfolgreich aktiviert.
+      participatory_process_phases:
+        create:
+          error: Beim Erstellen eines neuen partizipativen Prozessschritts ist ein Fehler aufgetreten.
+          success: Partizipativer Prozessschritt erfolgreich erstellt.
+        default_title: Aféierung
+        destroy:
+          success: Participatory-Prozessschritt erfolgreich gelöscht.
+        ordering:
+          error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
+        update:
+          error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
       participatory_process_publications:
         create:
           error: Bei der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
@@ -146,25 +152,6 @@ lb:
         destroy:
           error: Beim Aufheben der Veröffentlichung dieses Beteiligungsprozesses ist ein Fehler aufgetreten.
           success: Partizipativer Prozess wurde nicht veröffentlicht.
-      participatory_process_step_activations:
-        create:
-          error: Beim Aktivieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich aktiviert.
-      participatory_process_steps:
-        create:
-          error: Beim Erstellen eines neuen partizipativen Prozessschritts ist ein Fehler aufgetreten.
-          success: Partizipativer Prozessschritt erfolgreich erstellt.
-        default_title: Aféierung
-        destroy:
-          success: Participatory-Prozessschritt erfolgreich gelöscht.
-        edit:
-          update: Aktualiséieren
-        new:
-          create: Erstellen
-        ordering:
-          error: Beim Neuanordnen dieser partizipativen Prozessschritte ist ein Fehler aufgetreten.
-        update:
-          error: Beim Aktualisieren dieses partizipativen Prozessschritts ist ein Fehler aufgetreten.
       participatory_process_user_roles:
         create:
           error: Beim Hinzufügen eines Benutzers für diesen partizipativen Prozess ist ein Fehler aufgetreten.
@@ -188,7 +175,7 @@ lb:
       participatory_process_group:
         create: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} erstellt"
         update: "%{user_name} hat die Partizipationsprozess-Gruppe %{resource_name} aktualisiert"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} hat den Schritt %{resource_name} in %{space_name} aktiviert"
         create: "%{user_name} hat den Schritt %{resource_name} in %{space_name} erstellt"
         delete: "%{user_name} hat den Schritt %{resource_name} aus %{space_name} gelöscht"
@@ -199,21 +186,21 @@ lb:
         update: "%{user_name} änderte die Rolle des Benutzers %{resource_name} im %{space_name} Partizipationsprozess"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sie können das auf dieser Seite sehen:'
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{participatory_space_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Eng Aktualiséierung op %{participatory_space_title}
+          notification_title: Der Prozessschritt %{resource_title} ist jetzt aktiv in <a href="%{resource_path}">%{participatory_space_title}</a>
+        phase_changed:
+          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können das auf dieser Seite sehen:'
+          email_outro: Du hues dës Noriicht kritt, well s'du dem %{participatory_space_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
+          email_subject: Eng Aktualiséierung op %{participatory_space_title}
+          notification_title: Die Daten für den Prozessschritt <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
         role_assigned:
           email_intro: Sie wurden als %{role} für den Beteiligungsprozess "%{resource_title}" ausgewählt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{role} im Beteiligungsprozess "%{resource_title}" sind.
           email_subject: Sie wurden als %{role} für "%{resource_title}" ausgewählt.
           notification_title: Sie wurden als %{role} für den Beteiligungsprozess <a href="%{resource_url}">%{resource_title}</a> ausgewählt.
-        step_activated:
-          email_intro: 'Der Prozessschritt %{resource_title} ist jetzt aktiv in %{participatory_space_title}. Sie können das auf dieser Seite sehen:'
-          email_outro: Du hues dës Noriicht kritt, well s'du dem %{participatory_space_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-          email_subject: Eng Aktualiséierung op %{participatory_space_title}
-          notification_title: Der Prozessschritt %{resource_title} ist jetzt aktiv in <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
-          email_intro: 'Die Daten für den Schritt %{resource_title} bei %{participatory_space_title} wurden aktualisiert. Sie können das auf dieser Seite sehen:'
-          email_outro: Du hues dës Noriicht kritt, well s'du dem %{participatory_space_title} nogees. Falls du esou Noriichten net méi wëlls kréien, géi op den Link uewen.
-          email_subject: Eng Aktualiséierung op %{participatory_space_title}
-          notification_title: Die Daten für den Prozessschritt <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> wurden aktualisiert.
     help:
       participatory_spaces:
         participatory_processes:
@@ -240,6 +227,9 @@ lb:
         title: Prozessgruppen
     participatory_processes:
       admin:
+        participatory_process_phases:
+          index:
+            title: Phasen
         participatory_processes:
           form:
             related_processes: Ähnliche Beteiligungsprozesse
@@ -280,7 +270,7 @@ lb:
         index:
           promoted_processes: Hervorgehobene Beteiligungsprozesse
         participatory_process:
-          active_step: Aktuell Etapp
+          active_phase: Aktuell Etapp
           more_info: Méi Informatiounen
           more_info_about: Méi Informatiounen iwert den Prozess %{resource_name}
           take_part: Deelhuelen
