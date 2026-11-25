@@ -230,12 +230,12 @@ pt-BR:
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
-            default_sort_order: Classificação de propostas padrão
-            default_sort_order_help: O termo "automático" significa que, se as votações estiverem ativadas, as propostas serão exibidas em ordem aleatória e, se as votações estiverem bloqueadas, serão ordenadas pelas mais votadas.
+            default_sort_order: Classificação de proposta padrão
+            default_sort_order_help: Automático significa que, se os votos estiverem habilitados, as propostas serão mostradas por ordem aleatória, e se as votações estiverem bloqueadas, serão ordenadas pela maioria das votações.
             default_sort_order_options:
               automatic: Automático
-              most_commented: Mais comentado
-              most_followed: Mais seguido
+              most_commented: Mais comentados
+              most_followed: Mais seguidos
               most_liked: Mais curtido
               most_voted: Mais votado
               random: Aleatório
