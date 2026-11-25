@@ -44,7 +44,7 @@ ro:
             taxonomy_filters: Selectați filtrele pentru componentă
             taxonomy_filters_add: Adaugați filtru
           step:
-            announcement: Anunț
+            announcement: Anunţ
             comments_blocked: Comentarii blocate
             creation_enabled: Participanții pot crea dezbateri
     debates:
