@@ -311,7 +311,7 @@ es-PY:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
-          step:
+          phase:
             comments_blocked: Comentarios bloqueados
           visualization: Visualización
     download_your_data:
