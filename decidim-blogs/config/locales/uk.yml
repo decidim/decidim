@@ -38,8 +38,7 @@ uk:
           global:
             announcement: Оголошення
             comments_enabled: Коментарі ввімкнено
-          step:
-            announcement: Оголошення
+          phase:
             comments_blocked: Коментарі вимкнено
     events:
       blogs:
