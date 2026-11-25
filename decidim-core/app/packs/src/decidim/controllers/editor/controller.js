@@ -4,6 +4,7 @@ import createEditor from "src/decidim/editor";
 export default class extends Controller {
   connect() {
     this.boundReveal = this.reveal.bind(this);
+    this.boundPreviewFocus = this.onPreviewFocus.bind(this);
     this.element.addEventListener("editor:reveal", this.boundReveal);
 
     if (this.element.querySelector(".ProseMirror")) {
@@ -19,6 +20,12 @@ export default class extends Controller {
     if (this.isDisabled()) {
       return;
     }
+
+    // The preview is focusable so keyboard users can reach editors that are
+    // outside the viewport and therefore not initialized by the intersection
+    // observer yet.
+    this.preview = this.element.querySelector(".editor-preview");
+    this.preview?.addEventListener("focus", this.boundPreviewFocus);
 
     if (typeof window.IntersectionObserver === "undefined") {
       this.initializeEditor();
@@ -37,10 +44,23 @@ export default class extends Controller {
   disconnect() {
     this.observer?.disconnect();
     this.element.removeEventListener("editor:reveal", this.boundReveal);
+    this.preview?.removeEventListener("focus", this.boundPreviewFocus);
   }
 
   reveal() {
     return this.initializeEditor();
+  }
+
+  onPreviewFocus() {
+    if (!this.initializeEditor()) {
+      return;
+    }
+
+    this.focusEditor();
+  }
+
+  focusEditor() {
+    this.element.querySelector(".editor-input .ProseMirror")?.focus();
   }
 
   initializeEditor() {

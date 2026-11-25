@@ -150,6 +150,12 @@ module Decidim
           expect(preview["style"]).to include("min-height: 5rem")
           expect(preview["style"]).not_to include("max-height")
         end
+
+        it "does not add a tab stop to the preview" do
+          preview = parsed.css(".editor .editor-preview").first
+
+          expect(preview["tabindex"]).to be_nil
+        end
       end
 
       context "when the field is not disabled" do
@@ -162,6 +168,12 @@ module Decidim
 
           expect(preview["style"]).to include("min-height: 5rem")
           expect(preview["style"]).to include("max-height: 5rem")
+        end
+
+        it "makes the preview focusable so keyboard users can reach the editor" do
+          preview = parsed.css(".editor .editor-preview").first
+
+          expect(preview["tabindex"]).to eq("0")
         end
       end
 

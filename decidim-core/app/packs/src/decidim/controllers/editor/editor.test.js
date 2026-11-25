@@ -37,7 +37,7 @@ describe("EditorController", () => {
       <div class="editor">
         <input type="hidden" value="<p>Hello</p>" name="record[body]">
         <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}">
-          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-preview" data-editor-preview tabindex="0"><p>Hello</p></div>
           <div class="editor-input" style="min-height: 10rem" hidden></div>
         </div>
       </div>
@@ -74,6 +74,50 @@ describe("EditorController", () => {
     container.dispatchEvent(new CustomEvent("editor:reveal", { bubbles: true }));
 
     expect(document.querySelector(".ProseMirror")).not.toBeNull();
+  });
+
+  it("initializes the editor and moves focus to it when the preview receives focus", async () => {
+    const preview = container.querySelector(".editor-preview");
+    expect(preview.getAttribute("tabindex")).toBe("0");
+
+    preview.focus();
+    await sleep();
+
+    const proseMirror = container.querySelector(".editor-input .ProseMirror");
+    expect(proseMirror).not.toBeNull();
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+    expect(document.activeElement).toBe(proseMirror);
+  });
+
+  it("does not initialize disabled editors when their preview receives focus", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]" disabled>
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="true" data-options="{&quot;context&quot;:&quot;admin&quot;}">
+          <div class="editor-preview" data-editor-preview><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem" hidden></div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const preview = container.querySelector(".editor-preview");
+    expect(preview.hasAttribute("tabindex")).toBe(false);
+
+    preview.dispatchEvent(new FocusEvent("focus"));
+    await sleep();
+
+    expect(document.querySelector(".ProseMirror")).toBeNull();
+    expect(container.querySelector(".editor-preview").hidden).toBe(false);
+    expect(container.querySelector(".editor-input").hidden).toBe(true);
   });
 
   it("dispatches editor:initialized when reusing an editor initialized before the controller connected", async () => {

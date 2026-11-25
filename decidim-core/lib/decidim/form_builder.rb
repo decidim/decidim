@@ -868,8 +868,9 @@ module Decidim
 
     # Private: creates a lightweight preview for the editor content. The actual
     # editor is initialized later by JavaScript when the field becomes visible.
-    # Disabled editors are never initialized, so their preview must not limit
-    # the height of the content.
+    # The preview is focusable so keyboard users can reach editors that are
+    # outside the viewport. Disabled editors are never initialized, so their
+    # preview must not limit the height of the content nor add a tab stop.
     def editor_preview(value, lines, context, disabled: false)
       preview = if value.present?
                   context == "participant" ? @template.decidim_sanitize_editor(value) : @template.decidim_sanitize_editor_admin(value)
@@ -878,7 +879,10 @@ module Decidim
       style = "min-height: #{lines}rem"
       style += "; max-height: #{lines}rem" unless disabled
 
-      content_tag(:div, preview, class: "editor-preview", style:)
+      attributes = { class: "editor-preview", style: }
+      attributes[:tabindex] = 0 unless disabled
+
+      content_tag(:div, preview, **attributes)
     end
 
     # Private: creates the options to pass to the view editor and its attached
