@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", version
   s.add_dependency "devise", ">= 4.7", "< 6.0"
   s.add_dependency "devise-i18n", "~> 1.2"
-  s.add_dependency "devise_invitable", "~> 2.0", ">= 2.0.9"
+  s.add_dependency "devise_invitable", ">= 2.0.9", "< 4"
 
   s.add_development_dependency "decidim-dev", version
   s.add_development_dependency "decidim-participatory_processes", version
