@@ -9,8 +9,6 @@ is-IS:
         settings:
           global:
             announcement: Tilkynning
-          step:
-            announcement: Tilkynning
     pages:
       admin:
         models:
