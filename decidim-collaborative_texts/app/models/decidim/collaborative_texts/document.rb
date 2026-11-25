@@ -34,8 +34,8 @@ module Decidim
 
         where(id: Version.draft.where(id: current_versions).select(:document_id))
       }
-      scope :accepting_suggestions, -> { published.where(accepting_suggestions: true).where.not(id: with_current_draft_version) }
-      scope :not_accepting_suggestions, -> { published.where.not(id: accepting_suggestions) }
+      scope :accepting_suggestions, -> { where(accepting_suggestions: true).where.not(id: with_current_draft_version) }
+      scope :not_accepting_suggestions, -> { where.not(id: accepting_suggestions) }
 
       scope_search_multi :with_any_state, [:accepting_suggestions, :not_accepting_suggestions]
 

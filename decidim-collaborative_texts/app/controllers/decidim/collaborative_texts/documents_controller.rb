@@ -51,8 +51,7 @@ module Decidim
       end
 
       def search_collection
-        base = Document.includes(:component, :document_versions, :coauthorships).where(component: current_component)
-        current_user&.admin? ? base : base.published
+        Document.includes(:component, :document_versions, :coauthorships).where(component: current_component).published
       end
 
       def default_filter_params

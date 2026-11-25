@@ -39,6 +39,25 @@ module Decidim
 
             expect(controller.helpers.documents).to contain_exactly(accepting_document)
           end
+
+          context "when the user is an admin" do
+            let(:admin) { create(:user, :admin, :confirmed, organization: component.organization) }
+            let!(:unpublished_not_accepting_document) { create(:collaborative_text_document, :not_accepting_suggestions, component:) }
+
+            before { allow(controller).to receive(:current_user).and_return(admin) }
+
+            it "does not return unpublished documents in the all filter" do
+              get :index, params: { filter: { with_any_state: "all" } }
+
+              expect(controller.helpers.documents).not_to include(unpublished_not_accepting_document)
+            end
+
+            it "does not return unpublished documents in the state filters" do
+              get :index, params: { filter: { with_any_state: "not_accepting_suggestions" } }
+
+              expect(controller.helpers.documents).not_to include(unpublished_not_accepting_document)
+            end
+          end
         end
       end
 

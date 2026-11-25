@@ -30,15 +30,15 @@ module Decidim
         let!(:unpublished) { create(:collaborative_text_document, :accepting_suggestions, component:) }
 
         it "returns the published documents accepting suggestions" do
-          expect(described_class.with_any_state("accepting_suggestions")).to contain_exactly(accepting, older_draft)
+          expect(described_class.published.with_any_state("accepting_suggestions")).to contain_exactly(accepting, older_draft)
         end
 
         it "returns the published documents not accepting suggestions" do
-          expect(described_class.with_any_state("not_accepting_suggestions")).to contain_exactly(not_accepting, in_review)
+          expect(described_class.published.with_any_state("not_accepting_suggestions")).to contain_exactly(not_accepting, in_review)
         end
 
         it "does not return unpublished documents" do
-          expect(described_class.with_any_state(*%w(accepting_suggestions not_accepting_suggestions))).not_to include(unpublished)
+          expect(described_class.published.with_any_state(*%w(accepting_suggestions not_accepting_suggestions))).not_to include(unpublished)
         end
       end
 
