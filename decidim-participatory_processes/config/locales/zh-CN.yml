@@ -28,28 +28,23 @@ zh-CN:
         description: 描述
         hero_image: 图片
         participatory_process_ids: 相关进程
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: 调用行动路径
         cta_text: 呼吁行动文本
-        description: 描述
-        end_date: 结束日期
-        short_description: 简短描述
-        start_date: 开始日期
-        title: 标题
       participatory_process_user_role:
         email: 电子邮件地址
         name: 名称
         role: 作用
     models:
-      decidim/participatory_process_step_activated_event: 相位激活
-      decidim/participatory_process_step_changed_event: 相位已更改
+      decidim/participatory_process_phase_activated_event: 相位激活
+      decidim/participatory_process_phase_changed_event: 相位已更改
   activerecord:
     models:
       decidim/participatory_process:
         other: 参与进程
       decidim/participatory_process_group:
         other: 参与性进程组
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         other: 阶段
   decidim:
     admin:
@@ -62,7 +57,7 @@ zh-CN:
         import_process: 导入
         new_process: 新建进程
         new_process_group: 新建流程组
-        new_process_step: 新阶段
+        new_process_phase: 新阶段
         new_process_user_role: 新建进程管理员
         preview: 预览
         publish: 发布
@@ -77,8 +72,8 @@ zh-CN:
           attachments: 附件
           components: 组件
           moderations: 版面
+          phases: 阶段
           process_admins: 进程管理员
-          steps: 阶段
       models:
         participatory_process:
           fields:
@@ -88,11 +83,7 @@ zh-CN:
           name: 参与性进程
         participatory_process_group:
           name: 流程组
-        participatory_process_step:
-          fields:
-            end_date: 结束日期
-            start_date: 开始日期
-            title: 标题
+        participatory_process_phase:
           name: 参与进程阶段
         participatory_process_user_role:
           fields:
@@ -125,6 +116,21 @@ zh-CN:
         new:
           import: 导入
           select: 选择您想要导入的数据
+      participatory_process_phase_activations:
+        create:
+          error: 启动这一参与进程阶段时遇到了问题。
+          success: 参与进程阶段已成功激活。
+      participatory_process_phases:
+        create:
+          error: 在建立新的参与进程阶段时遇到了问题。
+          success: 参与进程阶段成功创建。
+        default_title: 一. 导言
+        destroy:
+          success: 参与进程阶段已成功删除。
+        ordering:
+          error: 在重新安排参与进程这些阶段的顺序方面存在问题。
+        update:
+          error: 在更新这一阶段的参与进程时遇到了问题。
       participatory_process_publications:
         create:
           error: 在公布这一参与过程时遇到了问题。
@@ -132,25 +138,6 @@ zh-CN:
         destroy:
           error: 出现了一个不公布这一参与进程的问题。
           success: 参与进程已成功取消发布。
-      participatory_process_step_activations:
-        create:
-          error: 启动这一参与进程阶段时遇到了问题。
-          success: 参与进程阶段已成功激活。
-      participatory_process_steps:
-        create:
-          error: 在建立新的参与进程阶段时遇到了问题。
-          success: 参与进程阶段成功创建。
-        default_title: 一. 导言
-        destroy:
-          success: 参与进程阶段已成功删除。
-        edit:
-          update: 更新
-        new:
-          create: 创建
-        ordering:
-          error: 在重新安排参与进程这些阶段的顺序方面存在问题。
-        update:
-          error: 在更新这一阶段的参与进程时遇到了问题。
       participatory_process_user_roles:
         create:
           error: 在这个参与进程中增加参与者时遇到了问题。
@@ -194,7 +181,7 @@ zh-CN:
       participatory_process_group:
         create: "%{user_name} 创建了 %{resource_name} 参与进程组"
         update: "%{user_name} 更新了 %{resource_name} 参与进程组"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} 在 %{space_name} 参与进程中激活了 %{resource_name} 阶段"
         create: "%{user_name} 在 %{space_name} 参与进程中创建了 %{resource_name} 阶段"
         delete: "%{user_name} 删除了 %{resource_name} 阶段的 %{space_name} 参与进程"
@@ -205,21 +192,21 @@ zh-CN:
         update: "%{user_name} 更改了参与者 %{resource_name} 在 %{space_name} 参与进程中的角色"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: '%{resource_title} 阶段现在对 %{participatory_space_title}生效。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 更新到 %{participatory_space_title}
+          notification_title: '%{resource_title} 阶段现在已对 <a href="%{resource_path}">%{participatory_space_title}</a> 激活'
+        phase_changed:
+          email_intro: '%{resource_title} 阶段 %{participatory_space_title} 的日期已更新。您可以从这个页面查看：'
+          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
+          email_subject: 更新到 %{participatory_space_title}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> 阶段 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 的日期已更新。
         role_assigned:
           email_intro: 您已被分配为 %{role} 用于参与进程 "%{resource_title}"。
           email_outro: 您收到此通知是因为您是 %{role} 的 "%{resource_title}"参与过程。
           email_subject: 您已被分配为 %{role} 给 "%{resource_title}"。
           notification_title: 您已被分配为 %{role} 用于参与进程 <a href="%{resource_url}">%{resource_title}</a>。
-        step_activated:
-          email_intro: '%{resource_title} 阶段现在对 %{participatory_space_title}生效。您可以从这个页面查看：'
-          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
-          email_subject: 更新到 %{participatory_space_title}
-          notification_title: '%{resource_title} 阶段现在已对 <a href="%{resource_path}">%{participatory_space_title}</a> 激活'
-        step_changed:
-          email_intro: '%{resource_title} 阶段 %{participatory_space_title} 的日期已更新。您可以从这个页面查看：'
-          email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
-          email_subject: 更新到 %{participatory_space_title}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 阶段 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 的日期已更新。
     help:
       participatory_spaces:
         participatory_processes:
@@ -234,9 +221,9 @@ zh-CN:
           name: 统计
       show:
         title: 参与性进程组
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: 流程阶段
+        process_phases: 流程阶段
     participatory_processes:
       admin:
         content_blocks:
@@ -245,6 +232,9 @@ zh-CN:
         participatory_process_imports:
           form:
             document_legend: 添加文档
+        participatory_process_phases:
+          index:
+            title: 阶段
         participatory_processes:
           form:
             duration: 期限
@@ -290,7 +280,7 @@ zh-CN:
         index:
           promoted_processes: 高亮的进程
         participatory_process:
-          active_step: 当前阶段：
+          active_phase: 当前阶段：
           more_info: 更多信息
           more_info_about: 更多关于进程 %{resource_name} 的信息
           take_part: 参与
