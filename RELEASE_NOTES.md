@@ -129,7 +129,7 @@ You can read more about this change on PR [#17933](https://github.com/decidim/de
 
 ### 2.7. Meeting embed domains are no longer added automatically to the CSP
 
-The domains configured in `MEETINGS_EMBEDDABLE_SERVICES` are no longer appended automatically to the `frame-src` directive of the Content Security Policy when displaying a meeting or a live event. If you embed services in meetings, add their domains to `frame-src` through `Decidim.content_security_policies_extra` in the initializer or through the organization's System panel. Otherwise, the browser will block the embedded services.
+The domains configured in `MEETINGS_EMBEDDABLE_SERVICES` are no longer appended automatically to the `frame-src` directive of the Content Security Policy when displaying a meeting or a live event. If you embed services in meetings, add the host that the iframe actually loads from to `frame-src` through `Decidim.content_security_policies_extra` in the initializer or through the organization's System panel. This host can differ from the service domain configured in `MEETINGS_EMBEDDABLE_SERVICES` when Decidim leaves the embed URL unchanged. Otherwise, the browser will block the embedded services.
 
 ### 2.8. [[TITLE OF THE ACTION]]
 
