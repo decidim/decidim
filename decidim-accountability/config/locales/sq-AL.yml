@@ -162,7 +162,7 @@ sq:
             comments_enabled: Komentet e aktivizuara
             display_progress_enabled: Shfaq ecurinë
             intro: Hyrje
-          step:
+          phase:
             comments_blocked: Komentet të bllokuara
     events:
       accountability:
