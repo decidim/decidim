@@ -13,7 +13,12 @@ module Decidim
     end
 
     def locale
-      available_locales.map(&:to_sym).include?(extracted_locale.to_sym) ? extracted_locale : default_locale
+      detected_locale || default_locale
+    end
+
+    def detected_locale
+      locale = extracted_locale
+      locale if locale.present? && available_locales.map(&:to_sym).include?(locale.to_sym)
     end
 
     private
