@@ -5,9 +5,11 @@
 # or a session, or if there is nothing it will return the default locale of the organization.
 module Decidim
   class LocaleRouterDetector
-    def initialize(request, params)
+    def initialize(request, params, user: request.env["warden"]&.user("user"), organization: request.env["decidim.current_organization"])
       @request = request
       @input_params = params
+      @user = user
+      @organization = organization
     end
 
     def locale
@@ -16,7 +18,7 @@ module Decidim
 
     private
 
-    attr_reader :request, :input_params
+    attr_reader :request, :input_params, :user, :organization
 
     def extracted_locale
       input_params[:locale].presence ||
@@ -28,7 +30,7 @@ module Decidim
     end
 
     def current_user_locale
-      request.env["warden"]&.user("user")&.locale.presence
+      user&.locale.presence
     end
 
     def accept_language_locale
@@ -66,10 +68,6 @@ module Decidim
 
     def default_locale
       (organization || Decidim).default_locale
-    end
-
-    def organization
-      request.env["decidim.current_organization"]
     end
   end
 end
