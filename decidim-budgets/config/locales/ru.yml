@@ -89,8 +89,7 @@ ru:
             projects_per_page: Проектов на страницу
             total_budget: Общий бюджет
             vote_threshold_percent: Минимальный процент бюджета для голосования
-          step:
-            announcement: Объявление
+          phase:
             comments_blocked: Комментарии отключены
             show_votes: Показать голоса
             votes_choices:
