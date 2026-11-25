@@ -120,6 +120,7 @@
           name: Prosessgruppe
         participatory_process_step:
           fields:
+            actions: Handlinger
             end_date: Sluttdato
             start_date: Startdato
             title: Tittel
@@ -314,6 +315,9 @@
         participatory_process_imports:
           form:
             document_legend: Legg til et dokumentet
+        participatory_process_steps:
+          index:
+            title: Faser
         participatory_processes:
           form:
             duration: Varighet
