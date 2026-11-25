@@ -161,15 +161,11 @@ lb:
             workflow_choices:
               all: 'Gesamthaft abstimmen: erlaubt es den Teilnehmern, in allen Budget‘s abzustimmen.'
               one: 'Selektiv abstimmen: erlaubt es den Teilnehmern, in einem (1) der Budget’s abzustimmen.'
-          step:
-            announcement: Ankündigung
+          phase:
             comments_blocked: Kommentare blockiert
             highlighted_heading: Hervorgehobene Überschrift
-            landing_page_content: Budgets Landingpage
             list_heading: Listenüberschrift
-            more_information_modal: Weitere Informationen modal
             show_votes: Stimmen anzeigen
-            title: Überschrift
             votes: Abstimmungen
             votes_choices:
               disabled: Abstimmung deaktiviert
