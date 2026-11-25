@@ -19,8 +19,6 @@ nl:
         settings:
           global:
             announcement: Mededeling
-          step:
-            announcement: Mededeling
     elections:
       actions:
         preview: Voorvertoning
