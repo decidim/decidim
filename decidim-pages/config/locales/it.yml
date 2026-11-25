@@ -14,8 +14,6 @@ it:
         settings:
           global:
             announcement: Avviso
-          step:
-            announcement: Avviso
     pages:
       admin:
         models:
