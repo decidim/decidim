@@ -491,15 +491,11 @@ ca:
             workflow_choices:
               all: 'Votar a tots: permet a les participants votar a tots els pressupostos.'
               one: 'Votar a un: permet a les participants votar a qualsevol pressupost, però només a un.'
-          step:
-            announcement: Avís
+          phase:
             comments_blocked: Comentaris bloquejats
             highlighted_heading: Capçalera destacada
-            landing_page_content: Pàgina d'inici de pressupostos
             list_heading: Títol de la llista
-            more_information_modal: Finestra de "Més informació"
             show_votes: Mostra els suports
-            title: Títol
             votes: Votació
             votes_choices:
               disabled: Votació inhabilitada
