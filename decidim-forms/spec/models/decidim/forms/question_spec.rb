@@ -68,8 +68,6 @@ module Decidim
           response = create(:response, question:, questionnaire:)
           choice = create(:response_choice, response:, response_option:, matrix_row:)
 
-          # Loaded fresh, as it is when the whole question is removed (component deletion,
-          # questionnaire deletion), so the options and rows are evaluated against the DB.
           fresh_question = Decidim::Forms::Question.find(question.id)
 
           expect(fresh_question.destroy).to be_truthy

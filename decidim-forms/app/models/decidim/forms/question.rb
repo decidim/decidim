@@ -15,11 +15,6 @@ module Decidim
 
       belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id", inverse_of: :questions
 
-      # Declared before the matrix rows and response options on purpose: dependent
-      # callbacks run in declaration order, so destroying a question destroys its
-      # responses (and their choices) first. That keeps the intentional cascade working
-      # when the whole question is removed, while the restrict_with_error on the options
-      # and rows still blocks removing them while recorded choices exist.
       has_many :responses,
                class_name: "Response",
                foreign_key: "decidim_question_id",

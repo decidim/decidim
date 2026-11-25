@@ -291,9 +291,6 @@ module Decidim
           end
         end
 
-        # The answers make the questions read-only unless the questionnaire is
-        # explicitly editable (as in demographics) or the component is unpublished,
-        # which is exactly the situation where an answered option can be removed.
         describe "when the questionnaire has existing records with recorded answers" do
           before { questionnaire.override_edit! }
 
@@ -313,8 +310,6 @@ module Decidim
                     "position" => 0,
                     "question_type" => "single_option",
                     "response_options" => {
-                      # The update entry comes first so it is processed before the
-                      # refused removal, which lets the rollback be verified.
                       "0" => { "id" => other_response_option.id, "body" => { "en" => "Renamed option" }, "deleted" => "false" },
                       "1" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
                     }
@@ -334,8 +329,6 @@ module Decidim
               expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
             end
 
-            # The update of the other option is processed before the removal is
-            # refused, so the transaction has to roll it back with the removal.
             it "rolls back the update processed before the refused removal" do
               command.call
 
@@ -352,8 +345,6 @@ module Decidim
               expect(messages.first).to include("First response")
             end
 
-            # The message reaches the admin editor through the flash, which renders
-            # its value as HTML, so the saved text has to come out escaped.
             it "escapes the saved markup of the option in the message" do
               response_option.update!(body: { "en" => "<script>alert(1)</script>" })
 
@@ -412,10 +403,6 @@ module Decidim
             end
           end
 
-          # Removing a question in the editor marks its options and matrix rows as
-          # deleted too (see the onRemoveField handler in
-          # decidim-forms/app/packs/src/decidim/forms/admin/forms.js), so the whole
-          # question has to go together with its recorded answers.
           context "and the whole question with recorded answers is removed" do
             let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
             let!(:response) { create(:response, question:, questionnaire:) }

@@ -69,8 +69,6 @@ module Decidim
                 end
 
                 on(:invalid) do |message|
-                  # The command explains why the save was refused (e.g. an option that
-                  # still has recorded answers); fall back to the generic message.
                   flash.now[:alert] = message.presence || I18n.t("update.invalid", scope: i18n_flashes_scope)
                   render template: edit_questions_template, status: :unprocessable_content
                 end
