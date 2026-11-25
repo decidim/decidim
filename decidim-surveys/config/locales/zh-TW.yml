@@ -13,8 +13,6 @@ zh-TW:
         settings:
           global:
             announcement: 公告
-          step:
-            announcement: 公告
     events:
       surveys:
         survey_closed:
