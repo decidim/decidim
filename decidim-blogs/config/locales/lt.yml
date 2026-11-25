@@ -71,8 +71,7 @@ lt:
           global:
             announcement: Pranešimas
             comments_enabled: Komentarai įjungti
-          step:
-            announcement: Pranešimas
+          phase:
             comments_blocked: Komentarai užblokuoti
     events:
       blogs:
