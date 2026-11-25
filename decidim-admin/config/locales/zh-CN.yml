@@ -187,9 +187,7 @@ zh-CN:
           title: 编辑组件
           update: 更新
         form:
-          default_step_settings: 默认步骤设置
           global_settings: 全局设置
-          step_settings: 步骤设置
         index:
           add: 添加组件
           headers:
