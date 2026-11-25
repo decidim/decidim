@@ -123,6 +123,7 @@ bg:
           name: Група на процеса
         participatory_process_step:
           fields:
+            actions: Активности
             end_date: Крайна дата
             start_date: Начална дата
             title: Заглавие
