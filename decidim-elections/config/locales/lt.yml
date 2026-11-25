@@ -22,8 +22,6 @@ lt:
         settings:
           global:
             announcement: Pranešimas
-          step:
-            announcement: Pranešimas
     elections:
       actions:
         preview: Peržiūra
