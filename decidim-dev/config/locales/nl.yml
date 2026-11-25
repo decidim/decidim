@@ -24,12 +24,6 @@ nl:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
-            readonly_step_attribute: Kenmerk van alleen-lezenstap
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:
