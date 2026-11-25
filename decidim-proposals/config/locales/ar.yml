@@ -113,7 +113,6 @@ ar:
         settings:
           global:
             amendments_enabled: تم تمكين التعديلات
-            amendments_enabled_help: في حال كانت نشطة، يمكن إعداد ميزات التعديل لكل خطوة.
             amendments_wizard_help_text: نص مساعدة معالج التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
@@ -142,7 +141,7 @@ ar:
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
             threshold_per_proposal: عتبة لكل اقتراح
-          step:
+          phase:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
             amendment_promotion_enabled: ترقية التعديلات مُفعّلة
@@ -154,19 +153,10 @@ ar:
               all: التعديلات مرئية وظاهرة للجميع
               participants: التعديلات مرئية وظاهرة لمؤلّفيها فقط
             amendments_visibility_help: وإذا وقع الاختيار على خيار "التعديلات لا تظهر إلا للمؤلفين فقط"، يجب أن يسجَّل المشارك للاطلاع على التعديلات المدخلة.
-            announcement: إعلان
             answers_with_costs: تمكين التكاليف على إجابات الاقتراح
             comments_blocked: تم حظر التعليقات
             creation_enabled: يمكن للمشارِكين إنشاء اقتراحات
             creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
-            default_sort_order: التصنيف الافتراضي للاقتراح
-            default_sort_order_options:
-              most_commented: صاحبة الأكثر تعليقات
-              most_followed: صاحبة أكثر متابعات
-              random: عشوائي
-              recent: الأخيرة
-              with_more_authors: مع المزيد من المؤلفين
-            proposal_answering_enabled: تم تمكين الرد على الاقتراح
             publish_answers_immediately: نشر إجابات الاقتراح على الفور
     events:
       proposals:
