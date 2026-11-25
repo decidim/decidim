@@ -208,7 +208,7 @@ he:
             comments_enabled: תגובות אפשריות
             display_progress_enabled: הצגת התקדמות
             intro: הקדמה
-          step:
+          phase:
             comments_blocked: תגובות חסומות
     download_your_data:
       show:
