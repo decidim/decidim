@@ -47,8 +47,7 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             taxonomy_filters: Vyberte filtry pro komponentu
             taxonomy_filters_add: Přidat filtr
-          step:
-            announcement: Oznámení
+          phase:
             comments_blocked: Komentáře blokovány
             creation_enabled: Účastníci mohou vytvářet debaty
             likes_blocked: Líbí se mi zablokováno
