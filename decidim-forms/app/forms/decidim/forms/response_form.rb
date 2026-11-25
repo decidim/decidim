@@ -99,15 +99,18 @@ module Decidim
       # The submitted ids are the only link between a choice and the question it was
       # answered for, so they have to be the question's own options and matrix rows.
       # Otherwise a choice is stored for another question and keeps its option or row
-      # from being removed later on.
+      # from being removed later on. The submitted ids are read in two queries instead
+      # of one query per choice.
       def choices_belong_to_question
-        foreign_choices = choices.select do |choice|
-          foreign_option = choice.response_option_id.present? && !question.response_options.exists?(choice.response_option_id)
-          foreign_row = choice.matrix_row_id.present? && !question.matrix_rows.exists?(choice.matrix_row_id)
-          foreign_option || foreign_row
-        end
+        option_ids = choices.filter_map(&:response_option_id).uniq
+        row_ids = choices.filter_map(&:matrix_row_id).uniq
 
-        errors.add(:choices, :invalid) if foreign_choices.any?
+        return if option_ids.empty? && row_ids.empty?
+
+        foreign_options = option_ids - question.response_options.where(id: option_ids).pluck(:id)
+        foreign_rows = row_ids - question.matrix_rows.where(id: row_ids).pluck(:id)
+
+        errors.add(:choices, :invalid) if foreign_options.any? || foreign_rows.any?
       end
 
       def mandatory_body?
