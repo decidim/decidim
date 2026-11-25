@@ -311,7 +311,7 @@ sv:
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
-          step:
+          phase:
             comments_blocked: Stäng av kommentarer
           visualization: Visualisering
     download_your_data:
