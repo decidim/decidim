@@ -12,9 +12,10 @@ export default class extends Controller {
         return;
       }
 
-      this.element.dataset.editorInitialized = "true";
-      this.toggleElements();
-      return;
+      // The container may have been restored or cloned with the editor markup
+      // but without a live editor instance. Discard the stale node and
+      // continue with the regular lazy initialization.
+      this.removeStaleEditor();
     }
 
     if (this.isDisabled()) {
@@ -75,6 +76,8 @@ export default class extends Controller {
       return this.editor;
     }
 
+    this.removeStaleEditor();
+
     if (this.isDisabled()) {
       return null;
     }
@@ -106,6 +109,27 @@ export default class extends Controller {
     this.element.dispatchEvent(
       new CustomEvent("editor:initialized", { bubbles: true, detail: { editor: this.editor } })
     );
+  }
+
+  removeStaleEditor() {
+    const staleNodes = this.element.querySelectorAll(".ProseMirror");
+    if (staleNodes.length === 0) {
+      return;
+    }
+
+    staleNodes.forEach((node) => node.remove());
+
+    // Without a live editor instance this marker would prevent the lazy reveal
+    // path in `autofocus.js` from initializing the container again.
+    delete this.element.dataset.editorInitialized;
+
+    // Show the lightweight preview again until the editor is initialized.
+    this.showPreview();
+  }
+
+  showPreview() {
+    this.element.querySelector(".editor-preview")?.removeAttribute("hidden");
+    this.element.querySelector(".editor-input")?.setAttribute("hidden", "");
   }
 
   toggleElements() {

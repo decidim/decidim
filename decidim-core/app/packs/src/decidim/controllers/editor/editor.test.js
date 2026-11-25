@@ -197,4 +197,80 @@ describe("EditorController", () => {
     expect(container.querySelector(".editor-preview").hidden).toBe(true);
     expect(container.querySelector(".editor-input").hidden).toBe(false);
   });
+
+  it("rebuilds the editor when the cached ProseMirror node has no editor instance", async () => {
+    application.stop();
+    MockIntersectionObserver.instances = [];
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]">
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="false" data-options="{&quot;context&quot;:&quot;admin&quot;}" data-editor-initialized="true">
+          <div class="editor-preview" data-editor-preview hidden><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem">
+            <div class="ProseMirror">Stale content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    // The stale node and its initialized marker are discarded so the field
+    // returns to the regular lazy initialization path.
+    expect(container.querySelector(".ProseMirror")).toBeNull();
+    expect(controller.editor).toBeUndefined();
+    expect(container.dataset.editorInitialized).toBeUndefined();
+    expect(container.querySelector(".editor-preview").hidden).toBe(false);
+    expect(container.querySelector(".editor-input").hidden).toBe(true);
+    expect(MockIntersectionObserver.instances).toHaveLength(1);
+    expect(MockIntersectionObserver.instances[0].observed).toBe(true);
+
+    MockIntersectionObserver.instances[0].callback([{ isIntersecting: true }]);
+    await sleep();
+
+    const proseMirror = container.querySelector(".editor-input .ProseMirror");
+    expect(proseMirror).not.toBeNull();
+    expect(container.querySelectorAll(".ProseMirror")).toHaveLength(1);
+    expect(proseMirror.editor).toBe(controller.editor);
+    expect(container.dataset.editorInitialized).toBe("true");
+    expect(container.querySelector(".editor-preview").hidden).toBe(true);
+    expect(container.querySelector(".editor-input").hidden).toBe(false);
+  });
+
+  it("keeps disabled editors read-only when the cached ProseMirror node has no editor instance", async () => {
+    application.stop();
+
+    document.body.innerHTML = `
+      <div class="editor">
+        <input type="hidden" value="<p>Hello</p>" name="record[body]" disabled>
+        <div class="editor-container" data-controller="editor" data-toolbar="basic" data-disabled="true" data-options="{&quot;context&quot;:&quot;admin&quot;}" data-editor-initialized="true">
+          <div class="editor-preview" data-editor-preview hidden><p>Hello</p></div>
+          <div class="editor-input" style="min-height: 10rem">
+            <div class="ProseMirror">Stale content</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    container = document.querySelector(".editor-container");
+
+    application = Application.start();
+    application.register("editor", EditorController);
+    await sleep();
+
+    const controller = application.getControllerForElementAndIdentifier(container, "editor");
+
+    expect(container.querySelector(".ProseMirror")).toBeNull();
+    expect(controller.editor).toBeUndefined();
+    expect(container.dataset.editorInitialized).toBeUndefined();
+    expect(container.querySelector(".editor-preview").hidden).toBe(false);
+    expect(container.querySelector(".editor-input").hidden).toBe(true);
+  });
 });
