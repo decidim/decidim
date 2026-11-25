@@ -30,7 +30,7 @@ module Decidim
       it "uses the meeting's agenda association as the inverse" do
         meeting = agenda.meeting
 
-        expect(meeting.agenda.meeting).to be(meeting)
+        expect(meeting.agenda).to be(agenda)
       end
     end
   end

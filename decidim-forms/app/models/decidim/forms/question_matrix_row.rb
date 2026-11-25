@@ -17,8 +17,9 @@ module Decidim
 
       # The `restrict_with_error` check reads the loaded target, which can still hold
       # choices that were already removed through the response when a whole question is
-      # being destroyed. Reload the association so the check reflects the database.
-      before_destroy :reload_choices, prepend: true
+      # being destroyed. Reset the target so the check runs against the database instead
+      # of loading every stored choice.
+      before_destroy :reset_choices, prepend: true
 
       delegate :response_options, :mandatory, :max_choices, to: :question
 
@@ -27,8 +28,8 @@ module Decidim
 
       private
 
-      def reload_choices
-        choices.reload
+      def reset_choices
+        choices.reset
       end
     end
   end
