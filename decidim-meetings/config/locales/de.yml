@@ -178,8 +178,7 @@ de:
             taxonomy_filters: Filter für die Komponente auswählen
             taxonomy_filters_add: Filter hinzufügen
             terms_and_conditions_url_for_meeting_creators: URL zu den Nutzungsbedingungen für Veranstaltungsersteller
-          step:
-            announcement: Ankündigung
+          phase:
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
     download_your_data:
