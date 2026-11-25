@@ -36,6 +36,7 @@ module Decidim
 
     def scope_name
       return { I18n.locale.to_s => I18n.t("decidim.scopes.global") } if global_scope?
+      return { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") } if scope && scope.decidim_organization_id != type.decidim_organization_id
 
       scope&.name.presence || { I18n.locale.to_s => I18n.t("decidim.initiatives.unavailable_scope") }
     end

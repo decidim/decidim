@@ -270,7 +270,6 @@ module Decidim
                         active: [
                           %w(
                             decidim/admin/organization
-                            decidim/admin/organization_appearance
                             decidim/admin/organization_homepage
                             decidim/admin/organization_homepage_content_blocks
                             decidim/admin/taxonomies

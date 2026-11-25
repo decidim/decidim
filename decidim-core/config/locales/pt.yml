@@ -26,7 +26,6 @@ pt:
         nickname: Alcunha
         password: Palavra-passe
         password_confirmation: Confirme a sua palavra-passe
-        personal_url: URL pessoal
         remove_avatar: Remover avatar
     models:
       decidim/attachment_created_event: Anexo
