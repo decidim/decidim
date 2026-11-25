@@ -67,8 +67,7 @@ is-IS:
             projects_per_page: Verkefni á síðu
             total_budget: Samtals fjárhagsáætlun
             vote_threshold_percent: Kjósa þrjú prósent
-          step:
-            announcement: Tilkynning
+          phase:
             comments_blocked: Athugasemdir læst
             show_votes: Sýna atkvæði
   index:
