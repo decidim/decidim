@@ -158,7 +158,6 @@ pt-BR:
         settings:
           global:
             amendments_enabled: Alterações ativadas
-            amendments_enabled_help: Se estiver ativo, configure as características da alteração em cada passo.
             amendments_wizard_help_text: Texto de ajuda do Assistente
             announcement: Anúncio
             attachments_allowed: Permitir anexos
@@ -212,7 +211,7 @@ pt-BR:
             taxonomy_filters_add: Adicionar filtro
             threshold_per_proposal: Limiar por proposta
             vote_limit: Limite de votos por participante
-          step:
+          phase:
             amendment_creation_enabled: Criação de alteração ativada
             amendment_creation_enabled_help: O usuário pode alterar propostas.
             amendment_promotion_enabled: Promoção de alteração ativada
@@ -224,25 +223,12 @@ pt-BR:
               all: As alterações são visíveis para todos
               participants: As alterações são visíveis apenas para seus autores
             amendments_visibility_help: Se for seleccionada a opção "as alterações são visíveis apenas para os seus autores", será necessário registar o registo dos participantes para ver as alterações introduzidas.
-            announcement: Anúncio
             answers_with_costs: Ativar custos na resposta da proposta
             comments_blocked: Comentários bloqueados
             creation_enabled: Os participantes podem criar propostas
             creation_enabled_readonly: Essa configuração é desativada quando você ativa a funcionalidade de textos participativos. Para enviar propostas como texto participativo, clique no botão de textos participativos e siga as instruções.
-            default_sort_order: Classificação de propostas padrão
-            default_sort_order_help: O termo "automático" significa que, se as votações estiverem ativadas, as propostas serão exibidas em ordem aleatória e, se as votações estiverem bloqueadas, serão ordenadas pelas mais votadas.
-            default_sort_order_options:
-              automatic: Automático
-              most_commented: Mais comentado
-              most_followed: Mais seguido
-              most_liked: Mais curtido
-              most_voted: Mais votado
-              random: Aleatório
-              recent: Recente
-              with_more_authors: Com mais autores
             likes_blocked: Curtidas bloqueadas
             likes_enabled: Curtidas ativadas
-            proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar respostas da proposta imediatamente
             publish_answers_immediately_help_html: 'Observe que, se você responder a alguma proposta sem essa opção ativada, precisará publicá-la manualmente, selecionando-a e usando a ação de publicação. Para obter mais informações sobre como isso funciona, consulte <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">página de documentação das respostas às propostas</a>.'
             votes_blocked: Votos bloqueados
