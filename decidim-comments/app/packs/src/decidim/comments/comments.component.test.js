@@ -675,6 +675,13 @@ describe("CommentsComponent", () => {
             "This is a comment against"
           ));
         });
+
+        it("removes the empty column message when the first thread arrives", () => {
+          $(".comments-section__against", subject.$element).append('<p class="comments-section__no-comments">No comments yet</p>');
+          subject.prependThread(generateCommentThread(997, "First comment against"), -1);
+
+          expect($(".comments-section__against .comments-section__no-comments", subject.$element).length).toBe(0);
+        });
       });
     });
 

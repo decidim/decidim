@@ -37,12 +37,12 @@
         var wrapper = trigger.closest(".show-replies-button");
         if (wrapper) { wrapper.classList.remove("show-replies-button--empty"); }
 
-        // The reply is already in the DOM. Without marking the thread as
-        // loaded the lazy loader would fetch the whole list on the next toggle
-        // and duplicate it.
+        // On a first reply there is nothing left to fetch, so mark the thread
+        // as loaded. With older replies still unloaded, keep it lazy: the next
+        // toggle fetches them and skips the reply that is already in the DOM.
         var repliesRoot = trigger.closest('[data-controller~="show-replies"]');
         var repliesContainer = document.getElementById("comment-" + cursor.dataset.commentId + "-replies");
-        if (repliesRoot) { repliesRoot.dataset.showRepliesLoadedValue = "true"; }
+        if (repliesRoot && newCount === 1) { repliesRoot.dataset.showRepliesLoadedValue = "true"; }
         if (repliesContainer) { repliesContainer.classList.remove("hidden"); }
         trigger.setAttribute("aria-expanded", "true");
       }

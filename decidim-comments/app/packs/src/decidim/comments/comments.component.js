@@ -208,6 +208,7 @@ export default class CommentsComponent {
       $comment = $container;
     }
     this.lastCommentId = parseInt($comment.data("comment-id"), 10);
+    $target.children(".comments-section__no-comments").remove();
 
     if (position === "prepend") {
       // In the two columns layout the column starts with its own header, so
