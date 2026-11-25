@@ -120,8 +120,7 @@ ro:
             no_taxonomy_filters_found: Nici un filtru de taxonomie găsit.
             taxonomy_filters: Selectați filtrele pentru componentă
             taxonomy_filters_add: Adaugați filtru
-          step:
-            announcement: Anunț
+          phase:
             comments_blocked: Comentarii blocate
             likes_blocked: Aprecieri blocate
             likes_enabled: Aprecieri activate
