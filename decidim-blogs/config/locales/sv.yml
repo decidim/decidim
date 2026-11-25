@@ -124,8 +124,7 @@ sv:
             no_taxonomy_filters_found: Inga filter för kategorier hittades.
             taxonomy_filters: Välj filter för komponenten
             taxonomy_filters_add: Lägg till filter
-          step:
-            announcement: Meddelande
+          phase:
             comments_blocked: Stäng av kommentarer
             likes_blocked: Stäng av gilla-markeringar
             likes_enabled: Aktivera gilla-markeringar
