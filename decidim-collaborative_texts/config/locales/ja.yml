@@ -118,13 +118,13 @@ ja:
           draft: このドキュメントは現在、管理者による確認中です。現在は提案を行うことはできませんが、他の参加者による提案を閲覧することはできます。
           not_accepting_suggestions: 現在、提案は許可されていません。
           selection_active: 選択がすでにアクティブです。新しい選択を行うには、現在の選択をキャンセルしてください。
-        suggestions_count: "%{count} 件の提案"
+        suggestions_count:
+          other: "%{count} 件の提案"
         toggle: 提案の表示/非表示
       documents:
         index:
           count:
             other: "%{count} 件のコラボレーションテキスト"
-          empty: コラボレーションテキストはまだありません。
         show:
           contributors: コントリビューター
       models:
@@ -155,8 +155,6 @@ ja:
           global:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-          step:
-            announcement: お知らせ
     statistics:
       all_collaborative_texts_count: すべてのコラボレーションテキスト
       collaborative_texts_count: コラボレーションテキスト
