@@ -29,3 +29,15 @@ shared_examples "a form with unsaved changes" do |form_selector, field, exit_lin
     expect(page).to have_no_css(form_selector)
   end
 end
+
+shared_examples "a public form with unsaved changes" do |form_selector, field, exit_link|
+  it "does not ask for confirmation before leaving the form" do
+    within form_selector do
+      fill_in field, with: "Unsaved changes"
+    end
+    click_on exit_link, match: :first
+
+    expect(page).to have_no_css("#confirm-modal", visible: :visible, text: I18n.t("decidim.shared.confirm_unload"))
+    expect(page).to have_no_css(form_selector)
+  end
+end
