@@ -203,15 +203,11 @@ ro:
             workflow_choices:
               all: 'Votare pentru toate: permite participanților să voteze în cadrul tuturor bugetelor.'
               one: 'Votare pentru unul singur: permite participanților să voteze în orice buget, dar numai în unul dintre acestea.'
-          step:
-            announcement: Anunţ
+          phase:
             comments_blocked: Comentarii blocate
             highlighted_heading: Antet evidențiat
-            landing_page_content: Pagina pentru bugetare participativă
             list_heading: Antetul listei cu bugete
-            more_information_modal: Mai multe informații
             show_votes: Afișează voturile
-            title: Titlu
             votes: Votare
             votes_choices:
               disabled: Votare dezactivată
