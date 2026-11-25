@@ -406,15 +406,15 @@ ar:
             dummy_global_translatable_text: نص افتراضي قابل للترجمة
             enable_pads_creation: تمكين إنشاء منصات
             resources_permissions_enabled: تم تمكين أذونات الموارد
-          step:
+          phase:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_promotion_enabled: ترقية التعديلات مُفعّلة
             amendment_reaction_enabled: رد الفعل على التعديلات مُفعّلة
             amendments_visibility: طريقة عرض التعديلات
             comments_blocked: تم حظر التعليقات
-            dummy_step_attribute1: الخطوة الدمية السمة 1
-            dummy_step_attribute2: الخطوة الدمية السمة 2
-            dummy_step_translatable_text: نص افتراضي للخطوة قابل للترجمة
+            dummy_phase_attribute1: الخطوة الدمية السمة 1
+            dummy_phase_attribute2: الخطوة الدمية السمة 2
+            dummy_phase_translatable_text: نص افتراضي للخطوة قابل للترجمة
     contact: اتصل
     content_blocks:
       cta:
