@@ -280,6 +280,9 @@ it:
         participatory_process_imports:
           form:
             document_legend: Aggiungi documento
+        participatory_process_steps:
+          index:
+            title: Fasi (Steps)
         participatory_processes:
           form:
             duration: Durata
