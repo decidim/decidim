@@ -99,11 +99,8 @@ cs:
           draft: Tento dokument je v současné době přezkoumáván správci. Návrhy nejsou v tuto chvíli povoleny, ale můžete zobrazit návrhy jiných účastníků.
           not_accepting_suggestions: Návrhy nejsou v tuto chvíli povoleny.
           selection_active: Výběr je aktivní. Prosím, zrušte aktuální výběr pro vytvoření nového.
-        suggestions_count: "%{count} návrhů"
         toggle: Zobrazit/skrýt návrhy
       documents:
-        index:
-          empty: Zatím neexistují žádné koncepty spolupráce.
         show:
           contributors: Přispěvatelé
       models:
@@ -134,8 +131,6 @@ cs:
           global:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
-          step:
-            announcement: Oznámení
     statistics:
       all_collaborative_texts_count: Všechny kolaborativní texty
       collaborative_texts_count: Kolaborativní texty
