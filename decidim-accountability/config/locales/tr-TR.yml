@@ -308,7 +308,7 @@ tr:
             intro: Tanıtım
             no_taxonomy_filters_found: Sınıflandırma filtresi bulunamadı.
             taxonomy_filters_add: Filtre ekle
-          step:
+          phase:
             comments_blocked: Yorumlar engellendi
           visualization: Görselleştirme
     download_your_data:
