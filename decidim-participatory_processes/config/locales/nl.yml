@@ -37,21 +37,16 @@ nl:
         participatory_structure: Hoe wordt er beslist
         target: Wie neemt deel
         title: Titel
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Call to Action-pad
         cta_text: Call to Action-tekst
-        description: Beschrijving
-        end_date: Einddatum
-        short_description: Korte beschrijving
-        start_date: Startdatum
-        title: Titel
       participatory_process_user_role:
         email: E-mail
         name: Naam
         role: Rol
     models:
-      decidim/participatory_process_step_activated_event: Stap geactiveerd
-      decidim/participatory_process_step_changed_event: Stap veranderd
+      decidim/participatory_process_phase_activated_event: Stap geactiveerd
+      decidim/participatory_process_phase_changed_event: Stap veranderd
   activerecord:
     models:
       decidim/participatory_process:
@@ -60,7 +55,7 @@ nl:
       decidim/participatory_process_group:
         one: Participerende procesgroep
         other: Participerende procesgroepen
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Stap
         other: Stappen
   decidim:
@@ -74,7 +69,7 @@ nl:
         import_process: Importeren
         new_process: Nieuw proces
         new_process_group: Nieuwe procesgroep
-        new_process_step: Nieuwe stap
+        new_process_phase: Nieuwe stap
         new_process_user_role: Nieuwe procesgebruiker
         preview: Voorbeeld
         publish: Publiceren
@@ -89,8 +84,8 @@ nl:
           attachments: Bijlagen
           components: Onderdelen
           moderations: Moderaties
+          phases: Stappen
           process_admins: Admins van het proces
-          steps: Stappen
       models:
         participatory_process:
           fields:
@@ -102,11 +97,7 @@ nl:
           fields:
             title: Titel
           name: Groep inspraakprocessen
-        participatory_process_step:
-          fields:
-            end_date: Einddatum
-            start_date: Startdatum
-            title: Titel
+        participatory_process_phase:
           name: Stap van het inspraakproces
         participatory_process_user_role:
           fields:
@@ -139,6 +130,21 @@ nl:
         new:
           import: Importeren
           select: Selecteer welke gegevens u wilt importeren
+      participatory_process_phase_activations:
+        create:
+          error: Er is een fout opgetreden bij het activeren van deze participatief processtap.
+          success: Participatief processtap is succesvol geactiveerd.
+      participatory_process_phases:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw participatief processtap.
+          success: Participatief processtap is succesvol gecreëerd.
+        default_title: Introductie
+        destroy:
+          success: Participatieve processtap succesvol verwijderd.
+        ordering:
+          error: Er is een fout opgetreden bij het herschikken van deze processtappen.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze processtap.
       participatory_process_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
@@ -146,25 +152,6 @@ nl:
         destroy:
           error: Er was een probleem bij het depubliceren van dit participatief proces.
           success: Participatief proces is succesvol gedepubliceerd.
-      participatory_process_step_activations:
-        create:
-          error: Er is een fout opgetreden bij het activeren van deze participatief processtap.
-          success: Participatief processtap is succesvol geactiveerd.
-      participatory_process_steps:
-        create:
-          error: Er is een fout opgetreden bij het maken van een nieuw participatief processtap.
-          success: Participatief processtap is succesvol gecreëerd.
-        default_title: Introductie
-        destroy:
-          success: Participatieve processtap succesvol verwijderd.
-        edit:
-          update: Bijwerken
-        new:
-          create: Aanmaken
-        ordering:
-          error: Er is een fout opgetreden bij het herschikken van deze processtappen.
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze processtap.
       participatory_process_user_roles:
         create:
           error: Er is een fout opgetreden bij het toevoegen van een gebruiker aan dit inspraakproces.
@@ -208,7 +195,7 @@ nl:
       participatory_process_group:
         create: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
         update: "%{user_name} heeft de burgerinspraak %{resource_name} aangemaakt"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} heeft %{resource_name} stap in de %{space_name} het inspraakproces geactiveerd"
         create: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces geactiveerd"
         delete: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatief proces verwijderd"
@@ -219,21 +206,21 @@ nl:
         update: "%{user_name} veranderde de rol van gebruiker %{resource_name} in het %{space_name} participatief proces"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
+        phase_changed:
+          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk ze hier:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
         role_assigned:
           email_intro: U bent toegewezen als %{role} voor participatief proces "%{resource_title}".
           email_outro: Je hebt deze melding ontvangen omdat je de burgerinspraak %{role} van de "%{resource_title}" uitvoert.
           email_subject: U bent toegewezen als %{role} voor "%{resource_title}".
           notification_title: U bent toegewezen als %{role} voor participatief proces <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: 'De stap %{resource_title} is nu geactiveerd voor %{participatory_space_title}. Je kan het op deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de vorige link.
-          email_subject: Een update naar %{participatory_space_title}
-          notification_title: De stap %{resource_title} is nu geactiveerd voor <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
-          email_intro: 'De data voor de %{resource_title} stap in %{participatory_space_title} zijn bijgewerkt. Bekijk ze hier:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kan de notificaties uitschakelen door te klikken op de voorgaande link.
-          email_subject: Een update op %{participatory_space_title} werd uitgevoerd
-          notification_title: De data voor de <a href="%{resource_path}">%{resource_title}</a> stap op <a href="%{participatory_space_url}">%{participatory_space_title}</a> zijn bijgewerkt.
     help:
       participatory_spaces:
         participatory_processes:
@@ -259,9 +246,9 @@ nl:
             other: "%{count} processen"
       show:
         title: Groepen van participatieve processen
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Stappen van het proces
+        process_phases: Stappen van het proces
     participatory_processes:
       admin:
         content_blocks:
@@ -277,6 +264,9 @@ nl:
         participatory_process_imports:
           form:
             document_legend: Document toevoegen
+        participatory_process_phases:
+          index:
+            title: Stappen
         participatory_processes:
           form:
             duration: Duur
@@ -329,7 +319,7 @@ nl:
         index:
           promoted_processes: Uitgelichte processen
         participatory_process:
-          active_step: 'Huidige stap:'
+          active_phase: 'Huidige stap:'
           more_info: Meer informatie
           more_info_about: Meer informatie over proces %{resource_name}
           take_part: Deelnemen
