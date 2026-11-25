@@ -168,9 +168,9 @@ lb:
             highlighted_heading: Hervorgehobene Überschrift
             landing_page_content: Budgets Landingpage
             list_heading: Listenüberschrift
-            more_information_modal: Weitere Informationen modal
+            more_information_modal: Weitere Informationen
             show_votes: Stimmen anzeigen
-            title: Überschrift
+            title: Titel
             votes: Abstimmungen
             votes_choices:
               disabled: Abstimmung deaktiviert
