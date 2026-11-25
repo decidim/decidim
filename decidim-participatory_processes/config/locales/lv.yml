@@ -28,21 +28,16 @@ lv:
         description: Apraksts
         hero_image: Attēls
         participatory_process_ids: Saistītie procesi
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Call To Action ceļš
         cta_text: Call To Action teksts
-        description: Apraksts
-        end_date: Beigu datums
-        short_description: Īss apraksts
-        start_date: Sākuma datums
-        title: Nosaukums
       participatory_process_user_role:
         email: E-pasts
         name: Nosaukums
         role: Loma
     models:
-      decidim/participatory_process_step_activated_event: Fāze aktivizēta
-      decidim/participatory_process_step_changed_event: Fāze mainīta
+      decidim/participatory_process_phase_activated_event: Fāze aktivizēta
+      decidim/participatory_process_phase_changed_event: Fāze mainīta
   activerecord:
     models:
       decidim/participatory_process:
@@ -53,7 +48,7 @@ lv:
         zero: Līdzdalības procesa grupas
         one: Līdzdalības procesa grupa
         other: Līdzdalības procesa grupas
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         zero: Fāzes
         one: Fāze
         other: Fāzes
@@ -68,7 +63,7 @@ lv:
         import_process: Importēt
         new_process: Jauns process
         new_process_group: Jauna procesa grupa
-        new_process_step: Jauna fāze
+        new_process_phase: Jauna fāze
         new_process_user_role: Jauns procesa administrators
         preview: Priekšskatīt
         publish: Publicēt
@@ -83,8 +78,8 @@ lv:
           attachments: Pielikumi
           components: Komponenti
           moderations: Moderācijas
+          phases: Fāzes
           process_admins: Procesa administratori
-          steps: Fāzes
       models:
         participatory_process:
           fields:
@@ -94,11 +89,7 @@ lv:
           name: Līdzdalības process
         participatory_process_group:
           name: Procesa grupa
-        participatory_process_step:
-          fields:
-            end_date: Beigu datums
-            start_date: Sākuma datums
-            title: Nosaukums
+        participatory_process_phase:
           name: Līdzdalības procesa fāze
         participatory_process_user_role:
           fields:
@@ -131,6 +122,21 @@ lv:
         new:
           import: Importēt
           select: Atlasiet, kurus datus vēlaties importēt
+      participatory_process_phase_activations:
+        create:
+          error: Aktivizējot šo līdzdalības procesa fāzi, radās problēma.
+          success: Līdzdalības procesa fāze ir veiksmīgi aktivizēta.
+      participatory_process_phases:
+        create:
+          error: Jaunas līdzdalības procesa fāzes izveides laikā radās problēma.
+          success: Līdzdalības procesa fāze ir veiksmīgi izveidota.
+        default_title: Ievads
+        destroy:
+          success: Līdzdalības procesa fāze ir veiksmīgi dzēsta.
+        ordering:
+          error: Mainot šī līdzdalības procesa fāžu kārtību, radās problēma.
+        update:
+          error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
       participatory_process_publications:
         create:
           error: Publicējot šo līdzdalības procesu, radās problēma.
@@ -138,25 +144,6 @@ lv:
         destroy:
           error: Atceļot šī līdzdalības procesa publicēšanu, radās problēma.
           success: Līdzdalības procesam ir veiksmīgi atcelta publicēšana.
-      participatory_process_step_activations:
-        create:
-          error: Aktivizējot šo līdzdalības procesa fāzi, radās problēma.
-          success: Līdzdalības procesa fāze ir veiksmīgi aktivizēta.
-      participatory_process_steps:
-        create:
-          error: Jaunas līdzdalības procesa fāzes izveides laikā radās problēma.
-          success: Līdzdalības procesa fāze ir veiksmīgi izveidota.
-        default_title: Ievads
-        destroy:
-          success: Līdzdalības procesa fāze ir veiksmīgi dzēsta.
-        edit:
-          update: Atjaunināt
-        new:
-          create: Izveidot
-        ordering:
-          error: Mainot šī līdzdalības procesa fāžu kārtību, radās problēma.
-        update:
-          error: Šīs līdzdalības procesa fāzes atjaunināšanas laikā radās problēma.
       participatory_process_user_roles:
         create:
           error: Pievienojot dalībnieku šim līdzdalības procesam, radās problēma.
@@ -200,7 +187,7 @@ lv:
       participatory_process_group:
         create: "%{user_name} izveidoja %{resource_name} līdzdalības procesa grupu"
         update: "%{user_name} atjaunināja %{resource_name} līdzdalības procesa grupu"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} aktivizēja %{resource_name} fāzi %{space_name} līdzdalības procesā"
         create: "%{user_name} izveidoja %{resource_name} fāzi %{space_name} līdzdalības procesā"
         delete: "%{user_name} izdzēsa %{resource_name} fāzi %{space_name} līdzdalības procesā"
@@ -211,21 +198,21 @@ lv:
         update: "%{user_name} mainīja dalībnieka %{resource_name} lomu %{space_name} līdzdalības procesā"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: '%{resource_title} fāze tagad ir aktīva līdzdalības procesā %{participatory_space_title}. To var redzēt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Atjaunināts %{participatory_space_title}
+          notification_title: '%{resource_title} fāze tagad ir aktīva <a href="%{resource_path}">%{participatory_space_title}</a>'
+        phase_changed:
+          email_intro: '%{resource_title} fāzes datumi līdzdalības procesam %{participatory_space_title} ir atjaunināti. To var redzēt šajā lapā:'
+          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
+          email_subject: Atjaunināts %{participatory_space_title}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> fāzes datumi līdzdalības procesam <a href="%{participatory_space_url}">%{activatory_space_title}</a> ir atjaunināti.
         role_assigned:
           email_intro: Jums piešķirta loma kā %{role} līdzdalības procesā “%{resource_title}”.
           email_outro: Jūs saņēmāt šo paziņojumu, jo esat %{role} līdzdalības procesā "%{resource_title}".
           email_subject: Jūs esat norīkots par %{role} asamblejā “%{resource_title}”.
           notification_title: Jūs esat norīkots par %{role} līdzdalības procesā <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: '%{resource_title} fāze tagad ir aktīva līdzdalības procesā %{participatory_space_title}. To var redzēt šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: Atjaunināts %{participatory_space_title}
-          notification_title: '%{resource_title} fāze tagad ir aktīva <a href="%{resource_path}">%{participatory_space_title}</a>'
-        step_changed:
-          email_intro: '%{resource_title} fāzes datumi līdzdalības procesam %{participatory_space_title} ir atjaunināti. To var redzēt šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
-          email_subject: Atjaunināts %{participatory_space_title}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> fāzes datumi līdzdalības procesam <a href="%{participatory_space_url}">%{activatory_space_title}</a> ir atjaunināti.
     help:
       participatory_spaces:
         participatory_processes:
@@ -240,9 +227,9 @@ lv:
           name: Statistika
       show:
         title: Līdzdalības procesa grupas
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Procesa fāzes
+        process_phases: Procesa fāzes
     participatory_processes:
       admin:
         content_blocks:
@@ -251,6 +238,9 @@ lv:
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
+        participatory_process_phases:
+          index:
+            title: Fāzes
         participatory_processes:
           form:
             duration: Ilgums
@@ -299,6 +289,6 @@ lv:
         index:
           promoted_processes: Izceltie procesi
         participatory_process:
-          active_step: 'Pašreizējā fāze:'
+          active_phase: 'Pašreizējā fāze:'
           more_info: Sīkāka informācija
           take_part: Piedalīties
