@@ -12,12 +12,14 @@ es-MX:
         duplicate_categories: Duplicar las categorías
         duplicate_components: Duplicar los componentes
         duplicate_landing_page_blocks: Duplicar los bloques de contenido de la página de inicio
+        duplicate_steps: Duplicar las fases
         end_date: Fecha de finalización
         has_members: Este espacio de participación tiene miembros
         hero_image: Imagen de portada
         import_attachments: Importar archivos adjuntos
         import_categories: Importar categorias
         import_components: Importar componentes
+        import_steps: Importar las fases
         local_area: Área de organización
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
@@ -282,6 +284,7 @@ es-MX:
         activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
         create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"
         delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
+        system_activate: La fase de %{resource_name} se activó automáticamente en el proceso participativo %{space_name}.
         update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"

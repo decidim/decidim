@@ -752,9 +752,11 @@ es:
         create:
           invalid: Se ha producido un error al inscribirte a este encuentro.
           success: Te has inscrito al encuentro con éxito. Por ese motivo recibirás una notificación si se producen actualizaciones.
+          unauthorized: Debes iniciar sesión antes de inscribirte al encuentro.
         decline_invitation:
           invalid: Se ha producido un error al declinar la invitación.
           success: Has rechazado la invitación con éxito.
+          unauthorized: Debes iniciar sesión antes de rechazar la invitación.
         destroy:
           invalid: Se ha producido un error al salir de este encuentro.
           success: Has salido del encuentro con éxito.

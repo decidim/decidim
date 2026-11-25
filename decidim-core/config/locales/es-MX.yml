@@ -50,7 +50,6 @@ es-MX:
         old_password: Contraseña actual
         password: Contraseña
         password_confirmation: Confirma tu contraseña
-        personal_url: URL personal
         remove_avatar: Eliminar imagen de perfil
         tos_agreement: Términos y condiciones uso
     errors:
@@ -117,8 +116,6 @@ es-MX:
       decidim_with_month_name_short: "%d %b"
       help:
         date_format: 'Formato: dd/mm/aaaa'
-      order: d-m-y
-      separator: "/"
   datetime:
     distance_in_words:
       about_x_hours:
@@ -825,7 +822,6 @@ es-MX:
           officialized_at: La fecha y hora en que esta usuaria fue oficializada
           organization: La organización a la que pertenece esta usuaria
           password_updated_at: La fecha en la que cambiaron por última vez sus contraseñas
-          personal_url: La URL personal de esta usuaria
           remember_created_at: La fecha y hora en que se seleccionó a la usuaria para ser recordada
           reset_password_sent_at: La fecha y hora en que se envió el correo para restablecer la contraseña
           roles: El rol que tiene esta participante, si tiene alguno
@@ -2270,6 +2266,7 @@ es-MX:
       close: Cerrar
       reset: Reiniciar
       select: Seleccionar
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2278,6 +2275,8 @@ es-MX:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2291,7 +2290,8 @@ es-MX:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%Z de %H:%M"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones

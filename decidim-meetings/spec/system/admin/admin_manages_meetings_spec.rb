@@ -239,15 +239,14 @@ describe "Admin manages meetings" do
 
     within "#edit_meeting_#{meeting.id}" do
       fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+      clear_i18n_editor(:meeting_description, "#meeting-description-tabs", [:en])
 
-      within "#meeting_description_en" do
-        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-      end
+      expect(find("#meeting_description_en input[name='meeting[description_en]']", visible: :all).value).to be_empty
+      expect(page.evaluate_script("document.querySelector('#meeting_description_en .ProseMirror').textContent.trim()")).to be_empty
+
       click_link_or_button "Update"
     end
-    within ".flash__message" do
-      expect(page).to have_text("There was a problem updating this meeting.")
-    end
+    expect(page).to have_callout("There was a problem updating this meeting.")
   end
 
   it "sets registration enabled to true when registration type is on this platform" do

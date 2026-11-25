@@ -155,6 +155,23 @@ module Decidim
         end
 
         context "when edit" do
+          render_views
+
+          def count_queries
+            queries = []
+            subscriber = ActiveSupport::Notifications.subscribe("sql.active_record") do |_, _, _, _, payload|
+              next if payload[:cached] || payload[:name] == "SCHEMA"
+
+              queries << payload[:sql]
+            end
+
+            yield
+
+            queries
+          ensure
+            ActiveSupport::Notifications.unsubscribe(subscriber)
+          end
+
           context "and admin user" do
             before do
               sign_in admin_user, scope: :user
@@ -164,6 +181,58 @@ module Decidim
               get :edit, params: { id: initiative_type.to_param }
               expect(flash[:alert]).to be_nil
               expect(response).to have_http_status(:ok)
+            end
+
+            it "does not query the scope for each initiative type scope" do
+              scope_queries = lambda do |queries|
+                queries.select { |sql| sql.include?('"decidim_scopes"') }
+              end
+
+              create_list(:initiatives_type_scope, 2, type: initiative_type)
+
+              few_queries = scope_queries.call(count_queries { get :edit, params: { id: initiative_type.to_param } })
+              expect(response).to have_http_status(:ok)
+
+              create_list(:initiatives_type_scope, 4, type: initiative_type)
+
+              many_queries = scope_queries.call(count_queries { get :edit, params: { id: initiative_type.to_param } })
+              expect(response).to have_http_status(:ok)
+
+              expect(many_queries.size).to eq(few_queries.size)
+              expect(many_queries).to all(include("IN ("))
+            end
+          end
+
+          context "and the initiative type belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_initiative_type) { create(:initiatives_type, organization: other_organization) }
+
+            before do
+              sign_in admin_user, scope: :user
+              create_list(:initiatives_type_scope, 2, type: other_initiative_type)
+            end
+
+            it "does not load initiative types from other organizations" do
+              expect do
+                get :edit, params: { id: other_initiative_type.to_param }
+              end.to raise_error(ActiveRecord::RecordNotFound)
+            end
+          end
+
+          context "and the initiative type references a scope from another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_scope) { create(:scope, organization: other_organization) }
+
+            before do
+              sign_in admin_user, scope: :user
+              create(:initiatives_type_scope, type: initiative_type, scope: other_scope)
+            end
+
+            it "does not disclose the foreign organization's scope name" do
+              get :edit, params: { id: initiative_type.to_param }
+              expect(response).to have_http_status(:ok)
+              expect(response.body).not_to include(other_scope.name["en"])
+              expect(response.body).to include(I18n.t("decidim.initiatives.unavailable_scope"))
             end
           end
 
