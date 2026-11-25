@@ -233,7 +233,7 @@ ar:
             no_taxonomy_filters_found: لم يتم العثور على عوامل تصفية التصنيف.
             taxonomy_filters: حدد عوامل تصفية للمكون
             taxonomy_filters_add: إضافة عامل تصفية
-          step:
+          phase:
             comments_blocked: تم حظر التعليقات
     download_your_data:
       show:
