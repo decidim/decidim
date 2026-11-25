@@ -26,19 +26,13 @@ ru:
         description: Описание
         hero_image: Изображение
         participatory_process_ids: Подобные движения
-      participatory_process_step:
-        description: Описание
-        end_date: Дата окончания
-        short_description: Краткое описание
-        start_date: Дата начала
-        title: Название
       participatory_process_user_role:
         email: Эл. адрес
         name: Имя
         role: Роль
     models:
-      decidim/participatory_process_step_activated_event: Шаг приведен в действие
-      decidim/participatory_process_step_changed_event: Шаг изменен
+      decidim/participatory_process_phase_activated_event: Шаг приведен в действие
+      decidim/participatory_process_phase_changed_event: Шаг изменен
   activerecord:
     models:
       decidim/participatory_process:
@@ -51,7 +45,7 @@ ru:
         few: Группы движений соучастия
         many: Групп движений соучастия
         other: Групп движений соучастия
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Шаг
         few: Шага
         many: Шагов
@@ -66,7 +60,7 @@ ru:
         edit: Редактировать
         new_process: Добавить новое движение
         new_process_group: Создать группу движений
-        new_process_step: Новый шаг
+        new_process_phase: Новый шаг
         new_process_user_role: Добавить участника движения
         preview: Предпросмотр
         publish: Обнародовать
@@ -81,8 +75,8 @@ ru:
           attachments: Прикрепленные файлы
           components: Составляющие
           moderations: Действия по модерации
+          phases: Шаги
           process_admins: Участники движения
-          steps: Шаги
       models:
         participatory_process:
           fields:
@@ -92,11 +86,7 @@ ru:
           name: Движение соучастия
         participatory_process_group:
           name: Группа движений
-        participatory_process_step:
-          fields:
-            end_date: Дата окончания
-            start_date: Дата начала
-            title: Название
+        participatory_process_phase:
           name: Шаг движения соучастия
         participatory_process_user_role:
           fields:
@@ -122,6 +112,21 @@ ru:
         update:
           error: При попытке обновить эту группу движений соучастия произошла ошибка.
           success: Группа движения соучастия успешно обновлена.
+      participatory_process_phase_activations:
+        create:
+          error: При попытке начать новый шаг движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно начат.
+      participatory_process_phases:
+        create:
+          error: При попытке создать новый шаг движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно создан.
+        default_title: Введение
+        destroy:
+          success: Шаг движения соучастия успешно удален.
+        ordering:
+          error: При перестановке шагов этого движения соучастия произошла ошибка.
+        update:
+          error: При попытке обновить этот шаг движения соучастия произошла ошибка.
       participatory_process_publications:
         create:
           error: При обнародовании нового движения соучастия произошла ошибка.
@@ -129,25 +134,6 @@ ru:
         destroy:
           error: При отмене обнародования этого движения соучастия произошла ошибка.
           success: Обнародование движения соучастия успешно отменено.
-      participatory_process_step_activations:
-        create:
-          error: При попытке начать новый шаг движения соучастия произошла ошибка.
-          success: Шаг движения соучастия успешно начат.
-      participatory_process_steps:
-        create:
-          error: При попытке создать новый шаг движения соучастия произошла ошибка.
-          success: Шаг движения соучастия успешно создан.
-        default_title: Введение
-        destroy:
-          success: Шаг движения соучастия успешно удален.
-        edit:
-          update: Обновить
-        new:
-          create: Создать
-        ordering:
-          error: При перестановке шагов этого движения соучастия произошла ошибка.
-        update:
-          error: При попытке обновить этот шаг движения соучастия произошла ошибка.
       participatory_process_user_roles:
         create:
           error: При попытке добавить участника в это движение соучастия произошла ошибка.
@@ -188,7 +174,7 @@ ru:
         publish: "%{user_name} обнародовал движение соучастия %{resource_name}"
         unpublish: "%{user_name} отменил обнародование движения соучастия %{resource_name}"
         update: "%{user_name} обновил движение соучастия %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} привел в действие шаг %{resource_name} движения соучастия %{space_name}"
         create: "%{user_name} создал шаг %{resource_name} движения соучастия %{space_name}"
         delete: "%{user_name} удалил шаг %{resource_name} движения соучастия %{space_name}"
@@ -199,12 +185,12 @@ ru:
         update: "%{user_name} изменил роль участника %{resource_name} в движении соучастия %{space_name}"
     events:
       participatory_process:
-        step_activated:
+        phase_activated:
           email_intro: 'Теперь в %{participatory_space_title} приведен в действие шаг %{resource_title}. Вы можете посмотреть его на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{participatory_space_title}
           notification_title: Теперь в <a href="%{resource_path}">%{participatory_space_title}</a> приведен в действие шаг %{resource_title}
-        step_changed:
+        phase_changed:
           email_intro: 'Обновлены даты шага %{resource_title} в %{participatory_space_title}. Вы можете посмотреть их на странице:'
           email_outro: Вы получили это уведомление, потому что вы следите за «%{participatory_space_title}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
           email_subject: Обновление %{participatory_space_title}
@@ -217,11 +203,14 @@ ru:
           name: Деятельность
       show:
         title: Группы движений соучастия
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Шаги движения
+        process_phases: Шаги движения
     participatory_processes:
       admin:
+        participatory_process_phases:
+          index:
+            title: Шаги
         participatory_processes:
           form:
             related_processes: Подобные движения
@@ -274,5 +263,5 @@ ru:
         index:
           promoted_processes: Рекомендуемые движения
         participatory_process:
-          active_step: 'Текущий шаг:'
+          active_phase: 'Текущий шаг:'
           take_part: Принять участие
