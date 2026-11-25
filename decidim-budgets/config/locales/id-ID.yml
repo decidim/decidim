@@ -85,6 +85,7 @@ id:
             announcement: Pengumuman
             comments_blocked: Komentar diblokir
             show_votes: Tampilkan suara
+            title: Judul
             votes_choices:
               enabled: Voting diaktifkan
   index:
