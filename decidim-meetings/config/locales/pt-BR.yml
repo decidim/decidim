@@ -177,8 +177,7 @@ pt-BR:
             taxonomy_filters: Selecione filtros para o componente
             taxonomy_filters_add: Adicionar filtro
             terms_and_conditions_url_for_meeting_creators: URL de Termos e condições para criadores da reunião
-          step:
-            announcement: Anúncio
+          phase:
             comments_blocked: Comentários bloqueados
             creation_enabled_for_participants: Criação de reunião por participantes habilitada
     download_your_data:
