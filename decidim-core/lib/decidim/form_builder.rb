@@ -869,7 +869,9 @@ module Decidim
     # Private: creates a lightweight preview for the editor content. The actual
     # editor is initialized later by JavaScript when the field becomes visible.
     def editor_preview(value, lines, context)
-      preview = value.present? && (context == "participant" ? @template.decidim_sanitize_editor(value) : @template.decidim_sanitize_editor_admin(value))
+      preview = if value.present?
+                  context == "participant" ? @template.decidim_sanitize_editor(value) : @template.decidim_sanitize_editor_admin(value)
+                end
 
       content_tag(:div, preview, class: "editor-preview", style: "min-height: #{lines}rem; max-height: #{lines}rem")
     end

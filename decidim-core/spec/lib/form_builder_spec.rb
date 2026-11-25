@@ -89,6 +89,26 @@ module Decidim
     end
 
     describe "#editor" do
+      shared_examples "an empty editor preview" do
+        it "renders an empty preview" do
+          preview = parsed.css(".editor .editor-preview").first
+
+          expect(preview.text).to be_empty
+        end
+      end
+
+      context "when the field value is nil" do
+        let(:output) { builder.editor :slug }
+
+        it_behaves_like "an empty editor preview"
+      end
+
+      context "when the field value is an empty string" do
+        let(:output) { builder.editor :slug, value: "" }
+
+        it_behaves_like "an empty editor preview"
+      end
+
       context "when using default toolbar" do
         let(:output) do
           builder.editor :slug
