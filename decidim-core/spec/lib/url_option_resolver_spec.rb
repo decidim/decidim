@@ -43,8 +43,8 @@ module Decidim
         it { is_expected.to be_nil }
       end
 
-      context "when the host is defined in the HOSTNAME environment variable" do
-        before { allow(ENV).to receive(:fetch).with("HOSTNAME", "localhost").and_return("custom.host") }
+      context "when the host is defined in the DECIDIM_HOST environment variable" do
+        before { allow(ENV).to receive(:fetch).with("DECIDIM_HOST", "localhost").and_return("custom.host") }
 
         it { is_expected.to eq("custom.host") }
       end
