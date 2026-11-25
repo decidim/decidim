@@ -48,8 +48,7 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-          step:
-            announcement: Aankondiging
+          phase:
             comments_blocked: Reacties geblokkeerd
     events:
       blogs:
