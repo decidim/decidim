@@ -37,7 +37,7 @@ el:
           step:
             readonly_step_attribute: Χαρακτηριστικό βήματος μόνο για ανάγνωση
             test_options:
-              bar: Bar
+              bar: Μπάρα
               foo: Foo
     dummy:
       admin:
