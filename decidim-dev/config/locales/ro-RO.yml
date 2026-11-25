@@ -35,14 +35,9 @@ ro:
               bar: Bară
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: Aprecieri blocate
             likes_enabled: Aprecieri activate
-            readonly_step_attribute: Atribut pas Readonly
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:
