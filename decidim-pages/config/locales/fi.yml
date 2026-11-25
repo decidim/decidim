@@ -14,8 +14,6 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
-          step:
-            announcement: Ilmoitus
     open_data:
       help:
         pages:
