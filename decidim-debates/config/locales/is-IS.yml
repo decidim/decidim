@@ -16,8 +16,7 @@ is-IS:
           global:
             announcement: Tilkynning
             comments_enabled: Athugasemdir virkar
-          step:
-            announcement: Tilkynning
+          phase:
             comments_blocked: Læst fyrir athugasemdir
     debates:
       actions:
