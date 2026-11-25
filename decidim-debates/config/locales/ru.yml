@@ -26,8 +26,7 @@ ru:
           global:
             announcement: Объявление
             comments_enabled: Комментарии включены
-          step:
-            announcement: Объявление
+          phase:
             comments_blocked: Комментарии отключены
     debates:
       actions:
