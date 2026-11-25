@@ -97,8 +97,7 @@ nl:
             maps_enabled: Kaarten ingeschakeld
             resources_permissions_enabled: Actiemachtigingen kunnen voor elke vergadering worden ingesteld
             terms_and_conditions_url_for_meeting_creators: Algemene voorwaarden URL voor de makers van de vergadering
-          step:
-            announcement: Aankondiging
+          phase:
             comments_blocked: Reacties geblokkeerd
             creation_enabled_for_participants: Aanmaken van vergadering door deelnemers ingeschakeld
     events:
