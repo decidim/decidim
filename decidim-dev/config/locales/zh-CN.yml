@@ -23,11 +23,6 @@ zh-CN:
             test_options:
               bar: 条形图
               foo: Foo
-          step:
-            readonly_step_attribute: 只读步骤属性
-            test_options:
-              bar: 条形图
-              foo: Foo
     dummy:
       admin:
         exports:
