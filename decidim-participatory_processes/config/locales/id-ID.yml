@@ -227,6 +227,9 @@ id:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
+        participatory_process_steps:
+          index:
+            title: Tangga
         participatory_processes:
           form:
             duration: Lamanya
