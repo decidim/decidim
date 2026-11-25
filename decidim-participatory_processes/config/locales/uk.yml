@@ -144,7 +144,7 @@ uk:
         edit:
           update: Оновити
         new:
-          create: Додати
+          create: Створити
         ordering:
           error: При зміні порядку кроків цього руху співучасті сталася помилка.
         update:
@@ -223,6 +223,9 @@ uk:
         process_steps: Кроки руху
     participatory_processes:
       admin:
+        participatory_process_steps:
+          index:
+            title: Кроки
         participatory_processes:
           form:
             related_processes: Супутні рухи
