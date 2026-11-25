@@ -126,7 +126,9 @@ en:
           draft: This document is currently under review by the administrators. Suggestions are not allowed at this time, but you can view suggestions made by other participants.
           not_accepting_suggestions: Suggestions are not allowed at this time.
           selection_active: A selection is active. Please cancel the current selection to make a new one.
-        suggestions_count: "%{count} suggestions"
+        suggestions_count:
+          one: "%{count} suggestion"
+          other: "%{count} suggestions"
         toggle: Show/hide suggestions
       documents:
         filters:
