@@ -40,8 +40,7 @@ lb:
           global:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
-          step:
-            announcement: Ankündigung
+          phase:
             comments_blocked: Kommentare blockiert
     events:
       blogs:
