@@ -14,8 +14,6 @@ sv:
         settings:
           global:
             announcement: Meddelande
-          step:
-            announcement: Meddelande
     open_data:
       help:
         pages:
