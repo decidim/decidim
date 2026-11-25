@@ -488,15 +488,11 @@ gl:
             workflow_choices:
               all: 'Apoiar en todos: permite ás persoas participantes apoiar en todos os orzamentos.'
               one: 'Apoiar nun: permite ás persoas participantes apoiar en calquera orzamento, pero só nun.'
-          step:
-            announcement: Anuncio
+          phase:
             comments_blocked: Comentarios bloqueados
             highlighted_heading: Título destacado
-            landing_page_content: Páxina de inicio dos orzamentos
             list_heading: Título da listaxe
-            more_information_modal: Modal de "Máis información"
             show_votes: Mostrar apoios
-            title: Título
             votes: Apoio
             votes_choices:
               disabled: Apoio deshabilitada
