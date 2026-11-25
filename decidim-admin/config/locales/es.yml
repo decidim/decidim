@@ -332,9 +332,7 @@ es:
           title: Configura el componente
           update: Actualizar
         form:
-          default_step_settings: Configuraciones por defecto
           global_settings: Configuración global
-          step_settings: Configuración de fase
         hide:
           success: El componente se ha ocultado correctamente del menú.
         index:
