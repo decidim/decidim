@@ -14,8 +14,6 @@ bg:
         settings:
           global:
             announcement: Обявяване
-          step:
-            announcement: Обявяване
     pages:
       admin:
         models:
