@@ -16,8 +16,6 @@ ru:
         settings:
           global:
             announcement: Объявление
-          step:
-            announcement: Объявление
     events:
       surveys:
         survey_closed:
