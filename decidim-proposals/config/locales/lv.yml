@@ -96,6 +96,12 @@ lv:
             announcement: Paziņojums
             answers_with_costs: Iespējot izmaksas priekšlikumu atbildēs
             comments_blocked: Komentāri ir bloķēti
+            default_sort_order_options:
+              most_commented: Visvairāk komentētie
+              most_followed: Visvairāk sekotāju
+              random: Nejauši
+              recent: Nesenie
+              with_more_authors: Ar vairākiem autoriem
             proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
             publish_answers_immediately: Nekavējoties publicēt atbildes uz priekšlikumiem
     events:
