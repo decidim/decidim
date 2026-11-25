@@ -14,8 +14,6 @@ el:
         settings:
           global:
             announcement: Ανακοίνωση
-          step:
-            announcement: Ανακοίνωση
     open_data:
       help:
         pages:
