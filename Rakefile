@@ -64,10 +64,10 @@ end
 
 desc "Pushes a new build for each gem and package."
 task release_all: [:ensure_git_remote, :fetch_git_tags, :update_versions, :fetch_git_tags, :check_uncommitted_changes, :check_locale_completeness] do
-  npm_tag = Decidim::ReleaseManager.npm_tag
+  npm_publish_command = Decidim::ReleaseManager.npm_publish_command
   commands = {}
   Decidim::GemManager.all_dirs { |dir| commands[dir] = "rake release[#{Decidim::ReleaseManager.git_remote}]" }
-  Decidim::GemManager.package_dirs { |dir| commands[dir] = "npm publish --access public --tag #{npm_tag}" }
+  Decidim::GemManager.package_dirs { |dir| commands[dir] = npm_publish_command }
 
   commands.each do |dir, command|
     status = Decidim::GemManager.run_at(dir, command)

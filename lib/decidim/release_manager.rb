@@ -37,6 +37,18 @@ module Decidim
       "release-#{gem_version.segments.first(2).join(".")}"
     end
 
+    # Builds the npm publish command for the given version. The `latest` tag is
+    # omitted on purpose so that npm applies it as the default tag. This keeps
+    # npm's own protection against moving the `latest` tag to an older version
+    # if a newer stable version has been published in the meantime.
+    def self.npm_publish_command(version = GemManager.version)
+      tag = npm_tag(version)
+
+      return "npm publish --access public" if tag == "latest"
+
+      "npm publish --access public --tag #{tag}"
+    end
+
     # Resolves the latest stable Decidim version published to RubyGems.
     def self.latest_stable_version
       versions = JSON.parse(Net::HTTP.get(URI(RUBYGEMS_VERSIONS_URL)))
