@@ -161,7 +161,7 @@ lb:
         destroy:
           success: Participatory-Prozessschritt erfolgreich gelöscht.
         edit:
-          update: Aktualiséieren
+          update: Aktualisieren
         index:
           steps_title: Phasen
         new:
