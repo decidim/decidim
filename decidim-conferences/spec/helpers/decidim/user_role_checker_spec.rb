@@ -42,6 +42,23 @@ module Decidim
       end
     end
 
+    context "when the user has a role in a trashed conference" do
+      let(:trashed_conference) { create(:conference, organization:) }
+
+      before do
+        create(:conference_user_role, user:, conference: trashed_conference)
+        trashed_conference.destroy
+      end
+
+      it "returns false with a broad check, as trashed conference roles do not grant access" do
+        expect(checker.send(:user_has_any_role?, user, conference, broad_check: true)).to be(false)
+      end
+
+      it "returns true when the trashed conference is the one being checked" do
+        expect(checker.send(:user_has_any_role?, user, trashed_conference, broad_check: true)).to be(true)
+      end
+    end
+
     describe "#space_user_role?" do
       context "when the user has a role in the given conference" do
         before { create(:conference_user_role, user:, conference:) }

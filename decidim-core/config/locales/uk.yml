@@ -11,7 +11,6 @@ uk:
         name: Ваше ім’я
         password: Пароль
         password_confirmation: Підтвердьте свій пароль
-        personal_url: Особиста веб-адреса
         remove_avatar: Видалити аватар
     models:
       decidim/attachment_created_event: Вкладений файл

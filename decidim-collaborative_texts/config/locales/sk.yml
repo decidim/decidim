@@ -81,6 +81,8 @@ sk:
           update_settings:
             invalid: Pri aktualizácii dokumentu sa vyskytol problém.
             success: Dokument bol úspešne aktualizovaný.
+        exports:
+          document_suggestions: Návrhy
         index:
           published: Publikované
           unpublished: Nepublikované

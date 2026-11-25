@@ -112,7 +112,22 @@ Existing values stored in the database are no longer displayed. This field will 
 
 This change is part of the work to reduce profile spam tracked in issue [#17955](https://github.com/decidim/decidim/issues/17955).
 
-### 2.6. Sessions are stored to database
+### 2.6. `DECIDIM_SYSTEM_ACCESSLIST_IPS` now works as an allow-list
+
+`DECIDIM_SYSTEM_ACCESSLIST_IPS` (`Decidim.config.system_accesslist_ips`) is documented as the list of addresses allowed to access the `/system` area, but the `Rack::Attack` rule that implemented it was inverted: it blocked the requests from the addresses in the list and allowed all the others.
+
+The rule now behaves as documented:
+
+- When the list is empty, access to the system area is not restricted, as before.
+- When the list has entries, only the addresses it contains — single IPs such as `1.2.3.4` or ranges such as `1.2.3.4/24` — can access the system area and its sub-paths. Any other address gets `403 Forbidden`.
+- Requests from an address that cannot be read, and configured entries that are not valid addresses, are blocked instead of raising an error inside the middleware.
+- The rule matches the system mount itself using `PATH_INFO`, so it also applies when the app is deployed under a subpath, and it no longer matches a public route that only contains a `system` segment.
+
+What to check when upgrading: if `DECIDIM_SYSTEM_ACCESSLIST_IPS` is set in production, make sure it includes the addresses used by the administrators, by the proxy or load balancer that forwards the requests, and by any monitoring tool that checks the system area, as after this change those are the only addresses that can reach it. An installation that relied on the previous behavior — blocking some addresses while leaving the rest open — cannot keep that configuration, since the list is now the only way to grant access.
+
+You can read more about this change on PR [#17933](https://github.com/decidim/decidim/pull/17933).
+
+### 2.7. Sessions are stored to database
 
 As of this release, the user sessions are stored in the database, for improved security.
 
@@ -131,7 +146,7 @@ If your application already configures a session store, Decidim keeps that confi
 
 You can read more about this change on PR [#17611](https://github.com/decidim/decidim/pull/17611).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

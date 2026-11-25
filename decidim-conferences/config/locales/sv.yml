@@ -281,6 +281,7 @@ sv:
           error: Det gick inte att lägga till en registreringstyp till konferensen.
           success: Registreringstypen har lagts till till konferensen.
         destroy:
+          error: Ett problem uppstod vid borttagningen. Registreringstyper med registreringar kopplade till sig kan inte tas bort.
           success: Registreringstypen har tagits från konferensen.
         edit:
           update: Uppdatera

@@ -20,6 +20,41 @@ module Decidim
         .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
     end
 
+    context "when the participatory process is trashed" do
+      let(:user) { create(:user, organization: subject.organization) }
+      let!(:user_role) { create(:participatory_process_user_role, participatory_process:, user:, role: "admin") }
+
+      it "keeps the user roles, as they are not soft deletable" do
+        subject.destroy!
+
+        expect(Decidim::ParticipatoryProcessUserRole.where(id: user_role.id)).to exist
+      end
+
+      it "restores the user roles with the participatory process" do
+        subject.destroy!
+        subject.restore
+
+        expect(subject.reload.participatory_process_user_roles).to contain_exactly(user_role)
+      end
+
+      it "removes the user roles when the participatory process is permanently deleted" do
+        subject.really_destroy!
+
+        expect(Decidim::ParticipatoryProcessUserRole.where(id: user_role.id)).not_to exist
+      end
+
+      it "removes all user roles when the association cache is stale at permanent deletion" do
+        subject.participatory_process_user_roles.to_a # load the association cache
+
+        # Create a role through a different instance so the loaded collection above is stale
+        Decidim::ParticipatoryProcess.find(subject.id).participatory_process_user_roles.create!(user:, role: "collaborator")
+
+        subject.really_destroy!
+
+        expect(Decidim::ParticipatoryProcessUserRole.where(participatory_process: subject)).not_to exist
+      end
+    end
+
     context "when there is a process with the same slug in the same organization" do
       let!(:external_process) { create(:participatory_process, organization: participatory_process.organization, slug: "my-slug") }
 
