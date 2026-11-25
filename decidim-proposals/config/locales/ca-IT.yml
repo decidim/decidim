@@ -236,7 +236,7 @@ ca-IT:
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear propostes
             creation_enabled_readonly: Aquesta opció es desactiva quan actives la funcionalitat de Textos Participatius. Per a pujar propostes com a text participatiu fes clic al botó de Textos Participatius i segueix les instruccions.
-            default_sort_order: Ordre per defecte de propostes
+            default_sort_order: Ordre de propostes per defecte
             default_sort_order_help: '''Per defecte'' vol dir que si els suports estan habilitats, les propostes es mostraran aleatòriament, i si els suports estan bloquejats, aleshores es mostraran de més a menys suports.'
             default_sort_order_options:
               automatic: Per defecte
@@ -244,12 +244,12 @@ ca-IT:
               most_followed: Amb més seguidores
               most_liked: Amb més "M'agrada"
               most_voted: Amb més suports
-              random: Aleatòriament
+              random: Aleatori
               recent: Recents
               with_more_authors: Amb més autores
             likes_blocked: '"M''agrada" desactivats'
             likes_enabled: '"M''agrada" activats'
-            proposal_answering_enabled: Resposta a propostes activada
+            proposal_answering_enabled: Resposta a propostes habilitada
             publish_answers_immediately: Publica les respostes a les propostes immediatament
             publish_answers_immediately_help_html: 'Tingues present que si respons alguna proposta sense que això estigui habilitat, l''hauràs de publicar-les manualment seleccionant-les i fent servir l''acció de publicar. Per a més informació sobre el funcionament, consulta la <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pàgina de documentació de les respostes a les propostes</a>.'
             votes_blocked: Suports bloquejats
@@ -792,7 +792,7 @@ ca-IT:
           label: 'Ordenar esborranys per:'
           most_contributed: Amb més contribucions
           random: Aleatori
-          recent: Recent
+          recent: Recents
         requests:
           accepted_request:
             error: No has pogut ser acceptada com a contribuïdora. Si us plau, torna-ho a provar més tard.
@@ -954,7 +954,7 @@ ca-IT:
           most_liked: Amb més "M'agrada"
           most_voted: Ha rebut més suports
           random: Aleatori
-          recent: Recent
+          recent: Recents
           with_more_authors: Amb més autores
         participatory_texts:
           view_index:
