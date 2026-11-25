@@ -33,6 +33,9 @@ is:
           step:
             announcement: Tilkynning
             comments_blocked: Athugasemdir læst
+            default_sort_order_options:
+              random: Handahófi
+              recent: Nýleg
             proposal_answering_enabled: Tillaga svarað virkt
     events:
       proposals:
