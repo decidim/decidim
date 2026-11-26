@@ -179,6 +179,7 @@ ca:
             taxonomy_filters_add: Afegir un filtre
             terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
           phase:
+            announcement: Anunci/Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled_for_participants: Habilitar la creació de trobades per part de les participants
     download_your_data:
