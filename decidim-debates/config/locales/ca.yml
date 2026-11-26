@@ -47,6 +47,7 @@ ca:
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
           phase:
+            announcement: Anunci/Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled: Les participants poden crear debats
             likes_blocked: '"M''agrada" bloquejat'
