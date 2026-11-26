@@ -125,6 +125,7 @@ es:
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
           phase:
+            announcement: Anuncio/Aviso
             comments_blocked: Comentarios bloqueados
             likes_blocked: '"Me gusta" desactivados'
             likes_enabled: '"Me gusta" activados'
