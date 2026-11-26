@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable prefer-reflect */
 /* global global, jest, process */
 
@@ -197,9 +198,28 @@ describe("SuggestionsList", () => {
     button.click();
     expect(button.getAttribute("aria-expanded")).toBe("false");
     expect(container.classList.contains("hidden")).toBe(true);
+    expect(container.innerHTML).toBe("");
 
     button.click();
-    expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(1);
+    await new Promise(process.nextTick);
+    expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(2);
+  });
+
+  it("only shows comments for one suggestion at a time", async () => {
+    const firstButton = firstSuggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+    const secondButton = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+
+    firstButton.click();
+    await new Promise(process.nextTick);
+    expect(firstSuggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
+
+    secondButton.click();
+    await new Promise(process.nextTick);
+
+    expect(firstSuggestion.commentsButton.getAttribute("aria-expanded")).toBe("false");
+    expect(firstSuggestion.commentsContainer.innerHTML).toBe("");
+    expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
+    expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
   });
 
   it("does not highlight the suggestion when hovering its comments", () => {

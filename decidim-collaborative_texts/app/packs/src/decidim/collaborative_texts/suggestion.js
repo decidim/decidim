@@ -31,6 +31,7 @@ export default class Suggestion {
     this.changesWrapper = null;
     this.commentsLoaded = false;
     this.commentsLoading = false;
+    this.commentsRequestId = 0;
     this.commentsUrl = entry.commentsUrl;
     this.commentsComponent = null;
     this.applied = false;
@@ -164,10 +165,7 @@ export default class Suggestion {
   }
 
   destroy() {
-    if (this.commentsComponent) {
-      this.commentsComponent.unmountComponent();
-      this.commentsComponent = null;
-    }
+    this.closeComments();
     if (this.item) {
       this.item.remove();
       this.item = null;
@@ -243,14 +241,36 @@ export default class Suggestion {
     });
   }
 
-  // Toggle the comments section, loading it on first use
+  // Only one suggestion can show its comments at a time
   toggleComments() {
-    const expanded = this.commentsButton.getAttribute("aria-expanded") === "true";
-    if (!expanded) {
-      this._loadComments();
+    if (this.commentsButton.getAttribute("aria-expanded") === "true") {
+      return this.closeComments();
     }
-    this.commentsButton.setAttribute("aria-expanded", String(!expanded));
-    this.commentsContainer.classList.toggle("hidden", expanded);
+
+    this.suggestionsList.suggestions.forEach((suggestion) => {
+      if (suggestion !== this) {
+        suggestion.closeComments();
+      }
+    });
+
+    this.commentsButton.setAttribute("aria-expanded", "true");
+    this.commentsContainer.classList.remove("hidden");
+    this._loadComments();
+    return this;
+  }
+
+  closeComments() {
+    if (!this.commentsButton || !this.commentsContainer) {
+      return this;
+    }
+
+    this.commentsButton.setAttribute("aria-expanded", "false");
+    this.commentsContainer.classList.add("hidden");
+    this.commentsRequestId += 1;
+    this.commentsLoading = false;
+    this.commentsLoaded = false;
+    this._unmountComments();
+    this.commentsContainer.innerHTML = "";
     return this;
   }
 
@@ -261,6 +281,8 @@ export default class Suggestion {
     }
 
     this.commentsLoading = true;
+    const requestId = this.commentsRequestId;
+
     fetch(this.commentsUrl, {
       headers: {
         "X-Requested-With": "XMLHttpRequest"
@@ -273,15 +295,22 @@ export default class Suggestion {
         return response.text();
       }).
       then((html) => {
+        if (requestId !== this.commentsRequestId) {
+          return;
+        }
         this.commentsContainer.innerHTML = html;
         this._mountComments();
         this.commentsLoaded = true;
       }).
       catch((error) => {
-        console.error("Error loading comments:", error);
+        if (requestId === this.commentsRequestId) {
+          console.error("Error loading comments:", error);
+        }
       }).
       finally(() => {
-        this.commentsLoading = false;
+        if (requestId === this.commentsRequestId) {
+          this.commentsLoading = false;
+        }
       });
   }
 
@@ -295,6 +324,15 @@ export default class Suggestion {
     this.commentsComponent = new window.Decidim.CommentsComponent($element, $element.data("decidim-comments"));
     this.commentsComponent.mountComponent();
     $element.data("comments", this.commentsComponent);
+  }
+
+  _unmountComments() {
+    if (!this.commentsComponent) {
+      return;
+    }
+
+    this.commentsComponent.unmountComponent();
+    this.commentsComponent = null;
   }
 
   _resetDropdown() {
