@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     end
   end
 
+  s.add_dependency "decidim-comments", version
   s.add_dependency "decidim-core", version
 
   s.add_development_dependency "decidim-dev", version
