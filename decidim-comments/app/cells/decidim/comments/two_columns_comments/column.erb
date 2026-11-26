@@ -1,4 +1,4 @@
-<div class="comments-section__<%= @title.parameterize %>">
+<div class="comments-section__<%= @alignment == 1 ? "in-favor" : "against" %>" aria-live="polite">
   <div class="comments-section__header">
     <%= icon @icon_name, class: "icon" %>
     <span class="comments-section__title"><%= @title %></span>
