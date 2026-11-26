@@ -87,6 +87,47 @@ module Decidim
 
           expect(response).to have_http_status(:not_found)
         end
+
+        it "redirects anonymous visitors to sign in" do
+          sign_out user
+
+          get :show, params: { locale: I18n.default_locale, id: token }
+
+          expect(response).to have_http_status(:found)
+          expect(response.location).to include("/users/sign_in")
+        end
+
+        context "with an image attachment" do
+          let(:attachment) { create(:attachment, :with_image, attached_to: restricted_process) }
+
+          [:thumbnail, :big].each do |variant|
+            let(:token) { Decidim::PrivateDownload.for(attachment, attachment_name: :file, variant:).token }
+
+            it "serves the #{variant} variant to members" do
+              member
+
+              get :show, params: { locale: I18n.default_locale, id: token }
+
+              expect(response).to have_http_status(:ok)
+              expect(response.content_type).to eq("image/jpeg")
+            end
+
+            it "rejects the #{variant} variant to non members" do
+              get :show, params: { locale: I18n.default_locale, id: token }
+
+              expect(response).to have_http_status(:not_found)
+            end
+
+            it "redirects anonymous visitors for the #{variant} variant" do
+              sign_out user
+
+              get :show, params: { locale: I18n.default_locale, id: token }
+
+              expect(response).to have_http_status(:found)
+              expect(response.location).to include("/users/sign_in")
+            end
+          end
+        end
       end
 
       it "returns not found with an invalid token" do

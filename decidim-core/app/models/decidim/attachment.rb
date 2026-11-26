@@ -100,13 +100,7 @@ module Decidim
     def url
       @url ||=
         if file?
-          if private_download_required?
-            Decidim::Core::Engine.routes.url_helpers.private_download_path(
-              Decidim::PrivateDownload.for(self, attachment_name: :file).token
-            )
-          else
-            attached_uploader(:file).url
-          end
+          private_download_required? ? private_download_url : attached_uploader(:file).url
         elsif link?
           link
         end
@@ -118,7 +112,7 @@ module Decidim
     def thumbnail_url
       return unless photo?
 
-      @thumbnail_url ||= attached_uploader(:file).variant_url(:thumbnail)
+      @thumbnail_url ||= variant_url(:thumbnail)
     end
 
     # The URL to download the a big version of the file. Only works with images.
@@ -127,7 +121,7 @@ module Decidim
     def big_url
       return unless photo?
 
-      @big_url ||= attached_uploader(:file).variant_url(:big)
+      @big_url ||= variant_url(:big)
     end
 
     def set_content_type_and_size
@@ -161,6 +155,20 @@ module Decidim
       return attached_to.restricted? if attached_to.respond_to?(:restricted?)
 
       attached_to.respond_to?(:component) && attached_to.component&.restricted_space?
+    end
+
+    private
+
+    def variant_url(variant)
+      return attached_uploader(:file).variant_url(variant) unless private_download_required?
+
+      private_download_url(variant:)
+    end
+
+    def private_download_url(variant: nil)
+      Decidim::Core::Engine.routes.url_helpers.private_download_path(
+        Decidim::PrivateDownload.for(self, attachment_name: :file, variant:).token
+      )
     end
   end
 end

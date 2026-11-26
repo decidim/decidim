@@ -80,6 +80,16 @@ module Decidim
           expect(response).to eq("thumbnail" => model.thumbnail_url)
         end
 
+        context "when the attachment requires a private download" do
+          let(:restricted_process) { create(:participatory_process, :restricted, :published) }
+          let(:model) { create(:attachment, :with_image, attached_to: restricted_process) }
+
+          it "returns the private download URL" do
+            expect(response["thumbnail"]).to include("/private_downloads/")
+            expect(response["thumbnail"]).not_to include("/rails/active_storage/")
+          end
+        end
+
         context "when not available" do
           let(:model) { create(:attachment, :with_pdf) }
 
