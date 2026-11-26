@@ -176,11 +176,30 @@ module Decidim
       #   Decidim::AssetRouter::Storage.new(asset).url(host: "sub.example.org")
       #   => http://sub.example.org/...
       #
+      # @param options [Hash] The options for generating the current URL options
       # @yield The block to be executed with the temporary host configuration
       # @return The result provided by the provided block.
       def with_current_url_options(options)
         return yield unless disk_service?
 
+        tmp_options = temporary_current_url_options(options)
+        return yield if ActiveStorage::Current.url_options == tmp_options
+
+        begin
+          orig_conf = ActiveStorage::Current.url_options.dup
+          ActiveStorage::Current.url_options = tmp_options
+          yield
+        ensure
+          ActiveStorage::Current.url_options = orig_conf
+        end
+      end
+
+      # Prepares temporary current URL options for the with_current_url_options
+      # method.
+      #
+      # @param options [Hash] The options for generating the current URL options
+      # @return [Hash] The prepared options.
+      def temporary_current_url_options(options)
         # Ensure that `host: nil` would not override the current URL options
         # host.
         options = options.except(:host) unless options[:host]
@@ -192,15 +211,8 @@ module Decidim
           tmp_options[:protocol] ||= scheme
           tmp_options[:protocol] = "https" if tmp_options[:protocol] != scheme && (scheme == "https" || scheme == "https://")
         end
-        return yield if ActiveStorage::Current.url_options == tmp_options
 
-        begin
-          orig_conf = ActiveStorage::Current.url_options.dup
-          ActiveStorage::Current.url_options = tmp_options
-          yield
-        ensure
-          ActiveStorage::Current.url_options = orig_conf
-        end
+        tmp_options
       end
 
       # Determines the organization for the asset's record, if available and it
