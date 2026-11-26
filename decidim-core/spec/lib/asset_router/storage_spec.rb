@@ -132,6 +132,13 @@ module Decidim::AssetRouter
             it_behaves_like "blob redirect URL"
             it_behaves_like "no blob attachments fetched"
           end
+
+          context "when passing another host as an option" do
+            let(:options) { { host: "another.example.org" } }
+
+            it_behaves_like "blob redirect URL"
+            it_behaves_like "no blob attachments fetched"
+          end
         end
 
         context "when requesting the local redirect path to the asset" do
@@ -286,6 +293,13 @@ module Decidim::AssetRouter
 
             context "when current URL options have been set" do
               include_context "with current URL options host", host: "another.example.org"
+
+              it_behaves_like "representation redirect URL"
+              it_behaves_like "no blob attachments fetched"
+            end
+
+            context "when passing another host as an option" do
+              let(:options) { { host: "another.example.org" } }
 
               it_behaves_like "representation redirect URL"
               it_behaves_like "no blob attachments fetched"

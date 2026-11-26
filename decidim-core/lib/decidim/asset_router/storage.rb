@@ -234,6 +234,7 @@ module Decidim
         return unless blob
 
         if options[:only_path] || remote?
+          options = options.except(:host) if remote?
           routes.rails_blob_url(blob, **default_options, **options)
         else
           with_current_url_options(options) do
@@ -292,11 +293,12 @@ module Decidim
       # Rails route helpers accept
       # @return [String, nil] The converted representation URL or `nil` if the
       #   asset is not defined.
-      def rails_representation_url(**)
+      def rails_representation_url(**options)
         base_options = {}
         base_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options && !remote?
         base_options.merge!(default_options)
-        representation_url = routes.rails_representation_url(asset, **base_options, **)
+        options = options.except(:host) if remote?
+        representation_url = routes.rails_representation_url(asset, **base_options, **options)
 
         variation = asset.try(:variation)
         return representation_url unless variation
