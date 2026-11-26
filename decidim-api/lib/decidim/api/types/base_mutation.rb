@@ -27,7 +27,7 @@ module Decidim
             raise Decidim::Api::Errors::AttributeValidationError, form.errors
           end
 
-          raise Decidim::Api::Errors::ValidationError, "Unexpected command result" if result_record.nil?
+          raise Decidim::Api::Errors::ValidationError, I18n.t("decidim.api.errors.specific.unexpected") if result_record.nil?
 
           result_record
         end

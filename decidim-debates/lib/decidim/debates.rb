@@ -9,6 +9,8 @@ require "decidim/debates/component"
 module Decidim
   # Base module for this engine.
   module Debates
+    autoload :DebateAttachmentUpload, "decidim/api/functions/debate_attachment_upload"
+
     autoload :DebateSerializer, "decidim/debates/debate_serializer"
   end
 end

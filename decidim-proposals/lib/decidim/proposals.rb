@@ -13,6 +13,7 @@ module Decidim
   module Proposals
     autoload :ProposalListHelper, "decidim/api/functions/proposal_list_helper"
     autoload :ProposalFinderHelper, "decidim/api/functions/proposal_finder_helper"
+    autoload :ProposalAttachmentUpload, "decidim/api/functions/proposal_attachment_upload"
 
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
     autoload :DownloadYourDataProposalSerializer, "decidim/proposals/download_your_data_proposal_serializer"

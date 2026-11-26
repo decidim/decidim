@@ -1,0 +1,45 @@
+= API file upload handling
+
+Files are attached to records in the same request which creates or updates the
+attachment: the `file` input field of `AttachmentAttributes` is an upload, so the
+file has to be sent as `multipart/form-data` following the
+https://github.com/jaydenseric/graphql-multipart-request-spec[GraphQL multipart
+request spec].
+
+The following snippet uploads the file and creates the attachment record in a
+single request. The file variable must be `null` in the `operations` payload and
+the uploaded file is mapped separately:
+
+[source,bash]
+----
+curl -X POST https://example.org/api/ \
+  -F 'operations={"query":"mutation ($componentId: ID!, $resultId: ID!, $input: CreateAttachmentInput!) { component(id: $componentId) { ... on AccountabilityMutation { result(id: $resultId) { createAttachment(input: $input) { id } } } } }","variables":{"componentId":"3","resultId":"5","input":{"attributes":{"weight":1,"title":{"en":"Your english title"},"description":{"en":"Your english description"},"file":null}}}}' \
+  -F 'map={"0":["variables.input.attributes.file"]}' \
+  -F '0=@/path/to/file.jpg'
+----
+
+The file is validated before it is stored, and the attachment record is created
+from it. A file which does not pass the checks is rejected with a validation
+error and the blob is not stored.
+
+The extension and content type checks use the allowlists configured for the role
+which performs the request: the administrative ones when the request is made by an
+administrator and the participant ones otherwise, so the API does not accept a
+file which the same upload through the form would refuse.
+
+== Blobs (Handling Files)
+
+* xref:develop:api/reference/uploads/blobs/upload.adoc[Upload files]
+* xref:develop:api/reference/uploads/blobs/delete.adoc[Delete files]
+
+== Attachments
+
+* xref:develop:api/reference/uploads/attachments/create.adoc[Create Attachments]
+* xref:develop:api/reference/uploads/attachments/update.adoc[Update Attachments]
+* xref:develop:api/reference/uploads/attachments/delete.adoc[Delete Attachments]
+
+== Attachment Collections
+
+* xref:develop:api/reference/uploads/attachment_collections/create.adoc[Create Collections]
+* xref:develop:api/reference/uploads/attachment_collections/update.adoc[Update Collections]
+* xref:develop:api/reference/uploads/attachment_collections/delete.adoc[Delete Collections]
