@@ -390,10 +390,12 @@ fr:
               all: 'Voter sur tous les budgets : autorise les participants à voter sur tous les budgets.'
               one: 'Voter sur un seul budget : autorise les participants à voter sur un seul budget parmi les budgets proposés.'
           phase:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
             highlighted_heading: En-tête en surbrillance
             list_heading: En-tête de la liste des budgets
             show_votes: Afficher les votes
+            title: Titre
             votes: Vote
             votes_choices:
               disabled: Vote désactivé
