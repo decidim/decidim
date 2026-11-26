@@ -138,6 +138,30 @@ module Decidim
 
         it { is_expected.to eq(proposal.versions) }
 
+        context "when the proposal has multiple versions" do
+          before do
+            proposal.update!(body: { en: "Updated body" })
+            proposal.reload
+          end
+
+          it "eager loads the items of the versions" do
+            queries = []
+            callback = lambda do |_name, _start, _finish, _id, payload|
+              queries << payload[:sql] unless payload[:cached] || payload[:name] == "SCHEMA"
+            end
+
+            ActiveSupport::Notifications.subscribed(callback, "sql.active_record") { subject }
+
+            expect(queries.grep(/FROM "decidim_proposals_proposals"/).size).to eq(1)
+          end
+
+          it "memoizes the versions" do
+            versions = presenter.versions
+
+            expect(presenter.versions).to be(versions)
+          end
+        end
+
         context "when proposal has an answer that was not published yet" do
           before do
             proposal.assign_state("accepted")
