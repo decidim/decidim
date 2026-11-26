@@ -5,38 +5,46 @@
 import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 // Add comment card for mobile
-const addCommentMobile = function (addCommentCard) {
+const addCommentMobile = (addCommentCard) => {
   addCommentCard.classList.remove("hidden");
   addCommentCard.classList.add("fullscreen");
 };
 
-const closeAddComment = function (addCommentCard) {
+const closeAddComment = (addCommentCard) => {
   addCommentCard.classList.add("hidden");
   addCommentCard.classList.remove("fullscreen");
-}
+};
+
+const addCommentCardFor = (element) => {
+  const comments = element.closest("[data-decidim-comments]");
+  return comments && comments.querySelector(".add-comment");
+};
+
+// Delegated so it also works for comments loaded after turbo:load
+document.addEventListener("click", (event) => {
+  if (!(event.target instanceof Element)) {
+    return;
+  }
+
+  const addButton = event.target.closest(".add-comment-mobile");
+  if (addButton) {
+    const addCommentCard = addCommentCardFor(addButton);
+    if (addCommentCard) {
+      addCommentMobile(addCommentCard);
+    }
+    return;
+  }
+
+  const closeButton = event.target.closest(".close-add-comment-fullscreen");
+  if (closeButton) {
+    const addCommentCard = closeButton.closest(".add-comment");
+    if (addCommentCard) {
+      closeAddComment(addCommentCard);
+    }
+  }
+});
 
 document.addEventListener("turbo:load", () => {
-  // Add comment card for mobile
-  const addCommentCard = document.getElementById("add-comment-anchor");
-  if (addCommentCard) {
-    document.querySelectorAll(".add-comment-mobile").forEach((addButtonMobile) => {
-      addButtonMobile.addEventListener("click", () => {
-        addCommentMobile(addCommentCard);
-      });
-    });
-  }
-
-  // Close comment modal
-  const closeButton = document.querySelector(
-    "#add-comment-anchor .close-add-comment-fullscreen"
-  );
-  if (closeButton) {
-    closeButton.addEventListener("click", () =>
-      closeAddComment(addCommentCard)
-    );
-  }
-
-
   // Initialize dropdown menu
   initializeCommentsDropdown(document);
 });
