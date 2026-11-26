@@ -22,8 +22,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      before_perform :configure_activestorage
-      after_perform :revert_configure_activestorage, prepend: true
+      around_perform :configure_activestorage
     end
 
     private
@@ -34,19 +33,25 @@ module Decidim
     def configure_activestorage
       options = EngineRouter.new("main_app", {}).default_url_options
       options[:host] = organization.host if organization
-      return if options[:host].blank?
+      return yield if options[:host].blank?
 
-      @original_current_url_options = ActiveStorage::Current.url_options
-      ActiveStorage::Current.url_options = options
+      orig_options = ActiveStorage::Current.url_options
+      begin
+        ActiveStorage::Current.url_options = options
+        yield
+      ensure
+        revert_configure_activestorage(orig_options)
+      end
     end
 
     # Reverts the ActiveStorage URL options to the original configuration.
     #
-    # @return [void]
-    def revert_configure_activestorage
-      return unless instance_variable_defined?(:@original_current_url_options)
-
-      ActiveStorage::Current.url_options = @original_current_url_options
+    # This is a separate method in order to make testing easier.
+    #
+    # @param options [Hash] The options to revert to.
+    # @return [Hash] The same options.
+    def revert_configure_activestorage(options)
+      ActiveStorage::Current.url_options = options
     end
 
     # Resolves the organization through the arguments passed to the `perform`

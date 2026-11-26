@@ -35,8 +35,16 @@ describe Decidim::JobWithAssets do
         extend ActiveSupport::Concern
 
         included do
-          before_perform :track_state_before
-          after_perform :track_state_after
+          alias_method :orig_revert_configure_activestorage, :revert_configure_activestorage unless method_defined?(:orig_revert_configure_activestorage)
+
+          before_perform :track_state_before, prepend: true
+          after_perform :track_state_after, prepend: true
+
+          def revert_configure_activestorage(options)
+            track_state_after
+
+            orig_revert_configure_activestorage(options)
+          end
         end
 
         private
@@ -46,6 +54,8 @@ describe Decidim::JobWithAssets do
         end
 
         def track_state_after
+          return unless state_storage.after.nil?
+
           state_storage.after = ActiveStorage::Current.url_options.dup
         end
 
@@ -69,8 +79,8 @@ describe Decidim::JobWithAssets do
         tracker = state_tracker
         mod = described_class
         Class.new(Decidim::ApplicationJob) do
-          include tracker
           include mod
+          include tracker
 
           def perform(first, second, organization, fourth); end
         end
@@ -101,8 +111,8 @@ describe Decidim::JobWithAssets do
         tracker = state_tracker
         mod = described_class
         Class.new(Decidim::ApplicationJob) do
-          include tracker
           include mod
+          include tracker
 
           def perform(first, org, third, fourth); end
         end
@@ -133,8 +143,8 @@ describe Decidim::JobWithAssets do
         tracker = state_tracker
         mod = described_class
         Class.new(Decidim::ApplicationJob) do
-          include tracker
           include mod
+          include tracker
 
           def perform(first, second, third, fourth); end
         end
@@ -183,8 +193,8 @@ describe Decidim::JobWithAssets do
         tracker = state_tracker
         mod = described_class
         Class.new(Decidim::ApplicationJob) do
-          include tracker
           include mod
+          include tracker
 
           def perform; end
         end
