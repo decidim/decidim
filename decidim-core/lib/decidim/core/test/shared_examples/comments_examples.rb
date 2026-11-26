@@ -248,6 +248,12 @@ shared_examples "comments" do
         click_on "Publish comment"
         expect(page).to have_text("Test comment with a computer.")
       end
+
+      it "does not open the comment form in fullscreen mode" do
+        find("a.add-comment-mobile").click
+
+        expect(page).to have_no_css(".fullscreen")
+      end
     end
 
     context "when user visit a mobile browser" do
