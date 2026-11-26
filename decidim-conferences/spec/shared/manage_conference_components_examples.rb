@@ -53,6 +53,7 @@ shared_examples "manage conference components" do
     end
 
     it "has a successful admin log" do
+      expect(page).to have_admin_callout("Component created successfully.")
       visit decidim_admin.root_path
       expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(conference.title)}")
     end
