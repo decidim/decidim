@@ -50,6 +50,11 @@ fr:
       participatory_process_phase:
         cta_path: Chemin d'accès à l'action
         cta_text: Texte d'appel à l'action
+        description: Description
+        end_date: Date de fin
+        short_description: Brève description
+        start_date: Date de début
+        title: Titre
       participatory_process_user_role:
         email: Email
         name: Nom
@@ -135,6 +140,11 @@ fr:
             title: Titre
           name: Groupe de concertations
         participatory_process_phase:
+          fields:
+            actions: Actions
+            end_date: Date de fin
+            start_date: Date de début
+            title: Titre
           name: Étape de la concertation
         participatory_process_user_role:
           fields:
@@ -189,6 +199,10 @@ fr:
             active_phase: Vous ne pouvez pas supprimer l'étape active.
             last_phase: Vous ne pouvez pas supprimer la dernière étape d'une concertation.
           success: L'étape de la concertation a été supprimée avec succès.
+        edit:
+          update: Mettre à jour
+        new:
+          create: Créer
         ordering:
           error: Une erreur s'est produite lors de la réorganisation des étapes de la concertation.
         update:
