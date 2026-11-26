@@ -172,6 +172,8 @@ eu:
           global:
             announcement: Oharra
             comments_blocked: Iruzkinak blokeatuta
+          phase:
+            announcement: Jakinarazpena
     statistics:
       all_collaborative_texts_count: Testu kolaboratzaile guztiak
       collaborative_texts_count: Testu kolaboratiboak
