@@ -36,6 +36,8 @@ describe "Postal letter code request" do
 
     context "and getting it sent" do
       before do
+        expect(page).to have_text("Thanks! We will send a verification code to your address.")
+
         relogin_as admin, scope: :user
         visit decidim_admin_postal_letter.root_path
       end

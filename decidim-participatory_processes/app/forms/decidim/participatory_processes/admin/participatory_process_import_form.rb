@@ -25,7 +25,7 @@ module Decidim
         mimic :participatory_process
 
         attribute :slug, String
-        attribute :import_steps, Boolean, default: true
+        attribute :import_phases, Boolean, default: true
         attribute :import_attachments, Boolean, default: true
         attribute :import_components, Boolean, default: true
         attribute :document, Decidim::Attributes::Blob

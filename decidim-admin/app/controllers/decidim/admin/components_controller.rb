@@ -181,12 +181,12 @@ module Decidim
           hsh[:manifest] = manifest
           hsh[:participatory_space] = current_participatory_space
           hsh[:settings] = new_settings.call(:global, hsh[:settings])
-          if hsh[:default_step_settings]
-            hsh[:default_step_settings] = new_settings.call(:step, hsh[:default_step_settings])
+          if hsh[:default_phase_settings]
+            hsh[:default_phase_settings] = new_settings.call(:phase, hsh[:default_phase_settings])
           else
-            hsh[:step_settings] ||= {}
-            hsh[:step_settings].each do |key, value|
-              hsh[:step_settings][key] = new_settings.call(:step, value)
+            hsh[:phase_settings] ||= {}
+            hsh[:phase_settings].each do |key, value|
+              hsh[:phase_settings][key] = new_settings.call(:phase, value)
             end
           end
         end
@@ -208,12 +208,12 @@ module Decidim
       end
 
       def handle_component_settings_change(previous_settings, current_settings)
-        return if @component.participatory_space.allows_steps?
+        return if @component.participatory_space.allows_phases?
 
         Decidim::SettingsChange.publish(
           @component,
-          previous_settings["default_step"] || {},
-          current_settings["default_step"] || {}
+          previous_settings["default_phase"] || {},
+          current_settings["default_phase"] || {}
         )
       end
 

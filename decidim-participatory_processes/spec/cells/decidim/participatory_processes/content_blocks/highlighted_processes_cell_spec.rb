@@ -35,7 +35,7 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
   end
 
   describe "#cache_hash" do
-    let(:processes) { create_list(:participatory_process, 2, :active, :with_steps, organization:) }
+    let(:processes) { create_list(:participatory_process, 2, :active, :with_phases, organization:) }
 
     it "generates a unique hash" do
       content_block.reload
@@ -45,17 +45,17 @@ describe Decidim::ParticipatoryProcesses::ContentBlocks::HighlightedProcessesCel
       expect(cell(content_block.cell, content_block).send(:cache_hash)).to eq(old_hash)
     end
 
-    context "when participatory process active_step is updated" do
+    context "when participatory process active_phase is updated" do
       it "generates a different hash" do
         old_hash = cell(content_block.cell, content_block).send(:cache_hash)
-        active_step = processes.first.active_step
-        active_step.update!(title: { en: "Updated title" })
+        active_phase = processes.first.active_phase
+        active_phase.update!(title: { en: "Updated title" })
 
         expect(cell(content_block.cell, content_block).send(:cache_hash)).not_to eq(old_hash)
       end
     end
 
-    context "when parent process is touched via step update" do
+    context "when parent process is touched via phase update" do
       it "generates a different hash when process is touched" do
         old_hash = cell(content_block.cell, content_block).send(:cache_hash)
         process = processes.first
