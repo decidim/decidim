@@ -7,7 +7,7 @@ describe "Search proposals" do
 
   include_context "with a component"
   let(:participatory_process) do
-    create(:participatory_process, :published, :with_steps, organization:)
+    create(:participatory_process, :published, :with_phases, organization:)
   end
   let(:manifest_name) { "proposals" }
   let!(:searchables) { create_list(:proposal, 3, component:) }

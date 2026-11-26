@@ -13,7 +13,7 @@ FactoryBot.define do
 
     name { generate_component_name(participatory_space.organization.available_locales, :elections, skip_injection:) }
     manifest_name { :elections }
-    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
+    participatory_space { create(:participatory_process, :with_phases, skip_injection:, organization:) }
   end
 
   factory :election, class: "Decidim::Elections::Election" do

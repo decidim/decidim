@@ -83,7 +83,7 @@ Decidim.register_component(:proposals) do |component|
     settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
   end
 
-  component.settings(:step) do |settings|
+  component.settings(:phase) do |settings|
     settings.attribute :likes_enabled, type: :boolean, default: true
     settings.attribute :likes_blocked, type: :boolean
     settings.attribute :votes_enabled, type: :boolean

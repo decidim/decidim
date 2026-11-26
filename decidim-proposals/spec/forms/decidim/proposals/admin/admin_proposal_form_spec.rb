@@ -11,7 +11,7 @@ module Decidim
 
         describe "#meetings" do
           let(:organization) { create(:organization, available_locales: [:en]) }
-          let(:participatory_space) { create(:participatory_process, :with_steps, organization:) }
+          let(:participatory_space) { create(:participatory_process, :with_phases, organization:) }
           let(:component) { create(:proposal_component, participatory_space:) }
           let(:meeting_component) { create(:meeting_component, participatory_space:) }
           let(:other_meeting_component) { create(:meeting_component, participatory_space:) }

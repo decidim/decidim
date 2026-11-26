@@ -4,7 +4,7 @@ Participatory processes are the standard Decidim's participatory space.
 
 A participatory process:
 
-* can define its own steps
+* can define its own phases
 * can define helper text
 * can attach different components (such as meetings or proposals) with different configurations to each of them.
 * can have attachments

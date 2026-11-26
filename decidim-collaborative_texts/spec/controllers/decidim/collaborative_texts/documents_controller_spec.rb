@@ -24,6 +24,45 @@ module Decidim
           expect(controller.helpers.documents).to include(published_document)
           expect(controller.helpers.documents).not_to include(unpublished_document)
         end
+
+        it "preloads the associations used by the cards" do
+          get :index
+
+          document = controller.helpers.documents.first
+          expect(document.association(:component)).to be_loaded
+          expect(document.association(:document_versions)).to be_loaded
+          expect(document.association(:coauthorships)).to be_loaded
+        end
+
+        context "when filtering by state" do
+          let!(:accepting_document) { create(:collaborative_text_document, :published, :accepting_suggestions, component:) }
+          let!(:unpublished_accepting_document) { create(:collaborative_text_document, :accepting_suggestions, component:) }
+
+          it "only returns published documents matching the filter" do
+            get :index, params: { filter: { with_any_state: "accepting_suggestions" } }
+
+            expect(controller.helpers.documents).to contain_exactly(accepting_document)
+          end
+
+          context "when the user is an admin" do
+            let(:admin) { create(:user, :admin, :confirmed, organization: component.organization) }
+            let!(:unpublished_not_accepting_document) { create(:collaborative_text_document, :not_accepting_suggestions, component:) }
+
+            before { allow(controller).to receive(:current_user).and_return(admin) }
+
+            it "does not return unpublished documents in the all filter" do
+              get :index, params: { filter: { with_any_state: "all" } }
+
+              expect(controller.helpers.documents).not_to include(unpublished_not_accepting_document)
+            end
+
+            it "does not return unpublished documents in the state filters" do
+              get :index, params: { filter: { with_any_state: "not_accepting_suggestions" } }
+
+              expect(controller.helpers.documents).not_to include(unpublished_not_accepting_document)
+            end
+          end
+        end
       end
 
       describe "GET #show" do
@@ -38,6 +77,43 @@ module Decidim
         context "when document does not exist" do
           it "raises an ActionController::RoutingError error" do
             expect { get :show, params: { id: "non-existent" } }.to raise_error(ActionController::RoutingError)
+          end
+        end
+
+        context "when the document is unpublished" do
+          context "when the user is an admin" do
+            let(:admin) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+            before { allow(controller).to receive(:current_user).and_return(admin) }
+
+            it "returns the document so it can be previewed" do
+              get :show, params: { id: unpublished_document.id }
+
+              expect(controller.helpers.document).to eq(unpublished_document)
+            end
+
+            it "preloads the associations used by the document" do
+              get :show, params: { id: unpublished_document.id }
+
+              document = controller.helpers.document
+              expect(document.association(:component)).to be_loaded
+              expect(document.association(:document_versions)).to be_loaded
+              expect(document.association(:coauthorships)).to be_loaded
+            end
+          end
+
+          context "when the user is not an admin" do
+            it "raises an ActionController::RoutingError error" do
+              expect { get :show, params: { id: unpublished_document.id } }.to raise_error(ActionController::RoutingError)
+            end
+          end
+
+          context "when the user is a logged in participant" do
+            before { allow(controller).to receive(:current_user).and_return(user) }
+
+            it "raises an ActionController::RoutingError error" do
+              expect { get :show, params: { id: unpublished_document.id } }.to raise_error(ActionController::RoutingError)
+            end
           end
         end
       end

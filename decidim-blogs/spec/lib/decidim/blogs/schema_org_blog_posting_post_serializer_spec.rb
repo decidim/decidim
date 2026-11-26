@@ -11,7 +11,7 @@ module Decidim::Blogs
     let!(:post) { create(:post, component:, author:) }
     let(:organization) { create(:organization) }
     let(:component) { create(:post_component, participatory_space:) }
-    let(:participatory_space) { create(:participatory_process, :with_steps, skip_injection: false, organization:) }
+    let(:participatory_space) { create(:participatory_process, :with_phases, skip_injection: false, organization:) }
     let(:author) { organization }
 
     describe "#serialize" do

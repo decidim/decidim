@@ -12,7 +12,7 @@ FactoryBot.define do
 
     name { generate_component_name(participatory_space.organization.available_locales, :collaborative_texts, skip_injection:) }
     manifest_name { :collaborative_texts }
-    participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
+    participatory_space { create(:participatory_process, :with_phases, skip_injection:, organization:) }
   end
 
   factory :collaborative_text_document, class: "Decidim::CollaborativeTexts::Document" do
@@ -33,6 +33,18 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :draft do
+      document_versions { build_list(:collaborative_text_version, 1, :draft) }
+    end
+
+    trait :accepting_suggestions do
+      accepting_suggestions { true }
+    end
+
+    trait :not_accepting_suggestions do
+      accepting_suggestions { false }
     end
 
     after :build do |document, evaluator|
