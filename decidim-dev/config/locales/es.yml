@@ -38,6 +38,11 @@ es:
           phase:
             likes_blocked: '"Me gusta" desactivados'
             likes_enabled: '"Me gusta" activados'
+            readonly_phase_attribute: Atributo de solo lectura
+            test_options:
+              bar: Barra
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:
