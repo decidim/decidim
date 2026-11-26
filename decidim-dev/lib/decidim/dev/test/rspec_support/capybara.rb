@@ -84,17 +84,35 @@ module Decidim
   end
 end
 
-# See: https://github.com/teamcapybara/capybara/issues/2865
+# See:
+# https://github.com/teamcapybara/capybara/issues/2865
+# https://github.com/teamcapybara/capybara/pull/2867
 module ChromeResetWithoutWildcard
   private
 
   def execute_cdp(cmd, params = {})
     return super unless cmd == "Storage.clearDataForOrigin" && params[:origin] == "*"
 
-    super("Network.clearBrowserCookies")
-    return unless params[:storageTypes].include?("local_storage")
+    types = params[:storageTypes].to_s.split(",")
+    super("Network.clearBrowserCookies") if types.delete("cookies")
+    return unless types.any?
 
-    super(cmd, { origin: Capybara.current_session.server.base_url, storageTypes: "local_storage" })
+    visited_origins.each do |origin|
+      super(cmd, params.merge(origin:, storageTypes: types.join(",")))
+    end
+  end
+
+  def visited_origins
+    execute_cdp("Page.getNavigationHistory")["entries"].filter_map { |entry| origin_of(entry["url"]) }.uniq
+  end
+
+  def origin_of(url)
+    uri = URI.parse(url.to_s)
+    return unless %w(http https).include?(uri.scheme) && uri.host
+
+    "#{uri.scheme}://#{uri.host}#{":#{uri.port}" unless uri.port == uri.default_port}"
+  rescue URI::InvalidURIError
+    nil
   end
 end
 Capybara::Selenium::Driver::ChromeDriver.prepend(ChromeResetWithoutWildcard)
