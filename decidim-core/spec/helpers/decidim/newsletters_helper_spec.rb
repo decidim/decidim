@@ -10,6 +10,7 @@ module Decidim
     let(:user) { create(:user, name: "Jane Doe", organization:) }
     let(:organization) { create(:organization, host: "localhost") }
     let(:newsletter) { create(:newsletter) }
+    let(:origin) { "http://#{organization.host}:#{Capybara.server_port}" }
     let(:text) do
       %{(<p>Hello, %{name}</p>
 <a href="https://meta.decidim.org">Link</a>
@@ -30,10 +31,13 @@ module Decidim
         expect(subject).to include("https://meta.decidim.org/?utm_source=#{organization.host}&utm_campaign=newsletter_#{newsletter.id}")
       end
 
-      it "transforms image URLs with the host" do
-        root_url = Decidim::EngineRouter.new("decidim", {}).root_url(host: organization.host).chomp("/")
-        expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/12345.JPG"))
-        expect(subject).to include(%(<img src="#{root_url}/rails/active_storage/blobs/redirect/56789.JPG"))
+      it "transforms image URLs with the host origin" do
+        expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/12345.JPG"))
+        expect(subject).to include(%(<img src="#{origin}/rails/active_storage/blobs/redirect/56789.JPG"))
+      end
+
+      it "does not insert the locale in image URLs" do
+        expect(subject).not_to match(%r{/[a-z]{2}/rails/active_storage})
       end
 
       context "when track_newsletter_links is false" do
