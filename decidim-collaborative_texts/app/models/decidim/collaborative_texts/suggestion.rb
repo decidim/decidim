@@ -8,6 +8,7 @@ module Decidim
     class Suggestion < CollaborativeTexts::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Authorable
+      include Decidim::Resourceable
       include Decidim::Comments::Commentable
 
       after_save :update_document_counters
