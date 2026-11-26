@@ -9,10 +9,11 @@ module Decidim
     # collection - a collection of elements that need to be paginated
     # paginate_params - a Hash with options to delegate to the pagination helper.
     def decidim_paginate(collection, paginate_params = {})
-      return if collection.total_pages <= 1
+      return if collection.total_pages <= 1 && collection.total_count <= Decidim::Paginable::OPTIONS.first
 
-      show_per_page_selector = collection.total_pages.positive? && Decidim::Paginable::OPTIONS.include?(collection.limit_value)
-      per_page = (params[:per_page] || paginate_params[:per_page] || Decidim::Paginable::OPTIONS.first).to_i
+      show_per_page_selector = collection.total_count > Decidim::Paginable::OPTIONS.first && Decidim::Paginable::OPTIONS.include?(collection.limit_value)
+      per_page = (params[:per_page] || paginate_params[:per_page] || collection.limit_value).to_i
+      per_page = Decidim::Paginable::OPTIONS.first unless Decidim::Paginable::OPTIONS.include?(per_page)
 
       content_tag :div, class: "flex flex-col-reverse md:flex-row items-center justify-between gap-1 py-8 md:py-16 md:flex-wrap", data: { pagination: "" } do
         template = ""
