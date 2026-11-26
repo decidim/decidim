@@ -203,6 +203,22 @@
       @apply flex items-center justify-between;
     }
 
+    &-item-actions {
+      @apply flex items-center justify-start mt-2;
+    }
+
+    &-item-comments-button {
+      @apply flex items-center gap-2 p-0 text-secondary;
+
+      svg {
+        @apply w-4 h-4 fill-secondary;
+      }
+    }
+
+    &-item-comments {
+      @apply mt-4;
+    }
+
     [data-controller="accordion"] {
       @apply relative bg-gray-5;
 

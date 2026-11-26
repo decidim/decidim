@@ -31,3 +31,15 @@
 </div>
 
 <div class="collaborative-texts-suggestions-box-item-text"></div>
+
+<div class="collaborative-texts-suggestions-box-item-actions">
+  <button type="button"
+          class="collaborative-texts-suggestions-box-item-comments-button"
+          aria-expanded="false"
+          aria-controls="collaborative-texts-comments-{{ID}}">
+    <%= icon "chat-1-line" %>
+    <%= t("decidim.comments.comments_title") %>
+  </button>
+</div>
+
+<div class="collaborative-texts-suggestions-box-item-comments hidden" id="collaborative-texts-comments-{{ID}}"></div>
