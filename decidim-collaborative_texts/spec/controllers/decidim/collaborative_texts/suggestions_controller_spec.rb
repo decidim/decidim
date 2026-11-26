@@ -160,6 +160,31 @@ module Decidim
             end
           end
 
+          context "when the params attempt to target another document" do
+            let(:other_document) { build(:collaborative_text_document, :published, component:) }
+            let!(:other_version) { create(:collaborative_text_version, document: other_document) }
+            let(:params) do
+              {
+                component_id: component.id,
+                document_id: document.id,
+                document: { document_id: other_document.id },
+                changeset: {
+                  firstNode: "1",
+                  lastNode: "2",
+                  original: ["Original text"],
+                  replace: ["Replaced text"]
+                }
+              }
+            end
+
+            it "creates the suggestion for the authorized document" do
+              expect { post(:create, params:) }.to change(Suggestion, :count).by(1)
+              expect(response).to have_http_status(:ok)
+              expect(Suggestion.last.document).to eq(document)
+              expect(other_document.reload.suggestions).to be_empty
+            end
+          end
+
           context "when params are invalid" do
             let(:first_node) { "" }
 
