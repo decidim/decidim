@@ -44,13 +44,6 @@
     <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-template"><%= render "decidim/collaborative_texts/documents/suggestions_box_template" %></script>
     <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-item-template"><%= render "decidim/collaborative_texts/documents/suggestions_box_item_template" %></script>
 
-    <% comments_suggestions = document.consolidated_version&.suggestions&.includes(document_version: :document) %>
-    <% comments_suggestions&.each do |suggestion| %>
-      <script type="text/template" class="decidim-template" id="collaborative-texts-suggestion-comments-<%= suggestion.id %>">
-        <%= cell("decidim/comments/comments", suggestion) if suggestion.commentable? %>
-      </script>
-    <% end %>
-
     <div id="collaborative-text-<%= document.id %>" data-collaborative-texts-document="<%= document.suggestions_enabled? %>"
          data-collaborative-texts-i18n="<%= document_i18n.to_json %>"
          data-collaborative-texts-suggestions-editor-template="#collaborative-texts-editor-template"
@@ -73,6 +66,7 @@
   </section>
 <% end %>
 
+<% append_javascript_pack_tag("decidim_emoji") %>
 <% append_javascript_pack_tag("decidim_comments", defer: false) %>
 <% append_stylesheet_pack_tag("decidim_comments") %>
 <% append_javascript_pack_tag("decidim_collaborative_texts") %>

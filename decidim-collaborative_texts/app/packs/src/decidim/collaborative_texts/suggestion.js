@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -28,6 +30,8 @@ export default class Suggestion {
     this.highlightWrapper = null;
     this.changesWrapper = null;
     this.commentsLoaded = false;
+    this.commentsLoading = false;
+    this.commentsUrl = entry.commentsUrl;
     this.commentsComponent = null;
     this.applied = false;
     this.isFirst = false;
@@ -250,24 +254,43 @@ export default class Suggestion {
     return this;
   }
 
-  // Replace the comments placeholder with the pre-rendered comments cell and mount it
+  // Load and mount the comments cell on first use
   _loadComments() {
-    if (this.commentsLoaded) {
+    if (this.commentsLoaded || this.commentsLoading || !this.commentsUrl) {
       return;
     }
 
-    const template = window.document.getElementById(`collaborative-texts-suggestion-comments-${this.id}`);
-    if (!template) {
-      return;
-    }
+    this.commentsLoading = true;
+    fetch(this.commentsUrl, {
+      headers: {
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    }).
+      then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.text();
+      }).
+      then((html) => {
+        this.commentsContainer.innerHTML = html;
+        this._mountComments();
+        this.commentsLoaded = true;
+      }).
+      catch((error) => {
+        console.error("Error loading comments:", error);
+      }).
+      finally(() => {
+        this.commentsLoading = false;
+      });
+  }
 
-    this.commentsContainer.innerHTML = template.innerHTML;
+  _mountComments() {
     const element = this.commentsContainer.querySelector("[data-decidim-comments]");
     if (!element || !window.$ || !window.Decidim || !window.Decidim.CommentsComponent) {
       return;
     }
 
-    this.commentsLoaded = true;
     const $element = window.$(element);
     this.commentsComponent = new window.Decidim.CommentsComponent($element, $element.data("decidim-comments"));
     this.commentsComponent.mountComponent();

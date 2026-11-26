@@ -83,10 +83,6 @@ describe("SuggestionsList", () => {
         </div>
         <div class="collaborative-texts-suggestions-box-item-comments hidden"></div>
       </script>
-
-      <script type="text/template" class="decidim-template" id="collaborative-texts-suggestion-comments-102">
-        <div data-decidim-comments='{"commentableGid":"commentable-gid","commentsUrl":"/comments"}'></div>
-      </script>
     </body>
   `;
 
@@ -105,7 +101,8 @@ describe("SuggestionsList", () => {
       },
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
-      "summary": "This is another summary"
+      "summary": "This is another summary",
+      "commentsUrl": "http://example.com/comments"
     }, {
       "id": 102,
       "changeset": {
@@ -116,16 +113,26 @@ describe("SuggestionsList", () => {
       },
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
-      "summary": "This is a summary"
+      "summary": "This is a summary",
+      "commentsUrl": "http://example.com/comments"
     }
 
   ];
 
-  global.fetch = jest.fn(() =>
-    Promise.resolve({
+  const commentsHtml = "<div data-decidim-comments='{\"commentableGid\":\"commentable-gid\",\"commentsUrl\":\"/comments\"}'></div>";
+
+  global.fetch = jest.fn((url) => {
+    if (`${url}`.includes("/comments")) {
+      return Promise.resolve({
+        ok: true,
+        text: () => Promise.resolve(commentsHtml)
+      });
+    }
+    return Promise.resolve({
+      ok: true,
       json: () => Promise.resolve(fetchResult)
-    })
-  );
+    });
+  });
 
   global.matchMedia = jest.fn(() => ({
     matches: false,
@@ -174,13 +181,14 @@ describe("SuggestionsList", () => {
     expect(suggestionsList.defaultSuggestions()).toContain(firstSuggestion);
   });
 
-  it("toggles the comments of a suggestion", () => {
+  it("toggles the comments of a suggestion", async () => {
     const button = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
     const container = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments");
 
     expect(container.classList.contains("hidden")).toBe(true);
 
     button.click();
+    await new Promise(process.nextTick);
     expect(button.getAttribute("aria-expanded")).toBe("true");
     expect(container.classList.contains("hidden")).toBe(false);
     expect(container.querySelector("[data-decidim-comments]")).not.toBe(null);

@@ -20,6 +20,12 @@ module Decidim
         redirect_to Decidim::ResourceLocatorPresenter.new(document).path
       end
 
+      def comments
+        enforce_permission_to(:read, :collaborative_text, document:)
+
+        render html: cell("decidim/comments/comments", suggestion).to_s
+      end
+
       def create
         enforce_permission_to :suggest, :collaborative_text
         @form = form(SuggestionForm).from_params(params)
@@ -40,13 +46,19 @@ module Decidim
       private
 
       def suggestions_for(version)
+        router = Decidim::EngineRouter.main_proxy(current_component)
+
         version.suggestions.includes(author: [:organization, { avatar_attachment: :blob }]).map do |suggestion|
           suggestion.presenter.safe_json.merge(
             profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip,
             commentableGid: suggestion.to_signed_global_id.to_s,
-            commentsUrl: Decidim::Comments::Engine.routes.url_helpers.comments_path
+            commentsUrl: router.comments_suggestion_path(suggestion)
           )
         end
+      end
+
+      def suggestion
+        @suggestion ||= document.suggestions.find(params.expect(:id))
       end
 
       def document
