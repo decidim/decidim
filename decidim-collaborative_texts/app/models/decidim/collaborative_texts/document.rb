@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::Coauthorable
       include Decidim::HasReference
+      include Decidim::FilterableResource
 
       component_manifest_name "collaborative_texts"
 
@@ -26,6 +27,17 @@ module Decidim
       validates :title, presence: true
 
       scope :enabled_desc, -> { order(arel_table[:accepting_suggestions].desc, arel_table[:created_at].desc) }
+      scope :with_current_draft_version, lambda {
+        current_versions = Version.reorder(nil)
+                                  .select("DISTINCT ON (document_id) id")
+                                  .order(:document_id, created_at: :desc, id: :desc)
+
+        where(id: Version.draft.where(id: current_versions).select(:document_id))
+      }
+      scope :accepting_suggestions, -> { where(accepting_suggestions: true).where.not(id: with_current_draft_version) }
+      scope :not_accepting_suggestions, -> { where.not(id: accepting_suggestions) }
+
+      scope_search_multi :with_any_state, [:accepting_suggestions, :not_accepting_suggestions]
 
       delegate :organization, :participatory_space, to: :component
       delegate :draft?, :draft, :draft=, :body, :body=, to: :current_version
@@ -38,11 +50,27 @@ module Decidim
                         index_on_update: ->(document) { document.visible? })
 
       def self.searchable_arguments
-        [{ component: { participatory_space: :organization } }]
+        [
+          { component: { participatory_space: :organization } },
+          :document_versions,
+          :coauthorships
+        ]
       end
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::DocumentPresenter
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_state]
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        []
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        []
       end
 
       # Returns the current version of the document. Currently, the last one
@@ -63,6 +91,10 @@ module Decidim
       # This model needs to have the document_versions synchronized always
       def restore
         super(recursive: true)
+      end
+
+      def contributor_count
+        @contributor_count ||= coauthorships.to_a.count { |coauthorship| coauthorship.decidim_author_type != "Decidim::Organization" }
       end
 
       def has_suggestions?

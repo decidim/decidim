@@ -7,8 +7,8 @@ describe "Manage proposal wizard steps help texts" do
 
   before do
     current_component.update!(
-      step_settings: {
-        current_component.participatory_space.active_step.id => {
+      phase_settings: {
+        current_component.participatory_space.active_phase.id => {
           creation_enabled: true
         }
       }

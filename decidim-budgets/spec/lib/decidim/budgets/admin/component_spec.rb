@@ -18,7 +18,7 @@ describe "Budgets component" do # rubocop:disable RSpec/DescribeClass
         manifest:,
         participatory_space:,
         name: generate_localized_title,
-        default_step_settings: {},
+        default_phase_settings: {},
         settings: new_settings(:global, settings)
       ).with_context(current_organization: organization, current_user:)
     end

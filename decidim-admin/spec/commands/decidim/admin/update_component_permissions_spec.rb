@@ -7,7 +7,7 @@ module Decidim::Admin
     subject(:command) { described_class.call(form, component, resource) }
 
     let(:organization) { create(:organization, available_authorizations: ["another_dummy_authorization_handler"]) }
-    let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+    let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
     let(:user) { create(:user, organization:) }
 
     let(:component) do

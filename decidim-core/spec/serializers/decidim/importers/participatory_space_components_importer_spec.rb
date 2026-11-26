@@ -11,9 +11,9 @@ module Decidim::Importers
 
       let(:user) { create(:user) }
       let(:previous_participatory_space) { create(:participatory_process) }
-      let!(:component1) { create(:component, :with_one_step, :published, :with_permissions, weight: 1) }
+      let!(:component1) { create(:component, :with_one_phase, :published, :with_permissions, weight: 1) }
       let!(:participatory_space) { component1.participatory_space }
-      let!(:component2) { create(:component, :with_one_step, :unpublished, :with_permissions, participatory_space:, weight: 2) }
+      let!(:component2) { create(:component, :with_one_phase, :unpublished, :with_permissions, participatory_space:, weight: 2) }
 
       let(:json_as_text) do
         json = [
@@ -57,6 +57,27 @@ module Decidim::Importers
         it "imports space components" do
           expect_imported_to_be_equal(component1)
           expect_imported_to_be_equal(component2)
+        end
+
+        context "when importing a legacy export using step settings keys" do
+          subject do
+            described_class.new(participatory_space).from_json(legacy_json_as_text, user)
+          end
+
+          let(:legacy_json_as_text) do
+            json = JSON.parse(json_as_text)
+            json.each do |serialized|
+              settings = serialized["settings"]
+              settings["steps"] = settings.delete("phases") if settings.has_key?("phases")
+              settings["default_step"] = settings.delete("default_phase") if settings.has_key?("default_phase")
+            end
+            JSON.generate(json)
+          end
+
+          it "imports the legacy step settings as phase settings" do
+            expect_imported_to_be_equal(component1)
+            expect_imported_to_be_equal(component2)
+          end
         end
 
         def expect_imported_to_be_equal(component)
