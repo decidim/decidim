@@ -50,6 +50,11 @@ eu:
       participatory_process_phase:
         cta_path: Deitu ekintza bideari
         cta_text: Ekintza-botoiaren testua
+        description: Deskribapena
+        end_date: Amaiera-data
+        short_description: Deskribapen laburra
+        start_date: Hasiera-data
+        title: Izenburua
       participatory_process_user_role:
         email: Helbide elektronikoa
         name: Izena
@@ -135,6 +140,11 @@ eu:
             title: Izenburua
           name: Prozesu-taldea
         participatory_process_phase:
+          fields:
+            actions: Ekintzak
+            end_date: Amaiera-data
+            start_date: Hasiera-data
+            title: Izenburua
           name: Partaidetza-prozesuaren fasea
         participatory_process_user_role:
           fields:
@@ -189,6 +199,10 @@ eu:
             active_phase: Ezin da ezabatu fase aktiboa.
             last_phase: Ezin da ezabatu prozesuaren azken fasea.
           success: Partaidetza-prozesuaren fasea ondo ezabatua.
+        edit:
+          update: Eguneratu
+        new:
+          create: Sortu
         ordering:
           error: Arazo bat egon da partaidetza-prozesu honen faseak berrantolatzean.
         update:
