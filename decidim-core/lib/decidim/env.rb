@@ -6,10 +6,11 @@ module Decidim
   class Env
     FALSE_VALUES = %w(0 false no).freeze
 
-    def initialize(name, default = nil)
+    def initialize(name, default = nil, allow_zero: false)
       @name = name
       @value = ENV.fetch(name, nil)
       @default = default
+      @allow_zero = allow_zero
     end
 
     def value
@@ -19,6 +20,8 @@ module Decidim
     delegate :to_json, :to_s, to: :value
 
     def blank?
+      return false if @allow_zero && @value == "0"
+
       value.blank? || FALSE_VALUES.include?(value.to_s.downcase)
     end
 
