@@ -8,11 +8,6 @@ describe "Admin manages budgets" do
   let(:attributes) { attributes_for(:budget) }
 
   include_context "when managing a component as an admin"
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-    visit_component_admin
-  end
 
   it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "access component permissions form"
