@@ -145,6 +145,12 @@
       }
     }
 
+    &:has([aria-hidden="false"]):has(
+        .collaborative-texts-suggestions-box-item-comments:not(.hidden)
+      ) {
+      @apply z-[20];
+    }
+
     &:has(.applied) {
       .icon-applied {
         @apply inline-block;
@@ -216,7 +222,7 @@
     }
 
     &-item-comments {
-      @apply mt-4;
+      @apply relative z-10 mt-4 bg-gray-5;
 
       .comment-order-by {
         @apply hidden;

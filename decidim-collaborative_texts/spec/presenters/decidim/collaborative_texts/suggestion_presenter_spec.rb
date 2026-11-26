@@ -27,8 +27,7 @@ module Decidim
             summary: presenter.summary,
             status: suggestion.status,
             type: presenter.type,
-            createdAt: suggestion.created_at,
-            commentsCount: suggestion.comments_count
+            createdAt: suggestion.created_at
           )
         end
 

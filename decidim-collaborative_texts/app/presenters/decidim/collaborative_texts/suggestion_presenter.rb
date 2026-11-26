@@ -49,8 +49,7 @@ module Decidim
           summary:,
           status:,
           type:,
-          createdAt: created_at,
-          commentsCount: suggestion.comments_count
+          createdAt: created_at
         }
       end
     end

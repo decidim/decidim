@@ -34,7 +34,7 @@ module Decidim
           get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = response.parsed_body
-          expect(body.first.keys).to contain_exactly("changeset", "commentableGid", "commentsCount", "commentsUrl", "createdAt", "id", "profileHtml", "status", "summary", "type")
+          expect(body.first.keys).to contain_exactly("changeset", "commentableGid", "commentsUrl", "createdAt", "id", "profileHtml", "status", "summary", "type")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
           expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
           expect(body.first["summary"]).to include("Replace:")
@@ -42,7 +42,6 @@ module Decidim
           expect(body.first["status"]).to eq(suggestion1.status)
           expect(body.first["type"]).to eq("replace")
           expect(body.first["createdAt"]).to be_present
-          expect(body.first["commentsCount"]).to eq(0)
           expect(body.first["commentableGid"]).to be_present
         end
 

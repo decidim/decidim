@@ -23,7 +23,7 @@ module Decidim
       def comments
         enforce_permission_to(:read, :collaborative_text, document:)
 
-        render html: cell("decidim/comments/comments", suggestion).to_s
+        render html: cell("decidim/comments/comments", suggestion, hide_comments_header: true).to_s
       end
 
       def create
