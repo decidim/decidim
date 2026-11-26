@@ -491,10 +491,14 @@ eu:
               all: 'Bozkatu guztietan: utzi parte-hartzaileei aurrekontu guztietan babesa ematen.'
               one: 'Aurrekontu bakarrean babesa eman: parte-hartzaileei edozein aurrekontutan babesa emateko aukera ematen die, baina bakar batean soilik.'
           phase:
+            announcement: Jakinarazpena
             comments_blocked: Iruzkinak blokeatuta
             highlighted_heading: Goiburu nabarmendua
+            landing_page_content: Aurrekontuen hasierako orrialdea
             list_heading: Zerrendaren izenburua
+            more_information_modal: '"Informazio gehiago" leihoa'
             show_votes: Babesak erakutsi
+            title: Izenburua
             votes: Babes ematea
             votes_choices:
               disabled: Babes-ematea desgaituta
