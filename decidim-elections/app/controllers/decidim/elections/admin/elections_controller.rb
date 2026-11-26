@@ -146,7 +146,6 @@ module Decidim
                  }
         end
 
-
         private
 
         def per_question_waiting?

@@ -4,7 +4,7 @@
       <button type="button"
               class="text-secondary hover:underline"
               data-dialog-open="deleted-item-modal"
-              data-dialog-remote-url="<%= manage_trash_modal_post_path(post) %>" >
+              data-dialog-remote-url="<%= manage_trash_modal_post_path(post) %>">
         <%= present(post).title(html_escape: true) %>
       </button>
     <% elsif  allowed_to? :update, :blogpost, blogpost: post %>

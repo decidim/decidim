@@ -53,6 +53,7 @@ module Decidim
             end
           end
         end
+
         def manage_trash_modal
           enforce_permission_to :manage_trash, :budget
 

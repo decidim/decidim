@@ -124,7 +124,6 @@ module Decidim
                  }
         end
 
-
         private
 
         def trashable_deleted_resource_type

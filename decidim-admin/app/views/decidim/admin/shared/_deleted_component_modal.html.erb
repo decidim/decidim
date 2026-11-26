@@ -3,6 +3,7 @@
   component_name = translated_attribute(component.name)
   displayed_resources = resources.first(5)
   resources_count = resources.count
+  component_type_name = t("labels.component", scope: "decidim.admin.manage_trash.modals").downcase
 %>
 
 <div data-dialog-container>
@@ -12,21 +13,45 @@
       id="dialog-title-<%= modal_id %>"
       tabindex="-1"
       data-dialog-title>
-    Restore component
+    <%= t(
+          "restore_title",
+          scope: "decidim.admin.manage_trash.modals",
+          resource_type: component_type_name
+        ) %>
   </h3>
 
   <div id="dialog-desc-<%= modal_id %>" class="my-8">
     <div class="mb-6">
-      <strong>Component details</strong>
+      <strong>
+        <%= t(
+              "component.details",
+              scope: "decidim.admin.manage_trash.modals"
+            ) %>
+      </strong>
 
       <dl>
-        <dt>Name</dt>
+        <dt>
+          <%= t(
+                "index.headers.name",
+                scope: "decidim.admin.components"
+              ) %>
+        </dt>
         <dd><%= component_name %></dd>
 
-        <dt>Type</dt>
+        <dt>
+          <%= t(
+                "index.headers.type",
+                scope: "decidim.admin.components"
+              ) %>
+        </dt>
         <dd><%= t("decidim.components.#{component.manifest_name}.name") %></dd>
 
-        <dt>Space</dt>
+        <dt>
+          <%= t(
+                "labels.space",
+                scope: "decidim.admin.manage_trash.modals"
+              ) %>
+        </dt>
         <dd><%= translated_attribute(component.participatory_space.title) %></dd>
       </dl>
     </div>
@@ -34,15 +59,34 @@
     <% if resources.any? %>
       <div class="mb-6">
         <strong>
-          <%= component.manifest.name.to_s.humanize %> that will be restored
+          <%= t(
+                "component.resources_to_restore",
+                scope: "decidim.admin.manage_trash.modals",
+                resource_type: component.manifest.name.to_s.humanize
+              ) %>
         </strong>
 
         <table class="table-list">
           <thead>
           <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Created at</th>
+            <th>
+              <%= t(
+                    "labels.id",
+                    scope: "decidim.admin.manage_trash.modals"
+                  ) %>
+            </th>
+            <th>
+              <%= t(
+                    "labels.title",
+                    scope: "decidim.admin.manage_trash.modals"
+                  ) %>
+            </th>
+            <th>
+              <%= t(
+                    "labels.created_at",
+                    scope: "decidim.admin.manage_trash.modals"
+                  ) %>
+            </th>
           </tr>
           </thead>
 
@@ -71,15 +115,23 @@
 
         <% if resources_count > 5 %>
           <p class="mt-2">
-            Showing 5 of <%= resources_count %>.
-            The other <%= resources_count - 5 %> will be restored too.
+            <%= t(
+                  "component.showing_resources",
+                  scope: "decidim.admin.manage_trash.modals",
+                  displayed_count: displayed_resources.size,
+                  total_count: resources_count,
+                  remaining_count: resources_count - displayed_resources.size
+                ) %>
           </p>
         <% end %>
       </div>
     <% end %>
 
     <p>
-      The component comes back unpublished. Participants won’t see it until you publish it again.
+      <%= t(
+            "component.restore_info",
+            scope: "decidim.admin.manage_trash.modals"
+          ) %>
     </p>
   </div>
 </div>
@@ -89,7 +141,10 @@
           class="button button__sm button__transparent-secondary"
           data-dialog-close="<%= modal_id %>">
     <%= icon "arrow-left-line" %>
-    <%= t("actions.cancel", scope: "decidim.admin", default: "Cancel") %>
+    <%= t(
+          "cancel",
+          scope: "decidim.admin.manage_trash.modals"
+        ) %>
   </button>
 
   <% if allowed_to?(:restore, :component, trashable_deleted_resource: component) %>
@@ -98,13 +153,16 @@
                   class: "button button__sm button__secondary",
                   data: {
                     confirm: t(
-                      "actions.confirm_restore",
-                      scope: "decidim.admin",
-                      default: "Are you sure you want to restore this item?"
+                      "confirm_restore",
+                      scope: "decidim.admin.manage_trash.modals"
                     )
                   } do %>
       <%= icon "refresh-line" %>
-      Restore component
+      <%= t(
+            "restore_title",
+            scope: "decidim.admin.manage_trash.modals",
+            resource_type: component_type_name
+          ) %>
     <% end %>
   <% end %>
 </div>

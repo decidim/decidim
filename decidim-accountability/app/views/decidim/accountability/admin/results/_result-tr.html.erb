@@ -7,7 +7,7 @@
       <button type="button"
               class="text-secondary hover:underline"
               data-dialog-open="deleted-item-modal"
-              data-dialog-remote-url="<%= manage_trash_modal_result_path(result) %>" >
+              data-dialog-remote-url="<%= manage_trash_modal_result_path(result) %>">
         <%= present(result).title(html_escape: true) %>
       </button>
       <% elsif result.parent_id.nil? %>

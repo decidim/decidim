@@ -4,7 +4,7 @@
       <button type="button"
               class="text-secondary hover:underline"
               data-dialog-open="deleted-item-modal"
-              data-dialog-remote-url="<%= manage_trash_modal_budget_path(budget) %>" >
+              data-dialog-remote-url="<%= manage_trash_modal_budget_path(budget) %>">
         <%= translated_attribute(budget.title) %>
       </button>
     <% elsif  allowed_to? :update, :budget, budget: budget %>

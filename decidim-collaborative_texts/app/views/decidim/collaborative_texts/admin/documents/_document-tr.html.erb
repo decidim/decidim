@@ -4,7 +4,7 @@
       <button type="button"
               class="text-secondary hover:underline"
               data-dialog-open="deleted-item-modal"
-              data-dialog-remote-url="<%= manage_trash_modal_document_path(document) %>" >
+              data-dialog-remote-url="<%= manage_trash_modal_document_path(document) %>">
         <%= translated_attribute(document.title) %>
       </button>
     <% elsif allowed_to? :update, :collaborative_text, document: document %>
