@@ -181,7 +181,7 @@ module Decidim
       def with_current_url_options(options)
         return yield unless disk_service?
 
-        tmp_options = routes.default_url_options
+        tmp_options = routes.default_url_options.dup
         tmp_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options.present?
         tmp_options.merge!(options.slice(:protocol, :scheme, :host, :port))
         if (scheme = tmp_options.delete(:scheme))
@@ -267,7 +267,9 @@ module Decidim
         if options[:host]
           rails_representation_url(**options)
         elsif current_host_available?
-          representation_url(**ActiveStorage::Current.url_options, **options)
+          # The `.except(:host)` part is to prevent `host: nil` overriding the
+          # current URL options.
+          representation_url(**ActiveStorage::Current.url_options, **options.except(:host))
         else
           representation_url(**options, only_path: true)
         end
