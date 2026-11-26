@@ -14,6 +14,8 @@ fr:
         settings:
           global:
             announcement: Message d'annonce
+          phase:
+            announcement: Annonce
     open_data:
       help:
         pages:
