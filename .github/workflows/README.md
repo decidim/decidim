@@ -43,7 +43,7 @@ Each shard uploads its own `coverage/coverage.json`; the CI service merges them:
 The `spec/types` suites run only in `ci_api_types.yml`, which builds a dynamic matrix from the changed paths:
 
 - Changes to root-level files (matched by `*`, such as `Gemfile` or `Gemfile.lock`) or to `.github/**` run the type specs of all 17 modules that have a `spec/types` directory.
-- Changes to `decidim-api`, `decidim-core`, `decidim-comments`, `decidim-dev`, or `decidim-participatory_processes` also run the type specs of all 17 modules.
+- Changes to `decidim-admin`, `decidim-api`, `decidim-core`, `decidim-comments`, `decidim-dev`, or `decidim-participatory_processes` also run the type specs of all 17 modules.
 - A change to only one module runs that module's type specs.
 
 The module workflows exclude `spec/types` (`--exclude-pattern spec/types` or `'spec/(system|types)'`) so these tests run exactly once.

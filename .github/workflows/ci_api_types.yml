@@ -13,6 +13,7 @@ on:
       - ".github/**"
       - "decidim-api/**"
       - "decidim-accountability/**"
+      - "decidim-admin/**"
       - "decidim-assemblies/**"
       - "decidim-blogs/**"
       - "decidim-budgets/**"
@@ -57,6 +58,7 @@ jobs:
             all:
               - "*"
               - ".github/**"
+              - "decidim-admin/**"
               - "decidim-api/**"
               - "decidim-core/**"
               - "decidim-comments/**"
