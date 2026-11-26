@@ -130,7 +130,7 @@ module Decidim
             double(
               invalid?: false,
               author: user,
-              document_version: document.current_version,
+              document_version:,
               changeset:,
               document:,
               current_user: user,

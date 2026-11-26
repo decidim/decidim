@@ -199,6 +199,36 @@
       }
     }
 
+    &-item-votes {
+      @apply flex items-center justify-end gap-2 mt-2 pr-2;
+
+      .button {
+        @apply flex items-center gap-1 p-0 text-secondary;
+      }
+
+      &-count {
+        @apply text-gray-2;
+      }
+
+      svg {
+        @apply w-4 h-4 fill-secondary;
+      }
+
+      svg:nth-child(2) {
+        @apply hidden;
+      }
+
+      .is-vote-selected {
+        svg:first-child {
+          @apply hidden;
+        }
+
+        svg:nth-child(2) {
+          @apply inline-block;
+        }
+      }
+    }
+
     &-item-header {
       @apply flex items-center justify-between;
     }

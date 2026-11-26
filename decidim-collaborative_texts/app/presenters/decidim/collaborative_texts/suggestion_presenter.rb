@@ -42,15 +42,32 @@ module Decidim
         :replace
       end
 
-      def safe_json
+      def safe_json(current_user = nil, vote_counts: nil, user_vote_weight: nil)
+        vote_counts ||= suggestion.votes.group(:weight).count
+        user_vote_weight = vote_weight(current_user) if user_vote_weight.nil?
+
         {
           id:,
           changeset:,
           summary:,
           status:,
           type:,
-          createdAt: created_at
+          createdAt: created_at,
+          upVotesCount: vote_counts[1] || 0,
+          downVotesCount: vote_counts[-1] || 0,
+          voteWeight: user_vote_weight
         }
+      end
+
+      private
+
+      def vote_weight(user)
+        return 0 unless user
+
+        suggestion.votes.find_by(
+          decidim_author_id: user.id,
+          decidim_author_type: user.class.base_class.name
+        )&.weight || 0
       end
     end
   end

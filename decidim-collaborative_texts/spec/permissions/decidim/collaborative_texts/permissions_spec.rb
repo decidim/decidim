@@ -72,6 +72,22 @@ describe Decidim::CollaborativeTexts::Permissions do
     end
   end
 
+  context "when action is vote" do
+    let(:action) do
+      { scope: :public, action: :vote, subject: :collaborative_text }
+    end
+
+    context "when user is logged in" do
+      it { is_expected.to be true }
+    end
+
+    context "when user is not logged in" do
+      let(:user) { nil }
+
+      it_behaves_like "permission is not set"
+    end
+  end
+
   context "when action is rollout" do
     let(:action) do
       { scope: :public, action: :rollout, subject: :collaborative_text }

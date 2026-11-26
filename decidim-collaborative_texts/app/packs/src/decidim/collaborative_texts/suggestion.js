@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -6,6 +8,9 @@ export default class Suggestion {
     this.selection = suggestionsList.document.selection;
     this.templates = suggestionsList.document.templates;
     this.doc = suggestionsList.doc;
+    this.entry = entry;
+    this.votesUrl = entry.votesUrl;
+    this.voteWeight = entry.voteWeight;
     this.nodes = [];
     for (const node of suggestionsList.nodes) {
       if (node.id === `ct-node-${entry.changeset.firstNode}`) {
@@ -218,6 +223,13 @@ export default class Suggestion {
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
+    this.voteUpButton = this.item.querySelector(".js-collaborative-texts-vote-up");
+    this.voteDownButton = this.item.querySelector(".js-collaborative-texts-vote-down");
+    this.voteUpCount = this.item.querySelector(".js-collaborative-texts-vote-up-count");
+    this.voteDownCount = this.item.querySelector(".js-collaborative-texts-vote-down-count");
+    if (this.voteUpButton && this.voteDownButton) {
+      this._updateVotes(this.entry.upVotesCount, this.entry.downVotesCount, this.voteWeight);
+    }
     this.boxItems.appendChild(this.item);
     if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
       this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
@@ -239,5 +251,72 @@ export default class Suggestion {
     this.item.addEventListener("mouseleave", this.blur.bind(this));
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
+    if (!this.voteUpButton || !this.voteDownButton) {
+      return;
+    }
+    if (!this.votesUrl) {
+      this.voteUpButton.disabled = true;
+      this.voteDownButton.disabled = true;
+      return;
+    }
+    if (this.suggestionsList.document.signedIn) {
+      this.voteUpButton.addEventListener("click", () => this.vote(1));
+      this.voteDownButton.addEventListener("click", () => this.vote(-1));
+    } else {
+      this.voteUpButton.dataset.dialogOpen = "loginModal";
+      this.voteDownButton.dataset.dialogOpen = "loginModal";
+    }
+  }
+
+  // Add, change or remove the current user's vote
+  vote(weight) {
+    if (!this.votesUrl || this.votePending) {
+      return;
+    }
+    this.votePending = true;
+    this.voteUpButton.disabled = true;
+    this.voteDownButton.disabled = true;
+
+    fetch(this.votesUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+        "X-CSRF-Token": this.suggestionsList.document.csrfToken
+      },
+      body: JSON.stringify({ weight })
+    }).
+      then(async (response) => {
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(data.message || data);
+        }
+        return data;
+      }).
+      then((data) => {
+        this._updateVotes(data.upVotesCount, data.downVotesCount, data.voteWeight);
+      }).
+      catch((error) => {
+        console.error("Error voting suggestion:", error);
+        this.suggestionsList.document.alert(error.message);
+      }).
+      finally(() => {
+        this.votePending = false;
+        this.voteUpButton.disabled = false;
+        this.voteDownButton.disabled = false;
+      });
+  }
+
+  _updateVotes(upVotesCount, downVotesCount, voteWeight) {
+    this.voteWeight = voteWeight || 0;
+    this.voteUpCount.textContent = upVotesCount || 0;
+    this.voteDownCount.textContent = downVotesCount || 0;
+
+    const upVoted = this.voteWeight === 1;
+    const downVoted = this.voteWeight === -1;
+    this.voteUpButton.classList.toggle("is-vote-selected", upVoted);
+    this.voteDownButton.classList.toggle("is-vote-selected", downVoted);
+    this.voteUpButton.setAttribute("aria-pressed", upVoted);
+    this.voteDownButton.setAttribute("aria-pressed", downVoted);
   }
 }

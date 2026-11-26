@@ -14,6 +14,7 @@ module Decidim
       enum :status, [:pending, :accepted, :rejected]
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version", counter_cache: true, inverse_of: :suggestions
       has_one :document, class_name: "Decidim::CollaborativeTexts::Document", through: :document_version
+      has_many :votes, class_name: "Decidim::CollaborativeTexts::SuggestionVote", dependent: :destroy, inverse_of: :suggestion
 
       delegate :participatory_space, :organization, to: :document_version
 
@@ -23,6 +24,22 @@ module Decidim
 
       def presenter
         @presenter ||= Decidim::CollaborativeTexts::SuggestionPresenter.new(self)
+      end
+
+      def up_voted_by?(user)
+        votes.exists?(author: user, weight: 1)
+      end
+
+      def down_voted_by?(user)
+        votes.exists?(author: user, weight: -1)
+      end
+
+      def up_votes
+        votes.up
+      end
+
+      def down_votes
+        votes.down
       end
 
       private

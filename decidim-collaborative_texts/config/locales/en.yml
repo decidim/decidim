@@ -154,6 +154,11 @@ en:
         add_html: <span class="type">Add:</span> <span class="text">%{text}</span>
         remove_html: <span class="type">Remove:</span> <span class="text">%{text}</span>
         replace_html: <span class="type">Replace:</span> <span class="text">%{text}</span>
+      suggestion_votes:
+        create:
+          error: There was a problem registering your vote.
+        downvote: Downvote
+        upvote: Upvote
       suggestions:
         create:
           invalid: There was a problem creating the suggestion.

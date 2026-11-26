@@ -89,4 +89,10 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :collaborative_text_suggestion_vote, class: "Decidim::CollaborativeTexts::SuggestionVote" do
+    suggestion { association :collaborative_text_suggestion }
+    author { create(:user, :confirmed, organization: suggestion.organization) }
+    weight { 1 }
+  end
 end
