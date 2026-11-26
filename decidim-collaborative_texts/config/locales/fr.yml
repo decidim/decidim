@@ -104,7 +104,7 @@ fr:
           confirm: Cette action permettra de regrouper toutes les suggestions acceptées dans une nouvelle version du document. Les suggestions non acceptées seront transférées vers la nouvelle version en vue d'un examen plus approfondi. Cette action permettra de conserver le statut « actif » des suggestions.
           new: Regrouper les suggestions acceptées
         consolidate_counter: La consolidation fusionnera les suggestions %{applied} déjà appliquées et transférera les suggestions %{pending} en attente vers la nouvelle version.
-        controls_label: Contrôles de suggestion
+        controls_label: Contrôles de la suggestion
         draft_counter: La version préliminaire intégrera les suggestions %{applied} déjà appliquées et n'inclura pas les suggestions %{pending} en attente.
         index: Index
         restore: Restaurer
