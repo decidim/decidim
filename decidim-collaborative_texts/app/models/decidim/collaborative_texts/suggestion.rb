@@ -38,6 +38,13 @@ module Decidim
         commentable?
       end
 
+      # Public: Overrides the `users_to_notify_on_comment_created` Commentable concern method.
+      def users_to_notify_on_comment_created
+        return Decidim::User.none unless author.is_a?(Decidim::User)
+
+        Decidim::User.where(id: author.id)
+      end
+
       private
 
       def update_document_counters

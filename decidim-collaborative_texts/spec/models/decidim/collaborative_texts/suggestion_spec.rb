@@ -57,6 +57,24 @@ module Decidim
           end
         end
       end
+
+      describe "#users_to_notify_on_comment_created" do
+        subject { suggestion.users_to_notify_on_comment_created }
+
+        let(:suggestion) { create(:collaborative_text_suggestion, document_version:, author:) }
+
+        context "when the suggestion author is a user" do
+          let(:author) { create(:user, :confirmed, organization: document_version.document.organization) }
+
+          it { is_expected.to contain_exactly(author) }
+        end
+
+        context "when the suggestion author is an organization" do
+          let(:author) { document_version.document.organization }
+
+          it { is_expected.to be_empty }
+        end
+      end
     end
   end
 end
