@@ -99,7 +99,7 @@ Sections 1–6 cover CVE-derived classes. These additional classes are reviewed 
 
 - Never `constantize`, `safe_constantize`, `send`, or `public_send` on user-controlled names; resolve through manifests or allow-lists. Parse YAML with `safe_load` and permitted classes; `unsafe_load` only for trusted internal data.
 - File paths built from params must be canonicalized and confined to an allow-listed root; reject `..`, absolute paths, and null bytes (`send_file`, `File.join`, render paths).
-- Validate uploads server-side: content type by magic bytes, extension allow-list, size, and dimensions; sanitize SVG and reject polyglots or executables (`HasUploadValidations`, uploaders; see §4).
+- Validate uploads server-side: content type by magic bytes, extension allow-list, and size for all uploads; dimensions for image uploads only; sanitize SVG and reject polyglots or executables (`HasUploadValidations`, uploaders; see §4).
 - Keep GraphQL `max_depth`, `max_complexity`, and `default_max_page_size` enabled and bounded; no unbounded nested or recursive queries (`Decidim::Api.schema_max_depth`, `schema_max_complexity`, `schema_max_per_page`).
 - Background jobs and webhook handlers must re-fetch and revalidate their records, verify signatures, limit payload size, and be idempotent; never trust serialized arguments as authorization (SSRF controls in §6).
 - Keep `Rack::Attack` throttles for sign-in, password reset, verification, and API traffic; do not add blanket exemptions, and key limits on both IP and account where relevant (`decidim-core/config/initializers/rack_attack.rb`).
