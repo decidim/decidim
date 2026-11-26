@@ -56,10 +56,12 @@ module Decidim
       #
       # Returns an Array.
       def versions
+        return @versions if defined?(@versions)
+
         version_state_published = false
         pending_state_change = nil
 
-        proposal.versions.map do |version|
+        @versions = proposal.versions.includes(:item).map do |version|
           state_published_change = version.changeset["state_published_at"]
           version_state_published = state_published_change.last.present? if state_published_change
 
