@@ -37,6 +37,8 @@ eu:
           announcement: Oharra
           global:
             announcement: Oharra
+          phase:
+            announcement: Jakinarazpena
     events:
       surveys:
         survey_closed:
