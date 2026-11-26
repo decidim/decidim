@@ -47,6 +47,7 @@ es:
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
           phase:
+            announcement: Anuncio/Aviso
             comments_blocked: Comentarios bloqueados
             creation_enabled: Las participantes pueden crear debates
             likes_blocked: '"Me gusta" bloqueado'
