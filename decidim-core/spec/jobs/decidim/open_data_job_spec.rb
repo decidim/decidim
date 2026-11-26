@@ -43,8 +43,9 @@ describe Decidim::OpenDataJob do
       end
 
       it "purges the uploaded replacement blob when publication rolls back" do
-        # rubocop:disable-next RSpec/AnyInstance
+        # rubocop:disable RSpec/AnyInstance
         allow_any_instance_of(Decidim::Organization).to receive(:with_lock).and_raise(ActiveRecord::Deadlocked)
+        # rubocop:enable RSpec/AnyInstance
 
         subject.perform_now(organization, resource)
 
@@ -58,13 +59,14 @@ describe Decidim::OpenDataJob do
         it "removes the duplicate created by the other job" do
           # Simulate the other job attaching its file after this job loaded the attachments,
           # so the preloaded collection is stale when the cleanup runs.
-          # rubocop:disable-next RSpec/AnyInstance
+          # rubocop:disable RSpec/AnyInstance
           allow_any_instance_of(Decidim::OpenDataExporter).to receive(:export).and_wrap_original do |original, *args|
             Decidim::Organization.find(organization.id).open_data_files.attach(
               io: StringIO.new("concurrent export"), filename:
             )
             original.call(*args)
           end
+          # rubocop:enable RSpec/AnyInstance
 
           subject.perform_now(organization, resource)
 
@@ -83,13 +85,14 @@ describe Decidim::OpenDataJob do
           mutex = Mutex.new
           arrivals = 0
 
-          # rubocop:disable-next RSpec/AnyInstance
+          # rubocop:disable RSpec/AnyInstance
           allow_any_instance_of(Decidim::OpenDataExporter).to receive(:export).and_wrap_original do |original, *args|
             last = mutex.synchronize { arrivals += 1 } == 2
             gate << true if last
             Timeout.timeout(10) { gate.pop } unless last
             original.call(*args)
           end
+          # rubocop:enable RSpec/AnyInstance
 
           errors = []
           threads = 2.times.map do
