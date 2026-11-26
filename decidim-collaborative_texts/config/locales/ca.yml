@@ -101,10 +101,17 @@ ca:
       document:
         apply: Aplicar
         cancel: Cancel·lar
+        card_status:
+          accepting_suggestions: Acceptant suggeriments
+          draft: En revisió
+          not_accepting_suggestions: No acceptant suggeriments
         consolidate:
           confirm: Aquesta acció consolidarà tots els suggeriments acceptats en una nova versió del document. Els suggeriments no acceptats seran transferits a la nova versió per a la posterior revisió. Aquesta acció mantindrà els suggeriments habilitats.
           new: Consolidar suggeriments acceptats
         consolidate_counter: En consolidar es combinaran els %{applied} suggeriments aplicats i es mouran els %{pending} suggeriments pendents a la nova versió.
+        contributors_count:
+          one: "%{count} col·laboradora"
+          other: "%{count} col·laboradores"
         controls_label: Controls dels suggeriments
         draft_counter: L'esborrany combinarà els suggeriments aplicats a %{applied} i descartarà els suggeriments pendents a %{pending}.
         index: Índex
@@ -119,12 +126,22 @@ ca:
           draft: Actualment, aquest document està sent revisat per les administradores. No es poden fer suggeriments en aquest moment, però pots veure suggeriments fets per altres participants.
           not_accepting_suggestions: Els suggeriments no estan permesos en aquest moment.
           selection_active: Una selecció és activa. Si us plau, cancel·leu la selecció actual per crear-ne una de nova.
+        suggestions_count:
+          one: "%{count} suggeriment"
+          other: "%{count} suggeriments"
         toggle: Mostrar o amagar els suggeriments
       documents:
+        filters:
+          all: Tots
+          state: Estat
+          state_values:
+            accepting_suggestions: Acceptant suggeriments
+            not_accepting_suggestions: No acceptant suggeriments
         index:
           count:
             one: "%{count} text col·laboratiu"
             other: "%{count} textos col·laboratius"
+          empty: No hi ha cap text col·laboratiu que coincideixin amb el teu criteri de cerca.
         show:
           contributors: Contribuïdores
       models:
@@ -155,6 +172,8 @@ ca:
           global:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
+          phase:
+            announcement: Anunci/Avís
     statistics:
       all_collaborative_texts_count: Tots els textos col·laboratius
       collaborative_texts_count: Textos col·laboratius
