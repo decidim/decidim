@@ -21,6 +21,15 @@ module Decidim
       locale if locale.present? && available_locales.map(&:to_sym).include?(locale.to_sym)
     end
 
+    def accept_language_locale
+      header = request.env["HTTP_ACCEPT_LANGUAGE"]
+      return if header.blank?
+
+      languages = accept_languages(header)
+      language = exact_accept_language(languages) || prefix_accept_language(languages)
+      language == "*" ? nil : language
+    end
+
     private
 
     attr_reader :request, :input_params, :user, :organization
@@ -35,15 +44,6 @@ module Decidim
 
     def current_user_locale
       user&.locale.presence
-    end
-
-    def accept_language_locale
-      header = request.env["HTTP_ACCEPT_LANGUAGE"]
-      return if header.blank?
-
-      languages = accept_languages(header)
-      language = exact_accept_language(languages) || prefix_accept_language(languages)
-      language == "*" ? nil : language
     end
 
     def accept_languages(header)

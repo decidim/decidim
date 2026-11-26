@@ -49,49 +49,10 @@ module Decidim
 
       # Detects the locale priority: query string, user saved, session, browser
       def detect_locale
-        if params[:locale].present?
-          params[:locale]
-        elsif current_user && current_user.locale.present?
-          current_user.locale
-        elsif session[:user_locale].present?
-          session[:user_locale]
-        else
-          extract_locale_from_accept_language_header
-        end
+        locale_detector.detected_locale
       end
 
-      # rubocop: disable Metrics/CyclomaticComplexity
-      # rubocop: disable Metrics/PerceivedComplexity
-
-      # Finds a suitable language or returns nil
-      # Follows the RFC 2616 rules with this particularities:
-      # if no language matches, goes for the 2 chars prefixes
-      # i.e.: pt-BR is available locale but user requests pt, then pt-BR will be served
-      #     pt is available locale but user requests pt-BR, then pt will be served
-      def extract_locale_from_accept_language_header
-        return nil unless request.env["HTTP_ACCEPT_LANGUAGE"]
-
-        accept_langs = request.env["HTTP_ACCEPT_LANGUAGE"].gsub(/[^a-z0-9\-;,=.]/i, "")
-
-        langs_and_qs = accept_langs.split(",").each_with_index.map do |l, i|
-          l += ";q=1.0" unless l =~ /;q=\d+(?:\.\d+)?$/
-          parts = l.split(";q=")
-          [parts[0], parts[1].to_f - (i.to_f / 1000)]
-        end
-        langs_and_qs = langs_and_qs.sort_by { |(_l, q)| q }.reverse
-        lang = langs_and_qs.detect do |(locale, _q)|
-          locale == "*" || available_locales.map(&:to_s).include?(locale.to_s)
-        end
-
-        lang &&= lang.first
-        # if no language detected go for RFC 2616 non-compliant (check prefixes)
-        lang ||= available_locales.detect do |available|
-          langs_and_qs.any? { |locale, _q| locale.to_s[0..1] == available.to_s[0..1] }
-        end
-        lang == "*" ? nil : lang
-      end
-
-      def canonical_url(desired_url, target_locale = default_locale)
+      def canonical_url(desired_url, target_locale = default_locale) # rubocop:disable Metrics/PerceivedComplexity
         uri = URI(desired_url)
         desired_locale = available_locales.include?(target_locale) ? target_locale : default_locale
 
@@ -151,8 +112,10 @@ module Decidim
         locale_segment = script_name.split("/").compact_blank.first
         available_locales.include?(locale_segment)
       end
-      # rubocop: enable Metrics/CyclomaticComplexity
-      # rubocop: enable Metrics/PerceivedComplexity
+
+      def locale_detector
+        Decidim::LocaleRouterDetector.new(request, params, user: current_user, organization: current_organization)
+      end
     end
   end
 end
