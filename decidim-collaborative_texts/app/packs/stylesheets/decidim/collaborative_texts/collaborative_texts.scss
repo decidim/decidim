@@ -170,7 +170,7 @@
     &-item {
       @apply p-2 pr-0 mb-4 rounded w-full;
 
-      &:hover {
+      &:has(.collaborative-texts-suggestions-box-item-content:hover) {
         @apply bg-white drop-shadow relative z-[1];
       }
 

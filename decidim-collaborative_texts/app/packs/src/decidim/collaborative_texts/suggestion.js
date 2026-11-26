@@ -224,6 +224,7 @@ export default class Suggestion {
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
+    this.content = this.item.querySelector(".collaborative-texts-suggestions-box-item-content");
     this.commentsButton = this.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
     this.commentsContainer = this.item.querySelector(".collaborative-texts-suggestions-box-item-comments");
     this.boxItems.appendChild(this.item);
@@ -278,8 +279,10 @@ export default class Suggestion {
   }
 
   _bindEvents() {
-    this.item.addEventListener("mouseenter", this.highlight.bind(this));
-    this.item.addEventListener("mouseleave", this.blur.bind(this));
+    if (this.content) {
+      this.content.addEventListener("mouseenter", this.highlight.bind(this));
+      this.content.addEventListener("mouseleave", this.blur.bind(this));
+    }
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
     if (this.commentsButton && this.commentsContainer) {

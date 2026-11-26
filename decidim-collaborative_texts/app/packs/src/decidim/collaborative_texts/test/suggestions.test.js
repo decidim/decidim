@@ -55,29 +55,31 @@ describe("SuggestionsList", () => {
       </script>
 
       <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-item-template">
-        <div class="collaborative-texts-suggestions-box-item-header">
-          <div>{{PROFILE}}</div>
-          <div class="relative">
-            <button class="collaborative-texts-suggestions-box-item-dropdown"
-                    id="dropdown-trigger-{{ID}}"
-                    data-controller="dropdown"
-                    data-target="dropdown-menu-{{ID}}"
-                    data-auto-close="true">
-            </button>
+        <div class="collaborative-texts-suggestions-box-item-content">
+          <div class="collaborative-texts-suggestions-box-item-header">
+            <div>{{PROFILE}}</div>
+            <div class="relative">
+              <button class="collaborative-texts-suggestions-box-item-dropdown"
+                      id="dropdown-trigger-{{ID}}"
+                      data-controller="dropdown"
+                      data-target="dropdown-menu-{{ID}}"
+                      data-auto-close="true">
+              </button>
 
-            <div class="collaborative-texts-suggestions-box-header-menu" id="dropdown-menu-{{ID}}" role="menu" aria-labelledby="dropdown-trigger-{{ID}}" aria-hidden="true">
-              <ul role="menu">
-                <li role="menuitem">
-                  <button class="button-apply">Apply</button>
-                  <button class="button-restore">Restore</button>
-                </li>
-              </ul>
+              <div class="collaborative-texts-suggestions-box-header-menu" id="dropdown-menu-{{ID}}" role="menu" aria-labelledby="dropdown-trigger-{{ID}}" aria-hidden="true">
+                <ul role="menu">
+                  <li role="menuitem">
+                    <button class="button-apply">Apply</button>
+                    <button class="button-restore">Restore</button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="collaborative-texts-suggestions-box-item-text"></div>
-        <div class="collaborative-texts-suggestions-box-item-actions">
-          <button type="button" class="collaborative-texts-suggestions-box-item-comments-button" aria-expanded="false"></button>
+          <div class="collaborative-texts-suggestions-box-item-text"></div>
+          <div class="collaborative-texts-suggestions-box-item-actions">
+            <button type="button" class="collaborative-texts-suggestions-box-item-comments-button" aria-expanded="false"></button>
+          </div>
         </div>
         <div class="collaborative-texts-suggestions-box-item-comments hidden"></div>
       </script>
