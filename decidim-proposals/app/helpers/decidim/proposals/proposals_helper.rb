@@ -6,7 +6,7 @@ module Decidim
     module ProposalsHelper
       def proposal_reason_callout_announcement
         {
-          title: translated_attribute(@proposal.proposal_state&.announcement_title),
+          title: translated_attribute(@proposal.proposal_status&.announcement_title),
           body: decidim_sanitize_editor_admin(translated_attribute(@proposal.answer))
         }
       end

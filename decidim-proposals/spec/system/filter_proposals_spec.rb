@@ -14,6 +14,18 @@ describe "Filter Proposals", :slow do
 
   context "when caching is enabled", :caching do
     before do
+      # Translations will be provided by Crowdin after the key rename.
+      I18n.backend.store_translations(
+        :ca,
+        decidim: {
+          proposals: {
+            proposals: { filters: { status: "Estat" } },
+            application_helper: {
+              filter_status_values: { all: "Tots", not_answered: "No resposta" }
+            }
+          }
+        }
+      )
       visit_component
     end
 
@@ -210,7 +222,7 @@ describe "Filter Proposals", :slow do
     end
   end
 
-  context "when filtering proposals by STATE" do
+  context "when filtering proposals by STATUS" do
     context "when proposal_answering component setting is enabled" do
       before do
         component.update!(settings: { proposal_answering_enabled: true })
@@ -227,7 +239,7 @@ describe "Filter Proposals", :slow do
           )
         end
 
-        it "can be filtered by state" do
+        it "can be filtered by status" do
           visit_component
 
           within "form.new_filter" do
@@ -320,7 +332,7 @@ describe "Filter Proposals", :slow do
           )
         end
 
-        it "cannot be filtered by state" do
+        it "cannot be filtered by status" do
           visit_component
 
           within "form.new_filter" do
@@ -335,7 +347,7 @@ describe "Filter Proposals", :slow do
         component.update!(settings: { proposal_answering_enabled: false })
       end
 
-      it "cannot be filtered by state" do
+      it "cannot be filtered by status" do
         visit_component
 
         within "form.new_filter" do

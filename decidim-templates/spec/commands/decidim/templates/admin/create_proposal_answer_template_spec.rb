@@ -13,7 +13,7 @@ module Decidim
         let(:component_constraint) { 0 }
         let(:name) { { "en" => "name" } }
         let(:description) { { "en" => "description" } }
-        let!(:proposal_state_id) { rand(1..10) }
+        let!(:proposal_status_id) { rand(1..10) }
         let(:select_component) { false }
 
         let(:form) do
@@ -26,7 +26,7 @@ module Decidim
             select_component:,
             name:,
             description:,
-            proposal_state_id:,
+            proposal_status_id:,
             component_constraint:
           )
         end
@@ -75,10 +75,10 @@ module Decidim
             expect(Decidim::Templates::Template.where(target: :proposal_answer).count).to eq(1)
           end
 
-          context "when changing the proposal_state_id" do
-            it "saves the internal state" do
+          context "when changing the proposal_status_id" do
+            it "saves the internal status" do
               subject.call
-              expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["proposal_state_id"]).to eq(proposal_state_id)
+              expect(Decidim::Templates::Template.where(target: :proposal_answer).last.field_values["proposal_status_id"]).to eq(proposal_status_id)
             end
           end
 

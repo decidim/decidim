@@ -166,11 +166,11 @@ module Decidim
         end
       end
 
-      describe "state" do
-        let(:query) { "{ state }" }
+      describe "status" do
+        let(:query) { "{ status }" }
 
-        it "returns the proposal's state" do
-          expect(response["state"]).to eq(model.state)
+        it "returns the proposal's status" do
+          expect(response["status"]).to eq(model.status)
         end
       end
 

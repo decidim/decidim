@@ -4,29 +4,29 @@ import { Controller } from "@hotwired/stimulus"
  * Stimulus controller for the admin import-proposals form.
  *
  * Watches a `<select>` element (the origin component picker) and dynamically
- * fetches the available proposal states for the chosen component.
- * The retrieved states are rendered as a list of checkboxes inside a
- * container element, so admins can easily filter which proposal states to import.
+ * fetches the available proposal statuses for the chosen component.
+ * The retrieved statuses are rendered as a list of checkboxes inside a
+ * container element, so admins can easily filter which proposal statuses to import.
  *
  * Targets:
  *   - `select`    – The `<select>` element used to choose the origin component.
- *   - `container` – The wrapper element where the state checkboxes are rendered.
+ *   - `container` – The wrapper element where the status checkboxes are rendered.
  *
  * Values:
- *   - `statesUrl` {String}  – Base URL of the endpoint that returns available states.
- *   - `selectedStates` {Array} – Pre-selected state tokens (populated on page load
+ *   - `statusesUrl` {String}  – Base URL of the endpoint that returns available statuses.
+ *   - `selectedStatuses` {Array} – Pre-selected status tokens (populated on page load
  *     when re-rendering a previously submitted form).
  */
 export default class ImportProposalsController extends Controller {
 
   /**
    * Lifecycle callback invoked by Stimulus when the controller is connected to
-   * the DOM. Triggers an initial state fetch based on the currently selected
+   * the DOM. Triggers an initial status fetch based on the currently selected
    * component so that a pre-filled form displays the correct checkboxes.
    * @returns {void}
    */
   connect() {
-    this._fetchStates(this.selectTarget.value);
+    this._fetchStatuses(this.selectTarget.value);
   }
 
   /**
@@ -35,7 +35,7 @@ export default class ImportProposalsController extends Controller {
    * @returns {void}
    */
   onSelectChange(event) {
-    this._fetchStates(event.target.value);
+    this._fetchStatuses(event.target.value);
   }
 
   /**
@@ -50,11 +50,11 @@ export default class ImportProposalsController extends Controller {
   }
 
   /**
-   * Fetches the available states for the given component ID and renders them.
-   * @param {string} componentId - The ID of the selected component to fetch states for.
+   * Fetches the available statuses for the given component ID and renders them.
+   * @param {string} componentId - The ID of the selected component to fetch statuses for.
    * @returns {void}
    */
-  _fetchStates(componentId) {
+  _fetchStatuses(componentId) {
     const container = this.containerTarget;
     if (!componentId) {
       container.innerHTML = "";
@@ -62,33 +62,33 @@ export default class ImportProposalsController extends Controller {
       return;
     }
 
-    const url = `${this.statesUrlValue}?origin_id=${componentId}`;
+    const url = `${this.statusesUrlValue}?origin_id=${componentId}`;
     fetch(url, {
       credentials: "same-origin",
       headers: { Accept: "application/json" }
     }).then((res) => {
       return res.json();
-    }).then((states) => {
-      if (!states.length) {
+    }).then((statuses) => {
+      if (!statuses.length) {
         container.innerHTML = "";
         container.style.display = "none";
         return;
       }
 
-      const selectedStates = this.selectedStatesValue;
+      const selectedStatuses = this.selectedStatusesValue;
       const wrapper = document.createElement("div");
       wrapper.className = "row column";
 
-      states.forEach((state) => {
+      statuses.forEach((status) => {
         const div = document.createElement("div");
         const label = document.createElement("label");
         const input = document.createElement("input");
         input.type = "checkbox";
-        input.name = "proposals_import[states][]";
-        input.value = state.token;
-        input.checked = selectedStates.includes(state.token);
+        input.name = "proposals_import[statuses][]";
+        input.value = status.token;
+        input.checked = selectedStatuses.includes(status.token);
         label.appendChild(input);
-        label.appendChild(document.createTextNode(` ${state.title}`));
+        label.appendChild(document.createTextNode(` ${status.title}`));
         div.appendChild(label);
         wrapper.appendChild(div);
       });
@@ -105,6 +105,6 @@ export default class ImportProposalsController extends Controller {
 
 ImportProposalsController.targets = ["select", "container"]
 ImportProposalsController.values = {
-  statesUrl: String,
-  selectedStates: { type: Array, default: [] }
+  statusesUrl: String,
+  selectedStatuses: { type: Array, default: [] }
 }

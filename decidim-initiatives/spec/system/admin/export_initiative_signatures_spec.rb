@@ -22,6 +22,6 @@ describe "Admin export initiatives' signature" do
 
     click_on "Export PDF of signatures"
 
-    expect(File.basename(download_path)).to include("votes_#{initiative.id}.pdf")
+    expect(File.basename(download_path("votes_*.pdf"))).to include("votes_#{initiative.id}.pdf")
   end
 end

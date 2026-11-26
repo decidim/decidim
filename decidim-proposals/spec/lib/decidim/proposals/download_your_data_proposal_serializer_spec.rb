@@ -103,8 +103,8 @@ module Decidim
           expect(serialized[:participatory_space][:url]).to include("http", participatory_process.slug)
         end
 
-        it "serializes the state" do
-          expect(serialized).to include(state: proposal.state)
+        it "serializes the status" do
+          expect(serialized).to include(status: proposal.status)
         end
 
         it "serializes the reference" do
@@ -127,8 +127,8 @@ module Decidim
           expect(serialized).to include(withdrawn_at: proposal.withdrawn_at)
         end
 
-        it "serializes the state at which the proposal was published at" do
-          expect(serialized).to include(state_published_at: proposal.state_published_at)
+        it "serializes the status at which the proposal was published at" do
+          expect(serialized).to include(status_published_at: proposal.status_published_at)
         end
 
         it "serializes the how many co-authorships exist" do
@@ -200,7 +200,7 @@ module Decidim
           let(:answer) { proposal.answer }
 
           before do
-            proposal.update!(cost: nil, cost_report: nil, execution_period: nil, answer: nil, state_published_at: nil)
+            proposal.update!(cost: nil, cost_report: nil, execution_period: nil, answer: nil, status_published_at: nil)
           end
 
           it "includes costs with a proposal not published" do
@@ -209,7 +209,7 @@ module Decidim
               cost_report: nil,
               execution_period: nil,
               answer: expected_answer,
-              state_published_at: nil
+              status_published_at: nil
             )
           end
         end
@@ -224,31 +224,31 @@ module Decidim
 
         context "when the proposal is answered but not published" do
           before do
-            proposal.update!(answered_at:, state_published_at: nil)
+            proposal.update!(answered_at:, status_published_at: nil)
           end
 
           let(:answered_at) { Time.current }
 
-          it "includes the answered_at timestamp and leaves state_published_at nil" do
+          it "includes the answered_at timestamp and leaves status_published_at nil" do
             expect(serialized).to include(
               answered_at:,
-              state_published_at: nil
+              status_published_at: nil
             )
           end
         end
 
         context "when the proposal is answered and published" do
           before do
-            proposal.update!(answered_at:, state_published_at:)
+            proposal.update!(answered_at:, status_published_at:)
           end
 
           let(:answered_at) { Time.current }
-          let(:state_published_at) { answered_at + 1.day }
+          let(:status_published_at) { answered_at + 1.day }
 
-          it "includes both answered_at and state_published_at timestamps" do
+          it "includes both answered_at and status_published_at timestamps" do
             expect(serialized).to include(
               answered_at:,
-              state_published_at:
+              status_published_at:
             )
           end
         end

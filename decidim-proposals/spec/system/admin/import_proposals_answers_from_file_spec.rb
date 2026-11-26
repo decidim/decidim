@@ -15,7 +15,7 @@ describe "Import proposals answers from a file" do
     proposals.map do |proposal|
       {
         id: proposal.id,
-        state: %w(accepted rejected evaluating).sample,
+        status: %w(accepted rejected evaluating).sample,
         "answer/en": Faker::Lorem.sentence,
         "answer/ca": Faker::Lorem.sentence,
         "answer/es": Faker::Lorem.sentence
@@ -27,7 +27,7 @@ describe "Import proposals answers from a file" do
     proposals.map do |proposal|
       {
         id: proposal.id,
-        state: %w(accepted rejected evaluating).sample,
+        status: %w(accepted rejected evaluating).sample,
         "answer/fi": Faker::Lorem.sentence,
         hello: "world"
       }
@@ -64,7 +64,7 @@ describe "Import proposals answers from a file" do
       expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
       answers.each do |answer|
         proposal = Decidim::Proposals::Proposal.find(answer[:id])
-        expect(proposal.state).to eq(answer[:state])
+        expect(proposal.status).to eq(answer[:status])
         expect(proposal.answer["en"]).to eq(answer[:"answer/en"])
         expect(proposal.answer["ca"]).to eq(answer[:"answer/ca"])
         expect(proposal.answer["es"]).to eq(answer[:"answer/es"])
@@ -83,7 +83,7 @@ describe "Import proposals answers from a file" do
         proposals.map do |proposal|
           {
             id: proposal.id,
-            state: %w(accepted rejected evaluating).sample,
+            status: %w(accepted rejected evaluating).sample,
             answer: {
               en: Faker::Lorem.sentence,
               ca: Faker::Lorem.sentence,
@@ -103,7 +103,7 @@ describe "Import proposals answers from a file" do
         expect(page).to have_text("#{amount} proposal #{amount == 1 ? "answer" : "answers"} successfully imported")
         answers.each do |answer|
           proposal = Decidim::Proposals::Proposal.find(answer[:id])
-          expect(proposal.state).to eq(answer[:state])
+          expect(proposal.status).to eq(answer[:status])
           expect(proposal.answer["en"]).to eq(answer[:answer][:en])
           expect(proposal.answer["ca"]).to eq(answer[:answer][:ca])
           expect(proposal.answer["es"]).to eq(answer[:answer][:es])
@@ -133,7 +133,7 @@ describe "Import proposals answers from a file" do
         expect(File.basename(download_path)).to eq("proposals-answers-example.csv")
         expect(File.read(download_path)).to eq(
           <<~CSV
-            id;state;answer/en;answer/ca;answer/es
+            id;status;answer/en;answer/ca;answer/es
             1;accepted;Example answer;Example answer;Example answer
             2;rejected;Example answer;Example answer;Example answer
             3;evaluating;Example answer;Example answer;Example answer
@@ -150,7 +150,7 @@ describe "Import proposals answers from a file" do
             [
               {
                 "id": 1,
-                "state": "accepted",
+                "status": "accepted",
                 "answer": {
                   "en": "Example answer",
                   "ca": "Example answer",
@@ -159,7 +159,7 @@ describe "Import proposals answers from a file" do
               },
               {
                 "id": 2,
-                "state": "rejected",
+                "status": "rejected",
                 "answer": {
                   "en": "Example answer",
                   "ca": "Example answer",
@@ -168,7 +168,7 @@ describe "Import proposals answers from a file" do
               },
               {
                 "id": 3,
-                "state": "evaluating",
+                "status": "evaluating",
                 "answer": {
                   "en": "Example answer",
                   "ca": "Example answer",
@@ -192,7 +192,7 @@ describe "Import proposals answers from a file" do
 
         expect(actual).to eq(
           [
-            %w(id state answer/en answer/ca answer/es),
+            %w(id status answer/en answer/ca answer/es),
             [1, "accepted", "Example answer", "Example answer", "Example answer"],
             [2, "rejected", "Example answer", "Example answer", "Example answer"],
             [3, "evaluating", "Example answer", "Example answer", "Example answer"]

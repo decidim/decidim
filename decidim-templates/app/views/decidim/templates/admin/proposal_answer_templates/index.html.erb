@@ -15,7 +15,7 @@
         <thead>
           <tr>
             <th><%= t("template.name", scope: "decidim.models") %></th>
-            <th><%= t(".proposal_state_id") %></th>
+            <th><%= t(".proposal_status_id") %></th>
             <th><%= t(".component_constraint") %></th>
             <th><%= t("template.fields.created_at", scope: "decidim.models") %></th>
             <th><%= t("decidim.admin.actions.actions") %></th>
@@ -27,8 +27,8 @@
               <td data-label="<%= t("template.name", scope: "decidim.models") %>">
                 <%= link_to_if allowed_to?(:update, :template, template:), translated_attribute(template.name), edit_proposal_answer_template_path(template) %>
               </td>
-              <td data-label="<%= t(".proposal_state_id") %>">
-                <%= proposal_state(template) %>
+              <td data-label="<%= t(".proposal_status_id") %>">
+                <%= proposal_status(template) %>
               </td>
               <td data-label="<%= t(".component_constraint") %>">
                 <%= availability_option_as_text(template) %>

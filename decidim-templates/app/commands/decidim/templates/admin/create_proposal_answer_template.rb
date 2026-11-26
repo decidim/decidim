@@ -21,7 +21,7 @@ module Decidim
             name: @form.name,
             description: @form.description,
             organization: @form.current_organization,
-            field_values: { proposal_state_id: @form.proposal_state_id },
+            field_values: { proposal_status_id: @form.proposal_status_id },
             target: :proposal_answer
           )
 

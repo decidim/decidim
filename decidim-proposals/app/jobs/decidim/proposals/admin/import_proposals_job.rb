@@ -31,13 +31,15 @@ module Decidim
 
         def proposals
           proposals = Decidim::Proposals::Proposal.includes(:component, :taxonomies, :coauthorships, :attachments).not_hidden.not_withdrawn.where(component: origin_component)
+          # Jobs queued before the state/status rename carry their filter under "states".
+          statuses = @form["statuses"].presence || @form["states"]
 
-          if @form["states"].blank?
+          if statuses.blank?
             proposals
-          elsif @form["states"].include?("not_answered")
-            proposals.not_answered.or(proposals.where(id: proposals.only_status(@form["states"]).pluck(:id)))
+          elsif statuses.include?("not_answered")
+            proposals.not_answered.or(proposals.where(id: proposals.only_status(statuses).pluck(:id)))
           else
-            proposals.only_status(@form["states"])
+            proposals.only_status(statuses)
           end
         end
 
@@ -73,13 +75,13 @@ module Decidim
         def proposal_answer_attributes(original_proposal)
           return {} unless @form["keep_answers"]
 
-          state = Decidim::Proposals::ProposalState.where(component: target_component, token: original_proposal.proposal_state&.token).first
+          status = Decidim::Proposals::ProposalStatus.where(component: target_component, token: original_proposal.proposal_status&.token).first
 
           {
             answer: original_proposal.answer,
             answered_at: original_proposal.answered_at,
-            proposal_state: state,
-            state_published_at: original_proposal.state_published_at
+            proposal_status: status,
+            status_published_at: original_proposal.status_published_at
           }
         end
       end

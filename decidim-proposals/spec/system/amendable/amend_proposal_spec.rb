@@ -329,7 +329,7 @@ describe "Amend Proposal", versioning: true do
               expect(page).to have_css("[data-alert-box].success", text: "The amendment has been accepted successfully.")
             end
 
-            it "is changed the state of the emendation" do
+            it "is changed the status of the emendation" do
               expect(page).to have_css(".flash", text: "This amendment for the proposal #{emendation_title} has been accepted")
             end
           end
@@ -344,7 +344,7 @@ describe "Amend Proposal", versioning: true do
             expect(page).to have_css("[data-alert-box].success", text: "The amendment has been successfully rejected")
           end
 
-          it "is changed the state of the emendation" do
+          it "is changed the status of the emendation" do
             expect(page).to have_css(".flash[data-announcement]", text: "This amendment for the proposal #{proposal_title} was rejected")
           end
         end

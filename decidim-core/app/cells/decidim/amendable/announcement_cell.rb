@@ -56,7 +56,7 @@ module Decidim::Amendable
     def callout_styles
       return if model.state.blank? || model.withdrawn?
 
-      model.proposal_state&.css_style
+      model.proposal_status&.css_style
     end
   end
 end
