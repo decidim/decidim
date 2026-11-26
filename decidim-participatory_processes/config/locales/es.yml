@@ -50,6 +50,11 @@ es:
       participatory_process_phase:
         cta_path: Ruta del botón de acción
         cta_text: Texto del botón de acción
+        description: Descripción
+        end_date: Fecha de finalización
+        short_description: Descripción breve
+        start_date: Fecha de inicio
+        title: Título
       participatory_process_user_role:
         email: Correo electrónico
         name: Nombre
@@ -135,6 +140,11 @@ es:
             title: Título
           name: Grupo de procesos
         participatory_process_phase:
+          fields:
+            actions: Acciones
+            end_date: Fecha de finalización
+            start_date: Fecha de inicio
+            title: Título
           name: Fase del proceso participativo
         participatory_process_user_role:
           fields:
@@ -189,6 +199,10 @@ es:
             active_phase: No se puede eliminar la fase activa.
             last_phase: No se puede eliminar la última fase de un proceso.
           success: La fase del proceso participativo se ha eliminado correctamente.
+        edit:
+          update: Actualizar
+        new:
+          create: Crear
         ordering:
           error: Se ha producido un error en la reordenación de las fases de este proceso participativo.
         update:
