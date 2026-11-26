@@ -125,6 +125,7 @@ fr:
             taxonomy_filters: Sélectionner les filtres pour le composant
             taxonomy_filters_add: Ajouter un filtre
           phase:
+            announcement: Annonce
             comments_blocked: Commentaires désactivés
             likes_blocked: Soutiens bloqués
             likes_enabled: Soutiens activés
