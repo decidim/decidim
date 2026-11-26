@@ -9,7 +9,7 @@ module Decidim
 
       let(:root_klass) { DebateMutationType }
       let(:organization) { current_organization }
-      let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+      let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
       let(:debates_component) { create(:component, manifest_name: :debates, participatory_space: participatory_process) }
       let(:author) { current_user }
       let!(:model) { create(:debate, component: debates_component, author:) }

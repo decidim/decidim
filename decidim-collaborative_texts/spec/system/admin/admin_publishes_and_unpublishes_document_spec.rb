@@ -47,8 +47,8 @@ describe "Admin publish and unpublish documents" do
       end
     end
 
-    it "displays unpublished documents in public view" do
-      expect(page).to have_text(title)
+    it "does not display unpublished documents in public view" do
+      expect(page).to have_no_text(title)
     end
 
     context "and non-admin user" do

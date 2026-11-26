@@ -33,7 +33,7 @@ en:
         settings:
           global:
             announcement: Announcement
-          step:
+          phase:
             announcement: Announcement
     elections:
       actions:
