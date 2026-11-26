@@ -1,4 +1,4 @@
-/* eslint max-lines: ["error", 650] */
+/* eslint max-lines: ["error", 730] */
 /* global global, jest */
 import FormFilterController from "src/decidim/controllers/form_filter/controller";
 import { Application } from "@hotwired/stimulus";
@@ -353,7 +353,8 @@ describe("FormFilterController - Initiative Filters", () => {
     // Mock CheckBoxesTree
     mockCheckBoxesTree = {
       setContainerForm: jest.fn(),
-      updateChecked: jest.fn()
+      updateChecked: jest.fn(),
+      refresh: jest.fn()
     };
     CheckBoxesTree.mockImplementation(() => mockCheckBoxesTree);
 
@@ -448,6 +449,81 @@ describe("FormFilterController - Initiative Filters", () => {
       const [path] = controller._currentStateAndPath();
 
       expect(path).toContain("filter%5Bsearch_text_cont%5D=environmental+initiative");
+    });
+  });
+
+  describe("dynamic filter content", () => {
+    it("handles changes from dynamically added inputs", () => {
+      const spy = jest.spyOn(controller, "_onFormChange");
+
+      controller.connect();
+
+      const newCheckbox = document.createElement("input");
+      newCheckbox.type = "checkbox";
+      newCheckbox.name = "filter[with_any_origin][]";
+      newCheckbox.value = "official";
+      newCheckbox.checked = true;
+      element.appendChild(newCheckbox);
+
+      newCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expect(spy).toHaveBeenCalled();
+    });
+
+    it("refreshes the checkboxes tree when a filter section is re-rendered", () => {
+      controller.connect();
+
+      const newSection = document.createElement("div");
+      element.appendChild(newSection);
+
+      newSection.dispatchEvent(new CustomEvent("form-filter:refresh", {
+        bubbles: true,
+        detail: { element: newSection }
+      }));
+
+      expect(mockCheckBoxesTree.refresh).toHaveBeenCalledWith(newSection);
+    });
+  });
+
+  describe("retained origin values", () => {
+    const addRetainedOrigin = (value) => {
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "filter[with_any_origin][]";
+      input.value = value;
+      input.dataset.retainedOrigin = "true";
+      element.appendChild(input);
+      return input;
+    };
+
+    it("removes retained origins when an origin checkbox changes", () => {
+      controller.connect();
+
+      const retainedInput = addRetainedOrigin("participants");
+      const originCheckbox = document.createElement("input");
+      originCheckbox.type = "checkbox";
+      originCheckbox.name = "filter[with_any_origin][]";
+      originCheckbox.value = "official";
+      originCheckbox.checked = true;
+      element.appendChild(originCheckbox);
+
+      originCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expect(element.querySelector("input[data-retained-origin]")).toBeNull();
+      expect(element.contains(retainedInput)).toBe(false);
+    });
+
+    it("keeps retained origins when another filter changes", () => {
+      controller.connect();
+
+      const retainedInput = addRetainedOrigin("participants");
+      const statusCheckbox = element.querySelector("#with_any_state_open");
+
+      statusCheckbox.checked = true;
+      statusCheckbox.dispatchEvent(new Event("change", { bubbles: true }));
+
+      expect(element.querySelector("input[data-retained-origin]")).toBe(retainedInput);
+      expect(element.contains(retainedInput)).toBe(true);
     });
   });
 

@@ -54,12 +54,265 @@ describe "Filter Proposals", :slow do
   end
 
   context "when filtering proposals by ORIGIN" do
+    context "when there are no proposals" do
+      it "does not show the origin filter" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_no_text(/Origin/i)
+        end
+      end
+    end
+
+    context "when there are proposals of every origin" do
+      before do
+        create(:proposal, :official, component:)
+        create(:proposal, component:)
+        create(:proposal, :official_meeting, component:)
+      end
+
+      it "shows all the origin options" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_text(/Participants/i)
+          expect(page).to have_text(/Meetings/i)
+        end
+      end
+    end
+
+    context "when there are only participant proposals" do
+      before do
+        create(:proposal, component:)
+      end
+
+      it "shows only the participants origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
+          expect(page).to have_no_text(/Official/i)
+          expect(page).to have_no_text(/Meetings/i)
+        end
+      end
+    end
+
+    context "when the only participant origin belongs to an invisible amendment" do
+      let!(:amendable) { create(:proposal, :official, component:) }
+      let!(:emendation) { create(:proposal, component:) }
+      let!(:amendment) { create(:amendment, amendable:, emendation:, amender: emendation.creator_author) }
+
+      before do
+        component.update!(settings: { amendments_enabled: true })
+        component.update!(
+          step_settings: {
+            component.participatory_space.active_step.id => { amendments_visibility: "participants" }
+          }
+        )
+      end
+
+      it "does not show the participants origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+      end
+    end
+
+    context "when there are only official proposals" do
+      before do
+        create(:proposal, :official, component:)
+      end
+
+      it "shows only the official origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+          expect(page).to have_no_text(/Meetings/i)
+        end
+      end
+    end
+
+    context "when there are only meeting proposals" do
+      before do
+        create(:proposal, :official_meeting, component:)
+      end
+
+      it "shows only the meetings origin option" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Meetings/i)
+          expect(page).to have_no_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+      end
+    end
+
+    context "when all proposals are withdrawn" do
+      let!(:proposal) { create(:proposal, :withdrawn, component:) }
+
+      it "shows the origin filter on the withdrawn proposals page" do
+        visit_component
+        click_on "See all withdrawn proposals"
+
+        within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
+        end
+      end
+
+      it "lists the withdrawn proposals when filtering by participants origin" do
+        visit_component
+        click_on "See all withdrawn proposals"
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          uncheck "All"
+          check "Participants"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      end
+    end
+
+    context "when the only participant proposal is rejected" do
+      let!(:proposal) { create(:proposal, :rejected, component:) }
+      let!(:official_proposal) { create(:proposal, :official, :rejected, component:) }
+
+      before do
+        component.update!(
+          settings: { official_proposals_enabled: true },
+          step_settings: {
+            component.participatory_space.active_step.id => { proposal_answering_enabled: true }
+          }
+        )
+      end
+
+      it "does not show the participants origin option with the default state selection" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_no_text(/Origin/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+      end
+
+      it "shows the participants origin option when the rejected state is selected" do
+        visit_component
+
+        within "form.new_filter" do
+          expect(page).to have_no_text(/Origin/i)
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          check "Rejected"
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_text(/Participants/i)
+
+          uncheck "All"
+          check "Participants"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      end
+
+      it "keeps the origin accordion working after the origin options are refreshed" do
+        visit_component
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          check "Rejected"
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Official/i)
+        end
+
+        click_on "Origin"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_no_text "Official"
+        end
+
+        click_on "Origin"
+
+        within ".layout-2col__aside" do
+          expect(page).to have_text "Official"
+        end
+      end
+    end
+
+    context "when a status change leaves a single origin option" do
+      let!(:participant_proposal) { create(:proposal, :accepted, component:) }
+      let!(:official_proposal) { create(:proposal, :official, component:) }
+
+      before do
+        component.update!(
+          settings: { official_proposals_enabled: true },
+          step_settings: {
+            component.participatory_space.active_step.id => { proposal_answering_enabled: true }
+          }
+        )
+
+        visit_component
+      end
+
+      it "keeps the selected origin when the other origin is available again" do
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          uncheck "All"
+          check "Official"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+        expect(page).to have_text(translated(official_proposal.title))
+        expect(page).to have_no_text(translated(participant_proposal.title))
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          uncheck "Accepted"
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Official/i)
+          expect(page).to have_no_text(/Participants/i)
+        end
+
+        within "#dropdown-menu-filters div.filter-container", text: "Status" do
+          check "Accepted"
+        end
+
+        # Wait for the refreshed Origin filter, as the options depend on the
+        # selected states and the list is updated after it.
+        within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+          expect(page).to have_text(/Participants/i)
+        end
+
+        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+        expect(page).to have_text(translated(official_proposal.title))
+        expect(page).to have_no_text(translated(participant_proposal.title))
+      end
+    end
+
     context "when official_proposals setting is enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: true })
       end
 
       it "can be filtered by origin" do
+        create(:proposal, :official, component:)
         visit_component
 
         within "form.new_filter" do
@@ -101,12 +354,16 @@ describe "Filter Proposals", :slow do
     context "when official_proposals setting is not enabled" do
       before do
         component.update!(settings: { official_proposals_enabled: false })
+        create(:proposal, :official, component:)
+        create(:proposal, component:)
       end
 
-      it "cannot be filtered by origin" do
+      it "does not show the official origin option" do
         visit_component
 
         within "form.new_filter" do
+          expect(page).to have_text(/Origin/i)
+          expect(page).to have_text(/Participants/i)
           expect(page).to have_no_text(/Official/i)
         end
       end
@@ -114,6 +371,7 @@ describe "Filter Proposals", :slow do
   end
 
   it "collapses the accordions on click" do
+    create(:proposal, :official, component:)
     visit_component
 
     within ".layout-2col__aside" do
@@ -607,6 +865,85 @@ describe "Filter Proposals", :slow do
           end
         end
       end
+    end
+  end
+
+  context "when the selected origin is not available after changing the state", :slow do
+    let!(:participant_proposal) { create(:proposal, :accepted, component:) }
+    let!(:official_proposal) { create(:proposal, :official, component:) }
+
+    before do
+      component.update!(
+        settings: { official_proposals_enabled: true },
+        step_settings: {
+          component.participatory_space.active_step.id => { proposal_answering_enabled: true }
+        }
+      )
+
+      visit_component
+    end
+
+    it "restores the participants origin when going back" do
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        uncheck "All"
+        check "Participants"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_no_text(translated(official_proposal.title))
+
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
+        uncheck "Accepted"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 0)
+
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        expect(page).to have_no_text(/Participants/i)
+      end
+
+      page.go_back
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_no_text(translated(official_proposal.title))
+
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        expect(page).to have_checked_field("Participants")
+      end
+
+      page.go_back
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 2)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_text(translated(official_proposal.title))
+    end
+
+    it "shows all the origins when selecting all after the selected origin disappears" do
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        uncheck "All"
+        check "Participants"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(participant_proposal.title))
+      expect(page).to have_no_text(translated(official_proposal.title))
+
+      within "#dropdown-menu-filters div.filter-container", text: "Status" do
+        uncheck "Accepted"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 0)
+
+      within "#dropdown-menu-filters div.filter-container", text: "Origin" do
+        expect(page).to have_no_text(/Participants/i)
+        check "All"
+      end
+
+      expect(page).to have_css("[id^='proposals__proposal']", count: 1)
+      expect(page).to have_text(translated(official_proposal.title))
+      expect(page).to have_no_text(translated(participant_proposal.title))
     end
   end
 

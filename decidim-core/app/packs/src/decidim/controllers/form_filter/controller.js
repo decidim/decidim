@@ -22,6 +22,7 @@ export default class extends Controller {
     this._updateInitialState();
     this._onFormChange = delayed(this, this._onFormChange.bind(this));
     this._onPopState = this._onPopState.bind(this);
+    this._onFilterRefresh = this._onFilterRefresh.bind(this);
 
     if (window.Decidim.PopStateHandler) {
       this.popStateSubmitter = false;
@@ -39,9 +40,8 @@ export default class extends Controller {
    * @returns {Void} - Returns nothing
    */
   disconnect() {
-    this.element.querySelectorAll("input, select").forEach((element) => {
-      element.removeEventListener("change", this._onFormChange);
-    });
+    this.element.removeEventListener("change", this._onFormChange);
+    this.element.removeEventListener("form-filter:refresh", this._onFilterRefresh);
 
     unregisterCallback(`filters-${this.id}`)
   }
@@ -61,9 +61,8 @@ export default class extends Controller {
         contentContainer = this.element.dataset.remoteFill;
       }
 
-      this.element.querySelectorAll("input:not([data-disable-dynamic-change]), select:not([data-disable-dynamic-change])").forEach((element) => {
-        element.addEventListener("change", this._onFormChange);
-      })
+      this.element.addEventListener("change", this._onFormChange);
+      this.element.addEventListener("form-filter:refresh", this._onFilterRefresh);
 
       this.currentFormRequest = null;
 
@@ -219,6 +218,11 @@ export default class extends Controller {
       return;
     }
 
+    // Remove the origin values retained for a previous history entry. They are
+    // added again below when the restored URL still selects them and the
+    // corresponding option is not available in the form.
+    this._removeRetainedOrigins();
+
     const filterParams = this._parseLocationFilterValues();
     const currentOrder = this._parseLocationOrderValue();
 
@@ -237,6 +241,10 @@ export default class extends Controller {
         if (Array.isArray(value)) {
           let checkboxes = this.element.querySelectorAll(`input[type=checkbox][name="filter[${fieldName}][]"]`);
           this.theCheckBoxesTree.updateChecked(checkboxes, value);
+
+          if (fieldName === "with_any_origin") {
+            this._updateRetainedOrigins(value);
+          }
         } else {
           this.element.querySelectorAll(`*[name="filter[${fieldName}]"]`).forEach((element) => {
             switch (element.type) {
@@ -263,13 +271,74 @@ export default class extends Controller {
   }
 
   /**
-   * Handles the logic to update the current location after a form change event.
+   * Removes the hidden origin inputs retained from a previous filter state.
    * @private
    * @returns {Void} - Returns nothing.
    */
-  _onFormChange() {
+  _removeRetainedOrigins() {
+    this.element.querySelectorAll("input[type='hidden'][data-retained-origin]").forEach((input) => input.remove());
+  }
+
+  /**
+   * Keeps hidden inputs for the origin values that do not have a matching
+   * checkbox in the form, so that the selection is still submitted when the
+   * available origin options change (for example, when filtering by state).
+   * @private
+   * @param {Array} values - The origin values to keep selected
+   * @returns {Void} - Returns nothing.
+   */
+  _updateRetainedOrigins(values) {
+    this._removeRetainedOrigins();
+
+    const checkboxValues = Array.from(this.element.querySelectorAll("input[type='checkbox'][name='filter[with_any_origin][]']:not(.ignore-filter)")).map((checkbox) => checkbox.value);
+
+    values.forEach((value) => {
+      if (value === "" || checkboxValues.includes(value)) {
+        return;
+      }
+
+      const input = document.createElement("input");
+      input.type = "hidden";
+      input.name = "filter[with_any_origin][]";
+      input.value = value;
+      input.dataset.retainedOrigin = "true";
+      this.element.appendChild(input);
+    });
+  }
+
+  /**
+   * Handles the logic to refresh the widgets of the form when part of it is
+   * replaced dynamically, like the origin options when the selected states
+   * change.
+   * @private
+   * @param {CustomEvent} event - The event with the refreshed element in its detail
+   * @returns {Void} - Returns nothing.
+   */
+  _onFilterRefresh(event) {
+    if (event.detail && event.detail.element) {
+      this.theCheckBoxesTree.refresh(event.detail.element);
+    }
+  }
+
+  /**
+   * Handles the logic to update the current location after a form change event.
+   * @private
+   * @param {Event} event - The change event
+   * @returns {Void} - Returns nothing.
+   */
+  _onFormChange(event) {
     if (!this.changeEvents) {
       return;
+    }
+
+    if (event && (!event.target.matches("input, select") || event.target.matches("[data-disable-dynamic-change]"))) {
+      return;
+    }
+
+    if (event && event.target.matches("input[name='filter[with_any_origin][]']")) {
+      // An explicit origin change replaces the retained selection. Retained
+      // origins are only kept for status changes and history restoration.
+      this._removeRetainedOrigins();
     }
 
     const [newPath, newState] = this._currentStateAndPath();

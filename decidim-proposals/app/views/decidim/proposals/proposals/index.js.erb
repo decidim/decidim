@@ -1,8 +1,113 @@
+<%
+  sections = filter_sections
+  origin_filter_index = sections.index { |section| section[:id] == "origin" }
+  origin_filter = sections[origin_filter_index] if origin_filter_index
+  next_filter_ids = origin_filter_index ? sections.drop(origin_filter_index + 1).map { |section| section[:id] } : []
+%>
+<% origin_filter_html = capture do %>
+  <% if origin_filter %>
+    <%= filter_form_for(filter, url_for, class: "new_filter self-stretch") do |form| %>
+      <%= form.collection_filter(**origin_filter) %>
+    <% end %>
+  <% end %>
+<% end %>
+
 var $proposals = $('#proposals');
 var $orderFilterInput = $('.order_filter');
 
 $proposals.html('<%= j(render partial: "proposals").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
+
+// Refresh the origin filter options, as they depend on the selected states.
+var $newOriginFilterTemplate = $('<div>').html('<%= j(origin_filter_html) %>').find(".filter-container");
+var nextFilterIds = <%= raw next_filter_ids.to_json %>;
+
+var selectedOriginValues = function($form) {
+  var values = [];
+
+  $form.find('input[name="filter[with_any_origin][]"]').each(function() {
+    var $input = $(this);
+    var isSelected = $input.is("[data-retained-origin]") || ($input.is(":checked") && !$input.hasClass("ignore-filter"));
+
+    if (isSelected && this.value !== "") {
+      values.push(this.value);
+    }
+  });
+
+  return values;
+};
+
+var reconnectAccordion = function($form) {
+  if (!$form.length) {
+    return;
+  }
+
+  $form[0].dispatchEvent(new CustomEvent("accordion:reconnect", {
+    detail: { collapse: true }
+  }));
+};
+
+var retainOriginValues = function($form, values) {
+  $form.find("input[data-retained-origin]").remove();
+
+  values.forEach(function(value) {
+    var hasCheckbox = $form.find('input[type="checkbox"][name="filter[with_any_origin][]"]').filter(function() {
+      return this.value === value && !$(this).hasClass("ignore-filter");
+    }).length > 0;
+
+    if (!hasCheckbox) {
+      $("<input>", {
+        type: "hidden",
+        name: "filter[with_any_origin][]",
+        value: value,
+        "data-retained-origin": "true"
+      }).appendTo($form);
+    }
+  });
+};
+
+$("form.new_filter").each(function() {
+  var $form = $(this);
+  var $originFilter = $form.find("#trigger-menu-origin").closest(".filter-container");
+  var selectedOrigins = selectedOriginValues($form);
+
+  if ($newOriginFilterTemplate.length) {
+    var $newOriginFilter = $newOriginFilterTemplate.clone();
+
+    if ($originFilter.length) {
+      $originFilter.replaceWith($newOriginFilter);
+    } else {
+      var $nextFilter = $();
+      nextFilterIds.some(function(filterId) {
+        $nextFilter = $form.find("#trigger-menu-" + filterId).closest(".filter-container");
+        return $nextFilter.length > 0;
+      });
+
+      if ($nextFilter.length) {
+        $nextFilter.before($newOriginFilter);
+      } else {
+        $form.find("#dropdown-menu-filters").append($newOriginFilter);
+      }
+    }
+
+    $newOriginFilter[0].dispatchEvent(new CustomEvent("form-filter:refresh", {
+      bubbles: true,
+      detail: { element: $newOriginFilter[0] }
+    }));
+
+    // Retain the selected values after the refresh, as the tree marks the
+    // options collapsed into "All" with the "ignore-filter" class. Otherwise
+    // those values would be submitted as "All" on the next filter change.
+    retainOriginValues($form, selectedOrigins);
+
+    reconnectAccordion($form);
+  } else if ($originFilter.length) {
+    $originFilter.remove();
+    retainOriginValues($form, selectedOrigins);
+
+    reconnectAccordion($form);
+  }
+});
 
 <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
   var $map = $("#map");
