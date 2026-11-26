@@ -6,6 +6,8 @@ module Decidim
     class VersionsController < Decidim::Meetings::ApplicationController
       include Decidim::ResourceVersionsConcern
 
+      private
+
       def versioned_resource
         @versioned_resource ||= Meeting.not_hidden.where(component: current_component).find(params.expect(:meeting_id))
       end

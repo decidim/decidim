@@ -18,7 +18,7 @@ ca:
         address: Adreça
         answer: Respondre
         answered_at: Respost el
-        body: Cos
+        body: Descripció
         decidim_proposals_proposal_state_id: Estat
         decidim_scope_id: Àmbit
         has_address: Té adreça

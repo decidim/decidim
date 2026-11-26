@@ -13,8 +13,8 @@ describe "Admin edits proposals" do
 
   before do
     component.update!(
-      step_settings: {
-        component.participatory_space.active_step.id => {
+      phase_settings: {
+        component.participatory_space.active_phase.id => {
           creation_enabled: creation_enabled?
         }
       }
@@ -150,7 +150,7 @@ describe "Admin edits proposals" do
 
         filename = "Exampledocument.pdf"
         within ".upload-modal" do
-          find("input[type='file']", visible: :all).attach_file(Decidim::Dev.asset(filename))
+          find_field(type: "file", visible: :all).attach_file(Decidim::Dev.asset(filename))
           within "li[data-filename='#{filename}']:not([data-attachment-id])" do
             expect(page).to have_css("progress[value='100']")
           end

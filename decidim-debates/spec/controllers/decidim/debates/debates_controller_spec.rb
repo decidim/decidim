@@ -34,6 +34,67 @@ module Decidim
           end
         end
       end
+
+      describe "GET index" do
+        let(:component) { create(:debates_component) }
+        let!(:debate) { create(:debate, component:) }
+        let(:debate_path) { Decidim::EngineRouter.main_proxy(component).debate_path(debate) }
+
+        it "redirects to the debate when there is a single debate" do
+          get :index
+
+          expect(response).to have_http_status(:found)
+          expect(response).to redirect_to(debate_path)
+        end
+
+        it "does not redirect for JS requests" do
+          request.headers["X-Requested-With"] = "XMLHttpRequest"
+
+          get :index, format: :js
+
+          expect(response).to have_http_status(:ok)
+        end
+
+        context "when there is more than one debate" do
+          let!(:another_debate) { create(:debate, component:) }
+
+          it "renders the index template" do
+            get :index
+
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+          end
+        end
+
+        context "when creating debates is enabled" do
+          let(:component) { create(:debates_component, :with_creation_enabled) }
+
+          before do
+            sign_in user, scope: :user
+          end
+
+          it "renders the index template" do
+            get :index
+
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template(:index)
+          end
+        end
+      end
+
+      describe "GET show" do
+        let(:component) { create(:debates_component) }
+        let!(:debate) { create(:debate, component:) }
+
+        it "renders the debate" do
+          get :show, params: { id: debate.id }
+          expect(response).to have_http_status(:ok)
+        end
+
+        it "returns a 404 status when the debate does not exist" do
+          expect { get :show, params: { id: "non-existent" } }.to raise_error(ActionController::RoutingError)
+        end
+      end
     end
   end
 end

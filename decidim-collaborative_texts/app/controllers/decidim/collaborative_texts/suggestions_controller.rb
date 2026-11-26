@@ -9,6 +9,8 @@ module Decidim
       helper_method :documents, :document
 
       def index
+        enforce_permission_to(:read, :collaborative_text, document:)
+
         render json: suggestions_for(document.consolidated_version)
       end
 
@@ -32,7 +34,7 @@ module Decidim
       private
 
       def suggestions_for(version)
-        version.suggestions.map do |suggestion|
+        version.suggestions.includes(author: [:organization, { avatar_attachment: :blob }]).map do |suggestion|
           suggestion.presenter.safe_json.merge(
             profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip
           )

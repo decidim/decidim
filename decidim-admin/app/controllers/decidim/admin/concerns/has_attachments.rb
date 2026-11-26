@@ -82,6 +82,8 @@ module Decidim
             redirect_to after_destroy_path
           end
 
+          protected
+
           # Public: Returns a String or Object that will be passed to `redirect_to` after
           # destroying an attachment. By default it redirects to the attached_to.
           #

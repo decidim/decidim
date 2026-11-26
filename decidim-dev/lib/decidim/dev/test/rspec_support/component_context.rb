@@ -27,7 +27,7 @@ shared_context "with a component" do
   let!(:organization) { create(:organization, *organization_traits, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
 
   let(:participatory_process) do
-    create(:participatory_process, :with_steps, organization:)
+    create(:participatory_process, :with_phases, organization:)
   end
 
   let(:participatory_space) { participatory_process }
@@ -132,6 +132,8 @@ shared_examples "add component resources to search index" do
       find("button[data-controller='dropdown']").click
       click_on "Publish"
     end
+
+    expect(page).to have_callout("The component has been successfully published.")
 
     perform_enqueued_jobs
 

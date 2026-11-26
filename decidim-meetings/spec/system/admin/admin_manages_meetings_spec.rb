@@ -24,7 +24,7 @@ describe "Admin manages meetings" do
   let!(:follow) { create(:follow, followable: meeting, user:) }
 
   include_context "when managing a component as an admin" do
-    let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+    let(:participatory_process) { create(:participatory_process, :published, :with_phases, organization:) }
     let!(:component) { create(:component, :published, manifest:, participatory_space:) }
   end
 
@@ -47,8 +47,7 @@ describe "Admin manages meetings" do
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         find("button[data-controller='dropdown']").click
-        click_on "Unpublish"
-        expect(accept_confirm).to eq("Are you sure you want to unpublish this meeting?")
+        expect(accept_confirm { click_on "Unpublish" }).to eq("Are you sure you want to unpublish this meeting?")
       end
     end
 
@@ -240,15 +239,14 @@ describe "Admin manages meetings" do
 
     within "#edit_meeting_#{meeting.id}" do
       fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+      clear_i18n_editor(:meeting_description, "#meeting-description-tabs", [:en])
 
-      within "#meeting_description_en" do
-        attributes[:description]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
-      end
+      expect(find("#meeting_description_en input[name='meeting[description_en]']", visible: :all).value).to be_empty
+      expect(page.evaluate_script("document.querySelector('#meeting_description_en .ProseMirror').textContent.trim()")).to be_empty
+
       click_link_or_button "Update"
     end
-    within ".flash__message" do
-      expect(page).to have_text("There was a problem updating this meeting.")
-    end
+    expect(page).to have_callout("There was a problem updating this meeting.")
   end
 
   it "sets registration enabled to true when registration type is on this platform" do
@@ -805,10 +803,9 @@ describe "Admin manages meetings" do
 
       within "tr[data-id='#{attachment.id}']" do
         find("button[data-controller='dropdown']").click
-        click_on "Delete"
+        accept_confirm { click_on "Delete" }
       end
 
-      accept_confirm
       expect(page).to have_no_css("tr[data-id='#{attachment.id}']")
     end
 

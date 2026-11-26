@@ -53,5 +53,23 @@ module Decidim::Admin
         expect(external_taxonomy.weight).to eq 11
       end
     end
+
+    context "when the order includes a taxonomy from another organization first" do
+      let(:order) { [external_taxonomy.id, taxonomy1.id, taxonomy2.id] }
+
+      it "raises a not found error from the organization-scoped lookup" do
+        expect { subject.call }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it "does not change the weights of the existing taxonomies" do
+        expect { subject.call }.to raise_error(ActiveRecord::RecordNotFound)
+
+        expect(taxonomy1.reload.weight).to eq 1
+        expect(taxonomy2.reload.weight).to eq 2
+        expect(taxonomy3.reload.weight).to eq 3
+        expect(taxonomy4.reload.weight).to eq 40
+        expect(external_taxonomy.reload.weight).to eq 11
+      end
+    end
   end
 end

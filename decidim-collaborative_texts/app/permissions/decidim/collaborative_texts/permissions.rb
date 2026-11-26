@@ -11,6 +11,8 @@ module Decidim
         return permission_action if permission_action.subject != :collaborative_text
 
         case permission_action.action
+        when :read
+          allow!
         when :suggest
           allow! if user
         when :rollout

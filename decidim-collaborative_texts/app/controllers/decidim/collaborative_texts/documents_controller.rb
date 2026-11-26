@@ -6,12 +6,17 @@ module Decidim
       include Decidim::Paginable
       include Decidim::FormFactory
       include Decidim::AjaxPermissionHandler
+      include Decidim::FilterResource
 
       helper_method :documents, :document, :paginate_documents
 
-      def index; end
+      def index
+        enforce_permission_to :read, :collaborative_text
+      end
 
       def show
+        enforce_permission_to(:read, :collaborative_text, document:)
+
         raise ActionController::RoutingError, "Not Found" unless document
       end
 
@@ -34,7 +39,16 @@ module Decidim
       private
 
       def document
-        @document ||= documents.find_by(id: params[:id])
+        @document ||= document_collection.find_by(id: params[:id])
+      end
+
+      def document_collection
+        collection = Document.includes(:component, :document_versions, :coauthorships).where(component: current_component)
+        current_user&.admin? ? collection : collection.published
+      end
+
+      def search_collection
+        document_collection.published
       end
 
       def presenter
@@ -42,11 +56,11 @@ module Decidim
       end
 
       def documents
-        @documents ||= if current_user&.admin?
-                         Document.where(component: current_component)
-                       else
-                         Document.published.where(component: current_component)
-                       end
+        @documents ||= search.result
+      end
+
+      def default_filter_params
+        { with_any_state: "all" }
       end
 
       def paginate_documents

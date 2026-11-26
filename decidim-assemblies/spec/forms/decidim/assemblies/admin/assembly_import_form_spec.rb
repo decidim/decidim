@@ -26,7 +26,7 @@ module Decidim
             title_es: title[:es],
             title_ca: title[:ca],
             document:,
-            import_steps: true,
+            import_phases: true,
             import_attachments: true,
             import_components: true
           }

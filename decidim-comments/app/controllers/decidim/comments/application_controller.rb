@@ -5,6 +5,8 @@ module Decidim
     # This controller is the abstract class from which all other controllers of
     # this engine inherit.
     class ApplicationController < Decidim::ApplicationController
+      protected
+
       def permission_class_chain
         [
           ::Decidim::Comments::Permissions,

@@ -38,6 +38,10 @@ describe "Conference registrations" do
     visit decidim_conferences.conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
   end
 
+  def visit_decline_invitation
+    visit decidim_conferences.decline_invitation_conference_registration_type_conference_registration_path(conference_slug: conference, registration_type_id: registration_type)
+  end
+
   before do
     switch_to_host(organization.host)
 
@@ -221,6 +225,28 @@ describe "Conference registrations" do
       it "accepts the invitation successfully" do
         visit_conference_registration_type
         expect(page).to have_callout("You have successfully joined the conference")
+      end
+    end
+  end
+
+  context "and the user has been invited to decline the conference" do
+    let!(:invite) { create(:conference_invite, conference:, user:, registration_type:) }
+
+    it "requires the user to sign in" do
+      visit_decline_invitation
+
+      expect(page).to have_current_path(decidim.new_user_session_path)
+      expect(invite.reload.rejected_at).to be_nil
+    end
+
+    context "when the user is signed in" do
+      before { login_as user, scope: :user }
+
+      it "declines the invitation successfully" do
+        visit_decline_invitation
+
+        expect(page).to have_callout("You have successfully declined the invitation.")
+        expect(invite.reload.rejected_at).to be_present
       end
     end
   end

@@ -2,11 +2,11 @@
 
 shared_examples "manage process components" do
   let!(:participatory_process) do
-    create(:participatory_process, :with_steps, organization:)
+    create(:participatory_process, :with_phases, organization:)
   end
   let!(:attributes) { attributes_for(:component, participatory_space: participatory_process) }
 
-  let(:step_id) { participatory_process.steps.first.id }
+  let(:phase_id) { participatory_process.phases.first.id }
 
   before do
     switch_to_host(organization.host)
@@ -18,7 +18,7 @@ shared_examples "manage process components" do
       visit decidim_admin_participatory_processes.components_path(participatory_process)
     end
 
-    context "when the process has active steps" do
+    context "when the process has active phases" do
       before do
         find("button[data-target=add-component-dropdown]").click
 
@@ -42,11 +42,11 @@ shared_examples "manage process components" do
             all("input[type=checkbox]").last.click
           end
 
-          within "#panel-step_settings" do
+          within "#panel-phase_settings" do
             fill_in_i18n_editor(
-              "component_step_settings_#{step_id}_dummy_step_translatable_text",
-              "#step-#{step_id}-settings-dummy_step_translatable_text-tabs",
-              en: "Dummy Text for Step"
+              "component_phase_settings_#{phase_id}_dummy_phase_translatable_text",
+              "#phase-#{phase_id}-settings-dummy_phase_translatable_text-tabs",
+              en: "Dummy Text for Phase"
             )
             all("input[type=checkbox]").first.click
           end
@@ -61,6 +61,7 @@ shared_examples "manage process components" do
       end
 
       it "has a successful admin log" do
+        expect(page).to have_callout("Component created successfully.")
         visit decidim_admin.root_path
         expect(page).to have_text("created #{translated(attributes[:name])} in #{translated(participatory_process.title)}")
       end
@@ -78,7 +79,7 @@ shared_examples "manage process components" do
             expect(all("input[type=checkbox]").last).to be_checked
           end
 
-          within "#panel-step_settings" do
+          within "#panel-phase_settings" do
             expect(all("input[type=checkbox]").first).to be_checked
           end
         end
@@ -91,7 +92,7 @@ shared_examples "manage process components" do
       end
     end
 
-    context "when the process does not have active steps" do
+    context "when the process does not have active phases" do
       let!(:participatory_process) do
         create(:participatory_process, organization:)
       end
@@ -121,11 +122,11 @@ shared_examples "manage process components" do
             all("input[type=checkbox]").last.click
           end
 
-          within ".default-step-settings" do
+          within ".default-phase-settings" do
             fill_in_i18n_editor(
-              :component_default_step_settings_dummy_step_translatable_text,
-              "#default-step-settings-dummy_step_translatable_text-tabs",
-              en: "Dummy Text for Step"
+              :component_default_phase_settings_dummy_phase_translatable_text,
+              "#default-phase-settings-dummy_phase_translatable_text-tabs",
+              en: "Dummy Text for Phase"
             )
             all("input[type=checkbox]").first.click
           end
@@ -152,7 +153,7 @@ shared_examples "manage process components" do
             expect(all("input[type=checkbox]").last).to be_checked
           end
 
-          within ".default-step-settings" do
+          within ".default-phase-settings" do
             expect(all("input[type=checkbox]").first).to be_checked
           end
         end
@@ -180,8 +181,8 @@ shared_examples "manage process components" do
         :component,
         name: component_name,
         participatory_space: participatory_process,
-        step_settings: {
-          step_id => { dummy_step_translatable_text: generate_localized_title }
+        phase_settings: {
+          phase_id => { dummy_phase_translatable_text: generate_localized_title }
         }
       )
     end
@@ -207,7 +208,7 @@ shared_examples "manage process components" do
           all("input[type=checkbox]").last.click
         end
 
-        within "#panel-step_settings" do
+        within "#panel-phase_settings" do
           all("input[type=checkbox]").first.click
         end
 
@@ -226,7 +227,7 @@ shared_examples "manage process components" do
         expect(all("input[type=checkbox]").last).to be_checked
       end
 
-      within "#panel-step_settings" do
+      within "#panel-phase_settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
 
@@ -234,17 +235,17 @@ shared_examples "manage process components" do
       expect(page).to have_text("updated #{translated(attributes[:name])} in #{translated(participatory_process.title)}")
     end
 
-    context "when the process does not have active steps" do
-      before { participatory_process.steps.destroy_all }
+    context "when the process does not have active phases" do
+      before { participatory_process.phases.destroy_all }
 
-      it "updates the default step settings" do
+      it "updates the default phase settings" do
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           click_on "Configure"
         end
 
         within ".edit_component" do
-          within ".default-step-settings" do
+          within ".default-phase-settings" do
             all("input[type=checkbox]").first.click
           end
 
@@ -258,7 +259,7 @@ shared_examples "manage process components" do
           click_on "Configure"
         end
 
-        within ".default-step-settings" do
+        within ".default-phase-settings" do
           expect(all("input[type=checkbox]").first).to be_checked
         end
       end
@@ -284,6 +285,8 @@ shared_examples "manage process components" do
           click_on "Publish"
         end
 
+        expect(page).to have_callout("The component has been successfully published.")
+
         within ".component-#{component.id}" do
           find("button[data-controller='dropdown']").click
           expect(page).to have_css("a", text: "Hide")
@@ -298,6 +301,8 @@ shared_examples "manage process components" do
           find("button[data-controller='dropdown']").click
           click_on "Publish"
         end
+
+        expect(page).to have_callout("The component has been successfully published.")
 
         expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
                                                 "decidim.events.components.component_published", {
@@ -411,7 +416,7 @@ shared_examples "manage process components" do
           all("input[type=checkbox]").last.click
         end
 
-        within "#panel-step_settings" do
+        within "#panel-phase_settings" do
           all("input[type=checkbox]").first.click
         end
 

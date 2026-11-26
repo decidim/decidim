@@ -12,7 +12,7 @@ FactoryBot.define do
     end
     name { generate_component_name(participatory_space.organization.available_locales, :surveys, skip_injection:) }
     manifest_name { :surveys }
-    participatory_space { create(:participatory_process, :with_steps, skip_injection:) }
+    participatory_space { create(:participatory_process, :with_phases, skip_injection:) }
   end
 
   factory :survey, class: "Decidim::Surveys::Survey" do
@@ -36,10 +36,6 @@ FactoryBot.define do
 
     trait :allow_unregistered do
       allow_unregistered { true }
-    end
-
-    trait :clean_after_publish do
-      clean_after_publish { true }
     end
 
     trait :announcement do

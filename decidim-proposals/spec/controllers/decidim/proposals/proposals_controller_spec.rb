@@ -280,7 +280,7 @@ module Decidim
         let!(:amendable) { create(:proposal, component:) }
         let!(:emendation) { create(:proposal, component:) }
         let!(:amendment) { create(:amendment, amendable:, emendation:) }
-        let(:active_step_id) { component.participatory_space.active_step.id }
+        let(:active_phase_id) { component.participatory_space.active_phase.id }
 
         context "when the proposal is an amendable" do
           it "shows the proposal" do
@@ -301,7 +301,7 @@ module Decidim
         context "when the proposal is an emendation" do
           context "and amendments VISIBILITY is set to 'participants'" do
             before do
-              component.update!(step_settings: { active_step_id => { amendments_visibility: "participants" } })
+              component.update!(phase_settings: { active_phase_id => { amendments_visibility: "participants" } })
             end
 
             context "when the user is not logged in" do
@@ -347,7 +347,7 @@ module Decidim
 
           context "and amendments VISIBILITY is set to 'all'" do
             before do
-              component.update!(step_settings: { active_step_id => { amendments_visibility: "all" } })
+              component.update!(phase_settings: { active_phase_id => { amendments_visibility: "all" } })
             end
 
             context "when the user is not logged in" do
@@ -370,6 +370,22 @@ module Decidim
               end
             end
           end
+        end
+      end
+
+      describe "GET show permissions" do
+        let(:component) { create(:proposal_component) }
+        let(:proposal) { create(:proposal, component:) }
+
+        it "allows reading a visible proposal" do
+          expect(controller.send(:allowed_to?, :read, :proposal, proposal:)).to be(true)
+        end
+
+        it "does not allow reading a hidden proposal" do
+          hidden_proposal = create(:proposal, component:)
+          create(:moderation, hidden_at: Time.current, reportable: hidden_proposal)
+
+          expect(controller.send(:allowed_to?, :read, :proposal, proposal: hidden_proposal.reload)).to be(false)
         end
       end
     end

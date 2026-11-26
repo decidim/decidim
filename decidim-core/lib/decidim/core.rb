@@ -476,6 +476,15 @@ module Decidim
   # Time window in which the throttling is applied.
   mattr_accessor :throttling_period, default: Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
+  # Max failed attempts for verification code confirmation before lockout.
+  mattr_accessor :verification_max_failed_attempts, default: Decidim::Env.new("DECIDIM_VERIFICATION_MAX_FAILED_ATTEMPTS", "5").to_i
+
+  # Time window after which a locked verification is automatically unlocked.
+  mattr_accessor :verification_unlock_in, default: Decidim::Env.new("DECIDIM_VERIFICATION_UNLOCK_IN", "30").to_i.minutes
+
+  # Time window (in minutes) after which a verification code expires (SMS only).
+  mattr_accessor :verification_code_expiry_minutes, default: Decidim::Env.new("DECIDIM_VERIFICATION_CODE_EXPIRY_MINUTES", "10").to_i
+
   # Time window were users can access the website even if their email is not confirmed.
   mattr_accessor :unconfirmed_access_for, default: Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
 
@@ -557,12 +566,12 @@ module Decidim
   mattr_accessor :user_roles, default: Decidim::Env.new("DECIDIM_USER_ROLES", "admin,user_manager").to_array
 
   # The list of visibility options for amendments. An Array of Strings that
-  # serve both as locale keys and values to construct the input collection in
-  # Decidim::Amendment::VisibilityStepSetting::options.
+  # serve both as locale keys and values to construct the input collection for
+  # the amendments visibility setting.
   #
   # This collection is used in Decidim::Admin::SettingsHelper to generate a
   # radio buttons collection input field form for a Decidim::Component
-  # step setting :amendments_visibility.
+  # phase setting :amendments_visibility.
   mattr_accessor :amendments_visibility_options, default: Decidim::Env.new("DECIDIM_AMENDMENTS_VISIBILITY_OPTIONS", "all,participants").to_array
 
   # Exposes a configuration option: The maximum length for conversation
@@ -704,7 +713,7 @@ module Decidim
       ),
       CoreDataManifest.new(
         name: :taxonomies,
-        collection: ->(organization) { Decidim::Taxonomy.where(organization:) },
+        collection: ->(organization) { organization.taxonomies },
         serializer: Decidim::Exporters::OpenDataTaxonomySerializer,
         include_in_open_data: true
       )

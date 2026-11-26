@@ -50,7 +50,7 @@
     "diff": "^9.0.0",
     "drag-on-drop": "^3.6.1",
     "emoji-mart": "^5.5.2",
-    "graphiql": "^5.2.4",
+    "graphiql": "^6.0.0",
     "graphql-ws": "^6.2.0",
     "regenerator-runtime": "^0.14.1",
     "html5sortable": "0.14.0",
@@ -69,7 +69,7 @@
     "react-dom": "^19.2.8",
     "react-i18nify": "^6.1.2",
     "select": "^1.1.2",
-    "tom-select": "2.6.2",
+    "tom-select": "^2.6.2",
     "wc-datepicker": "^0.13.0"
   }
 }

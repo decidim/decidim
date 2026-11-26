@@ -179,7 +179,7 @@ en:
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
-          step:
+          phase:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled_for_participants: Meeting creation by participants enabled
@@ -753,9 +753,11 @@ en:
         create:
           invalid: There was a problem joining this meeting.
           success: You have joined the meeting successfully. Because you have registered for this meeting, you will be notified if there are updates on it.
+          unauthorized: You need to sign in before registering to the meeting.
         decline_invitation:
           invalid: There was a problem declining the invitation.
           success: You have declined the invitation successfully.
+          unauthorized: You need to sign in before declining the invitation.
         destroy:
           invalid: There was a problem leaving this meeting.
           success: You have left the meeting successfully.

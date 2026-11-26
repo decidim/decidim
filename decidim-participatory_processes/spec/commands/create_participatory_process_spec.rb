@@ -126,10 +126,10 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "adds the default active step" do
+      it "adds the default active phase" do
         subject.call
-        expect(process.steps.count).to eq(1)
-        expect(process.steps.first).to be_active
+        expect(process.phases.count).to eq(1)
+        expect(process.phases.first).to be_active
       end
 
       it "adds the admins as followers" do
@@ -174,6 +174,19 @@ module Decidim::ParticipatoryProcesses
 
             linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
             expect(linked_processes.first).to eq(process_two)
+          end
+        end
+
+        context "when a related process belongs to another organization" do
+          let(:other_organization) { create(:organization) }
+          let!(:foreign_process) { create(:participatory_process, organization: other_organization) }
+          let(:related_process_ids) { [another_process.id, foreign_process.id] }
+
+          it "does not link the other process" do
+            subject.call
+
+            linked_processes = process.linked_participatory_space_resources(:participatory_process, "related_processes")
+            expect(linked_processes).to contain_exactly(another_process)
           end
         end
       end

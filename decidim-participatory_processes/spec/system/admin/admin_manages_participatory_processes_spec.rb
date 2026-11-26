@@ -102,7 +102,7 @@ describe "Admin manages participatory processes", versioning: true do
       expect(last_participatory_process.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
-        expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
+        expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_phases_path(Decidim::ParticipatoryProcess.last)
         expect(page).to have_text("Phases")
         expect(page).to have_text("Introduction")
       end
@@ -141,6 +141,41 @@ describe "Admin manages participatory processes", versioning: true do
       within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
         src = page.find("img")["src"]
         expect(src).to be_blob_url(hero_blob)
+      end
+    end
+
+    context "and participatory has start date and end date" do
+      let!(:participatory_process3) { create(:participatory_process, :past, organization:) }
+
+      before do
+        visit decidim_admin_participatory_processes.participatory_processes_path
+      end
+
+      it "removes the start and end dates when updating a participatory process" do
+        expect(participatory_process3.start_date).to be_present
+        expect(participatory_process3.end_date).to be_present
+
+        within "tr", text: translated(participatory_process3.title) do
+          click_on translated(participatory_process3.title)
+        end
+
+        %w(participatory_process_start_date participatory_process_end_date).each do |field_id|
+          date_field = find_by_id("#{field_id}_date")
+          date_length = date_field.value.length
+          date_field.send_keys(([:arrow_left] * date_length) + ([:delete] * date_length))
+
+          expect(page).to have_field("#{field_id}_date", with: "")
+          expect(page).to have_field(field_id, with: "", visible: :all)
+        end
+
+        click_on "Update"
+
+        expect(page).to have_callout("Participatory process successfully updated.")
+
+        participatory_process3.reload
+
+        expect(participatory_process3.start_date).to be_nil
+        expect(participatory_process3.end_date).to be_nil
       end
     end
   end

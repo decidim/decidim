@@ -8,6 +8,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       class_methods do
+        protected
+
         # Public: Called on a controller, it sets up all the surrounding methods to render a
         # participatory space's admin template. It expects the method `current_participatory_space`
         # to be defined, from which it will extract the participatory manifest.

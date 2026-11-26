@@ -6,11 +6,11 @@ module Decidim
   describe AmendmentsController do
     routes { Decidim::Core::Engine.routes }
 
-    let!(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:active_step_id) { participatory_process.active_step.id }
-    let(:step_settings) { { active_step_id => { amendment_creation_enabled: true } } }
+    let!(:participatory_process) { create(:participatory_process, :with_phases) }
+    let(:active_phase_id) { participatory_process.active_phase.id }
+    let(:phase_settings) { { active_phase_id => { amendment_creation_enabled: true } } }
     let(:settings) { { amendments_enabled: true } }
-    let!(:component) { create(:component, participatory_space: participatory_process, settings:, step_settings:) }
+    let!(:component) { create(:component, participatory_space: participatory_process, settings:, phase_settings:) }
     let(:other_user) { create(:user, :confirmed, organization: component.organization) }
 
     let!(:amendable) { create(:dummy_resource, component:) }
@@ -23,6 +23,74 @@ module Decidim
     before do
       request.env["decidim.current_organization"] = amendable.organization
       sign_in user
+    end
+
+    describe "cross-organization access" do
+      let(:other_organization) { create(:organization) }
+      let(:other_component) { create(:dummy_component, organization: other_organization) }
+      let(:other_amendable) { create(:dummy_resource, component: other_component) }
+      let(:other_emendation) { create(:dummy_resource, component: other_component) }
+      let!(:other_amendment) { create(:amendment, amendable: other_amendable, emendation: other_emendation, state: "evaluating") }
+      let(:user) { other_user }
+      let(:step_settings) { { active_step_id => { amendment_creation_enabled: true, amendment_reaction_enabled: true } } }
+      let!(:local_amendable) { create(:dummy_resource, component:, author: user) }
+      let!(:local_emendation) { create(:dummy_resource, component:) }
+      let!(:local_amendment) { create(:amendment, amendable: local_amendable, emendation: local_emendation, state: "evaluating") }
+
+      it "does not allow reviewing an amendment from another organization" do
+        expect { get :review, params: { id: other_amendment.id } }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
+
+      it "binds the review form to the amendment from the route" do
+        get :review, params: { id: local_amendment.id, amendment: { id: other_amendment.id } }
+
+        expect(assigns(:form).id).to eq(local_amendment.id)
+        expect(assigns(:form).amendment).to eq(local_amendment)
+      end
+
+      it "binds the create form to the checked amendable" do
+        expect do
+          post :create, params: {
+            amendable_gid: local_amendable.to_sgid.to_s,
+            amendment: {
+              amendable_gid: other_amendable.to_sgid.to_s,
+              emendation_params: { title: "A different title", body: "A different body" }
+            }
+          }
+        end.to change { local_amendable.amendments.count }.by(1)
+
+        expect(assigns(:form).amendable).to eq(local_amendable)
+        expect(other_amendable.amendments.count).to eq(1)
+      end
+
+      it "accepts the amendment from the route and not the nested foreign amendment" do
+        patch :accept, params: {
+          id: local_amendment.id,
+          amendment: { id: other_amendment.id },
+          emendation_params: { title: local_emendation.title, body: local_emendation.body }
+        }
+
+        expect(assigns(:form).amendment).to eq(local_amendment)
+        expect(local_amendment.reload.state).to eq("accepted")
+        expect(other_amendment.reload.state).to eq("evaluating")
+      end
+
+      it "does not accept a local amendable_gid as authorization for a foreign amendment" do
+        expect do
+          patch :reject, params: {
+            id: other_amendment.id,
+            amendable_gid: local_amendable.to_sgid.to_s
+          }
+        end.to raise_error(ActiveRecord::RecordNotFound)
+
+        expect(other_amendment.reload.state).to eq("evaluating")
+      end
+
+      it "does not allow creating an amendment for a resource from another organization" do
+        expect { get :new, params: { amendable_gid: other_amendable.to_sgid.to_s } }
+          .to raise_error(ActiveRecord::RecordNotFound)
+      end
     end
 
     describe "GET edit_draft" do

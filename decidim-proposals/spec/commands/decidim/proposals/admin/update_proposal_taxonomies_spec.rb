@@ -13,7 +13,7 @@ module Decidim
           let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
           let(:taxonomy_ids) { [taxonomy.id] }
           let(:proposal_ids) { [resource.id] }
-          let(:command) { described_class.new(taxonomy_ids, proposal_ids, organization) }
+          let(:command) { described_class.new(taxonomy_ids, proposal_ids, resource.component) }
           let(:resources) { Dev::DummyResource.where(id: resource.id) }
 
           subject { command.call }
@@ -61,6 +61,19 @@ module Decidim
                   affected_users: resource.notifiable_identities
                 )
               command.call
+            end
+          end
+
+          context "when a proposal belongs to another organization" do
+            let(:other_organization) { create(:organization) }
+            let(:other_component) { create(:proposal_component, participatory_space: create(:participatory_process, organization: other_organization)) }
+            let!(:other_resource) { create(:proposal, component: other_component) }
+            let(:proposal_ids) { [resource.id, other_resource.id] }
+
+            it "does not update the other proposal" do
+              subject
+
+              expect(other_resource.reload.taxonomies).to be_empty
             end
           end
         end

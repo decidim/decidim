@@ -48,16 +48,15 @@ module Decidim
         attr_reader :form, :proposal, :attachment, :gallery
 
         def delete_attachment(attachment)
-          Attachment.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
+          proposal.attachments.find(attachment.id).delete if attachment.id.to_i == proposal.documents.first.id
         end
 
         def update_proposal
-          parsed_title = Decidim::ContentProcessor.parse(form.title, current_organization: form.current_organization).rewrite
           parsed_body = Decidim::ContentProcessor.parse(form.body, current_organization: form.current_organization).rewrite
           Decidim.traceability.update!(
             proposal,
             form.current_user,
-            title: parsed_title,
+            title: form.title,
             body: parsed_body,
             taxonomizations: form.taxonomizations,
             address: form.address,

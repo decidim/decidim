@@ -24,7 +24,7 @@ module Decidim
 
       translatable_fields :title, :description
 
-      belongs_to :budget, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Budget", inverse_of: :projects
+      belongs_to :budget, foreign_key: "decidim_budgets_budget_id", class_name: "Decidim::Budgets::Budget", inverse_of: :projects, counter_cache: :projects_count
       has_one :component, through: :budget, foreign_key: "decidim_component_id", class_name: "Decidim::Component"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
@@ -57,6 +57,10 @@ module Decidim
                         },
                         index_on_create: ->(project) { project.visible? },
                         index_on_update: ->(project) { project.visible? })
+
+      def self.searchable_arguments
+        [:taxonomies, { component: { participatory_space: :organization } }]
+      end
 
       def self.ordered_ids(ids)
         # Make sure each ID in the matching text has a "," character as their

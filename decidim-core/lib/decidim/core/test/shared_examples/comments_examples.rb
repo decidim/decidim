@@ -779,10 +779,8 @@ shared_examples "comments" do
 
           within "#comment_#{comment.id}" do
             page.find("[id^='dropdown-trigger']").click
-            click_on "Delete"
+            accept_confirm { click_on "Delete" }
           end
-
-          accept_confirm
 
           expect(page).to have_css("#comment_#{comment.id}")
           within "#comment_#{comment.id}" do
@@ -1110,10 +1108,10 @@ end
 shared_examples "comments blocked" do
   context "when not authenticated" do
     context "when comments are blocked" do
-      let(:active_step_id) { component.participatory_space.active_step.id }
+      let(:active_phase_id) { component.participatory_space.active_phase.id }
 
       before do
-        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+        component.update!(phase_settings: { active_phase_id => { comments_blocked: true } })
       end
 
       it "shows a message indicating that comments are disabled" do
@@ -1154,10 +1152,10 @@ shared_examples "comments blocked" do
     end
 
     context "when comments are blocked" do
-      let(:active_step_id) { component.participatory_space.active_step.id }
+      let(:active_phase_id) { component.participatory_space.active_phase.id }
 
       before do
-        component.update!(step_settings: { active_step_id => { comments_blocked: true } })
+        component.update!(phase_settings: { active_phase_id => { comments_blocked: true } })
       end
 
       it "shows a message indicating that comments are disabled" do

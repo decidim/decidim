@@ -12,12 +12,11 @@ describe "Dashboard" do
   let(:option21) { question2.response_options.first }
   let(:option22) { question2.response_options.second }
   let(:organization) { election.organization }
-  let(:elections_path) { Decidim::EngineRouter.main_proxy(election.component).root_path }
+  let(:election_path) { Decidim::EngineRouter.main_proxy(election.component).election_path(election) }
 
   before do
     switch_to_host(organization.host)
-    visit elections_path
-    click_on translated_attribute(election.title)
+    visit election_path
   end
 
   it_behaves_like "shows questions in an election"
@@ -88,8 +87,7 @@ describe "Dashboard" do
 
     before do
       question1.update(published_results_at: Time.current)
-      visit elections_path
-      click_on translated_attribute(election.title)
+      visit election_path
     end
 
     context "when all questions are enabled" do
@@ -104,7 +102,7 @@ describe "Dashboard" do
         expect(page).to have_text(translated_attribute(option11.body))
         expect(page).to have_text(translated_attribute(option12.body))
       end
-      expect(page).to have_no_selector("#question-#{question2.id}")
+      expect(page).to have_no_css("#question-#{question2.id}")
       expect_vote_percent(question1, option11, "0.0%")
       expect_vote_count(question1, option11, "0")
       expect_vote_percent(question1, option12, "0.0%")
@@ -123,7 +121,7 @@ describe "Dashboard" do
       expect_vote_percent(question1, option12, "0.0%")
       expect_vote_count(question1, option12, "0")
       expect_total_votes(question1, "1")
-      expect(page).to have_no_selector("#question-#{question2.id}")
+      expect(page).to have_no_css("#question-#{question2.id}")
 
       question2.update(published_results_at: Time.current)
       sleep 5

@@ -17,11 +17,21 @@ module Decidim
                              ::Decidim::Initiatives::Permissions,
                              ::Decidim::Admin::Permissions)
 
-        def permission_class_chain
-          ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
+        def edit
+          enforce_permission_to :update, :initiatives_type, initiatives_type: resource
+          super
+        end
+
+        def update
+          enforce_permission_to :update, :initiatives_type, initiatives_type: resource
+          super
         end
 
         private
+
+        def permission_class_chain
+          ::Decidim.permissions_registry.chain_for(::Decidim::Initiatives::Admin::InitiativesTypesPermissionsController)
+        end
 
         def set_controller_breadcrumb
           controller_breadcrumb_items.append(

@@ -36,14 +36,14 @@ shared_examples "manage announcements" do
       )
     end
 
-    it "customize an announcement for the current step and it has more priority" do
+    it "customize an announcement for the current phase and it has more priority" do
       visit edit_component_path(current_component)
-      step_id = current_component.participatory_space.steps.first.id
+      phase_id = current_component.participatory_space.phases.first.id
 
       fill_in_i18n_editor(
-        :"component_step_settings_#{step_id}_announcement",
-        "#step-#{step_id}-settings-announcement-tabs",
-        en: "An announcement for this step",
+        :"component_phase_settings_#{phase_id}_announcement",
+        "#phase-#{phase_id}-settings-announcement-tabs",
+        en: "An announcement for this phase",
         es: "Un aviso para esta fase",
         ca: "Un avís per a aquesta fase"
       )
@@ -56,7 +56,7 @@ shared_examples "manage announcements" do
 
       within page.find("[data-announcement]", match: :first) do
         expect(page).to have_no_text("An important announcement")
-        expect(page).to have_text("An announcement for this step")
+        expect(page).to have_text("An announcement for this phase")
       end
     end
   end

@@ -10,6 +10,8 @@ module Decidim
         include Decidim::Admin::Concerns::HasAttachmentCollections
         include Decidim::Admin::Concerns::HasTabbedMenu
 
+        protected
+
         def after_destroy_path
           assembly_attachment_collections_path(current_assembly)
         end

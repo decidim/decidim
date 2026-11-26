@@ -32,7 +32,7 @@ module Decidim
       validates :title, presence: true
 
       scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
-      scope :published_at_desc, -> { order(arel_table[:published_at].desc) }
+      scope :published_at_desc, -> { order(arel_table[:published_at].desc.nulls_last) }
       scope :published, -> { where(published_at: ..Time.current) }
 
       searchable_fields({
@@ -43,6 +43,10 @@ module Decidim
                         },
                         index_on_create: ->(post) { post.visible? },
                         index_on_update: ->(post) { post.visible? })
+
+      def self.searchable_arguments
+        [:taxonomies, { author: [:organization, :avatar_attachment] }, { component: { participatory_space: :organization } }]
+      end
 
       class << self
         def all_timestamp_attributes_in_model

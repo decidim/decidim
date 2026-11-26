@@ -85,7 +85,7 @@ describe "Report User" do
         expect(page).to have_css(".flag-user-modal", visible: :visible)
 
         within ".flag-user-modal" do
-          find(:css, "input[name='report[block]']").set(true)
+          find_field(name: "report[block]").set(true)
           expect(page).to have_field(name: "report[block]", visible: :visible)
           expect(page).to have_field(name: "report[hide]", visible: :visible)
           click_on "Block this participant"

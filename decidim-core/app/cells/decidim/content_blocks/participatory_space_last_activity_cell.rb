@@ -14,7 +14,7 @@ module Decidim
       end
 
       def activities_query
-        @activities_query ||= Decidim::ParticipatorySpaceLastActivity.new(resource).query
+        @activities_query ||= Decidim::ParticipatorySpaceLastActivity.new(resource).query.preload(:user)
       end
 
       private

@@ -49,6 +49,8 @@ module Decidim
       # right page.
       before_action :store_current_location
 
+      protected
+
       def permission_class_chain
         PermissionsRegistry.chain_for(DeviseControllers)
       end

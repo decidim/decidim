@@ -8,7 +8,11 @@ module Decidim
     include Loggable
     include ParticipatorySpaceUser
 
-    belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess", optional: true
+    belongs_to :participatory_process,
+               foreign_key: "decidim_participatory_process_id",
+               class_name: "Decidim::ParticipatoryProcess",
+               optional: true,
+               inverse_of: :participatory_process_user_roles
     alias participatory_space participatory_process
 
     scope :for_space, ->(participatory_space) { where(participatory_process: participatory_space) }

@@ -287,6 +287,7 @@ sk:
           error: Vyskytol sa problém pri pridávaní typu registrácie na konferenciu.
           success: Typ registrácie na konferenciu úspešne pridaný.
         destroy:
+          error: Pri odstraňovaní tohto typu registrácie sa vyskytol problém. Typy registrácií s registráciami nie je možné odstrániť.
           success: Typ registrácie na konferenciu úspešne odstránený.
         edit:
           update: Aktualizovať

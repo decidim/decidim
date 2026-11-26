@@ -1,1 +1,15 @@
+---
 gl:
+  decidim:
+    api:
+      errors:
+        introspection_disabled: A introspección está desactivada para esta solicitude
+        invalid_locale: A configuración rexional indicada non é válida
+        locale_argument_error: Produciuse un erro ao xestionar internamente os datos de i18n
+        not_found: "Non se atopou %{type}"
+        permission_not_set: Non se estableceu o permiso para %{type}
+        recursion_limit_exceeded_error: Detectáronse demasiadas recursións na consulta
+        too_many_aliases_error: Usáronse demasiados alias. Usaches %{size}, pero só se permiten %{limit}.
+        unauthorized_field: Non podes ver nin editar o campo %{field} de %{type} porque non tes permiso
+        unauthorized_mutation: Non tes permiso para realizar esta mutación
+        unauthorized_object: Non podes ver nin editar %{type} porque non tes permisos

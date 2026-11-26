@@ -26,10 +26,8 @@ module Decidim
 
         describe "POST create" do
           it "enqueues a job with the default format" do
-            expect(ExportParticipatorySpaceJob).to receive(:perform_later)
+            expect { post(:create, params:) }.to have_enqueued_job(ExportParticipatorySpaceJob)
               .with(user, assembly, "assemblies", "JSON")
-
-            post(:create, params:)
           end
 
           it "traces the action", versioning: true do

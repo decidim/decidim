@@ -7,6 +7,8 @@ module Decidim
         include Decidim::Meetings::PollsResources
 
         def index
+          enforce_permission_to(:read, :meeting, meeting:)
+
           respond_to do |format|
             format.js do
               render template: pick_index_template, locals: { open_question: nil }

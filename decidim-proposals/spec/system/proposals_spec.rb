@@ -173,8 +173,8 @@ describe "Proposals" do
 
       before do
         component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
+          phase_settings: {
+            component.participatory_space.active_phase.id => {
               answers_with_costs: true
             }
           }
@@ -213,8 +213,8 @@ describe "Proposals" do
 
       it "shows the costs" do
         component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
+          phase_settings: {
+            component.participatory_space.active_phase.id => {
               answers_with_costs: true
             }
           }
@@ -713,7 +713,7 @@ describe "Proposals" do
 
       it "finds the correct proposal" do
         within "form.new_filter" do
-          find("input[name='filter[search_text_cont]']", match: :first).set("lorem")
+          find_field(name: "filter[search_text_cont]", match: :first).set("lorem")
           find("*[type=submit]").click
         end
 

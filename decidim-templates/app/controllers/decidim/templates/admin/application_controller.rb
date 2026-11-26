@@ -17,6 +17,8 @@ module Decidim
                              ::Decidim::Templates::Admin::Permissions,
                              ::Decidim::Admin::Permissions)
 
+        protected
+
         def permission_class_chain
           ::Decidim.permissions_registry.chain_for(::Decidim::Templates::Admin::ApplicationController)
         end

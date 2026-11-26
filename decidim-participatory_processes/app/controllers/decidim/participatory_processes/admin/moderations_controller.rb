@@ -7,6 +7,8 @@ module Decidim
       class ModerationsController < Decidim::Admin::ModerationsController
         include Concerns::ParticipatoryProcessAdmin
 
+        protected
+
         def permissions_context
           super.merge(current_participatory_space:)
         end

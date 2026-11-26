@@ -19,6 +19,30 @@ shared_examples "manage registration types examples" do
     end
   end
 
+  context "when the registration type has registrations and meeting links" do
+    let!(:conference_registration) do
+      create(:conference_registration, conference:, registration_type:, user: create(:user, :confirmed, organization:))
+    end
+    let!(:conference_meeting_registration_type) do
+      create(:conference_meeting_registration_type, registration_type:)
+    end
+
+    before do
+      visit current_path
+    end
+
+    it "shows the counters and hides the edit and destroy actions" do
+      within "#registration_types tr", text: translated(registration_type.title) do
+        expect(page).to have_css("td[data-label='Conference meetings']", text: "1")
+        expect(page).to have_css("td[data-label='Registrations count']", text: "1")
+
+        find("button[data-controller='dropdown']").click
+        expect(page).to have_no_link("Edit")
+        expect(page).to have_no_link("Delete")
+      end
+    end
+  end
+
   describe "when managing other conference registration types" do
     before do
       visit current_path
