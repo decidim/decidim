@@ -125,6 +125,7 @@ ca:
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
           phase:
+            announcement: Anunci/Avís
             comments_blocked: Comentaris bloquejats
             likes_blocked: '"M''agrada" desactivats'
             likes_enabled: '"M''agrada" activats'
