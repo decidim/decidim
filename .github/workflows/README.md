@@ -44,7 +44,7 @@ The `spec/types` suites run only in `ci_api_types.yml`, which builds a dynamic m
 
 - Changes to root-level files (matched by `*`, such as `Gemfile` or `Gemfile.lock`) or to `.github/**` run the type specs of all 17 modules that have a `spec/types` directory.
 - Changes to `decidim-admin`, `decidim-api`, `decidim-core`, `decidim-comments`, `decidim-dev`, or `decidim-participatory_processes` also run the type specs of all 17 modules.
-- A change to only one module runs that module's type specs.
+- A change to only one module runs that module's type specs together with those of its runtime dependents. For example, a change under `decidim-forms` runs the type specs of `decidim-forms`, `decidim-meetings`, `decidim-surveys`, and `decidim-conferences`, while a change under `decidim-meetings` runs those of `decidim-meetings` and `decidim-conferences`.
 
 The module workflows exclude `spec/types` (`--exclude-pattern spec/types` or `'spec/(system|types)'`) so these tests run exactly once.
 

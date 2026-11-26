@@ -76,8 +76,11 @@ jobs:
               - "decidim-collaborative_texts/**"
             decidim-comments:
               - "decidim-comments/**"
+            # Includes runtime dependency paths so dependency changes rerun this module's type specs.
             decidim-conferences:
               - "decidim-conferences/**"
+              - "decidim-forms/**"
+              - "decidim-meetings/**"
             decidim-core:
               - "decidim-core/**"
             decidim-debates:
@@ -88,7 +91,9 @@ jobs:
               - "decidim-forms/**"
             decidim-initiatives:
               - "decidim-initiatives/**"
+            # Includes runtime dependency paths so dependency changes rerun this module's type specs.
             decidim-meetings:
+              - "decidim-forms/**"
               - "decidim-meetings/**"
             decidim-pages:
               - "decidim-pages/**"
@@ -96,7 +101,9 @@ jobs:
               - "decidim-participatory_processes/**"
             decidim-proposals:
               - "decidim-proposals/**"
+            # Includes runtime dependency paths so dependency changes rerun this module's type specs.
             decidim-surveys:
+              - "decidim-forms/**"
               - "decidim-surveys/**"
       - name: Build matrix
         id: matrix
