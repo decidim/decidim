@@ -33,8 +33,8 @@ module Decidim
             },
             {
               "choices" => [
-                { "response_option_id" => response_option_ids[3], "body" => "Third", "position" => 0 },
-                { "response_option_id" => response_option_ids[4], "body" => "response", "position" => 1 }
+                { "response_option_id" => sorting_options[0].id, "body" => "Third", "position" => 0 },
+                { "response_option_id" => sorting_options[1].id, "body" => "response", "position" => 1 }
               ],
               "question_id" => question3.id
             }
@@ -46,8 +46,9 @@ module Decidim
       let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
       let(:response_option_ids) { response_options.pluck(:id).map(&:to_s) }
       let(:response_options) { create_list(:response_option, 5, question: question2) }
-      let(:question3) { create(:questionnaire_question, questionnaire:) }
-      let(:question2) { create(:questionnaire_question, questionnaire:) }
+      let(:sorting_options) { create_list(:response_option, 2, question: question3) }
+      let(:question3) { create(:questionnaire_question, questionnaire:, question_type: "sorting") }
+      let(:question2) { create(:questionnaire_question, questionnaire:, question_type: "matrix_single") }
       let(:question1) { create(:questionnaire_question, questionnaire:) }
       let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
@@ -104,6 +105,34 @@ module Decidim
           expect(Response.first.body).to eq("This is my first response")
           expect(Response.second.choices.map { |a| [a.body, a.matrix_row.body] }).to eq([["My", matrix_rows.first.body], ["second", matrix_rows.second.body], ["response", matrix_rows.third.body]])
           expect(Response.third.choices.pluck(:body, :position)).to eq([["Third", 0], ["response", 1]])
+        end
+
+        it "stores the value of every response" do
+          command.call
+          expect(Response.first.value).to eq("This is my first response")
+          expect(Response.second.value).to eq(
+            matrix_rows[0].id.to_s => { "option" => response_options[0].id },
+            matrix_rows[1].id.to_s => { "option" => response_options[1].id },
+            matrix_rows[2].id.to_s => { "option" => response_options[2].id }
+          )
+          expect(Response.third.value).to eq([{ "option" => sorting_options[0].id }, { "option" => sorting_options[1].id }])
+        end
+
+        it "uses the array order of a sorting as rank, whatever the positions say" do
+          form_params["responses"].last["choices"].reverse!
+          command.call
+          expect(Response.third.value).to eq([{ "option" => sorting_options[1].id }, { "option" => sorting_options[0].id }])
+        end
+
+        context "when a question is left blank" do
+          let!(:blank_question) { create(:questionnaire_question, questionnaire:, question_type: "short_response") }
+
+          before { form_params["responses"] << { "body" => "", "question_id" => blank_question.id } }
+
+          it "saves the response without a value" do
+            command.call
+            expect(questionnaire.responses.find_by(question: blank_question).value).to be_nil
+          end
         end
 
         it "groups all responses under one submission" do
@@ -239,6 +268,8 @@ module Decidim
               expect { command.call }.to change(Decidim::Attachment, :count).by(2)
               last_attachment = Decidim::Attachment.last
               expect(last_attachment.attached_to).to be_a(Decidim::Forms::Response)
+              expect(Response.last.value).to eq(Response.last.attachments.ids)
+              expect(Response.last.value.size).to eq(2)
             end
           end
 
@@ -301,6 +332,7 @@ module Decidim
             it "keeps the attachment on the same response" do
               expect { command.call }.to broadcast(:ok)
               expect(existing_response.reload.attachments).to eq([existing_attachment])
+              expect(existing_response.reload.value).to eq([existing_attachment.id])
             end
           end
 
@@ -316,6 +348,36 @@ module Decidim
               expect(existing_response.reload.updated_at).to eq(updated_at)
               expect(existing_response.attachments.count).to eq(2)
               expect(submission.reload.responses).to contain_exactly(existing_response)
+            end
+          end
+
+          context "when editing is allowed and an attachment is kept by id and another one added" do
+            let(:command) { described_class.new(form, questionnaire, allow_editing_responses: true) }
+            let(:submission) { create(:submission, questionnaire:, user: current_user) }
+            let!(:existing_response) { create(:response, :with_attachments, questionnaire:, question: question1, user: current_user, submission:) }
+            let(:existing_attachment) { existing_response.attachments.first }
+            let(:form_params) do
+              { "responses" => [{ "add_attachments" => [{ id: existing_attachment.id }, uploaded_files.first], "question_id" => question1.id }], "tos_agreement" => "1" }
+            end
+
+            it "stores the kept and the new attachment ids in order" do
+              expect { command.call }.to broadcast(:ok)
+              expect(existing_response.reload.value).to eq([existing_attachment.id, Decidim::Attachment.last.id])
+            end
+          end
+
+          context "when editing is allowed and every attachment is removed" do
+            let(:command) { described_class.new(form, questionnaire, allow_editing_responses: true) }
+            let(:submission) { create(:submission, questionnaire:, user: current_user) }
+            let!(:existing_response) { create(:response, :with_attachments, questionnaire:, question: question1, user: current_user, submission:) }
+            let(:form_params) { { "responses" => [{ "question_id" => question1.id }], "tos_agreement" => "1" } }
+
+            before { existing_response.update!(value: existing_response.attachments.ids) }
+
+            it "keeps the response without a value" do
+              expect { command.call }.to broadcast(:ok)
+              expect(existing_response.reload.value).to be_nil
+              expect(existing_response.attachments).to be_empty
             end
           end
         end
