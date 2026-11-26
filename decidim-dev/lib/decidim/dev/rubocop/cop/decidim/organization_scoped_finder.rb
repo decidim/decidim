@@ -14,9 +14,12 @@ module RuboCop
       # scoped `collection`.
       #
       # The cop targets chains that start with an ActiveRecord model constant
-      # and end with a terminal query method (`find`, `find_by`, `first`,
-      # `take`, `exists?`, `find_or_create_by`, `destroy_all`, etc.) unless the
-      # chain includes a recognized scoping step.
+      # or a dynamically resolved model (`model_class`, `constantize`,
+      # `safe_constantize`) and end with a terminal query method (`find`,
+      # `find_by`, `first`, `take`, `exists?`, `find_or_create_by`,
+      # `destroy_all`, etc.) unless the chain includes a recognized scoping
+      # step. Safe navigation (`&.`) chains are inspected the same way as
+      # regular method calls.
       class OrganizationScopedFinder < RuboCop::Cop::Base
         MSG = "Unscoped ActiveRecord finder detected. Scope the query to the current organization, " \
               "e.g. `current_organization.<relation>.find_by(id: params[:id])` or use an already-scoped `collection`."
@@ -84,6 +87,10 @@ module RuboCop
 
         SCOPED_HELPER_METHODS = [:current_organization, :current_component, :current_participatory_space].freeze
 
+        DYNAMIC_MODEL_METHODS = [:model_class, :constantize, :safe_constantize].freeze
+
+        SCOPING_METHODS = [:resource_scope].freeze
+
         # Query objects are commonly built from a positional argument, e.g.
         # `AssembliesWithUserRole.for(current_user)`. The current user is bound
         # to the current organization, so it also establishes the tenant scope.
@@ -128,6 +135,7 @@ module RuboCop
 
           add_offense(node)
         end
+        alias on_csend on_send
 
         private
 
@@ -148,7 +156,7 @@ module RuboCop
         end
 
         def check_or_relation(node)
-          return if node.ancestors.any? { |ancestor| ancestor.send_type? && ancestor.method_name == :or }
+          return if node.ancestors.any? { |ancestor| ancestor.call_type? && ancestor.method_name == :or }
           return if scoped_or_branches?(node)
           return if consumed_by_outer_relation?(node)
 
@@ -158,7 +166,10 @@ module RuboCop
         def organization_scoped?(node)
           return false unless node
           return true if scoped_node?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
+          # A dynamic model method starts a new query root, so a scope applied
+          # earlier in the chain does not apply to the class it resolves.
+          return false if dynamic_model_method?(node)
           return scoped_or_branches?(node) if node.method_name == :or
 
           organization_scoped?(node.receiver)
@@ -168,9 +179,14 @@ module RuboCop
           return false unless node
           return false if ignored_constant?(node)
           return true if node.const_type?
-          return false unless node.send_type?
+          return true if dynamic_model_method?(node)
+          return false unless node.call_type?
 
           unscoped_model_class?(node.receiver)
+        end
+
+        def dynamic_model_method?(node)
+          node.call_type? && DYNAMIC_MODEL_METHODS.include?(node.method_name)
         end
 
         # An `or` relation whose branches are not all scoped can leak records
@@ -180,7 +196,7 @@ module RuboCop
         # and the terminal finder (e.g. `.order(:id)`) do not hide it.
         # `organization_scoped?` has already rejected the chain at this point.
         def unscoped_or_relation?(node)
-          return false unless node&.send_type?
+          return false unless node&.call_type?
           return !scoped_or_branches?(node) if node.method_name == :or
 
           unscoped_or_relation?(node.receiver)
@@ -199,9 +215,13 @@ module RuboCop
         end
 
         def scoped_node?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
 
-          scope_root?(node) || scoped_where?(node) || scoped_finder_arguments?(node)
+          scope_root?(node) || scoping_method?(node) || scoped_where?(node) || scoped_finder_arguments?(node)
+        end
+
+        def scoping_method?(node)
+          SCOPING_METHODS.include?(node.method_name)
         end
 
         def scope_root?(node)
@@ -278,7 +298,7 @@ module RuboCop
           # local variable rather than a send, but it is still the intended
           # organization.
           return true if organization_local_variable?(node)
-          return false unless node&.send_type? && node.method_name == :organization
+          return false unless node&.call_type? && node.method_name == :organization
           return false unless node.arguments.empty?
           return true unless node.receiver
 
@@ -295,7 +315,7 @@ module RuboCop
         # as they may resolve a tenant from request parameters.
         def trusted_organization_receiver?(node)
           return true if node.lvar_type? || node.ivar_type?
-          return false unless node.send_type?
+          return false unless node.call_type?
           return true if scoped_query_argument_method?(node)
           return true if node.receiver&.self_type? && SCOPED_QUERY_ARGUMENT_METHODS.include?(node.method_name)
 
@@ -305,7 +325,7 @@ module RuboCop
         def scoped_association_pair?(key, value)
           return false unless key.sym_type?
           return false unless SCOPED_ASSOCIATION_KEYS.include?(key.value)
-          return false unless value.send_type?
+          return false unless value.call_type?
           return false unless value.method_name == :"current_#{key.value}"
           return true unless value.receiver
 
@@ -316,7 +336,7 @@ module RuboCop
         end
 
         def form_context_receiver?(node)
-          return node.method_name == :form if node.send_type? && node.receiver.nil?
+          return node.method_name == :form if node.call_type? && node.receiver.nil?
           return node.name == :form if node.lvar_type?
 
           node.ivar_type? && node.name == :@form
@@ -326,7 +346,7 @@ module RuboCop
           return false unless node
 
           case node.type
-          when :send
+          when :send, :csend
             scoped_helper_method?(node) || (node.receiver && scoped_trusted_value?(node.receiver))
           when :hash
             node.children.any? { |pair| scoped_pair?(pair) }
@@ -336,7 +356,7 @@ module RuboCop
         end
 
         def scoped_helper_method?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
           return false if node.receiver
 
           SCOPED_HELPER_METHODS.include?(node.method_name)
@@ -349,18 +369,21 @@ module RuboCop
         end
 
         def constructed_scope_root?(node)
-          return false unless node.send_type?
-
-          if node.receiver&.const_type?
-            return true if SCOPED_QUERY_CONSTRUCTOR_METHODS.include?(node.method_name) &&
-                           node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
-
-            return scoped_finder_arguments?(node)
-          end
-
+          return false unless node.call_type?
+          # As in `organization_scoped?`, a dynamic model method starts a new
+          # query root, so a scope constructed earlier does not apply to it.
+          return false if dynamic_model_method?(node)
+          return constructed_const_scope_root?(node) if node.receiver&.const_type?
           return scoped_constructor_argument?(node) if node.method_name == :or
 
           constructed_scope_root?(node.receiver) if node.receiver
+        end
+
+        def constructed_const_scope_root?(node)
+          return true if SCOPED_QUERY_CONSTRUCTOR_METHODS.include?(node.method_name) &&
+                         node.arguments.any? { |arg| scoped_constructor_argument?(arg) }
+
+          scoped_finder_arguments?(node)
         end
 
         # Query objects in Decidim commonly receive the organization or the
@@ -371,13 +394,13 @@ module RuboCop
         # organization-scoped or be constructed from an organization-scoped
         # query object.
         def scoped_constructor_argument?(node)
-          return scoped_query_argument_method?(node) unless node.send_type? && node.method_name == :or
+          return scoped_query_argument_method?(node) unless node.call_type? && node.method_name == :or
 
           scoped_or_branches?(node)
         end
 
         def scoped_query_argument_method?(node)
-          return false unless node.send_type?
+          return false unless node.call_type?
           return false if node.receiver
 
           SCOPED_QUERY_ARGUMENT_METHODS.include?(node.method_name)
@@ -398,7 +421,7 @@ module RuboCop
         def consumed_by_outer_relation?(node)
           loads_records = loads_records?(node)
           ancestor = node.parent
-          while ancestor&.send_type?
+          while ancestor&.call_type?
             break unless ancestor.receiver == node
             return true if reportable_outer_relation?(ancestor, loads_records)
 
@@ -449,7 +472,7 @@ module RuboCop
         # receiver, so an outer scoped call cannot hide the warning for
         # `Template.where(name: "foo").load.or(current_organization.templates)`.
         def loads_records?(node)
-          return false unless node&.send_type?
+          return false unless node&.call_type?
           return true if QUERY_METHODS.include?(node.method_name) || RECORD_LOADING_METHODS.include?(node.method_name)
 
           loads_records?(node.receiver)

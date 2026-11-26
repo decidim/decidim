@@ -213,7 +213,7 @@ module Decidim
         previous_space_class, previous_space_id = params.expect(:previous_space).split("#")
         return unless valid_participatory_space_class?(previous_space_class)
 
-        @previous_space = previous_space_class.constantize.find_by(id: previous_space_id)
+        @previous_space = previous_space_class.constantize.where(organization: current_organization).find_by(id: previous_space_id)
         @previous_space
       rescue NameError, LoadError
         nil
