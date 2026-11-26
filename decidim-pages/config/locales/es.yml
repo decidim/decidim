@@ -14,6 +14,8 @@ es:
         settings:
           global:
             announcement: Aviso
+          phase:
+            announcement: Anuncio/Aviso
     open_data:
       help:
         pages:
