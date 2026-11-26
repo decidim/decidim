@@ -185,6 +185,28 @@ module Decidim
             end
           end
 
+          context "when the changeset is too large" do
+            let(:params) do
+              {
+                component_id: component.id,
+                document_id: document.id,
+                changeset: {
+                  firstNode: "1",
+                  lastNode: "2",
+                  original: ["a" * (Suggestion::MAX_CHANGESET_BYTES + 1)],
+                  replace: ["Replaced text"]
+                }
+              }
+            end
+
+            it "returns an error" do
+              post(:create, params:)
+              expect(response).to have_http_status(:unprocessable_content)
+              body = response.parsed_body
+              expect(body["message"]).to include("The suggestion is too large.")
+            end
+          end
+
           context "when params are invalid" do
             let(:first_node) { "" }
 

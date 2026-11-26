@@ -95,6 +95,62 @@ module Decidim
           end
         end
 
+        context "when the changeset has too many nodes" do
+          let(:attributes) do
+            {
+              changeset: {
+                original: Array.new(Suggestion::MAX_CHANGESET_NODES + 1, "a"),
+                replace: ["replacement text"],
+                firstNode: 1,
+                lastNode: 2
+              },
+              document_id: document.id
+            }
+          end
+
+          it "is invalid" do
+            expect(form).not_to be_valid
+            expect(form.errors[:base]).to include("The suggestion affects too many nodes.")
+          end
+        end
+
+        context "when the changeset is too large" do
+          let(:attributes) do
+            {
+              changeset: {
+                original: ["a" * (Suggestion::MAX_CHANGESET_BYTES + 1)],
+                replace: ["replacement text"],
+                firstNode: 1,
+                lastNode: 2
+              },
+              document_id: document.id
+            }
+          end
+
+          it "is invalid" do
+            expect(form).not_to be_valid
+            expect(form.errors[:base]).to include("The suggestion is too large.")
+          end
+        end
+
+        context "when the changeset is exactly at the limits" do
+          let(:attributes) do
+            {
+              changeset: {
+                original: ["a" * Suggestion::MAX_CHANGESET_BYTES],
+                replace: Array.new(Suggestion::MAX_CHANGESET_NODES, "b"),
+                firstNode: 1,
+                lastNode: 2
+              },
+              document_id: document.id
+            }
+          end
+
+          it "is valid" do
+            expect(form).to be_valid
+          end
+        end
+
         context "when all attributes are valid" do
           it "is valid" do
             expect(form).to be_valid

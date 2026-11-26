@@ -111,6 +111,32 @@ module Decidim
           expect(sanitized_replace).not_to include("onerror")
           expect(sanitized_replace).to include("Hello")
         end
+
+        it "sanitizes each node only once" do
+          allow(presenter).to receive(:decidim_sanitize).and_call_original
+
+          presenter.safe_json
+
+          expect(presenter).to have_received(:decidim_sanitize).twice
+        end
+
+        context "when a legacy changeset exceeds the limits" do
+          let(:changeset) do
+            {
+              "original" => Array.new(Suggestion::MAX_CHANGESET_NODES + 10, "a"),
+              "replace" => ["b" * (Suggestion::MAX_CHANGESET_BYTES + 1)]
+            }
+          end
+
+          it "bounds the sanitized output" do
+            sanitized = presenter.safe_json[:changeset]
+
+            expect(sanitized["original"].length).to be <= Suggestion::MAX_CHANGESET_NODES
+            expect(sanitized["original"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+            expect(sanitized["replace"].length).to be <= Suggestion::MAX_CHANGESET_NODES
+            expect(sanitized["replace"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+          end
+        end
       end
     end
   end

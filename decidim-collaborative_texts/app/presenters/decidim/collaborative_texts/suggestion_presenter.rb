@@ -17,11 +17,11 @@ module Decidim
 
       # A text representation of the changeset. Without HTML.
       def text
-        @text ||= ActionView::Base.full_sanitizer.sanitize(changeset["replace"]&.join(" ")&.strip).to_s
+        @text ||= ActionView::Base.full_sanitizer.sanitize(sanitized_changeset["replace"]&.join(" ")&.strip).to_s
       end
 
       def original
-        @original ||= ActionView::Base.full_sanitizer.sanitize(changeset["original"]&.join(" ")&.strip).to_s
+        @original ||= ActionView::Base.full_sanitizer.sanitize(sanitized_changeset["original"]&.join(" ")&.strip).to_s
       end
 
       def suggestion
@@ -57,13 +57,30 @@ module Decidim
 
       # The changeset contains the HTML nodes as participants submitted them.
       # They are parsed and rendered into the document by the browser, so they
-      # need to be sanitized before leaving the server.
+      # need to be sanitized before leaving the server. Legacy records may
+      # exceed the submission limits, so the work is capped here as well.
       def sanitized_changeset
-        changeset.merge(
+        @sanitized_changeset ||= changeset.merge(
           changeset.slice("original", "replace").transform_values do |nodes|
-            Array(nodes).map { |node| decidim_sanitize(node, scrubber: Decidim::AdminInputScrubber.new) }
+            sanitize_nodes(nodes)
           end
         )
+      end
+
+      def sanitize_nodes(nodes)
+        remaining_bytes = Suggestion::MAX_CHANGESET_BYTES
+
+        Array(nodes).first(Suggestion::MAX_CHANGESET_NODES).each_with_object([]) do |node, sanitized|
+          break sanitized if remaining_bytes <= 0
+
+          text = node.to_s.truncate_bytes(remaining_bytes)
+          remaining_bytes -= text.bytesize
+          sanitized << decidim_sanitize(text, scrubber:)
+        end
+      end
+
+      def scrubber
+        @scrubber ||= Decidim::AdminInputScrubber.new
       end
     end
   end

@@ -160,7 +160,9 @@ en:
           success: Suggestion successfully created.
         errors:
           blank_changeset: Changeset cannot be blank.
+          changeset_too_large: The suggestion is too large.
           invalid_nodes: Invalid selected nodes.
+          too_many_nodes: The suggestion affects too many nodes.
     components:
       collaborative_texts:
         actions:
