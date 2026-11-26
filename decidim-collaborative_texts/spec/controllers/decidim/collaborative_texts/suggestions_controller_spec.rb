@@ -88,6 +88,25 @@ module Decidim
         end
       end
 
+      describe "GET #show" do
+        it "redirects to the document" do
+          get(:show, params: { id: suggestion1.id })
+
+          expect(response).to redirect_to(Decidim::ResourceLocatorPresenter.new(document).path)
+        end
+
+        context "when the suggestion belongs to another component" do
+          let(:other_component) { create(:collaborative_text_component) }
+          let(:other_document) { create(:collaborative_text_document, :published, component: other_component) }
+          let!(:other_version) { create(:collaborative_text_version, document: other_document) }
+          let!(:other_suggestion) { create(:collaborative_text_suggestion, document_version: other_version) }
+
+          it "does not find the suggestion" do
+            expect { get(:show, params: { id: other_suggestion.id }) }.to raise_error(ActiveRecord::RecordNotFound)
+          end
+        end
+      end
+
       describe "POST #create" do
         let(:params) do
           {

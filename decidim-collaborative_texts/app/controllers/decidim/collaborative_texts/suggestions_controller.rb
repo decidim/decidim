@@ -14,6 +14,12 @@ module Decidim
         render json: suggestions_for(document.consolidated_version)
       end
 
+      def show
+        enforce_permission_to(:read, :collaborative_text, document:)
+
+        redirect_to Decidim::ResourceLocatorPresenter.new(document).path
+      end
+
       def create
         enforce_permission_to :suggest, :collaborative_text
         @form = form(SuggestionForm).from_params(params)
@@ -44,7 +50,11 @@ module Decidim
       end
 
       def document
-        @document ||= documents.find(params.expect(:document_id))
+        @document ||= if params[:document_id]
+                        documents.find(params.expect(:document_id))
+                      else
+                        documents.joins(document_versions: :suggestions).find_by!(decidim_collaborative_texts_suggestions: { id: params.expect(:id) })
+                      end
       end
 
       def documents

@@ -6,6 +6,7 @@ module Decidim
       isolate_namespace Decidim::CollaborativeTexts
 
       routes do
+        resources :suggestions, only: [:show]
         resources :documents do
           resources :suggestions
         end
