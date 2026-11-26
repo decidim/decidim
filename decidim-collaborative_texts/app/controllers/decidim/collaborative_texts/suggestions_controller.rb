@@ -37,7 +37,8 @@ module Decidim
         version.suggestions.includes(author: [:organization, { avatar_attachment: :blob }]).map do |suggestion|
           suggestion.presenter.safe_json.merge(
             profileHtml: cell("decidim/author", suggestion.author.presenter).to_s.strip,
-            commentableGid: suggestion.to_signed_global_id.to_s
+            commentableGid: suggestion.to_signed_global_id.to_s,
+            commentsUrl: Decidim::Comments::Engine.routes.url_helpers.comments_path
           )
         end
       end
