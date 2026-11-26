@@ -50,6 +50,11 @@ ca:
       participatory_process_phase:
         cta_path: Ruta del botó d'acció
         cta_text: Text del botó d'acció
+        description: Descripció
+        end_date: Data de finalització
+        short_description: Descripció breu
+        start_date: Data d'inici
+        title: Títol
       participatory_process_user_role:
         email: Correu electrònic
         name: Nom
@@ -135,6 +140,11 @@ ca:
             title: Títol
           name: Grup de processos
         participatory_process_phase:
+          fields:
+            actions: Accions
+            end_date: Data de finalització
+            start_date: Data d'inici
+            title: Títol
           name: Fase del procés participatiu
         participatory_process_user_role:
           fields:
@@ -189,6 +199,10 @@ ca:
             active_phase: No es pot eliminar la fase activa.
             last_phase: No es pot eliminar l'última fase d'un procés.
           success: La fase del procés participatiu s'ha eliminat correctament.
+        edit:
+          update: Actualitzar
+        new:
+          create: Crear
         ordering:
           error: S'ha produït un error en la reordenació de les fases d'aquest procés participatiu.
         update:
