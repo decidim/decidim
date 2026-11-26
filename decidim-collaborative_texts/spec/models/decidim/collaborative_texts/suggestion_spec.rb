@@ -38,6 +38,10 @@ module Decidim
 
           it { is_expected.to be true }
 
+          it "accepts new comments" do
+            expect(collaborative_text_suggestion.accepts_new_comments?).to be true
+          end
+
           it "can have comments" do
             suggestion = create(:collaborative_text_suggestion, document_version:)
 
@@ -47,6 +51,10 @@ module Decidim
 
         context "when the document is not published" do
           it { is_expected.to be false }
+
+          it "does not accept new comments" do
+            expect(collaborative_text_suggestion.accepts_new_comments?).to be false
+          end
         end
       end
     end
