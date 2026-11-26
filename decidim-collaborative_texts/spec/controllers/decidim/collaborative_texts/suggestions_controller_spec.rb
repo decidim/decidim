@@ -84,6 +84,33 @@ module Decidim
             expect(official_suggestion["profileHtml"]).to include(I18n.t("decidim.author.official_author"))
           end
         end
+
+        context "when a suggestion contains executable HTML" do
+          let!(:suggestion1) do
+            create(
+              :collaborative_text_suggestion,
+              document_version: document.current_version,
+              author: suggestion_authors.first,
+              changeset: {
+                firstNode: "1",
+                lastNode: "1",
+                original: ["<p>Original</p><script>alert('xss')</script>"],
+                replace: ["<p>Replacement</p><img src=x onerror=\"alert('xss')\">"]
+              }
+            )
+          end
+
+          it "sanitizes the changeset before returning it" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            changeset = response.parsed_body.find { |item| item["id"] == suggestion1.id }["changeset"]
+
+            expect(changeset["original"].join).not_to include("<script")
+            expect(changeset["replace"].join).not_to include("onerror")
+            expect(changeset["replace"].join).to include("Replacement")
+          end
+        end
       end
 
       describe "POST #create" do
