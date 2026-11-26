@@ -81,6 +81,10 @@ fr:
         password_confirmation: Confirmation du mot de passe
         remember_me: Retenir le mot de passe
     models:
+      decidim:
+        history:
+          one: Historique
+          other: Historique
       decidim/amendment:
         one: Amendement
         other: Amendements
@@ -1468,6 +1472,8 @@ fr:
         success: Cette ressource a été masquée.
       parent_hidden:
         report_details: La ressource parente a été masquée
+    resource:
+      controls_label: Contrôles de la ressource
     resource_autocomplete:
       help: Tapez pour rechercher des propositions
     scopes:
