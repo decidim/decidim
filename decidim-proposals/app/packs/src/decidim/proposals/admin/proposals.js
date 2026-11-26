@@ -1,26 +1,20 @@
-/* eslint-disable no-invalid-this */
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 document.addEventListener("turbo:load", () => {
-  let isMergeProposalsClicked = false;
-  $('button[data-action="merge-proposals"]').on("click", function() {
-    isMergeProposalsClicked = true;
-  });
-
   const selectedProposalsCount = function() {
-    return $(".table-list .js-check-all-proposal:checked").length
-  }
+    return $(".table-list .js-check-all-proposal:checked").length;
+  };
 
   const selectedProposalsNotPublishedAnswerCount = function() {
-    return $(".table-list [data-published-state=false] .js-check-all-proposal:checked").length
-  }
+    return $(".table-list [data-published-state=false] .js-check-all-proposal:checked").length;
+  };
 
   const selectedProposalsAllowsAnswerCount = function() {
-    return $(".table-list [data-allow-answer=true] .js-check-all-proposal:checked").length
-  }
+    return $(".table-list [data-allow-answer=true] .js-check-all-proposal:checked").length;
+  };
 
   const selectedProposalsCountUpdate = function() {
     const selectedProposals = selectedProposalsCount();
@@ -28,7 +22,7 @@ document.addEventListener("turbo:load", () => {
     const allowAnswerProposals = selectedProposalsAllowsAnswerCount();
 
     if (selectedProposals === 0) {
-      $("#js-selected-proposals-count").text("")
+      $("#js-selected-proposals-count").text("");
       $("#js-assign-proposals-to-evaluator-actions").addClass("hide");
       $("#js-unassign-proposals-from-evaluator-actions").addClass("hide");
       $("#js-taxonomy-change-proposals-actions").addClass("hide");
@@ -55,144 +49,60 @@ document.addEventListener("turbo:load", () => {
     } else {
       $('button[data-action="apply-answer-template"]').parent().hide();
     }
-  }
-
-  const showBulkActionsButton = function() {
-    if (selectedProposalsCount() > 0) {
-      $("#js-bulk-actions-button").removeClass("hide");
-    }
-  }
-
-  const hideBulkActionsButton = function(force = false) {
-    if (selectedProposalsCount() === 0 || force === true) {
-      $("#js-bulk-actions-button").addClass("hide");
-      $("#js-bulk-actions-dropdown").removeClass("is-open");
-    }
-  }
+  };
 
   const resetForms = function() {
-    $("#js-bulk-actions-dropdown button").each(function() {
-      $(`#js-form-${$(this).data("action")}`)[0].reset();
-    })
-  }
-
-  const showOtherActionsButtons = function() {
-    if (isMergeProposalsClicked) {
-      return;
-    }
-    $("#js-other-actions-wrapper").removeClass("hide");
-  }
-
-  const hideOtherActionsButtons = function() {
-    if (isMergeProposalsClicked) {
-      return;
-    }
-    $("#js-other-actions-wrapper").addClass("hide");
-  }
-
-  const hideBulkActionForms = function() {
-    $(".js-bulk-action-form").addClass("hide");
-  }
-
-  // Expose functions to make them available in .js.erb templates
-  window.selectedProposalsCount = selectedProposalsCount;
-  window.selectedProposalsNotPublishedAnswerCount = selectedProposalsNotPublishedAnswerCount;
-  window.selectedProposalsCountUpdate = selectedProposalsCountUpdate;
-  window.showBulkActionsButton = showBulkActionsButton;
-  window.hideBulkActionsButton = hideBulkActionsButton;
-  window.showOtherActionsButtons = showOtherActionsButtons;
-  window.hideOtherActionsButtons = hideOtherActionsButtons;
-  window.hideBulkActionForms = hideBulkActionForms;
-  window.resetForms = resetForms;
-
-  if ($(".js-bulk-action-form").length) {
-    hideBulkActionForms();
-    $("#js-bulk-actions-button").addClass("hide");
-
-    $("#js-bulk-actions-dropdown li button").click(function (e) {
-      $("#js-bulk-actions-dropdown").removeClass("is-open");
-      hideBulkActionForms();
-
-      let action = $(e.target).data("action");
-      const panelActions = [
-        "assign-proposals-to-evaluator",
-        "unassign-proposals-from-evaluator",
-        "taxonomy-change-proposals"
-      ];
+    document.querySelectorAll(
+      "#js-bulk-actions-dropdown button[data-action]"
+    ).forEach((button) => {
+      const action = button.dataset.action;
 
       if (!action) {
         return;
       }
 
-      if (panelActions.includes(action)) {
-        $(`#js-form-${action}`).submit(function () {
-          $(".layout-content > div[data-callout-wrapper]").html("");
-        });
+      const form = document.querySelector(
+        `#js-form-${action}`
+      );
 
-        $(`#js-${action}-actions`).removeClass("hide");
-      } else {
-        $(`#js-form-${action}`).submit(function () {
-          $(".layout-content > div[data-callout-wrapper]").html("");
-        });
-
-        $(`#js-${action}-actions`).removeClass("hide");
-        hideBulkActionsButton(!isMergeProposalsClicked);
-        hideOtherActionsButtons();
+      if (form) {
+        form.reset();
       }
     });
+  };
 
-    // select all checkboxes
-    $(".js-check-all").change(function() {
-      $(".js-check-all-proposal").prop("checked", $(this).prop("checked"));
+  window.selectedProposalsCount = selectedProposalsCount;
+  window.selectedProposalsNotPublishedAnswerCount = selectedProposalsNotPublishedAnswerCount;
+  window.selectedProposalsCountUpdate = selectedProposalsCountUpdate;
+  window.resetForms = resetForms;
 
-      if ($(this).prop("checked")) {
-        $(".js-check-all-proposal").closest("tr").addClass("selected");
-        showBulkActionsButton();
-      } else {
-        $(".js-check-all-proposal").closest("tr").removeClass("selected");
-        hideBulkActionsButton();
-      }
+  /*
+   * The unified bulk-actions controller handles the actual
+   * checkbox mechanics. These only recalculate the
+   * proposal-specific action availability afterward.
+   */
 
-      selectedProposalsCountUpdate();
+  $(".js-check-all").off(
+    "change.proposalBulkActions"
+  ).on(
+    "change.proposalBulkActions", () => {
+      // Wait for bulk-actions sync before recalculating.
+      queueMicrotask(selectedProposalsCountUpdate);
     });
 
-    // proposal checkbox change
-    $(".table-list").on("change", ".js-check-all-proposal", function (e) {
-      let proposalId = $(this).val()
-      let checked = $(this).prop("checked")
+  $(".table-list").off(
+    "change.proposalBulkActions",
+    ".js-check-all-proposal"
+  ).on(
+    "change.proposalBulkActions",
+    ".js-check-all-proposal",
+    () => {
+      // Wait for bulk-actions sync before recalculating.
+      queueMicrotask(selectedProposalsCountUpdate);
+    }
+  );
 
-      // uncheck "select all", if one of the listed checkbox item is unchecked
-      if ($(this).prop("checked") === false) {
-        $(".js-check-all").prop("checked", false);
-      }
-      // check "select all" if all checkbox proposals are checked
-      if ($(".js-check-all-proposal:checked").length === $(".js-check-all-proposal").length) {
-        $(".js-check-all").prop("checked", true);
-        showBulkActionsButton();
-      }
-
-      if ($(this).prop("checked")) {
-        showBulkActionsButton();
-        $(this).closest("tr").addClass("selected");
-      } else {
-        hideBulkActionsButton();
-        $(this).closest("tr").removeClass("selected");
-      }
-
-      if ($(".js-check-all-proposal:checked").length === 0) {
-        hideBulkActionsButton();
-      }
-
-      $(".js-bulk-action-form").find(`.js-proposal-id-${proposalId}`).prop("checked", checked);
-      selectedProposalsCountUpdate();
-    });
-
-    $(".js-cancel-bulk-action").on("click", function (e) {
-      hideBulkActionForms()
-      showBulkActionsButton();
-      showOtherActionsButtons();
-    });
-  }
+  selectedProposalsCountUpdate();
 });
 
 document.addEventListener("turbo:load", () => {
@@ -201,11 +111,15 @@ document.addEventListener("turbo:load", () => {
   );
 
   evaluatorMultiselectContainers.forEach((container) => {
+    if (container.tomselect) {
+      return;
+    }
+
     const config = {
       plugins: ["remove_button", "dropdown_input"],
       allowEmptyOption: true
     };
-
-    return new TomSelect(container, config);
+    // eslint-disable-next-line no-new
+    new TomSelect(container, config);
   });
 });
