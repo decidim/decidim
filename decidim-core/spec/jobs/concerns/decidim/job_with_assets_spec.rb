@@ -16,7 +16,8 @@ describe Decidim::JobWithAssets do
     end
 
     it "restores the options back to original state after the job" do
-      orig_options = ActiveStorage::Current.url_options.dup
+      orig_options = { host: "another.example.org" }
+      ActiveStorage::Current.url_options = orig_options
       subject
       expect(ActiveStorage::Current.url_options).to eq(orig_options)
     end
@@ -243,7 +244,8 @@ describe Decidim::JobWithAssets do
       let(:exception_class) { Class.new(StandardError) }
 
       it "restores the options back to original state after the job" do
-        orig_options = ActiveStorage::Current.url_options.dup
+        orig_options = { host: "another.example.org" }
+        ActiveStorage::Current.url_options = orig_options
         expect { subject }.to raise_error(exception_class)
         expect(ActiveStorage::Current.url_options).to eq(orig_options)
       end
