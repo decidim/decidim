@@ -9,6 +9,8 @@ on:
     branches-ignore:
       - "chore/l10n*"
     paths:
+      - "*"
+      - ".github/**"
       - "decidim-api/**"
       - "decidim-accountability/**"
       - "decidim-assemblies/**"
@@ -53,6 +55,8 @@ jobs:
           base: ${{ github.event_name == 'push' && github.ref || '' }}
           filters: |
             all:
+              - "*"
+              - ".github/**"
               - "decidim-api/**"
               - "decidim-core/**"
               - "decidim-comments/**"
