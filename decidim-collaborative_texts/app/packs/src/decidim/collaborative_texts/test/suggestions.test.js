@@ -194,6 +194,20 @@ describe("SuggestionsList", () => {
     expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(1);
   });
 
+  it("does not highlight the suggestion when hovering its comments", () => {
+    suggestion.commentsContainer.dispatchEvent(new MouseEvent("mouseenter"));
+    expect(suggestion.highlightWrapper).toBe(null);
+
+    suggestion.content.dispatchEvent(new MouseEvent("mouseenter"));
+    expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
+
+    suggestion.content.dispatchEvent(new MouseEvent("mouseleave"));
+    expect(suggestion.highlightWrapper).toBe(null);
+
+    suggestion.commentsContainer.dispatchEvent(new MouseEvent("mouseenter"));
+    expect(suggestion.highlightWrapper).toBe(null);
+  });
+
   it("applies a suggestion", () => {
     const spy = jest.spyOn(doc.doc, "dispatchEvent");
     suggestion.apply();
