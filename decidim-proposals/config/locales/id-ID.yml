@@ -70,6 +70,9 @@ id:
           step:
             announcement: Pengumuman
             comments_blocked: Komentar diblokir
+            default_sort_order_options:
+              random: Acak
+              recent: Baru
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
     events:
       proposals:

@@ -380,10 +380,10 @@ eu:
               all: 'Bozkatu guztietan: utzi parte-hartzaileei aurrekontu guztietan babesa ematen.'
               one: 'Aurrekontu bakarrean babesa eman: parte-hartzaileei edozein aurrekontutan babesa emateko aukera ematen die, baina bakar batean soilik.'
           step:
-            announcement: Jakinarazpena
+            announcement: Oharra
             comments_blocked: Iruzkinak blokeatuta
             highlighted_heading: Goiburu nabarmendua
-            landing_page_content: Aurrekontuen hasierako orrialdea
+            landing_page_content: Aurrekontuen hasierako orria
             list_heading: Zerrendaren izenburua
             more_information_modal: '"Informazio gehiago" leihoa'
             show_votes: Babesak erakutsi

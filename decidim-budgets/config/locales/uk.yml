@@ -95,6 +95,7 @@ uk:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
+            title: Назва
             votes_choices:
               enabled: Голосування увімкнене
   index:

@@ -41,3 +41,8 @@ sq:
         projects:
           new:
             title: Projekt i ri
+    components:
+      budgets:
+        settings:
+          step:
+            title: Titulli

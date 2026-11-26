@@ -241,10 +241,10 @@ gl:
             default_sort_order_options:
               automatic: Automático
               most_commented: Máis comentadas
-              most_followed: Máis seguidas
+              most_followed: Con máis seguidores
               most_liked: Con máis «Gústame»
               most_voted: Máis apoiadas
-              random: Ao chou
+              random: Aleatorio
               recent: Recentes
               with_more_authors: Con máis autores
             likes_blocked: '«Gústame» bloqueados'

@@ -129,6 +129,12 @@ tr:
             announcement: Duyuru
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
             comments_blocked: Yorumlar engellendi
+            default_sort_order_options:
+              most_commented: En çok yorum yapılan
+              most_followed: En çok takip edilen
+              random: Rastgele
+              recent: En son
+              with_more_authors: Daha fazla yazarlı
             proposal_answering_enabled: Teklif yanıtlama etkin
             publish_answers_immediately: Teklif yanıtlarını hemen yayınlayın
     events:

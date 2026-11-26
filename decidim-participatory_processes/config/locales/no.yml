@@ -123,6 +123,7 @@
           name: Prosessgruppe
         participatory_process_step:
           fields:
+            actions: Handlinger
             end_date: Sluttdato
             start_date: Startdato
             title: Tittel

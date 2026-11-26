@@ -34,7 +34,7 @@ lt:
           step:
             readonly_step_attribute: Tik skaitomas veiksmo atributas
             test_options:
-              bar: Juosta
+              bar: Bar
               baz: Baz
               foo: Foo
     dummy:

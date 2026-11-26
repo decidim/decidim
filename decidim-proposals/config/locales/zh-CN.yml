@@ -108,6 +108,12 @@ zh-CN:
             announcement: 通 知
             answers_with_costs: 启用建议答案的成本
             comments_blocked: 评论已阻止
+            default_sort_order_options:
+              most_commented: 最多评论
+              most_followed: 关注最多的
+              random: 随机播放
+              recent: 最近的
+              with_more_authors: 有更多作者
             proposal_answering_enabled: 建议答案已启用
             publish_answers_immediately: 立即发布提案答案
     events:
