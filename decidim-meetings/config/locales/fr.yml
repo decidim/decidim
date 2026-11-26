@@ -177,6 +177,7 @@ fr:
             taxonomy_filters_add: Ajouter un filtre
             terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
           phase:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de rencontre par les participants est activée
     download_your_data:
