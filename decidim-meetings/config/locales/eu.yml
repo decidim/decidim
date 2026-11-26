@@ -179,6 +179,7 @@ eu:
             taxonomy_filters_add: Erantsi iragazkia
             terms_and_conditions_url_for_meeting_creators: Irizpide eta baldintzen URLa topaketen egileentzat
           phase:
+            announcement: Jakinarazpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu dizatkete
     download_your_data:
