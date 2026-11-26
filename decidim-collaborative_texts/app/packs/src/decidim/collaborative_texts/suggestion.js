@@ -27,6 +27,8 @@ export default class Suggestion {
     this.boxWrapper = null;
     this.highlightWrapper = null;
     this.changesWrapper = null;
+    this.commentsLoaded = false;
+    this.commentsComponent = null;
     this.applied = false;
     this.isFirst = false;
     this.valid = this.nodes.length > 0 && this.firstNode && this.lastNode && Array.isArray(this.replace);
@@ -158,6 +160,10 @@ export default class Suggestion {
   }
 
   destroy() {
+    if (this.commentsComponent) {
+      this.commentsComponent.unmountComponent();
+      this.commentsComponent = null;
+    }
     if (this.item) {
       this.item.remove();
       this.item = null;
@@ -218,6 +224,8 @@ export default class Suggestion {
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
+    this.commentsButton = this.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+    this.commentsContainer = this.item.querySelector(".collaborative-texts-suggestions-box-item-comments");
     this.boxItems.appendChild(this.item);
     if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
       this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
@@ -230,6 +238,41 @@ export default class Suggestion {
     });
   }
 
+  // Toggle the comments section, loading it on first use
+  toggleComments() {
+    const expanded = this.commentsButton.getAttribute("aria-expanded") === "true";
+    if (!expanded) {
+      this._loadComments();
+    }
+    this.commentsButton.setAttribute("aria-expanded", String(!expanded));
+    this.commentsContainer.classList.toggle("hidden", expanded);
+    return this;
+  }
+
+  // Replace the comments placeholder with the pre-rendered comments cell and mount it
+  _loadComments() {
+    if (this.commentsLoaded) {
+      return;
+    }
+
+    const template = window.document.getElementById(`collaborative-texts-suggestion-comments-${this.id}`);
+    if (!template) {
+      return;
+    }
+
+    this.commentsContainer.innerHTML = template.innerHTML;
+    const element = this.commentsContainer.querySelector("[data-decidim-comments]");
+    if (!element || !window.$ || !window.Decidim || !window.Decidim.CommentsComponent) {
+      return;
+    }
+
+    this.commentsLoaded = true;
+    const $element = window.$(element);
+    this.commentsComponent = new window.Decidim.CommentsComponent($element, $element.data("decidim-comments"));
+    this.commentsComponent.mountComponent();
+    $element.data("comments", this.commentsComponent);
+  }
+
   _resetDropdown() {
 
   }
@@ -239,5 +282,8 @@ export default class Suggestion {
     this.item.addEventListener("mouseleave", this.blur.bind(this));
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
+    if (this.commentsButton && this.commentsContainer) {
+      this.commentsButton.addEventListener("click", this.toggleComments.bind(this));
+    }
   }
 }
