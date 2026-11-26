@@ -332,7 +332,9 @@ es:
           title: Configura el componente
           update: Actualizar
         form:
+          default_phase_settings: Configuración predeterminada para cada fase
           global_settings: Configuración global
+          phase_settings: Configuración para las fases
         hide:
           success: El componente se ha ocultado correctamente del menú.
         index:
