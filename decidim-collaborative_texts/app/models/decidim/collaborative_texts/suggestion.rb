@@ -17,7 +17,7 @@ module Decidim
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version", counter_cache: true, inverse_of: :suggestions
       has_one :document, class_name: "Decidim::CollaborativeTexts::Document", through: :document_version
 
-      delegate :component, to: :document
+      delegate :component, to: :document_version
       delegate :participatory_space, :organization, to: :document_version
 
       def self.log_presenter_class_for(_log)
@@ -30,7 +30,7 @@ module Decidim
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        document&.published?
+        document_version.document&.published?
       end
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
