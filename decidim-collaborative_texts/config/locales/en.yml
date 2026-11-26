@@ -101,6 +101,7 @@ en:
       document:
         apply: Apply
         cancel: Cancel
+        comment: Comment
         consolidate:
           confirm: This action will consolidate all accepted suggestions into a new version of the document. Non-accepted suggestions will be transferred to the new version for further review. This action will maintain the suggestions enabled status.
           new: Consolidate accepted suggestions
