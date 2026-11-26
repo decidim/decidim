@@ -221,6 +221,18 @@
       .comment-order-by {
         @apply hidden;
       }
+
+      .comment:has([id*="dropdown-menu"][aria-hidden="false"]) {
+        @apply relative z-20;
+
+        .comment__header {
+          @apply relative z-30;
+        }
+      }
+
+      .dropdown {
+        @apply bg-white;
+      }
     }
 
     [data-controller="accordion"] {
