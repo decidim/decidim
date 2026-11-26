@@ -23,6 +23,7 @@ module Decidim
 
     included do
       before_perform :configure_activestorage
+      after_perform :revert_configure_activestorage, prepend: true
     end
 
     private
@@ -35,7 +36,17 @@ module Decidim
       options[:host] = organization.host if organization
       return if options[:host].blank?
 
+      @original_current_url_options = ActiveStorage::Current.url_options
       ActiveStorage::Current.url_options = options
+    end
+
+    # Reverts the ActiveStorage URL options to the original configuration.
+    #
+    # @return [void]
+    def revert_configure_activestorage
+      return unless instance_variable_defined?(:@original_current_url_options)
+
+      ActiveStorage::Current.url_options = @original_current_url_options
     end
 
     # Resolves the organization through the arguments passed to the `perform`
