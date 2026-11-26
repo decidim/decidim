@@ -904,6 +904,18 @@ describe "Admin manages demographic questions" do
           click_on "Add question"
           expand_all_questions
         end.to change { page.all(".editor-container").size }.by(1)
+
+        # The container count above only proves that one container was added.
+        # Reveal the new question's editors to also check that each container
+        # holds a single editor instance, catching duplicates within a container.
+        new_question = page.all(".questionnaire-question").last
+        new_question.all(".editor", visible: :all).each do |editor|
+          reveal_editor(editor[:id])
+        end
+
+        containers = new_question.all(".editor-container", visible: :all)
+        expect(containers).to all(have_css(".ProseMirror", count: 1, visible: :all))
+        expect(containers).to all(have_css(".editor-toolbar", count: 1, visible: :all))
       end
 
       it "properly decides which button to show after adding/removing response options" do
