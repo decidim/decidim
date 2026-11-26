@@ -332,7 +332,9 @@ ca:
           title: Configura el component
           update: Actualitzar
         form:
+          default_phase_settings: Configuració predeterminada per a cada fase
           global_settings: Configuració global
+          phase_settings: Configuració per les fases
         hide:
           success: El component s'ha amagat correctament del menú.
         index:
