@@ -14,13 +14,6 @@ describe Decidim::JobWithAssets do
         port: Capybara.server_port
       )
     end
-
-    it "restores the options back to original state after the job" do
-      orig_options = { host: "another.example.org" }
-      ActiveStorage::Current.url_options = orig_options
-      subject
-      expect(ActiveStorage::Current.url_options).to eq(orig_options)
-    end
   end
 
   shared_examples "unchanged current URL options" do
@@ -225,29 +218,47 @@ describe Decidim::JobWithAssets do
 
     it_behaves_like "working job with assets"
 
-    context "when the job raises" do
+    context "when restoring the options" do
       let(:job_target) { job_class }
       let(:arguments) { [organization] }
       let(:job_class) do
         mod = described_class
-        ex = exception_class
         Class.new(Decidim::ApplicationJob) do
           include mod
 
-          JOB_ERROR = ex
-
-          def perform(organization)
-            raise JOB_ERROR, "Something failed with: #{organization.host}"
-          end
+          def perform(organization); end
         end
       end
-      let(:exception_class) { Class.new(StandardError) }
 
       it "restores the options back to original state after the job" do
         orig_options = { host: "another.example.org" }
-        ActiveStorage::Current.url_options = orig_options
-        expect { subject }.to raise_error(exception_class)
+        ActiveStorage::Current.url_options = orig_options.dup
+        subject
         expect(ActiveStorage::Current.url_options).to eq(orig_options)
+      end
+
+      context "when the job raises" do
+        let(:job_class) do
+          mod = described_class
+          ex = exception_class
+          Class.new(Decidim::ApplicationJob) do
+            include mod
+
+            JOB_ERROR = ex
+
+            def perform(organization)
+              raise JOB_ERROR, "Something failed with: #{organization.host}"
+            end
+          end
+        end
+        let(:exception_class) { Class.new(StandardError) }
+
+        it "restores the options back to original state after the job" do
+          orig_options = { host: "another.example.org" }
+          ActiveStorage::Current.url_options = orig_options.dup
+          expect { subject }.to raise_error(exception_class)
+          expect(ActiveStorage::Current.url_options).to eq(orig_options)
+        end
       end
     end
   end
