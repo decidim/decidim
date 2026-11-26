@@ -14,7 +14,7 @@ document.addEventListener("stimulus:load", () => {
   const context = require.context("./controllers", true, /controller\.js$/)
   window.Stimulus.load(window.definitionsFromContext(context))
 
-  // Targets unsaved-forms only in admin
+  // Targets unsaved forms only in admin
   window.Stimulus.register("unsaved-form", UnsavedFormController)
 }, { once: true });
 
