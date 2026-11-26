@@ -257,7 +257,9 @@ module Decidim
             ensured_host = !disk_service? || ensure_current_host(**options)
             return blob_url(**options, only_path: true) unless ensured_host
 
-            blob.url(**options)
+            # The `host` parameter can break some storage service calls during
+            # the request validation phase, e.g. S3 service.
+            blob.url(**options.except(:host))
           end
         end
       end
@@ -271,10 +273,14 @@ module Decidim
       def representation_url(**options)
         return rails_representation_url(**options) if options[:only_path] || remote?
 
-        ensure_current_host(**options) if disk_service? || !asset.send(:processed?)
-
+        orig_url_options = ensure_current_host_if(**options) { disk_service? }
         representation_url = variant_url(**options)
         return representation_url if representation_url.present?
+
+        # Checking this before calling `variant_url` would potentially cause
+        # `storage.exist?` being called multiple times as `asset.processed?`
+        # calls that too.
+        orig_url_options ||= ensure_current_host_if(**options) { !asset.send(:processed?) }
 
         # In case the representation has not been processed yet, it may not have
         # a representation URL yet and it therefore needs to be served through
@@ -289,6 +295,26 @@ module Decidim
         else
           representation_url(**options, only_path: true)
         end
+      ensure
+        ActiveStorage::Current.url_options = orig_url_options unless orig_url_options.nil?
+      end
+
+      # Calls `ensure_current_host` if the given condition is met, i.e. the
+      # passed block returns a truthy value. Forwards all passed keyword
+      # arguments to `ensure_current_host` if it is called.
+      #
+      # This method is only here to avoid cyclomatic complexity lint error in
+      # the `representation_url` method.
+      #
+      # @yield The block to be executed with the temporary host configuration
+      # @return [Hash, nil] The original current URL options or `nil` if the
+      #   condition returned a falsy value.
+      def ensure_current_host_if(**)
+        return unless yield
+
+        orig = ActiveStorage::Current.url_options.dup
+        ensure_current_host(**)
+        orig
       end
 
       # Returns the local Rails representation URL meaning that the asset will
