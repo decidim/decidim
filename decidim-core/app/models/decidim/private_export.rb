@@ -30,5 +30,9 @@ module Decidim
 
       attached_to == user
     end
+
+    def private_download_required?
+      true
+    end
   end
 end

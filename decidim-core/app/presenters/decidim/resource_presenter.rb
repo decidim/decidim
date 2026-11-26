@@ -11,7 +11,7 @@ module Decidim
         content = decidim_html_escape(content) if html_escape
 
         renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
-        renderer.render.html_safe
+        renderer.render(organization: try(:organization)).html_safe
       end
     end
 
@@ -39,7 +39,7 @@ module Decidim
           Decidim::ContentRenderers::MentionResourceRenderer
         ].each do |renderer_class|
           renderer = renderer_class.new(content)
-          content = renderer.render(editor: true).html_safe
+          content = renderer.render(editor: true, organization: try(:organization)).html_safe
         end
 
         content
@@ -50,7 +50,7 @@ module Decidim
     # to plain @nickname text instead of editor-specific HTML tags.
     def plain_locales(data, all_locales)
       handle_locales(data, all_locales) do |content|
-        content = Decidim::ContentRenderers::BlobRenderer.new(content).render
+        content = Decidim::ContentRenderers::BlobRenderer.new(content).render(organization: try(:organization))
         content = Decidim::ContentRenderers::UserRenderer.new(content).render(plain: true)
         content = Decidim::ContentRenderers::MentionResourceRenderer.new(content).render(plain: true)
         content.html_safe

@@ -97,6 +97,11 @@ module Decidim
     #
     # @return [String] the content processed and ready to display (it is expected to include HTML)
     def self.render(content, wrapper_tag = "p", options = {})
+      if wrapper_tag.is_a?(Hash)
+        options = wrapper_tag
+        wrapper_tag = "p"
+      end
+
       simple_format(
         render_without_format(content, options),
         {},
@@ -116,8 +121,17 @@ module Decidim
     def self.render_without_format(content, options = {})
       return content if content.blank?
 
+      options = options.dup
+      organization = options.delete(:organization) || options.delete("organization")
+
       Decidim.content_processors.reduce(content) do |result, type|
-        renderer_klass(type).constantize.new(result).render(**options)
+        renderer = renderer_klass(type).constantize.new(result)
+
+        if type.to_sym == :blob
+          renderer.render(**options, organization:)
+        else
+          renderer.render(**options)
+        end
       end
     end
 

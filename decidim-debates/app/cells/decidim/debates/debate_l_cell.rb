@@ -34,7 +34,7 @@ module Decidim
         text = translated_attribute(attribute)
         text = html_truncate(text, length: 240)
 
-        text = Decidim::ContentRenderers::BlobRenderer.new(text).render
+        text = Decidim::ContentRenderers::BlobRenderer.new(text).render(organization: model.organization)
         text = Decidim::ContentRenderers::UserRenderer.new(text).render(plain: true)
         text = Decidim::ContentRenderers::MentionResourceRenderer.new(text).render(plain: true)
 

@@ -105,6 +105,10 @@ module Decidim
       user == self.user
     end
 
+    def private_download_required?
+      true
+    end
+
     def record_failed_attempt!
       with_lock do
         increment!(:failed_attempts) # rubocop:disable Rails/SkipsModelValidations

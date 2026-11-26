@@ -133,7 +133,7 @@ module Decidim
                end
 
         if text.is_a?(String)
-          strip_tags(Decidim::ContentProcessor.render_without_format(text, links: false))
+          strip_tags(Decidim::ContentProcessor.render_without_format(text, links: false, organization: @organization))
         else
           text
         end

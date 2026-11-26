@@ -82,7 +82,7 @@ module Decidim
 
         handle_locales(meeting.registration_email_custom_content, all_locales) do |content|
           renderer = Decidim::ContentRenderers::BlobRenderer.new(decidim_sanitize_editor_admin(content))
-          renderer.render(links:).html_safe
+          renderer.render(links:, organization: try(:organization)).html_safe
         end
       end
 

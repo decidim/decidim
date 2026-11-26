@@ -122,9 +122,9 @@ module Decidim
       def render_meeting_sanitize_field(meeting, field)
         sanitized = render_sanitized_content(meeting, field)
         if safe_content?
-          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+          Decidim::ContentProcessor.render_without_format(sanitized, organization: meeting.organization).html_safe
         else
-          Decidim::ContentProcessor.render(sanitized, "div")
+          Decidim::ContentProcessor.render(sanitized, "div", organization: meeting.organization)
         end
       end
 

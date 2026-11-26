@@ -78,9 +78,9 @@ module Decidim
       def render_proposal_body(proposal)
         sanitized = render_sanitized_content(proposal, :body)
         if safe_content?
-          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+          Decidim::ContentProcessor.render_without_format(sanitized, organization: proposal.organization).html_safe
         else
-          Decidim::ContentProcessor.render(sanitized)
+          Decidim::ContentProcessor.render(sanitized, "p", organization: proposal.organization)
         end
       end
 

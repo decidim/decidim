@@ -11,7 +11,7 @@ module Decidim
             return unless value
 
             renderer = Decidim::ContentRenderers::BlobRenderer.new(h.decidim_escape_translated(value))
-            renderer.render(links: false).html_safe
+            renderer.render(links: false, organization: h.try(:current_organization)).html_safe
           end
         end
       end

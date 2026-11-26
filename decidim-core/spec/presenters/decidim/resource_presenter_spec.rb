@@ -43,5 +43,26 @@ module Decidim
         %(<span data-type="mention" data-id="#{mention}" data-label="#{label}">#{label}</span>)
       end
     end
+
+    describe "#title" do
+      let(:blob) { create(:editor_image, organization: blob_organization).file.blob }
+      let(:data) { { "en" => "Title with #{blob.to_global_id}" } }
+
+      context "when the blob belongs to another organization" do
+        let(:blob_organization) { create(:organization) }
+
+        it "does not render the blob URL" do
+          expect(subject.title(data, false, false)).not_to include("/rails/active_storage/")
+        end
+      end
+
+      context "when the blob belongs to the current organization" do
+        let(:blob_organization) { organization }
+
+        it "renders the blob URL" do
+          expect(subject.title(data, false, false)).to include("/rails/active_storage/")
+        end
+      end
+    end
   end
 end

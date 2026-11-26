@@ -127,7 +127,7 @@ module Decidim
                   decidim_sanitize_translated(resource.name)
                 end
 
-        Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
+        Decidim::ContentProcessor.render_without_format(title, links: false, organization: resource.try(:organization)).html_safe
       end
 
       def hidden_resource?
