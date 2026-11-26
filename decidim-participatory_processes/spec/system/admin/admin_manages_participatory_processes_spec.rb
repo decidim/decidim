@@ -170,7 +170,7 @@ describe "Admin manages participatory processes", versioning: true do
 
         click_on "Update"
 
-        expect(page).to have_callout("Participatory process successfully updated.")
+        expect(page).to have_admin_callout("Participatory process successfully updated.")
 
         participatory_process3.reload
 
