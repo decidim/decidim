@@ -38,6 +38,11 @@ ca:
           phase:
             likes_blocked: '"M''agrada" desactivats'
             likes_enabled: '"M''agrada" activats'
+            readonly_phase_attribute: Atribut de només lectura
+            test_options:
+              bar: Barra
+              baz: Baz
+              foo: Foo
     dummy:
       admin:
         exports:
