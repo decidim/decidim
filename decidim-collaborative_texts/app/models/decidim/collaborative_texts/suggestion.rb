@@ -29,7 +29,12 @@ module Decidim
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        document.published?
+        document&.published?
+      end
+
+      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      def accepts_new_comments?
+        commentable?
       end
 
       private
