@@ -42,16 +42,50 @@ describe Decidim::OpenDataJob do
         expect(content).to include(second_user.name)
       end
 
-      it "purges the uploaded replacement blob when publication rolls back" do
-        # rubocop:disable-next RSpec/AnyInstance
-        allow_any_instance_of(Decidim::Organization).to receive(:with_lock).and_raise(ActiveRecord::Deadlocked)
+      context "when publication rolls back" do
+        let(:previous_file) { resource_files.first }
 
-        subject.perform_now(organization, resource)
+        before do
+          subject.perform_now(organization, resource)
+          expect(previous_file.blob.download).to include(first_user.name)
+        end
 
-        # `retry_on ActiveRecord::Deadlocked` reschedules the job, so the exception does
-        # not reach `perform_now`; the replacement blob must still be cleaned up.
-        expect(resource_files).to be_empty
-        expect(ActiveStorage::Blob.where(filename:)).to be_empty
+        it "keeps the previous file downloadable and purges the replacement blob" do
+          # Fail inside the transaction and after the stale attachment is deleted, so the example
+          # proves that the rollback restores the previous export instead of only checking the
+          # cleanup of an upload that was never attached.
+          # rubocop:disable-next RSpec/AnyInstance
+          allow_any_instance_of(Decidim::Organization).to receive(:with_lock).and_wrap_original do |original, *args, &block|
+            raise_after_publish = lambda do
+              block.call
+              raise ActiveRecord::Deadlocked
+            end
+
+            original.call(*args, &raise_after_publish)
+          end
+
+          create(:user, :confirmed, organization:, name: "Second exported user")
+          subject.perform_now(organization, resource)
+
+          # `retry_on ActiveRecord::Deadlocked` reschedules the job, so the exception does
+          # not reach `perform_now`; the transaction is rolled back and the replacement blob
+          # left by the failed publication is cleaned up.
+          expect(resource_files).to eq([previous_file])
+          expect(previous_file.blob.download).to include(first_user.name)
+          expect(ActiveStorage::Blob.where(filename:).pluck(:id)).to eq([previous_file.blob_id])
+        end
+
+        it "purges the uploaded replacement blob when the lock fails before attaching it" do
+          # rubocop:disable-next RSpec/AnyInstance
+          allow_any_instance_of(Decidim::Organization).to receive(:with_lock).and_raise(ActiveRecord::Deadlocked)
+
+          subject.perform_now(organization, resource)
+
+          # `retry_on ActiveRecord::Deadlocked` reschedules the job, so the exception does
+          # not reach `perform_now`; the replacement blob must still be cleaned up.
+          expect(resource_files).to eq([previous_file])
+          expect(ActiveStorage::Blob.where(filename:).pluck(:id)).to eq([previous_file.blob_id])
+        end
       end
 
       context "when another job publishes the same resource while this job is exporting" do
