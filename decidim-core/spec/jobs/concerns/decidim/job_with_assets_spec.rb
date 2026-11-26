@@ -14,6 +14,12 @@ describe Decidim::JobWithAssets do
         port: Capybara.server_port
       )
     end
+
+    it "restores the options back to original state after the job" do
+      orig_options = ActiveStorage::Current.url_options.dup
+      subject
+      expect(ActiveStorage::Current.url_options).to eq(orig_options)
+    end
   end
 
   shared_examples "unchanged current URL options" do
