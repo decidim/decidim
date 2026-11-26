@@ -32,6 +32,8 @@ eu:
         settings:
           global:
             announcement: Jakinarazpena
+          phase:
+            announcement: Jakinarazpena
     elections:
       actions:
         confirm_delete_election: Ziur zaude hauteskundea hau ezabatu nahi duzula?
