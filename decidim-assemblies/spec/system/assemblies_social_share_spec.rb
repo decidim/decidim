@@ -20,6 +20,11 @@ describe "Social shares" do
       content_type: "image/jpeg"
     )
   end
+  let!(:description_editor_image) do
+    create(:editor_image, organization:).tap do |editor_image|
+      editor_image.file.attach(description_image)
+    end
+  end
   let(:short_description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(short_description_image, only_path: true) }
   let(:short_description_image) do
     ActiveStorage::Blob.create_and_upload!(
@@ -27,6 +32,11 @@ describe "Social shares" do
       filename: "short_description_image.jpg",
       content_type: "image/jpeg"
     )
+  end
+  let!(:short_description_editor_image) do
+    create(:editor_image, organization:).tap do |editor_image|
+      editor_image.file.attach(short_description_image)
+    end
   end
   let(:block_attachment_file) { Decidim::Dev.test_file("icon.png", "image/png") }
   let(:resource) { assembly }

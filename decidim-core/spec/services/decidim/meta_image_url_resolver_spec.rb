@@ -18,6 +18,11 @@ describe Decidim::MetaImageUrlResolver do
       content_type: "image/jpeg"
     )
   end
+  let!(:description_editor_image) do
+    create(:editor_image, organization:).tap do |editor_image|
+      editor_image.file.attach(description_image)
+    end
+  end
   let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(description_image, only_path: true) }
   let(:body) do
     { en: "<p><img src=\"#{description_image_path}\"></p>" }
@@ -99,12 +104,209 @@ describe Decidim::MetaImageUrlResolver do
     it { is_expected.to end_with("/description_image.jpg") }
   end
 
-  context "when no attachments and description image is referenced by blob id" do
+  context "when no attachments and description image is present as GlobalID with a variation" do
     let(:resource) { proposal }
     let(:attachment) { nil }
-    let(:description_image_path) { "/rails/active_storage/blobs/#{description_image.id}" }
+    let(:variation) { Base64.strict_encode64(ActiveSupport::JSON.encode({ resize_to_limit: [100, 100] })) }
+    let(:body) do
+      { en: "<p><img src=\"#{description_image.to_global_id}/#{variation}\"></p>" }
+    end
 
     it { is_expected.to end_with("/description_image.jpg") }
+  end
+
+  context "when no attachments and the first description image is a GlobalID for a missing blob" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:deleted_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "deleted.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:deleted_blob_gid) do
+      deleted_blob.to_global_id.tap { deleted_blob.destroy }
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{deleted_blob_gid}\"><img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "skips the missing blob and uses the next valid editor image" do
+      expect { subject }.not_to raise_error
+      expect(subject).to end_with("/description_image.jpg")
+    end
+  end
+
+  context "when the description has more images than the inspection limit" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:rejected_images) do
+      Array.new(described_class::MAX_DESCRIPTION_IMAGES) do |index|
+        "<img src=\"https://example.org/images/rejected-#{index}.png\">"
+      end
+    end
+    let(:body) do
+      { en: "<p>#{rejected_images.join}<img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "does not inspect images past the limit" do
+      expect(subject).to be_nil
+    end
+
+    context "when a lower priority image is available" do
+      let(:hero_image) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+
+      it "falls back to the lower priority image" do
+        expect(subject).to end_with("/city.jpeg")
+      end
+    end
+  end
+
+  context "when the description repeats the same rejected image" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:rejected_images) do
+      Array.new(described_class::MAX_DESCRIPTION_IMAGES * 2) do
+        "<img src=\"https://example.org/images/rejected.png\">"
+      end
+    end
+    let(:body) do
+      { en: "<p>#{rejected_images.join}<img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "inspects the repeated source only once" do
+      expect(subject).to end_with("/description_image.jpg")
+    end
+  end
+
+  context "when the description image is referenced by a bare blob id" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:description_image_path) { "/rails/active_storage/blobs/#{description_image.id}" }
+
+    it { is_expected.to be_nil }
+  end
+
+  context "when the description image is an orphan blob referenced by global id" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:orphan_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "orphan.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{orphan_blob.to_global_id}\"></p>" }
+    end
+
+    it { is_expected.to be_nil }
+  end
+
+  context "when the description image is an orphan blob referenced by signed id" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:orphan_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "orphan.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:description_image_path) { Rails.application.routes.url_helpers.rails_blob_path(orphan_blob, only_path: true) }
+
+    it { is_expected.to be_nil }
+  end
+
+  context "when a rejected description image comes before an allowed editor image" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:orphan_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "orphan.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{orphan_blob.to_global_id}\"><img src=\"#{description_image.to_global_id}\"></p>" }
+    end
+
+    it "skips the rejected image and uses the allowed editor image" do
+      expect(subject).to end_with("/description_image.jpg")
+    end
+  end
+
+  context "when the description image belongs to an editor image from another organization" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:other_organization) { create(:organization) }
+    let(:foreign_blob) do
+      ActiveStorage::Blob.create_and_upload!(
+        io: File.open(Decidim::Dev.asset("city.jpeg")),
+        filename: "foreign.jpg",
+        content_type: "image/jpeg"
+      )
+    end
+    let!(:foreign_editor_image) do
+      create(:editor_image, organization: other_organization).tap do |editor_image|
+        editor_image.file.attach(foreign_blob)
+      end
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{foreign_blob.to_global_id}\"></p>" }
+    end
+
+    it { is_expected.to be_nil }
+  end
+
+  context "when the description image is a verification attachment from the same organization" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:verification_user) { create(:user, :confirmed, organization:) }
+    let!(:authorization) do
+      create(
+        :authorization,
+        :pending,
+        user: verification_user,
+        verification_attachment: Decidim::Dev.test_file("dni.jpg", "image/jpeg")
+      )
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{authorization.verification_attachment.blob.to_global_id}\"></p>" }
+    end
+
+    it { is_expected.to be_nil }
+  end
+
+  context "when the description image is a verification attachment from another organization" do
+    let(:resource) { proposal }
+    let(:attachment) { nil }
+    let(:block_attachment_file) { nil }
+    let(:other_organization) { create(:organization) }
+    let(:verification_user) { create(:user, :confirmed, organization: other_organization) }
+    let!(:authorization) do
+      create(
+        :authorization,
+        :pending,
+        user: verification_user,
+        verification_attachment: Decidim::Dev.test_file("dni.jpg", "image/jpeg")
+      )
+    end
+    let(:body) do
+      { en: "<p><img src=\"#{authorization.verification_attachment.blob.to_global_id}\"></p>" }
+    end
+
+    it { is_expected.to be_nil }
   end
 
   context "when no previous images and belongs to a participatory space" do

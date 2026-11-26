@@ -3,12 +3,14 @@
 module Decidim
   # Resolves the most appropriate image URL for meta tags from a given resource within an organization.
   # Searches in the following order: attachment images, images in resource description, participatory space images, and default content block images.
+  # Description images are only used when they belong to an editor image in the current organization.
   # Ensures the selected image is resized to 1200x630 pixels.
   class MetaImageUrlResolver
     include TranslatableAttributes
 
     IMAGE_FIELDS = [:hero_image, :banner_image, :avatar].freeze
     DESCRIPTION_FIELDS = [:body, :description, :short_description, :content, :additional_info].freeze
+    MAX_DESCRIPTION_IMAGES = 20
     CONTENT_BLOCK_TYPES = {
       { manifest_name: :hero, scope_name: :homepage } => [:background_image]
     }.freeze
@@ -25,6 +27,7 @@ module Decidim
     # @return [String, nil] - The resolved image blob or nil if no image is found.
     def resolve
       return unless blob
+      return unless blob.variable?
       return unless blob.service.exist?(blob.key)
 
       resized_variant = blob.variant(resize_to_limit: [1200, 630]).processed
@@ -64,26 +67,46 @@ module Decidim
 
     # Extracts the first image blob from the resource description.
     #
+    # Only a limited number of distinct image sources are inspected so that
+    # descriptions with many rejected image tags cannot trigger repeated blob
+    # lookups.
+    #
     # @return [ActiveStorage::Blob, nil] - The image blob or nil if not found.
     def blob_from_description
-      DESCRIPTION_FIELDS.each do |field|
-        html = resource.try(field)
-        next unless html
+      inspected_urls = Set.new
 
-        html = translated_attribute(html).strip if html.is_a?(Hash)
+      DESCRIPTION_FIELDS.each do |field|
+        html = description_field_html(field)
         next if html.blank?
 
-        image_element = Nokogiri::HTML(html).css("img").first
-        next unless image_element
+        blob = blob_from_description_html(html, inspected_urls)
+        return blob if blob.present?
+        return nil if inspected_urls.size >= MAX_DESCRIPTION_IMAGES
+      end
 
+      nil
+    end
+
+    def description_field_html(field)
+      html = resource.try(field)
+      return if html.blank?
+
+      return translated_attribute(html).strip if html.is_a?(Hash)
+
+      html
+    end
+
+    def blob_from_description_html(html, inspected_urls)
+      Nokogiri::HTML(html).css("img").each do |image_element|
         image_url = image_element["src"]
         next if image_url.blank?
+        next if inspected_urls.include?(image_url)
+        break if inspected_urls.size >= MAX_DESCRIPTION_IMAGES
 
-        blob = find_blob_by_id(image_url.split("/").last)
-        return blob if blob.present?
+        inspected_urls << image_url
 
         blob = find_blob_from_url(image_url)
-        return blob if blob.present?
+        return blob if blob.present? && allowed_blob?(blob)
       end
 
       nil
@@ -120,17 +143,42 @@ module Decidim
     end
 
     def find_blob_from_url(url)
-      return GlobalID::Locator.locate(url, only: ActiveStorage::Blob) if url.start_with?("gid://")
+      if url.start_with?("gid://")
+        gid = url[%r{\Agid://[^/]+/[^/]+/\d+}]
+        return find_blob_from_global_id(gid) if gid
+      end
 
       find_blob_by_key(url.split("/").second_to_last)
+    end
+
+    # A blob that no longer exists is treated as "no blob for this candidate"
+    # so the remaining image candidates are still considered. Other backend
+    # errors keep propagating.
+    #
+    # Rescuing ActiveRecord::RecordNotFound (instead of using
+    # GlobalID::Locator.fetch) keeps this compatible with globalid versions
+    # older than 1.4.0, where that method is not available.
+    def find_blob_from_global_id(gid)
+      GlobalID::Locator.locate(gid, only: ActiveStorage::Blob)
+    rescue ActiveRecord::RecordNotFound
+      nil
     end
 
     def find_blob_by_key(blob_key)
       ActiveStorage::Blob.find_signed(blob_key) if blob_key.present?
     end
 
-    def find_blob_by_id(blob_id)
-      ActiveStorage::Blob.find_by(id: blob_id) if blob_id.present?
+    # Only blobs attached to editor images in the current organization are
+    # allowed. This prevents user-controlled content from resolving private
+    # blobs (for example verification attachments) or blobs from other
+    # organizations.
+    def allowed_blob?(blob)
+      return false if organization.blank?
+
+      blob.attachments.any? do |attachment|
+        attachment.record_type == "Decidim::EditorImage" &&
+          Decidim::EditorImage.exists?(id: attachment.record_id, organization:)
+      end
     end
 
     def blob_from_attached_file(file)
