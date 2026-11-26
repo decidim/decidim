@@ -76,6 +76,14 @@ describe("SuggestionsList", () => {
           </div>
         </div>
         <div class="collaborative-texts-suggestions-box-item-text"></div>
+        <div class="collaborative-texts-suggestions-box-item-actions">
+          <button type="button" class="collaborative-texts-suggestions-box-item-comments-button" aria-expanded="false"></button>
+        </div>
+        <div class="collaborative-texts-suggestions-box-item-comments hidden"></div>
+      </script>
+
+      <script type="text/template" class="decidim-template" id="collaborative-texts-suggestion-comments-102">
+        <div data-decidim-comments='{"commentableGid":"commentable-gid","commentsUrl":"/comments"}'></div>
       </script>
     </body>
   `;
@@ -86,6 +94,7 @@ describe("SuggestionsList", () => {
   let firstSuggestion = null;
   let fetchResult = [
     {
+      "id": 101,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is another replacement"],
@@ -96,6 +105,7 @@ describe("SuggestionsList", () => {
       "profileHtml": "<div>Profile</div>",
       "summary": "This is another summary"
     }, {
+      "id": 102,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is a replacement"],
@@ -130,6 +140,11 @@ describe("SuggestionsList", () => {
   });
 
   beforeEach(async () => {
+    window.Decidim = window.Decidim || {};
+    window.Decidim.CommentsComponent = jest.fn(() => ({
+      mountComponent: jest.fn(),
+      unmountComponent: jest.fn()
+    }));
     document.body.innerHTML = content;
     doc = new Document(document.querySelector("[data-collaborative-texts-document]"));
     suggestionsList = new SuggestionsList(doc);
@@ -155,6 +170,26 @@ describe("SuggestionsList", () => {
     expect(suggestion.nodes[0].classList.contains("collaborative-texts-hidden")).toBe(false);
     expect(suggestionsList.defaultSuggestions()).not.toContain(suggestion);
     expect(suggestionsList.defaultSuggestions()).toContain(firstSuggestion);
+  });
+
+  it("toggles the comments of a suggestion", () => {
+    const button = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+    const container = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments");
+
+    expect(container.classList.contains("hidden")).toBe(true);
+
+    button.click();
+    expect(button.getAttribute("aria-expanded")).toBe("true");
+    expect(container.classList.contains("hidden")).toBe(false);
+    expect(container.querySelector("[data-decidim-comments]")).not.toBe(null);
+    expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(1);
+
+    button.click();
+    expect(button.getAttribute("aria-expanded")).toBe("false");
+    expect(container.classList.contains("hidden")).toBe(true);
+
+    button.click();
+    expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(1);
   });
 
   it("applies a suggestion", () => {
