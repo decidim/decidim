@@ -66,6 +66,8 @@ export default class Manager {
       ? this.i18n.rolloutConfirm
       : this.i18n.consolidateConfirm).then((accepted) => {
       if (accepted) {
+        // A pending preview hides its original nodes, which cleanBody would drop
+        this.suggestions.forEach((suggestion) => suggestion.blur());
         fetch(this.doc.dataset.collaborativeTextsRolloutUrl, {
           method: "PATCH",
           headers: {

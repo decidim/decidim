@@ -55,6 +55,16 @@ describe("Document", () => {
     expect(doc.nodes[3].childNodes[1].textContent).toBe("Event more content");
   });
 
+  it("escapes text nodes when serializing nodes", () => {
+    const text = document.createTextNode("<b>literal</b> & more");
+    const element = document.querySelector("[data-collaborative-texts-document] p");
+
+    expect(doc._sanitizeNodes([text, element])).toEqual([
+      "&lt;b&gt;literal&lt;/b&gt; &amp; more",
+      "<p id=\"ct-node-2\">Some content</p>"
+    ]);
+  });
+
   it("Shows the alert", () => {
     doc.alert("This is a test");
     expect(doc.alertWrapper.classList.contains("hidden")).toBe(false);
