@@ -159,7 +159,7 @@ lb:
         destroy:
           success: Participatory-Prozessschritt erfolgreich gelöscht.
         edit:
-          update: Aktualiséieren
+          update: Aktualisieren
         new:
           create: Erstellen
         ordering:
@@ -241,6 +241,9 @@ lb:
         title: Prozessgruppen
     participatory_processes:
       admin:
+        participatory_process_steps:
+          index:
+            title: Phasen
         participatory_processes:
           form:
             related_processes: Ähnliche Beteiligungsprozesse

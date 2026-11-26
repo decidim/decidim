@@ -276,7 +276,7 @@ lt:
               all: 'Balsuoti už visus: dalyviai gali balsuoti už visus biudžetus.'
               one: 'Balsuoti už vieną: dalyviai gali balsuoti tik už vieną pasirinktą biudžetą.'
           step:
-            announcement: Skelbimas
+            announcement: Pranešimas
             comments_blocked: Komentarai užblokuoti
             highlighted_heading: Paryškinta antraštė
             landing_page_content: Biudžetų numatytasis puslapis

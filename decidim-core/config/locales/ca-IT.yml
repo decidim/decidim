@@ -2293,7 +2293,7 @@ ca-IT:
       long_with_particles: "%d %B, de %Y a les %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      time_of_day_with_time_zone: "%Z de %H:%M"
+      time_of_day_with_time_zone: "%H:%M %Z"
       tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:

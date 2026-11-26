@@ -503,7 +503,7 @@ eu:
           edit:
             title: Editatu partaidetza-prozesuaren fasea
           index:
-            title: Faseak
+            title: Urratsak
           new:
             title: Partaidetza-prozesuaren beste fase bat
         participatory_process_user_roles:

@@ -51,7 +51,7 @@ pt-BR:
         cta_text: Texto de chamada para ação
         description: Descrição
         end_date: Data final
-        short_description: Pequena descrição
+        short_description: Descrição curta
         start_date: Data de início
         title: Título
       participatory_process_user_role:
@@ -483,7 +483,7 @@ pt-BR:
           edit:
             title: Edite a etapa do processo participativo
           index:
-            title: Etapas
+            title: Passos
           new:
             title: Nova etapa de processo participativo
         participatory_process_user_roles:

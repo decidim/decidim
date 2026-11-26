@@ -252,6 +252,9 @@ lv:
         participatory_process_imports:
           form:
             document_legend: Pievienot dokumentu
+        participatory_process_steps:
+          index:
+            title: Fāzes
         participatory_processes:
           form:
             duration: Ilgums

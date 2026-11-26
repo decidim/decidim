@@ -37,3 +37,8 @@ sq:
         new_budget: Buxhet i ri
         new_project: Projekt i ri
         preview: Pamje paraprake
+    components:
+      budgets:
+        settings:
+          step:
+            title: Titulli

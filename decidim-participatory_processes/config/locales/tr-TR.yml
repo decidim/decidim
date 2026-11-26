@@ -106,6 +106,7 @@ tr:
           name: İşlem grubu
         participatory_process_step:
           fields:
+            actions: Eylemler
             end_date: Bitiş tarihi
             start_date: Başlangıç tarihi
             title: Başlık
@@ -283,6 +284,9 @@ tr:
         participatory_process_imports:
           form:
             document_legend: Doküman Ekle
+        participatory_process_steps:
+          index:
+            title: adımlar
         participatory_processes:
           form:
             duration: süre

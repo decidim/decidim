@@ -138,6 +138,12 @@ it:
             answers_with_costs: Abilita i costi sulle risposte proposte
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare proposte
+            default_sort_order_options:
+              most_commented: I più commentati
+              most_followed: I più seguiti
+              random: A caso
+              recent: le più recenti
+              with_more_authors: Con più autori
             proposal_answering_enabled: Risposta alla proposta abilitata
             publish_answers_immediately: Pubblica immediatamente le risposte proposte
             votes_blocked: Voti bloccati

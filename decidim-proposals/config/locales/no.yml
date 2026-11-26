@@ -138,8 +138,8 @@
             creation_enabled: Deltakerne kan opprette forslag
             default_sort_order: Standard sortering av forslag
             default_sort_order_options:
-              most_commented: Mest kommentert
-              most_followed: Mest fulgt
+              most_commented: Flest kommentarer
+              most_followed: Mest fulgte
               random: Tilfeldig
               recent: Nylig
               with_more_authors: Med flere forfattere

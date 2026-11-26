@@ -130,6 +130,12 @@ hu:
             creation_enabled: A résztvevők létrehozhatnak javaslatokat
             creation_enabled_readonly: Ez a beállítás le van tiltva, ha aktiválja a Részvételi Szövegek funkciót. A javaslatok részvételi szövegekként való feltöltéséhez kattintson a Részvételi Szövegek gombra és kövesse az utasításokat.
             default_sort_order: Alapértelmezett javaslat rendezés
+            default_sort_order_options:
+              most_commented: Legtöbb hozzászólással
+              most_followed: Legkövetettebb
+              random: Véletlenszerű
+              recent: Legutóbbi
+              with_more_authors: Több szerző
             proposal_answering_enabled: Javaslat válasz engedélyezve
             publish_answers_immediately: Javaslati válaszok azonnali közzététele
             publish_answers_immediately_help_html: 'Ne feledje, hogy ennek engedélyezése nélkül bármely javaslatot, kiválasztva őket, a művelet használatával manuálisan kell közzétennie. További információért arról, hogyan működik ez, lásd <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'

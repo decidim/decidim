@@ -318,6 +318,9 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
+        participatory_process_steps:
+          index:
+            title: Etapai
         participatory_processes:
           form:
             duration: Trukmė

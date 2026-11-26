@@ -124,6 +124,7 @@ ar:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
             show_votes: إظهار الأصوات
+            title: عنوان
             votes_choices:
               enabled: تم تمكين التصويت
   index:

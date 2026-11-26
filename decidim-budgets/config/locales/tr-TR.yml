@@ -170,7 +170,7 @@ tr:
               all: 'Hepsinde oy ver: Katılımcıların tüm bütçelerde oy kullanmasına olanak tanır.'
               one: 'Birinde oy verin: Katılımcıların herhangi bir bütçede, ancak yalnızca bir bütçede oy kullanmasına izin verir.'
           step:
-            announcement: Duyuru
+            announcement: Duyurular
             comments_blocked: Yorumlar engellendi
             highlighted_heading: Vurgulanan başlık
             landing_page_content: Bütçeler ana sayfası

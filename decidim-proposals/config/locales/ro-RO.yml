@@ -155,7 +155,7 @@ ro:
             default_sort_order_options:
               most_commented: Cele mai comentate
               most_followed: Cele mai urmărite
-              random: Aleator
+              random: Aleatoriu
               recent: Recente
               with_more_authors: Cu mai mulți autori
             proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat

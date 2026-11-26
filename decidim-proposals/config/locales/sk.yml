@@ -248,14 +248,14 @@ sk:
             default_sort_order: Predvolené zoradenie návrhov
             default_sort_order_help: Automaticky znamená, že ak sú hlasy povolené, návrhy sa zobrazia náhodne zoradené, a ak sú hlasy zablokované, zoradia sa podľa najvyššieho počtu hlasov.
             default_sort_order_options:
-              automatic: Automatické
+              automatic: Automaticky
               most_commented: Najviac komentované
               most_followed: Najviac sledované
-              most_liked: Najviac obľúbené
-              most_voted: Najviac hlasované
-              random: Náhodné
-              recent: Najnovšie
-              with_more_authors: S viacerými autormi
+              most_liked: Najviac lajkované
+              most_voted: S najväčším počtom hlasov
+              random: Náhodný
+              recent: Nedávno
+              with_more_authors: S viac autormi
             likes_blocked: Páči sa mi to zablokované
             likes_enabled: Páči sa mi to povolené
             proposal_answering_enabled: Odpovedanie na návrh je povolené
