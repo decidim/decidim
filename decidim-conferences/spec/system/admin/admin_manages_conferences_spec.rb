@@ -23,4 +23,10 @@ describe "Admin manages conferences" do
 
     it_behaves_like "filtering collection by published/unpublished"
   end
+
+  context "when creating a conference" do
+    before { click_on "New conference" }
+
+    it_behaves_like "an admin form with unsaved changes", ".new_conference", "conference_title_en", "Conferences"
+  end
 end

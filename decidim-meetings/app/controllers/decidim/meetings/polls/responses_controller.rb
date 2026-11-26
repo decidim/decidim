@@ -22,10 +22,19 @@ module Decidim
           @form = form(ResponseForm).from_params(params.merge(question:, current_user:))
 
           CreateResponse.call(@form, questionnaire) do
-            # Both :ok and :invalid render the same template, because
-            # validation errors are displayed in the template
-            respond_to do |format|
-              format.js
+            on(:ok) do
+              respond_to do |format|
+                format.js
+              end
+            end
+
+            on(:invalid) do
+              respond_to do |format|
+                # A rejected response still renders the same template, because
+                # validation errors are displayed in the template, but it must
+                # not report success or the client discards the unsaved answers.
+                format.js { render "create", status: :unprocessable_content }
+              end
             end
           end
         end

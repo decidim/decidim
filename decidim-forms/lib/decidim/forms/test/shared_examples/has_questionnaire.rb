@@ -144,7 +144,7 @@ shared_examples_for "has questionnaire" do
       end
     end
 
-    it "requires confirmation when exiting mid-responding" do
+    it "does not show the modal when existing form" do
       visit questionnaire_public_path
       see_questionnaire_questions
 
@@ -152,7 +152,7 @@ shared_examples_for "has questionnaire" do
 
       click_on translated_attribute(component.name)
 
-      expect(page).to have_current_path(questionnaire_public_path)
+      expect(page).to have_no_css("#confirm-modal", visible: :visible, text: I18n.t("decidim.shared.confirm_unload"))
     end
 
     context "when the questionnaire has already been responded by someone else" do

@@ -21,6 +21,7 @@ describe "Admin manages budgets" do
     before { click_on "New budget" }
 
     it_behaves_like "having a rich text editor", "new_budget", "content"
+    it_behaves_like "an admin form with unsaved changes", ".new_budget", "budget_title_en", "Components"
   end
 
   it "creates a new budget", versioning: true do

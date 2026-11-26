@@ -22,6 +22,38 @@ describe "Session timeout" do
       expect(page).to have_text("You were inactive for too long", wait: 4)
     end
 
+    context "with unsaved changes in an admin form" do
+      let(:current_user) { create(:user, :admin, :confirmed, organization:) }
+
+      it "timeouts if the user idles for too long with unsaved changes in a form" do
+        visit decidim_admin.edit_organization_path
+
+        page.execute_script(<<~JS)
+          const input = document.querySelector("#organization_name_en");
+          input.value = "Unsaved changes";
+          input.dispatchEvent(new Event("input", { bubbles: true }));
+        JS
+
+        expect(page.evaluate_script(<<~JS)).to be(true)
+          (() => {
+            const event = new Event("beforeunload", { cancelable: true });
+            window.dispatchEvent(event);
+            return event.defaultPrevented;
+          })()
+        JS
+
+        travel 1.minute
+
+        20.times do
+          break if page.evaluate_script("window.location.pathname").to_s.include?("/users/sign_in")
+
+          sleep 0.5
+        end
+
+        expect(page).to have_css("#session_new_user")
+      end
+    end
+
     it "does not timeout when user is active in another window" do
       win1 = current_window
       visit decidim.root_path

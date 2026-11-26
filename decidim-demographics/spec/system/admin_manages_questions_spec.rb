@@ -42,6 +42,21 @@ describe "Admin manages demographic questions" do
 
   it_behaves_like "questionnaire admin access", allow_process_admin: false, denied_error: 403
 
+  context "with an unsaved question" do
+    let!(:question) { create(:questionnaire_question, questionnaire:, body: { en: "This is the first question" }) }
+
+    before do
+      visit decidim_admin_demographics.edit_questions_questions_path
+      expand_all_questions
+    end
+
+    it_behaves_like "an admin form with unsaved changes", "form.edit_questions_survey", :unsaved_form_question_body, "Settings"
+
+    def unsaved_form_question_body
+      find_nested_form_field_locator("body_en")
+    end
+  end
+
   shared_examples_for "add questions" do
     shared_examples_for "updating the max choices selector according to the configured options" do
       it "updates them" do

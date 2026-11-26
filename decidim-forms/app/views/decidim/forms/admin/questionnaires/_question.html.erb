@@ -23,7 +23,7 @@
           </button>
 
           <% if editable %>
-            <button type="button" class="button button__xs button__transparent-secondary small alert remove-question button--title">
+            <button data-unsaved-form-structure type="button" class="button button__xs button__transparent-secondary small alert remove-question button--title">
               <%= icon("delete-bin-line") %>
               <span class="hidden md:block"><%= t(".remove") %></span>
             </button>
@@ -108,7 +108,7 @@
           </div>
 
           <% if editable %>
-            <button class="button button__xs button__transparent-secondary mt-4 add-matrix-row"><%= t(".add_matrix_row") %></button>
+            <button data-unsaved-form-structure class="button button__xs button__transparent-secondary mt-4 add-matrix-row"><%= t(".add_matrix_row") %></button>
           <% end %>
         </div>
       </div>
@@ -124,7 +124,7 @@
 
         <% if editable %>
           <div class="row column">
-            <button type="button" class="button button__xs button__transparent-secondary mt-4 add-response-option"><%= t(".add_response_option") %></button>
+            <button data-unsaved-form-structure type="button" class="button button__xs button__transparent-secondary mt-4 add-response-option"><%= t(".add_response_option") %></button>
           </div>
         <% end %>
       </div>
@@ -152,7 +152,7 @@
         <% if editable %>
           <% disabled = !question.persisted? %>
           <div class="row column">
-            <button <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__xs button__transparent-secondary mt-4 add-display-condition"><%= t(".add_display_condition") %></button>
+            <button data-unsaved-form-structure <%= "disabled" if disabled %> title="<%= disabled ? t(".add_display_condition_info") : t(".add_display_condition_info") %>" class="button button__xs button__transparent-secondary mt-4 add-display-condition"><%= t(".add_display_condition") %></button>
           </div>
         <% end %>
       </div>

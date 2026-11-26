@@ -4,6 +4,7 @@ import Configuration from "src/decidim/refactor/implementation/configuration"
 import toggleNav from "src/decidim/admin/toggle_nav";
 import createSortList from "src/decidim/admin/sort_list.component";
 import managedUsersForm from "src/decidim/admin/managed_users";
+import UnsavedFormController from "src/decidim/controllers/unsaved_form/controller";
 
 window.Decidim = window.Decidim || {};
 window.Decidim.managedUsersForm = managedUsersForm;
@@ -12,6 +13,9 @@ window.Decidim.config = new Configuration();
 document.addEventListener("stimulus:load", () => {
   const context = require.context("./controllers", true, /controller\.js$/)
   window.Stimulus.load(window.definitionsFromContext(context))
+
+  // Targets unsaved forms only in admin
+  window.Stimulus.register("unsaved-form", UnsavedFormController)
 }, { once: true });
 
 document.addEventListener("turbo:load", () => {

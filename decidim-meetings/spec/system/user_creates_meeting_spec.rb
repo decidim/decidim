@@ -145,6 +145,15 @@ describe "User creates meeting" do
           component.update!(settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
         end
 
+        context "with unsaved changes" do
+          before do
+            visit_component
+            click_on "New meeting"
+          end
+
+          it_behaves_like "a public form with unsaved changes", ".new_meeting", "meeting_title", "Back"
+        end
+
         context "with an empty form" do
           it "properly announces the main form error" do
             visit_component

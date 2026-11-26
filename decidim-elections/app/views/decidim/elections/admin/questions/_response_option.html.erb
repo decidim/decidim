@@ -6,7 +6,7 @@
       <span><%= t("response_option", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
       <% if editable %>
         <span class="ml-auto flex flex-row-reverse items-center gap-2">
-          <button class="button button__xs button__transparent-secondary small alert remove-response-option button--title">
+          <button data-unsaved-form-structure class="button button__xs button__transparent-secondary small alert remove-response-option button--title">
             <%= icon("delete-bin-line", class: "w-4 h-4") %>
             <span class="hidden md:block"><%= t("remove", scope: "decidim.forms.admin.questionnaires.response_option") %></span>
           </button>

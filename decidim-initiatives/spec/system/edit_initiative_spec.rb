@@ -74,6 +74,14 @@ describe "Edit initiative" do
 
     it_behaves_like "manage update"
 
+    context "with unsaved changes" do
+      before do
+        visit edit_initiative_path
+      end
+
+      it_behaves_like "a public form with unsaved changes", "form.edit_initiative", "initiative_title", "Initiatives"
+    end
+
     it "does not show the header's edit link" do
       visit initiative_path
 
