@@ -67,7 +67,7 @@ Sections 1–6 cover CVE-derived classes. These additional classes are reviewed 
 
 **Authentication**
 
-- Do not reveal whether an account exists through sign-in, registration, password-reset, or invitation responses, status codes, or timing (`config.paranoid = true`, Devise `send_paranoid_instructions`).
+- Do not reveal whether an account exists through sign-in, registration, password-reset, or invitation responses, status codes, or timing (`config.paranoid = true`).
 - Changing an email requires the current password and confirmation of the new address; never authenticate or authorize on an unconfirmed email (`AccountForm#validate_old_password`, `unconfirmed_email`).
 - Password-reset and invitation tokens must be single-use and invalidated on acceptance or password change; expiry rules are in §6 (`Devise.reset_password_within`).
 - Rotate the session identifier on sign-in; call `invalidate_all_sessions!` on sign-out, password/email change, role change, and impersonation end, and never carry pre-authentication session state across the boundary.
