@@ -181,6 +181,10 @@ module Decidim
       def with_current_url_options(options)
         return yield unless disk_service?
 
+        # Ensure that `host: nil` would not override the current URL options
+        # host.
+        options = options.except(:host) unless options[:host]
+
         tmp_options = routes.default_url_options.dup
         tmp_options.merge!(ActiveStorage::Current.url_options) if ActiveStorage::Current.url_options.present?
         tmp_options.merge!(options.slice(:protocol, :scheme, :host, :port))
