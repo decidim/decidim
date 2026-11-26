@@ -44,7 +44,8 @@
     <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-template"><%= render "decidim/collaborative_texts/documents/suggestions_box_template" %></script>
     <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-item-template"><%= render "decidim/collaborative_texts/documents/suggestions_box_item_template" %></script>
 
-    <% document.consolidated_version&.suggestions&.includes(document_version: :document)&.each do |suggestion| %>
+    <% comments_suggestions = document.consolidated_version&.suggestions&.includes(document_version: :document) %>
+    <% comments_suggestions&.each do |suggestion| %>
       <script type="text/template" class="decidim-template" id="collaborative-texts-suggestion-comments-<%= suggestion.id %>">
         <%= cell("decidim/comments/comments", suggestion) if suggestion.commentable? %>
       </script>
