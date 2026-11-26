@@ -39,7 +39,7 @@ module Decidim
 
     # Converts the blob and blob variant references to blob URLs.
     def decidim_rich_text(html, **options)
-      options[:organization] ||= try(:current_organization)
+      options[:organization] ||= try(:organization) || try(:current_organization)
       renderer = Decidim::ContentProcessor.renderer_klass(:blob).constantize.new(html)
       renderer.render(**options)
     end
