@@ -7,7 +7,7 @@ module Decidim
     describe SuggestionsController do
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:component) { create(:collaborative_text_component) }
-      let(:document) { build(:collaborative_text_document, :published, component:) }
+      let(:document) { build(:collaborative_text_document, :published, :accepting_suggestions, component:) }
       let!(:first_version) { create(:collaborative_text_version, document:) }
       let!(:second_version) { create(:collaborative_text_version, document:) }
       let(:suggestion_authors) { create_list(:user, 2, :confirmed, organization: component.organization) }
@@ -120,6 +120,17 @@ module Decidim
             expect(response).to have_http_status(:ok)
             body = response.parsed_body
             expect(body["message"]).to eq("Suggestion successfully created.")
+          end
+
+          context "when the document is not accepting suggestions" do
+            let(:document) { build(:collaborative_text_document, :published, component:) }
+
+            it "returns an error" do
+              post(:create, params:)
+              expect(response).to have_http_status(:unprocessable_content)
+              body = response.parsed_body
+              expect(body["message"]).to eq("You are not authorized to perform this action.")
+            end
           end
 
           context "when params are invalid" do
