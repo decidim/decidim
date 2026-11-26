@@ -26,6 +26,16 @@ module Decidim
         expect(proposal_vote.proposal).to be_a(Decidim::Proposals::Proposal)
       end
 
+      # The counter is shared through the inverse, so creating a vote through the
+      # association must not increment it twice.
+      it "keeps the votes counter in memory in sync with the database" do
+        proposal.votes.to_a
+
+        proposal.votes.create!(author:)
+
+        expect(proposal.proposal_votes_count).to eq(Decidim::Proposals::Proposal.find(proposal.id).proposal_votes_count)
+      end
+
       it "validates uniqueness for author and proposal combination" do
         proposal_vote.save!
         expect do

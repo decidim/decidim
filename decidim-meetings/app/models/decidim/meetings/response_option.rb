@@ -9,7 +9,7 @@ module Decidim
 
       translatable_fields :body
 
-      belongs_to :question, class_name: "Decidim::Meetings::Question", foreign_key: "decidim_question_id"
+      belongs_to :question, class_name: "Decidim::Meetings::Question", foreign_key: "decidim_question_id", inverse_of: :response_options
       has_many :choices,
                class_name: "ResponseChoice",
                foreign_key: "decidim_response_option_id",

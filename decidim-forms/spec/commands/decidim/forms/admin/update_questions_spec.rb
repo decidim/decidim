@@ -291,6 +291,207 @@ module Decidim
           end
         end
 
+        describe "when the questionnaire has existing records with recorded answers" do
+          before { questionnaire.override_edit! }
+
+          context "and a response option with choices is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:, body: { en: "First response" }) }
+            let!(:other_response_option) { create(:response_option, question:, body: { en: "Second response" }) }
+            let!(:choice) { create(:response_choice, response:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "single_option",
+                    "response_options" => {
+                      "0" => { "id" => other_response_option.id, "body" => { "en" => "Renamed option" }, "deleted" => "false" },
+                      "1" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts invalid instead of raising" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+
+            it "keeps the option and the recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+            end
+
+            it "rolls back the update processed before the refused removal" do
+              command.call
+
+              expect(other_response_option.reload.body["en"]).to eq("Second response")
+              expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+            end
+
+            it "broadcasts the reason for the refused removal" do
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("First response")
+            end
+
+            it "escapes the saved markup of the option in the message" do
+              response_option.update!(body: { "en" => "<script>alert(1)</script>" })
+
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("&lt;script&gt;alert(1)&lt;/script&gt;")
+              expect(messages.first).not_to include("<script>")
+            end
+
+            it "releases the removal flag of the refused option so the editor can be saved again" do
+              command.call
+
+              refused = form.questions.first.response_options.find { |option| option.id == response_option.id }
+              expect(refused.deleted?).to be(false)
+
+              expect { command.call }.to broadcast(:ok)
+
+              expect(Decidim::Forms::ResponseOption.exists?(response_option.id)).to be(true)
+              expect(other_response_option.reload.body["en"]).to eq("Renamed option")
+            end
+          end
+
+          context "and a matrix row with choices is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "matrix_single") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:) }
+            let!(:matrix_row) { create(:question_matrix_row, question:, body: { en: "First row" }) }
+            let!(:choice) { create(:response_choice, response:, matrix_row:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "matrix_single",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "false" }
+                    },
+                    "matrix_rows" => {
+                      "0" => { "id" => matrix_row.id, "body" => matrix_row.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts invalid instead of raising" do
+              expect { command.call }.to broadcast(:invalid)
+            end
+
+            it "keeps the row and the recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::QuestionMatrixRow.exists?(matrix_row.id)).to be(true)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(true)
+            end
+
+            it "broadcasts the reason for the refused removal" do
+              messages = []
+              command.on(:invalid) { |message| messages << message }
+              command.call
+
+              expect(messages.first).to include("First row")
+            end
+          end
+
+          context "and the whole question with recorded answers is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "single_option") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:, body: { en: "First response" }) }
+            let!(:choice) { create(:response_choice, response:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "single_option",
+                    "deleted" => "true",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts ok" do
+              expect { command.call }.to broadcast(:ok)
+            end
+
+            it "removes the question with its recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::Question.exists?(question.id)).to be(false)
+              expect(Decidim::Forms::Response.exists?(response.id)).to be(false)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+            end
+          end
+
+          context "and the whole matrix question with recorded answers is removed" do
+            let!(:question) { create(:questionnaire_question, questionnaire:, question_type: "matrix_single") }
+            let!(:response) { create(:response, question:, questionnaire:) }
+            let!(:response_option) { create(:response_option, question:) }
+            let!(:matrix_row) { create(:question_matrix_row, question:, body: { en: "First row" }) }
+            let!(:choice) { create(:response_choice, response:, matrix_row:, response_option:) }
+
+            let(:form_params) do
+              {
+                "questions" => {
+                  "0" => {
+                    "id" => question.id,
+                    "body" => question.body,
+                    "position" => 0,
+                    "question_type" => "matrix_single",
+                    "deleted" => "true",
+                    "response_options" => {
+                      "0" => { "id" => response_option.id, "body" => response_option.body, "deleted" => "true" }
+                    },
+                    "matrix_rows" => {
+                      "0" => { "id" => matrix_row.id, "body" => matrix_row.body, "deleted" => "true" }
+                    }
+                  }
+                }
+              }
+            end
+
+            it "broadcasts ok" do
+              expect { command.call }.to broadcast(:ok)
+            end
+
+            it "removes the question with its recorded answer" do
+              command.call
+
+              expect(Decidim::Forms::Question.exists?(question.id)).to be(false)
+              expect(Decidim::Forms::Response.exists?(response.id)).to be(false)
+              expect(Decidim::Forms::ResponseChoice.exists?(choice.id)).to be(false)
+            end
+          end
+        end
+
         describe "when the questionnaire has existing questions" do
           let!(:questions) { 0.upto(3).to_a.map { |x| create(:questionnaire_question, questionnaire:, position: x) } }
           let!(:question_2_response_options) { create_list(:response_option, 3, question: questions.second) }

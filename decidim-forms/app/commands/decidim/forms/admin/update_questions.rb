@@ -6,6 +6,8 @@ module Decidim
       # This command is executed when the user changes a Questionnaire questions from the admin
       # panel.
       class UpdateQuestions < Decidim::Command
+        include Decidim::SanitizeHelper
+
         # Initializes a UpdateQuestions Command.
         #
         # form - The form from which to get the data.
@@ -30,6 +32,8 @@ module Decidim
           end
 
           broadcast(:ok)
+        rescue ActiveRecord::RecordNotDestroyed => e
+          broadcast(:invalid, e.record ? removal_error_message(e.record) : e.message)
         end
 
         private
@@ -91,17 +95,35 @@ module Decidim
         def update_nested_model(form, attributes, parent_association)
           record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
 
+          if record.persisted? && form.deleted?
+            begin
+              record.destroy!
+            rescue ActiveRecord::RecordNotDestroyed
+              # The removal is refused, so the record stays. Reset the flag, otherwise
+              # every later save would send it again and be refused as well, and the
+              # admin could only cancel the removal by reloading the page, which would
+              # discard the other unsaved changes.
+              form.deleted = false
+              raise
+            end
+
+            return
+          end
+
           yield record if block_given?
 
           if record.persisted?
-            if form.deleted?
-              record.destroy!
-            else
-              record.update!(attributes)
-            end
+            record.update!(attributes)
           else
             record.save!
           end
+        end
+
+        def removal_error_message(record)
+          I18n.t(
+            "decidim.forms.admin.questionnaires.errors.cannot_remove_with_responses",
+            name: decidim_html_escape(translated_attribute(record.try(:body)))
+          )
         end
       end
     end

@@ -13,7 +13,13 @@ module Decidim
 
       translatable_fields :body, :description
 
-      belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id"
+      belongs_to :questionnaire, class_name: "Questionnaire", foreign_key: "decidim_questionnaire_id", inverse_of: :questions
+
+      has_many :responses,
+               class_name: "Response",
+               foreign_key: "decidim_question_id",
+               dependent: :destroy,
+               inverse_of: :question
 
       has_many :matrix_rows,
                class_name: "QuestionMatrixRow",
@@ -47,12 +53,6 @@ module Decidim
                through: :display_conditions_for_other_questions,
                source: :question,
                class_name: "Question"
-
-      has_many :responses,
-               class_name: "Response",
-               foreign_key: "decidim_question_id",
-               dependent: :destroy,
-               inverse_of: :question
 
       validates :question_type, inclusion: { in: TYPES }
 

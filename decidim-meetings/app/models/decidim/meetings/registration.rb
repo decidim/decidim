@@ -6,7 +6,7 @@ module Decidim
     class Registration < Meetings::ApplicationRecord
       include Decidim::DownloadYourData
 
-      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting"
+      belongs_to :meeting, foreign_key: "decidim_meeting_id", class_name: "Decidim::Meetings::Meeting", inverse_of: :registrations
       belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
       validates :user, uniqueness: { scope: :meeting }

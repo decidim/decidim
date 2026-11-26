@@ -33,8 +33,8 @@ module Decidim
             },
             {
               "choices" => [
-                { "response_option_id" => response_option_ids[3], "body" => "Third", "position" => 0 },
-                { "response_option_id" => response_option_ids[4], "body" => "response", "position" => 1 }
+                { "response_option_id" => question3_option_ids[0], "body" => "Third", "position" => 0 },
+                { "response_option_id" => question3_option_ids[1], "body" => "response", "position" => 1 }
               ],
               "question_id" => question3.id
             }
@@ -46,6 +46,8 @@ module Decidim
       let(:matrix_rows) { create_list(:question_matrix_row, 3, question: question2) }
       let(:response_option_ids) { response_options.pluck(:id).map(&:to_s) }
       let(:response_options) { create_list(:response_option, 5, question: question2) }
+      let(:question3_option_ids) { question3_options.pluck(:id).map(&:to_s) }
+      let(:question3_options) { create_list(:response_option, 3, question: question3) }
       let(:question3) { create(:questionnaire_question, questionnaire:) }
       let(:question2) { create(:questionnaire_question, questionnaire:) }
       let(:question1) { create(:questionnaire_question, questionnaire:) }
@@ -83,6 +85,28 @@ module Decidim
           expect do
             command.call
           end.not_to change(Response, :count)
+        end
+      end
+
+      describe "when a choice references records of another question" do
+        let(:other_question) { create(:questionnaire_question, questionnaire:, question_type: "matrix_multiple") }
+        let(:other_options) { create_list(:response_option, 2, question: other_question) }
+        let(:other_rows) { create_list(:question_matrix_row, 2, question: other_question) }
+
+        it "rejects a choice submitted with an option of another question" do
+          form_params["responses"][1]["choices"] = [{ "response_option_id" => other_options.first.id.to_s, "body" => "Foreign option" }]
+
+          expect { command.call }.to broadcast(:invalid)
+          expect(Response.count).to eq(0)
+        end
+
+        it "rejects a choice submitted with a matrix row of another question" do
+          form_params["responses"][1]["choices"] = [
+            { "response_option_id" => response_options.first.id.to_s, "body" => "Own option", "matrix_row_id" => other_rows.first.id.to_s }
+          ]
+
+          expect { command.call }.to broadcast(:invalid)
+          expect(Response.count).to eq(0)
         end
       end
 
