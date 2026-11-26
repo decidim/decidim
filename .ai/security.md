@@ -86,7 +86,7 @@ Sections 1–6 cover CVE-derived classes. These additional classes are reviewed 
 
 **Voting integrity**
 
-- One vote/order per participant must be enforced by a database unique constraint, not a model validation alone. For multi-option ballots, constrain each option and lock the question so the ballot cannot be duplicated (`decidim_budgets_order_user_feature_unique`, `decidim_elections_votes` index, and `CastVotes` locking each question with `with_lock`).
+- One vote/order per participant must be enforced by a database unique constraint, not a model validation alone (e.g. `decidim_budgets_line_items_order_project_unique`, `index_elections_votes_on__voter_uid_and_response`). For multi-option ballots, constrain each option and lock the question so the ballot cannot be duplicated (`CastVotes` locking each question with `with_lock`).
 - Duplicate and concurrent submissions must fail safely: rescue `ActiveRecord::RecordNotUnique`, keep the operation idempotent, and never double-count a retry.
 - Census validation and vote persistence must use the same voter identity and run atomically: `UsesCensusAccess` must not authorize one identity while `CastVotes` records another, and the election state must be rechecked inside the transaction.
 - Enforce start/end deadlines and question voting windows server-side (`ongoing?`, `voting_enabled_at`); never rely on the client clock, hidden fields, or disabled UI.
