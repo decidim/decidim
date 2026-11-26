@@ -54,8 +54,9 @@ module Decidim
     end
 
     def mapped(resource)
-      fields = map_common_fields(resource)
-      fields[:i18n] = map_i18n_fields(resource)
+      organization = retrieve_organization(resource)
+      fields = map_common_fields(resource, organization)
+      fields[:i18n] = map_i18n_fields(resource, organization)
       fields
     end
 
@@ -74,14 +75,13 @@ module Decidim
       read_field(resource, @declared_fields, :participatory_space)
     end
 
-    def map_common_fields(resource)
+    def map_common_fields(resource, organization)
       participatory_space = participatory_space(resource)
-      @organization = retrieve_organization(resource)
       {
         decidim_scope_id: read_field(resource, @declared_fields, :scope_id),
         decidim_participatory_space_id: participatory_space&.id,
         decidim_participatory_space_type: participatory_space&.class&.name,
-        decidim_organization_id: @organization.id,
+        decidim_organization_id: organization.id,
         datetime: read_field(resource, @declared_fields, :datetime)
       }
     end
@@ -109,19 +109,19 @@ module Decidim
       end
     end
 
-    def map_i18n_fields(resource)
+    def map_i18n_fields(resource, organization)
       i18n = {}
-      @organization.available_locales.each do |locale|
-        content_a = read_i18n_field(resource, locale, :A)
-        content_b = read_i18n_field(resource, locale, :B)
-        content_c = read_i18n_field(resource, locale, :C)
-        content_d = read_i18n_field(resource, locale, :D)
+      organization.available_locales.each do |locale|
+        content_a = read_i18n_field(resource, locale, :A, organization)
+        content_b = read_i18n_field(resource, locale, :B, organization)
+        content_c = read_i18n_field(resource, locale, :C, organization)
+        content_d = read_i18n_field(resource, locale, :D, organization)
         i18n[locale] = { A: content_a, B: content_b, C: content_c, D: content_d }
       end
       i18n
     end
 
-    def read_i18n_field(resource, locale, field_name)
+    def read_i18n_field(resource, locale, field_name, organization)
       content = read_field(resource, @declared_fields, field_name)
       return if content.nil?
 
@@ -133,7 +133,7 @@ module Decidim
                end
 
         if text.is_a?(String)
-          strip_tags(Decidim::ContentProcessor.render_without_format(text, links: false, organization: @organization))
+          strip_tags(Decidim::ContentProcessor.render_without_format(text, links: false, organization:))
         else
           text
         end
