@@ -47,6 +47,7 @@ eu:
             taxonomy_filters: Osagairako iragazkiak hautatu
             taxonomy_filters_add: Erantsi iragazkia
           phase:
+            announcement: Jakinarazpena
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Parte-hartzaileek eztabaidak sor ditzakete
             likes_blocked: Atsegin dut blokeatuta
