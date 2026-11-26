@@ -105,6 +105,16 @@ module Decidim
           expect(subject).to eq(parsed_content_with_url)
         end
       end
+
+      context "when the representation contains an unsupported transformation" do
+        let(:variation_key) { ActiveStorage.verifier.generate({ instance_eval: "1", format: "png" }, purpose: :variation) }
+        let(:unsupported_url) { routes.rails_blob_representation_proxy_path(image_blob.signed_id, variation_key, image_blob.filename, only_path: true) }
+        let(:content) { %(<p><img src="#{unsupported_url}" alt="Unsupported variation"></p>) }
+
+        it "stores only the blob reference without the variation" do
+          expect(subject).to eq(%(<p><img src="#{image_blob.to_global_id}" alt="Unsupported variation"></p>))
+        end
+      end
     end
   end
 end

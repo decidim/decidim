@@ -8,6 +8,7 @@ require "decidim/core/version"
 module Decidim
   autoload :Env, "decidim/env"
   autoload :Deprecations, "decidim/deprecations"
+  autoload :BlobVariation, "decidim/blob_variation"
   autoload :ActsAsAuthor, "decidim/acts_as_author"
   autoload :ActsAsTree, "decidim/acts_as_tree"
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
