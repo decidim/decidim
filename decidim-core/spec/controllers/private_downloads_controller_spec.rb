@@ -27,6 +27,7 @@ module Decidim
           expect(response.content_type).to eq("application/zip")
           expect(response.headers["Content-Disposition"]).to include("attachment")
           expect(response.headers["Content-Disposition"]).to include("dummy-export.zip")
+          expect(response.headers["Cache-Control"]).to eq("private, no-store")
         end
 
         it "rejects other users" do
@@ -58,6 +59,7 @@ module Decidim
 
           expect(response).to have_http_status(:ok)
           expect(response.content_type).to eq("image/jpeg")
+          expect(response.headers["Cache-Control"]).to eq("private, no-store")
         end
 
         it "rejects regular users" do
@@ -86,6 +88,51 @@ module Decidim
           get :show, params: { locale: I18n.default_locale, id: token }
 
           expect(response).to have_http_status(:not_found)
+        end
+
+        it "redirects anonymous visitors to sign in" do
+          sign_out user
+
+          get :show, params: { locale: I18n.default_locale, id: token }
+
+          expect(response).to have_http_status(:found)
+          expect(response.location).to include("/users/sign_in")
+        end
+
+        context "with an image attachment" do
+          let(:attachment) { create(:attachment, :with_image, attached_to: restricted_process) }
+
+          [:thumbnail, :big].each do |variant|
+            context "with the #{variant} variant" do
+              let(:token) { Decidim::PrivateDownload.for(attachment, attachment_name: :file, variant:).token }
+
+              it "serves the #{variant} variant to members" do
+                member
+
+                get :show, params: { locale: I18n.default_locale, id: token }
+
+                expect(response).to have_http_status(:ok)
+                expect(response.content_type).to eq("image/jpeg")
+                expect(response.body).to eq(attachment.attached_uploader(:file).variant(variant).processed.download)
+                expect(response.headers["Cache-Control"]).to eq("private, no-store")
+              end
+
+              it "rejects the #{variant} variant to non members" do
+                get :show, params: { locale: I18n.default_locale, id: token }
+
+                expect(response).to have_http_status(:not_found)
+              end
+
+              it "redirects anonymous visitors for the #{variant} variant" do
+                sign_out user
+
+                get :show, params: { locale: I18n.default_locale, id: token }
+
+                expect(response).to have_http_status(:found)
+                expect(response.location).to include("/users/sign_in")
+              end
+            end
+          end
         end
       end
 

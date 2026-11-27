@@ -154,6 +154,39 @@ module Decidim
         expect(subject.big_url).not_to be_nil
       end
 
+      it "uses the ActiveStorage URL for the thumbnail in an open space" do
+        expect(subject.thumbnail_url).to include("/rails/active_storage/")
+      end
+
+      it "uses the ActiveStorage URL for the big version in an open space" do
+        expect(subject.big_url).to include("/rails/active_storage/")
+      end
+
+      context "when attached to a restricted space" do
+        subject { create(:attachment, :with_image, attached_to: restricted_process) }
+
+        let(:restricted_process) { create(:participatory_process, :restricted, :published) }
+
+        it "returns a private download URL for the thumbnail" do
+          expect(subject.thumbnail_url).to include("/private_downloads/")
+          expect(subject.thumbnail_url).not_to include("/rails/active_storage/")
+        end
+
+        it "returns a private download URL for the big version" do
+          expect(subject.big_url).to include("/private_downloads/")
+          expect(subject.big_url).not_to include("/rails/active_storage/")
+        end
+
+        it "uses different tokens for the thumbnail and big versions" do
+          thumbnail_token = Rack::Utils.unescape(URI.parse(subject.thumbnail_url).path.split("/").last)
+          big_token = Rack::Utils.unescape(URI.parse(subject.big_url).path.split("/").last)
+
+          expect(subject.thumbnail_url).not_to eq(subject.big_url)
+          expect(Decidim::PrivateDownload.from_token(thumbnail_token).variant).to eq(:thumbnail)
+          expect(Decidim::PrivateDownload.from_token(big_token).variant).to eq(:big)
+        end
+      end
+
       context "when the image is an invariable format" do
         before do
           allow(ActiveStorage).to receive(:variable_content_types).and_return(%w(image/bmp))

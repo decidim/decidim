@@ -10,12 +10,17 @@ module Decidim
       return head :not_found unless private_download.attached?
       return head :not_found unless private_download.authorized_for?(current_user)
 
-      disposition = private_download.attachment.content_type.start_with?("image/") ? :inline : :attachment
+      representation = private_download.representation
+      disposition = representation.content_type.start_with?("image/") ? :inline : :attachment
+
+      # These responses can contain personal data, such as identity documents
+      # or private exports, so no cache (shared or private) should store them.
+      response.cache_control.replace(private: true, no_store: true)
 
       send_data(
-        private_download.attachment.download,
-        filename: private_download.attachment.filename.to_s,
-        type: private_download.attachment.content_type,
+        representation.download,
+        filename: representation.filename.to_s,
+        type: representation.content_type,
         disposition:
       )
     rescue Decidim::PrivateDownload::InvalidTokenError

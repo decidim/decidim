@@ -6,8 +6,8 @@ module Decidim
 
     VERIFIER_PURPOSE = :private_download
 
-    def self.for(record, attachment_name:)
-      new(record:, attachment_name:)
+    def self.for(record, attachment_name:, variant: nil)
+      new(record:, attachment_name:, variant:)
     end
 
     def self.from_token(token)
@@ -16,7 +16,7 @@ module Decidim
 
       raise InvalidTokenError if record.blank?
 
-      new(record:, attachment_name: payload[:attachment_name])
+      new(record:, attachment_name: payload[:attachment_name], variant: payload[:variant])
     rescue ActiveSupport::MessageVerifier::InvalidSignature, TypeError
       raise InvalidTokenError
     end
@@ -25,23 +25,31 @@ module Decidim
       @verifier ||= ActiveSupport::MessageVerifier.new(Rails.application.secret_key_base, serializer: JSON)
     end
 
-    def initialize(record:, attachment_name:)
+    def initialize(record:, attachment_name:, variant: nil)
       @record = record
       @attachment_name = attachment_name.to_s
+      @variant = variant.presence&.to_sym
     end
+
+    attr_reader :variant
 
     def token
       self.class.verifier.generate(
         {
           gid: record.to_global_id.to_s,
-          attachment_name:
-        },
+          attachment_name:,
+          variant:
+        }.compact,
         purpose: VERIFIER_PURPOSE
       )
     end
 
     def attachment
       record.public_send(attachment_name)
+    end
+
+    def representation
+      @representation ||= variant.present? ? variant_representation : attachment
     end
 
     def attached?
@@ -57,5 +65,13 @@ module Decidim
     private
 
     attr_reader :record, :attachment_name
+
+    def variant_representation
+      return attachment unless record.respond_to?(:attached_uploader)
+
+      uploader = record.attached_uploader(attachment_name.to_sym)
+      representation = uploader.variant(variant)
+      representation.respond_to?(:processed) ? representation.processed : representation
+    end
   end
 end
