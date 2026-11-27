@@ -89,7 +89,7 @@ module Decidim
       end
 
       describe "moderated comment" do
-        let(:model) { create(:comment, :moderated) }
+        let(:model) { create(:comment, :moderated).reload }
         let(:query) { "{ id }" }
 
         it_behaves_like "unauthorized Comment"

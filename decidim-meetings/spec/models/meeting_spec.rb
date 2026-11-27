@@ -507,6 +507,12 @@ module Decidim::Meetings
         expect(find_jobs).to be <= Decidim::FindAndUpdateDescendantsJob::MAX_DEPTH + 1
         expect(update_jobs).to be <= Decidim::FindAndUpdateDescendantsJob::MAX_DEPTH
       end
+
+      it "does not reindex resources in linked components as descendants" do
+        expect do
+          Decidim::FindAndUpdateDescendantsJob.perform_now(meeting_a)
+        end.not_to have_enqueued_job(Decidim::UpdateSearchIndexesJob)
+      end
     end
 
     describe ".ransackable_attributes" do

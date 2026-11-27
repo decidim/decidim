@@ -39,7 +39,8 @@ module Decidim
       return [resources_for(element)].compact if element.is_a?(Decidim::Component)
       return [] unless element.respond_to?(:components) && !element.components.empty?
 
-      element.components.filter_map { |component| resources_for(component) }
+      # Some resources (such as meetings) have linked components, not descendants.
+      element.components.where(participatory_space: element).filter_map { |component| resources_for(component) }
     end
 
     def resources_for(component)
