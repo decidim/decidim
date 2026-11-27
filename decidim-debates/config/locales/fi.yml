@@ -47,6 +47,7 @@ fi:
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
           phase:
+            announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Osallistujat voivat luoda keskusteluja
             likes_blocked: Tykkäykset estetty
