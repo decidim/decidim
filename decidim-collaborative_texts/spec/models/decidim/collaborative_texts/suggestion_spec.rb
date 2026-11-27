@@ -58,6 +58,19 @@ module Decidim
         end
       end
 
+      describe "#can_participate?" do
+        let(:user) { instance_double(Decidim::User) }
+        let(:document) { instance_double(Decidim::CollaborativeTexts::Document) }
+
+        it "delegates to the document" do
+          allow(collaborative_text_suggestion).to receive(:document).and_return(document)
+          allow(document).to receive(:can_participate?).with(user).and_return(true)
+
+          expect(collaborative_text_suggestion.can_participate?(user)).to be true
+          expect(document).to have_received(:can_participate?).with(user)
+        end
+      end
+
       describe "#users_to_notify_on_comment_created" do
         subject { suggestion.users_to_notify_on_comment_created }
 
