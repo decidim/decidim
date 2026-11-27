@@ -1,6 +1,13 @@
 <tr data-id="<%= post.id %>">
   <td data-label="<%= t("models.post.fields.title", scope: "decidim.blogs") %>">
-    <% if allowed_to? :update, :blogpost, blogpost: post %>
+    <% if view == :deleted %>
+      <button type="button"
+              class="text-secondary hover:underline"
+              data-dialog-open="deleted-item-modal"
+              data-dialog-remote-url="<%= manage_trash_modal_post_path(post) %>">
+        <%= present(post).title(html_escape: true) %>
+      </button>
+    <% elsif  allowed_to? :update, :blogpost, blogpost: post %>
       <%= link_to translated_attribute(post.title), edit_post_path(post) %><br>
     <% else %>
       <%= translated_attribute(post.title) %><br>

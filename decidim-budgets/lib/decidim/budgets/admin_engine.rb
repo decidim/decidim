@@ -20,6 +20,7 @@ module Decidim
           member do
             patch :soft_delete
             patch :restore
+            get :manage_trash_modal
           end
 
           resources :projects do

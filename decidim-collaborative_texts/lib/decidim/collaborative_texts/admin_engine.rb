@@ -18,6 +18,7 @@ module Decidim
             put :unpublish
             get :edit_settings
             patch :update_settings
+            get :manage_trash_modal
           end
 
           get :manage_trash, on: :collection

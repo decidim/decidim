@@ -157,6 +157,18 @@ module Decidim
         end
       end
 
+      def manage_trash_modal
+        enforce_permission_to :manage_trash, :component
+
+        component = trashable_deleted_resource
+
+        render partial: "decidim/admin/shared/deleted_component_modal",
+               locals: {
+                 component:,
+                 resources: component_resources(component)
+               }
+      end
+
       private
 
       def trashable_deleted_resource_type
@@ -222,6 +234,16 @@ module Decidim
         return if participatory_space.manifest.content_blocks_scope_name.blank?
 
         Decidim::EngineRouter.admin_proxy(participatory_space).send("edit_#{participatory_space.manifest.route_name}_landing_page_path")
+      end
+
+      def component_resources(component)
+        manifest_name = component.manifest.name.to_s
+
+        resource_class = "Decidim::#{manifest_name.camelize}::#{manifest_name.singularize.camelize}".safe_constantize
+
+        return [] unless resource_class
+
+        resource_class.where(component:)
       end
     end
   end

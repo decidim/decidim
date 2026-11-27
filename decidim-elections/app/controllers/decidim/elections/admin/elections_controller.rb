@@ -133,6 +133,19 @@ module Decidim
           render json: { success: false, error: I18n.t("elections.toggle_census_check.error", scope: "decidim.elections.admin") }, status: :unprocessable_content
         end
 
+        def manage_trash_modal
+          enforce_permission_to :manage_trash, :election
+
+          election = trashable_deleted_resource
+
+          render partial: "decidim/admin/shared/deleted_resource_modal",
+                 locals: {
+                   resource: election,
+                   resource_type: :election,
+                   restore_path: restore_election_path(election)
+                 }
+        end
+
         private
 
         def per_question_waiting?

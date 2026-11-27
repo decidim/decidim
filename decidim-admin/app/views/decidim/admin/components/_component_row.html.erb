@@ -4,7 +4,14 @@
       <%= icon("draggable", class: "dragger") %>
     </td>
     <td class="!text-left" data-label="<%= t("index.headers.name", scope: "decidim.admin.components") %>">
-      <% if component.manifest.admin_engine %>
+      <% if view == :deleted %>
+        <button type="button"
+                class="text-secondary hover:underline"
+                data-dialog-open="deleted-item-modal"
+                data-dialog-remote-url="<%= trash_modal_component_path(component) %>">
+          <%= translated_attribute(component.name) %>
+        </button>
+      <% elsif component.manifest.admin_engine %>
         <%= link_to translated_attribute(component.name), manage_component_path(component) %><br>
       <% else %>
         <%= translated_attribute component.name %>

@@ -1,6 +1,13 @@
 <tr>
   <td data-label="<%= t("models.collaborative_text.fields.title", scope: "decidim.collaborative_texts") %>">
-    <% if allowed_to? :update, :collaborative_text, document: document %>
+    <% if view == :deleted %>
+      <button type="button"
+              class="text-secondary hover:underline"
+              data-dialog-open="deleted-item-modal"
+              data-dialog-remote-url="<%= manage_trash_modal_document_path(document) %>">
+        <%= translated_attribute(document.title) %>
+      </button>
+    <% elsif allowed_to? :update, :collaborative_text, document: document %>
       <%= link_to translated_attribute(document.title), edit_document_path(document) %><br>
     <% else %>
       <%= translated_attribute(document.title) %><br>

@@ -586,6 +586,34 @@ en:
           no_matching_logs: There are no logs with the provided search filters. Try to change them and retry.
       manage_trash:
         deleted_items_warning: You are currently viewing deleted items. To make any edits or changes, you must first restore them.
+        modals:
+          cancel: Cancel
+          component:
+            details: Component details
+            resources_to_restore: "%{resource_type} that will be restored"
+            restore_info: The component comes back unpublished. Participants will not see it until you publish it again.
+            showing_resources: Showing %{displayed_count} of %{total_count}. The other %{remaining_count} will be restored too.
+          confirm_restore: Are you sure you want to restore this item?
+          deleted_at: This %{resource_type} was deleted on %{date}. It is not visible to participants.
+          labels:
+            author: Author
+            component: Component
+            count: Count
+            created: Created
+            created_at: Created at
+            id: ID
+            slug: Slug
+            space: Space
+            title: Title
+          resource:
+            details: Resource details
+            location: Where it will come back
+            restore_info: The %{resource_type} comes back with the state it had when it was deleted. Participants can see it again as soon as you restore it.
+          restore_title: Restore %{resource_type}
+          space:
+            contents: What will be restored
+            details: Space details
+            restore_info: Spaces come back unpublished. Participants will not see anything until you publish it again.
       managed_users:
         impersonation_logs:
           index:

@@ -9,3 +9,5 @@
 </div>
 
 <%= render partial: "components_table", locals: { components: trashable_deleted_collection, view: :deleted } %>
+
+<%= decidim_modal id: "deleted-item-modal", class: "deleted-item-modal", remote: true %>

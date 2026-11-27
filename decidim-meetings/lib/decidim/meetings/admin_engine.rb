@@ -20,6 +20,7 @@ module Decidim
             put :unpublish
             patch :soft_delete
             patch :restore
+            get :manage_trash_modal
           end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection

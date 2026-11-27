@@ -179,4 +179,135 @@ describe "Admin manages participatory processes", versioning: true do
       end
     end
   end
+
+  describe "Deleted participatory process restore modal" do
+    let(:process_title) { { en: "Deleted process" } }
+    let(:space_type_name) { deleted_process.class.model_name.human.downcase }
+
+    let!(:deleted_process) do
+      create(
+        :participatory_process,
+        organization:,
+        title: process_title,
+        slug: "deleted-process"
+      )
+    end
+
+    let!(:proposals_component) do
+      create(
+        :component,
+        manifest_name: "proposals",
+        participatory_space: deleted_process,
+        name: { en: "Process proposals" }
+      )
+    end
+
+    let!(:meetings_component) do
+      create(
+        :component,
+        manifest_name: "meetings",
+        participatory_space: deleted_process,
+        name: { en: "Process meetings" }
+      )
+    end
+
+    let!(:proposals) do
+      create_list(:proposal, 2, component: proposals_component)
+    end
+
+    let!(:meetings) do
+      create_list(:meeting, 3, component: meetings_component)
+    end
+
+    let(:trash_path) do
+      decidim_admin_participatory_processes.manage_trash_participatory_processes_path
+    end
+
+    before do
+      deleted_process.destroy!
+      visit trash_path
+
+      expect(page).to have_css(
+        "#deleted-item-modal",
+        count: 1,
+        visible: :all
+      )
+
+      click_on process_title[:en]
+
+      expect(page).to have_css("#deleted-item-modal", visible: :visible)
+    end
+
+    it "displays the correct space information" do
+      within "#deleted-item-modal" do
+        expect(page).to have_text(
+          I18n.t(
+            "decidim.admin.manage_trash.modals.restore_title",
+            resource_type: space_type_name
+          )
+        )
+
+        expect(page).to have_text(
+          I18n.t("decidim.admin.manage_trash.modals.space.details")
+        )
+
+        expect(page).to have_text(process_title[:en])
+        expect(page).to have_text(deleted_process.slug)
+
+        expect(page).to have_text(
+          I18n.t("decidim.admin.manage_trash.modals.space.restore_info")
+        )
+      end
+    end
+
+    it "displays the components and their resource counts" do
+      within "#deleted-item-modal" do
+        expect(page).to have_text(
+          I18n.t("decidim.admin.manage_trash.modals.space.contents")
+        )
+
+        within("tr", text: translated(proposals_component.name)) do
+          expect(page).to have_text(
+            I18n.t("decidim.components.proposals.name")
+          )
+          expect(page).to have_text(
+            (proposals_component.reload.primary_stat || 0).to_s
+          )
+        end
+
+        within("tr", text: translated(meetings_component.name)) do
+          expect(page).to have_text(
+            I18n.t("decidim.components.meetings.name")
+          )
+          expect(page).to have_text(
+            (meetings_component.reload.primary_stat || 0).to_s
+          )
+        end
+      end
+    end
+
+    it "links the restore button to the existing restore action" do
+      within "#deleted-item-modal" do
+        restore_button_text = I18n.t(
+          "decidim.admin.manage_trash.modals.restore_title",
+          resource_type: space_type_name
+        )
+
+        expect(page).to have_button(restore_button_text)
+
+        restore_form = find("form.button_to")
+        expected_restore_path =
+          decidim_admin_participatory_processes.restore_participatory_process_path(
+            deleted_process
+          )
+
+        expect(URI.parse(restore_form[:action]).path).to eq(expected_restore_path)
+
+        expect(restore_form).to have_css(
+          "input[name='_method'][value='patch']",
+          visible: :all
+        )
+      end
+    end
+  end
 end

@@ -34,4 +34,71 @@ describe "Admin manages proposals" do
   it_behaves_like "sorted moderations" do
     let!(:reportables) { create_list(:proposal, 27, component: current_component) }
   end
+
+  describe "Deleted proposal modal" do
+    let(:proposal_title) { translated(proposal.title) }
+    let(:component_name) { translated(current_component.name) }
+    let(:space_title) { translated(current_component.participatory_space.title) }
+    let(:resource_type_name) { proposal.class.model_name.human.downcase }
+
+    before do
+      proposal.destroy!
+
+      visit Decidim::EngineRouter.admin_proxy(current_component).manage_trash_proposals_path
+    end
+
+    it "shows the proposal details and link to the existing restore action" do
+      expect(page).to have_css(
+        "#deleted-item-modal",
+        count: 1,
+        visible: :all
+      )
+
+      click_on proposal_title
+
+      expect(page).to have_css("#deleted-item-modal", visible: :visible)
+
+      within "#deleted-item-modal" do
+        expect(page).to have_text(
+          I18n.t(
+            "decidim.admin.manage_trash.modals.restore_title",
+            resource_type: resource_type_name
+          )
+        )
+
+        expect(page).to have_text(
+          I18n.t("decidim.admin.manage_trash.modals.resource.details")
+        )
+
+        expect(page).to have_text(proposal_title)
+
+        expect(page).to have_text(
+          I18n.t("decidim.admin.manage_trash.modals.resource.location")
+        )
+
+        expect(page).to have_text(component_name)
+        expect(page).to have_text(space_title)
+
+        expect(page).to have_button(
+          I18n.t(
+            "decidim.admin.manage_trash.modals.restore_title",
+            resource_type: resource_type_name
+          )
+        )
+
+        restore_form = find("form.button_to")
+
+        expected_restore_path = Decidim::EngineRouter
+                                .admin_proxy(current_component)
+                                .restore_proposal_path(proposal)
+
+        expect(URI.parse(restore_form[:action]).path).to eq(expected_restore_path)
+
+        expect(restore_form).to have_css(
+          "input[name='_method'][value='patch']",
+          visible: :all
+        )
+      end
+    end
+  end
 end

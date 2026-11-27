@@ -18,6 +18,7 @@ module Decidim
           member do
             patch :soft_delete
             patch :restore
+            get :manage_trash_modal
           end
 
           get :manage_trash, on: :collection

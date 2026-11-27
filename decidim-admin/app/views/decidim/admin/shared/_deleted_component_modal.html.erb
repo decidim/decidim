@@ -1,0 +1,168 @@
+<%
+  modal_id = "deleted-item-modal"
+  component_name = translated_attribute(component.name)
+  displayed_resources = resources.first(5)
+  resources_count = resources.count
+  component_type_name = t("labels.component", scope: "decidim.admin.manage_trash.modals").downcase
+%>
+
+<div data-dialog-container>
+  <%= icon "refresh-line" %>
+
+  <h3 class="h3"
+      id="dialog-title-<%= modal_id %>"
+      tabindex="-1"
+      data-dialog-title>
+    <%= t(
+          "restore_title",
+          scope: "decidim.admin.manage_trash.modals",
+          resource_type: component_type_name
+        ) %>
+  </h3>
+
+  <div id="dialog-desc-<%= modal_id %>" class="my-8">
+    <div class="mb-6">
+      <strong>
+        <%= t(
+              "component.details",
+              scope: "decidim.admin.manage_trash.modals"
+            ) %>
+      </strong>
+
+      <dl>
+        <dt>
+          <%= t(
+                "index.headers.name",
+                scope: "decidim.admin.components"
+              ) %>
+        </dt>
+        <dd><%= component_name %></dd>
+
+        <dt>
+          <%= t(
+                "index.headers.type",
+                scope: "decidim.admin.components"
+              ) %>
+        </dt>
+        <dd><%= t("decidim.components.#{component.manifest_name}.name") %></dd>
+
+        <dt>
+          <%= t(
+                "labels.space",
+                scope: "decidim.admin.manage_trash.modals"
+              ) %>
+        </dt>
+        <dd><%= translated_attribute(component.participatory_space.title) %></dd>
+      </dl>
+    </div>
+
+    <% if resources.any? %>
+      <div class="mb-6">
+        <strong>
+          <%= t(
+                "component.resources_to_restore",
+                scope: "decidim.admin.manage_trash.modals",
+                resource_type: component.manifest.name.to_s.humanize
+              ) %>
+        </strong>
+
+        <table class="table-list">
+          <thead>
+          <tr>
+            <th>
+              <%= t(
+                    "labels.id",
+                    scope: "decidim.admin.manage_trash.modals"
+                  ) %>
+            </th>
+            <th>
+              <%= t(
+                    "labels.title",
+                    scope: "decidim.admin.manage_trash.modals"
+                  ) %>
+            </th>
+            <th>
+              <%= t(
+                    "labels.created_at",
+                    scope: "decidim.admin.manage_trash.modals"
+                  ) %>
+            </th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% displayed_resources.each do |component_resource| %>
+            <tr>
+              <td>#<%= component_resource.id %></td>
+
+              <td>
+                <% if component_resource.respond_to?(:title) %>
+                  <%= translated_attribute(component_resource.title) %>
+                <% elsif component_resource.respond_to?(:resource_title) %>
+                  <%= translated_attribute(component_resource.resource_title) %>
+                <% else %>
+                  —
+                <% end %>
+              </td>
+
+              <td>
+                <%= l(component_resource.created_at, format: :short) %>
+              </td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+
+        <% if resources_count > 5 %>
+          <p class="mt-2">
+            <%= t(
+                  "component.showing_resources",
+                  scope: "decidim.admin.manage_trash.modals",
+                  displayed_count: displayed_resources.size,
+                  total_count: resources_count,
+                  remaining_count: resources_count - displayed_resources.size
+                ) %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+
+    <p>
+      <%= t(
+            "component.restore_info",
+            scope: "decidim.admin.manage_trash.modals"
+          ) %>
+    </p>
+  </div>
+</div>
+
+<div data-dialog-actions>
+  <button type="button"
+          class="button button__sm button__transparent-secondary"
+          data-dialog-close="<%= modal_id %>">
+    <%= icon "arrow-left-line" %>
+    <%= t(
+          "cancel",
+          scope: "decidim.admin.manage_trash.modals"
+        ) %>
+  </button>
+
+  <% if allowed_to?(:restore, :component, trashable_deleted_resource: component) %>
+    <%= button_to Decidim::EngineRouter.admin_proxy(component.participatory_space).restore_component_path(component),
+                  method: :patch,
+                  class: "button button__sm button__secondary",
+                  data: {
+                    confirm: t(
+                      "confirm_restore",
+                      scope: "decidim.admin.manage_trash.modals"
+                    )
+                  } do %>
+      <%= icon "refresh-line" %>
+      <%= t(
+            "restore_title",
+            scope: "decidim.admin.manage_trash.modals",
+            resource_type: component_type_name
+          ) %>
+    <% end %>
+  <% end %>
+</div>
