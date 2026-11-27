@@ -16,6 +16,11 @@ module Decidim
       # rewritten directly to an embed URL.
       YOUTUBE_EMBED_PATH = %r{\A/(?:embed|live|shorts)/([^/]+)\z}
 
+      # YouTube video ids only contain alphanumeric characters, hyphens and
+      # underscores. Anything else (e.g. HTML or CSP payloads) is rejected so
+      # that it is never interpolated into the embed URL.
+      YOUTUBE_VIDEO_ID_REGEXP = /\A[A-Za-z0-9_-]+\z/
+
       # Public: Initializes the service.
       # online_meeting_service_url - A String containing the url of the online meeting
       def initialize(online_meeting_service_url)
@@ -49,7 +54,7 @@ module Decidim
             <!-- <iframe
               allow="camera; microphone; fullscreen; display-capture; autoplay"
               loading="lazy"
-              src="#{embed_transformed_url(request_host)}"
+              src="#{CGI.escapeHTML(embed_transformed_url(request_host).to_s)}"
               style="height: 100%; width: 100%; border: 0px;"></iframe> -->
           </div>
         HTML
@@ -89,7 +94,7 @@ module Decidim
       def transform_youtube_url(uri)
         video_id, query = youtube_video_id_and_query(uri)
 
-        return online_meeting_service_url if video_id.blank?
+        return online_meeting_service_url if video_id.blank? || !video_id.match?(YOUTUBE_VIDEO_ID_REGEXP)
 
         "https://www.youtube-nocookie.com/embed/#{video_id}#{query}"
       end
