@@ -50,6 +50,32 @@ module Decidim
               expect(subject.embed_transformed_url(request_host)).to eq(transformed_youtube_url)
             end
           end
+
+          %w(embed live shorts).each do |youtube_path|
+            context "with a valid youtube #{youtube_path} URL on #{host}" do
+              let(:url) { "https://#{host}/#{youtube_path}/#{youtube_video_id}" }
+
+              it "is transformed" do
+                expect(subject.embed_transformed_url(request_host)).to eq(transformed_youtube_url)
+              end
+            end
+          end
+
+          context "with a valid youtube embed URL with a query string on #{host}" do
+            let(:url) { "https://#{host}/embed/#{youtube_video_id}?start=30" }
+
+            it "is transformed preserving the original query string" do
+              expect(subject.embed_transformed_url(request_host)).to eq("#{transformed_youtube_url}?start=30")
+            end
+          end
+        end
+
+        context "with a valid youtube watch URL with additional query parameters" do
+          let(:url) { "https://www.youtube.com/watch?v=#{youtube_video_id}&start=30" }
+
+          it "is transformed without the original query string" do
+            expect(subject.embed_transformed_url(request_host)).to eq(transformed_youtube_url)
+          end
         end
 
         %w(twitch.tv www.twitch.tv m.twitch.tv).each do |host|
@@ -64,6 +90,32 @@ module Decidim
 
         context "with an invalid youtube URL" do
           let(:url) { "https://www.youtube.com/watch/foo/bar" }
+
+          it "is not transformed" do
+            expect(subject.embed_transformed_url(request_host)).to eq(url)
+          end
+        end
+
+        context "with an HTML payload percent-encoded in the v parameter" do
+          let(:url) { "https://www.youtube.com/watch?v=abc%22%3E%20--%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E" }
+
+          it "is not transformed" do
+            expect(subject.embed_transformed_url(request_host)).to eq(url)
+          end
+        end
+
+        %w(embed live shorts).each do |youtube_path|
+          context "with an HTML payload percent-encoded in the #{youtube_path} path" do
+            let(:url) { "https://www.youtube.com/#{youtube_path}/abc%22%3E%20--%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E" }
+
+            it "is not transformed" do
+              expect(subject.embed_transformed_url(request_host)).to eq(url)
+            end
+          end
+        end
+
+        context "with an unknown youtube path" do
+          let(:url) { "https://www.youtube.com/channel/#{youtube_video_id}" }
 
           it "is not transformed" do
             expect(subject.embed_transformed_url(request_host)).to eq(url)
@@ -162,15 +214,49 @@ module Decidim
       end
 
       describe "#embed_code" do
-        let(:url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
+        context "with a YouTube URL" do
+          let(:url) { "https://www.youtube.com/watch?v=#{youtube_video_id}" }
 
-        it "generates an iframe tag with the embed url" do
-          embed_code = subject.embed_code(request_host)
+          it "generates an iframe tag with the embed url" do
+            embed_code = subject.embed_code(request_host)
 
-          expect(embed_code).to include(subject.embed_transformed_url(request_host))
-          expect(embed_code).to include(%(<div))
-          expect(embed_code).to include(%(class="disabled-iframe"))
-          expect(embed_code).to include("</div")
+            expect(embed_code).to include(subject.embed_transformed_url(request_host))
+            expect(embed_code).to include(%(<div))
+            expect(embed_code).to include(%(class="disabled-iframe"))
+            expect(embed_code).to include("</div")
+          end
+        end
+
+        context "with an HTML payload percent-encoded in the v parameter" do
+          let(:url) { "https://www.youtube.com/watch?v=abc%22%3E%20--%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E" }
+
+          it "does not include the decoded payload" do
+            embed_code = subject.embed_code(request_host)
+
+            expect(embed_code).not_to include("<img src=x onerror=alert(1)>")
+            expect(embed_code).not_to include(%(embed/abc">))
+          end
+        end
+
+        context "with a meet.jit.si URL containing a comment terminator" do
+          let(:url) { "https://meet.jit.si/decidim-meeting?x=-->" }
+
+          it "escapes the url in the src attribute" do
+            embed_code = subject.embed_code(request_host)
+
+            expect(embed_code).not_to include("?x=-->")
+            expect(embed_code).to include("?x=--&gt;")
+          end
+        end
+
+        context "with a Twitch URL" do
+          let(:url) { "https://www.twitch.tv/videos/#{twitch_video_id}" }
+
+          it "escapes the ampersand in the query string" do
+            embed_code = subject.embed_code(request_host)
+
+            expect(embed_code).to include(%(src="https://player.twitch.tv/?video=#{twitch_video_id}&amp;parent=#{request_host}"))
+          end
         end
       end
     end

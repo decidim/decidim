@@ -127,7 +127,19 @@ What to check when upgrading: if `DECIDIM_SYSTEM_ACCESSLIST_IPS` is set in produ
 
 You can read more about this change on PR [#17933](https://github.com/decidim/decidim/pull/17933).
 
-### 2.7. [[TITLE OF THE ACTION]]
+### 2.7. Meeting embed domains are no longer added automatically to the CSP
+
+Meeting and live event pages no longer append the meeting embed URL to the `frame-src` directive of the Content Security Policy at request time. The meetings engine also no longer adds `player.twitch.tv` and `meet.jit.si` to the global `Decidim.content_security_policies_extra` configuration at boot. Both hosts are now part of the default `frame-src` directive, together with `'self'`, `www.youtube-nocookie.com` and `player.vimeo.com`.
+
+Decidim rewrites the common YouTube URL forms (`watch?v=ID`, `/embed/ID`, `/live/ID` and `/shorts/ID`) to `https://www.youtube-nocookie.com/embed/ID`, so they keep working with the default policy.
+
+For other services, or for URLs that Decidim does not rewrite (for example `https://www.youtube.com/@channel/live`), the iframe loads from the host written in the URL. Add that host to `frame-src` through `Decidim.content_security_policies_extra` in the initializer or through the organization's System panel, otherwise the browser blocks the embedded service.
+
+The default hosts are appended before the organization settings, so the System panel can add sources but cannot remove the defaults.
+
+You can read more about this change on PR [#18199](https://github.com/decidim/decidim/pull/18199).
+
+### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

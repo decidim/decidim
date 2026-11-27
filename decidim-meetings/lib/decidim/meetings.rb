@@ -28,6 +28,12 @@ module Decidim
     # Public Setting that defines the interval when the upcoming meeting will be sent
     mattr_accessor :upcoming_meeting_notification, default: Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
 
+    # The host that the iframe actually loads from must also be allowed in the
+    # `frame-src` directive of the Content Security Policy (for example, through
+    # `Decidim.content_security_policies_extra`), otherwise the browser will
+    # block the embedded services. This host can differ from the service domain
+    # listed in MEETINGS_EMBEDDABLE_SERVICES when Decidim leaves the embed URL
+    # unchanged.
     mattr_accessor :embeddable_services, default: Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES", "www.youtube.com www.twitch.tv meet.jit.si").to_array(separator: " ")
 
     mattr_accessor :waiting_list_enabled, default: Decidim::Env.new("MEETINGS_WAITING_LIST_ENABLED", true).present?

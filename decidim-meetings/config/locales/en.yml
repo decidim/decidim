@@ -377,7 +377,7 @@ en:
           form:
             address_help: 'Address: used by Geocoder to find the location'
             disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
-            iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
+            iframe_embed_type_html: 'Only a few services allow embedding in a meeting or live event from the following domains: %{domains}. The host that the iframe actually loads from must also be allowed in the frame-src directive of the Content Security Policy configured for the organization; it can differ from the domain listed here when Decidim does not rewrite the URL.'
             location_help: 'Location: message directed to the users implying the spot to meet at'
             location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
             online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
@@ -601,7 +601,7 @@ en:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
           disclaimer: 'Disclaimer: By using an external registration system, you are aware that the organizers of %{organization} are not responsible for the data provided by the users to the external service.'
-          iframe_embed_type_html: 'Only a few services allow embedding in meeting or live event from the following domains: %{domains}'
+          iframe_embed_type_html: 'Only a few services allow embedding in a meeting or live event from the following domains: %{domains}. The host that the iframe actually loads from must also be allowed in the frame-src directive of the Content Security Policy configured for the organization; it can differ from the domain listed here when Decidim does not rewrite the URL.'
           location_help: 'Location: message directed to the users implying the spot to meet at'
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'

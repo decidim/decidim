@@ -12,6 +12,15 @@ module Decidim
       # normalizing hostnames.
       PREFIX_STRIPPABLE_HOSTS = %w(youtube.com twitch.tv).freeze
 
+      # YouTube URL paths whose last segment is the video id and that can be
+      # rewritten directly to an embed URL.
+      YOUTUBE_EMBED_PATH = %r{\A/(?:embed|live|shorts)/([^/]+)\z}
+
+      # YouTube video ids only contain alphanumeric characters, hyphens and
+      # underscores. Anything else (e.g. HTML or CSP payloads) is rejected so
+      # that it is never interpolated into the embed URL.
+      YOUTUBE_VIDEO_ID_REGEXP = /\A[A-Za-z0-9_-]+\z/
+
       # Public: Initializes the service.
       # online_meeting_service_url - A String containing the url of the online meeting
       def initialize(online_meeting_service_url)
@@ -45,7 +54,7 @@ module Decidim
             <!-- <iframe
               allow="camera; microphone; fullscreen; display-capture; autoplay"
               loading="lazy"
-              src="#{embed_transformed_url(request_host)}"
+              src="#{CGI.escapeHTML(embed_transformed_url(request_host).to_s)}"
               style="height: 100%; width: 100%; border: 0px;"></iframe> -->
           </div>
         HTML
@@ -78,18 +87,27 @@ module Decidim
       end
 
       # YouTube transformation consists on:
-      # 1. extract the video id from the parameter v
+      # 1. extract the video id from the path (embed, live or shorts) or from the
+      #    parameter v
       # 2. Create a new URL using the domain youtube-nocookie.com, converting it to an embed
-      #    and appending the video id
+      #    and appending the video id. Path-based URLs keep their original query string.
       def transform_youtube_url(uri)
-        return online_meeting_service_url if uri.query.blank?
+        video_id, query = youtube_video_id_and_query(uri)
 
-        parsed_query = CGI.parse(uri.query)
-        video_id = parsed_query.has_key?("v") ? CGI.parse(uri.query).fetch("v")&.first : nil
+        return online_meeting_service_url if video_id.blank? || !video_id.match?(YOUTUBE_VIDEO_ID_REGEXP)
 
-        return online_meeting_service_url if video_id.blank?
+        "https://www.youtube-nocookie.com/embed/#{video_id}#{query}"
+      end
 
-        "https://www.youtube-nocookie.com/embed/#{video_id}"
+      def youtube_video_id_and_query(uri)
+        video_id = uri.path.to_s[YOUTUBE_EMBED_PATH, 1]
+
+        if video_id.present?
+          query = uri.query.present? ? "?#{uri.query}" : ""
+          return [video_id, query]
+        end
+
+        [CGI.parse(uri.query.to_s)["v"]&.first, ""]
       end
 
       # Twitch transformation consists on:
