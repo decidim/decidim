@@ -8,6 +8,7 @@ export default class SuggestionsList {
     this.i18n = document.i18n || {};
     this.suggestions = [];
     this.linkedCommentId = null;
+    this.linkedCommentsContainer = null;
     this._fetchSuggestions();
     this._bindEvents();
   }
@@ -104,6 +105,7 @@ export default class SuggestionsList {
     }
 
     this.linkedCommentId = params.get("commentId");
+    this.linkedCommentsContainer = suggestion.commentsContainer;
     suggestion.toggleComments();
   }
 
@@ -112,13 +114,14 @@ export default class SuggestionsList {
       return;
     }
 
-    const comment = window.document.getElementById(`comment_${this.linkedCommentId}`);
-    if (!comment) {
+    const target = window.document.getElementById(`comment_${this.linkedCommentId}`) || this.linkedCommentsContainer;
+    if (!target) {
       return;
     }
 
-    comment.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
     this.linkedCommentId = null;
+    this.linkedCommentsContainer = null;
   }
 
   _bindEvents() {

@@ -225,12 +225,18 @@ describe("SuggestionsList", () => {
 
   it("opens the comments linked from the URL", async () => {
     window.history.pushState({}, "", "/?suggestionId=102&commentId=456");
+    const scrollIntoView = jest.fn();
+    suggestion.commentsContainer.scrollIntoView = scrollIntoView;
 
     suggestionsList._openLinkedComments();
     await new Promise(process.nextTick);
 
     expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
     expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
+
+    window.document.dispatchEvent(new CustomEvent("comments:loaded"));
+    expect(scrollIntoView).toHaveBeenCalled();
+    expect(suggestionsList.linkedCommentId).toBe(null);
   });
 
   it("does not highlight the suggestion when hovering its comments", () => {
