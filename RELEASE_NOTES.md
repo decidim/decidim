@@ -137,6 +137,8 @@ For other services, or for URLs that Decidim does not rewrite (for example `http
 
 The default hosts are appended before the organization settings, so the System panel can add sources but cannot remove the defaults.
 
+You can read more about this change on PR [#18199](https://github.com/decidim/decidim/pull/18199).
+
 ### 2.8. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
