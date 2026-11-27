@@ -64,7 +64,11 @@ describe "Admin edits proposals" do
       expect(page).to have_text "Update proposal"
 
       fill_in_i18n :proposal_title, "#proposal-title-tabs", **attributes[:title].except("machine_translations")
-      attributes[:body]["en"].length.times { first(".tiptap.ProseMirror").send_keys(:backspace) }
+      clear_i18n_editor :proposal_body, "#proposal-body-tabs", [:en]
+
+      expect(find("#proposal_body_en input[name='proposal[body_en]']", visible: :all).value).to be_empty
+      expect(page.evaluate_script("document.querySelector('#proposal_body_en .ProseMirror').textContent.trim()")).to be_empty
+
       click_on "Update"
 
       within ".flash__message" do
