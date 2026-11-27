@@ -207,6 +207,23 @@ module Decidim
             end
           end
 
+          context "when the changeset is not a hash" do
+            let(:params) do
+              {
+                component_id: component.id,
+                document_id: document.id,
+                changeset: "invalid"
+              }
+            end
+
+            it "returns an error" do
+              post(:create, params:)
+              expect(response).to have_http_status(:unprocessable_content)
+              body = response.parsed_body
+              expect(body["message"]).to include("Changeset is invalid.")
+            end
+          end
+
           context "when params are invalid" do
             let(:first_node) { "" }
 

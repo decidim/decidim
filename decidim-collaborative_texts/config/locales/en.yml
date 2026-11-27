@@ -161,6 +161,7 @@ en:
         errors:
           blank_changeset: Changeset cannot be blank.
           changeset_too_large: The suggestion is too large.
+          invalid_changeset: Changeset is invalid.
           invalid_nodes: Invalid selected nodes.
           too_many_nodes: The suggestion affects too many nodes.
     components:

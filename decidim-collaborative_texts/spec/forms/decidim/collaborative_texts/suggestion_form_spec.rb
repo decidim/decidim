@@ -68,6 +68,15 @@ module Decidim
           end
         end
 
+        context "when changeset is not a hash" do
+          let(:attributes) { { changeset: "invalid", document_id: document.id } }
+
+          it "is invalid" do
+            expect(form).not_to be_valid
+            expect(form.errors[:base]).to include("Changeset is invalid.")
+          end
+        end
+
         context "when firstNode is zero" do
           let(:attributes) { { changeset: { firstNode: 0, lastNode: 2 }, document_id: document.id } }
 
