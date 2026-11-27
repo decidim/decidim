@@ -179,6 +179,7 @@ fi:
             taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
           phase:
+            announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled_for_participants: Tapaamisten luonti sallittu osallistujille
     download_your_data:
