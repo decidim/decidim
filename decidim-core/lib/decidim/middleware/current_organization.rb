@@ -19,6 +19,7 @@ module Decidim
         organization = detect_current_organization(env)
         if organization
           env["decidim.current_organization"] = organization
+          RequestStore.store[:current_organization] = organization
           @app.call(env)
         else
           organization = find_secondary_host_org(env)
@@ -28,6 +29,8 @@ module Decidim
 
           [301, { "Location" => location, "Content-Type" => "text/html", "Content-Length" => "0" }, []]
         end
+      ensure
+        RequestStore.store[:current_organization] = nil
       end
 
       private

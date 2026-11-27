@@ -87,6 +87,21 @@ module Decidim::Meetings
         end
       end
 
+      context "when custom content references a graphic from another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_blob) { create(:editor_image, organization: other_organization).file.blob }
+        let(:editor_content) { %(<p>Customized content with <img src="#{other_blob.to_global_id}" alt="Foreign"></p>) }
+
+        before do
+          meeting.customize_registration_email = true
+          meeting.registration_email_custom_content = { "en" => editor_content }
+        end
+
+        it "does not render the blob URL" do
+          expect(email_body(mail)).not_to include(other_blob.signed_id)
+        end
+      end
+
       it "includes the meeting's details in a ics file" do
         attachment = mail.attachments.first
         expect(attachment.filename).to match(/meeting-calendar-info.ics/)

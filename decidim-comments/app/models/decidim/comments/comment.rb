@@ -202,7 +202,11 @@ module Decidim
       # method from comment event in the resource_text method which requires
       # the use of this argument in translated_attribute of body
       def formatted_body(override_translation = nil)
-        Decidim::ContentProcessor.render(sanitize_content_for_comment(render_markdown(translated_body(override_translation))), "div")
+        Decidim::ContentProcessor.render(
+          sanitize_content_for_comment(render_markdown(translated_body(override_translation))),
+          "div",
+          organization:
+        )
       end
 
       def translated_body(override_translation = nil)

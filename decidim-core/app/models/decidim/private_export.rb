@@ -3,6 +3,7 @@
 module Decidim
   class PrivateExport < ApplicationRecord
     belongs_to :attached_to, polymorphic: true
+    delegate :organization, to: :attached_to, allow_nil: true
 
     has_one_attached :file
     validates :content_type, presence: true
@@ -29,6 +30,10 @@ module Decidim
       return false unless requested_attachment_name.to_s == "file"
 
       attached_to == user
+    end
+
+    def private_download_required?
+      true
     end
   end
 end

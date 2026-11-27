@@ -17,6 +17,19 @@ module Decidim
 
         expect(new_env["decidim.current_organization"]).to eq(organization)
       end
+
+      it "sets and clears the organization in the request store" do
+        observed = nil
+        store_app = lambda do |new_env|
+          observed = RequestStore.store[:current_organization]
+          [200, new_env, "app"]
+        end
+
+        described_class.new(store_app).call(env)
+
+        expect(observed).to eq(organization)
+        expect(RequestStore.store[:current_organization]).to be_nil
+      end
     end
 
     context "when no organization exists for the current host" do

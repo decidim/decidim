@@ -131,6 +131,16 @@ module Decidim
         end
       end
 
+      describe "when the body references a blob from another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_blob) { create(:editor_image, organization: other_organization).file.blob }
+        let(:content) { %(<p>Image: #{other_blob.to_global_id}</p>) }
+
+        it "does not render the blob URL" do
+          expect(subject.body).not_to include("/rails/active_storage/")
+        end
+      end
+
       describe "#versions", versioning: true do
         subject { presenter.versions }
 

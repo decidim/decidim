@@ -38,9 +38,10 @@ module Decidim
     end
 
     # Converts the blob and blob variant references to blob URLs.
-    def decidim_rich_text(html, **)
+    def decidim_rich_text(html, **options)
+      options[:organization] ||= try(:organization) || try(:current_organization)
       renderer = Decidim::ContentProcessor.renderer_klass(:blob).constantize.new(html)
-      renderer.render(**)
+      renderer.render(**options)
     end
 
     def decidim_sanitize_editor(html, options = {})
@@ -127,7 +128,7 @@ module Decidim
         content = strip_tags(sanitize_text(content)) if strip_tags
 
         renderer = Decidim::ContentRenderers::BlobRenderer.new(content)
-        content = renderer.render.html_safe
+        content = renderer.render(organization: try(:organization) || try(:current_organization)).html_safe
 
         content = Decidim::ContentRenderers::LinkRenderer.new(content).render if links
         content

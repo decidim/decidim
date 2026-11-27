@@ -12,7 +12,7 @@ module Decidim
             return if translated_value.blank?
 
             renderer = Decidim::ContentRenderers::BlobRenderer.new(translated_value)
-            renderer.render(links: false).html_safe
+            renderer.render(links: false, organization: h.try(:current_organization)).html_safe
           end
         end
       end

@@ -7,8 +7,10 @@ module Decidim
     let(:renderer) { described_class.new(content) }
     let(:current_host) { "https://example.lvh.me" }
 
-    let(:image_blob) { create(:blob, :image) }
-    let(:document_blob) { create(:blob, :document) }
+    let(:organization) { create(:organization) }
+    let(:public_record) { create(:dummy_resource, organization:) }
+    let(:image_blob) { create(:editor_image, organization:).file.blob }
+    let(:document_blob) { create(:attachment, :with_pdf, attached_to: public_record).file.blob }
     let(:image_variant) { image_blob.variant(image_variant_transforms) }
     let(:image_variant_transforms) { { format: "png", resize_to_limit: [100, 100] } }
     let(:image_variant_encoded) { Base64.strict_encode64(ActiveSupport::JSON.encode(image_variant_transforms)) }
@@ -137,6 +139,146 @@ module Decidim
         let(:suffix) { "%something" }
 
         it_behaves_like "correctly rendered blob URLs"
+      end
+
+      context "when the blob is attached to a private record" do
+        let(:private_export) { create(:private_export, organization:) }
+        let(:content) { %(<p>#{private_export.file.blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "renders the private download path instead of an Active Storage URL" do
+          expect(subject).to include("/private_downloads/")
+          expect(subject).not_to include("/rails/active_storage/")
+        end
+      end
+
+      context "when the blob is attached to an attachment in a restricted space" do
+        let(:restricted_process) { create(:participatory_process, :restricted, organization:) }
+        let(:attachment) { create(:attachment, :with_image, attached_to: restricted_process) }
+        let(:content) { %(<p>#{attachment.file.blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "renders the private download path instead of an Active Storage URL" do
+          expect(subject).to include("/private_downloads/")
+          expect(subject).not_to include("/rails/active_storage/")
+        end
+      end
+
+      context "when the blob is attached to a private record of another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:private_export) { create(:private_export, organization: other_organization) }
+        let(:content) { %(<p>#{private_export.file.blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "does not render the blob" do
+          expect(subject).not_to include("/private_downloads/")
+          expect(subject).not_to include("/rails/active_storage/")
+          expect(Nokogiri::HTML(subject).at("p").text).to be_blank
+        end
+      end
+
+      context "when the blob is attached to an attachment in a restricted space of another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:restricted_process) { create(:participatory_process, :restricted, organization: other_organization) }
+        let(:attachment) { create(:attachment, :with_image, attached_to: restricted_process) }
+        let(:content) { %(<p>#{attachment.file.blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "does not render the blob" do
+          expect(subject).not_to include("/private_downloads/")
+          expect(subject).not_to include("/rails/active_storage/")
+          expect(Nokogiri::HTML(subject).at("p").text).to be_blank
+        end
+      end
+
+      context "when the organization is unknown and the blob is attached to a private record" do
+        let(:private_export) { create(:private_export, organization:) }
+        let(:content) { %(<p>#{private_export.file.blob.to_global_id}</p>) }
+
+        before { RequestStore.store[:current_organization] = nil }
+
+        it "renders the private download path" do
+          expect(renderer.render).to include("/private_downloads/")
+          expect(renderer.render).not_to include("/rails/active_storage/")
+        end
+      end
+
+      context "when the blob is not attached to any record" do
+        let(:unattached_blob) { create(:blob, :image) }
+        let(:content) { %(<p>#{unattached_blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "does not render a blob URL" do
+          expect(subject).not_to include("/rails/active_storage/")
+          expect(Nokogiri::HTML(subject).at("p").text).to be_blank
+        end
+      end
+
+      context "when the blob belongs to another organization" do
+        let(:other_organization) { create(:organization) }
+        let(:other_editor_image) { create(:editor_image, organization: other_organization) }
+        let(:content) { %(<p>#{other_editor_image.file.blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "does not render a blob URL" do
+          expect(subject).not_to include("/rails/active_storage/")
+          expect(Nokogiri::HTML(subject).at("p").text).to be_blank
+        end
+      end
+
+      context "when the organization is only available in the request store" do
+        around do |example|
+          RequestStore.store[:current_organization] = organization
+          example.run
+        ensure
+          RequestStore.store[:current_organization] = nil
+        end
+
+        context "when the blob belongs to the current organization" do
+          let(:content) { %(<p>#{image_blob.to_global_id}</p>) }
+
+          it "renders the blob URL" do
+            expect(Nokogiri::HTML(renderer.render).at("p").inner_html).to be_blob_url(image_blob)
+          end
+        end
+
+        context "when the blob belongs to another organization" do
+          let(:other_organization) { create(:organization) }
+          let(:other_editor_image) { create(:editor_image, organization: other_organization) }
+          let(:content) { %(<p>#{other_editor_image.file.blob.to_global_id}</p>) }
+
+          it "does not render a blob URL" do
+            expect(renderer.render).not_to include("/rails/active_storage/")
+            expect(Nokogiri::HTML(renderer.render).at("p").text).to be_blank
+          end
+        end
+
+        context "when the blob is attached to a private record of another organization" do
+          let(:other_organization) { create(:organization) }
+          let(:private_export) { create(:private_export, organization: other_organization) }
+          let(:content) { %(<p>#{private_export.file.blob.to_global_id}</p>) }
+
+          it "does not render the blob" do
+            expect(renderer.render).not_to include("/private_downloads/")
+            expect(Nokogiri::HTML(renderer.render).at("p").text).to be_blank
+          end
+        end
+      end
+
+      context "when the blob belongs to the current organization" do
+        let(:content) { %(<p>#{image_blob.to_global_id}</p>) }
+
+        subject { renderer.render(organization:) }
+
+        it "renders the blob URL" do
+          expect(Nokogiri::HTML(subject).at("p").inner_html).to be_blob_url(image_blob)
+        end
       end
     end
   end

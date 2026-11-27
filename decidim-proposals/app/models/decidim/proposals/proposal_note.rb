@@ -24,7 +24,7 @@ module Decidim
       end
 
       def formatted_body
-        Decidim::ContentProcessor.render_without_format(body)
+        Decidim::ContentProcessor.render_without_format(body, organization: proposal.try(:organization))
       end
     end
   end

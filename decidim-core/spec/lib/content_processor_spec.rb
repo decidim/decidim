@@ -84,5 +84,39 @@ module Decidim
         expect(subject).to eq("This text contains <em>neque dicta enim quasi</em> and <em>illo qui voluptas</em> and another <em>neque dicta enim quasi</em>")
       end
     end
+
+    describe "#render_without_format with an organization" do
+      subject { processor.render_without_format("content", organization:) }
+
+      let(:organization) { create(:organization) }
+      let(:renderer) { instance_double(renderer_class, render: "rendered") }
+
+      before do
+        allow(Decidim).to receive(:content_processors).and_return([processor_type])
+        allow(renderer_class).to receive(:new).and_return(renderer)
+      end
+
+      context "when the processor is the blob renderer" do
+        let(:processor_type) { :blob }
+        let(:renderer_class) { Decidim::ContentRenderers::BlobRenderer }
+
+        it "passes the organization to the renderer" do
+          expect(renderer).to receive(:render).with(organization:)
+
+          expect(subject).to eq("rendered")
+        end
+      end
+
+      context "when the processor is another renderer" do
+        let(:processor_type) { :dummy_foo }
+        let(:renderer_class) { Decidim::ContentRenderers::DummyFooRenderer }
+
+        it "does not pass the organization to the renderer" do
+          expect(renderer).to receive(:render).with(no_args)
+
+          expect(subject).to eq("rendered")
+        end
+      end
+    end
   end
 end

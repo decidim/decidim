@@ -29,9 +29,9 @@ module Decidim
       def render_debate_description(debate)
         sanitized = render_sanitized_content(debate, :description)
         if safe_content?
-          Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+          Decidim::ContentProcessor.render_without_format(sanitized, organization: debate.organization).html_safe
         else
-          Decidim::ContentProcessor.render(sanitized, "div")
+          Decidim::ContentProcessor.render(sanitized, "div", organization: debate.organization)
         end
       end
 

@@ -59,7 +59,7 @@ module Decidim
 
       context "when the string includes a reference to a blob" do
         let(:current_host) { "https://example.lvh.me" }
-        let(:image_blob) { create(:blob, :image) }
+        let(:image_blob) { create(:editor_image).file.blob }
         let(:value) do
           <<~HTML.squish
             <p><img src="#{image_blob.to_global_id}" alt="Image blob"></p>
@@ -78,6 +78,28 @@ module Decidim
           expect(image_src).to match(blob_regex)
 
           expect(image_src).to be_blob_url(image_blob)
+        end
+      end
+
+      context "when the blob belongs to another organization" do
+        let(:organization) { create(:organization) }
+        let(:other_organization) { create(:organization) }
+        let(:image_blob) { create(:editor_image, organization: other_organization).file.blob }
+        let(:value) do
+          <<~HTML.squish
+            <p><img src="#{image_blob.to_global_id}" alt="Image blob"></p>
+          HTML
+        end
+
+        around do |example|
+          RequestStore.store[:current_organization] = organization
+          example.run
+        ensure
+          RequestStore.store[:current_organization] = nil
+        end
+
+        it "does not render the blob URL" do
+          expect(Nokogiri::HTML(subject).at("img").attr(:src)).to be_blank
         end
       end
     end

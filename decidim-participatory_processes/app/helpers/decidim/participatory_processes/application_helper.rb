@@ -23,7 +23,7 @@ module Decidim
       def render_rich_text(process, method)
         sanitized = render_sanitized_content(process, method, presenter_class: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter)
 
-        Decidim::ContentProcessor.render_without_format(sanitized).html_safe
+        Decidim::ContentProcessor.render_without_format(sanitized, organization: process.organization).html_safe
       end
     end
   end
