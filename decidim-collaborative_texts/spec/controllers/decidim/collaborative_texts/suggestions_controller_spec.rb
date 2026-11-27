@@ -34,13 +34,15 @@ module Decidim
           get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = response.parsed_body
-          expect(body.first.keys).to contain_exactly("changeset", "createdAt", "id", "profileHtml", "status", "summary", "type")
+          expect(body.first.keys).to contain_exactly("applicable", "changeset", "createdAt", "error", "id", "profileHtml", "status", "summary", "type")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
           expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
           expect(body.first["summary"]).to include("Replace:")
           expect(body.first["profileHtml"]).to include(suggestion1.author.name)
           expect(body.first["status"]).to eq(suggestion1.status)
           expect(body.first["type"]).to eq("replace")
+          expect(body.first["applicable"]).to be(true)
+          expect(body.first["error"]).to be_nil
           expect(body.first["createdAt"]).to be_present
         end
 
@@ -109,6 +111,33 @@ module Decidim
             expect(changeset["original"].join).not_to include("<script")
             expect(changeset["replace"].join).not_to include("onerror")
             expect(changeset["replace"].join).to include("Replacement")
+          end
+        end
+
+        context "when a legacy suggestion exceeds the changeset limits" do
+          let!(:suggestion1) do
+            create(
+              :collaborative_text_suggestion,
+              document_version: document.current_version,
+              author: suggestion_authors.first,
+              changeset: {
+                firstNode: "1",
+                lastNode: "1",
+                original: ["Original text"],
+                replace: ["a" * (Suggestion::MAX_CHANGESET_BYTES + 1)]
+              }
+            )
+          end
+
+          it "returns it as not applicable without raising an error" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            legacy_suggestion = response.parsed_body.find { |item| item["id"] == suggestion1.id }
+
+            expect(legacy_suggestion["applicable"]).to be(false)
+            expect(legacy_suggestion["error"]).to eq(I18n.t("decidim.collaborative_texts.suggestion.not_applicable"))
+            expect(legacy_suggestion["changeset"]["replace"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
           end
         end
       end

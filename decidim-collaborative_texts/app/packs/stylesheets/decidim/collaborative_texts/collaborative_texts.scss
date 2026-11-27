@@ -203,6 +203,10 @@
       @apply flex items-center justify-between;
     }
 
+    &-item-error {
+      @apply text-alert text-sm;
+    }
+
     [data-controller="accordion"] {
       @apply relative bg-gray-5;
 

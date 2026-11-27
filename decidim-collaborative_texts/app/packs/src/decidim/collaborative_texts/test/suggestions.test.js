@@ -151,6 +151,7 @@ describe("SuggestionsList", () => {
     expect(suggestion.firstNode).toBe(suggestionsList.nodes[1]);
     expect(suggestion.lastNode).toBe(suggestionsList.nodes[1]);
     expect(suggestion.replace).toEqual(["This is a replacement"]);
+    expect(suggestion.applicable).toBe(true);
     expect(suggestion.applied).toBe(false);
     expect(suggestion.nodes[0].classList.contains("collaborative-texts-hidden")).toBe(false);
     expect(suggestionsList.defaultSuggestions()).not.toContain(suggestion);
@@ -175,6 +176,38 @@ describe("SuggestionsList", () => {
     expect(doc.doc.querySelector(".collaborative-texts-hidden").innerHTML).toContain("Some content");
     expect(suggestionsList.defaultSuggestions()).toContain(suggestion);
     expect(suggestionsList.defaultSuggestions()).not.toContain(firstSuggestion);
+  });
+
+  it("does not apply a suggestion marked as not applicable", () => {
+    const nonApplicable = new Suggestion(suggestionsList, {
+      "id": 3,
+      "changeset": {
+        "original": ["some content"],
+        "replace": ["This is a replacement"],
+        "firstNode": 2,
+        "lastNode": 2
+      },
+      "status": "pending",
+      "profileHtml": "<div>Profile</div>",
+      "summary": "This is a summary",
+      "applicable": false,
+      "error": "This suggestion is too large to apply."
+    });
+    suggestionsList.suggestions.push(nonApplicable);
+
+    expect(nonApplicable.valid).toBe(true);
+    expect(nonApplicable.applicable).toBe(false);
+    expect(nonApplicable.item.textContent).toContain("This suggestion is too large to apply.");
+    expect(nonApplicable.item.querySelector(".button-apply")).toBe(null);
+    expect(nonApplicable.item.querySelector(".button-restore")).toBe(null);
+
+    nonApplicable.apply();
+
+    expect(nonApplicable.applied).toBe(false);
+    expect(nonApplicable.changesWrapper).toBe(null);
+    expect(suggestionsList.getApplied()).not.toContain(nonApplicable);
+    expect(suggestionsList.getPending()).toContain(nonApplicable);
+    expect(doc.doc.querySelector(".collaborative-texts-changes")).toBe(null);
   });
 
   it("restores a suggestion", () => {

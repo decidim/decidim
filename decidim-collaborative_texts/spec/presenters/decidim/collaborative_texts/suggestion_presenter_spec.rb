@@ -27,6 +27,8 @@ module Decidim
             summary: presenter.summary,
             status: suggestion.status,
             type: presenter.type,
+            applicable: true,
+            error: nil,
             createdAt: suggestion.created_at
           )
         end
@@ -154,23 +156,47 @@ module Decidim
           it "keeps the strings unchanged" do
             expect(presenter.safe_json[:changeset]).to eq(changeset)
           end
+
+          it "is applicable" do
+            json = presenter.safe_json
+
+            expect(json[:applicable]).to be(true)
+            expect(json[:error]).to be_nil
+          end
         end
 
-        context "when a legacy changeset exceeds the limits" do
+        context "when a legacy changeset exceeds the node limit" do
           let(:changeset) do
             {
               "original" => Array.new(Suggestion::MAX_CHANGESET_NODES + 10, "a"),
+              "replace" => ["b"]
+            }
+          end
+
+          it "bounds the sanitized output and marks the suggestion as not applicable" do
+            json = presenter.safe_json
+
+            expect(json[:changeset]["original"].length).to be <= Suggestion::MAX_CHANGESET_NODES
+            expect(json[:changeset]["original"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+            expect(json[:applicable]).to be(false)
+            expect(json[:error]).to eq(I18n.t("decidim.collaborative_texts.suggestion.not_applicable"))
+          end
+        end
+
+        context "when a legacy changeset exceeds the bytes limit" do
+          let(:changeset) do
+            {
+              "original" => ["a"],
               "replace" => ["b" * (Suggestion::MAX_CHANGESET_BYTES + 1)]
             }
           end
 
-          it "bounds the sanitized output" do
-            sanitized = presenter.safe_json[:changeset]
+          it "bounds the sanitized output and marks the suggestion as not applicable" do
+            json = presenter.safe_json
 
-            expect(sanitized["original"].length).to be <= Suggestion::MAX_CHANGESET_NODES
-            expect(sanitized["original"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
-            expect(sanitized["replace"].length).to be <= Suggestion::MAX_CHANGESET_NODES
-            expect(sanitized["replace"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+            expect(json[:changeset]["replace"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+            expect(json[:applicable]).to be(false)
+            expect(json[:error]).to eq(I18n.t("decidim.collaborative_texts.suggestion.not_applicable"))
           end
         end
       end

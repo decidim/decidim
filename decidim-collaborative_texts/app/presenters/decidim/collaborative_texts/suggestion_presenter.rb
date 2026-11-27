@@ -49,11 +49,33 @@ module Decidim
           summary:,
           status:,
           type:,
+          applicable: applicable?,
+          error:,
           createdAt: created_at
         }
       end
 
       private
+
+      # Legacy records may exceed the current submission limits. Their
+      # changeset is truncated for rendering, so it cannot be applied without
+      # losing content. They must be flagged as not applicable instead.
+      def applicable?
+        return @applicable if defined?(@applicable)
+
+        @applicable = changeset.slice("original", "replace").all? do |_key, nodes|
+          nodes = Array(nodes)
+
+          nodes.length <= Suggestion::MAX_CHANGESET_NODES &&
+            nodes.sum { |node| node.to_s.bytesize } <= Suggestion::MAX_CHANGESET_BYTES
+        end
+      end
+
+      def error
+        return if applicable?
+
+        I18n.t("decidim.collaborative_texts.suggestion.not_applicable")
+      end
 
       # The changeset contains the HTML nodes as participants submitted them.
       # They are parsed and rendered into the document by the browser, so they
