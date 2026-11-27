@@ -100,6 +100,12 @@ module Capybara
     def clear_utilized_app_hosts
       remove_instance_variable(:@utilized_app_hosts)
     end
+
+    def reset_sessions!
+      # reset in reverse so sessions that started servers are reset last
+      session_pool.reverse_each { |_mode, session| session.reset! }
+      Capybara.clear_utilized_app_hosts
+    end
   end
 end
 
@@ -119,11 +125,12 @@ module ChromeResetWithoutWildcard
     visited_origins.each do |origin|
       super(cmd, params.merge(origin:, storageTypes: types.join(",")))
     end
-    Capybara.clear_utilized_app_hosts
   end
 
   def visited_origins
-    Capybara.utilized_app_hosts.filter_map { |host| origin_of("#{host}:#{Capybara.server_port}") }.uniq
+    ["127.0.0.1", "localhost", *Capybara.utilized_app_hosts].filter_map do |host|
+      origin_of("#{host}:#{Capybara.server_port}") if host
+    end.uniq
   end
 
   def origin_of(url)
