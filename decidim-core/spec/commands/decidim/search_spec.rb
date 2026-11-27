@@ -8,27 +8,41 @@ describe Decidim::Search do
 
   context "with resources from different organizations" do
     let(:other_organization) { create(:organization) }
+    let(:participatory_space) { create(:participatory_process, :active, organization: current_organization) }
     let(:term) { "fire" }
     let(:fake_type) { "Decidim::Organization" } # a type that is not searchable
     let!(:result) do
       create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, content_a: "Fight fire with fire")
+    end
+    let!(:result_without_space) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: nil, content_a: "Fight fire with fire")
     end
     let!(:non_searchable_resource) do
       create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where is your crown king nothing?")
     end
 
     before do
-      create(:searchable_resource, organization: other_organization, content_a: "Light my fire")
+      create(:searchable_resource, organization: other_organization, decidim_participatory_space: nil, content_a: "Light my fire")
+      create(
+        :searchable_resource,
+        organization: other_organization,
+        decidim_participatory_space: create(:participatory_process, :active, organization: other_organization),
+        content_a: "Light my fire"
+      )
     end
 
-    it "returns resources only from current_organization" do
-      described_class.call(term, current_organization) do
-        on(:ok) do |results_by_type|
-          results = results_by_type["Decidim::Dev::DummyResource"]
-          expect(results[:count]).to eq(1)
-          expect(results[:results].first).to eq(result.resource)
+    ["", "active"].each do |space_state|
+      it "returns resources only from current_organization with space state #{space_state.inspect}" do
+        expected_resources = space_state.empty? ? [result.resource, result_without_space.resource] : [result.resource]
+
+        described_class.call(term, current_organization, "with_space_state" => space_state) do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Dev::DummyResource"]
+            expect(results[:count]).to eq(expected_resources.size)
+            expect(results[:results]).to match_array(expected_resources)
+          end
+          on(:invalid) { raise("Should not happen") }
         end
-        on(:invalid) { raise("Should not happen") }
       end
     end
 

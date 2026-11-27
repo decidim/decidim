@@ -69,6 +69,10 @@ module Decidim
       filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
     end
 
+    def searchable_resources
+      organization.searchable_resources
+    end
+
     def visible_space_ids_by_type
       @visible_space_ids_by_type ||= Decidim.participatory_space_manifests.to_h do |manifest|
         public_spaces = manifest.participatory_spaces.call(organization).public_spaces
@@ -91,21 +95,20 @@ module Decidim
     def space_conditions
       @space_conditions ||= begin
         conditions = visible_space_ids_by_type.map do |type, ids|
-          SearchableResource.where(decidim_participatory_space_type: type, decidim_participatory_space_id: ids)
+          searchable_resources.where(decidim_participatory_space_type: type, decidim_participatory_space_id: ids)
         end
 
         if filters[:with_space_state].blank?
-          conditions << SearchableResource.where(decidim_participatory_space_type: nil)
-          conditions << SearchableResource.where.not(decidim_participatory_space_type: visible_space_ids_by_type.keys)
+          conditions << searchable_resources.where(decidim_participatory_space_type: nil)
+          conditions << searchable_resources.where.not(decidim_participatory_space_type: visible_space_ids_by_type.keys)
         end
 
-        conditions.reduce(:or) || SearchableResource.none
+        conditions.reduce(:or) || searchable_resources.none
       end
     end
 
     def filtered_query_for(class_name)
-      query = SearchableResource.where(
-        organization:,
+      query = searchable_resources.where(
         locale: I18n.locale,
         resource_type: class_name
       ).and(space_conditions)
