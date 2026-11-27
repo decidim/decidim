@@ -422,10 +422,10 @@ describe Decidim::Search do
     let!(:dummy_resource) { create(:dummy_resource, :published, component:, title: { en: term }) }
 
     let!(:comment1) { create(:comment, commentable: dummy_resource, body: { en: term }) }
-    # rubocop: disable RSpec/VariableNumber
+    # rubocop: disable Naming/VariableNumber
     let!(:comment1_1) { create(:comment, commentable: comment1, root_commentable: dummy_resource, body: { en: term }) }
     let!(:comment1_1_1) { create(:comment, commentable: comment1_1, root_commentable: dummy_resource, body: { en: term }) }
-    # rubocop: enable RSpec/VariableNumber
+    # rubocop: enable Naming/VariableNumber
 
     context "when comments_enabled is disabled on the component" do
       before do
@@ -561,7 +561,7 @@ describe Decidim::Search do
       end
     end
 
-    # rubocop:disable RSpec/VariableNumber
+    # rubocop:disable Naming/VariableNumber
     context "when there are more comments than HIGHLIGHTED_RESULTS_COUNT" do
       let!(:comment2) { create(:comment, commentable: dummy_resource, body: { en: term }) }
       let!(:comment2_1) { create(:comment, commentable: comment2, root_commentable: dummy_resource, body: { en: term }) }
@@ -574,6 +574,7 @@ describe Decidim::Search do
       let!(:comment4_1_2) { create(:comment, commentable: comment4_1, root_commentable: dummy_resource, body: { en: term }) }
       let!(:comment5) { create(:comment, commentable: dummy_resource, body: { en: term }) }
       let!(:comment5_1) { create(:comment, commentable: comment5, root_commentable: dummy_resource, body: { en: term }) }
+      # rubocop:enable Naming/VariableNumber
 
       context "when comments_enabled is disabled on the component" do
         before do
@@ -633,7 +634,6 @@ describe Decidim::Search do
       end
     end
   end
-  # rubocop:enable RSpec/VariableNumber
 
   describe "when results include uncommentable resources" do
     let(:term) { "king nothing" }
