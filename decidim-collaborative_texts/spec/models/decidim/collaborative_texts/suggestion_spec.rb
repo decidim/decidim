@@ -47,6 +47,14 @@ module Decidim
 
             expect { create(:comment, commentable: suggestion) }.to change { suggestion.reload.comments_count }.by(1)
           end
+
+          context "when the component is not published" do
+            before do
+              allow(collaborative_text_suggestion).to receive(:component).and_return(instance_double(Decidim::Component, published?: false))
+            end
+
+            it { is_expected.to be false }
+          end
         end
 
         context "when the document is not published" do
@@ -55,6 +63,26 @@ module Decidim
           it "does not accept new comments" do
             expect(collaborative_text_suggestion.accepts_new_comments?).to be false
           end
+        end
+      end
+
+      describe "#user_allowed_to_comment?" do
+        let(:user) { instance_double(Decidim::User) }
+        let(:participatory_space) { instance_double(Decidim::ParticipatoryProcess) }
+
+        before do
+          allow(collaborative_text_suggestion).to receive(:participatory_space).and_return(participatory_space)
+        end
+
+        it "returns false without a user" do
+          expect(collaborative_text_suggestion.user_allowed_to_comment?(nil)).to be false
+        end
+
+        it "checks participation in the participatory space" do
+          allow(participatory_space).to receive(:can_participate?).with(user).and_return(false)
+
+          expect(collaborative_text_suggestion.user_allowed_to_comment?(user)).to be false
+          expect(participatory_space).to have_received(:can_participate?).with(user)
         end
       end
 

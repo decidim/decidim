@@ -31,12 +31,21 @@ module Decidim
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        document_version.document&.published?
+        return false unless document&.published?
+
+        component&.published? && participatory_space&.published?
       end
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
         commentable?
+      end
+
+      # Public: Overrides the `user_allowed_to_comment?` Commentable concern method.
+      def user_allowed_to_comment?(user)
+        return false unless user
+
+        participatory_space.can_participate?(user)
       end
 
       # Public: Overrides the `users_to_notify_on_comment_created` Commentable concern method.
