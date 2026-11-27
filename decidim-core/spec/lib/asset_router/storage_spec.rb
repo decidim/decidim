@@ -95,6 +95,20 @@ module Decidim::AssetRouter
           end
         end
 
+        context "when the current URL options and route defaults are empty" do
+          before do
+            dummy_option_resolver = double
+            allow(ActionMailer::Base).to receive(:default_url_options).and_return({})
+            allow(Decidim::UrlOptionResolver).to receive(:new).and_return(dummy_option_resolver)
+            allow(dummy_option_resolver).to receive(:options).and_return({})
+          end
+
+          it "does not change the current URL options" do
+            expect(ActiveStorage::Current.url_options).to eq({})
+            expect { subject }.not_to change(ActiveStorage::Current, :url_options)
+          end
+        end
+
         context "when the host is not set" do
           let(:expected_host_url) { "http://localhost:#{default_port}" }
 
