@@ -73,7 +73,7 @@ module Decidim
         Array(nodes).first(Suggestion::MAX_CHANGESET_NODES).each_with_object([]) do |node, sanitized|
           break sanitized if remaining_bytes <= 0
 
-          text = node.to_s.truncate_bytes(remaining_bytes)
+          text = node.to_s.truncate_bytes(remaining_bytes, omission: "")
           remaining_bytes -= text.bytesize
           sanitized << decidim_sanitize(text, scrubber:)
         end

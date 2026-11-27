@@ -120,6 +120,42 @@ module Decidim
           expect(presenter).to have_received(:decidim_sanitize).twice
         end
 
+        context "when a legacy changeset leaves less than the default omission size" do
+          let(:changeset) do
+            { "original" => ["a" * (Suggestion::MAX_CHANGESET_BYTES - remaining), "bb"] }
+          end
+
+          context "with one byte remaining" do
+            let(:remaining) { 1 }
+
+            it "truncates the node without raising" do
+              sanitized = presenter.safe_json[:changeset]["original"]
+
+              expect(sanitized).to eq(["a" * (Suggestion::MAX_CHANGESET_BYTES - 1), "b"])
+              expect(sanitized.join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+            end
+          end
+
+          context "with two bytes remaining" do
+            let(:remaining) { 2 }
+
+            it "keeps the node unchanged" do
+              sanitized = presenter.safe_json[:changeset]["original"]
+
+              expect(sanitized).to eq(["a" * (Suggestion::MAX_CHANGESET_BYTES - 2), "bb"])
+              expect(sanitized.join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+            end
+          end
+        end
+
+        context "when the changeset is within the limits" do
+          let(:changeset) { { "original" => ["ab"], "replace" => ["cd"] } }
+
+          it "keeps the strings unchanged" do
+            expect(presenter.safe_json[:changeset]).to eq(changeset)
+          end
+        end
+
         context "when a legacy changeset exceeds the limits" do
           let(:changeset) do
             {
