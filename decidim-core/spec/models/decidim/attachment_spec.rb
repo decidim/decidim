@@ -178,7 +178,12 @@ module Decidim
         end
 
         it "uses different tokens for the thumbnail and big versions" do
+          thumbnail_token = Rack::Utils.unescape(URI.parse(subject.thumbnail_url).path.split("/").last)
+          big_token = Rack::Utils.unescape(URI.parse(subject.big_url).path.split("/").last)
+
           expect(subject.thumbnail_url).not_to eq(subject.big_url)
+          expect(Decidim::PrivateDownload.from_token(thumbnail_token).variant).to eq(:thumbnail)
+          expect(Decidim::PrivateDownload.from_token(big_token).variant).to eq(:big)
         end
       end
 
