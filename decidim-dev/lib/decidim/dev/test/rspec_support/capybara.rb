@@ -84,6 +84,77 @@ module Decidim
   end
 end
 
+# Store the Capybara configured hosts to use for clearing the data through the
+# ChromeResetWithoutWildcard module.
+module Capybara
+  class << self
+    def app_host=(url)
+      utilized_app_hosts << url unless utilized_app_hosts.include?(url)
+      config.app_host = url
+    end
+
+    def utilized_app_hosts
+      @utilized_app_hosts ||= []
+    end
+
+    def clear_utilized_app_hosts
+      return unless instance_variable_defined?(:@utilized_app_hosts)
+
+      remove_instance_variable(:@utilized_app_hosts)
+    end
+
+    def reset_sessions!
+      # reset in reverse so sessions that started servers are reset last
+      session_pool.reverse_each { |_mode, session| session.reset! }
+      Capybara.clear_utilized_app_hosts
+
+      # In case `Capybara.app_host=` is not called, the current app host might
+      # be left untracked.
+      utilized_app_hosts << config.app_host
+    end
+  end
+end
+
+# See:
+# https://github.com/teamcapybara/capybara/issues/2865
+# https://github.com/teamcapybara/capybara/pull/2867
+module ChromeResetWithoutWildcard
+  private
+
+  def execute_cdp(cmd, params = {})
+    return super unless cmd == "Storage.clearDataForOrigin" && params[:origin] == "*"
+
+    types = params[:storageTypes].to_s.split(",")
+    super("Network.clearBrowserCookies") if types.delete("cookies")
+    return unless types.any?
+
+    visited_origins.each do |origin|
+      super(cmd, params.merge(origin:, storageTypes: types.join(",")))
+    end
+  end
+
+  def visited_origins
+    protocol = ENV["TEST_SSL"] ? "https" : "http"
+    ["#{protocol}://127.0.0.1", "#{protocol}://localhost", *Capybara.utilized_app_hosts].filter_map do |host|
+      if host&.match?(/:[0-9]+\z/)
+        origin_of(host)
+      elsif host
+        origin_of("#{host}:#{Capybara.server_port}")
+      end
+    end.uniq
+  end
+
+  def origin_of(url)
+    uri = URI.parse(url.to_s)
+    return unless %w(http https).include?(uri.scheme) && uri.host
+
+    "#{uri.scheme}://#{uri.host}#{":#{uri.port}" unless uri.port == uri.default_port}"
+  rescue URI::InvalidURIError
+    nil
+  end
+end
+Capybara::Selenium::Driver::ChromeDriver.prepend(ChromeResetWithoutWildcard)
+
 # Expected values: "", "2", "3", etc. (see parallel_tests documentation)
 parallel_run_idx = ENV.fetch("TEST_ENV_NUMBER", "").to_i
 parallel_run_idx -= 1 if parallel_run_idx.positive?
