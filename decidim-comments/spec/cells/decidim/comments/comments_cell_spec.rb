@@ -33,6 +33,15 @@ module Decidim::Comments
         end
       end
 
+      context "with the comments header hidden" do
+        let(:my_cell) { cell("decidim/comments/comments", comment.commentable, hide_comments_header: true) }
+
+        it "does not render the comments header" do
+          expect(subject).to have_no_css(".comments__header")
+          expect(subject).to have_no_css(".comments-count")
+        end
+      end
+
       context "with the single comment defined" do
         let(:my_cell) { cell("decidim/comments/comments", comment.commentable, single_comment: comment.id) }
         let!(:other_comments) { create_list(:comment, 10, commentable:) }

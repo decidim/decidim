@@ -34,7 +34,7 @@ module Decidim
           get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = response.parsed_body
-          expect(body.first.keys).to contain_exactly("changeset", "createdAt", "id", "profileHtml", "status", "summary", "type")
+          expect(body.first.keys).to contain_exactly("changeset", "commentableGid", "commentsCount", "commentsUrl", "createdAt", "id", "profileHtml", "status", "summary", "type")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
           expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
           expect(body.first["summary"]).to include("Replace:")
@@ -42,6 +42,8 @@ module Decidim
           expect(body.first["status"]).to eq(suggestion1.status)
           expect(body.first["type"]).to eq("replace")
           expect(body.first["createdAt"]).to be_present
+          expect(body.first["commentsCount"]).to eq(0)
+          expect(body.first["commentableGid"]).to be_present
         end
 
         it "eager loads the authors of the suggestions and their avatars" do
@@ -82,6 +84,51 @@ module Decidim
             expect(response).to have_http_status(:ok)
             official_suggestion = response.parsed_body.find { |item| item["id"] == suggestion1.id }
             expect(official_suggestion["profileHtml"]).to include(I18n.t("decidim.author.official_author"))
+          end
+        end
+      end
+
+      describe "GET #show" do
+        it "redirects to the document with the target suggestion and comment" do
+          get(:show, params: { id: suggestion1.id, commentId: "123" })
+
+          expect(response).to redirect_to(
+            Decidim::ResourceLocatorPresenter.new(document).path(
+              suggestionId: suggestion1.id,
+              commentId: "123"
+            )
+          )
+        end
+
+        context "when the suggestion belongs to another component" do
+          let(:other_component) { create(:collaborative_text_component) }
+          let(:other_document) { create(:collaborative_text_document, :published, component: other_component) }
+          let!(:other_version) { create(:collaborative_text_version, document: other_document) }
+          let!(:other_suggestion) { create(:collaborative_text_suggestion, document_version: other_version) }
+
+          it "does not find the suggestion" do
+            expect { get(:show, params: { id: other_suggestion.id }) }.to raise_error(ActiveRecord::RecordNotFound)
+          end
+        end
+      end
+
+      describe "GET #comments" do
+        it "renders the comments cell for the suggestion" do
+          get(:comments, params: { id: suggestion1.id })
+
+          expect(response).to have_http_status(:ok)
+          expect(response.body).to include("comments-for-Suggestion-#{suggestion1.id}")
+          expect(response.body).to include("data-decidim-comments")
+        end
+
+        context "when the suggestion belongs to another component" do
+          let(:other_component) { create(:collaborative_text_component) }
+          let(:other_document) { create(:collaborative_text_document, :published, component: other_component) }
+          let!(:other_version) { create(:collaborative_text_version, document: other_document) }
+          let!(:other_suggestion) { create(:collaborative_text_suggestion, document_version: other_version) }
+
+          it "does not find the suggestion" do
+            expect { get(:comments, params: { id: other_suggestion.id }) }.to raise_error(ActiveRecord::RecordNotFound)
           end
         end
       end

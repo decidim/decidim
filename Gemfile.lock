@@ -48,6 +48,7 @@ PATH
       decidim-comments (= 0.33.0.dev)
       decidim-core (= 0.33.0.dev)
     decidim-collaborative_texts (0.33.0.dev)
+      decidim-comments (= 0.33.0.dev)
       decidim-core (= 0.33.0.dev)
     decidim-comments (0.33.0.dev)
       decidim-core (= 0.33.0.dev)

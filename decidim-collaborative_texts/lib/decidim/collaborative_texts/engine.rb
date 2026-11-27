@@ -6,6 +6,9 @@ module Decidim
       isolate_namespace Decidim::CollaborativeTexts
 
       routes do
+        resources :suggestions, only: [:show] do
+          get :comments, on: :member
+        end
         resources :documents do
           resources :suggestions
         end

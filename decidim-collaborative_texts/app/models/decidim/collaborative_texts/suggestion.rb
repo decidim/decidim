@@ -8,6 +8,8 @@ module Decidim
     class Suggestion < CollaborativeTexts::ApplicationRecord
       include Decidim::Traceable
       include Decidim::Authorable
+      include Decidim::Resourceable
+      include Decidim::Comments::Commentable
 
       after_save :update_document_counters
 
@@ -15,7 +17,9 @@ module Decidim
       belongs_to :document_version, class_name: "Decidim::CollaborativeTexts::Version", counter_cache: true, inverse_of: :suggestions
       has_one :document, class_name: "Decidim::CollaborativeTexts::Document", through: :document_version
 
+      delegate :component, to: :document_version
       delegate :participatory_space, :organization, to: :document_version
+      delegate :can_participate?, :title, to: :document
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::SuggestionPresenter
@@ -23,6 +27,32 @@ module Decidim
 
       def presenter
         @presenter ||= Decidim::CollaborativeTexts::SuggestionPresenter.new(self)
+      end
+
+      # Public: Overrides the `commentable?` Commentable concern method.
+      def commentable?
+        return false unless document&.published?
+
+        component&.published? && participatory_space&.published?
+      end
+
+      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
+      def accepts_new_comments?
+        commentable?
+      end
+
+      # Public: Overrides the `user_allowed_to_comment?` Commentable concern method.
+      def user_allowed_to_comment?(user)
+        return false unless user
+
+        participatory_space.can_participate?(user)
+      end
+
+      # Public: Overrides the `users_to_notify_on_comment_created` Commentable concern method.
+      def users_to_notify_on_comment_created
+        return Decidim::User.none unless author.is_a?(Decidim::User)
+
+        Decidim::User.where(id: author.id)
       end
 
       private

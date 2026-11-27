@@ -44,7 +44,7 @@
 
   if (commentsIds.length) {
     component.lastCommentId = <%= @comments.last&.id || 0 %>;
-    Rails.fire(document, "comments:loaded", { commentsIds: commentsIds });
+    Rails.fire(document, "comments:loaded", { commentsIds: commentsIds, complete: true });
   }
 
   <% if is_loading_replies %>

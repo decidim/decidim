@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 export default class Suggestion {
   constructor(suggestionsList, entry) {
     this.id = entry.id;
@@ -27,6 +29,11 @@ export default class Suggestion {
     this.boxWrapper = null;
     this.highlightWrapper = null;
     this.changesWrapper = null;
+    this.commentsLoaded = false;
+    this.commentsLoading = false;
+    this.commentsRequestId = 0;
+    this.commentsUrl = entry.commentsUrl;
+    this.commentsComponent = null;
     this.applied = false;
     this.isFirst = false;
     this.valid = this.nodes.length > 0 && this.firstNode && this.lastNode && Array.isArray(this.replace);
@@ -158,6 +165,7 @@ export default class Suggestion {
   }
 
   destroy() {
+    this.closeComments();
     if (this.item) {
       this.item.remove();
       this.item = null;
@@ -218,6 +226,9 @@ export default class Suggestion {
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
+    this.content = this.item.querySelector(".collaborative-texts-suggestions-box-item-content");
+    this.commentsButton = this.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+    this.commentsContainer = this.item.querySelector(".collaborative-texts-suggestions-box-item-comments");
     this.boxItems.appendChild(this.item);
     if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
       this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
@@ -230,14 +241,113 @@ export default class Suggestion {
     });
   }
 
+  // Only one suggestion can show its comments at a time
+  toggleComments() {
+    if (this.commentsButton.getAttribute("aria-expanded") === "true") {
+      return this.closeComments();
+    }
+
+    this.suggestionsList.suggestions.forEach((suggestion) => {
+      if (suggestion !== this) {
+        suggestion.closeComments();
+      }
+    });
+
+    this.commentsButton.setAttribute("aria-expanded", "true");
+    this.commentsContainer.classList.remove("hidden");
+    this._loadComments();
+    return this;
+  }
+
+  closeComments() {
+    if (!this.commentsButton || !this.commentsContainer) {
+      return this;
+    }
+
+    this.commentsButton.setAttribute("aria-expanded", "false");
+    this.commentsContainer.classList.add("hidden");
+    this.commentsRequestId += 1;
+    this.commentsLoading = false;
+    this.commentsLoaded = false;
+    this._unmountComments();
+    this.commentsContainer.innerHTML = "";
+    return this;
+  }
+
+  // Load and mount the comments cell on first use
+  _loadComments() {
+    if (this.commentsLoaded || this.commentsLoading || !this.commentsUrl) {
+      return;
+    }
+
+    this.commentsLoading = true;
+    const requestId = this.commentsRequestId;
+
+    fetch(this.commentsUrl, {
+      headers: {
+        "X-Requested-With": "XMLHttpRequest"
+      }
+    }).
+      then((response) => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.text();
+      }).
+      then((html) => {
+        if (requestId !== this.commentsRequestId) {
+          return;
+        }
+        this.commentsContainer.innerHTML = html;
+        this._mountComments();
+        this.commentsLoaded = true;
+      }).
+      catch((error) => {
+        if (requestId === this.commentsRequestId) {
+          console.error("Error loading comments:", error);
+        }
+      }).
+      finally(() => {
+        if (requestId === this.commentsRequestId) {
+          this.commentsLoading = false;
+        }
+      });
+  }
+
+  _mountComments() {
+    const element = this.commentsContainer.querySelector("[data-decidim-comments]");
+    if (!element || !window.$ || !window.Decidim || !window.Decidim.CommentsComponent) {
+      return;
+    }
+
+    const $element = window.$(element);
+    this.commentsComponent = new window.Decidim.CommentsComponent($element, $element.data("decidim-comments"));
+    this.commentsComponent.mountComponent();
+    $element.data("comments", this.commentsComponent);
+  }
+
+  _unmountComments() {
+    if (!this.commentsComponent) {
+      return;
+    }
+
+    this.commentsComponent.unmountComponent();
+    this.commentsComponent = null;
+  }
+
   _resetDropdown() {
 
   }
 
   _bindEvents() {
-    this.item.addEventListener("mouseenter", this.highlight.bind(this));
-    this.item.addEventListener("mouseleave", this.blur.bind(this));
+    if (this.content) {
+      this.content.addEventListener("mouseenter", this.highlight.bind(this));
+      this.content.addEventListener("mouseleave", this.blur.bind(this));
+    }
     this.item.querySelector(".button-apply").addEventListener("click", this.apply.bind(this));
     this.item.querySelector(".button-restore").addEventListener("click", this.restore.bind(this));
+    if (this.commentsButton && this.commentsContainer) {
+      this.commentsButton.addEventListener("click", this.toggleComments.bind(this));
+    }
   }
 }

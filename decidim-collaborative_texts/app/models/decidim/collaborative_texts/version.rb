@@ -21,7 +21,7 @@ module Decidim
       scope :consolidated, -> { where(draft: false) }
       scope :draft, -> { where(draft: true) }
 
-      delegate :participatory_space, :organization, to: :document
+      delegate :component, :participatory_space, :organization, to: :document
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::VersionPresenter

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable prefer-reflect */
 /* global global, jest, process */
 
@@ -55,27 +56,33 @@ describe("SuggestionsList", () => {
       </script>
 
       <script type="text/template" class="decidim-template" id="collaborative-texts-suggestions-box-item-template">
-        <div class="collaborative-texts-suggestions-box-item-header">
-          <div>{{PROFILE}}</div>
-          <div class="relative">
-            <button class="collaborative-texts-suggestions-box-item-dropdown"
-                    id="dropdown-trigger-{{ID}}"
-                    data-controller="dropdown"
-                    data-target="dropdown-menu-{{ID}}"
-                    data-auto-close="true">
-            </button>
+        <div class="collaborative-texts-suggestions-box-item-content">
+          <div class="collaborative-texts-suggestions-box-item-header">
+            <div>{{PROFILE}}</div>
+            <div class="relative">
+              <button class="collaborative-texts-suggestions-box-item-dropdown"
+                      id="dropdown-trigger-{{ID}}"
+                      data-controller="dropdown"
+                      data-target="dropdown-menu-{{ID}}"
+                      data-auto-close="true">
+              </button>
 
-            <div class="collaborative-texts-suggestions-box-header-menu" id="dropdown-menu-{{ID}}" role="menu" aria-labelledby="dropdown-trigger-{{ID}}" aria-hidden="true">
-              <ul role="menu">
-                <li role="menuitem">
-                  <button class="button-apply">Apply</button>
-                  <button class="button-restore">Restore</button>
-                </li>
-              </ul>
+              <div class="collaborative-texts-suggestions-box-header-menu" id="dropdown-menu-{{ID}}" role="menu" aria-labelledby="dropdown-trigger-{{ID}}" aria-hidden="true">
+                <ul role="menu">
+                  <li role="menuitem">
+                    <button class="button-apply">Apply</button>
+                    <button class="button-restore">Restore</button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
+          <div class="collaborative-texts-suggestions-box-item-text"></div>
+          <div class="collaborative-texts-suggestions-box-item-actions">
+            <button type="button" class="collaborative-texts-suggestions-box-item-comments-button" aria-expanded="false"></button>
+          </div>
         </div>
-        <div class="collaborative-texts-suggestions-box-item-text"></div>
+        <div class="collaborative-texts-suggestions-box-item-comments hidden"></div>
       </script>
     </body>
   `;
@@ -86,6 +93,7 @@ describe("SuggestionsList", () => {
   let firstSuggestion = null;
   let fetchResult = [
     {
+      "id": 101,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is another replacement"],
@@ -94,8 +102,10 @@ describe("SuggestionsList", () => {
       },
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
-      "summary": "This is another summary"
+      "summary": "This is another summary",
+      "commentsUrl": "http://example.com/comments"
     }, {
+      "id": 102,
       "changeset": {
         "original": ["some content"],
         "replace": ["This is a replacement"],
@@ -104,16 +114,26 @@ describe("SuggestionsList", () => {
       },
       "status": "pending",
       "profileHtml": "<div>Profile</div>",
-      "summary": "This is a summary"
+      "summary": "This is a summary",
+      "commentsUrl": "http://example.com/comments"
     }
 
   ];
 
-  global.fetch = jest.fn(() =>
-    Promise.resolve({
+  const commentsHtml = "<div data-decidim-comments='{\"commentableGid\":\"commentable-gid\",\"commentsUrl\":\"/comments\"}'></div>";
+
+  global.fetch = jest.fn((url) => {
+    if (`${url}`.includes("/comments")) {
+      return Promise.resolve({
+        ok: true,
+        text: () => Promise.resolve(commentsHtml)
+      });
+    }
+    return Promise.resolve({
+      ok: true,
       json: () => Promise.resolve(fetchResult)
-    })
-  );
+    });
+  });
 
   global.matchMedia = jest.fn(() => ({
     matches: false,
@@ -130,6 +150,12 @@ describe("SuggestionsList", () => {
   });
 
   beforeEach(async () => {
+    window.history.pushState({}, "", "/");
+    window.Decidim = window.Decidim || {};
+    window.Decidim.CommentsComponent = jest.fn(() => ({
+      mountComponent: jest.fn(),
+      unmountComponent: jest.fn()
+    }));
     document.body.innerHTML = content;
     doc = new Document(document.querySelector("[data-collaborative-texts-document]"));
     suggestionsList = new SuggestionsList(doc);
@@ -155,6 +181,100 @@ describe("SuggestionsList", () => {
     expect(suggestion.nodes[0].classList.contains("collaborative-texts-hidden")).toBe(false);
     expect(suggestionsList.defaultSuggestions()).not.toContain(suggestion);
     expect(suggestionsList.defaultSuggestions()).toContain(firstSuggestion);
+  });
+
+  it("toggles the comments of a suggestion", async () => {
+    const button = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+    const container = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments");
+
+    expect(container.classList.contains("hidden")).toBe(true);
+
+    button.click();
+    await new Promise(process.nextTick);
+    expect(button.getAttribute("aria-expanded")).toBe("true");
+    expect(container.classList.contains("hidden")).toBe(false);
+    expect(container.querySelector("[data-decidim-comments]")).not.toBe(null);
+    expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(1);
+
+    button.click();
+    expect(button.getAttribute("aria-expanded")).toBe("false");
+    expect(container.classList.contains("hidden")).toBe(true);
+    expect(container.innerHTML).toBe("");
+
+    button.click();
+    await new Promise(process.nextTick);
+    expect(window.Decidim.CommentsComponent).toHaveBeenCalledTimes(2);
+  });
+
+  it("only shows comments for one suggestion at a time", async () => {
+    const firstButton = firstSuggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+    const secondButton = suggestion.item.querySelector(".collaborative-texts-suggestions-box-item-comments-button");
+
+    firstButton.click();
+    await new Promise(process.nextTick);
+    expect(firstSuggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
+
+    secondButton.click();
+    await new Promise(process.nextTick);
+
+    expect(firstSuggestion.commentsButton.getAttribute("aria-expanded")).toBe("false");
+    expect(firstSuggestion.commentsContainer.innerHTML).toBe("");
+    expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
+    expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
+  });
+
+  it("waits for the completed page before scrolling to the linked comment", async () => {
+    window.history.pushState({}, "", "/?suggestionId=102&commentId=456");
+    const containerScroll = jest.fn();
+    suggestion.commentsContainer.scrollIntoView = containerScroll;
+
+    suggestionsList._openLinkedComments();
+    await new Promise(process.nextTick);
+
+    expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
+    expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
+
+    window.document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [999] } }));
+    expect(containerScroll).not.toHaveBeenCalled();
+    expect(suggestionsList.linkedCommentId).toBe("456");
+
+    const target = document.createElement("div");
+    target.id = "comment_456";
+    const targetScroll = jest.fn();
+    target.scrollIntoView = targetScroll;
+    suggestion.commentsContainer.appendChild(target);
+
+    window.document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [999, 456], complete: true } }));
+    expect(targetScroll).toHaveBeenCalled();
+    expect(containerScroll).not.toHaveBeenCalled();
+    expect(suggestionsList.linkedCommentId).toBe(null);
+  });
+
+  it("falls back to the comments panel when the linked comment is not loaded", async () => {
+    window.history.pushState({}, "", "/?suggestionId=102&commentId=456");
+    const scrollIntoView = jest.fn();
+    suggestion.commentsContainer.scrollIntoView = scrollIntoView;
+
+    suggestionsList._openLinkedComments();
+    await new Promise(process.nextTick);
+
+    window.document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [999], complete: true } }));
+    expect(scrollIntoView).toHaveBeenCalled();
+    expect(suggestionsList.linkedCommentId).toBe(null);
+  });
+
+  it("does not highlight the suggestion when hovering its comments", () => {
+    suggestion.commentsContainer.dispatchEvent(new MouseEvent("mouseenter"));
+    expect(suggestion.highlightWrapper).toBe(null);
+
+    suggestion.content.dispatchEvent(new MouseEvent("mouseenter"));
+    expect(suggestion.highlightWrapper).toBeInstanceOf(HTMLElement);
+
+    suggestion.content.dispatchEvent(new MouseEvent("mouseleave"));
+    expect(suggestion.highlightWrapper).toBe(null);
+
+    suggestion.commentsContainer.dispatchEvent(new MouseEvent("mouseenter"));
+    expect(suggestion.highlightWrapper).toBe(null);
   });
 
   it("applies a suggestion", () => {

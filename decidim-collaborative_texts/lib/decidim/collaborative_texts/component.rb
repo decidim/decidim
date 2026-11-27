@@ -56,6 +56,10 @@ Decidim.register_component(:collaborative_texts) do |component|
     resource.searchable = true
   end
 
+  component.register_resource(:suggestion) do |resource|
+    resource.model_class_name = "Decidim::CollaborativeTexts::Suggestion"
+  end
+
   component.exports :document_suggestions do |exports|
     exports.collection do |component, _user, resource_id|
       documents_constraint = { decidim_component_id: component.id }
