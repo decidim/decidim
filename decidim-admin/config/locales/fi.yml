@@ -332,7 +332,9 @@ fi:
           title: Muokkaa komponenttia
           update: Päivitä
         form:
+          default_phase_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
+          phase_settings: Vaiheiden asetukset
         hide:
           success: Komponentin piilottaminen valikosta onnistui.
         index:
