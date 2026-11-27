@@ -17,7 +17,8 @@ module Decidim
       def show
         enforce_permission_to(:read, :collaborative_text, document:)
 
-        redirect_to Decidim::ResourceLocatorPresenter.new(document).path
+        query = { suggestionId: suggestion.id, commentId: params[:commentId] }.compact
+        redirect_to Decidim::ResourceLocatorPresenter.new(document).path(query)
       end
 
       def comments

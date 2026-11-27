@@ -7,6 +7,7 @@ export default class SuggestionsList {
     this.doc = document.doc;
     this.i18n = document.i18n || {};
     this.suggestions = [];
+    this.linkedCommentId = null;
     this._fetchSuggestions();
     this._bindEvents();
   }
@@ -85,12 +86,45 @@ export default class SuggestionsList {
           }
         });
         this.resetPositions();
+        this._openLinkedComments();
       });
+  }
+
+  // Open the comments panel targeted by a shared link or notification
+  _openLinkedComments() {
+    const params = new URLSearchParams(window.location.search);
+    const suggestionId = params.get("suggestionId");
+    if (!suggestionId) {
+      return;
+    }
+
+    const suggestion = this.suggestions.find((item) => `${item.id}` === suggestionId);
+    if (!suggestion) {
+      return;
+    }
+
+    this.linkedCommentId = params.get("commentId");
+    suggestion.toggleComments();
+  }
+
+  _onCommentsLoaded() {
+    if (!this.linkedCommentId) {
+      return;
+    }
+
+    const comment = window.document.getElementById(`comment_${this.linkedCommentId}`);
+    if (!comment) {
+      return;
+    }
+
+    comment.scrollIntoView({ behavior: "smooth", block: "center" });
+    this.linkedCommentId = null;
   }
 
   _bindEvents() {
     this.doc.addEventListener("collaborative-texts:applied", this._onSuggestionApplied.bind(this));
     this.doc.addEventListener("collaborative-texts:restored", this._onSuggestionRestored.bind(this));
+    window.document.addEventListener("comments:loaded", this._onCommentsLoaded.bind(this));
   }
 
   _onSuggestionApplied() {

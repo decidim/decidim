@@ -150,6 +150,7 @@ describe("SuggestionsList", () => {
   });
 
   beforeEach(async () => {
+    window.history.pushState({}, "", "/");
     window.Decidim = window.Decidim || {};
     window.Decidim.CommentsComponent = jest.fn(() => ({
       mountComponent: jest.fn(),
@@ -218,6 +219,16 @@ describe("SuggestionsList", () => {
 
     expect(firstSuggestion.commentsButton.getAttribute("aria-expanded")).toBe("false");
     expect(firstSuggestion.commentsContainer.innerHTML).toBe("");
+    expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
+    expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
+  });
+
+  it("opens the comments linked from the URL", async () => {
+    window.history.pushState({}, "", "/?suggestionId=102&commentId=456");
+
+    suggestionsList._openLinkedComments();
+    await new Promise(process.nextTick);
+
     expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
     expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
   });

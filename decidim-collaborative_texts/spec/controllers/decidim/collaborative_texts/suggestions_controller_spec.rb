@@ -89,10 +89,15 @@ module Decidim
       end
 
       describe "GET #show" do
-        it "redirects to the document" do
-          get(:show, params: { id: suggestion1.id })
+        it "redirects to the document with the target suggestion and comment" do
+          get(:show, params: { id: suggestion1.id, commentId: "123" })
 
-          expect(response).to redirect_to(Decidim::ResourceLocatorPresenter.new(document).path)
+          expect(response).to redirect_to(
+            Decidim::ResourceLocatorPresenter.new(document).path(
+              suggestionId: suggestion1.id,
+              commentId: "123"
+            )
+          )
         end
 
         context "when the suggestion belongs to another component" do
