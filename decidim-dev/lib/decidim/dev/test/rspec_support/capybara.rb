@@ -130,7 +130,8 @@ module ChromeResetWithoutWildcard
   end
 
   def visited_origins
-    ["http://127.0.0.1", "http://localhost", *Capybara.utilized_app_hosts].filter_map do |host|
+    protocol = ENV["TEST_SSL"] ? "https" : "http"
+    ["#{protocol}://127.0.0.1", "#{protocol}://localhost", *Capybara.utilized_app_hosts].filter_map do |host|
       if host&.match?(/:[0-9]+\z/)
         origin_of(host)
       elsif host
