@@ -3,6 +3,7 @@
 module Decidim
   class PrivateExport < ApplicationRecord
     belongs_to :attached_to, polymorphic: true
+    delegate :organization, to: :attached_to, allow_nil: true
 
     has_one_attached :file
     validates :content_type, presence: true

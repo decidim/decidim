@@ -88,15 +88,14 @@ describe "Comment body blob references" do
 
       expect(blobs_in(body).map(&:id)).not_to include(id_scan_blob.id)
       expect(blob_urls_in(body)).to be_empty
-      expect(private_download_urls_in(body)).not_to be_empty
+      expect(private_download_urls_in(body)).to be_empty
     end
 
-    it "does not let the participant download the verification document through a private download URL" do
-      body = post_comment("Look #{id_scan_blob.to_global_id}")
-      private_url = private_download_urls_in(body).first
+    it "does not let the participant download the verification document through its private download URL" do
+      token = Decidim::PrivateDownload.for(id_document_authorization, attachment_name: "verification_attachment").token
+      private_path = Decidim::Core::Engine.routes.url_helpers.private_download_path(token)
 
-      expect(private_url).to be_present
-      get(private_url, headers:)
+      get(private_path, headers:)
       expect(response).to have_http_status(:not_found)
     end
 
@@ -106,7 +105,7 @@ describe "Comment body blob references" do
 
       expect(blobs_in(body).map(&:id)).not_to include(export_blob.id)
       expect(blob_urls_in(body)).to be_empty
-      expect(private_download_urls_in(body)).not_to be_empty
+      expect(private_download_urls_in(body)).to be_empty
     end
 
     it "does not render an Active Storage URL for a public blob from another organization" do
@@ -127,13 +126,13 @@ describe "Comment body blob references" do
       expect(private_download_urls_in(body)).to be_empty
     end
 
-    it "lets the owner download the verification document through the private download URL" do
-      body = post_comment("Look #{id_scan_blob.to_global_id}")
-      private_url = private_download_urls_in(body).first
+    it "lets the owner download the verification document through its private download URL" do
+      token = Decidim::PrivateDownload.for(id_document_authorization, attachment_name: "verification_attachment").token
+      private_path = Decidim::Core::Engine.routes.url_helpers.private_download_path(token)
 
       logout(:user)
       login_as victim, scope: :user
-      get(private_url, headers: { "HOST" => other_organization.host })
+      get(private_path, headers: { "HOST" => other_organization.host })
 
       expect(response).to have_http_status(:ok)
       expect(Digest::SHA256.hexdigest(response.body.b)).to eq(Digest::SHA256.file(Decidim::Dev.asset("id.jpg")).hexdigest)

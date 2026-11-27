@@ -58,7 +58,13 @@ module Decidim
       def render_blob(blob, variation_key)
         attachments = blob.attachments.to_a
         private_attachment = attachments.find { |attachment| private_attachment?(attachment) }
-        return private_download_url(private_attachment) if private_attachment
+
+        if private_attachment
+          return "" unless private_attachment_renderable?(private_attachment)
+
+          return private_download_url(private_attachment)
+        end
+
         return "" unless publicly_renderable?(attachments)
 
         if variation_key
@@ -79,6 +85,17 @@ module Decidim
       def private_attachment?(attachment)
         record = attachment.record
         record.respond_to?(:private_download_required?) && record.private_download_required?
+      end
+
+      # A private attachment may only be referenced from the organization that
+      # owns its record. When the organization is unknown (for example in a
+      # background job), the private download URL is still safe to render
+      # because it is not a bearer credential and the endpoint authorizes
+      # every request.
+      def private_attachment_renderable?(attachment)
+        return true if @organization.blank?
+
+        record_organization(attachment.record) == @organization
       end
 
       # A blob can only be rendered publicly when it is attached to at least
