@@ -32,7 +32,7 @@
   <div class="participatory-space__container">
 
     <%= participatory_space_floating_help %>
-    <%= cell "decidim/participatory_processes/process_step", current_participatory_space, display_steps: params[:display_steps] %>
+    <%= cell "decidim/participatory_processes/process_phase", current_participatory_space, display_phases: params[:display_phases] %>
 
     <% active_content_blocks.each do |content_block| %>
       <% next unless content_block.manifest %>

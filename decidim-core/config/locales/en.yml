@@ -563,15 +563,15 @@ en:
             no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
             taxonomy_filters: Select filters for the component
-          step:
+          phase:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
             amendment_reaction_enabled: Amendment reaction enabled
             amendments_visibility: Amendment visibility
             comments_blocked: Comments blocked
-            dummy_step_attribute1: Dummy Step Attribute 1
-            dummy_step_attribute2: Dummy Step Attribute 2
-            dummy_step_translatable_text: Dummy Step Translatable Text
+            dummy_phase_attribute1: Dummy Step Attribute 1
+            dummy_phase_attribute2: Dummy Step Attribute 2
+            dummy_phase_translatable_text: Dummy Step Translatable Text
       pagination:
         page_title: "%{component_name} - Page %{current_page} of %{total_pages}"
     contact: Contact
@@ -2275,6 +2275,7 @@ en:
       close: Close
       reset: Reset
       select: Select
+    clock_format: 24
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -2283,6 +2284,8 @@ en:
       ddmm: "%d.%m"
       ddmmyyyy: "%d.%m.%Y"
       decidim_day_of_year: "%d %B %Y"
+      decidim_month: "%B"
+      decidim_month_and_year: "%B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       default: "%a, %d %b %Y %H:%M:%S %z"
       devise:
@@ -2296,7 +2299,8 @@ en:
       long_with_particles: "%B %d, %Y at %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
+      time_of_day_with_time_zone: "%H:%M %Z"
+      tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:
       left: Deletions

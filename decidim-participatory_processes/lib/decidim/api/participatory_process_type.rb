@@ -28,12 +28,12 @@ module Decidim
             description: "The participatory process group in which this process belong to"
       field :participatory_scope, Decidim::Core::TranslatedFieldType, "What is decided on this participatory process", null: true
       field :participatory_structure, Decidim::Core::TranslatedFieldType, "How it is decided on this participatory process", null: true
+      field :phases, [Decidim::ParticipatoryProcesses::ParticipatoryProcessPhaseType, { null: true }], "All the phases of this participatory process", null: false
       field :promoted, GraphQL::Types::Boolean, "If this participatory process is promoted (therefore in the homepage)", null: true
       field :published_at, Decidim::Core::DateTimeType, "The time this page was published", null: false
       field :short_description, Decidim::Core::TranslatedFieldType, "The short description of this participatory process", null: true
       field :slug, GraphQL::Types::String, "The slug of the participatory process", null: false
       field :start_date, Decidim::Core::DateType, "This participatory process' start date", null: true
-      field :steps, [Decidim::ParticipatoryProcesses::ParticipatoryProcessStepType, { null: true }], "All the steps of this participatory process", null: false
       field :subtitle, Decidim::Core::TranslatedFieldType, "The subtitle of this participatory process", null: true
       field :target, Decidim::Core::TranslatedFieldType, "Who participates in this participatory process", null: true
       field :url, GraphQL::Types::String, "The URL of this participatory process", null: true

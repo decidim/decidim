@@ -25,7 +25,7 @@ module Decidim::Proposals
 
       context "when votes are hidden" do
         before do
-          component.update!(default_step_settings: { votes_hidden: true, votes_enabled: true })
+          component.update!(default_phase_settings: { votes_hidden: true, votes_enabled: true })
         end
 
         it "renders nothing" do

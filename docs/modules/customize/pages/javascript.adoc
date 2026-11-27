@@ -43,7 +43,7 @@ using your environment variables. Please do notice that this has security implic
 export DECIDIM_ENABLE_HTML_HEADER_SNIPPETS=true
 ----
 
-Then you will have a new textarea field called "Header snippets" in Administration -> Configuration -> Appearance (URL `/admin/organization/appearance/edit`):
+Then you will have a new textarea field called "Header snippets" when editing the organization in the System panel (URL `/system/organizations/:id/edit`):
 
 image::header-snippet.png[Header snippet]
 

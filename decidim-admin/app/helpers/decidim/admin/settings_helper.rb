@@ -28,7 +28,7 @@ module Decidim
       # @param i18n_scope [String] The scope where it will find all the texts for the internationalization (locales)
       # @param options [Hash] Extra options to be passed to the field helper.
       # @option options [String] :tabs_prefix The type of the setting.
-      #   It can be "global-settings" or "step-N-settings", where N is the number of the step.
+      #   It can be "global-settings" or "phase-N-settings", where N is the number of the phase.
       # @option options [nil, Boolean] :readonly True if the input is readonly.
       # @return [ActiveSupport::SafeBuffer] Rendered form field.
       def settings_attribute_input(form, attribute, name, i18n_scope, options = {})

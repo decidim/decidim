@@ -45,10 +45,10 @@ describe "Explore projects", :slow do
     end
 
     context "when voting is finished" do
-      let(:active_step_id) { participatory_process.active_step.id }
+      let(:active_phase_id) { participatory_process.active_phase.id }
 
       before do
-        component.update!(step_settings: { active_step_id => { votes: :finished, show_votes: } })
+        component.update!(phase_settings: { active_phase_id => { votes: :finished, show_votes: } })
 
         visit_budget
         click_on translated(project.title)
@@ -238,10 +238,10 @@ describe "Explore projects", :slow do
         end
 
         context "and votes are not shown" do
-          let(:active_step_id) { component.participatory_space.active_step.id }
+          let(:active_phase_id) { component.participatory_space.active_phase.id }
 
           before do
-            component.update!(step_settings: { active_step_id => { show_votes: false } })
+            component.update!(phase_settings: { active_phase_id => { show_votes: false } })
           end
 
           it "does not show the votes" do
@@ -264,6 +264,34 @@ describe "Explore projects", :slow do
     context "when directly accessing from URL with an invalid project id" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_budgets.budget_project_path(budget, 99_999_999) }
+      end
+    end
+
+    context "with pagination" do
+      let(:projects_count) { per_page + 1 }
+
+      before do
+        settings = component.settings
+        settings.projects_per_page = per_page
+        component.update!(settings:)
+
+        visit_budget
+      end
+
+      context "with a standard pagination option" do
+        let(:per_page) { 25 }
+
+        it "displays the results per page selector" do
+          expect(page).to have_text(I18n.t("decidim.shared.results_per_page.label"))
+        end
+      end
+
+      context "with a non-standard pagination option" do
+        let(:per_page) { 5 }
+
+        it "does not display the results per page selector" do
+          expect(page).to have_no_text(I18n.t("decidim.shared.results_per_page.label"))
+        end
       end
     end
   end

@@ -5,7 +5,7 @@ require "rubocop"
 module RuboCop
   module Cop
     module Decidim
-      # Flags unscoped ActiveRecord finder calls in controllers.
+      # Flags unscoped ActiveRecord finder calls in controllers and commands.
       #
       # In a multi-tenant Decidim deployment, loading a record without scoping
       # it to the current organization can allow one tenant's users to access
@@ -49,11 +49,14 @@ module RuboCop
         # create, or delete. Only these can establish organization scope.
         # Methods such as `first_or_create` or `update_all` use their arguments
         # as values to write, so they do not filter out records from other
-        # organizations.
+        # organizations. The Enumerable predicates (`any?`, `none?`, `one?`)
+        # treat a hash argument as a case-equality pattern rather than as a
+        # database filter, so they load unscoped records and cannot establish
+        # scope; `exists?` does filter with its argument.
         FILTERING_ARGUMENT_METHODS = [
           :where,
           :find_by, :find_by!, :find_sole_by,
-          :exists?, :any?, :many?, :none?, :one?,
+          :exists?, :many?,
           :find_or_create_by, :find_or_create_by!, :find_or_initialize_by,
           :create_or_find_by, :create_or_find_by!,
           :destroy_by, :delete_by
@@ -257,9 +260,46 @@ module RuboCop
 
         def scoped_where_pair?(key, value)
           return false unless key.sym_type?
+
+          return organization_value?(value) if key.value == :organization
           return false unless scoped_where_key?(key)
 
           scoped_trusted_value?(value)
+        end
+
+        # `where(organization: organization)` and `where(organization: record.organization)`
+        # restrict the relation to a single organization only when the value is
+        # the current organization or a record's own organization. Reject
+        # parameterized lookups such as
+        # `tenant_resolver.organization(params[:organization_id])`, because the
+        # resolver may select another tenant from untrusted input.
+        def organization_value?(node)
+          # In `find_template(organization)`, Ruby parses the argument as a
+          # local variable rather than a send, but it is still the intended
+          # organization.
+          return true if organization_local_variable?(node)
+          return false unless node&.send_type? && node.method_name == :organization
+          return false unless node.arguments.empty?
+          return true unless node.receiver
+
+          trusted_organization_receiver?(node.receiver)
+        end
+
+        def organization_local_variable?(node)
+          node&.lvar_type? && node.name == :organization
+        end
+
+        # Records held in variables (`@user.organization`) and current-context
+        # helpers (`current_user.organization`, `form.organization`) are bound
+        # to the organization being queried. Arbitrary method calls are not,
+        # as they may resolve a tenant from request parameters.
+        def trusted_organization_receiver?(node)
+          return true if node.lvar_type? || node.ivar_type?
+          return false unless node.send_type?
+          return true if scoped_query_argument_method?(node)
+          return true if node.receiver&.self_type? && SCOPED_QUERY_ARGUMENT_METHODS.include?(node.method_name)
+
+          form_context_receiver?(node)
         end
 
         def scoped_association_pair?(key, value)

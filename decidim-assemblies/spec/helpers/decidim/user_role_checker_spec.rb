@@ -39,6 +39,23 @@ module Decidim
             expect(checker.send(:user_has_any_role?, user, assembly, broad_check: true)).to be(true)
           end
         end
+
+        context "when the user has a role in a trashed assembly" do
+          let(:trashed_assembly) { create(:assembly, organization:) }
+
+          before do
+            create(:assembly_user_role, user:, assembly: trashed_assembly)
+            trashed_assembly.destroy
+          end
+
+          it "returns false with a broad check, as trashed assembly roles do not grant access" do
+            expect(checker.send(:user_has_any_role?, user, assembly, broad_check: true)).to be(false)
+          end
+
+          it "returns true when the trashed assembly is the one being checked" do
+            expect(checker.send(:user_has_any_role?, user, trashed_assembly, broad_check: true)).to be(true)
+          end
+        end
       end
     end
 

@@ -7,12 +7,12 @@ describe Decidim::Templates::Admin::ProposalAnswerTemplatesController do
 
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, :admin, organization:) }
-  let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
+  let(:participatory_process) { create(:participatory_process, :with_phases, organization:) }
   let(:component) { create(:proposal_component, participatory_space: participatory_process) }
 
   let(:other_org) { create(:organization) }
   let(:other_user) { create(:user, :confirmed, :admin, organization: other_org) }
-  let(:other_process) { create(:participatory_process, :with_steps, organization: other_org) }
+  let(:other_process) { create(:participatory_process, :with_phases, organization: other_org) }
   let(:other_component) { create(:proposal_component, participatory_space: other_process) }
 
   before do

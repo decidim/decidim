@@ -247,8 +247,8 @@ describe "Explore debates" do
       context "with the step's settings" do
         before do
           component.update!(
-            step_settings: {
-              component.participatory_space.active_step.id => {
+            phase_settings: {
+              component.participatory_space.active_phase.id => {
                 announcement:
               }
             }
@@ -377,13 +377,13 @@ describe "Explore debates" do
     end
 
     context "with comment metadata" do
-      let!(:comment) { create(:comment, commentable: debates) }
-      let!(:debates) { create(:debate, :ongoing_ama, component:) }
+      let!(:debates) { create_list(:debate, 2, :ongoing_ama, component:) }
+      let!(:comment) { create(:comment, commentable: debates.first) }
 
       it "shows the comments count" do
         visit_component
 
-        within ".card__list-metadata [data-comments-count]" do
+        within "#debates__debate_#{debates.first.id} .card__list-metadata [data-comments-count]" do
           expect(page).to have_text("1")
         end
       end

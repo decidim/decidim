@@ -24,14 +24,14 @@ module Decidim
         end
 
         def voting_ends_soon?
-          return false unless participatory_space.respond_to? :active_step
-          return false if participatory_space.active_step.blank?
-          return false unless participatory_space.active_step[:end_date]
+          return false unless participatory_space.respond_to? :active_phase
+          return false if participatory_space.active_phase.blank?
+          return false unless participatory_space.active_phase[:end_date]
 
           time_zone = current_organization.time_zone
           return false if time_zone.blank?
 
-          end_time = participatory_space.active_step[:end_date].in_time_zone(time_zone).end_of_day
+          end_time = participatory_space.active_phase[:end_date].in_time_zone(time_zone).end_of_day
 
           6.hours.from_now >= end_time
         end

@@ -20,19 +20,19 @@ module Decidim
       validates :manifest, :participatory_space, presence: true
 
       attribute :settings, Object
-      attribute :default_step_settings, Object
-      attribute(:step_settings, { String => Object })
+      attribute :default_phase_settings, Object
+      attribute(:phase_settings, { String => Object })
 
       attribute :share_tokens, Array[ShareToken]
 
-      validate :validate_settings, :validate_step_settings
+      validate :validate_settings, :validate_phase_settings
 
       def settings?
         settings.manifest.attributes.any?
       end
 
-      def default_step_settings?
-        default_step_settings.manifest.attributes.any?
+      def default_phase_settings?
+        default_phase_settings.manifest.attributes.any?
       end
 
       def map_model(model)
@@ -51,18 +51,18 @@ module Decidim
         end
       end
 
-      def validate_step_settings
-        return unless step_settings.respond_to?(:attributes)
+      def validate_phase_settings
+        return unless phase_settings.respond_to?(:attributes)
 
-        errors.add(:step_settings, :invalid) unless step_settings.attributes.values.all? { |v| !v.respond_to?(:valid?) || v.valid? }
+        errors.add(:phase_settings, :invalid) unless phase_settings.attributes.values.all? { |v| !v.respond_to?(:valid?) || v.valid? }
       end
 
       def settings_errors_empty?
         validations = [settings.errors.empty?]
-        validations << if default_step_settings.present?
-                         default_step_settings.errors.empty?
+        validations << if default_phase_settings.present?
+                         default_phase_settings.errors.empty?
                        else
-                         step_settings.each_value.map(&:errors).all?(&:empty?)
+                         phase_settings.each_value.map(&:errors).all?(&:empty?)
                        end
         validations.all?
       end

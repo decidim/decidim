@@ -284,6 +284,7 @@ sv:
         activate: "%{user_name} aktiverade steget %{resource_name} i processen %{space_name}"
         create: "%{user_name} skapade steget %{resource_name} i processen %{space_name}"
         delete: "%{user_name} raderade steget %{resource_name} i processen %{space_name}"
+        system_activate: Fasen %{resource_name} aktiverades automatiskt i den deltagande processen %{space_name}.
         update: "%{user_name} uppdaterade steget %{resource_name} i processen %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} bjöd in deltagaren %{resource_name} till processen %{space_name}"

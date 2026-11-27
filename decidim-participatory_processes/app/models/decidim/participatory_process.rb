@@ -4,7 +4,7 @@ module Decidim
   # Interaction between a user and an organization is done via a
   # ParticipatoryProcess. It is a unit of action from the Organization point of
   # view that groups several components (proposals, debates...) distributed in
-  # steps that get enabled or disabled depending on which step is currently
+  # phases that get enabled or disabled depending on which phase is currently
   # active.
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
@@ -38,18 +38,32 @@ module Decidim
                class_name: "Decidim::ParticipatoryProcessGroup",
                inverse_of: :participatory_processes,
                optional: true
-    has_many :steps,
+    has_many :phases,
              -> { order(position: :asc) },
              foreign_key: "decidim_participatory_process_id",
-             class_name: "Decidim::ParticipatoryProcessStep",
+             class_name: "Decidim::ParticipatoryProcessPhase",
              dependent: :destroy,
              inverse_of: :participatory_process
-    has_one :active_step,
+    has_one :active_phase,
             -> { where(active: true) },
             foreign_key: "decidim_participatory_process_id",
-            class_name: "Decidim::ParticipatoryProcessStep",
+            class_name: "Decidim::ParticipatoryProcessPhase",
             dependent: :destroy,
             inverse_of: :participatory_process
+    # Trashing a process is a soft delete and `Decidim::ParticipatoryProcessUserRole` is not soft deletable, so
+    # `dependent: :destroy` would remove the roles permanently and restoring the process could not bring them
+    # back. The roles are only removed when the process is permanently deleted.
+    # rubocop:disable-next Rails/HasManyOrHasOneDependent
+    has_many :participatory_process_user_roles,
+             foreign_key: "decidim_participatory_process_id",
+             class_name: "Decidim::ParticipatoryProcessUserRole",
+             inverse_of: :participatory_process
+
+    # Query by the process id instead of the association, which may be a stale cached
+    # collection. Run before the process itself is removed so the roles are deleted while the
+    # parent record still exists.
+    before_real_destroy { Decidim::ParticipatoryProcessUserRole.where(participatory_process: self).destroy_all }
+
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",
@@ -62,7 +76,7 @@ module Decidim
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
-    attr_readonly :active_step
+    attr_readonly :active_phase
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
@@ -119,7 +133,7 @@ module Decidim
                       index_on_update: ->(process) { process.visible? })
 
     def self.searchable_arguments
-      [:organization, :active_step]
+      [:organization, :active_phase]
     end
 
     # Scope to return only the promoted processes.
@@ -229,7 +243,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(participatory_process_group taxonomies)
+      %w(participatory_process_group taxonomies active_phase)
     end
   end
 end
