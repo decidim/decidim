@@ -70,6 +70,17 @@ module Decidim
           enforce_permission_to :create, :conference
         end
 
+        def manage_trash_modal
+          enforce_permission_to :manage_trash, :conference
+
+          render partial: "decidim/admin/shared/deleted_space_modal",
+                 locals: {
+                   space: trashable_deleted_resource,
+                   space_type: :conference,
+                   restore_path: restore_conference_path(trashable_deleted_resource)
+                 }
+        end
+
         private
 
         def trashable_deleted_resource_type
