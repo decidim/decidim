@@ -14,6 +14,31 @@ on:
       working-directory:
         required: true
         type: string
+      parallel_processors:
+        description: 'Number of parallel test processors'
+        required: false
+        default: 3
+        type: number
+      shard:
+        description: 'Shard name for the parallel test runtime log (empty disables runtime caching)'
+        required: false
+        default: 'default'
+        type: string
+      system_specs:
+        description: 'Start the accessibility validator for shards running system specs'
+        required: false
+        default: false
+        type: boolean
+      upload_coverage:
+        description: 'Upload coverage to Qlty and Codecov (enabled by default, disable only when a job should not report coverage)'
+        required: false
+        default: true
+        type: boolean
+      coverage_parts:
+        description: 'Number of shards uploading coverage for this module, used by Qlty server-side merging (pass strategy.job-total)'
+        required: false
+        default: 1
+        type: number
       test_command:
         description: 'The testing command to be ran'
         required: true
@@ -58,8 +83,22 @@ jobs:
       DATABASE_HOST: localhost
       DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
       DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
-      PARALLEL_TEST_PROCESSORS: 3
+      PARALLEL_TEST_PROCESSORS: ${{ inputs.parallel_processors }}
     services:
+      postgres:
+        image: postgres:14
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        env:
+          POSTGRES_PASSWORD: postgres
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
       # If you see any inconsistency between CI and local testing environment related to the accessibility validator, the best way of troubleshooting is:
       # 1. Go to the "Raw log" of the failing action
       # 2. Search for the version of the validator in the line
@@ -77,23 +116,10 @@ jobs:
       # ```
       #
       # Mind that we could not be using the latest version because there was some problem upstream (new rules, or just a bad release).
-      validator:
-        image: ${{ vars.ACTION_ACCESSIBILITY_VALIDATOR_VERSION || 'ghcr.io/validator/validator:latest' }}
-        ports: ["8888:8888"]
-      postgres:
-        image: postgres:14
-        ports: ["5432:5432"]
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        env:
-          POSTGRES_PASSWORD: postgres
-    steps:
-      - uses: actions/checkout@v7
-        with:
-          fetch-depth: 1
+      - name: Start accessibility validator
+        if: inputs.system_specs
+        run: docker run -d -p 8888:8888 "${{ vars.ACTION_ACCESSIBILITY_VALIDATOR_VERSION || 'ghcr.io/validator/validator:latest' }}"
+        shell: "bash"
       - name: Fix APT mirrors
         run: |
           if [ -f /etc/apt/apt-mirrors.txt ]; then
@@ -102,13 +128,26 @@ jobs:
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list.d/*.sources || true
           sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu/|http://archive.ubuntu.com/ubuntu/|g' /etc/apt/sources.list || true
         shell: "bash"
-      - name: Install dependencies
+      - name: Install apt packages (restored from cache when available)
+        uses: awalsh128/cache-apt-pkgs-action@v2
+        with:
+          packages: libvips libvips-tools libu2f-udev
+          version: "1.0"
+      - name: Restore cached Chrome ${{ inputs.chrome_version }} .deb
+        id: chrome-deb-cache
+        uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}/chrome-deb
+          key: chrome-deb-${{ runner.os }}-${{ runner.arch }}-${{ inputs.chrome_version }}
+      - name: Download Chrome ${{ inputs.chrome_version }} .deb (cache miss)
+        if: steps.chrome-deb-cache.outputs.cache-hit != 'true'
         run: |
-          sudo apt-get update
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y libu2f-udev libvips libvips-tools
-          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
-          sudo DEBIAN_FRONTEND=noninteractive dpkg -i /tmp/chrome.deb
-          rm /tmp/chrome.deb
+          mkdir -p "${RUNNER_TEMP}/chrome-deb"
+          wget --no-verbose -O "${RUNNER_TEMP}/chrome-deb/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb" https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
+        shell: "bash"
+      # Runners are ephemeral, so a cached .deb still needs to be (re)installed, but no download is needed.
+      - name: Install Chrome ${{ inputs.chrome_version }} ${{ steps.chrome-deb-cache.outputs.cache-hit == 'true' && 'from cache' || 'from download' }}
+        run: sudo DEBIAN_FRONTEND=noninteractive dpkg -i "${RUNNER_TEMP}/chrome-deb/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb"
         shell: "bash"
       - uses: nanasess/setup-chromedriver@v3
         with:
@@ -136,6 +175,14 @@ jobs:
       - run: mkdir -p ./spec/decidim_dummy_app/tmp/screenshots
         name: Create the screenshots folder
         shell: "bash"
+      - name: Restore parallel test runtimes
+        if: inputs.shard != ''
+        uses: actions/cache@v6
+        with:
+          path: ${{ inputs.working-directory }}/tmp/parallel_runtime_${{ inputs.shard }}.log
+          key: parallel-runtime-${{ inputs.working-directory }}-${{ inputs.shard }}-${{ github.head_ref || github.ref_name }}-${{ github.run_id }}
+          restore-keys: |
+            parallel-runtime-${{ inputs.working-directory }}-${{ inputs.shard }}-${{ github.head_ref || github.ref_name }}-
       - run: |
           bundle install
           bundle exec rake parallel:create parallel:load_schema
@@ -161,12 +208,16 @@ jobs:
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
       - uses: qltysh/qlty-action/coverage@v2
+        if: inputs.upload_coverage
         with:
           token: ${{secrets.QLTY_COVERAGE_TOKEN}}
           files: coverage/coverage.json
           verbose: true
           add-prefix: ${{ env.DECIDIM_MODULE }}
+          tag: ${{ inputs.working-directory }}
+          total-parts-count: ${{ inputs.coverage_parts }}
       - uses: codecov/codecov-action@v7
+        if: inputs.upload_coverage
         name: Upload coverage
         with:
           name: ${{ inputs.working-directory }}

@@ -31,15 +31,28 @@ jobs:
       fail-fast: false
       matrix:
         test:
-          - command: bundle exec parallel_test --type rspec --pattern spec/ --exclude-pattern spec/system
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_unit.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_unit.log' --pattern spec/ --exclude-pattern 'spec/(system|types)'
             name: "Unit tests"
-          - command: bundle exec parallel_test --type rspec --pattern spec/system --exclude-pattern spec/system/admin
+            parallel_processors: 4
+            shard: "unit"
+            system_specs: false
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_system.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_system.log' --pattern spec/system --exclude-pattern spec/system/admin
             name: "System tests"
-          - command: bundle exec parallel_test --type rspec --pattern spec/system/admin
+            parallel_processors: 3
+            shard: "system"
+            system_specs: true
+          - command: bundle exec parallel_test --type rspec --runtime-log tmp/parallel_runtime_system_admin.log --test-options '--format progress --format ParallelTests::RSpec::RuntimeLogger --out tmp/parallel_runtime_system_admin.log' --pattern spec/system/admin
             name: "Admin system tests"
+            parallel_processors: 3
+            shard: "system_admin"
+            system_specs: true
     name: ${{ matrix.test.name }}
     uses: ./.github/workflows/test_app.yml
     secrets: inherit
     with:
-      working-directory: "decidim-participatory_processes"
+      parallel_processors: ${{ matrix.test.parallel_processors }}
+      shard: ${{ matrix.test.shard }}
+      system_specs: ${{ matrix.test.system_specs }}
       test_command: ${{ matrix.test.command }}
+      coverage_parts: ${{ strategy.job-total }}
+      working-directory: "decidim-participatory_processes"

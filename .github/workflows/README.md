@@ -14,11 +14,39 @@ We use GitHub Actions as CI with two key optimizations: **workflow splitting** a
 
 Large test suites are split into [parallel workflows](https://docs.github.com/en/actions/using-jobs/using-jobs-in-a-workflow) to reduce execution time:
 
+### Dependency Caching
+
+`test_app.yml` caches the pinned Chrome `.deb` (keyed by `chrome_version`) and installs the system libraries (`libvips`, `libvips-tools`, `libu2f-udev`) with `awalsh128/cache-apt-pkgs-action`. On a cache hit the Chrome download and the `apt-get` install are skipped; the cached `.deb` is still installed locally with `dpkg` because runners start clean.
+
+### Shard Flags
+
+`test_app.yml` exposes three shard-related inputs:
+
+- `system_specs`: starts the accessibility validator container (`docker run -d -p 8888:8888 ghcr.io/validator/validator`) only for shards that run system specs.
+- `upload_coverage`: uploads coverage to Qlty and Codecov. It defaults to `true`, so every shard reports the coverage it collects; set it to `false` only for jobs that should not report coverage (for example `ci_api_types.yml`).
+- `coverage_parts`: number of shards that upload coverage for a module. Matrix workflows pass `${{ strategy.job-total }}`; single-job workflows keep the default of `1`.
+
+Each shard uploads its own `coverage/coverage.json`; the CI service merges them:
+
+- **Codecov** merges every upload for the same commit and flag, so each module uses its working directory as the flag and all of its shards combine into one report.
+- **Qlty** keeps one report per tag and does not merge separate complete uploads. The working directory is passed as the `tag` and the shard count as `total-parts-count`, so Qlty merges the partial uploads server-side into a single report per module.
+
 ## Core Workflows
 
 - `lint_code.yml`: Lints Ruby, JS, and ERB files
 - `ci_main.yml`: Tests for main folder
 - `ci_core.yml`: Base template for module testing using `test_app.yml`
+- `ci_api_types.yml`: Runs the `spec/types` suites of the modules affected by a change
+
+### API Type Specs
+
+The `spec/types` suites run only in `ci_api_types.yml`, which builds a dynamic matrix from the changed paths:
+
+- Changes to root-level files (matched by `*`, such as `Gemfile` or `Gemfile.lock`) or to `.github/**` run the type specs of all 17 modules that have a `spec/types` directory.
+- Changes to `decidim-admin`, `decidim-api`, `decidim-core`, `decidim-comments`, `decidim-dev`, or `decidim-participatory_processes` also run the type specs of all 17 modules.
+- A change to only one module runs that module's type specs together with those of its runtime dependents. For example, a change under `decidim-forms` runs the type specs of `decidim-forms`, `decidim-meetings`, `decidim-surveys`, and `decidim-conferences`, while a change under `decidim-meetings` runs those of `decidim-meetings` and `decidim-conferences`.
+
+The module workflows exclude `spec/types` (`--exclude-pattern spec/types` or `'spec/(system|types)'`) so these tests run exactly once.
 
 ## Special Cases
 
@@ -31,6 +59,14 @@ Modules with large test suites are split across multiple workflows:
 
 - Proposals: `ci_proposals_system_admin.yml`, `ci_proposals_system_public.yml`, `ci_proposals_unit_tests.yml`
 - Similar patterns for other large modules
+
+### Runtime-Balanced Tests
+
+Every parallel test shard records per-file runtimes with `ParallelTests::RSpec::RuntimeLogger` into `tmp/parallel_runtime_<shard>.log`. The log is cached per module and shard, restored from the current branch, and read back with `--runtime-log`.
+
+Grouping uses parallel_tests' default behavior: recorded runtimes when the log has enough data, filesize otherwise. A missing or stale cache therefore never blocks a run.
+
+Note: with parallel_tests 5.9.x, do not pass the literal `--group-by default` value; it raises an unsupported option error. Omitting `--group-by` already selects this fallback behavior.
 
 ## Performance Monitoring
 
