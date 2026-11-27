@@ -15,8 +15,10 @@ module Decidim
       end
 
       def create
-        enforce_permission_to :suggest, :collaborative_text
+        suggestion_document = document
+        enforce_permission_to :suggest, :collaborative_text, document: suggestion_document
         @form = form(SuggestionForm).from_params(params)
+        @form.document_id = suggestion_document.id
 
         CreateSuggestion.call(@form) do
           on(:ok) do

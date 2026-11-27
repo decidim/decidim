@@ -7,7 +7,7 @@ module Decidim
     describe SuggestionsController do
       let(:user) { create(:user, :confirmed, organization: component.organization) }
       let(:component) { create(:collaborative_text_component) }
-      let(:document) { build(:collaborative_text_document, :published, component:) }
+      let(:document) { build(:collaborative_text_document, :published, :accepting_suggestions, component:) }
       let!(:first_version) { create(:collaborative_text_version, document:) }
       let!(:second_version) { create(:collaborative_text_version, document:) }
       let(:suggestion_authors) { create_list(:user, 2, :confirmed, organization: component.organization) }
@@ -34,13 +34,15 @@ module Decidim
           get(:index, params:)
           expect(response).to have_http_status(:ok)
           body = response.parsed_body
-          expect(body.first.keys).to contain_exactly("changeset", "createdAt", "id", "profileHtml", "status", "summary", "type")
+          expect(body.first.keys).to contain_exactly("applicable", "changeset", "createdAt", "error", "id", "profileHtml", "status", "summary", "type")
           expect(body.pluck("id")).to contain_exactly(suggestion1.id, suggestion2.id)
           expect(body.first["changeset"].keys).to contain_exactly("replace", "original", "firstNode", "lastNode")
           expect(body.first["summary"]).to include("Replace:")
           expect(body.first["profileHtml"]).to include(suggestion1.author.name)
           expect(body.first["status"]).to eq(suggestion1.status)
           expect(body.first["type"]).to eq("replace")
+          expect(body.first["applicable"]).to be(true)
+          expect(body.first["error"]).to be_nil
           expect(body.first["createdAt"]).to be_present
         end
 
@@ -84,6 +86,60 @@ module Decidim
             expect(official_suggestion["profileHtml"]).to include(I18n.t("decidim.author.official_author"))
           end
         end
+
+        context "when a suggestion contains executable HTML" do
+          let!(:suggestion1) do
+            create(
+              :collaborative_text_suggestion,
+              document_version: document.current_version,
+              author: suggestion_authors.first,
+              changeset: {
+                firstNode: "1",
+                lastNode: "1",
+                original: ["<p>Original</p><script>alert('xss')</script>"],
+                replace: ["<p>Replacement</p><img src=x onerror=\"alert('xss')\">"]
+              }
+            )
+          end
+
+          it "sanitizes the changeset before returning it" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            changeset = response.parsed_body.find { |item| item["id"] == suggestion1.id }["changeset"]
+
+            expect(changeset["original"].join).not_to include("<script")
+            expect(changeset["replace"].join).not_to include("onerror")
+            expect(changeset["replace"].join).to include("Replacement")
+          end
+        end
+
+        context "when a legacy suggestion exceeds the changeset limits" do
+          let!(:suggestion1) do
+            create(
+              :collaborative_text_suggestion,
+              document_version: document.current_version,
+              author: suggestion_authors.first,
+              changeset: {
+                firstNode: "1",
+                lastNode: "1",
+                original: ["Original text"],
+                replace: ["a" * (Suggestion::MAX_CHANGESET_BYTES + 1)]
+              }
+            )
+          end
+
+          it "returns it as not applicable without raising an error" do
+            get(:index, params:)
+
+            expect(response).to have_http_status(:ok)
+            legacy_suggestion = response.parsed_body.find { |item| item["id"] == suggestion1.id }
+
+            expect(legacy_suggestion["applicable"]).to be(false)
+            expect(legacy_suggestion["error"]).to eq(I18n.t("decidim.collaborative_texts.suggestion.not_applicable"))
+            expect(legacy_suggestion["changeset"]["replace"].join.bytesize).to be <= Suggestion::MAX_CHANGESET_BYTES
+          end
+        end
       end
 
       describe "POST #create" do
@@ -120,6 +176,81 @@ module Decidim
             expect(response).to have_http_status(:ok)
             body = response.parsed_body
             expect(body["message"]).to eq("Suggestion successfully created.")
+          end
+
+          context "when the document is not accepting suggestions" do
+            let(:document) { build(:collaborative_text_document, :published, component:) }
+
+            it "returns an error" do
+              post(:create, params:)
+              expect(response).to have_http_status(:unprocessable_content)
+              body = response.parsed_body
+              expect(body["message"]).to eq("You are not authorized to perform this action.")
+            end
+          end
+
+          context "when the params attempt to target another document" do
+            let(:other_document) { build(:collaborative_text_document, :published, component:) }
+            let!(:other_version) { create(:collaborative_text_version, document: other_document) }
+            let(:params) do
+              {
+                component_id: component.id,
+                document_id: document.id,
+                document: { document_id: other_document.id },
+                changeset: {
+                  firstNode: "1",
+                  lastNode: "2",
+                  original: ["Original text"],
+                  replace: ["Replaced text"]
+                }
+              }
+            end
+
+            it "creates the suggestion for the authorized document" do
+              expect { post(:create, params:) }.to change(Suggestion, :count).by(1)
+              expect(response).to have_http_status(:ok)
+              expect(Suggestion.last.document).to eq(document)
+              expect(other_document.reload.suggestions).to be_empty
+            end
+          end
+
+          context "when the changeset is too large" do
+            let(:params) do
+              {
+                component_id: component.id,
+                document_id: document.id,
+                changeset: {
+                  firstNode: "1",
+                  lastNode: "2",
+                  original: ["a" * (Suggestion::MAX_CHANGESET_BYTES + 1)],
+                  replace: ["Replaced text"]
+                }
+              }
+            end
+
+            it "returns an error" do
+              post(:create, params:)
+              expect(response).to have_http_status(:unprocessable_content)
+              body = response.parsed_body
+              expect(body["message"]).to include("The suggestion is too large.")
+            end
+          end
+
+          context "when the changeset is not a hash" do
+            let(:params) do
+              {
+                component_id: component.id,
+                document_id: document.id,
+                changeset: "invalid"
+              }
+            end
+
+            it "returns an error" do
+              post(:create, params:)
+              expect(response).to have_http_status(:unprocessable_content)
+              body = response.parsed_body
+              expect(body["message"]).to include("Changeset is invalid.")
+            end
           end
 
           context "when params are invalid" do

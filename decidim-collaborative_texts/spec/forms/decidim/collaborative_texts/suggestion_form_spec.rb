@@ -68,6 +68,15 @@ module Decidim
           end
         end
 
+        context "when changeset is not a hash" do
+          let(:attributes) { { changeset: "invalid", document_id: document.id } }
+
+          it "is invalid" do
+            expect(form).not_to be_valid
+            expect(form.errors[:base]).to include("Changeset is invalid.")
+          end
+        end
+
         context "when firstNode is zero" do
           let(:attributes) { { changeset: { firstNode: 0, lastNode: 2 }, document_id: document.id } }
 
@@ -92,6 +101,62 @@ module Decidim
           it "is invalid" do
             expect(form).not_to be_valid
             expect(form.errors[:base]).to include("Invalid selected nodes.")
+          end
+        end
+
+        context "when the changeset has too many nodes" do
+          let(:attributes) do
+            {
+              changeset: {
+                original: Array.new(Suggestion::MAX_CHANGESET_NODES + 1, "a"),
+                replace: ["replacement text"],
+                firstNode: 1,
+                lastNode: 2
+              },
+              document_id: document.id
+            }
+          end
+
+          it "is invalid" do
+            expect(form).not_to be_valid
+            expect(form.errors[:base]).to include("The suggestion affects too many nodes.")
+          end
+        end
+
+        context "when the changeset is too large" do
+          let(:attributes) do
+            {
+              changeset: {
+                original: ["a" * (Suggestion::MAX_CHANGESET_BYTES + 1)],
+                replace: ["replacement text"],
+                firstNode: 1,
+                lastNode: 2
+              },
+              document_id: document.id
+            }
+          end
+
+          it "is invalid" do
+            expect(form).not_to be_valid
+            expect(form.errors[:base]).to include("The suggestion is too large.")
+          end
+        end
+
+        context "when the changeset is exactly at the limits" do
+          let(:attributes) do
+            {
+              changeset: {
+                original: ["a" * Suggestion::MAX_CHANGESET_BYTES],
+                replace: Array.new(Suggestion::MAX_CHANGESET_NODES, "b"),
+                firstNode: 1,
+                lastNode: 2
+              },
+              document_id: document.id
+            }
+          end
+
+          it "is valid" do
+            expect(form).to be_valid
           end
         end
 

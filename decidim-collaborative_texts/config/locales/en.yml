@@ -152,6 +152,7 @@ en:
             title: Title
       suggestion:
         add_html: <span class="type">Add:</span> <span class="text">%{text}</span>
+        not_applicable: This suggestion is too large to apply.
         remove_html: <span class="type">Remove:</span> <span class="text">%{text}</span>
         replace_html: <span class="type">Replace:</span> <span class="text">%{text}</span>
       suggestions:
@@ -160,7 +161,10 @@ en:
           success: Suggestion successfully created.
         errors:
           blank_changeset: Changeset cannot be blank.
+          changeset_too_large: The suggestion is too large.
+          invalid_changeset: Changeset is invalid.
           invalid_nodes: Invalid selected nodes.
+          too_many_nodes: The suggestion affects too many nodes.
     components:
       collaborative_texts:
         actions:

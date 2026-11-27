@@ -9,6 +9,11 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Authorable
 
+      # Upper bounds for participant-supplied suggestions. They keep the
+      # render-time sanitization bounded for both new and legacy records.
+      MAX_CHANGESET_NODES = 1_000
+      MAX_CHANGESET_BYTES = 100.kilobytes
+
       after_save :update_document_counters
 
       enum :status, [:pending, :accepted, :rejected]

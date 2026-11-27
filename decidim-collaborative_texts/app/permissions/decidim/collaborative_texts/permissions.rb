@@ -14,7 +14,7 @@ module Decidim
         when :read
           allow!
         when :suggest
-          allow! if user
+          allow! if user && document&.suggestions_enabled?
         when :rollout
           allow! if user && (user.admin? || space_allows_admin_access?)
         end

@@ -62,11 +62,36 @@ describe Decidim::CollaborativeTexts::Permissions do
     end
 
     context "when user is logged in" do
-      it { is_expected.to be true }
+      context "when the document is accepting suggestions" do
+        let(:document) do
+          create(:collaborative_text_document, :published, :accepting_suggestions, component: collaborative_text_component)
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when the document is not accepting suggestions" do
+        let(:document) do
+          create(:collaborative_text_document, :published, :not_accepting_suggestions, component: collaborative_text_component)
+        end
+
+        it_behaves_like "permission is not set"
+      end
+
+      context "when the document is not published" do
+        let(:document) do
+          create(:collaborative_text_document, :accepting_suggestions, component: collaborative_text_component)
+        end
+
+        it_behaves_like "permission is not set"
+      end
     end
 
     context "when user is not logged in" do
       let(:user) { nil }
+      let(:document) do
+        create(:collaborative_text_document, :published, :accepting_suggestions, component: collaborative_text_component)
+      end
 
       it_behaves_like "permission is not set"
     end

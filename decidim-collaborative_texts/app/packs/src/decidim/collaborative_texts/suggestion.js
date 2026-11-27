@@ -23,6 +23,8 @@ export default class Suggestion {
     }
     this.replace = entry.changeset.replace;
     this.summary = entry.summary;
+    this.applicable = entry.applicable !== false;
+    this.error = entry.error;
     this.item = null;
     this.boxWrapper = null;
     this.highlightWrapper = null;
@@ -33,7 +35,9 @@ export default class Suggestion {
     if (this.valid) {
       this._createBoxWrapper();
       this._createBoxItem();
-      this._bindEvents();
+      if (this.applicable) {
+        this._bindEvents();
+      }
     }
   }
 
@@ -83,6 +87,9 @@ export default class Suggestion {
 
   // Apply the suggestion by replacing the nodes with the replace content
   apply() {
+    if (!this.applicable) {
+      return this;
+    }
     if (!this.applied && !this.selection || !this.selection.blocked) {
       this.applied = true;
       if (this.highlightWrapper) {
@@ -218,8 +225,16 @@ export default class Suggestion {
     this.item.innerHTML = this.templates.suggestionsBoxItem.innerHTML.replaceAll("{{ID}}", this.id).replaceAll("{{PROFILE}}", this.authorCell);
     this.text = this.item.querySelector(".collaborative-texts-suggestions-box-item-text");
     this.text.innerHTML = this.summary;
+    if (!this.applicable && this.error) {
+      this.errorElement = window.document.createElement("div");
+      this.errorElement.classList.add("collaborative-texts-suggestions-box-item-error");
+      this.errorElement.textContent = this.error;
+      this.item.appendChild(this.errorElement);
+    }
     this.boxItems.appendChild(this.item);
-    if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
+    if (!this.applicable) {
+      this.item.querySelectorAll(".collaborative-texts-suggestions-box-item-dropdown, .collaborative-texts-suggestions-box-header-menu").forEach((element) => element.remove());
+    } else if (!this.doc.dataset.collaborativeTextsRolloutUrl) {
       this.dropdown = this.item.querySelector('[data-controller="dropdown"]');
       if (this.dropdown) {
         this.dropdown.remove();
