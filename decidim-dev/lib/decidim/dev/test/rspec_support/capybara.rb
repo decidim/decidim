@@ -107,6 +107,10 @@ module Capybara
       # reset in reverse so sessions that started servers are reset last
       session_pool.reverse_each { |_mode, session| session.reset! }
       Capybara.clear_utilized_app_hosts
+
+      # In case `Capybara.app_host=` is not called, the current app host might
+      # be left untracked.
+      utilized_app_hosts << config.app_host
     end
   end
 end
