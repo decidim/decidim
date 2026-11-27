@@ -14,8 +14,6 @@ ca-IT:
         settings:
           global:
             announcement: Avís
-          step:
-            announcement: Avís
     open_data:
       help:
         pages:

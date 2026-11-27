@@ -32,8 +32,6 @@ pt-BR:
         settings:
           global:
             announcement: Anúncio
-          step:
-            announcement: Anúncio
     elections:
       actions:
         confirm_delete_election: Você tem certeza que deseja excluir esta eleição?

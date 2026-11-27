@@ -164,7 +164,7 @@ eu:
         settings:
           global:
             amendments_enabled: Zuzenketak baimenduta
-            amendments_enabled_help: Aktibo badago, zuzenketen aukerak fase bakoitzerako ezartzen ditu.
+            amendments_enabled_help: Aktibo badago, ezarri zuzenketen aukerak fase bakoitzerako.
             amendments_wizard_help_text: Zuzenketak egiteko laguntza-testua
             announcement: Jakinarazpena
             attachments_allowed: Onartu eranskinak
@@ -219,7 +219,7 @@ eu:
             taxonomy_filters_add: Erantsi iragazkia
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Babesen muga partaide bakoitzeko
-          step:
+          phase:
             amendment_creation_enabled: Zuzenketa sortzea aktibatua
             amendment_creation_enabled_help: Parte-hartzaileak proposamenak alda ditzake.
             amendment_promotion_enabled: Zuzenketa sustatzea aktibatua
@@ -240,12 +240,12 @@ eu:
             default_sort_order_help: Automatikoa izateak esan nahi du babesak gaituta badaude proposamenak ausaz ordenatuta erakutsiko direla, eta babesak blokeatuta badaude, babes gehien jaso dutenen arabera ordenatuko direla.
             default_sort_order_options:
               automatic: Automatikoa
-              most_commented: Iruzkin gehien dituztenak
+              most_commented: Iruzkin gehien dutenak
               most_followed: Jarraitzaile gehien dituztenak
               most_liked: Atsegin gehien
-              most_voted: Babes gehien dituztenak
+              most_voted: Bozkatuenak
               random: Ausazko ordena
-              recent: Berrienetatik zaharrenetara
+              recent: Berrienak
               with_more_authors: Egile gehiago dituztenak
             likes_blocked: Atsegin dut blokeatuta
             likes_enabled: Atsegin dut gaituta

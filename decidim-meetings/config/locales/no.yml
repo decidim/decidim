@@ -89,8 +89,7 @@
             maps_enabled: Kart aktivert
             resources_permissions_enabled: Handlings tillatelser kan settes for hvert møte
             terms_and_conditions_url_for_meeting_creators: Link til vilkår og betingelser for arrangører
-          step:
-            announcement: Kunngjøring
+          phase:
             comments_blocked: Kommentarer blokkert
             creation_enabled_for_participants: Deltakere kan nå opprette møter
     events:

@@ -128,8 +128,7 @@ sk:
             no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
             taxonomy_filters: Vyberte filtre pre komponent
             taxonomy_filters_add: Pridať filter
-          step:
-            announcement: Oznámenie
+          phase:
             comments_blocked: Zablokované komentáre
             likes_blocked: Páči sa mi to zablokované
             likes_enabled: Páči sa mi to povolené

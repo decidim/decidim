@@ -24,12 +24,6 @@ it:
               bar: Bar
               baz: Baz
               foo: foo
-          step:
-            readonly_step_attribute: Attributo di sola lettura
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: foo
     dummy:
       admin:
         exports:

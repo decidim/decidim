@@ -119,14 +119,12 @@ de:
           draft: Dieses Dokument wird derzeit von den Admins überprüft. Vorschläge sind zu diesem Zeitpunkt nicht erlaubt, aber Sie können Vorschläge anderer Teilnehmenden ansehen.
           not_accepting_suggestions: Vorschläge sind derzeit nicht zulässig.
           selection_active: Eine Auswahl ist aktiv. Bitte brechen Sie die aktuelle Auswahl ab, um eine neue zu erstellen.
-        suggestions_count: "%{count} Vorschläge"
         toggle: Vorschläge ein-/ausblenden
       documents:
         index:
           count:
             one: "%{count} kollaborativer Text"
             other: "%{count} kollaborative Texte"
-          empty: Es gibt noch keine kollaborative Texte.
         show:
           contributors: Mitwirkende
       models:
@@ -157,8 +155,6 @@ de:
           global:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-          step:
-            announcement: Ankündigung
     statistics:
       all_collaborative_texts_count: Alle kollaborative Texte
       collaborative_texts_count: Kollaborative Texte

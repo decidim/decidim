@@ -176,7 +176,7 @@ fr:
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque réunion
             taxonomy_filters_add: Ajouter un filtre
             terms_and_conditions_url_for_meeting_creators: URL des conditions générales pour les auteurs de rencontres
-          step:
+          phase:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de rencontre par les participants est activée

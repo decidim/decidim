@@ -36,8 +36,6 @@ ro:
           announcement: Anunț
           global:
             announcement: Anunț
-          step:
-            announcement: Anunț
     events:
       surveys:
         survey_closed:

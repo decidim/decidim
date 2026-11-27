@@ -29,8 +29,7 @@ ar:
           global:
             announcement: إعلان
             comments_enabled: تم تمكين التعليقات
-          step:
-            announcement: إعلان
+          phase:
             comments_blocked: تم حظر التعليقات
     debates:
       actions:

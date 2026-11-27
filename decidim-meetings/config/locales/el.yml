@@ -128,8 +128,7 @@ el:
             maps_enabled: Χάρτες ενεργοποιημένοι
             resources_permissions_enabled: Μπορούν να οριστούν δικαιώματα ενεργειών για κάθε σύσκεψη
             terms_and_conditions_url_for_meeting_creators: URL Όρων και Προϋποθέσεων για τους δημιουργούς της συνάντησης
-          step:
-            announcement: Ανακοίνωση
+          phase:
             comments_blocked: Τα σχόλια αποκλείστηκαν
             creation_enabled_for_participants: Δημιουργία συνάντησης από τους συμμετέχοντες ενεργοποιημένη
     events:

@@ -66,10 +66,8 @@ id:
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
             threshold_per_proposal: Ambang batas per proposal
-          step:
-            announcement: Pengumuman
+          phase:
             comments_blocked: Komentar diblokir
-            proposal_answering_enabled: Pengangkatan proposal diaktifkan
     events:
       proposals:
         coauthor_invited:

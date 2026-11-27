@@ -16,8 +16,6 @@ ru:
         settings:
           global:
             announcement: Объявление
-          step:
-            announcement: Объявление
     pages:
       admin:
         models:

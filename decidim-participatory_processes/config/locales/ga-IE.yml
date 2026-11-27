@@ -17,9 +17,6 @@ ga:
         hero_image: Íomhá
         participatory_process_ids: Próisis Ceangailte
         title: Teideal
-      participatory_process_step:
-        end_date: Dáta deiridh
-        title: Teideal
       participatory_process_user_role:
         email: Seoladh ríomhphoist
         name: Ainm
@@ -42,8 +39,8 @@ ga:
           attachment_collections: Fillteáin
           attachment_files: Comhaid
           attachments: Ceangaltáin
+          phases: Céimeanna
           process_admins: Riaracháin próiseas
-          steps: Céimeanna
       models:
         participatory_process:
           fields:
@@ -53,10 +50,7 @@ ga:
           fields:
             title: Teideal
           name: Grúpa próisis
-        participatory_process_step:
-          fields:
-            end_date: Dáta deiridh
-            title: Teideal
+        participatory_process_phase:
           name: Céim próisis rannpháirtíochta
         participatory_process_user_role:
           fields:
@@ -74,12 +68,8 @@ ga:
       participatory_process_imports:
         new:
           import: Iompórtáil
-      participatory_process_steps:
+      participatory_process_phases:
         default_title: Réamhrá
-        edit:
-          update: Nuashonraigh
-        new:
-          create: Cruthaigh
       participatory_process_user_roles:
         edit:
           update: Nuashonraigh
@@ -99,6 +89,9 @@ ga:
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_phases:
+          index:
+            title: Céimeanna
         participatory_processes:
           form:
             duration: Fad

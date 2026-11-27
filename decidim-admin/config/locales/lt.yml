@@ -267,9 +267,7 @@ lt:
           title: Redaguoti komponentą
           update: Atnaujinti
         form:
-          default_step_settings: Numatyti žingsnių nustatymai
           global_settings: Bendrieji nustatymai
-          step_settings: Žingsnio nustatymai
         index:
           add: Pridėti komponentą
           headers:

@@ -32,7 +32,7 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
-          step:
+          phase:
             announcement: Ilmoitus
     elections:
       actions:

@@ -43,8 +43,7 @@ gl:
             no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
             taxonomy_filters: Seleccionar filtros para o compoñente
             taxonomy_filters_add: Engadir filtro
-          step:
-            announcement: Anuncio
+          phase:
             comments_blocked: Comentarios bloqueados
             creation_enabled: Os participantes poden crear debates
             likes_blocked: Gústame bloqueados

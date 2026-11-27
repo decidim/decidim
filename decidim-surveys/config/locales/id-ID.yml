@@ -13,8 +13,6 @@ id:
         settings:
           global:
             announcement: Pengumuman
-          step:
-            announcement: Pengumuman
     events:
       surveys:
         survey_closed:

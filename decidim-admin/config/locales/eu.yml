@@ -332,9 +332,9 @@ eu:
           title: Editatu osagaia
           update: Eguneratu
         form:
-          default_step_settings: Faseen ezarpen lehenetsiak
+          default_phase_settings: Fase bakoitzerako aurretiaz zehaztuta ezarpena
           global_settings: Ezarpen globalak
-          step_settings: Ezarpenen faseak
+          phase_settings: Faseetarako ezarpenak
         hide:
           success: Osagaia zuzen ezkutatu da menutik.
         index:

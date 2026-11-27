@@ -184,8 +184,7 @@ sk:
             taxonomy_filters: Vyberte filtre pre komponent
             taxonomy_filters_add: Pridať filter
             terms_and_conditions_url_for_meeting_creators: URL adresa podmienok pre tvorcov stretnutí
-          step:
-            announcement: Oznámenie
+          phase:
             comments_blocked: Komentáre blokované
             creation_enabled_for_participants: Vytváranie stretnutí účastníkmi je povolené
     download_your_data:

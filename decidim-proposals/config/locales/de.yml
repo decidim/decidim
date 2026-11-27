@@ -164,7 +164,6 @@ de:
         settings:
           global:
             amendments_enabled: Änderungsvorschläge aktiviert
-            amendments_enabled_help: Wenn aktiviert, konfigurieren Sie Änderungsmerkmale für jeden Schritt.
             amendments_wizard_help_text: Hilfetext für Änderungsassistent
             announcement: Ankündigung
             attachments_allowed: Anhänge zulassen
@@ -219,7 +218,7 @@ de:
             taxonomy_filters_add: Filter hinzufügen
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Maximal mögliche Anzahl Stimmen eines Abstimmenden
-          step:
+          phase:
             amendment_creation_enabled: Ergänzungserstellung aktiviert
             amendment_creation_enabled_help: Teilnehmer kann Vorschläge ergänzen.
             amendment_promotion_enabled: Hervorheben von Ergänzungen aktiviert
@@ -231,25 +230,12 @@ de:
               all: Ergänzungen sind für alle sichtbar
               participants: Ergänzungen sind nur für ihre Autoren sichtbar
             amendments_visibility_help: Wenn die Option „Ergänzungen sind nur für ihre Autoren sichtbar“ ausgewählt ist, müssen Teilnehmer angemeldet sein, um die vorgenommenen Ergänzungen zu sehen.
-            announcement: Ankündigung
             answers_with_costs: Kosten für Vorschlagsantworten aktivieren
             comments_blocked: Kommentare blockiert
             creation_enabled: Teilnehmer können Vorschläge erstellen
             creation_enabled_readonly: Diese Einstellung ist deaktiviert, wenn Sie die Funktion "Partizipative Texte" aktivieren. Um Vorschläge als partizipativen Text hochzuladen, klicken Sie "Partizipative Texte" und folgen Sie den Anweisungen.
-            default_sort_order: Standardsortierung für Vorschläge
-            default_sort_order_help: Standardmäßig bedeutet, dass bei aktivierten Stimmensammlung die Vorschläge nach Zufall und bei deaktivierter Stimmensammlung nach den meist gewählten Vorschläge sortiert werden.
-            default_sort_order_options:
-              automatic: Automatisch
-              most_commented: Am meisten kommentiert
-              most_followed: Am häufigsten gefolgt
-              most_liked: Am häufigsten unterstützt
-              most_voted: Am meisten gewählt
-              random: Zufällig
-              recent: Neueste
-              with_more_authors: Mit mehr Autoren
             likes_blocked: Unterstützungsfunktion gesperrt
             likes_enabled: Unterstützungsfunktion aktiviert
-            proposal_answering_enabled: Vorschlagsantworten aktiviert
             publish_answers_immediately: Vorschlagsantworten sofort veröffentlichten
             publish_answers_immediately_help_html: 'Wenn Sie einen Vorschlag ohne diese Option beantworten, müssen Sie die Antwort manuell veröffentlichen, indem Sie den Vorschlag auswählen und über «Aktionen» im Menü veröffentlichen. Weitere Informationen darüber finden Sie auf der <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">Dokumentationsseite zur Vorschlagsbeantwortung</a>.'
             votes_blocked: Stimmensammlung deaktiviert

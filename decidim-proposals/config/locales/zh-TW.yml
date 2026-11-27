@@ -92,7 +92,6 @@ zh-TW:
         settings:
           global:
             amendments_enabled: 修改功能已啟用
-            amendments_enabled_help: 如果啟用，則可以為每個步驟設置修改功能。
             amendments_wizard_help_text: 修改向導説明文字
             announcement: 公告
             attachments_allowed: 允許附檔
@@ -121,7 +120,7 @@ zh-TW:
             proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
             resources_permissions_enabled: 每個提案都可以設定行動權限
             threshold_per_proposal: 每個提案的門檻
-          step:
+          phase:
             amendment_creation_enabled: 創建修正案已啟用
             amendment_creation_enabled_help: 參與者可修改提案
             amendment_promotion_enabled: 修正提案提升功能啟用
@@ -133,19 +132,10 @@ zh-TW:
               all: 所有人都可以看到修正案
               participants: 修正案僅限作者可見
             amendments_visibility_help: 若選擇「修正案僅限作者可見」選項，參與者必須登入以查看所做的修正。
-            announcement: 公告
             answers_with_costs: 啟用提案回答的成本
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立提案
             creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
-            default_sort_order: 預設提案排序
-            default_sort_order_options:
-              most_commented: 最多評論
-              most_followed: 最多追蹤者
-              random: 隨機
-              recent: 最近
-              with_more_authors: 有更多作者
-            proposal_answering_enabled: 提案回答已啟用
             publish_answers_immediately: 立即發布提案回答
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
     events:

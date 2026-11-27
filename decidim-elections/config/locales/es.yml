@@ -32,8 +32,8 @@ es:
         settings:
           global:
             announcement: Aviso
-          step:
-            announcement: Aviso
+          phase:
+            announcement: Anuncio/Aviso
     elections:
       actions:
         confirm_delete_election: '¿Seguro que quieres eliminar esta elección?'

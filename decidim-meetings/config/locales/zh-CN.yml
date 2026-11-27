@@ -60,8 +60,7 @@ zh-CN:
             default_registration_terms: 默认注册条款
             enable_pads_creation: 启用页面创建
             resources_permissions_enabled: 每次会议都可以设置动作权限
-          step:
-            announcement: 通 知
+          phase:
             comments_blocked: 评论已阻止
             creation_enabled_for_participants: 与会者创建会议已启用
     events:

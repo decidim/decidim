@@ -20,8 +20,6 @@ bg:
         settings:
           global:
             announcement: Обявление
-          step:
-            announcement: Обявление
     elections:
       actions:
         preview: Преглед

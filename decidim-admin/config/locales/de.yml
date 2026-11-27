@@ -332,9 +332,7 @@ de:
           title: Komponente bearbeiten
           update: Aktualisieren
         form:
-          default_step_settings: Standardschritteinstellungen
           global_settings: Globale Einstellungen
-          step_settings: Schritteinstellungen
         hide:
           success: Die Komponente wurde erfolgreich aus dem Menü ausgeblendet.
         index:

@@ -28,28 +28,23 @@ id:
         description: Deskripsi
         hero_image: Gambar
         participatory_process_ids: Proses terkait
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Call to Action path
         cta_text: Teks Ajakan Bertindak
-        description: Deskripsi
-        end_date: Tanggal akhir
-        short_description: Deskripsi Singkat
-        start_date: Mulai tanggal
-        title: Judul
       participatory_process_user_role:
         email: E-mail
         name: Nama
         role: Peran
     models:
-      decidim/participatory_process_step_activated_event: Langkah diaktifkan
-      decidim/participatory_process_step_changed_event: Langkah berubah
+      decidim/participatory_process_phase_activated_event: Langkah diaktifkan
+      decidim/participatory_process_phase_changed_event: Langkah berubah
   activerecord:
     models:
       decidim/participatory_process:
         other: Proses partisipatif
       decidim/participatory_process_group:
         other: Kelompok proses partisipatif
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         other: Tangga
   decidim:
     admin:
@@ -61,7 +56,7 @@ id:
         edit: Edit
         new_process: Proses baru
         new_process_group: Grup proses baru
-        new_process_step: Langkah baru
+        new_process_phase: Langkah baru
         new_process_user_role: Pengguna proses baru
         preview: Preview
         publish: Menerbitkan
@@ -76,8 +71,8 @@ id:
           attachments: Lampiran
           components: Komponen
           moderations: Moderasi
+          phases: Tangga
           process_admins: Memproses pengguna
-          steps: Tangga
       models:
         participatory_process:
           fields:
@@ -87,11 +82,7 @@ id:
           name: Proses partisipatif
         participatory_process_group:
           name: Kelompok proses
-        participatory_process_step:
-          fields:
-            end_date: Tanggal akhir
-            start_date: Mulai tanggal
-            title: Judul
+        participatory_process_phase:
           name: Langkah proses partisipatif
         participatory_process_user_role:
           fields:
@@ -117,6 +108,21 @@ id:
         update:
           error: Terjadi kesalahan saat memutakhirkan grup proses partisipatif ini.
           success: Kelompok proses partisipatif berhasil diperbarui.
+      participatory_process_phase_activations:
+        create:
+          error: Terjadi kesalahan saat mengaktifkan langkah proses partisipatif ini.
+          success: Langkah proses partisipatif berhasil diaktifkan.
+      participatory_process_phases:
+        create:
+          error: Terjadi kesalahan saat membuat langkah proses partisipatif baru.
+          success: Langkah proses partisipatif berhasil dibuat.
+        default_title: pengantar
+        destroy:
+          success: Langkah proses partisipatif berhasil dihapus.
+        ordering:
+          error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
+        update:
+          error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
       participatory_process_publications:
         create:
           error: Terjadi kesalahan saat mempublikasikan proses partisipatif ini.
@@ -124,25 +130,6 @@ id:
         destroy:
           error: Terjadi kesalahan saat membatalkan publikasi proses partisipatif ini.
           success: Proses partisipatif tidak berhasil dipublikasikan.
-      participatory_process_step_activations:
-        create:
-          error: Terjadi kesalahan saat mengaktifkan langkah proses partisipatif ini.
-          success: Langkah proses partisipatif berhasil diaktifkan.
-      participatory_process_steps:
-        create:
-          error: Terjadi kesalahan saat membuat langkah proses partisipatif baru.
-          success: Langkah proses partisipatif berhasil dibuat.
-        default_title: pengantar
-        destroy:
-          success: Langkah proses partisipatif berhasil dihapus.
-        edit:
-          update: Memperbarui
-        new:
-          create: Membuat
-        ordering:
-          error: Ada kesalahan saat menata ulang langkah-langkah proses partisipatif ini.
-        update:
-          error: Ada kesalahan saat memperbarui langkah proses partisipatif ini.
       participatory_process_user_roles:
         create:
           error: Terjadi kesalahan saat menambahkan pengguna untuk proses partisipatif ini.
@@ -183,7 +170,7 @@ id:
         publish: "%{user_name} mempublikasikan %{resource_name} proses partisipatif"
         unpublish: "%{user_name} tidak mempublikasi %{resource_name} proses partisipatif"
         update: "%{user_name} memperbarui %{resource_name} proses partisipatif"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} mengaktifkan %{resource_name} langkah dalam %{space_name} proses partisipatif"
         create: "%{user_name} membuat %{resource_name} langkah dalam %{space_name} proses partisipatif"
         delete: "%{user_name} menghapus %{resource_name} langkah dalam %{space_name} proses partisipatif"
@@ -194,12 +181,12 @@ id:
         update: "%{user_name} mengubah peran pengguna %{resource_name} dalam %{space_name} proses partisipatif"
     events:
       participatory_process:
-        step_activated:
+        phase_activated:
           email_intro: 'Langkah %{resource_title} sekarang aktif untuk %{participatory_space_title}. Anda dapat melihatnya dari halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Pembaruan ke %{participatory_space_title}
           notification_title: Langkah %{resource_title} sekarang aktif untuk <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
+        phase_changed:
           email_intro: 'Tanggal untuk %{resource_title} langkah pada %{participatory_space_title} telah diperbarui. Anda dapat melihatnya dari halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
           email_subject: Pembaruan ke %{participatory_space_title}
@@ -218,14 +205,17 @@ id:
           name: Aktivitas
       show:
         title: Kelompok proses partisipatif
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Langkah-langkah proses
+        process_phases: Langkah-langkah proses
     participatory_processes:
       admin:
         content_blocks:
           highlighted_processes:
             max_results: Jumlah maksimum elemen untuk ditampilkan
+        participatory_process_phases:
+          index:
+            title: Tangga
         participatory_processes:
           form:
             duration: Lamanya
@@ -270,6 +260,6 @@ id:
         index:
           promoted_processes: Proses yang disorot
         participatory_process:
-          active_step: 'Langkah saat ini:'
+          active_phase: 'Langkah saat ini:'
           more_info: Info lebih lanjut
           take_part: Ambil bagian

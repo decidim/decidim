@@ -332,9 +332,7 @@ ja:
           title: コンポーネントを編集
           update: 更新
         form:
-          default_step_settings: デフォルトのステップ設定
           global_settings: グローバル設定
-          step_settings: ステップの設定
         hide:
           success: コンポーネントはメニューから非表示になりました。
         index:

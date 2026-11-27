@@ -15,8 +15,6 @@ ro:
         settings:
           global:
             announcement: Anunț
-          step:
-            announcement: Anunț
     open_data:
       help:
         pages:

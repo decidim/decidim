@@ -12,14 +12,14 @@ sk:
         duplicate_categories: Duplikovať kategórie
         duplicate_components: Duplikovať komponenty
         duplicate_landing_page_blocks: Duplikovať bloky vstupnej stránky
-        duplicate_steps: Duplikovať fázy
+        duplicate_phases: Duplikovať fázy
         end_date: Dátum ukončenia
         has_members: Tento priestor má členov
         hero_image: Domáce obrázok
         import_attachments: Importovať prílohy
         import_categories: Importovať kategórie
         import_components: Importovať komponenty
-        import_steps: Importovať fázy
+        import_phases: Importovať fázy
         local_area: Oblasť organizácie
         meta_scope: Rozsah metadát
         participatory_process_group_id: Skupina procesov
@@ -47,14 +47,9 @@ sk:
         participatory_structure: Ako sa rozhoduje
         target: Kto sa zúčastňuje
         title: Názov
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Cesta k akcii
         cta_text: Text výzvy na akciu
-        description: Popis
-        end_date: Dátum ukončenia
-        short_description: Stručný opis
-        start_date: Dátum začatia
-        title: Titul
       participatory_process_user_role:
         email: E-mailom
         name: názov
@@ -68,8 +63,8 @@ sk:
               empty: Dokument je prázdny
               invalid_json: Dokument nie je platný JSON
     models:
-      decidim/participatory_process_step_activated_event: Krok aktivovaný
-      decidim/participatory_process_step_changed_event: Krok zmenený
+      decidim/participatory_process_phase_activated_event: Krok aktivovaný
+      decidim/participatory_process_phase_changed_event: Krok zmenený
   activerecord:
     models:
       decidim/participatory_process:
@@ -82,7 +77,7 @@ sk:
         few: Skupiny participatívnych procesov
         many: Skupiny participatívnych procesov
         other: Skupiny participatívnych procesov
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Krok
         few: Kroky
         many: Kroky
@@ -99,7 +94,7 @@ sk:
         import_process: Importovať
         new_process: Nový proces
         new_process_group: Nová skupina procesov
-        new_process_step: Nový krok
+        new_process_phase: Nový krok
         new_process_user_role: Nový užívateľ procesu
         preview: Náhľad
         publish: Publikovať
@@ -129,8 +124,8 @@ sk:
           landing_page: Rozloženie vstupnej stránky
           members: Členovia
           moderations: Moderovanie
+          phases: Kroky
           process_admins: Spracovať užívateľa
-          steps: Kroky
       models:
         participatory_process:
           fields:
@@ -145,12 +140,7 @@ sk:
             actions: Akcie
             title: Názov
           name: Skupina procesov
-        participatory_process_step:
-          fields:
-            actions: Akcie
-            end_date: Dátum ukončenia
-            start_date: Dátum začatia
-            title: Titul
+        participatory_process_phase:
           name: Participatívne krok procesu
         participatory_process_user_role:
           fields:
@@ -191,6 +181,25 @@ sk:
         new:
           import: Importovať
           select: Vyberte, ktoré údaje chcete importovať
+      participatory_process_phase_activations:
+        create:
+          error: Došlo k chybe aktivácie tohto kroku procesu participácie.
+          success: Úspešný krok procesu bol úspešne aktivovaný.
+      participatory_process_phases:
+        create:
+          error: Pri vytváraní nového kroku procesu participácie došlo k chybe.
+          success: Úspešný krok procesu bol úspešne vytvorený.
+        default_title: Úvod
+        destroy:
+          error:
+            active_phase: Aktívnu fázu nie je možné odstrániť.
+            last_phase: Poslednú fázu procesu nie je možné odstrániť.
+          success: Úspešný krok procesu bol úspešne zmazaný.
+        ordering:
+          error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
+        update:
+          error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
+          success: Fáza participatívneho procesu bola úspešne aktualizovaná.
       participatory_process_publications:
         create:
           error: Pri publikovaní tohto procesu participácie došlo k chybe.
@@ -198,29 +207,6 @@ sk:
         destroy:
           error: Došlo k chybe pri zrušení publikovaní tohto participačného procesu.
           success: Zúčastňujú proces bol nepublikované úspešne.
-      participatory_process_step_activations:
-        create:
-          error: Došlo k chybe aktivácie tohto kroku procesu participácie.
-          success: Úspešný krok procesu bol úspešne aktivovaný.
-      participatory_process_steps:
-        create:
-          error: Pri vytváraní nového kroku procesu participácie došlo k chybe.
-          success: Úspešný krok procesu bol úspešne vytvorený.
-        default_title: Úvod
-        destroy:
-          error:
-            active_step: Aktívnu fázu nie je možné odstrániť.
-            last_step: Poslednú fázu procesu nie je možné odstrániť.
-          success: Úspešný krok procesu bol úspešne zmazaný.
-        edit:
-          update: Aktualizácia
-        new:
-          create: Vytvoriť
-        ordering:
-          error: Došlo k chybe pri novom usporiadaní týchto krokov procesu participácie.
-        update:
-          error: Pri aktualizácii tohto kroku procesu participácie došlo k chybe.
-          success: Fáza participatívneho procesu bola úspešne aktualizovaná.
       participatory_process_user_roles:
         create:
           error: Pri pridávaní používateľa pre tento participačné proces došlo k chybe.
@@ -286,7 +272,7 @@ sk:
         create: "% {USER_NAME} vytvoril skupinu% {resource_name} na participačné proces"
         unpublish: "%{user_name} zrušil/a zverejnenie skupiny participatívnych procesov %{resource_name}"
         update: "% {USER_NAME} aktualizoval skupinu% {resource_name} na participačné proces"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "% {USER_NAME} aktivoval% {resource_name} krok% {space_name} participáciu"
         create: "% {USER_NAME} vytvoril% {resource_name} krok vo% {space_name} účastníckych procesoch"
         delete: "% {USER_NAME} odstránených% {resource_name} krok vo% {space_name} účastníckych procesoch"
@@ -301,21 +287,21 @@ sk:
         participatory_processes: Export participatívnych procesov
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'Krok%{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Aktualizácia na%{participatory_space_title}
+          notification_title: Krok%{resource_title} je teraz aktívny pre <a href="%{resource_path}">%{participatory_space_title} </a>
+        phase_changed:
+          email_intro: 'Boli aktualizované dátum pre krok%{resource_title} v %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
+          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
+          email_subject: Aktualizácia na%{participatory_space_title}
+          notification_title: Boli aktualizované dáta pre krok <a href="%{resource_path}">%{resource_title} </a> vo <a href="%{participatory_space_url}">%{participatory_space_title} </a>.
         role_assigned:
           email_intro: Boli ste priradený/á ako %{role} pre participatívny proces "%{resource_title}".
           email_outro: Toto upozornenie ste dostali, pretože ste %{role} participatívneho procesu "%{resource_title}".
           email_subject: Boli ste priradený/á ako %{role} pre "%{resource_title}".
           notification_title: Boli ste priradený/á ako %{role} pre participatívny proces <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: 'Krok%{resource_title} je teraz aktívny pre %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Aktualizácia na%{participatory_space_title}
-          notification_title: Krok%{resource_title} je teraz aktívny pre <a href="%{resource_path}">%{participatory_space_title} </a>
-        step_changed:
-          email_intro: 'Boli aktualizované dátum pre krok%{resource_title} v %{participatory_space_title}. Môžete ju vidieť z tejto stránky: '
-          email_outro: Toto oznámenie ste dostali, pretože sledujete %{participatory_space_title}. Notifikácie môžete zrušiť po kliknutí na predchádzajúci odkaz.
-          email_subject: Aktualizácia na%{participatory_space_title}
-          notification_title: Boli aktualizované dáta pre krok <a href="%{resource_path}">%{resource_title} </a> vo <a href="%{participatory_space_url}">%{participatory_space_title} </a>.
     help:
       participatory_spaces:
         participatory_processes:
@@ -390,9 +376,9 @@ sk:
         help: Všetky vybrané procesy budú priradené k tejto skupine, vrátane tých, ktoré sú už priradené k iným skupinám.
       show:
         title: Skupiny participatívnych procesov
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Kroky procesu
+        process_phases: Kroky procesu
     participatory_processes:
       admin:
         content_blocks:
@@ -506,11 +492,11 @@ sk:
             slug_help_html: 'URL slugy sa používajú na generovanie adries URL, ktoré odkazujú na tento proces. Akceptujú sa iba písmená, čísla a pomlčky a musia začínať písmenom. Príklad: %{url}'
           new:
             title: Importovať participatívny proces
-        participatory_process_steps:
+        participatory_process_phases:
           edit:
             title: Upraviť fázu participatívneho procesu
           index:
-            title: Fázy
+            title: Kroky
           new:
             title: Nová fáza participatívneho procesu
         participatory_process_user_roles:
@@ -848,7 +834,7 @@ sk:
         index:
           promoted_processes: Zvýraznené procesy
         participatory_process:
-          active_step: 'Aktuálny krok:'
+          active_phase: 'Aktuálny krok:'
           more_info: Viac informácií
           more_info_about: Viac informácií o procese %{resource_name}
           take_part: Zúčastniť sa

@@ -297,7 +297,7 @@ ru:
             no_taxonomy_filters_found: Фильтры таксономии не найдены.
             taxonomy_filters: Выберите фильтры для компонента
             taxonomy_filters_add: Добавить фильтр
-          step:
+          phase:
             comments_blocked: Комментарии отключены
           visualization: Визуализация
     download_your_data:

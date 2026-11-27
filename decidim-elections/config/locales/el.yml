@@ -20,8 +20,6 @@ el:
         settings:
           global:
             announcement: Ανακοίνωση
-          step:
-            announcement: Ανακοίνωση
     elections:
       actions:
         preview: Προεπισκόπηση

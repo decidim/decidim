@@ -223,9 +223,7 @@ nl:
           title: Bewerk onderdeel
           update: Bijwerken
         form:
-          default_step_settings: Standaard instellingen stappen
           global_settings: Algemene instellingen
-          step_settings: Instellingen van de stappen
         index:
           add: Voeg onderdeel toe
           headers:

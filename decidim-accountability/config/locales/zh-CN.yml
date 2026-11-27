@@ -110,7 +110,7 @@ zh-CN:
             comments_enabled: 评论已启用
             display_progress_enabled: 显示进度
             intro: 简介
-          step:
+          phase:
             comments_blocked: 评论已阻止
     events:
       accountability:

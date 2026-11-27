@@ -14,8 +14,8 @@ eu:
         settings:
           global:
             announcement: Oharra
-          step:
-            announcement: Oharra
+          phase:
+            announcement: Jakinarazpena
     open_data:
       help:
         pages:

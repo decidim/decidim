@@ -276,9 +276,7 @@ pl:
           title: Edytuj komponent
           update: Aktualizuj
         form:
-          default_step_settings: Domyślne ustawienia etapów
           global_settings: Ustawienia ogólne
-          step_settings: Ustawienia etapu
         index:
           add: Dodaj komponent
           headers:

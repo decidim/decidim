@@ -37,8 +37,7 @@ lv:
           global:
             announcement: Paziņojums
             comments_enabled: Komentāri ir iespējoti
-          step:
-            announcement: Paziņojums
+          phase:
             comments_blocked: Komentāri ir bloķēti
     events:
       blogs:

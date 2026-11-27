@@ -41,14 +41,9 @@ zh-TW:
         participatory_structure: 如何決定
         target: 誰參加
         title: 標題
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: 呼籲操作路徑
         cta_text: 呼籲操作文字
-        description: 說明
-        end_date: 結束日期
-        short_description: 簡短說明
-        start_date: 開始日期
-        title: 標題
       participatory_process_user_role:
         email: 電子郵件
         name: 名稱
@@ -60,15 +55,15 @@ zh-TW:
             document:
               allowed_file_content_types: '無效文件類型。只允許使用以下副檔名的文件：%{types}'
     models:
-      decidim/participatory_process_step_activated_event: 啟用階段
-      decidim/participatory_process_step_changed_event: 階段已更改
+      decidim/participatory_process_phase_activated_event: 啟用階段
+      decidim/participatory_process_phase_changed_event: 階段已更改
   activerecord:
     models:
       decidim/participatory_process:
         other: "One\n參與式流程\n\nOther\n參與式流程"
       decidim/participatory_process_group:
         other: "One\n參與式流程群組\n\nOther\n參與式流程群組"
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         other: "One\n階段\n\nOther\n階段"
   decidim:
     admin:
@@ -81,7 +76,7 @@ zh-TW:
         import_process: 匯入
         new_process: 新的程序
         new_process_group: 新的程序群組
-        new_process_step: 新階段
+        new_process_phase: 新階段
         new_process_user_role: 新程序管理員
         preview: 預覽
         publish: 發布
@@ -96,8 +91,8 @@ zh-TW:
           attachments: 附件
           components: 组件
           moderations: 版主
+          phases: 分類
           process_admins: 程序管理員
-          steps: 分類
       models:
         participatory_process:
           fields:
@@ -109,11 +104,7 @@ zh-TW:
           fields:
             title: 標題
           name: 程序群組
-        participatory_process_step:
-          fields:
-            end_date: 結束日期
-            start_date: 開始日期
-            title: 標題
+        participatory_process_phase:
           name: 參與式過程階段
         participatory_process_user_role:
           fields:
@@ -146,6 +137,24 @@ zh-TW:
         new:
           import: 匯入
           select: 請選擇您想匯入的資料
+      participatory_process_phase_activations:
+        create:
+          error: 啟動參與過程階段時發生問題。
+          success: 成功啟用參與程序階段。
+      participatory_process_phases:
+        create:
+          error: 創建新參與程序階段時出現問題。
+          success: 成功創建參與程序階段。
+        default_title: 介紹
+        destroy:
+          error:
+            active_phase: 無法刪除進行中的階段。
+            last_phase: 無法刪除流程的最後一階段。
+          success: 參與程序階段成功刪除。
+        ordering:
+          error: 重新排列這個參與程序階段時出現問題。
+        update:
+          error: 更新參與程序階段時出現問題。
       participatory_process_publications:
         create:
           error: 發佈參與流程時出現問題。
@@ -153,28 +162,6 @@ zh-TW:
         destroy:
           error: 解除發布參與程序時發生問題。
           success: 成功解除發布參與程序。
-      participatory_process_step_activations:
-        create:
-          error: 啟動參與過程階段時發生問題。
-          success: 成功啟用參與程序階段。
-      participatory_process_steps:
-        create:
-          error: 創建新參與程序階段時出現問題。
-          success: 成功創建參與程序階段。
-        default_title: 介紹
-        destroy:
-          error:
-            active_step: 無法刪除進行中的階段。
-            last_step: 無法刪除流程的最後一階段。
-          success: 參與程序階段成功刪除。
-        edit:
-          update: 更新
-        new:
-          create: 建立
-        ordering:
-          error: 重新排列這個參與程序階段時出現問題。
-        update:
-          error: 更新參與程序階段時出現問題。
       participatory_process_user_roles:
         create:
           error: 新增參與者至此參與式過程時發生問題。
@@ -221,7 +208,7 @@ zh-TW:
       participatory_process_group:
         create: "%{user_name} 創建了%{resource_name} 的參與性流程群組"
         update: "%{user_name} 更新了%{resource_name} 的參與性流程群組"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} 在 %{space_name} 參與式流程中啟用了 %{resource_name} 階段"
         create: "%{user_name} 在 %{space_name} 參與式流程中創建了 %{resource_name} 階段"
         delete: "%{user_name} 刪除了 %{space_name} 參與式流程中的 %{resource_name} 階段"
@@ -232,21 +219,21 @@ zh-TW:
         update: "使用者 %{user_name} 變更了 %{space_name} 參與流程中參與者 %{resource_name} 的角色"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: '現在，%{participatory_space_title} 的%{resource_title} 階段已啟動。您可以從此頁面查看：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title} 的更新'
+          notification_title: 在 <a href="%{resource_path}">%{participatory_space_title}</a>，%{resource_title} 階段現在已啟動。
+        phase_changed:
+          email_intro: '在 %{participatory_space_title}，%{resource_title} 階段的日期已更新。您可以在此頁面上查看：'
+          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
+          email_subject: '%{participatory_space_title} 的更新'
+          notification_title: 在 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 的 <a href="%{resource_path}">%{resource_title}</a> 階段日期已更新。
         role_assigned:
           email_intro: 您已被指派為%{resource_title} 參與流程的 %{role}。
           email_outro: 您收到此通知，因為您是 "%{resource_title}" 參與流程的 %{role}。
           email_subject: 您已被分配為“%{resource_title}”的 %{role}。
           notification_title: 您已被分配為參與式流程<a href="%{resource_url}">%{resource_title}</a>的%{role}。
-        step_activated:
-          email_intro: '現在，%{participatory_space_title} 的%{resource_title} 階段已啟動。您可以從此頁面查看：'
-          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
-          email_subject: '%{participatory_space_title} 的更新'
-          notification_title: 在 <a href="%{resource_path}">%{participatory_space_title}</a>，%{resource_title} 階段現在已啟動。
-        step_changed:
-          email_intro: '在 %{participatory_space_title}，%{resource_title} 階段的日期已更新。您可以在此頁面上查看：'
-          email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
-          email_subject: '%{participatory_space_title} 的更新'
-          notification_title: 在 <a href="%{participatory_space_url}">%{participatory_space_title}</a> 的 <a href="%{resource_path}">%{resource_title}</a> 階段日期已更新。
     help:
       participatory_spaces:
         participatory_processes:
@@ -273,9 +260,9 @@ zh-TW:
             other: "One\n1 個程序\n\nOther\n%{count} 個程序"
       show:
         title: 參與程序群組
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: 程序階段
+        process_phases: 程序階段
     participatory_processes:
       admin:
         content_blocks:
@@ -291,6 +278,9 @@ zh-TW:
         participatory_process_imports:
           form:
             document_legend: 添加文檔
+        participatory_process_phases:
+          index:
+            title: 分類
         participatory_processes:
           form:
             duration: 持續時間
@@ -345,7 +335,7 @@ zh-TW:
         index:
           promoted_processes: 精選程序
         participatory_process:
-          active_step: 當前階段
+          active_phase: 當前階段
           more_info: 更多資訊
           more_info_about: 關於程序 %{resource_name} 的更多資訊
           take_part: 參與

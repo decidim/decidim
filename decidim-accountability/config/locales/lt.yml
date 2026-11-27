@@ -163,7 +163,7 @@ lt:
             comments_enabled: Įjungti komentarai
             display_progress_enabled: Rodyti progresą
             intro: Įžanga
-          step:
+          phase:
             comments_blocked: Komentarai užblokuoti
     events:
       accountability:

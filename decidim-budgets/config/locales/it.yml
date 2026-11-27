@@ -183,15 +183,11 @@ it:
             workflow_choices:
               all: 'Vota tutto: permette ai partecipanti di votare in tutti i bilanci.'
               one: 'Vota per uno solo: consente alle persone partecipanti di esprimere preferenza per una sola opzione di budget fra quelle in votazione.'
-          step:
-            announcement: Annuncio
+          phase:
             comments_blocked: Commenti bloccati
             highlighted_heading: Intestazione evidenziata
-            landing_page_content: Pagina iniziale dei budget
             list_heading: Intestazione dell'elenco
-            more_information_modal: Finestra modale "Maggiori informazioni"
             show_votes: Mostra voti
-            title: Nome
             votes: Votazione
             votes_choices:
               disabled: Votazioni disabilitate

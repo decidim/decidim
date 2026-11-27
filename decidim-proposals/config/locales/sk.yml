@@ -172,7 +172,6 @@ sk:
         settings:
           global:
             amendments_enabled: Pozmeňujúce návrhy povolené
-            amendments_enabled_help: Ak je aktívne, nastavte funkcie Pozmeňujúcich návrhov pre každý krok.
             amendments_wizard_help_text: Sprievodca Pozmeňujúcimi návrhmi
             announcement: Oznámenie
             attachments_allowed: Povoliť prílohy
@@ -227,7 +226,7 @@ sk:
             taxonomy_filters_add: Pridať filter
             threshold_per_proposal: Maximálny limit na návrh
             vote_limit: Limit hlasov na účastníka
-          step:
+          phase:
             amendment_creation_enabled: Umožniť tvorbu Pozmeňovacích návrhov
             amendment_creation_enabled_help: Účastníci môžu pozmeňovať návrhy.
             amendment_promotion_enabled: Povýšenie Pozmeňovacích návrhov povolené
@@ -239,25 +238,12 @@ sk:
               all: Pozmeňujúce návrhy sú viditeľné pre všetkých
               participants: Pozmeňujúce návrhy sú viditeľné iba pre ich autorov
             amendments_visibility_help: Pokiaľ je zvolená možnosť "pozmeňovacie návrhy sú viditeľné len ich autorom", musí byť účastník prihlásený, aby videl pridané pozmeňovacie návrhy.
-            announcement: Oznámenie
             answers_with_costs: Povoliť náklady v rámci odpovedí na návrhy
             comments_blocked: Komentáre boli blokované
             creation_enabled: Účastníci môžu vytvárať návrhy
             creation_enabled_readonly: Toto nastavenie je zakázané, keď aktivujete funkciu Participatívne texty. Ak chcete nahrať návrhy ako participatívny text, kliknite na tlačidlo Participatívne texty a postupujte podľa pokynov.
-            default_sort_order: Predvolené zoradenie návrhov
-            default_sort_order_help: Automaticky znamená, že ak sú hlasy povolené, návrhy sa zobrazia náhodne zoradené, a ak sú hlasy zablokované, zoradia sa podľa najvyššieho počtu hlasov.
-            default_sort_order_options:
-              automatic: Automatické
-              most_commented: Najviac komentované
-              most_followed: Najviac sledované
-              most_liked: Najviac obľúbené
-              most_voted: Najviac hlasované
-              random: Náhodné
-              recent: Najnovšie
-              with_more_authors: S viacerými autormi
             likes_blocked: Páči sa mi to zablokované
             likes_enabled: Páči sa mi to povolené
-            proposal_answering_enabled: Odpovedanie na návrh je povolené
             publish_answers_immediately: Publikovať odpovede na návrhy okamžite
             publish_answers_immediately_help_html: 'Pamätajte, že ak odpoviete na akýkoľvek návrh bez tohto povolenia, budete ich musieť zverejniť manuálne ich výberom a použitím akcie na zverejnenie. Pre viac informácií o tom, ako to funguje, si pozrite <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránku dokumentácie k odpovediam na návrhy</a>.'
             votes_blocked: Hlasy zablokované

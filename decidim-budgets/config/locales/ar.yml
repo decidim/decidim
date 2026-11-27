@@ -119,8 +119,7 @@ ar:
             projects_per_page: مشاريع لكل صفحة
             total_budget: الميزانية الإجمالية
             vote_threshold_percent: التصويت عتبة المئة
-          step:
-            announcement: إعلان
+          phase:
             comments_blocked: تم حظر التعليقات
             show_votes: إظهار الأصوات
             votes_choices:

@@ -14,8 +14,6 @@ de:
         settings:
           global:
             announcement: Ankündigung
-          step:
-            announcement: Ankündigung
     open_data:
       help:
         pages:

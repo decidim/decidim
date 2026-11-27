@@ -182,9 +182,7 @@ sr:
           title: Uređivanje komponente
           update: Ažuriraj
         form:
-          default_step_settings: Podrazumevana podešavanja koraka
           global_settings: Opšta podešavanja
-          step_settings: Podešavanja koraka
         index:
           add: Dodavanje komponente
           headers:

@@ -113,10 +113,10 @@ is-IS:
             comments_enabled: Athugasemdir virkt
             dummy_global_attribute1: Dummy Attribute 1
             dummy_global_attribute2: Dummy Attribute 2
-          step:
+          phase:
             comments_blocked: Athugasemdir læst
-            dummy_step_attribute1: Dummy Skref Attribute 1
-            dummy_step_attribute2: Dummy Skref Attribute 2
+            dummy_phase_attribute1: Dummy Skref Attribute 1
+            dummy_phase_attribute2: Dummy Skref Attribute 2
     contact: Hafa samband
     devise:
       omniauth_registrations:

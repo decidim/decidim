@@ -271,9 +271,7 @@ hu:
           title: Elem szerkesztése
           update: Frissítés
         form:
-          default_step_settings: Alapértelmezett lépés-beállítások
           global_settings: Globális beállítások
-          step_settings: Lépésbeállítások
         index:
           add: Elem hozzáadása
           headers:

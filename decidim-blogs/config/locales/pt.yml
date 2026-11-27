@@ -106,8 +106,7 @@ pt:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             creation_enabled_for_participants: Os participantes podem criar publicações
-          step:
-            announcement: Anúncio
+          phase:
             comments_blocked: Comentários bloqueados
     events:
       blogs:

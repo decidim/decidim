@@ -32,8 +32,7 @@ pl:
           global:
             announcement: Ogłoszenie
             comments_enabled: Komentarze włączone
-          step:
-            announcement: Ogłoszenie
+          phase:
             comments_blocked: Komentarze zablokowane
             creation_enabled: Uczestnicy mogą tworzyć debaty
     debates:

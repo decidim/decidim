@@ -332,9 +332,7 @@ sk:
           title: Upraviť súčasť
           update: Aktualizovať
         form:
-          default_step_settings: Predvolené nastavenia pre kroky
           global_settings: Globálne nastavenia
-          step_settings: Nastavenia krokov
         hide:
           success: Komponent bol úspešne skrytý z ponuky.
         index:

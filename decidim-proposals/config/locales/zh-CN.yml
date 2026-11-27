@@ -74,7 +74,6 @@ zh-CN:
         settings:
           global:
             amendments_enabled: 修改已启用
-            amendments_enabled_help: 如果激活，配置每一步的修正功能。
             amendments_wizard_help_text: 修正向导帮助文本
             announcement: 通 知
             attachments_allowed: 允许附件
@@ -92,7 +91,7 @@ zh-CN:
             proposal_wizard_step_1_help_text: 建议向导“创建”步骤帮助文本
             resources_permissions_enabled: 每个提案都可以设置动作权限
             threshold_per_proposal: 每个建议的阈值
-          step:
+          phase:
             amendment_creation_enabled: 修改创建已启用
             amendment_creation_enabled_help: 参加者可以修改提案。
             amendment_promotion_enabled: 已启用修正促销功能
@@ -104,10 +103,8 @@ zh-CN:
               all: 所有修改都可见
               participants: 修改仅对作者可见
             amendments_visibility_help: 如果选择“修改仅对作者可见”，参与者必须登录才能看到所做的修改。
-            announcement: 通 知
             answers_with_costs: 启用建议答案的成本
             comments_blocked: 评论已阻止
-            proposal_answering_enabled: 建议答案已启用
             publish_answers_immediately: 立即发布提案答案
     events:
       proposals:

@@ -30,12 +30,6 @@ lt:
               bar: Juosta
               baz: Baz
               foo: Foo
-          step:
-            readonly_step_attribute: Tik skaitomas veiksmo atributas
-            test_options:
-              bar: Juosta
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:

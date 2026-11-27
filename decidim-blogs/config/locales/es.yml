@@ -124,8 +124,8 @@ es:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             taxonomy_filters: Seleccionar filtros para el componente
             taxonomy_filters_add: Añadir un filtro
-          step:
-            announcement: Aviso
+          phase:
+            announcement: Anuncio/Aviso
             comments_blocked: Comentarios bloqueados
             likes_blocked: '"Me gusta" desactivados'
             likes_enabled: '"Me gusta" activados'

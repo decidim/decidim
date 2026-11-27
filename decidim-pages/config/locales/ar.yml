@@ -18,8 +18,6 @@ ar:
         settings:
           global:
             announcement: إعلان
-          step:
-            announcement: إعلان
     pages:
       admin:
         models:

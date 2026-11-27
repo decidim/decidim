@@ -593,15 +593,15 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             resources_permissions_enabled: Oprávnění zdrojů povoleno
             taxonomy_filters: Vyberte filtry pro komponentu
-          step:
+          phase:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
             amendment_reaction_enabled: Reakce na změnu byla povolena
             amendments_visibility: Viditelnost pozměňovacího návrhu
             comments_blocked: Komentáře blokovány
-            dummy_step_attribute1: Atribut 1 zástupného kroku
-            dummy_step_attribute2: Atribut 2 zástupného kroku
-            dummy_step_translatable_text: Zástupný krok textu k přeložení
+            dummy_phase_attribute1: Atribut 1 zástupného kroku
+            dummy_phase_attribute2: Atribut 2 zástupného kroku
+            dummy_phase_translatable_text: Zástupný krok textu k přeložení
       pagination:
         page_title: "%{component_name} - Strana %{current_page} z %{total_pages}"
     contact: Kontakt

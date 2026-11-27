@@ -37,8 +37,8 @@ ca:
           announcement: Avís
           global:
             announcement: Avís
-          step:
-            announcement: Avís
+          phase:
+            announcement: Anunci/Avís
     events:
       surveys:
         survey_closed:

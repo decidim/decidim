@@ -224,9 +224,7 @@ pt:
           title: Editar componente
           update: Atualizar
         form:
-          default_step_settings: Configurações do passo padrão
           global_settings: Configurações globais
-          step_settings: Configurações do passo
         index:
           add: Adicionar componente
           headers:

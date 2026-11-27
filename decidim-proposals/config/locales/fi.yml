@@ -219,7 +219,7 @@ fi:
             taxonomy_filters_add: Lisää suodatin
             threshold_per_proposal: Ehdotusten kannatusten määrän kynnysarvo
             vote_limit: Käytettävissä olevien äänten määrä käyttäjää kohden
-          step:
+          phase:
             amendment_creation_enabled: Muutosten luonti käytössä
             amendment_creation_enabled_help: Osallistujat voivat lisätä muutoksia ehdotuksiin.
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
@@ -236,7 +236,7 @@ fi:
             comments_blocked: Kommentointi estetty
             creation_enabled: Osallistujat voivat luoda ehdotuksia
             creation_enabled_readonly: Tämä asetus on pois päältä, kun olet ottanut ehdotusaineistot käyttöön. Voit ladata uusia ehdotusaineistoja siirtymällä ehdotusaineistot-osioon ja seuraamalla kyseisen osion ohjeistusta.
-            default_sort_order: Ehdotuksen oletusjärjestys
+            default_sort_order: Ehdotusten oletusjärjestys
             default_sort_order_help: Automaattinen tarkoittaa, että mikäli äänet ovat käytössä, ehdotukset näytetään satunnaisessa järjestyksessä ja mikäli äänet on estetty, ehdotukset järjestetään eniten ääniä saaneet ensin.
             default_sort_order_options:
               automatic: Automaattinen
@@ -245,11 +245,11 @@ fi:
               most_liked: Eniten tykätyt
               most_voted: Eniten ääniä saaneet ensin
               random: Satunnainen
-              recent: Viimeisimmät
+              recent: Viimeisimmät ensin
               with_more_authors: Eniten laatijoita
             likes_blocked: Tykkäykset estetty
             likes_enabled: Tykkäykset käytössä
-            proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
+            proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             publish_answers_immediately: Julkaise ehdotusten vastaukset heti
             publish_answers_immediately_help_html: 'Huomioithan, että jos vastaat mihin tahansa ehdotukseen ilman tätä asetusta, sinun on julkaistava vastaukset manuaalisesti valitsemalla vastaukset sisältävät ehdotukset ja käyttämällä julkaisutoimintoa. Lisätietoja, miten tämä toimii, löytyy <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">dokumentaation osiosta ehdotuksiin vastaaminen</a>.'
             votes_blocked: Äänestys estetty

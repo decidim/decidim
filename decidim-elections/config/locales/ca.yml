@@ -32,8 +32,8 @@ ca:
         settings:
           global:
             announcement: Avís
-          step:
-            announcement: Avís
+          phase:
+            announcement: Anunci/Avís
     elections:
       actions:
         confirm_delete_election: Segur que vols eliminar aquesta elecció?

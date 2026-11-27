@@ -291,9 +291,7 @@ it:
           title: Modifica componente
           update: Aggiorna
         form:
-          default_step_settings: Impostazioni della fase predefinite
           global_settings: Impostazioni globali
-          step_settings: Impostazioni della fase
         hide:
           success: Il componente è stato nascosto correttamente dal menu.
         index:

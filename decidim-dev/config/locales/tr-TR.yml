@@ -23,11 +23,6 @@ tr:
             test_options:
               bar: Çubuk
               foo: Sahte değişken
-          step:
-            readonly_step_attribute: Salt okunur özniteliği
-            test_options:
-              bar: Çubuk
-              foo: Sahte değişken
     dummy:
       admin:
         exports:

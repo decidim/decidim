@@ -104,7 +104,6 @@ ro:
         settings:
           global:
             amendments_enabled: Trimiterea de amendamente este activată
-            amendments_enabled_help: Dacă este activă, configurațI funcționalitățile aferente amendamentelor pentru fiecare pas.
             amendments_wizard_help_text: Text de ajutor pentru amendamente
             announcement: Anunţ
             attachments_allowed: Permite atașamente
@@ -134,7 +133,7 @@ ro:
             proposal_wizard_step_2_help_text: Text de ajutor pentru pasul „Publică” din crearea unei propuneri
             resources_permissions_enabled: Pentru fiecare propunere pot fi setate drepturi pentru acțiuni
             threshold_per_proposal: Prag per propunere
-          step:
+          phase:
             amendment_creation_enabled: Crearea de amendamente a fost activată
             amendment_creation_enabled_help: Participantul poate face amendamente la propuneri.
             amendment_promotion_enabled: Opțiunea de a promova amendamente a fost activată
@@ -146,18 +145,9 @@ ro:
               all: Amendamentele sunt vizibile pentru toţi
               participants: Amendamentele sunt vizibile doar autorilor acestora
             amendments_visibility_help: Dacă este selectată opţiunea "Amendamentele sunt vizibile doar autorilor lor", participantul trebuie să fie conectat pe platformă pentru a vedea amendamentele primite.
-            announcement: Anunţ
             answers_with_costs: Activează opțiunea de cost în răspunsurile la propuneri
             comments_blocked: Comentarii blocate
             creation_enabled: Participantul poate crea propuneri
-            default_sort_order: Mod implicit de sortare a propunerilor
-            default_sort_order_options:
-              most_commented: Cele mai comentate
-              most_followed: Cele mai urmărite
-              random: Aleator
-              recent: Recente
-              with_more_authors: Cu mai mulți autori
-            proposal_answering_enabled: Modulul de răspuns pentru propuneri a fost activat
             publish_answers_immediately: Publică imediat răspunsurile la propunere
     events:
       proposals:

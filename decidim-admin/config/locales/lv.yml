@@ -180,9 +180,7 @@ lv:
           title: Rediģēt komponentu
           update: Atjaunināt
         form:
-          default_step_settings: Noklusējuma soļu iestatījumi
           global_settings: Globālie iestatījumi
-          step_settings: Soļu iestatījumi
         index:
           add: Pievienot komponentu
           headers:

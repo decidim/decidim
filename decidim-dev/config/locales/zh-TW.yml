@@ -30,12 +30,6 @@ zh-TW:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
-            readonly_step_attribute: 唯讀步驟屬性
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:

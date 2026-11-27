@@ -311,7 +311,7 @@ ca-IT:
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             taxonomy_filters: Seleccionar filtres pel component
             taxonomy_filters_add: Afegir un filtre
-          step:
+          phase:
             comments_blocked: Comentaris bloquejats
           visualization: Visualització
     download_your_data:

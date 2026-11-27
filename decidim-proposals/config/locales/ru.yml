@@ -55,10 +55,8 @@ ru:
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
             resources_permissions_enabled: Для каждого предложения можно задать те или иные разрешения на действия
             threshold_per_proposal: Порог для каждого предложения
-          step:
-            announcement: Объявление
+          phase:
             comments_blocked: Комментарии отключены
-            proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование отключено
             votes_enabled: Голосование включено
             votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)

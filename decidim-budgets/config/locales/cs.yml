@@ -448,15 +448,11 @@ cs:
             workflow_choices:
               all: 'Hlasovat všude: umožňuje účastníkům hlasovat ve všech rozpočtech.'
               one: 'Hlasovat jednou: umožňuje účastníkům hlasovat v jakémkoliv rozpočtu, ale pouze v jednom.'
-          step:
-            announcement: Oznámení
+          phase:
             comments_blocked: Komentáře byly blokovány
             highlighted_heading: Zvýrazněný nadpis
-            landing_page_content: Úvodní stránka rozpočtů
             list_heading: Nadpis seznamu
-            more_information_modal: Více informací
             show_votes: Zobrazit hlasy
-            title: Název
             votes: Hlasování
             votes_choices:
               disabled: Hlasování zakázáno

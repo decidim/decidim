@@ -14,8 +14,6 @@ gl:
         settings:
           global:
             announcement: Anuncio
-          step:
-            announcement: Anuncio
     open_data:
       help:
         pages:

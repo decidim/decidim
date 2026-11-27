@@ -18,10 +18,6 @@ hu:
             test_options:
               bar: Oszlop
               foo: foo
-          step:
-            test_options:
-              bar: Oszlop
-              foo: foo
     dummy:
       admin:
         exports:

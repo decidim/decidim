@@ -19,8 +19,6 @@ zh-TW:
         settings:
           global:
             announcement: 公告
-          step:
-            announcement: 公告
     elections:
       actions:
         preview: 預覽

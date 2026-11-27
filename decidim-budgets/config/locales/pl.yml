@@ -285,15 +285,11 @@ pl:
             workflow_choices:
               all: 'Głosowanie we wszystkich: pozwala użytkownikom głosować we wszystkich budżetach.'
               one: 'Głosowanie w jednym: pozwala użytkownikom głosować w dowolnym budżecie, ale tylko w jednym.'
-          step:
-            announcement: Ogłoszenie
+          phase:
             comments_blocked: Komentarze zablokowane
             highlighted_heading: Wyróżniony nagłówek
-            landing_page_content: Strona główna budżetów
             list_heading: Lista nagłówków
-            more_information_modal: Więcej informacji
             show_votes: Pokaż głosy
-            title: Tytuł
             votes: Głosowanie
             votes_choices:
               disabled: Głosowanie wyłączone

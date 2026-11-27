@@ -124,7 +124,7 @@ fr:
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             taxonomy_filters: Sélectionner les filtres pour le composant
             taxonomy_filters_add: Ajouter un filtre
-          step:
+          phase:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
             likes_blocked: Soutiens bloqués

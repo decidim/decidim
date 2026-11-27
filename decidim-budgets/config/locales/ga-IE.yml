@@ -60,8 +60,7 @@ ga:
         settings:
           global:
             title: Teideal
-          step:
-            title: Teideal
+          phase:
             votes: Vótáil
             votes_choices:
               finished: Vótáil críochnaithe

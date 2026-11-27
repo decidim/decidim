@@ -299,9 +299,7 @@ el:
           title: Επεξεργασία στοιχείου
           update: Ενημέρωση
         form:
-          default_step_settings: Προεπιλεγμένες ρυθμίσεις βήματος
           global_settings: Καθολικές ρυθμίσεις
-          step_settings: Ρυθμίσεις βήματος
         index:
           add: Προσθήκη στοιχείου
           headers:

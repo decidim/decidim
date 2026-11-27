@@ -161,7 +161,7 @@ ca:
                 help_default_value: per al tipus de vot acumulatiu amb valor «max_sum_points», per al tipus de vot de puntuació ∞
                 label: Puntuació màxima (%{field})
               max_sum_cost:
-                help: 'Import màxim del cost d''un projecte (per defecte: %{default_value}).'
+                help: 'Suma màxima dels costos dels projectes (per defecte: %{default_value}).'
                 label: Cost total màxim (%{field})
               max_sum_points:
                 help: Suma màxima dels punts assignats a cada projecte.
@@ -173,7 +173,7 @@ ca:
                 help: 'Puntuació mínima assignada als projectes seleccionats (per defecte: %{default_value}).'
                 label: Puntuació mínima (%{field})
               min_sum_cost:
-                help: 'Import mínim del cost d''un projecte (per defecte: %{default_value}).'
+                help: 'Suma mínima dels costos dels projectes (per defecte: %{default_value}).'
                 label: Cost mínim (%{field})
               min_sum_points:
                 help: 'Suma mínima dels punts assignats a cada projecte (per defecte: %{default_value}).'
@@ -491,13 +491,13 @@ ca:
             workflow_choices:
               all: 'Votar a tots: permet a les participants votar a tots els pressupostos.'
               one: 'Votar a un: permet a les participants votar a qualsevol pressupost, però només a un.'
-          step:
-            announcement: Avís
+          phase:
+            announcement: Anunci/Avís
             comments_blocked: Comentaris bloquejats
             highlighted_heading: Capçalera destacada
-            landing_page_content: Pàgina d'inici de pressupostos
+            landing_page_content: Pàgina d'inici dels pressupostos
             list_heading: Títol de la llista
-            more_information_modal: Finestra de "Més informació"
+            more_information_modal: Finestra modal de "Més informació"
             show_votes: Mostra els suports
             title: Títol
             votes: Votació

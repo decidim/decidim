@@ -32,8 +32,6 @@ sv:
         settings:
           global:
             announcement: Meddelande
-          step:
-            announcement: Meddelande
     elections:
       actions:
         confirm_delete_election: Är du säker på att du vill ta bort omröstningen?

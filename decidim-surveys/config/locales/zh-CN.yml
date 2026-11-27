@@ -13,8 +13,6 @@ zh-CN:
         settings:
           global:
             announcement: 通 知
-          step:
-            announcement: 通 知
     events:
       surveys:
         survey_closed:

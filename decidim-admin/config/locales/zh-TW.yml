@@ -264,9 +264,7 @@ zh-TW:
           title: 編輯組件
           update: 更新
         form:
-          default_step_settings: 預設步驟設定
           global_settings: 全域設定
-          step_settings: 步驟設定
         index:
           add: 新增元件
           headers:

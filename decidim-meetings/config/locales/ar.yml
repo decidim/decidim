@@ -126,8 +126,7 @@ ar:
             maps_enabled: تم تمكين الخرائط
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اجتماع
             terms_and_conditions_url_for_meeting_creators: أحكام وشروط عناوين URL لمنشئي الاجتماع
-          step:
-            announcement: إعلان
+          phase:
             comments_blocked: تم حظر التعليقات
             creation_enabled_for_participants: تم تمكين إنشاء الاجتماع بواسطة المشاركين
     events:

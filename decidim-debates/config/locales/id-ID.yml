@@ -23,8 +23,7 @@ id:
           global:
             announcement: Pengumuman
             comments_enabled: Komentar diaktifkan
-          step:
-            announcement: Pengumuman
+          phase:
             comments_blocked: Komentar diblokir
     debates:
       actions:

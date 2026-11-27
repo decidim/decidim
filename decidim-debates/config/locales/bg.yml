@@ -30,8 +30,7 @@ bg:
           global:
             announcement: Обявление
             comments_enabled: Коментарите са активирани
-          step:
-            announcement: Обявление
+          phase:
             comments_blocked: Коментарите са блокирани
             creation_enabled: Участниците могат да създават дебати
     debates:

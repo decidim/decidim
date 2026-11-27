@@ -30,12 +30,6 @@ pl:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
-            readonly_step_attribute: Atrybut kroku tylko do odczytu
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:

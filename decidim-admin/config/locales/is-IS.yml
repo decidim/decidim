@@ -173,9 +173,7 @@ is-IS:
           title: Breyta hlutanum
           update: Uppfæra
         form:
-          default_step_settings: Sjálfgefnar skrefstillingar
           global_settings: Global stillingar
-          step_settings: Skref stillingar
         index:
           add: Bæta við þáttum
           headers:

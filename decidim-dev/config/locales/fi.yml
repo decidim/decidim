@@ -35,12 +35,12 @@ fi:
               bar: Palkki
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: Tykkäykset estetty
             likes_enabled: Tykkäykset käytössä
-            readonly_step_attribute: Vain luku -attribuutti vaiheelle
+            readonly_phase_attribute: Vain luku-muotoinen vaiheen tieto
             test_options:
-              bar: Palkki
+              bar: Bar
               baz: Baz
               foo: Foo
     dummy:

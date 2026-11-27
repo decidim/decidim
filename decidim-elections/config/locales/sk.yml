@@ -34,8 +34,6 @@ sk:
         settings:
           global:
             announcement: Oznámenie
-          step:
-            announcement: Oznámenie
     elections:
       actions:
         confirm_delete_election: Naozaj chcete vymazať tieto voľby?

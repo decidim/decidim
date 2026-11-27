@@ -37,7 +37,7 @@ fi:
           announcement: Ilmoitus
           global:
             announcement: Ilmoitus
-          step:
+          phase:
             announcement: Ilmoitus
     events:
       surveys:

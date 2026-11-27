@@ -265,15 +265,15 @@ lv:
             dummy_global_translatable_text: Viettura tulkojamais teksts
             enable_pads_creation: Iespējot kopdokumentu izveidi
             resources_permissions_enabled: Vienumu atļaujas ir iespējotas
-          step:
+          phase:
             amendment_creation_enabled: Grozījumu izveide ir iespējota
             amendment_promotion_enabled: Grozījumu atbalstīšana ir iespējota
             amendment_reaction_enabled: Reaģēšana uz grozījumiem ir iespējota
             amendments_visibility: Grozījumu redzamība
             comments_blocked: Komentāri ir bloķēti
-            dummy_step_attribute1: 1. Viettura solis
-            dummy_step_attribute2: 2. Viettura solis
-            dummy_step_translatable_text: Viettura soļa tulkojamais teksts
+            dummy_phase_attribute1: 1. Viettura solis
+            dummy_phase_attribute2: 2. Viettura solis
+            dummy_phase_translatable_text: Viettura soļa tulkojamais teksts
     contact: Kontaktinformācija
     content_blocks:
       footer_sub_hero:

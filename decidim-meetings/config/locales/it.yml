@@ -91,8 +91,7 @@ it:
             maps_enabled: Mappe abilitate
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni riunione
             terms_and_conditions_url_for_meeting_creators: Termini e condizioni URL per i creatori di riunione
-          step:
-            announcement: Annuncio
+          phase:
             comments_blocked: Commenti bloccati
             creation_enabled_for_participants: Creazione delle riunioni da parte dei partecipanti abilitata
     events:

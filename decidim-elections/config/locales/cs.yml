@@ -32,8 +32,6 @@ cs:
         settings:
           global:
             announcement: Oznámení
-          step:
-            announcement: Oznámení
     elections:
       actions:
         confirm_delete_election: Opravdu chcete odstranit tuto volbu?

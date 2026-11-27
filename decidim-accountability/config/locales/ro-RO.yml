@@ -316,7 +316,7 @@ ro:
             no_taxonomy_filters_found: Nu am găsit nici un filtru de taxonomie.
             taxonomy_filters: Selectați filtrele pentru componentă
             taxonomy_filters_add: Adaugați filtru
-          step:
+          phase:
             comments_blocked: Comentarii blocate
           visualization: Vizualizare
     download_your_data:

@@ -301,15 +301,15 @@ nl:
             dummy_global_translatable_text: Vertaalbare tekst Dummy
             enable_pads_creation: Schakel het maken van notitieblokken in
             resources_permissions_enabled: Resources permissies ingeschakeld
-          step:
+          phase:
             amendment_creation_enabled: Aanmaken van amendementen ingeschakeld
             amendment_promotion_enabled: Promoten van amendementen ingeschakeld
             amendment_reaction_enabled: Reageren op amendementen ingeschakeld
             amendments_visibility: Zichtbaarheid van amendement
             comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute1: Voorbeeld-kenmerk 1
-            dummy_step_attribute2: Voorbeeld-kenmerk 2
-            dummy_step_translatable_text: Dummy Stap Vertaalbare tekst
+            dummy_phase_attribute1: Voorbeeld-kenmerk 1
+            dummy_phase_attribute2: Voorbeeld-kenmerk 2
+            dummy_phase_translatable_text: Dummy Stap Vertaalbare tekst
     contact: Contact
     content_blocks:
       cta:

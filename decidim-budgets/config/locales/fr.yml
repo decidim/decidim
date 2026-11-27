@@ -389,13 +389,11 @@ fr:
             workflow_choices:
               all: 'Voter sur tous les budgets : autorise les participants à voter sur tous les budgets.'
               one: 'Voter sur un seul budget : autorise les participants à voter sur un seul budget parmi les budgets proposés.'
-          step:
+          phase:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
             highlighted_heading: En-tête en surbrillance
-            landing_page_content: Page d'accueil des budgets
             list_heading: En-tête de la liste des budgets
-            more_information_modal: Plus d’informations
             show_votes: Afficher les votes
             title: Titre
             votes: Vote

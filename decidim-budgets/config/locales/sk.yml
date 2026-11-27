@@ -511,15 +511,11 @@ sk:
             workflow_choices:
               all: 'Hlasovať vo všetkých: umožňuje účastníkom hlasovať vo všetkých rozpočtoch.'
               one: 'Hlasovať v jednom: umožňuje účastníkom hlasovať v akomkoľvek rozpočte, ale iba v jednom.'
-          step:
-            announcement: Oznámenie
+          phase:
             comments_blocked: Zablokované komentáre
             highlighted_heading: Zvýraznený nadpis
-            landing_page_content: Vstupná stránka rozpočtov
             list_heading: Nadpis zoznamu
-            more_information_modal: Modálne okno s viacerými informáciami
             show_votes: Zobraziť hlasy
-            title: Názov
             votes: Hlasovanie
             votes_choices:
               disabled: Hlasovanie zakázané

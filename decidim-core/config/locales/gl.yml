@@ -555,15 +555,15 @@ gl:
             no_taxonomy_filters_found: Non se atoparon filtros de taxonomía.
             resources_permissions_enabled: Permisos de recursos habilitados
             taxonomy_filters: Seleccionar filtros para o compoñente
-          step:
+          phase:
             amendment_creation_enabled: Creación de emendas activada
             amendment_promotion_enabled: Promoción de emendas activada
             amendment_reaction_enabled: Reacción ás emendas activada
             amendments_visibility: Visibilidade da emenda
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute1: Dummy Step Attribute 1
-            dummy_step_attribute2: Dummy Step Attribute 2
-            dummy_step_translatable_text: Texto traducible de proba da fase
+            dummy_phase_attribute1: Dummy Step Attribute 1
+            dummy_phase_attribute2: Dummy Step Attribute 2
+            dummy_phase_translatable_text: Texto traducible de proba da fase
       pagination:
         page_title: "%{component_name} - Páxina %{current_page} de %{total_pages}"
     contact: Contacto

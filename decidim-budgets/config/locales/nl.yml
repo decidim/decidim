@@ -209,15 +209,11 @@ nl:
             workflow_choices:
               all: 'Stem overal: laat deelnemers toe om te stemmen in alle budgetten.'
               one: 'Stem in één budget: laat deelnemers toe te stemmen voor één budget uit de voorgestelde budgetten.'
-          step:
-            announcement: Aankondiging
+          phase:
             comments_blocked: Reacties geblokkeerd
             highlighted_heading: Gemarkeerde kop
-            landing_page_content: Budgetten landingspagina
             list_heading: Lijst kop
-            more_information_modal: Meer informatie
             show_votes: Toon stemmen
-            title: Titel
             votes: Stemronde
             votes_choices:
               disabled: Stemmen uitgeschakeld

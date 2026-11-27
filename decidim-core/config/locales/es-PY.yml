@@ -562,15 +562,15 @@ es-PY:
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             resources_permissions_enabled: Permisos sobre recursos habilitados
             taxonomy_filters: Seleccionar filtros para el componente
-          step:
+          phase:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_promotion_enabled: Promoción de enmienda activada
             amendment_reaction_enabled: Reacción de enmienda activada
             amendments_visibility: Visibilidad de la enmienda
             comments_blocked: Comentarios bloqueados
-            dummy_step_attribute1: Atributo de paso ficticio 1
-            dummy_step_attribute2: Atributo de paso ficticio 2
-            dummy_step_translatable_text: Fase de ejemplo traducible
+            dummy_phase_attribute1: Atributo de paso ficticio 1
+            dummy_phase_attribute2: Atributo de paso ficticio 2
+            dummy_phase_translatable_text: Fase de ejemplo traducible
       pagination:
         page_title: "%{component_name} - Página %{current_page} de %{total_pages}"
     contact: Contacto
@@ -2290,7 +2290,7 @@ es-PY:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
-      time_of_day_with_time_zone: "%Z de %H:%M"
+      time_of_day_with_time_zone: "%H:%M %Z"
       tooltip: "%d-%m-%Y %H:%M %Z (GMT %:z)"
   versions:
     directions:

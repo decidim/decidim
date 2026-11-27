@@ -34,8 +34,6 @@ pt-BR:
           announcement: Avisos
           global:
             announcement: Anúncio
-          step:
-            announcement: Anúncio
     events:
       surveys:
         survey_closed:

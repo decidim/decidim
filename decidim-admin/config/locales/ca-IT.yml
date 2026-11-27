@@ -332,9 +332,7 @@ ca-IT:
           title: Configura el component
           update: Actualitzar
         form:
-          default_step_settings: Configuració per defecte
           global_settings: Configuració global
-          step_settings: Configuració de fase
         hide:
           success: El component s'ha amagat correctament del menú.
         index:

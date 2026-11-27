@@ -97,8 +97,7 @@ lv:
             vote_rule_minimum_budget_projects_enabled: 'Iespējot noteikumu: minimālais projektu skaits, par kuriem jābalso'
             vote_rule_threshold_percent_enabled: 'Iespējot noteikumu: minimālais budžeta procents'
             vote_threshold_percent: Balsu slieksnis procentos
-          step:
-            announcement: Paziņojums
+          phase:
             comments_blocked: Komentāri ir bloķēti
             show_votes: Rādīt balsis
             votes_choices:

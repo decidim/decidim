@@ -415,15 +415,15 @@ hu:
             dummy_global_translatable_text: Kenyérszöveg - nem valódi fordítható szöveg
             enable_pads_creation: A közös dokumentum létrehozásának engedélyezése
             resources_permissions_enabled: Erőforrás-engedélyek biztosítva
-          step:
+          phase:
             amendment_creation_enabled: A módosítás létrehozása engedélyezett
             amendment_promotion_enabled: A módosítás előléptetése engedélyezett
             amendment_reaction_enabled: A módosító reakció engedélyezett
             amendments_visibility: A módosítás láthatósága
             comments_blocked: Megjegyzések letiltva
-            dummy_step_attribute1: Dummy Lépés tulajdonság 1
-            dummy_step_attribute2: Dummy Lépés tulajdonság 2
-            dummy_step_translatable_text: Hamis Lépés Fordítható Szöveg
+            dummy_phase_attribute1: Dummy Lépés tulajdonság 1
+            dummy_phase_attribute2: Dummy Lépés tulajdonság 2
+            dummy_phase_translatable_text: Hamis Lépés Fordítható Szöveg
     contact: Kapcsolat
     content_blocks:
       announcement:

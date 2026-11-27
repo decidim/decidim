@@ -491,7 +491,7 @@ fi:
             workflow_choices:
               all: 'Äänestä kaikissa: sallii osallistujien äänestää kaikissa budjeteissa.'
               one: 'Äänestä yhdessä: sallii osallistujien äänestää missä tahansa budjetissa, mutta vain yhdessä.'
-          step:
+          phase:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             highlighted_heading: Korostuksen otsikko

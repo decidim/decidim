@@ -14,8 +14,6 @@ nl:
         settings:
           global:
             announcement: Aankondiging
-          step:
-            announcement: Aankondiging
     pages:
       admin:
         models:

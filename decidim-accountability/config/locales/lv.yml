@@ -110,7 +110,7 @@ lv:
             comments_enabled: Komentāri ir iespējoti
             display_progress_enabled: Rādīt progresu
             intro: Ievads
-          step:
+          phase:
             comments_blocked: Komentāri ir bloķēti
     events:
       accountability:

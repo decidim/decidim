@@ -37,8 +37,6 @@ fr:
           announcement: Annonce
           global:
             announcement: Annonce
-          step:
-            announcement: Annonce
     events:
       surveys:
         survey_closed:

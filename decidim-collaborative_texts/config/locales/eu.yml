@@ -101,10 +101,17 @@ eu:
       document:
         apply: Aplikatu
         cancel: Ezeztatu
+        card_status:
+          accepting_suggestions: Iradokizunak onartzen
+          draft: Berrikustean
+          not_accepting_suggestions: Iradokizunik ez da ornartzen
         consolidate:
           confirm: Ekintza honek dokumentuaren bertsio berri batean finkatuko ditu onartutako iradokizun guztiak. Onartu ez diren iradokizunak bertsio berrira eramango dira berrikusi ahal izateko. Ekintza honek baimendutako iradokizunei eutsiko die.
           new: Sendotu onartutako iradokizunak
         consolidate_counter: Finkatzeak bat egingo du %{applied} aplikatutako iradokizunekin eta %{pending} egiteke dauden iradokizunak bertsio berrira eramango ditu.
+        contributors_count:
+          one: "Kolaboratzaile %{count}"
+          other: "%{count} kolaboratzaile"
         controls_label: Iradokizunen kontrolak
         draft_counter: Zirriborroak bat egingo du %{applied} aplikatutako iradokizunekin eta baztertuko ditu %{pending} egiteke dauden iradokizunak.
         index: Aurkibidea
@@ -119,14 +126,22 @@ eu:
           draft: Administratzaileak dokumentu hori berrikusten ari dira. Une honetan ezin da iradokizunik egin, baina beste parte-hartzaile batzuek egindako iradokizunak ikus daitezke.
           not_accepting_suggestions: Une honetan ez dago iradokizunik.
           selection_active: Hautaketa aktibo dago. Mesedez, utzi bertan behera oraingo aukeraketa beste bat egiteko.
-        suggestions_count: "%{count} iradokizun"
+        suggestions_count:
+          one: "Iradokizun %{count}"
+          other: "%{count} iradokizun"
         toggle: Erakutsi/ezkutatu iradokizunak
       documents:
+        filters:
+          all: Guztiak
+          state: Egoera
+          state_values:
+            accepting_suggestions: Iradokizunak onartzen
+            not_accepting_suggestions: Iradokizunik ez da ornartzen
         index:
           count:
             one: "%{count} testu kolaboratzaile"
             other: "%{count} testu kolaboratzaile"
-          empty: Oraindik ez dago testu kolaboratzailerik.
+          empty: Ez dago testu kolaboratiborik zure bilaketa-irizpideekin bat datorrenik.
         show:
           contributors: Laguntzaileak
       models:
@@ -157,8 +172,8 @@ eu:
           global:
             announcement: Oharra
             comments_blocked: Iruzkinak blokeatuta
-          step:
-            announcement: Oharra
+          phase:
+            announcement: Jakinarazpena
     statistics:
       all_collaborative_texts_count: Testu kolaboratzaile guztiak
       collaborative_texts_count: Testu kolaboratiboak

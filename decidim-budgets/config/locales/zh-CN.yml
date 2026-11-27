@@ -151,15 +151,11 @@ zh-CN:
             workflow_choices:
               all: '投票：允许参与者在所有预算中投票。'
               one: '一次投票：允许与会者在任何预算中投票，但只能在一个预算中投票。'
-          step:
-            announcement: 通 知
+          phase:
             comments_blocked: 评论已阻止
             highlighted_heading: 高亮标题
-            landing_page_content: 预算登陆页
             list_heading: 列表标题
-            more_information_modal: 更多信息模式
             show_votes: 显示投票
-            title: 标题
             votes: 表 决
             votes_choices:
               disabled: 投票已禁用

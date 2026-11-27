@@ -16,8 +16,6 @@ uk:
         settings:
           global:
             announcement: Оголошення
-          step:
-            announcement: Оголошення
     events:
       surveys:
         survey_closed:

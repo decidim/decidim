@@ -16,8 +16,6 @@ uk:
         settings:
           global:
             announcement: Оголошення
-          step:
-            announcement: Оголошення
     pages:
       admin:
         models:

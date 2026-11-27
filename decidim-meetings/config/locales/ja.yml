@@ -175,8 +175,7 @@ ja:
             taxonomy_filters: コンポーネントのフィルタを選択
             taxonomy_filters_add: フィルターを追加
             terms_and_conditions_url_for_meeting_creators: ミーティング作成者の利用規約URL
-          step:
-            announcement: お知らせ
+          phase:
             comments_blocked: コメントをブロック
             creation_enabled_for_participants: 参加者によるミーティングの作成が有効です
     download_your_data:

@@ -33,12 +33,6 @@ fr-CA:
               bar: Seuil
               baz: Baz
               foo: Foo
-          step:
-            readonly_step_attribute: Attribut étape en lecture seule
-            test_options:
-              bar: Seuil
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:

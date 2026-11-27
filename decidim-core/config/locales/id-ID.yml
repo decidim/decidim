@@ -219,10 +219,10 @@ id:
             dummy_global_attribute2: Atribut Dummy 2
             enable_pads_creation: Aktifkan pembuatan bantalan
             resources_permissions_enabled: Izin sumber daya diaktifkan
-          step:
+          phase:
             comments_blocked: Komentar diblokir
-            dummy_step_attribute1: Atribut Langkah Dummy 1
-            dummy_step_attribute2: Atribut Langkah Dummy 2
+            dummy_phase_attribute1: Atribut Langkah Dummy 1
+            dummy_phase_attribute2: Atribut Langkah Dummy 2
     contact: Kontak
     content_blocks:
       footer_sub_hero:

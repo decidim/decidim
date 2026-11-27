@@ -13,8 +13,6 @@ ja:
         settings:
           global:
             announcement: お知らせ
-          step:
-            announcement: お知らせ
     open_data:
       help:
         pages:

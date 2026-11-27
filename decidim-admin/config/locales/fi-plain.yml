@@ -332,9 +332,7 @@ fi-pl:
           title: Muokkaa komponenttia
           update: Päivitä
         form:
-          default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
-          step_settings: Vaiheiden asetukset
         hide:
           success: Komponentin piilottaminen valikosta onnistui.
         index:

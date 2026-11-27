@@ -425,15 +425,15 @@ it:
             dummy_global_translatable_text: Testo traducibile Dummy
             enable_pads_creation: Abilita la creazione di pad
             resources_permissions_enabled: Permessi di risorse abilitati
-          step:
+          phase:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
             amendment_reaction_enabled: Risposta all'emendamento abilitata
             amendments_visibility: Visibilità dell'emendamento
             comments_blocked: Commenti bloccati
-            dummy_step_attribute1: Attributo Dummy Step 1
-            dummy_step_attribute2: Attributo Dummy Step 2
-            dummy_step_translatable_text: Testo traducibile Dummy
+            dummy_phase_attribute1: Attributo Dummy Step 1
+            dummy_phase_attribute2: Attributo Dummy Step 2
+            dummy_phase_translatable_text: Testo traducibile Dummy
     contact: Contatto
     content_blocks:
       cta:

@@ -29,10 +29,8 @@ is-IS:
             proposal_length: Hámark umsóknar lengd líkamans
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
             threshold_per_proposal: Gildi fyrir hverja tillögu
-          step:
-            announcement: Tilkynning
+          phase:
             comments_blocked: Athugasemdir læst
-            proposal_answering_enabled: Tillaga svarað virkt
     events:
       proposals:
         creation_enabled:

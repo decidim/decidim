@@ -14,8 +14,6 @@ lb:
         settings:
           global:
             announcement: Ukënnegung
-          step:
-            announcement: Ukënnegung
     events:
       surveys:
         survey_closed:

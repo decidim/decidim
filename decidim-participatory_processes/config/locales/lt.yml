@@ -41,14 +41,9 @@ lt:
         participatory_structure: Kaip nuspręsta
         target: Kas dalyvauja
         title: Pavadinimas
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Mygtuko „Raginti imtis veiksmų“ kelias
         cta_text: Mygtuko „Raginti imtis veiksmų“ tekstas
-        description: Aprašymas
-        end_date: Pabaigos data
-        short_description: Trumpas aprašymas
-        start_date: Pradžios data
-        title: Pavadinimas
       participatory_process_user_role:
         email: El. paštas
         name: Vardas
@@ -60,8 +55,8 @@ lt:
             document:
               allowed_file_content_types: 'Nevalidus turinio tipas. Leidžiamos rinkmenos tik su šiomis galūnėmis: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Etapas aktyvuotas
-      decidim/participatory_process_step_changed_event: Eatapas pakeistas
+      decidim/participatory_process_phase_activated_event: Etapas aktyvuotas
+      decidim/participatory_process_phase_changed_event: Eatapas pakeistas
   activerecord:
     models:
       decidim/participatory_process:
@@ -74,7 +69,7 @@ lt:
         few: Dalyvaujamojo proceso grupės
         many: Dalyvaujamojo proceso grupės
         other: Dalyvaujamojo proceso grupės
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Etapas
         few: Etapai
         many: Etapai
@@ -90,7 +85,7 @@ lt:
         import_process: Importuoti
         new_process: Naujas procesas
         new_process_group: Nauja procesų grupė
-        new_process_step: Naujas etapas
+        new_process_phase: Naujas etapas
         new_process_user_role: Naujas proceso administratorius
         preview: Peržiūra
         publish: Publikuoti
@@ -105,8 +100,8 @@ lt:
           attachments: Priedai
           components: Komponentai
           moderations: Moderavimai
+          phases: Etapai
           process_admins: Proceso administratoriai
-          steps: Etapai
       models:
         participatory_process:
           fields:
@@ -118,11 +113,7 @@ lt:
           fields:
             title: Pavadinimas
           name: Procesų grupė
-        participatory_process_step:
-          fields:
-            end_date: Pabaigos data
-            start_date: Pradžios data
-            title: Pavadinimas
+        participatory_process_phase:
           name: Dalyvaujamojo proceso etapas
         participatory_process_user_role:
           fields:
@@ -155,6 +146,24 @@ lt:
         new:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
+      participatory_process_phase_activations:
+        create:
+          error: Aktyvuojant šio dalyvaujamojo proceso etapą iškilo problema.
+          success: Dalyvaujamojo proceso etapas aktyvuotas.
+      participatory_process_phases:
+        create:
+          error: Kuriant naują dalyvaujamojo proceso etapą iškilo problema.
+          success: Dalyvaujamojo proceso etapas sukurtas.
+        default_title: Įžanga
+        destroy:
+          error:
+            active_phase: Negalima pašalinti aktyviojo etapo.
+            last_phase: Negalima pašalinti proceso paskutinio etapo.
+          success: Dalyvaujamojo proceso etapas pašalintas.
+        ordering:
+          error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
+        update:
+          error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
       participatory_process_publications:
         create:
           error: Skelbiant šį dalyvaujamąjį procesą iškilo problema.
@@ -162,28 +171,6 @@ lt:
         destroy:
           error: Naikinant šio dalyvaujamojo proceso skelbimą iškilo problema.
           success: Dalyvaujamojo proceso skelbimas pašalintas.
-      participatory_process_step_activations:
-        create:
-          error: Aktyvuojant šio dalyvaujamojo proceso etapą iškilo problema.
-          success: Dalyvaujamojo proceso etapas aktyvuotas.
-      participatory_process_steps:
-        create:
-          error: Kuriant naują dalyvaujamojo proceso etapą iškilo problema.
-          success: Dalyvaujamojo proceso etapas sukurtas.
-        default_title: Įžanga
-        destroy:
-          error:
-            active_step: Negalima pašalinti aktyviojo etapo.
-            last_step: Negalima pašalinti proceso paskutinio etapo.
-          success: Dalyvaujamojo proceso etapas pašalintas.
-        edit:
-          update: Atnaujinti
-        new:
-          create: Sukurti
-        ordering:
-          error: Pertvarkant šiuos dalyvaujamojo proceso etapus iškilo problema.
-        update:
-          error: Atnaujinant šio dalyvaujamojo proceso etapą iškilo problema.
       participatory_process_user_roles:
         create:
           error: Pridedant dalyvį prie dalyvaujamojo proceso iškilo problema.
@@ -230,7 +217,7 @@ lt:
       participatory_process_group:
         create: "%{user_name} sukūrė %{resource_name} dalyvaujamojo proceso grupę"
         update: "%{user_name} atnaujino %{resource_name} dalyvaujamojo proceso grupę"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} aktyvavo %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
         create: "%{user_name} sukūrė %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
         delete: "%{user_name} pašalino %{space_name} dalyvaujamojo proceso %{resource_name} etapą"
@@ -241,21 +228,21 @@ lt:
         update: "%{user_name} pakeitė %{resource_name} dalyvio vaidmenį %{space_name} dalyvaujamajame procese"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: '%{participatory_space_title} %{resource_title} etapas dabar aktyvus. Jį galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} atnaujinimas'
+          notification_title: '%{resource_title} etapas dabar įjungtas <a href="%{resource_path}">%{participatory_space_title}</a>'
+        phase_changed:
+          email_intro: '%{participatory_space_title} %{resource_title} etapo datos buvo atnaujintos. Tai galite pamatyti šiame puslapyje:'
+          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
+          email_subject: '%{participatory_space_title} atnaujinimas'
+          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">%{resource_title}</a> etapo datos buvo atnaujintos.
         role_assigned:
           email_intro: Jūs paskirtas "%{resource_title}“ dalyvaujamojo proceso %{role}.
           email_outro: Šį pranešimą gavote dėl to, kad esate "%{resource_title}" dalyvaujamojo proceso %{role}.
           email_subject: Jūs paskirtas „%{resource_title}“ %{role}.
           notification_title: Jūs paskirtas <a href="%{resource_url}">%{resource_title}</a> dalyvaujamojo proceso %{role}.
-        step_activated:
-          email_intro: '%{participatory_space_title} %{resource_title} etapas dabar aktyvus. Jį galite pamatyti šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-          email_subject: '%{participatory_space_title} atnaujinimas'
-          notification_title: '%{resource_title} etapas dabar įjungtas <a href="%{resource_path}">%{participatory_space_title}</a>'
-        step_changed:
-          email_intro: '%{participatory_space_title} %{resource_title} etapo datos buvo atnaujintos. Tai galite pamatyti šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad sekate %{participatory_space_title}. Jeigu nebenorite gauti pranešimų, spustelėkite ankstesnę nuorodą.
-          email_subject: '%{participatory_space_title} atnaujinimas'
-          notification_title: <a href="%{participatory_space_url}">%{participatory_space_title}</a> <a href="%{resource_path}">%{resource_title}</a> etapo datos buvo atnaujintos.
     help:
       participatory_spaces:
         participatory_processes:
@@ -296,9 +283,9 @@ lt:
             other: "%{count} procesai"
       show:
         title: Dalyvaujamojo proceso grupės
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Proceso etapai
+        process_phases: Proceso etapai
     participatory_processes:
       admin:
         content_blocks:
@@ -317,6 +304,9 @@ lt:
         participatory_process_imports:
           form:
             document_legend: Pridėti dokumentą
+        participatory_process_phases:
+          index:
+            title: Etapai
         participatory_processes:
           form:
             duration: Trukmė
@@ -406,7 +396,7 @@ lt:
         index:
           promoted_processes: Paryškinti procesai
         participatory_process:
-          active_step: 'Dabartinis etapas:'
+          active_phase: 'Dabartinis etapas:'
           more_info: Daugiau informacijos
           more_info_about: Daugiau informacijos apie procesą %{resource_name}
           take_part: Dalyvaukite

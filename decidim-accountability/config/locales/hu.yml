@@ -167,7 +167,7 @@ hu:
             comments_enabled: Megjegyzések engedélyezve
             display_progress_enabled: Állapot megjelenítése
             intro: Intro
-          step:
+          phase:
             comments_blocked: Megjegyzések letiltva
     events:
       accountability:

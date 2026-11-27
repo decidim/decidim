@@ -14,8 +14,6 @@
         settings:
           global:
             announcement: Kunngjøring
-          step:
-            announcement: Kunngjøring
     pages:
       admin:
         models:

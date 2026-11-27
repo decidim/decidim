@@ -19,8 +19,6 @@ pt:
         settings:
           global:
             announcement: Anúncio
-          step:
-            announcement: Anúncio
     elections:
       actions:
         preview: Pré-visualizar

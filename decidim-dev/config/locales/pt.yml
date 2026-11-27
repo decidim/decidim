@@ -24,12 +24,6 @@ pt:
               bar: Barra
               baz: Bar
               foo: Foo
-          step:
-            readonly_step_attribute: Atributo de passo só de leitura
-            test_options:
-              bar: Barra
-              baz: Bar
-              foo: Foo
     dummy:
       admin:
         exports:

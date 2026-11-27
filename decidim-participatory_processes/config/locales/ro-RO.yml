@@ -43,14 +43,9 @@ ro:
         participatory_structure: Cum se decide
         target: Cine participă
         title: Titlu
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: URL-ul butonului Apel la acțiune
         cta_text: Textul butonului Apel la acțiune
-        description: Descriere
-        end_date: Data de încheiere
-        short_description: Descriere scurtă
-        start_date: Data de început
-        title: Titlu
       participatory_process_user_role:
         email: E-mail
         name: Nume
@@ -62,8 +57,8 @@ ro:
             document:
               allowed_file_content_types: 'Tip de document invalid. Sunt permise numai fișiere cu următoarele extensii: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Etapă activată
-      decidim/participatory_process_step_changed_event: Etapă modificată
+      decidim/participatory_process_phase_activated_event: Etapă activată
+      decidim/participatory_process_phase_changed_event: Etapă modificată
   activerecord:
     models:
       decidim/participatory_process:
@@ -74,7 +69,7 @@ ro:
         one: Grup al procesului participativ
         few: Grupuri ale procesului participativ
         other: Grupuri ale procesului participativ
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Etapă
         few: Etape
         other: Etape
@@ -89,7 +84,7 @@ ro:
         import_process: Importați
         new_process: Proces nou
         new_process_group: Grup nou de proces
-        new_process_step: Etapă nouă
+        new_process_phase: Etapă nouă
         new_process_user_role: Administrator nou al procesului
         preview: Previzualizează
         publish: Publică
@@ -104,8 +99,8 @@ ro:
           attachments: Atașamente
           components: Componente
           moderations: Moderări
+          phases: Etape
           process_admins: Administratori de proces
-          steps: Etape
       models:
         participatory_process:
           fields:
@@ -117,11 +112,7 @@ ro:
           fields:
             title: Titlu
           name: Grup al procesului
-        participatory_process_step:
-          fields:
-            end_date: Data de încheiere
-            start_date: Data de început
-            title: Titlu
+        participatory_process_phase:
           name: Etapa procesului participativ
         participatory_process_user_role:
           fields:
@@ -155,6 +146,24 @@ ro:
         new:
           import: Importați
           select: Selectați ce date doriți să importați
+      participatory_process_phase_activations:
+        create:
+          error: A apărut o problemă la activarea acestei etape a procesului participativ.
+          success: Etapa procesului participativ a fost activată cu succes.
+      participatory_process_phases:
+        create:
+          error: A apărut o problemă la crearea unei noi etape a procesului participativ.
+          success: Etapa procesul participativ a fost creată cu succes.
+        default_title: Introducere
+        destroy:
+          error:
+            active_phase: Nu se poți șterge etapa activă.
+            last_phase: Nu se puteți șterge ultima etapă a unui proces.
+          success: Etapa procesului participativ a fost ştearsă cu succes.
+        ordering:
+          error: A apărut o problemă la reordonarea etapelor acestui procesului participativ.
+        update:
+          error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
       participatory_process_publications:
         create:
           error: A apărut o problemă la publicarea acestui proces participativ.
@@ -162,28 +171,6 @@ ro:
         destroy:
           error: A apărut o problemă la anularea publicării acestui proces participativ.
           success: Anularea publicării procesului participativ a fost efectuată cu succes.
-      participatory_process_step_activations:
-        create:
-          error: A apărut o problemă la activarea acestei etape a procesului participativ.
-          success: Etapa procesului participativ a fost activată cu succes.
-      participatory_process_steps:
-        create:
-          error: A apărut o problemă la crearea unei noi etape a procesului participativ.
-          success: Etapa procesul participativ a fost creată cu succes.
-        default_title: Introducere
-        destroy:
-          error:
-            active_step: Nu se poți șterge etapa activă.
-            last_step: Nu se puteți șterge ultima etapă a unui proces.
-          success: Etapa procesului participativ a fost ştearsă cu succes.
-        edit:
-          update: Actualizați
-        new:
-          create: Creează
-        ordering:
-          error: A apărut o problemă la reordonarea etapelor acestui procesului participativ.
-        update:
-          error: A apărut o problemă la actualizarea acestei etape a procesului participativ.
       participatory_process_user_roles:
         create:
           error: A apărut o problemă la adăugarea unui participant pentru acest proces participativ.
@@ -230,7 +217,7 @@ ro:
       participatory_process_group:
         create: "%{user_name} a creat grupul de proces participativ %{resource_name}"
         update: "%{user_name} actualizat grupul de proces participativ %{resource_name}"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} a activat etapa %{resource_name} în procesul participativ %{space_name}"
         create: "%{user_name} a creat etapa %{resource_name} în procesul participativ %{space_name}"
         delete: "%{user_name} a șters etapa %{resource_name} din procesul participativ %{space_name}"
@@ -241,21 +228,21 @@ ro:
         update: "%{user_name} a schimbat rolul participantului %{resource_name} în procesul participativ %{space_name}"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'Etapa %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea de pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: O actualizare pentru %{participatory_space_title}
+          notification_title: Etapa %{resource_title} este acum activă pentru <a href="%{resource_path}">%{participatory_space_title}</a>
+        phase_changed:
+          email_intro: 'Datele pentru etapa %{resource_title} din %{participatory_space_title} au fost actualizate. O poți vedea pe această pagină:'
+          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
+          email_subject: O actualizare pentru %{participatory_space_title}
+          notification_title: Datele pentru etapa <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> au fost actualizate.
         role_assigned:
           email_intro: Ai fost atribuit drept %{role} pentru procesul participativ "%{resource_title}".
           email_outro: Ai primit această notificare deoarece ești %{role} în procesul participativ "%{resource_title}".
           email_subject: Ai fost atribuit drept %{role} pentru "%{resource_title}".
           notification_title: Ai fost atribuit drept %{role} pentru procesul participativ <a href="%{resource_url}">%{resource_title}</a>.
-        step_activated:
-          email_intro: 'Etapa %{resource_title} este acum activă pentru %{participatory_space_title}. O poți vedea de pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
-          email_subject: O actualizare pentru %{participatory_space_title}
-          notification_title: Etapa %{resource_title} este acum activă pentru <a href="%{resource_path}">%{participatory_space_title}</a>
-        step_changed:
-          email_intro: 'Datele pentru etapa %{resource_title} din %{participatory_space_title} au fost actualizate. O poți vedea pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești %{participatory_space_title}. Poți anula aceste notificări de la link-ul anterior.
-          email_subject: O actualizare pentru %{participatory_space_title}
-          notification_title: Datele pentru etapa <a href="%{resource_path}">%{resource_title}</a> din <a href="%{participatory_space_url}">%{participatory_space_title}</a> au fost actualizate.
     help:
       participatory_spaces:
         participatory_processes:
@@ -291,9 +278,9 @@ ro:
         help: Toate procesele selectate vor fi atribuite acestui grup, inclusiv celor care sunt deja atribuite altor grupuri.
       show:
         title: Grupuri ale procesului participativ
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Etape ale procesului
+        process_phases: Etape ale procesului
     participatory_processes:
       admin:
         content_blocks:
@@ -310,6 +297,9 @@ ro:
         participatory_process_imports:
           form:
             document_legend: Adaugați un document
+        participatory_process_phases:
+          index:
+            title: Etape
         participatory_processes:
           form:
             duration: Durată
@@ -390,7 +380,7 @@ ro:
         index:
           promoted_processes: Procese evidențiate
         participatory_process:
-          active_step: 'Etapa curentă:'
+          active_phase: 'Etapa curentă:'
           more_info: Mai multe informații
           more_info_about: Mai multe informații despre procesul %{resource_name}
           take_part: Participați

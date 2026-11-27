@@ -111,7 +111,7 @@ th:
             comments_enabled: เปิดใช้งานความคิดเห็นแล้ว
             display_progress_enabled: แสดงความคืบหน้า
             intro: คำแนะนำ
-          step:
+          phase:
             comments_blocked: ความคิดเห็นถูกบล็อก
     events:
       accountability:

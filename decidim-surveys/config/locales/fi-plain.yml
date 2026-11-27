@@ -37,8 +37,6 @@ fi-pl:
           announcement: Ilmoitus
           global:
             announcement: Ilmoitus
-          step:
-            announcement: Ilmoitus
     events:
       surveys:
         survey_closed:

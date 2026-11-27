@@ -43,8 +43,7 @@ tr:
           global:
             announcement: duyuru
             comments_enabled: Yorumlar etkin
-          step:
-            announcement: duyuru
+          phase:
             comments_blocked: Yorumlar engellendi
     events:
       blogs:

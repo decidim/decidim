@@ -14,8 +14,8 @@ ca:
         settings:
           global:
             announcement: Avís
-          step:
-            announcement: Avís
+          phase:
+            announcement: Anunci/Avís
     open_data:
       help:
         pages:

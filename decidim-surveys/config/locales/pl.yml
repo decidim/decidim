@@ -16,8 +16,6 @@ pl:
         settings:
           global:
             announcement: Ogłoszenie
-          step:
-            announcement: Ogłoszenie
     events:
       surveys:
         survey_closed:

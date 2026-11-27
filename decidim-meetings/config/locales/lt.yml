@@ -137,8 +137,7 @@ lt:
             maps_enabled: Žemėlapiai įjungti
             resources_permissions_enabled: Kiekvienam posėdžiui galima nustatyti leistinus veiksmus
             terms_and_conditions_url_for_meeting_creators: Naudojimo taisyklių ir sąlygų URL susirinkimų kūrėjams
-          step:
-            announcement: Pranešimas
+          phase:
             comments_blocked: Komentarai užblokuoti
             creation_enabled_for_participants: Galimybė dalyviams rengti susirinkimus įjungta
     events:

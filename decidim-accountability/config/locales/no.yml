@@ -128,7 +128,7 @@
             comments_enabled: Kommentarer aktivert
             display_progress_enabled: Vis fremgang
             intro: Introduksjon
-          step:
+          phase:
             comments_blocked: Kommentarer blokkert
     events:
       accountability:

@@ -119,7 +119,7 @@ is-IS:
             comments_enabled: Athugasemdir virkt
             display_progress_enabled: Sýna framfarir
             intro: Intro
-          step:
+          phase:
             comments_blocked: Athugasemdir læst
     events:
       accountability:

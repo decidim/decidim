@@ -37,8 +37,7 @@ ko:
           global:
             announcement: 공지 사항
             comments_enabled: 댓글 활성화됨
-          step:
-            announcement: 공지 사항
+          phase:
             comments_blocked: 댓글 차단됨
     statistics:
       posts_count: 게시물

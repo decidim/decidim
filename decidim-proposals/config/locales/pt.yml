@@ -90,7 +90,6 @@ pt:
         settings:
           global:
             amendments_enabled: Modificações ativadas
-            amendments_enabled_help: Caso a opção esteja ativa, configure as características de Modificação para cada passo.
             amendments_wizard_help_text: Texto de ajuda do Assistente de Modificações
             announcement: Anúncio
             attachments_allowed: Permitir anexos
@@ -119,7 +118,7 @@ pt:
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
             threshold_per_proposal: Limiar por proposta
-          step:
+          phase:
             amendment_creation_enabled: Criação de modificação ativada
             amendment_creation_enabled_help: O participante pode modificar propostas.
             amendment_promotion_enabled: Promoção de modificação ativada
@@ -131,17 +130,8 @@ pt:
               all: As modificações estão visíveis para todos
               participants: As modificações estão apenas visíveis para os respetivos autores
             amendments_visibility_help: Caso esteja selecionada a opção "As modificações estão apenas visíveis para os respetivos autores", o participante deverá ter a sessão iniciada para ver as alterações efetuadas.
-            announcement: Anúncio
             answers_with_costs: Ativar custos nas respostas a propostas
             comments_blocked: Comentários bloqueados
-            default_sort_order: Ordenamento por defeitos das propostas
-            default_sort_order_options:
-              most_commented: Mais comentada
-              most_followed: Mais seguida
-              random: Aleatório
-              recent: Mais recentes
-              with_more_authors: Com mais autores
-            proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar as respostas às propostas imediatamente
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados

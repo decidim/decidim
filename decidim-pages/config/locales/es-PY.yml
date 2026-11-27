@@ -14,8 +14,6 @@ es-PY:
         settings:
           global:
             announcement: Aviso
-          step:
-            announcement: Aviso
     open_data:
       help:
         pages:

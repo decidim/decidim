@@ -119,14 +119,12 @@ sv:
           draft: Dokument granskas för närvarande av administratörerna. Ändringsförslag är inte tillåtna just nu, men du kan se förslag från andra deltagare.
           not_accepting_suggestions: Ändringsförslag är inte tillåtna just nu.
           selection_active: Ett urval är aktivt. Avbryt det aktuella urvalet för att göra ett nytt.
-        suggestions_count: "%{count} förslag"
         toggle: Visa/dölj förslag
       documents:
         index:
           count:
             one: "%{count} kollaborativ text"
             other: "%{count} kollaborativa texter"
-          empty: Det finns inga kollaborativa texter än.
         show:
           contributors: Medverkande
       models:
@@ -157,8 +155,6 @@ sv:
           global:
             announcement: Meddelande
             comments_blocked: Stäng av kommentarer
-          step:
-            announcement: Meddelande
     statistics:
       all_collaborative_texts_count: Alla kollaborativa texter
       collaborative_texts_count: Kollaborativa texter

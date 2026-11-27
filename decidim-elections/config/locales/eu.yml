@@ -32,7 +32,7 @@ eu:
         settings:
           global:
             announcement: Jakinarazpena
-          step:
+          phase:
             announcement: Jakinarazpena
     elections:
       actions:

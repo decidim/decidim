@@ -30,8 +30,7 @@ nl:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-          step:
-            announcement: Aankondiging
+          phase:
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Gebruikers kunnen debatten maken
     debates:

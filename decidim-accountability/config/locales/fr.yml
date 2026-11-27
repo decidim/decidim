@@ -311,7 +311,7 @@ fr:
             no_taxonomy_filters_found: Aucun filtre de taxonomie trouvé.
             taxonomy_filters: Sélectionner les filtres pour la fonctionnalité
             taxonomy_filters_add: Ajouter un filtre
-          step:
+          phase:
             comments_blocked: Bloquer la création de nouveaux commentaires
           visualization: Visualisation
     download_your_data:

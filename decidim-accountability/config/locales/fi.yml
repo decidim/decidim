@@ -310,7 +310,7 @@ fi:
             no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
-          step:
+          phase:
             comments_blocked: Kommentointi estetty
           visualization: Visualisointi
     download_your_data:

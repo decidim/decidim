@@ -14,8 +14,6 @@ tr:
         settings:
           global:
             announcement: duyuru
-          step:
-            announcement: duyuru
     pages:
       admin:
         models:

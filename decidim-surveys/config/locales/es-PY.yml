@@ -37,8 +37,6 @@ es-PY:
           announcement: Aviso
           global:
             announcement: Anuncio
-          step:
-            announcement: Anuncio
     events:
       surveys:
         survey_closed:

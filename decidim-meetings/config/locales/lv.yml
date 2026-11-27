@@ -64,8 +64,7 @@ lv:
             default_registration_terms: Noklusējuma reģistrācijas noteikumi
             enable_pads_creation: Iespējot kopdokumentu izveidi
             resources_permissions_enabled: Katrā sanāksmē var iestatīt darbības atļaujas
-          step:
-            announcement: Paziņojums
+          phase:
             comments_blocked: Komentāri ir bloķēti
     events:
       meetings:

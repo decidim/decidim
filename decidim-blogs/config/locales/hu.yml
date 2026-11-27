@@ -72,8 +72,7 @@ hu:
           global:
             announcement: Közlemény
             comments_enabled: Megjegyzések engedélyezve
-          step:
-            announcement: Közlemény
+          phase:
             comments_blocked: Megjegyzések letiltva
     events:
       blogs:

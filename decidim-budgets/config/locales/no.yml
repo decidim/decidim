@@ -199,15 +199,11 @@
             workflow_choices:
               all: 'Stemme i alt: gir deltakerne mulighet til å stemme på alle budsjetter.'
               one: 'Stem i én: gir deltakerne mulighet til å stemme på et hvilket som helst budsjett, men bare i ett.'
-          step:
-            announcement: Kunngjøring
+          phase:
             comments_blocked: Kommentarer blokkert
             highlighted_heading: Uthevet overskrift
-            landing_page_content: Landingsside budsjett
             list_heading: Liste overskrift
-            more_information_modal: Mer informasjon
             show_votes: Vis stemmer
-            title: Tittel
             votes: Stemmegivning
             votes_choices:
               disabled: Stemmegivning deaktivert

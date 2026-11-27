@@ -101,10 +101,17 @@ fi:
       document:
         apply: Hyväksy
         cancel: Peruuta
+        card_status:
+          accepting_suggestions: Muutosehdotuksia otetaan vastaan
+          draft: Tarkastuksessa
+          not_accepting_suggestions: Muutosehdotuksia ei oteta vastaan
         consolidate:
           confirm: Tämä toiminto yhdistää kaikki hyväksytyt muutosehdotukset tämän tekstin uudeksi versioksi. Hyväksymättömät muutokset siirretään uuteen versioon jatkoarviointia varten. Tämä toiminto pitää muutosehdotukset toiminnassa tälle tekstille.
           new: Yhdistä hyväksytyt muutosehdotukset
         consolidate_counter: Yhdistystoiminto yhdistää %{applied} hyväksyttyä muutosehdotusta ja siirtää %{pending} odottavaa muutosehdotusta uuteen versioon.
+        contributors_count:
+          one: "%{count} osallistuja"
+          other: "%{count} osallistujaa"
         controls_label: Muutosehdotuksen toiminnot
         draft_counter: Luonnostoiminto yhdistää %{applied} hyväksyttyä muutosehdotusta ja hylkää %{pending} odottavaa muutosehdotusta.
         index: Sisällys
@@ -119,14 +126,22 @@ fi:
           draft: Tämä teksti on parhaillaan hallintakäyttäjien arvioitavana parhaillaan. Ehdotuksia ei sallita arvioinnin aikana, mutta voit tarkastella muiden osallistujien tekemiä muutosehdotuksia.
           not_accepting_suggestions: Muutosehdotuksia ei oteta vastaan tällä hetkellä.
           selection_active: Valinta on jo tehty. Paina peruuta nykyisestä valinnastasi, mikäli haluat tehdä uuden valinnan.
-        suggestions_count: "%{count} muutosehdotusta"
+        suggestions_count:
+          one: "%{count} muutosehdotus"
+          other: "%{count} muutosehdotusta"
         toggle: Näytä/piilota muutosehdotukset
       documents:
+        filters:
+          all: Kaikki
+          state: Tila
+          state_values:
+            accepting_suggestions: Muutosehdotuksia otetaan vastaan
+            not_accepting_suggestions: Muutosehdotuksia ei oteta vastaan
         index:
           count:
             one: "%{count} yhteistyöteksti"
             other: "%{count} yhteistyötekstiä"
-          empty: Yhteistyötekstejä ei ole vielä luotu.
+          empty: Yhtään yhteistyötekstiä ei löytynyt hakukriteereilläsi.
         show:
           contributors: Osallistujat
       models:
@@ -157,7 +172,7 @@ fi:
           global:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
-          step:
+          phase:
             announcement: Ilmoitus
     statistics:
       all_collaborative_texts_count: Kaikki yhteistyötekstit

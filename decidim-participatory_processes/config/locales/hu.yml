@@ -41,14 +41,9 @@ hu:
         participatory_structure: Hogyan születik döntés
         target: Résztvevők
         title: Cím
-      participatory_process_step:
+      participatory_process_phase:
         cta_path: Cselekvésre való felhívás útvonala
         cta_text: Cselekvésre való felhívás szövege
-        description: Leírás
-        end_date: Befejezés dátuma
-        short_description: Rövid leírás
-        start_date: Kezdő dátum
-        title: Cím
       participatory_process_user_role:
         email: Email
         name: Név
@@ -60,8 +55,8 @@ hu:
             document:
               allowed_file_content_types: 'Érvénytelen dokumentumtípus. Csak a következő kiterjesztésű fájlok engedélyezettek: %{types}'
     models:
-      decidim/participatory_process_step_activated_event: Fázis aktiválva
-      decidim/participatory_process_step_changed_event: Fázis megváltozott
+      decidim/participatory_process_phase_activated_event: Fázis aktiválva
+      decidim/participatory_process_phase_changed_event: Fázis megváltozott
   activerecord:
     models:
       decidim/participatory_process:
@@ -70,7 +65,7 @@ hu:
       decidim/participatory_process_group:
         one: Részvételi folyamatok csoport
         other: Részvételi folyamatok csoportjai
-      decidim/participatory_process_step:
+      decidim/participatory_process_phase:
         one: Fázis
         other: Fázisok
   decidim:
@@ -84,7 +79,7 @@ hu:
         import_process: Importál
         new_process: Új folyamat
         new_process_group: Új folyamat csoport
-        new_process_step: Új fázis
+        new_process_phase: Új fázis
         new_process_user_role: Új folyamat adminisztrátor
         preview: Előnézet
         publish: Közzétesz
@@ -99,8 +94,8 @@ hu:
           attachments: Mellékletek
           components: Elemek
           moderations: Moderálások
+          phases: Fázisok
           process_admins: Folyamat adminisztrátorok
-          steps: Fázisok
       models:
         participatory_process:
           fields:
@@ -112,11 +107,7 @@ hu:
           fields:
             title: Cím
           name: Folyamat csoport
-        participatory_process_step:
-          fields:
-            end_date: Befejezés dátuma
-            start_date: Kezdő dátum
-            title: Cím
+        participatory_process_phase:
           name: Részvételi folyamat fázis
         participatory_process_user_role:
           fields:
@@ -149,6 +140,24 @@ hu:
         new:
           import: Importál
           select: Válaszd ki, mely adatokat szeretnéd importálni
+      participatory_process_phase_activations:
+        create:
+          error: Hiba történt a részvételi folyamat fázisának aktiválásakor.
+          success: Részvételi folyamat fázis aktiválása sikeres.
+      participatory_process_phases:
+        create:
+          error: Hiba történt egy új részvételi folyamat fázis létrehozásakor.
+          success: Részvételi folyamat fázis létrehozása sikeres.
+        default_title: Bevezetés
+        destroy:
+          error:
+            active_phase: Nem lehet törölni az aktív fázist.
+            last_phase: Nem lehet törölni egy folyamat utolsó fázisát.
+          success: Sikerült törölni a részvételi folyamat fázisát.
+        ordering:
+          error: Hiba történt a részvételi folyamat fázisainak átrendezése során.
+        update:
+          error: Hiba történt a részvételi folyamat fázisainak frissítése során.
       participatory_process_publications:
         create:
           error: Hiba történt a részvételi folyamat közzététele során.
@@ -156,28 +165,6 @@ hu:
         destroy:
           error: Hiba a részvételi folyamat közzétételének visszavonásakor.
           success: Részvételi folyamat közzététele visszavonva.
-      participatory_process_step_activations:
-        create:
-          error: Hiba történt a részvételi folyamat fázisának aktiválásakor.
-          success: Részvételi folyamat fázis aktiválása sikeres.
-      participatory_process_steps:
-        create:
-          error: Hiba történt egy új részvételi folyamat fázis létrehozásakor.
-          success: Részvételi folyamat fázis létrehozása sikeres.
-        default_title: Bevezetés
-        destroy:
-          error:
-            active_step: Nem lehet törölni az aktív fázist.
-            last_step: Nem lehet törölni egy folyamat utolsó fázisát.
-          success: Sikerült törölni a részvételi folyamat fázisát.
-        edit:
-          update: Frissítés
-        new:
-          create: Létrehozás
-        ordering:
-          error: Hiba történt a részvételi folyamat fázisainak átrendezése során.
-        update:
-          error: Hiba történt a részvételi folyamat fázisainak frissítése során.
       participatory_process_user_roles:
         create:
           error: Hiba a felhasználó részvételi folyamathoz való hozzáadásakor.
@@ -224,7 +211,7 @@ hu:
       participatory_process_group:
         create: "%{user_name} frissítette a(z) %{resource_name} részvételi folyamatcsoportot"
         update: "%{user_name} frissítette a(z) %{resource_name} részvételi folyamatcsoportot"
-      participatory_process_step:
+      participatory_process_phase:
         activate: "%{user_name} aktiválta a(z) %{resource_name} fázist a(z) %{space_name} részvételi folyamatban"
         create: "%{user_name} létrehozta a(z) %{resource_name} fázis a(z) %{space_name} részvételi folyamatban"
         delete: "%{user_name} törölte a(z) %{resource_name} fázist a(z) %{space_name} részvételi folyamatból"
@@ -235,21 +222,21 @@ hu:
         update: "%{user_name} megváltoztatta %{resource_name} szerepét a(z) %{space_name} részvételi folyamatban"
     events:
       participatory_process:
+        phase_activated:
+          email_intro: 'A(z) %{resource_title} fázis aktiválva itt: %{participatory_space_title}. További részleteket itt találsz:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) %{resource_title} fázis aktiválva ehhez: <a href="%{resource_path}">%{participatory_space_title}</a>'
+        phase_changed:
+          email_intro: 'A(z) %{resource_title} fázis időpontjai frissítve ehhez: %{participatory_space_title}. További részleteket itt találsz:'
+          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
+          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
+          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> fázis időpontjai frissítve ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
         role_assigned:
           email_intro: Önt a(z) %{role} szerephez rendelték a következő részvételi folyamatban "%{resource_title}".
           email_outro: Azért kapta ezt az értesítést, mert a(z) "%{resource_title}" részvételi folyamatban ön %{role}.
           email_subject: 'Önt a(z) %{role} szerephez rendelték itt: "%{resource_title}".'
           notification_title: 'A(z) %{role} szerephez rendelték a részvételi folyamatban: <a href="%{resource_url}">%{resource_title}</a>.'
-        step_activated:
-          email_intro: 'A(z) %{resource_title} fázis aktiválva itt: %{participatory_space_title}. További részleteket itt találsz:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
-          notification_title: 'A(z) %{resource_title} fázis aktiválva ehhez: <a href="%{resource_path}">%{participatory_space_title}</a>'
-        step_changed:
-          email_intro: 'A(z) %{resource_title} fázis időpontjai frissítve ehhez: %{participatory_space_title}. További részleteket itt találsz:'
-          email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
-          email_subject: 'Frissítés ehhez: %{participatory_space_title}'
-          notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> fázis időpontjai frissítve ehhez: <a href="%{participatory_space_url}">%{participatory_space_title}</a>.'
     help:
       participatory_spaces:
         participatory_processes:
@@ -277,9 +264,9 @@ hu:
             other: "%{count} folyamat"
       show:
         title: Részvételi folyamat csoportok
-    participatory_process_steps:
+    participatory_process_phases:
       index:
-        process_steps: Folyamat fázisok
+        process_phases: Folyamat fázisok
     participatory_processes:
       admin:
         content_blocks:
@@ -295,6 +282,9 @@ hu:
         participatory_process_imports:
           form:
             document_legend: Dokumentum hozzáadása
+        participatory_process_phases:
+          index:
+            title: Fázisok
         participatory_processes:
           form:
             duration: Időtartam
@@ -353,7 +343,7 @@ hu:
         index:
           promoted_processes: Kiemelt folyamatok
         participatory_process:
-          active_step: 'Aktuális fázis:'
+          active_phase: 'Aktuális fázis:'
           more_info: Több információ
           more_info_about: További információ a(z) %{resource_name} folyamatról
           take_part: Vegyél részt

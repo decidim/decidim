@@ -30,12 +30,6 @@ bg:
               bar: Нещо1
               baz: Baz
               foo: Нещо2
-          step:
-            readonly_step_attribute: Само за четене стъпков атрибут
-            test_options:
-              bar: Нещо1
-              baz: Baz
-              foo: Нещо2
     dummy:
       admin:
         exports:

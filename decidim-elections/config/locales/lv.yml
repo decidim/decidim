@@ -18,8 +18,6 @@ lv:
         settings:
           global:
             announcement: Paziņojums
-          step:
-            announcement: Paziņojums
     elections:
       actions:
         preview: Priekšskatīt

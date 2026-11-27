@@ -41,8 +41,6 @@ sk:
           announcement: Oznámenie
           global:
             announcement: Oznámenie
-          step:
-            announcement: Oznámenie
     events:
       surveys:
         survey_closed:

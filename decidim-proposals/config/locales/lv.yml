@@ -62,7 +62,6 @@ lv:
         settings:
           global:
             amendments_enabled: Grozījumi ir iespējoti
-            amendments_enabled_help: Ja aktīvs, tad konfigurējiet grozījumu iespējas katram solim.
             amendments_wizard_help_text: Grozījumu vedņa palīdzības teksts
             announcement: Paziņojums
             attachments_allowed: Atļaut pielikumus
@@ -80,7 +79,7 @@ lv:
             proposal_wizard_step_1_help_text: Priekšlikumu vedņa „Izveidot” soļa palīdzības teksts
             resources_permissions_enabled: Katram priekšlikumam var iestatīt darbības atļaujas
             threshold_per_proposal: Slieksnis vienam priekšlikumam
-          step:
+          phase:
             amendment_creation_enabled: Grozījumu izveide ir iespējota
             amendment_creation_enabled_help: Dalībnieks var grozīt priekšlikumus.
             amendment_promotion_enabled: Grozījumu atbalstīšana ir iespējota
@@ -92,10 +91,8 @@ lv:
               all: Grozījumi ir redzami visiem
               participants: Grozījumi ir redzami tikai to autoriem
             amendments_visibility_help: Ja ir atlasīta opcija „Grozījumi ir redzami tikai to autoriem”, dalībniekam jāpierakstās, lai redzētu veiktos grozījumus.
-            announcement: Paziņojums
             answers_with_costs: Iespējot izmaksas priekšlikumu atbildēs
             comments_blocked: Komentāri ir bloķēti
-            proposal_answering_enabled: Atbilde uz priekšlikumiem ir iespējota
             publish_answers_immediately: Nekavējoties publicēt atbildes uz priekšlikumiem
     events:
       proposals:

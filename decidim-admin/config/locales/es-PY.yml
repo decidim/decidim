@@ -332,9 +332,7 @@ es-PY:
           title: Editar componente
           update: Actualizar
         form:
-          default_step_settings: Configuraciones de paso predeterminadas
           global_settings: Ajustes globales
-          step_settings: Configuración de paso
         hide:
           success: El componente se ha ocultado correctamente del menú.
         index:

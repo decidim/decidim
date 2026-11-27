@@ -24,12 +24,6 @@
               bar: Felt
               baz: Baz
               foo: Foo
-          step:
-            readonly_step_attribute: Skrivebeskyttet trinn-attributt
-            test_options:
-              bar: Felt
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:

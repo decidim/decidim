@@ -101,10 +101,17 @@ gl:
       document:
         apply: Aplicar
         cancel: Cancelar
+        card_status:
+          accepting_suggestions: Aceptando suxestións
+          draft: En reseña
+          not_accepting_suggestions: Non aceptando suxestións
         consolidate:
           confirm: Esta acción consolidará todas as suxestións aceptadas nunha nova versión do documento. As suxestións non aceptadas transferiranse á nova versión para revisalas máis adiante. Manterase o estado de suxestións activadas.
           new: Consolidar suxestións aceptadas
         consolidate_counter: A consolidación combinará as %{applied} suxestións aplicadas e moverá as %{pending} pendentes á nova versión.
+        contributors_count:
+          one: "%{count} colaborador"
+          other: "%{count} colaboradores"
         controls_label: Controis das suxestións
         draft_counter: O borrador combinará as %{applied} suxestións aplicadas e descartará as %{pending} pendentes.
         index: Índice
@@ -119,14 +126,22 @@ gl:
           draft: Este documento está a ser revisado polo equipo de administración. Neste momento non se permiten suxestións, pero podes ver as realizadas por outras persoas participantes.
           not_accepting_suggestions: Neste momento non se permiten suxestións.
           selection_active: Hai unha selección activa. Cancela a selección actual para facer unha nova.
-        suggestions_count: "%{count} suxestións"
+        suggestions_count:
+          one: ""
+          other: "%{count} suxestións"
         toggle: Mostrar/ocultar suxestións
       documents:
+        filters:
+          all: Todo
+          state: Estado
+          state_values:
+            accepting_suggestions: Aceptando suxestións
+            not_accepting_suggestions: Non aceptando suxestións
         index:
           count:
             one: "%{count} texto colaborativo"
             other: "%{count} textos colaborativos"
-          empty: Aínda non hai textos colaborativos.
+          empty: Non hai textos colaborativos que coincidan cos teus criterios de busca.
         show:
           contributors: Persoas colaboradoras
       models:
@@ -157,8 +172,6 @@ gl:
           global:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
-          step:
-            announcement: Aviso
     statistics:
       all_collaborative_texts_count: Todos os textos colaborativos
       collaborative_texts_count: Textos colaborativos

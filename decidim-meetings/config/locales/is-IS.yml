@@ -36,8 +36,7 @@ is-IS:
             announcement: Tilkynning
             comments_enabled: Athugasemdir virkt
             default_registration_terms: Sjálfgefin skráningarskilmálar
-          step:
-            announcement: Tilkynning
+          phase:
             comments_blocked: Athugasemdir læst
     events:
       meetings:

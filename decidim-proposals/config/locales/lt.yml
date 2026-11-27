@@ -107,7 +107,6 @@ lt:
         settings:
           global:
             amendments_enabled: Pataisos leidžiamos
-            amendments_enabled_help: Jeigu jie aktyvūs, sukonfigūruokite kiekvieno etapo pakeitimo požymius.
             amendments_wizard_help_text: Pakeitimų vedlio pagalbos tekstas
             announcement: Pranešimas
             attachments_allowed: Leisti failų prisegimus
@@ -136,7 +135,7 @@ lt:
             proposal_wizard_step_1_help_text: Pasiūlymo vedlio etapo „Sukurti“ pagalbos tekstas
             resources_permissions_enabled: Kiekvienam pasiūlymui galima nustatyti leistinus veiksmus
             threshold_per_proposal: Vienam pasiūlymui nustatyta riba
-          step:
+          phase:
             amendment_creation_enabled: Pataisų kūrimas leidžiamas
             amendment_creation_enabled_help: Dalyvis gali pataisyti pasiūlymus.
             amendment_promotion_enabled: Pataisų paaukštinimai įjungti
@@ -148,19 +147,10 @@ lt:
               all: Pataisos matomos visiems
               participants: Pakeitimai matomi tik jų autoriams
             amendments_visibility_help: Jeigu pasirenkama „Pakeitimai matomi tik jų autoriams“, dalyvis turi būti prisijungęs, kad galėtų matyti padarytus pakeitimus.
-            announcement: Pranešimas
             answers_with_costs: Įjungti atsakymų į pasiūlymus išlaidų funkciją
             comments_blocked: Komentarai užblokuoti
             creation_enabled: Dalyviai gali kurti pasiūlymus
             creation_enabled_readonly: Šis nustatymas išjungiamas, kai suaktyvinate Dalyvaujančių Tekstų funkciją. Norėdami įkelti pasiūlymus kaip dalyvaujamąjį tekstą, spustelėkite mygtuką Dalyvaujantys Tekstai ir vadovaukitės instrukcijomis.
-            default_sort_order: Numatytasis pasiūlymų rūšiavimas
-            default_sort_order_options:
-              most_commented: Labiausiai komentuojamas
-              most_followed: Labiausiai sekamas
-              random: Atsitiktinis
-              recent: Naujausi
-              with_more_authors: Turintys daug autorių
-            proposal_answering_enabled: Atsakymas į pasiūlymą suaktyvintas
             publish_answers_immediately: Skelbti atsakymus į pasiūlymius nedelsiant
             publish_answers_immediately_help_html: 'Atminkite, kad jei atsakysite į bet kurį pasiūlymą neįjungę šio funkcijos, turėsite atsakymus paskelbti rankiniu būdu, pasirinkdami ir naudodami paskelbimo veiksmą. Norėdami gauti daugiau informacijos apie tai, kaip tai veikia, aplankykite <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">pasiūlymų atsakymų dokumentacijos puslapį</a >.'
     events:

@@ -29,8 +29,7 @@ zh-TW:
           global:
             announcement: 公告
             comments_enabled: 啟用評論功能
-          step:
-            announcement: 公告
+          phase:
             comments_blocked: 留言已封鎖
             creation_enabled: 參與者可以建立辯論
     debates:

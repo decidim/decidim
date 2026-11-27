@@ -171,15 +171,11 @@ pt:
             workflow_choices:
               all: 'Votar em todos: permite aos participantes de votar em todos os orçamentos.'
               one: 'Votar num: permite aos participantes de votar em qualquer orçamento, mas apenas em num.'
-          step:
-            announcement: Anúncio
+          phase:
             comments_blocked: Comentários bloqueados
             highlighted_heading: Cabeçalho destacado
-            landing_page_content: Página de entrada dos orçamentos
             list_heading: Cabeçalho da lista
-            more_information_modal: Mais informações modal
             show_votes: Mostrar votos
-            title: Título
             votes: Votação
             votes_choices:
               disabled: Votação desactivada

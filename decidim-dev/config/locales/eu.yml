@@ -35,12 +35,12 @@ eu:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: Atsegin dut blokeatuta
             likes_enabled: Atsegin dut gaituta
-            readonly_step_attribute: Soilik irakurtzeko atributua
+            readonly_phase_attribute: Soilik irakurtzeko atributua
             test_options:
-              bar: Bar
+              bar: Barra
               baz: Baz
               foo: Foo
     dummy:

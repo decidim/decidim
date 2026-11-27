@@ -19,8 +19,6 @@ it:
         settings:
           global:
             announcement: Annuncio
-          step:
-            announcement: Annuncio
     elections:
       actions:
         preview: Anteprima

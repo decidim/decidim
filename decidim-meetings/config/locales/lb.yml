@@ -87,8 +87,7 @@ lb:
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
-          step:
-            announcement: Ankündigung
+          phase:
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
     events:

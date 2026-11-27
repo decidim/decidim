@@ -16,8 +16,6 @@ lt:
         settings:
           global:
             announcement: Pranešimas
-          step:
-            announcement: Pranešimas
     pages:
       admin:
         models:

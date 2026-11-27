@@ -163,7 +163,6 @@ gl:
         settings:
           global:
             amendments_enabled: Modificacións habilitadas
-            amendments_enabled_help: Se está activado, configura as funcións de emenda para cada fase.
             amendments_wizard_help_text: Texto de axuda do asistente de emendas
             announcement: Anuncio
             attachments_allowed: Permitir anexos
@@ -218,7 +217,7 @@ gl:
             taxonomy_filters_add: Engadir filtro
             threshold_per_proposal: Umbral por proposta
             vote_limit: Límite de apoios por participante
-          step:
+          phase:
             amendment_creation_enabled: Creación de emendas activada
             amendment_creation_enabled_help: As persoas participantes poden emendar propostas.
             amendment_promotion_enabled: Promoción de emendas activada
@@ -230,25 +229,12 @@ gl:
               all: As emendas son visibles para todas as persoas
               participants: As emendas só son visibles para a súa autoría
             amendments_visibility_help: Se se selecciona «As emendas só son visibles para a súa autoría», a persoa participante debe iniciar sesión para velas.
-            announcement: Anuncio
             answers_with_costs: Activar custos nas respostas ás propostas
             comments_blocked: Comentarios bloqueados
             creation_enabled: Os participantes poden crear propostas
             creation_enabled_readonly: Esta configuración desactívase ao activar a funcionalidade de textos participativos. Para cargar propostas como texto participativo, preme o botón Textos participativos e segue as instrucións.
-            default_sort_order: Orde predefinido das propostas
-            default_sort_order_help: Automático significa que, se os apoios están activados, as propostas mostraranse en orde aleatoria e, se están bloqueados, ordenaranse polas máis apoiadas.
-            default_sort_order_options:
-              automatic: Automático
-              most_commented: Máis comentadas
-              most_followed: Máis seguidas
-              most_liked: Con máis «Gústame»
-              most_voted: Máis apoiadas
-              random: Ao chou
-              recent: Recentes
-              with_more_authors: Con máis autores
             likes_blocked: '«Gústame» bloqueados'
             likes_enabled: '«Gústame» activados'
-            proposal_answering_enabled: Contestando a proposta habilitada
             publish_answers_immediately: Publicar inmediatamente as respostas ás propostas
             publish_answers_immediately_help_html: 'Ten en conta que, se respondes unha proposta sen isto activado, deberás publicar a resposta manualmente seleccionándoa e usando a acción de publicación. Para máis información, consulta a <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">documentación sobre respostas ás propostas</a>.'
             votes_blocked: Votos bloqueados

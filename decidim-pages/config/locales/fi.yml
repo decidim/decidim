@@ -14,7 +14,7 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
-          step:
+          phase:
             announcement: Ilmoitus
     open_data:
       help:

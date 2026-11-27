@@ -96,7 +96,6 @@ it:
         settings:
           global:
             amendments_enabled: Emendamenti abilitati
-            amendments_enabled_help: Se attivo, configura le caratteristiche di emendamento per ogni passo.
             amendments_wizard_help_text: Creazione guidata emendamenti
             announcement: Annuncio
             attachments_allowed: Consenti allegati
@@ -121,7 +120,7 @@ it:
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             resources_permissions_enabled: Le autorizzazioni delle azioni possono essere impostate per ogni proposta
             threshold_per_proposal: Voti necessari per l'approvazione della proposta
-          step:
+          phase:
             amendment_creation_enabled: Creazione di emendamenti abilitata
             amendment_creation_enabled_help: I partecipanti possono modificare le proposte.
             amendment_promotion_enabled: Promozione dell'emendamento abilitata
@@ -133,11 +132,9 @@ it:
               all: Gli emendamenti sono visibili a tutti
               participants: Gli emendamenti sono visibili solo ai loro autori
             amendments_visibility_help: Se viene selezionata l'opzione "Gli emendamenti sono visibili solo ai loro autori", il partecipante deve essere loggato per vedere gli emendamenti apportati.
-            announcement: Annuncio
             answers_with_costs: Abilita i costi sulle risposte proposte
             comments_blocked: Commenti bloccati
             creation_enabled: I partecipanti possono creare proposte
-            proposal_answering_enabled: Risposta alla proposta abilitata
             publish_answers_immediately: Pubblica immediatamente le risposte proposte
             votes_blocked: Voti bloccati
             votes_enabled: Voti abilitati

@@ -35,14 +35,9 @@ de:
               bar: Bar
               baz: Baz
               foo: Foo
-          step:
+          phase:
             likes_blocked: Unterstützungsfunktion gesperrt
             likes_enabled: Unterstützungsfunktion aktiviert
-            readonly_step_attribute: Schritt-Attribut schreibgeschützt
-            test_options:
-              bar: Bar
-              baz: Baz
-              foo: Foo
     dummy:
       admin:
         exports:

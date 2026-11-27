@@ -223,9 +223,7 @@
           title: Rediger komponent
           update: Oppdater
         form:
-          default_step_settings: Standard trinn innstillinger
           global_settings: Globale innstillinger
-          step_settings: Trinninnstillinger
         index:
           add: Legg til komponent
           headers:

@@ -272,9 +272,7 @@ bg:
           title: Редактиране на компонента
           update: Актуализация
         form:
-          default_step_settings: Настройки на стъпките по подразбиране
           global_settings: Глобални настройки
-          step_settings: Настройки на стъпките
         hide:
           success: Компонентът е успешно скрит от менюто.
         index:

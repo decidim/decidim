@@ -490,7 +490,7 @@ eu:
             workflow_choices:
               all: 'Bozkatu guztietan: utzi parte-hartzaileei aurrekontu guztietan babesa ematen.'
               one: 'Aurrekontu bakarrean babesa eman: parte-hartzaileei edozein aurrekontutan babesa emateko aukera ematen die, baina bakar batean soilik.'
-          step:
+          phase:
             announcement: Jakinarazpena
             comments_blocked: Iruzkinak blokeatuta
             highlighted_heading: Goiburu nabarmendua

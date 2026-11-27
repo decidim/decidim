@@ -310,7 +310,7 @@ eu:
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             taxonomy_filters: Osagairako iragazkiak hautatu
             taxonomy_filters_add: Erantsi iragazkia
-          step:
+          phase:
             comments_blocked: Iruzkinak blokeatuta
           visualization: Bistaratzea
     download_your_data:

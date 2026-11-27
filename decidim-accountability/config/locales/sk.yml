@@ -324,7 +324,7 @@ sk:
             no_taxonomy_filters_found: Nenašli sa žiadne filtre taxonómie.
             taxonomy_filters: Vyberte filtre pre komponent
             taxonomy_filters_add: Pridať filter
-          step:
+          phase:
             comments_blocked: Zablokované komentáre
           visualization: Vizualizácia
     download_your_data:

@@ -94,7 +94,6 @@ tr:
         settings:
           global:
             amendments_enabled: Değişiklikler etkinleştirildi
-            amendments_enabled_help: Etkinse, her adım için Değişiklik özelliklerini yapılandırın.
             amendments_wizard_help_text: Değişiklik Sihirbazı yardım metni
             announcement: Duyuru
             attachments_allowed: Eklere izin ver
@@ -113,7 +112,7 @@ tr:
             proposal_wizard_step_2_help_text: Teklif "Yayınlama"  sihirbazı  yardım metni
             resources_permissions_enabled: Her teklif için işlem izinleri ayarlanabilir
             threshold_per_proposal: Teklif başına eşik
-          step:
+          phase:
             amendment_creation_enabled: Değişiklik oluşturma etkinleştirildi
             amendment_creation_enabled_help: Katılımcı teklifleri değiştirebilir.
             amendment_promotion_enabled: Değişiklik tanıtımı etkinleştirildi
@@ -125,10 +124,8 @@ tr:
               all: Değişiklikler herkes tarafından görülebilir
               participants: Değişiklikler yalnızca yazarları tarafından görülebilir
             amendments_visibility_help: '"Değişiklikler sadece yazarları tarafından görülebilir" seçeneği seçilirse, yapılan değişiklikleri görmek için katılımcının oturum açması gerekir.'
-            announcement: Duyuru
             answers_with_costs: Teklif yanıtlarında maliyetleri etkinleştirin
             comments_blocked: Yorumlar engellendi
-            proposal_answering_enabled: Teklif yanıtlama etkin
             publish_answers_immediately: Teklif yanıtlarını hemen yayınlayın
     events:
       proposals:

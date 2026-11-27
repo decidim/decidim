@@ -172,7 +172,6 @@ cs:
         settings:
           global:
             amendments_enabled: Pozměňovací návrhy povoleny
-            amendments_enabled_help: Pokud je aktivní, nastavte funkce změny pro každý krok.
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
@@ -227,7 +226,7 @@ cs:
             taxonomy_filters_add: Přidat filtr
             threshold_per_proposal: Prah na návrh
             vote_limit: Limit hlasů na účastníka
-          step:
+          phase:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
             amendment_promotion_enabled: Propagace pozměňování byla povolena
@@ -239,25 +238,12 @@ cs:
               all: Pozměňovací návrhy jsou viditelné pro všechny
               participants: Pozměňovací návrhy jsou viditelné pouze pro jejich autory
             amendments_visibility_help: Pokud je zvolena možnost "pozměňovací návrhy jsou viditelné pouze jejich autorům", musí být účastník přihlášen, aby se seznámil s provedenými pozměňovacími návrhy.
-            announcement: Oznámení
             answers_with_costs: Povolit finanční náklady v odpovědích k návrhu
             comments_blocked: Komentáře byly blokovány
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
-            default_sort_order: Výchozí řazení návrhu
-            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
-            default_sort_order_options:
-              automatic: Automaticky
-              most_commented: Nejvíce komentované
-              most_followed: Nejvíce sledované
-              most_liked: Nejoblíbenější
-              most_voted: Nejvíce hlasovalo
-              random: Náhodně
-              recent: Nedávné
-              with_more_authors: S více autory
             likes_blocked: Líbí se mi zablokováno
             likes_enabled: Líbí se mi povoleno
-            proposal_answering_enabled: Odpovídání návrhu je povoleno
             publish_answers_immediately: Okamžitě publikovat odpovědi návrhu
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             votes_blocked: Hlasy blokovány

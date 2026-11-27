@@ -253,9 +253,7 @@ ar:
           title: تحرير المكون
           update: تحديث
         form:
-          default_step_settings: إعدادات الخطوة الافتراضية
           global_settings: الاعدادات العامة
-          step_settings: إعدادات الخطوة
         index:
           add: إضافة عنصر
           headers:

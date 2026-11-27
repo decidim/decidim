@@ -101,10 +101,17 @@ es:
       document:
         apply: Aplicar
         cancel: Cancelar
+        card_status:
+          accepting_suggestions: Aceptando sugerencias
+          draft: En revisión
+          not_accepting_suggestions: No aceptando sugerencias
         consolidate:
           confirm: Esta acción consolidará todas las sugerencias aceptadas en una nueva versión del documento. Las sugerencias no aceptadas serán transferidas a la nueva versión para su posterior revisión. Esta acción mantendrá las sugerencias habilitadas.
           new: Consolidar sugerencias aceptadas
         consolidate_counter: Al consolidar se combinarán las %{applied} sugerencias aplicadas y se moverán las %{pending} sugerencias pendientes a la nueva versión.
+        contributors_count:
+          one: "{count} colaboradora"
+          other: "%{count} colaboradoras"
         controls_label: Controles de las sugerencias
         draft_counter: El borrador combinará las sugerencias aplicadas a %{applied} y descartará las sugerencias pendientes a %{pending}.
         index: Índice
@@ -119,14 +126,22 @@ es:
           draft: Actualmente, este documento está siendo revisado por las administradoras. No se pueden hacer sugerencias en este momento, pero puedes ver sugerencias hechas por otras participantes.
           not_accepting_suggestions: Las sugerencias no están permitidas en este momento.
           selection_active: Una selección está activa. Por favor, cancela la selección actual para crear una nueva.
-        suggestions_count: "%{count} sugerencias"
+        suggestions_count:
+          one: "%{count} sugerencia"
+          other: "%{count} sugerencias"
         toggle: Mostrar u ocultar las sugerencias
       documents:
+        filters:
+          all: Todos
+          state: Estado
+          state_values:
+            accepting_suggestions: Aceptando sugerencias
+            not_accepting_suggestions: No aceptando sugerencias
         index:
           count:
             one: "%{count} texto colaborativo"
             other: "%{count} textos colaborativos"
-          empty: Todavía no hay ningún texto colaborativo.
+          empty: Ningún texto colaborativo coincide con tus criterios de búsqueda.
         show:
           contributors: Contribuidoras
       models:
@@ -157,8 +172,8 @@ es:
           global:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
-          step:
-            announcement: Aviso
+          phase:
+            announcement: Anuncio/Aviso
     statistics:
       all_collaborative_texts_count: Todos los textos colaborativos
       collaborative_texts_count: Textos colaborativos
