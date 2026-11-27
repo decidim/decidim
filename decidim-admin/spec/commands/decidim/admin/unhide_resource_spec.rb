@@ -72,7 +72,7 @@ module Decidim::Admin
       let!(:comment) { create(:comment, commentable: reportable, author: current_user) }
       let!(:comment_moderation) { create(:moderation, reportable: comment, report_count: 1, hidden_at: Time.current) }
 
-      let(:command) { described_class.new(comment, current_user) }
+      let(:command) { described_class.new(comment.reload, current_user) }
 
       it "broadcasts ok" do
         expect { command.call }.to broadcast(:ok)

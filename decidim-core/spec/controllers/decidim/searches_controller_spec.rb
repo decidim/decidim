@@ -20,8 +20,8 @@ module Decidim
         let!(:results) do
           now = Time.current
           [
-            create(:searchable_resource, organization:, content_a: "Great proposal of mine", datetime: now + 1.second),
-            create(:searchable_resource, organization:, content_a: "The greatest place of the world", datetime: now)
+            create(:searchable_resource, organization:, decidim_participatory_space: component.participatory_space, content_a: "Great proposal of mine", datetime: now + 1.second),
+            create(:searchable_resource, organization:, decidim_participatory_space: component.participatory_space, content_a: "The greatest place of the world", datetime: now)
           ]
         end
 

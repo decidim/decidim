@@ -4,30 +4,45 @@ require "spec_helper"
 
 describe Decidim::Search do
   let(:current_organization) { create(:organization) }
+  let(:participatory_space) { create(:participatory_process, organization: current_organization) }
 
   context "with resources from different organizations" do
     let(:other_organization) { create(:organization) }
+    let(:participatory_space) { create(:participatory_process, :active, organization: current_organization) }
     let(:term) { "fire" }
     let(:fake_type) { "Decidim::Organization" } # a type that is not searchable
     let!(:result) do
-      create(:searchable_resource, organization: current_organization, content_a: "Fight fire with fire")
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, content_a: "Fight fire with fire")
+    end
+    let!(:result_without_space) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: nil, content_a: "Fight fire with fire")
     end
     let!(:non_searchable_resource) do
       create(:searchable_resource, organization: current_organization, resource_type: fake_type, content_a: "Where is your crown king nothing?")
     end
 
     before do
-      create(:searchable_resource, organization: other_organization, content_a: "Light my fire")
+      create(:searchable_resource, organization: other_organization, decidim_participatory_space: nil, content_a: "Light my fire")
+      create(
+        :searchable_resource,
+        organization: other_organization,
+        decidim_participatory_space: create(:participatory_process, :active, organization: other_organization),
+        content_a: "Light my fire"
+      )
     end
 
-    it "returns resources only from current_organization" do
-      described_class.call(term, current_organization) do
-        on(:ok) do |results_by_type|
-          results = results_by_type["Decidim::Dev::DummyResource"]
-          expect(results[:count]).to eq(1)
-          expect(results[:results].first).to eq(result.resource)
+    ["", "active"].each do |space_state|
+      it "returns resources only from current_organization with space state #{space_state.inspect}" do
+        expected_resources = space_state.empty? ? [result.resource, result_without_space.resource] : [result.resource]
+
+        described_class.call(term, current_organization, "with_space_state" => space_state) do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Dev::DummyResource"]
+            expect(results[:count]).to eq(expected_resources.size)
+            expect(results[:results]).to match_array(expected_resources)
+          end
+          on(:invalid) { raise("Should not happen") }
         end
-        on(:invalid) { raise("Should not happen") }
       end
     end
 
@@ -43,10 +58,10 @@ describe Decidim::Search do
   end
 
   context "with resources indexed in many languages" do
-    let!(:lice_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Erradicació de polls a l'escola") }
-    let!(:lice_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Eradication of lice in school") }
-    let!(:ci_ca) { create(:searchable_resource, organization: current_organization, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
-    let!(:ci_en) { create(:searchable_resource, organization: current_organization, locale: :en, content_a: "Continuous improvement with periodic polls") }
+    let!(:lice_ca) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :ca, content_a: "Erradicació de polls a l'escola") }
+    let!(:lice_en) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :en, content_a: "Eradication of lice in school") }
+    let!(:ci_ca) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :ca, content_a: "Millora continua mitjançant enquestes periòdiques") }
+    let!(:ci_en) { create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: :en, content_a: "Continuous improvement with periodic polls") }
 
     context "when term has matches in many languages" do
       let(:term) { "polls" }
@@ -84,7 +99,7 @@ describe Decidim::Search do
     let(:term) { "" }
 
     before do
-      create(:searchable_resource, organization: current_organization)
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space)
     end
 
     it "returns some random results" do
@@ -100,8 +115,12 @@ describe Decidim::Search do
 
   describe "when search term has imperfections" do
     # NOTE: when indexing searchables accents are removed
-    let!(:searchable1) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "Sangtrait és un gran grup") }
-    let!(:searchable2) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "A mi m'agrada Sangtrait") }
+    let!(:searchable1) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "Sangtrait és un gran grup")
+    end
+    let!(:searchable2) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "A mi m'agrada Sangtrait")
+    end
 
     context "with accents in the term" do
       let(:term) { "sangtraït" }
@@ -133,8 +152,12 @@ describe Decidim::Search do
   end
 
   describe "ordering" do
-    let!(:searchable1) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "Black Sabbat yeah", datetime: datetime1) }
-    let!(:searchable2) { create(:searchable_resource, organization: current_organization, locale: I18n.locale, content_a: "Back in black també yeah", datetime: datetime2) }
+    let!(:searchable1) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "Black Sabbat yeah", datetime: datetime1)
+    end
+    let!(:searchable2) do
+      create(:searchable_resource, organization: current_organization, decidim_participatory_space: participatory_space, locale: I18n.locale, content_a: "Back in black també yeah", datetime: datetime2)
+    end
     let(:term) { "black" }
 
     context "when searchables are from the future" do
@@ -191,7 +214,8 @@ describe Decidim::Search do
       let(:resource_type) { "Decidim::Dev::DummyResource" }
 
       before do
-        create_list(:searchable_resource, 5, organization: current_organization, resource_type:, content_a: "Where is your crown king nothing?")
+        create_list(:searchable_resource, 5, organization: current_organization, decidim_participatory_space: participatory_space, resource_type:,
+                                             content_a: "Where is your crown king nothing?")
 
         3.times do
           create(
@@ -215,7 +239,7 @@ describe Decidim::Search do
 
               results = results_by_type["Decidim::User"]
               expect(results[:results].count).to eq 0
-              expect(results[:count]).to eq 3
+              expect(results[:count]).to eq 0
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -230,7 +254,7 @@ describe Decidim::Search do
 
               results = results_by_type["Decidim::User"]
               expect(results[:results].count).to eq 0
-              expect(results[:count]).to eq 3
+              expect(results[:count]).to eq 0
             end
             on(:invalid) { raise("Should not happen") }
           end
@@ -348,6 +372,281 @@ describe Decidim::Search do
         end
       end
     end
+
+    describe "with non public spaces" do
+      let!(:public_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :active, organization: current_organization)
+        )
+      end
+      let!(:unpublished_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          decidim_participatory_space: create(:participatory_process, :active, :unpublished, organization: current_organization)
+        )
+      end
+      let!(:private_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          decidim_participatory_space: create(:assembly, :published, :restricted, organization: current_organization)
+        )
+      end
+      let!(:user_resource) do
+        create(
+          :searchable_resource,
+          organization: current_organization,
+          content_a: "Where is your crown king nothing?",
+          resource: create(:user, organization: current_organization),
+          decidim_participatory_space: nil
+        )
+      end
+
+      it "only returns resources from public spaces and resources without space" do
+        described_class.call(term, current_organization) do
+          on(:ok) do |results_by_type|
+            expect(results_by_type["Decidim::Dev::DummyResource"][:results]).to eq [public_resource.resource]
+            expect(results_by_type["Decidim::User"][:results]).to eq [user_resource.resource]
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "computes the visible spaces only once per search" do
+        manifest = Decidim.find_participatory_space_manifest(:participatory_processes)
+        allow(manifest).to receive(:participatory_spaces).and_call_original
+
+        described_class.call(term, current_organization)
+
+        expect(manifest).to have_received(:participatory_spaces).once
+      end
+    end
+  end
+
+  describe "comments filtering" do
+    let(:term) { "My Custom meeting" }
+    let(:participatory_process) { create(:participatory_process, :active, organization: current_organization) }
+    let(:component) { create(:dummy_component, participatory_space: participatory_process) }
+    let!(:dummy_resource) { create(:dummy_resource, :published, component:, title: { en: term }) }
+
+    let!(:comment1) { create(:comment, commentable: dummy_resource, body: { en: term }) }
+    # rubocop: disable Naming/VariableNumber
+    let!(:comment1_1) { create(:comment, commentable: comment1, root_commentable: dummy_resource, body: { en: term }) }
+    let!(:comment1_1_1) { create(:comment, commentable: comment1_1, root_commentable: dummy_resource, body: { en: term }) }
+    # rubocop: enable Naming/VariableNumber
+
+    context "when comments_enabled is disabled on the component" do
+      before do
+        component.update!(settings: { comments_enabled: false })
+      end
+
+      it "does not return comments in search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "does not return comments in general search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "returns the commentable resource as well" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Dev::DummyResource") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Dev::DummyResource"]
+            expect(results[:count]).to eq 1
+            expect(results[:results]).to contain_exactly(dummy_resource)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when root_commentable is hidden" do
+      before do
+        create(:moderation, reportable: dummy_resource, hidden_at: 2.days.ago)
+      end
+
+      it "does not return comments in search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when root_commentable is not published" do
+      # Override the parent let! with an unpublished resource (no :published trait)
+      let!(:dummy_resource) { create(:dummy_resource, component:, title: { en: term }) }
+
+      it "does not return comments in search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+
+      it "does not return comments in general search results" do
+        described_class.call(term, current_organization, "with_resource_type" => "") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 0
+            expect(results[:results]).to be_empty
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when comment object does not respond to published?" do
+      # Decidim::Comments::Comment has no published? method; resource_published? must default
+      # to true so that comments are not excluded solely for lacking the method.
+      it "treats the comment as published and includes it in search results" do
+        expect(comment1).not_to respond_to(:published?)
+
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 3
+            expect(results[:results]).to contain_exactly(comment1, comment1_1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when a specific comment is hidden" do
+      before do
+        create(:moderation, reportable: comment1_1, hidden_at: 2.days.ago)
+      end
+
+      it "returns only non-hidden comments" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 2
+            expect(results[:results]).to contain_exactly(comment1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    context "when a comment is deleted" do
+      before do
+        comment1_1.update!(deleted_at: 1.hour.ago)
+      end
+
+      it "returns only non-deleted comments" do
+        described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+          on(:ok) do |results_by_type|
+            results = results_by_type["Decidim::Comments::Comment"]
+            expect(results[:count]).to eq 2
+            expect(results[:results]).to contain_exactly(comment1, comment1_1_1)
+          end
+          on(:invalid) { raise("Should not happen") }
+        end
+      end
+    end
+
+    # rubocop:disable Naming/VariableNumber
+    context "when there are more comments than HIGHLIGHTED_RESULTS_COUNT" do
+      let!(:comment2) { create(:comment, commentable: dummy_resource, body: { en: term }) }
+      let!(:comment2_1) { create(:comment, commentable: comment2, root_commentable: dummy_resource, body: { en: term }) }
+      let!(:comment2_1_1) { create(:comment, commentable: comment2_1, root_commentable: dummy_resource, body: { en: term }) }
+      let!(:comment3) { create(:comment, commentable: dummy_resource, body: { en: term }) }
+      let!(:comment3_1) { create(:comment, commentable: comment3, root_commentable: dummy_resource, body: { en: term }) }
+      let!(:comment4) { create(:comment, commentable: dummy_resource, body: { en: term }) }
+      let!(:comment4_1) { create(:comment, commentable: comment4, root_commentable: dummy_resource, body: { en: term }) }
+      let!(:comment4_1_1) { create(:comment, commentable: comment4_1, root_commentable: dummy_resource, body: { en: term }) }
+      let!(:comment4_1_2) { create(:comment, commentable: comment4_1, root_commentable: dummy_resource, body: { en: term }) }
+      let!(:comment5) { create(:comment, commentable: dummy_resource, body: { en: term }) }
+      let!(:comment5_1) { create(:comment, commentable: comment5, root_commentable: dummy_resource, body: { en: term }) }
+      # rubocop:enable Naming/VariableNumber
+
+      context "when comments_enabled is disabled on the component" do
+        before do
+          component.update!(settings: { comments_enabled: false })
+        end
+
+        it "returns count 0 in general search" do
+          described_class.call(term, current_organization, "with_resource_type" => "") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::Comments::Comment"]
+              expect(results[:count]).to eq 0
+              expect(results[:results]).to be_empty
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+
+        it "returns count 0 in type-filtered search" do
+          described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::Comments::Comment"]
+              expect(results[:count]).to eq 0
+              expect(results[:results]).to be_empty
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+      end
+
+      context "when some comments are deleted" do
+        before do
+          comment4_1_1.update!(deleted_at: 1.hour.ago)
+          comment5_1.update!(deleted_at: 2.hours.ago)
+        end
+
+        it "excludes deleted comments from type-filtered search count" do
+          described_class.call(term, current_organization, "with_resource_type" => "Decidim::Comments::Comment") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::Comments::Comment"]
+              # 14 total (3 base + 11 additional) minus 2 deleted = 12
+              expect(results[:count]).to eq 12
+              expect(results[:results]).not_to include(comment4_1_1, comment5_1)
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+
+        it "excludes deleted comments from general search count" do
+          described_class.call(term, current_organization, "with_resource_type" => "") do
+            on(:ok) do |results_by_type|
+              results = results_by_type["Decidim::Comments::Comment"]
+              expect(results[:count]).to eq 12
+            end
+            on(:invalid) { raise("Should not happen") }
+          end
+        end
+      end
+    end
   end
 
   describe "when results include uncommentable resources" do
@@ -360,11 +659,11 @@ describe Decidim::Search do
       # Comments can only be created while comments are enabled, so the component is
       # disabled afterwards. The uncommentable comment is the most recent one, so it
       # would fall on the first page.
-      create(:comment, commentable: create(:dummy_resource, component: uncommentable_component), body: term, created_at: 1.hour.ago)
+      create(:comment, commentable: create(:dummy_resource, :published, component: uncommentable_component), body: term, created_at: 1.hour.ago)
     end
 
     before do
-      4.times { |i| create(:comment, commentable: create(:dummy_resource, component:), body: term, created_at: (i + 2).hours.ago) }
+      4.times { |i| create(:comment, commentable: create(:dummy_resource, :published, component:), body: term, created_at: (i + 2).hours.ago) }
       uncommentable_component.update!(settings: { comments_enabled: false })
     end
 

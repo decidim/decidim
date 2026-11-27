@@ -26,22 +26,25 @@ module Decidim
     # Returns nothing.
     def call
       search_results = Decidim::Searchable.searchable_resources.inject({}) do |results_by_type, (class_name, klass)|
-        result_ids = filtered_query_for(class_name).pluck(:resource_id)
+        result_ids = filtered_query_for(class_name).pluck(:resource_id).uniq
+
+        if result_ids.present? && klass.method_defined?(:commentable)
+          excluded_ids = excluded_commentable_ids(klass, result_ids)
+          result_ids -= excluded_ids if excluded_ids.present?
+        end
+
         results_count = result_ids.count
 
         results = if filtered_by_type?(class_name)
                     klass.order_by_id_list(result_ids)
                   elsif filters[:with_resource_type].present?
+                    results_count = 0
                     ApplicationRecord.none
                   else
                     klass.order_by_id_list(result_ids.take(HIGHLIGHTED_RESULTS_COUNT))
                   end
 
         results = preload_rendered_associations(results)
-
-        uncommentable_ids = uncommentable_resource_ids(results)
-        results = results.where.not(id: uncommentable_ids) if uncommentable_ids.any?
-        results_count -= uncommentable_ids.count
         results = paginate(results) if filtered_by_type?(class_name)
 
         results_by_type.update(class_name => {
@@ -66,10 +69,12 @@ module Decidim
       filters[:with_resource_type].present? && filters[:with_resource_type] == class_name
     end
 
-    def spaces_to_filter
-      return nil if filters[:with_space_state].blank?
+    def searchable_resources
+      organization.searchable_resources
+    end
 
-      Decidim.participatory_space_manifests.flat_map do |manifest|
+    def visible_space_ids_by_type
+      @visible_space_ids_by_type ||= Decidim.participatory_space_manifests.to_h do |manifest|
         public_spaces = manifest.participatory_spaces.call(organization).public_spaces
         spaces = case filters[:with_space_state]
                  when "active"
@@ -81,38 +86,67 @@ module Decidim
                  else
                    public_spaces
                  end
-        spaces.select(:id).to_a
+        [manifest.model_class_name, spaces.pluck(:id)]
+      end
+    end
+
+    # Resources in a registered participatory space are only returned if the space is public.
+    # Without a space state filter, resources outside of them (users, process groups...) are kept.
+    def space_conditions
+      @space_conditions ||= begin
+        conditions = visible_space_ids_by_type.map do |type, ids|
+          searchable_resources.where(decidim_participatory_space_type: type, decidim_participatory_space_id: ids)
+        end
+
+        if filters[:with_space_state].blank?
+          conditions << searchable_resources.where(decidim_participatory_space_type: nil)
+          conditions << searchable_resources.where.not(decidim_participatory_space_type: visible_space_ids_by_type.keys)
+        end
+
+        conditions.reduce(:or) || searchable_resources.none
       end
     end
 
     def filtered_query_for(class_name)
-      query = SearchableResource.where(
-        organization:,
+      query = searchable_resources.where(
         locale: I18n.locale,
         resource_type: class_name
-      )
-
-      if (spaces = spaces_to_filter)
-        query = query.where(decidim_participatory_space: spaces)
-      end
+      ).and(space_conditions)
 
       query = query.order(datetime: :desc)
       query = query.global_search(I18n.transliterate(term)) if term.present?
       query
     end
 
-    def uncommentable_resource_ids(results)
-      # Only comment results have a `commentable`, so other searchable types can never
-      # match and are not loaded here. The exclusion has to run before pagination:
-      # `commentable?` is a per-instance check, so a page can only be built from the
-      # matches that have been evaluated.
-      return [] unless results.klass.method_defined?(:commentable)
+    def excluded_commentable_ids(klass, result_ids)
+      records = klass.preload(:commentable, :root_commentable).where(id: result_ids).to_a
+      found_ids = records.map(&:id)
 
-      results.select { |obj| related_uncommentable_resources?(obj) }.map(&:id)
+      # IDs from SearchableResource that do not exist in the actual table (orphaned entries)
+      orphaned_ids = result_ids - found_ids
+
+      # IDs of records that are hidden, deleted, or have comments disabled
+      excluded_ids = records.select { |obj| commentable_excluded?(obj) }.map(&:id)
+
+      orphaned_ids + excluded_ids
     end
 
-    def related_uncommentable_resources?(object)
-      object.respond_to?(:commentable) && !object.commentable.commentable?
+    def commentable_excluded?(object)
+      # For nested comments, commentable is another Comment, so we need to use root_commentable
+      # to get the actual resource (Meeting, Proposal, etc.) and check its commentable? status
+      actual_commentable = object.commentable
+      root_resource = actual_commentable.is_a?(Decidim::Comments::Comment) ? object.root_commentable : actual_commentable
+
+      return true if root_resource.nil?
+
+      root_excluded = root_resource.try(:hidden?) || root_resource.try(:deleted?) || !resource_published?(root_resource)
+      comments_disabled = !root_resource.try(:commentable?)
+
+      object.try(:hidden?) || object.try(:deleted?) || !resource_published?(object) || root_excluded || comments_disabled
+    end
+
+    def resource_published?(object)
+      object.respond_to?(:published?) ? object.published? : true
     end
 
     # Associations that the result cards read for every record: the engine route

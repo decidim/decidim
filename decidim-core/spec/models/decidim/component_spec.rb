@@ -110,5 +110,27 @@ module Decidim
         end
       end
     end
+
+    describe "search indexes of descendants" do
+      let!(:component) { create(:component, manifest_name: "dummy", organization:) }
+
+      it "updates them when the component is unpublished" do
+        expect { component.unpublish! }.to have_enqueued_job(Decidim::FindAndUpdateDescendantsJob).with(component)
+      end
+
+      it "updates them when comments are disabled" do
+        expect { component.update!(settings: { comments_enabled: false }) }
+          .to have_enqueued_job(Decidim::FindAndUpdateDescendantsJob).with(component)
+      end
+
+      it "does not update them when other settings change" do
+        expect { component.update!(settings: { comments_enabled: true, dummy_global_attribute1: true }) }
+          .not_to have_enqueued_job(Decidim::FindAndUpdateDescendantsJob)
+      end
+
+      it "does not update them when other attributes change" do
+        expect { component.update!(weight: 5) }.not_to have_enqueued_job(Decidim::FindAndUpdateDescendantsJob)
+      end
+    end
   end
 end

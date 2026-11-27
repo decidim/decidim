@@ -41,6 +41,8 @@ module Decidim
 
     delegate :organization, to: :participatory_space
 
+    after_update_commit :update_descendants_search_indexes, if: :search_visibility_changed?
+
     def self.searchable_arguments
       [:participatory_space]
     end
@@ -149,6 +151,18 @@ module Decidim
 
     def participatory_space_name
       participatory_space.underscored_name
+    end
+
+    # Comments are only indexed while their component is published and has comments enabled.
+    def search_visibility_changed?
+      return true if saved_change_to_published_at?
+      return false unless saved_change_to_settings?
+
+      attribute_before_last_save(:settings)&.dig("global", "comments_enabled") != settings.try(:comments_enabled)
+    end
+
+    def update_descendants_search_indexes
+      Decidim::FindAndUpdateDescendantsJob.perform_later(self)
     end
   end
 end

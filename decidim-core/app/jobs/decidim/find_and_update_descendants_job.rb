@@ -36,19 +36,20 @@ module Decidim
     # returns array of components
     # If element not responds to components, returns empty array
     def components_for(element)
+      return [resources_for(element)].compact if element.is_a?(Decidim::Component)
       return [] unless element.respond_to?(:components) && !element.components.empty?
 
-      ary = []
-      element.components.each do |component|
-        klass = component.manifest_name == "blogs" ? Decidim::Blogs::Post : manifest_name_to_class(component.manifest_name)
+      # Some resources (such as meetings) have linked components, not descendants.
+      element.components.where(participatory_space: element).filter_map { |component| resources_for(component) }
+    end
 
-        next if klass.blank?
-        next if klass.column_names.exclude? "decidim_component_id"
+    def resources_for(component)
+      klass = component.manifest_name == "blogs" ? Decidim::Blogs::Post : manifest_name_to_class(component.manifest_name)
 
-        ary << klass.where(component:).to_a
-      end
+      return if klass.blank?
+      return if klass.column_names.exclude? "decidim_component_id"
 
-      ary
+      klass.where(component:).to_a
     end
   end
 end
