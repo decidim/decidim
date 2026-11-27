@@ -57,6 +57,42 @@ describe Decidim::Meetings::LiveEventsController do
       end
     end
 
+    context "when the meeting uses the default embeddable services" do
+      let(:frame_src) { response.headers["Content-Security-Policy"][/frame-src [^;]+/] }
+      let(:online_meeting_url) { "https://meet.jit.si/decidim-meeting" }
+
+      context "with a YouTube watch URL" do
+        let(:online_meeting_url) { "https://www.youtube.com/watch?v=aiyHi9MzW30" }
+
+        it "does not add the transformed YouTube embed URL to the frame-src directive" do
+          get :show, params: { meeting_id: meeting.id }
+
+          expect(frame_src).not_to include("https://www.youtube-nocookie.com/embed/aiyHi9MzW30")
+        end
+      end
+
+      context "with a YouTube embed URL" do
+        let(:online_meeting_url) { "https://www.youtube.com/embed/aiyHi9MzW30" }
+
+        it "does not add the YouTube embed host to the frame-src directive" do
+          get :show, params: { meeting_id: meeting.id }
+
+          expect(frame_src).not_to include("www.youtube.com")
+        end
+      end
+
+      it "keeps the default frame-src hosts allowed" do
+        get :show, params: { meeting_id: meeting.id }
+
+        expect(frame_src).to include(
+          "www.youtube-nocookie.com",
+          "player.vimeo.com",
+          "player.twitch.tv",
+          "meet.jit.si"
+        )
+      end
+    end
+
     context "when the meeting is visible" do
       it "renders the live event" do
         get :show, params: { meeting_id: meeting.id }
