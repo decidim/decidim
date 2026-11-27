@@ -19,7 +19,7 @@ module Decidim
 
       delegate :component, to: :document_version
       delegate :participatory_space, :organization, to: :document_version
-      delegate :can_participate?, to: :document
+      delegate :can_participate?, :title, to: :document
 
       def self.log_presenter_class_for(_log)
         Decidim::CollaborativeTexts::AdminLog::SuggestionPresenter
