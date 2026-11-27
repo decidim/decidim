@@ -130,7 +130,7 @@ module ChromeResetWithoutWildcard
   end
 
   def visited_origins
-    ["127.0.0.1", "localhost", *Capybara.utilized_app_hosts].filter_map do |host|
+    ["http://127.0.0.1", "http://localhost", *Capybara.utilized_app_hosts].filter_map do |host|
       origin_of("#{host}:#{Capybara.server_port}") if host
     end.uniq
   end
