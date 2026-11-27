@@ -34,6 +34,24 @@ describe "Redirect routes" do
       expect(response.location).not_to include("locale=")
     end
 
+    it "redirects old url (/#{url}) to the browser language (/es/#{url})" do
+      get("/#{url}", headers: headers.merge("Accept-Language" => "es"))
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/es/#{url}")
+    end
+
+    it "redirects old url (/#{url}) to default locale (/en/#{url}) when the browser language is not available" do
+      get("/#{url}", headers: headers.merge("Accept-Language" => "zz"))
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/en/#{url}")
+    end
+
+    it "redirects old url (/#{url}?locale=ca) to the locale param (/ca/#{url}) over the browser language" do
+      get("/#{url}?locale=ca", headers: headers.merge("Accept-Language" => "es"))
+      expect(response).to have_http_status(:moved_permanently)
+      expect(response).to redirect_to("/ca/#{url}")
+    end
+
     it "redirects user to the new url (/ca/#{url})" do
       user = create(:user, :confirmed, organization:, locale: "ca")
       login_as user, scope: :user

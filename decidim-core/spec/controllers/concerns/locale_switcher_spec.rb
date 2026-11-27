@@ -37,37 +37,6 @@ module Decidim
       end
     end
 
-    context "with header Accept-Language" do
-      headers = {
-        "ca" => "ca",
-        "en" => "en",
-        "pt-BR" => "pt-BR",
-        "de-CH" => "de-CH",
-        "pt-BR,ca,en" => "pt-BR",
-        "zh,es,fr" => nil,
-        "pt" => "pt-BR",
-        "ca-ES" => "ca", # RFC 2616 non-compliant
-        "ca,pt-BR,en" => "ca",
-        "es,en-US;q=0.8,ca;q=0.5,en;q=0.3" => "ca",
-        "es,en-US;q=0.8,pt-BR;q=0.5,en;q=0.3" => "pt-BR",
-        "es,en-US;q=0.1,pt-BR;q=0.5,en;q=0.6" => "en",
-        "es, en-US;q=0.1, pt-BR;q=0.5, en" => "en",
-        "de-CH;q=0.8, de;q=0.5" => "de-CH",
-        "de-AT, de;q=0.5, de-CH;q=0.3" => "de"
-      }
-      headers.each do |string, lang|
-        describe "header parser gives a supported language" do
-          before do
-            request.headers["Accept-Language"] = string
-          end
-
-          it "with default locale" do
-            expect(controller.extract_locale_from_accept_language_header).to eq(lang)
-          end
-        end
-      end
-    end
-
     describe "request with unsupported language" do
       before do
         request.headers["Accept-Language"] = "zz"
@@ -119,6 +88,30 @@ module Decidim
         controller.switch_locale do
           expect(I18n.locale.to_s).to eq(default_locale)
         end
+      end
+    end
+
+    describe "request without any detectable language" do
+      it "does not save the default locale in the session" do
+        controller.switch_locale do
+          expect(I18n.locale.to_s).to eq(default_locale)
+        end
+
+        expect(controller.session[:user_locale]).to be_nil
+      end
+    end
+
+    describe "request with header defined language" do
+      before do
+        request.headers["Accept-Language"] = "ca"
+      end
+
+      it "saves the detected locale in the session" do
+        controller.switch_locale do
+          expect(I18n.locale.to_s).to eq("ca")
+        end
+
+        expect(controller.session[:user_locale]).to eq("ca")
       end
     end
 
