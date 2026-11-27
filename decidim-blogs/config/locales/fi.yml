@@ -125,6 +125,7 @@ fi:
             taxonomy_filters: Valitse suodattimet komponentille
             taxonomy_filters_add: Lisää suodatin
           phase:
+            announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             likes_blocked: Tykkäykset estetty
             likes_enabled: Tykkäykset käytössä
