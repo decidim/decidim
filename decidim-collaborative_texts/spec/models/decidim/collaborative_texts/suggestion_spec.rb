@@ -86,6 +86,16 @@ module Decidim
         end
       end
 
+      describe "#title" do
+        let(:document) { instance_double(Decidim::CollaborativeTexts::Document, title: { "en" => "Document title" }) }
+
+        it "delegates to the document" do
+          allow(collaborative_text_suggestion).to receive(:document).and_return(document)
+
+          expect(collaborative_text_suggestion.title).to eq("en" => "Document title")
+        end
+      end
+
       describe "#can_participate?" do
         let(:user) { instance_double(Decidim::User) }
         let(:document) { instance_double(Decidim::CollaborativeTexts::Document) }
