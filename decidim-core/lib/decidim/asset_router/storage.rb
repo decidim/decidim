@@ -182,11 +182,9 @@ module Decidim
       def with_current_url_options(options)
         return yield unless disk_service?
 
+        orig_conf = ActiveStorage::Current.url_options.dup
         tmp_options = temporary_current_url_options(options)
-        return yield if ActiveStorage::Current.url_options == tmp_options
-
         begin
-          orig_conf = ActiveStorage::Current.url_options.dup
           ActiveStorage::Current.url_options = tmp_options
           yield
         ensure
@@ -273,48 +271,33 @@ module Decidim
       def representation_url(**options)
         return rails_representation_url(**options) if options[:only_path] || remote?
 
-        orig_url_options = ensure_current_host_if(**options) { disk_service? }
-        representation_url = variant_url(**options)
-        return representation_url if representation_url.present?
+        orig_url_options = ActiveStorage::Current.url_options.dup
+        begin
+          ensure_current_host(**options) if disk_service?
+          representation_url = variant_url(**options)
+          return representation_url if representation_url.present?
 
-        # Checking this before calling `variant_url` would potentially cause
-        # `storage.exist?` being called multiple times as `asset.processed?`
-        # calls that too.
-        orig_url_options ||= ensure_current_host_if(**options) { !asset.send(:processed?) }
+          # Checking this before calling `variant_url` would potentially cause
+          # `storage.exist?` being called two times as `asset.processed?` calls
+          # it and also the `asset_exist?` calls that in the variant_url method.
+          ensure_current_host(**options) if !disk_service? && !asset.send(:processed?)
 
-        # In case the representation has not been processed yet, it may not have
-        # a representation URL yet and it therefore needs to be served through
-        # the local representation URL for the first time (or until it has been
-        # processed).
-        if options[:host]
-          rails_representation_url(**options)
-        elsif current_host_available?
-          # The `.except(:host)` part is to prevent `host: nil` overriding the
-          # current URL options.
-          representation_url(**ActiveStorage::Current.url_options, **options.except(:host))
-        else
-          representation_url(**options, only_path: true)
+          # In case the representation has not been processed yet, it may not have
+          # a representation URL yet and it therefore needs to be served through
+          # the local representation URL for the first time (or until it has been
+          # processed).
+          if options[:host]
+            rails_representation_url(**options)
+          elsif current_host_available?
+            # The `.except(:host)` part is to prevent `host: nil` overriding the
+            # current URL options.
+            representation_url(**ActiveStorage::Current.url_options, **options.except(:host))
+          else
+            representation_url(**options, only_path: true)
+          end
+        ensure
+          ActiveStorage::Current.url_options = orig_url_options
         end
-      ensure
-        ActiveStorage::Current.url_options = orig_url_options unless orig_url_options.nil?
-      end
-
-      # Calls `ensure_current_host` if the given condition is met, i.e. the
-      # passed block returns a truthy value. Forwards all passed keyword
-      # arguments to `ensure_current_host` if it is called.
-      #
-      # This method is only here to avoid cyclomatic complexity lint error in
-      # the `representation_url` method.
-      #
-      # @yield The block to be executed with the temporary host configuration
-      # @return [Hash, nil] The original current URL options or `nil` if the
-      #   condition returned a falsy value.
-      def ensure_current_host_if(**)
-        return unless yield
-
-        orig = ActiveStorage::Current.url_options.dup
-        ensure_current_host(**)
-        orig
       end
 
       # Returns the local Rails representation URL meaning that the asset will
