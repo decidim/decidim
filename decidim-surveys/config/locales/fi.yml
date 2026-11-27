@@ -37,6 +37,8 @@ fi:
           announcement: Ilmoitus
           global:
             announcement: Ilmoitus
+          phase:
+            announcement: Ilmoitus
     events:
       surveys:
         survey_closed:
