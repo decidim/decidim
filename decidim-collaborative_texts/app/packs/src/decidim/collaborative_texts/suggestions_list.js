@@ -109,8 +109,13 @@ export default class SuggestionsList {
     suggestion.toggleComments();
   }
 
-  _onCommentsLoaded() {
+  _onCommentsLoaded(event) {
     if (!this.linkedCommentId) {
+      return;
+    }
+
+    // Individual comment insertions fire this event before the page is complete
+    if (!event.detail || !event.detail.complete) {
       return;
     }
 

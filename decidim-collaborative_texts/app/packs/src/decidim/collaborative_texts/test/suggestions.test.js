@@ -223,10 +223,10 @@ describe("SuggestionsList", () => {
     expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
   });
 
-  it("opens the comments linked from the URL", async () => {
+  it("waits for the completed page before scrolling to the linked comment", async () => {
     window.history.pushState({}, "", "/?suggestionId=102&commentId=456");
-    const scrollIntoView = jest.fn();
-    suggestion.commentsContainer.scrollIntoView = scrollIntoView;
+    const containerScroll = jest.fn();
+    suggestion.commentsContainer.scrollIntoView = containerScroll;
 
     suggestionsList._openLinkedComments();
     await new Promise(process.nextTick);
@@ -234,7 +234,31 @@ describe("SuggestionsList", () => {
     expect(suggestion.commentsButton.getAttribute("aria-expanded")).toBe("true");
     expect(suggestion.commentsContainer.querySelector("[data-decidim-comments]")).not.toBe(null);
 
-    window.document.dispatchEvent(new CustomEvent("comments:loaded"));
+    window.document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [999] } }));
+    expect(containerScroll).not.toHaveBeenCalled();
+    expect(suggestionsList.linkedCommentId).toBe("456");
+
+    const target = document.createElement("div");
+    target.id = "comment_456";
+    const targetScroll = jest.fn();
+    target.scrollIntoView = targetScroll;
+    suggestion.commentsContainer.appendChild(target);
+
+    window.document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [999, 456], complete: true } }));
+    expect(targetScroll).toHaveBeenCalled();
+    expect(containerScroll).not.toHaveBeenCalled();
+    expect(suggestionsList.linkedCommentId).toBe(null);
+  });
+
+  it("falls back to the comments panel when the linked comment is not loaded", async () => {
+    window.history.pushState({}, "", "/?suggestionId=102&commentId=456");
+    const scrollIntoView = jest.fn();
+    suggestion.commentsContainer.scrollIntoView = scrollIntoView;
+
+    suggestionsList._openLinkedComments();
+    await new Promise(process.nextTick);
+
+    window.document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [999], complete: true } }));
     expect(scrollIntoView).toHaveBeenCalled();
     expect(suggestionsList.linkedCommentId).toBe(null);
   });
