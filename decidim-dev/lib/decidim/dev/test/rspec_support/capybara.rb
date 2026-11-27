@@ -98,6 +98,8 @@ module Capybara
     end
 
     def clear_utilized_app_hosts
+      return unless instance_variable_defined?(:@utilized_app_hosts)
+
       remove_instance_variable(:@utilized_app_hosts)
     end
 
