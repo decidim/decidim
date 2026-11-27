@@ -800,7 +800,7 @@ Read more about this at xref:services:pdf.adoc[PDF signing] service page.
 |No
 
 |MEETINGS_EMBEDDABLE_SERVICES
-|A list (separated by spaces) of allowed services that can be embedded in an iframe when creating an online meeting. The host that the iframe actually loads from must be allowed in the `frame-src` directive of the Content Security Policy, otherwise the browser will block the embedded service. This host can differ from the service domain listed in `MEETINGS_EMBEDDABLE_SERVICES` when Decidim leaves the embed URL unchanged. You can add hosts through `Decidim.content_security_policies_extra` in the initializer or through the organization's System panel.
+|A list (separated by spaces) of allowed services that can be embedded in an iframe when creating an online meeting. Decidim rewrites the common YouTube URL forms (`watch?v=ID`, `/embed/ID`, `/live/ID` and `/shorts/ID`) to `www.youtube-nocookie.com`, which the default `frame-src` directive already allows. The host that the iframe actually loads from must be allowed in the `frame-src` directive of the Content Security Policy, otherwise the browser will block the embedded service. This host can differ from the service domain listed in `MEETINGS_EMBEDDABLE_SERVICES` when Decidim leaves the embed URL unchanged. You can add hosts through `Decidim.content_security_policies_extra` in the initializer or through the organization's System panel.
 |www.youtube.com www.twitch.tv meet.jit.si
 |No
 

@@ -496,10 +496,10 @@ We are starting from the following rules defined in `decidim-core` gem:
     "default-src" => %w('self' 'unsafe-inline'),
     "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
     "style-src" => %w('self' 'unsafe-inline'),
-    "img-src" => %w('self'),
+    "img-src" => %w('self' *.hereapi.com data:),
     "font-src" => %w('self'),
-    "connect-src" => %w('self'),
-    "frame-src" => %w('self'),
+    "connect-src" => %w('self' *.hereapi.com data:),
+    "frame-src" => %w('self' www.youtube-nocookie.com player.vimeo.com player.twitch.tv meet.jit.si),
     "media-src" => %w('self')
   }
 ....

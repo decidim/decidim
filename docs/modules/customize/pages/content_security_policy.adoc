@@ -9,10 +9,10 @@ By default, the CSP is enabled, and is configured to be as restrictive as possib
     "default-src" => %w('self' 'unsafe-inline'),
     "script-src" => %w('self' 'unsafe-inline' 'unsafe-eval'),
     "style-src" => %w('self' 'unsafe-inline'),
-    "img-src" => %w('self'),
+    "img-src" => %w('self' *.hereapi.com data:),
     "font-src" => %w('self'),
-    "connect-src" => %w('self'),
-    "frame-src" => %w('self'),
+    "connect-src" => %w('self' *.hereapi.com data:),
+    "frame-src" => %w('self' www.youtube-nocookie.com player.vimeo.com player.twitch.tv meet.jit.si),
     "media-src" => %w('self')
   }
 ....
@@ -57,3 +57,5 @@ def append_csp_directives
   content_security_policy.append_csp_directive("frame-src", "https://example.com")
 end
 ....
+
+This per-request `before_action` is intended for custom modules that need to relax the CSP for a specific request. Built-in modules should instead prefer `Decidim.content_security_policies_extra` in the initializer, or the organization's System panel, so the policy stays centrally configured and auditable.
