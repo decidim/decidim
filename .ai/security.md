@@ -1,6 +1,6 @@
 # Security
 
-This file is the **single source of truth** for security rules in Decidim development and code review. Every rule below corresponds to a vulnerability class Decidim has actually shipped (published CVEs / GitHub Security Advisories, 2023–2026). Treat violations as release blockers.
+This file is the **single source of truth** for security rules in Decidim development and code review. Sections 1–6 correspond to vulnerability classes Decidim has actually shipped (published CVEs / GitHub Security Advisories, 2023–2026). Section 7 covers additional classes and is non-exhaustive; it is not tied to a specific advisory. Treat violations as release blockers.
 
 Advisory sources: <https://github.com/decidim/decidim/security/advisories>
 
@@ -60,6 +60,51 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 - Tokens (invitations, password resets, uploads) must enforce expiry server-side on every use (GHSA-w3q8-m492-4pwp).
 - Counters and quotas (endorsements, votes, budget allocations) need database-atomic updates or cross-process-safe locking to survive concurrent requests (GHSA-r275-j57c-7mf2). Process-local thread locks are insufficient.
 
+## 7. Additional Security Classes
+(Non-Exhaustive)
+
+Sections 1–6 cover CVE-derived classes. These additional classes are reviewed with the same severity and are not tied to a specific advisory.
+
+**Authentication**
+
+- Do not reveal whether an account exists through sign-in, registration, password-reset, or invitation responses, status codes, or timing (`config.paranoid = true`).
+- Changing an email requires the current password and confirmation of the new address; never authenticate or authorize on an unconfirmed email (`AccountForm#validate_old_password`, `unconfirmed_email`).
+- Password-reset and invitation tokens must be single-use and invalidated on acceptance or password change; expiry rules are in §6 (`Devise.reset_password_within`).
+- Rotate the session identifier on sign-in; call `invalidate_all_sessions!` on sign-out, password/email change, role change, and impersonation end, and never carry pre-authentication session state across the boundary.
+- Link OAuth identities to existing accounts only when the provider asserts a verified email; never link on an unverified, user-typed, or stale session address (`CreateOmniauthRegistration`, `verified_email`).
+- Impersonation requires an active persisted log (admin, user, reason, start/end) and a hard server-side expiry; the session must end when the log ends (`ImpersonationLog::SESSION_TIME_IN_MINUTES`, `ExpireImpersonationJob`, `ImpersonateUsers`).
+- Managed users must not be able to sign in directly; they are reachable only through authorized impersonation. Blocked or deleted users are signed out and denied on every request, not only at sign-in (`UserBlockedChecker`, `deleted_at`).
+
+**Authorization**
+
+- Look records up through the current organization, component, and participatory space, and through visible/published scopes (`not_hidden`, `published`); a guessed ID must not reveal hidden, unpublished, or cross-tenant records to callers without preview or staff access (see §2 and the share-token bullet below).
+- Strong parameters must be explicit: never `permit!`, and never permit `role`, `organization`, owner/author, `state`, or admin flags from participant input; derive them server-side.
+- Role, officialization, and organization membership changes are admin-only; participants cannot elevate themselves or another user through profile, invitation, or API forms.
+- Share tokens grant only the preview access they encode: validate the token against the resource and organization, honor `expires_at` and `registered_only`, and never treat a token as staff authorization (`Decidim::ShareToken`; expiry in §6).
+- `ActionAuthorizer` checks must apply to every entry point, not just HTML controllers. Commands, jobs, and GraphQL mutations that perform a gated action (e.g. initiative signatures, comments) must revalidate or be callable only behind an authorized boundary (see §1).
+- Moderation actions must be scoped to the moderations the admin can manage (`GlobalModerationContext#moderations_for_user`, `Decidim::Admin::ModerationStats`); participants may report only visible content, and hidden/deleted content must not become reachable through moderation views.
+
+**Voting integrity**
+
+- One vote/order per participant must be enforced by a database unique constraint, not a model validation alone. Budget orders currently rely only on `Decidim::Budgets::Order`'s scoped `user` uniqueness validation; add a database constraint when changing that path. For multi-option ballots, enforce per-option uniqueness with `index_elections_votes_on__voter_uid_and_response` and replace the voter's earlier responses under `question.with_lock` (`CastVotes`); the index alone permits multiple options per voter.
+- Duplicate and concurrent submissions must fail safely: rescue `ActiveRecord::RecordNotUnique`, keep the operation idempotent, and never double-count a retry.
+- Census validation and vote persistence must use the same voter identity and run atomically: `UsesCensusAccess` must not authorize one identity while `CastVotes` records another, and the election state must be rechecked inside the transaction.
+- Enforce start/end deadlines and question voting windows server-side (`ongoing?`, `voting_enabled_at`); never rely on the client clock, hidden fields, or disabled UI.
+- Ballot secrecy: never expose an individual voter's choices through logs, exports, GraphQL, admin responses, or notifications; publish aggregates only.
+- Pre-close results: no counts, percentages, or per-option breakdowns before `results_at`/`published_results_at`; gate every result surface, including JSON and API.
+- Budget orders must enforce minimum/maximum projects, budget caps, and checkout deadlines server-side; reject totals, hidden fields, or line items that bypass the rules (`Decidim::Budgets::Order`).
+- Keep counters consistent with the authoritative rows and recompute under concurrency (`update_votes_count!`, counter caches); see §6. Exports of votes, orders, and census data require the same authorization and scoping as the UI (see §5).
+
+**Other classes**
+
+- Never `constantize`, `safe_constantize`, `send`, or `public_send` on user-controlled names; resolve through manifests or allow-lists. Parse YAML with `safe_load` and permitted classes; `unsafe_load` only for trusted internal data.
+- File paths built from params must be canonicalized and confined to an allow-listed root; reject `..`, absolute paths, and null bytes (`send_file`, `File.join`, render paths).
+- Validate uploads server-side: content type by magic bytes, extension allow-list, and size for all uploads; dimensions for image uploads only; sanitize SVG and reject polyglots or executables (`HasUploadValidations`, uploaders; see §4).
+- Keep GraphQL `max_depth`, `max_complexity`, and `default_max_page_size` enabled and bounded; no unbounded nested or recursive queries (`Decidim::Api.schema_max_depth`, `schema_max_complexity`, `schema_max_per_page`).
+- Background jobs and webhook handlers must re-fetch and revalidate their records and be idempotent; never trust serialized arguments as authorization (SSRF controls in §6). Validate external input at the boundary that accepts it. Webhook handlers, and background jobs that consume signed external input, must also verify signatures and limit payload size.
+- Keep `Rack::Attack` throttles for sign-in, password reset, verification, and API traffic; do not add blanket exemptions, and key limits on both IP and account where relevant (`decidim-core/config/initializers/rack_attack.rb`).
+- Do not commit, log, or place secrets in URLs; use credentials/environment configuration. Cookies must be `secure`, `httponly`, and `same_site` as appropriate, and CSP must not gain `unsafe-inline`/`unsafe-eval` or widened sources without review (`Decidim::ContentSecurityPolicy`, session-store `secure` option).
+
 ## Required Tests
 
 | Change                                                           | Required test                                                                                                                                                                                                                          |
@@ -74,7 +119,25 @@ CVE-2026-45378 (identity documents via 7-day signed Active Storage disk URLs), G
 | New server-side URL fetch                                        | Spec covering private/internal addresses, redirect hops, schemes, timeouts, and response-size limits                                                                                                                                   |
 | New external redirect                                            | Spec covering allowed schemes and hosts                                                                                                                                                                                                |
 | Changes to organization-scoped queries or API-credential binding | Spec proving same-organization access succeeds and other-organization access is denied                                                                                                                                                 |
+| New authentication flow                                          | Spec covering enumeration-safe responses, session rotation, and denial for managed, blocked, and deleted users; add token expiry/single-use coverage when the flow issues or consumes reset or invitation tokens                       |
+| New email-change flow                                            | Spec covering current-password re-authentication and confirmation of the new address                                                                                                                                                   |
+| New OAuth-linking flow                                           | Spec proving identities link only when the provider asserts a verified email                                                                                                                                                           |
+| New or changed impersonation flow                                | Spec covering persisted logging, session end, and server-side expiry                                                                                                                                                                   |
+| New/changed lookup by client-supplied ID                         | Spec proving hidden/unpublished records and records from another organization, component, or participatory space are denied to callers without preview or staff access (IDOR; see §2 and the share-token row)                          |
+| New or changed strong parameters/form                            | Spec proving `role`, `organization`, owner/author, `state`, and admin flags cannot be mass-assigned, and privilege escalation is rejected                                                                                              |
+| New or changed share-token/preview path                          | Spec proving wrong-resource and wrong-organization tokens are rejected, `expires_at`/`registered_only` are enforced, and preview access cannot perform staff actions                                                                   |
+| New command, job, or API path for an authorized action           | Spec proving the same `ActionAuthorizer`/permission policy applies outside the HTML controller, with denial coverage                                                                                                                   |
+| New or changed vote/order/endorsement/like path                  | Spec asserting the database unique constraint rejects duplicate and concurrent records, retries are idempotent, and counters stay consistent                                                                                           |
+| New election, census, or results surface                         | Spec covering deadlines, census/vote atomicity across `UsesCensusAccess` and `CastVotes`, ballot secrecy, and denial of pre-publication results                                                                                        |
+| New budget order/checkout logic                                  | Spec covering minimum/maximum projects, budget caps, and post-deadline rejection                                                                                                                                                       |
+| New dynamic constant, method, YAML, or file path                 | Spec with attacker-controlled names/paths asserting allow-list rejection, `safe_load`, and no path traversal                                                                                                                           |
+| New upload surface                                               | Spec with spoofed content type/extension, oversized files, and malicious SVG asserting rejection/sanitization                                                                                                                          |
+| New GraphQL field or connection                                  | Spec covering authorization plus depth, complexity, and page-size limits                                                                                                                                                               |
+| New webhook handler                                              | Spec covering record revalidation, signature verification, payload limits, idempotency, and unauthorized invocation                                                                                                                    |
+| New background job                                               | Spec covering idempotency; add record-revalidation coverage when jobs load or modify records, unauthorized-invocation coverage for gated actions (see §7 `ActionAuthorizer`), and signature/payload limits for signed external input   |
+| New rate-limited endpoint or Rack::Attack rule                   | Spec proving thresholds apply and no blanket exemption or bypass is introduced                                                                                                                                                         |
+| New cookie, CSP, or secret handling                              | Spec/config assertion for `secure`/`httponly`/`same_site` cookies and CSP without unsafe additions                                                                                                                                     |
 
 ## Review Guidance
 
-Reviewers must apply this file as a blocking checklist on every diff. Any violation of the rules above is a **Critical issue** (must fix before merge). A new endpoint without a permission spec is itself a blocker.
+Reviewers must apply this file as a blocking checklist on every diff. Any violation of the rules above is a **Critical issue** (must fix before merge). A new endpoint without a permission spec is itself a blocker. Section 7 is non-exhaustive: if a diff exposes a credible weakness that no listed rule names, raise it as a blocker rather than assuming it is safe. Absence of a matching rule is not evidence of safety; block on any credible weakness.
