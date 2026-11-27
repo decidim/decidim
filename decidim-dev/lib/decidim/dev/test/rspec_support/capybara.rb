@@ -84,6 +84,25 @@ module Decidim
   end
 end
 
+# Store the Capybara configured hosts to use for clearing the data through the
+# ChromeResetWithoutWildcard module.
+module Capybara
+  class << self
+    def app_host=(url)
+      utilized_app_hosts << url unless utilized_app_hosts.include?(url)
+      config.app_host = url
+    end
+
+    def utilized_app_hosts
+      @utilized_app_hosts ||= []
+    end
+
+    def clear_utilized_app_hosts
+      remove_instance_variable(:@utilized_app_hosts)
+    end
+  end
+end
+
 # See:
 # https://github.com/teamcapybara/capybara/issues/2865
 # https://github.com/teamcapybara/capybara/pull/2867
@@ -100,10 +119,11 @@ module ChromeResetWithoutWildcard
     visited_origins.each do |origin|
       super(cmd, params.merge(origin:, storageTypes: types.join(",")))
     end
+    Capybara.clear_utilized_app_hosts
   end
 
   def visited_origins
-    execute_cdp("Page.getNavigationHistory")["entries"].filter_map { |entry| origin_of(entry["url"]) }.uniq
+    Capybara.utilized_app_hosts.filter_map { |host| origin_of("#{host}:#{Capybara.server_port}") }.uniq
   end
 
   def origin_of(url)
