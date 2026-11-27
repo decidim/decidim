@@ -50,6 +50,11 @@ fi:
       participatory_process_phase:
         cta_path: Call to Action -polku
         cta_text: Call to Action -teksti
+        description: Kuvaus
+        end_date: Päättymisaika
+        short_description: Lyhyt kuvaus
+        start_date: Alkamisaika
+        title: Otsikko
       participatory_process_user_role:
         email: Sähköposti
         name: Nimi
@@ -135,6 +140,11 @@ fi:
             title: Otsikko
           name: Prosessiryhmä
         participatory_process_phase:
+          fields:
+            actions: Toiminnot
+            end_date: Päättymisaika
+            start_date: Alkamisaika
+            title: Otsikko
           name: Osallistumisprosessin vaihe
         participatory_process_user_role:
           fields:
@@ -189,6 +199,10 @@ fi:
             active_phase: Aktiivista vaihetta ei voi poistaa.
             last_phase: Prosessin viimeistä vaihetta ei voi poistaa.
           success: Osallistumisprosessin vaiheen poisto onnistui.
+        edit:
+          update: Päivitä
+        new:
+          create: Luo
         ordering:
           error: Osallistumisprosessin vaiheiden järjestäminen epäonnistui.
         update:
