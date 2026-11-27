@@ -123,7 +123,7 @@ module Decidim
         "img-src" => %w('self' *.hereapi.com data:),
         "font-src" => %w('self'),
         "connect-src" => %w('self' *.hereapi.com data:),
-        "frame-src" => %w('self' www.youtube-nocookie.com player.vimeo.com),
+        "frame-src" => %w('self' www.youtube-nocookie.com player.vimeo.com player.twitch.tv meet.jit.si),
         "media-src" => %w('self')
       }
     end
