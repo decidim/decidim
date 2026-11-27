@@ -50,6 +50,32 @@ module Decidim
               expect(subject.embed_transformed_url(request_host)).to eq(transformed_youtube_url)
             end
           end
+
+          %w(embed live shorts).each do |youtube_path|
+            context "with a valid youtube #{youtube_path} URL on #{host}" do
+              let(:url) { "https://#{host}/#{youtube_path}/#{youtube_video_id}" }
+
+              it "is transformed" do
+                expect(subject.embed_transformed_url(request_host)).to eq(transformed_youtube_url)
+              end
+            end
+          end
+
+          context "with a valid youtube embed URL with a query string on #{host}" do
+            let(:url) { "https://#{host}/embed/#{youtube_video_id}?start=30" }
+
+            it "is transformed preserving the original query string" do
+              expect(subject.embed_transformed_url(request_host)).to eq("#{transformed_youtube_url}?start=30")
+            end
+          end
+        end
+
+        context "with a valid youtube watch URL with additional query parameters" do
+          let(:url) { "https://www.youtube.com/watch?v=#{youtube_video_id}&start=30" }
+
+          it "is transformed without the original query string" do
+            expect(subject.embed_transformed_url(request_host)).to eq(transformed_youtube_url)
+          end
         end
 
         %w(twitch.tv www.twitch.tv m.twitch.tv).each do |host|
@@ -64,6 +90,14 @@ module Decidim
 
         context "with an invalid youtube URL" do
           let(:url) { "https://www.youtube.com/watch/foo/bar" }
+
+          it "is not transformed" do
+            expect(subject.embed_transformed_url(request_host)).to eq(url)
+          end
+        end
+
+        context "with an unknown youtube path" do
+          let(:url) { "https://www.youtube.com/channel/#{youtube_video_id}" }
 
           it "is not transformed" do
             expect(subject.embed_transformed_url(request_host)).to eq(url)
