@@ -27,6 +27,7 @@ module Decidim
           expect(response.content_type).to eq("application/zip")
           expect(response.headers["Content-Disposition"]).to include("attachment")
           expect(response.headers["Content-Disposition"]).to include("dummy-export.zip")
+          expect(response.headers["Cache-Control"]).to eq("private, no-store")
         end
 
         it "rejects other users" do
@@ -58,6 +59,7 @@ module Decidim
 
           expect(response).to have_http_status(:ok)
           expect(response.content_type).to eq("image/jpeg")
+          expect(response.headers["Cache-Control"]).to eq("private, no-store")
         end
 
         it "rejects regular users" do
@@ -112,6 +114,7 @@ module Decidim
                 expect(response).to have_http_status(:ok)
                 expect(response.content_type).to eq("image/jpeg")
                 expect(response.body).to eq(attachment.attached_uploader(:file).variant(variant).processed.download)
+                expect(response.headers["Cache-Control"]).to eq("private, no-store")
               end
 
               it "rejects the #{variant} variant to non members" do

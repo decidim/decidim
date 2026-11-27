@@ -13,6 +13,10 @@ module Decidim
       representation = private_download.representation
       disposition = representation.content_type.start_with?("image/") ? :inline : :attachment
 
+      # These responses can contain personal data, such as identity documents
+      # or private exports, so no cache (shared or private) should store them.
+      response.cache_control.replace(private: true, no_store: true)
+
       send_data(
         representation.download,
         filename: representation.filename.to_s,
