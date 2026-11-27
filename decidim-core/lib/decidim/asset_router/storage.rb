@@ -132,7 +132,6 @@ module Decidim
         default_options = remote? ? remote_storage_options : routes.default_url_options
         options = default_options.merge(opts)
 
-        # options[:host] ||= default_options[:host]
         if options[:host].blank?
           return false unless organization
 
@@ -367,7 +366,10 @@ module Decidim
             # it has been uploaded to the storage service yet. Likely a bug in
             # ActiveStorage but to be sure that the asset is uploaded to the
             # storage service, we also check that.
-            asset.processed.url(**options)
+            #
+            # The `host` parameter can break some storage service calls during
+            # the request validation phase, e.g. S3 service.
+            asset.processed.url(**options.except(:host))
           else # ActiveStorage::Variant
             # Check whether the variant exists at the storage service before
             # returning its URL. Otherwise the URL would be returned even when the
